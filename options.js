@@ -131,9 +131,27 @@ function save_options() {
   });
 }
 
+function renderOptions() {
+	const url_sites = 'https://raw.githubusercontent.com/magnolia1234/bypass-paywalls-chrome/master/sites_custom.json';
+	//const url_sites = chrome.runtime.getURL('sites_custom.json');
+	fetch(url_sites)
+		.then(response => { 
+			if (response.ok) { 
+				response.json().then(json => {
+					var defaultSites_merge = {...defaultSites, ...json }; 
+					defaultSites = defaultSites_merge;
+					renderOptions_default();
+					chrome.storage.sync.set({
+						sites_custom: json
+					}, function() {});
+				})
+			} else { renderOptions_default(); }
+		} );
+}
+
 // Restores checkbox input states using the preferences
 // stored in chrome.storage.
-function renderOptions() {
+function renderOptions_default() {
   chrome.storage.sync.get({
     sites: {}
   }, function(items) {
