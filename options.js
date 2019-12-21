@@ -170,8 +170,9 @@ function renderOptions_default() {
       inputEl.dataset.key = key;
       inputEl.dataset.value = value;
       inputEl.checked = (key in sites) || (key.replace(/\s\(.*\)/, '') in sites);
-
-      labelEl.appendChild(inputEl);
+      if (value !=='') {
+        labelEl.appendChild(inputEl);
+      }
       labelEl.appendChild(document.createTextNode(' '+key));
       sitesEl.appendChild(labelEl);
     }
