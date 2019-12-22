@@ -275,7 +275,7 @@ chrome.storage.sync.get({
 
 var customSites = [];
 
-// Get the custom sites & add to allow/remove_cookies
+// Get the custom sites & add to defaultSites, allow/remove_cookies
 chrome.storage.sync.get({
   sites_custom: {}
 }, function(items) {
@@ -305,7 +305,19 @@ chrome.storage.onChanged.addListener(function(changes, namespace) {
 // Set and show default options on install
 chrome.runtime.onInstalled.addListener(function (details) {
   if (details.reason == "install") {
-    setDefaultOptions();
+	// add custom sites to defaultSites at install (in options)
+	const url_sites = 'https://raw.githubusercontent.com/magnolia1234/bypass-paywalls-chrome/master/sites_custom.json';
+	//const url_sites = chrome.runtime.getURL('sites_custom.json');
+	fetch(url_sites)
+		.then(response => { 
+			if (response.ok) { 
+				response.json().then(json => {
+					var defaultSites_merge = {...defaultSites, ...json }; 
+					defaultSites = defaultSites_merge;
+					setDefaultOptions();
+				})
+			} else { setDefaultOptions(); }
+		} );
   } else if (details.reason == "update") {
     // User updated extension
   }
