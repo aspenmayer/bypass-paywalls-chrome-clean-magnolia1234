@@ -249,6 +249,15 @@ if (window.location.href.indexOf("caixinglobal.com") !== -1) {
     }
 }
 
+if (window.location.href.indexOf("nrc.nl") !== -1) {
+    const paywall = document.querySelector('.has-paywall');
+	if (paywall)
+		paywall.classList.remove("has-paywall");
+	const paywall_overlay = document.querySelector('.has-paywall-overlay');
+	if (paywall_overlay)
+		paywall_overlay.classList.remove("has-paywall-overlay");
+}
+
 function removeDOMElement(...elements) {
     for (let element of elements) {
         if (element)
