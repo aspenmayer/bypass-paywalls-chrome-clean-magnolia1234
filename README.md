@@ -1,17 +1,40 @@
+<p align="center">
+    <a href="https://github.com/iamadamdev/bypass-paywalls-chrome/blob/master/README.md">
+        <img width="150" src="bypass.png"></a>
+</p>
+
 # Bypass Paywalls for Chrome
 
-### Installation Instructions
-**Google Chrome**
+* [Installation instructions](#installation-instructions)
+* [List of supported websites](#bypass-the-following-sites-paywalls-with-this-extension)
+* [Sites with limited number of free articles](#sites-with-limited-number-of-free-articles)
+* [New site requests](#new-site-requests)
+* [Troubleshooting](#troubleshooting)
+* [Pull Requests](#pull-requests)
+* [Show your support](#show-your-support)
+* [License](#license)
+
+### Installation instructions
+#### Windows/MacOS/Linux
 1. Download this repo as a [ZIP file from GitHub](https://github.com/iamadamdev/bypass-paywalls-chrome/archive/master.zip).
-1. Unzip the file and you should have a folder named `bypass-paywalls-chrome-master`.
-1. In Chrome go to the extensions page (`chrome://extensions`).
-1. Enable Developer Mode.
-1. Drag the `bypass-paywalls-chrome-master` folder anywhere on the page to import it (do not delete the folder afterwards).
+2. Unzip the file and you should have a folder named `bypass-paywalls-chrome-master`.
+3. In Chrome go to the extensions page (`chrome://extensions`).
+4. Enable Developer Mode.
+5. Drag the `bypass-paywalls-chrome-master` folder anywhere on the page to import it (do not delete the folder afterwards).
+
+#### Android
+
+1. Install [Yandex Browser](https://play.google.com/store/apps/details?id=com.yandex.browser&hl=en) from the Google PlayStore.
+2. Download this repo as a [ZIP file from GitHub](https://github.com/iamadamdev/bypass-paywalls-chrome/archive/master.zip).
+3. In Yandex go to the extensions page (`browser://extensions`).
+4. Turn on the Developer Mode by checking the box.
+5. Tap `Load unpacked extension`.
+6. Find your extension folder and pick `manifest.json`.
 
 **Notes**
 * Every time you open Chrome it may warn you about running extensions in developer mode, just click 🗙 to keep the extension enabled.
 * You will be logged out for any site you have checked.
-* This extension works best along side the adblocker uBlock Origin.
+* This extension works best along side the adblocker [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en).
 
 ### Bypass the following sites' paywalls with this extension
 

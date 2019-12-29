@@ -130,6 +130,11 @@ function save_options() {
       window.close();
     }, 800);
   });
+	
+  // Refresh the current tab
+  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+  chrome.tabs.update(tabs[0].id, {url: tabs[0].url});
+    });
 }
 
 function renderOptions() {
