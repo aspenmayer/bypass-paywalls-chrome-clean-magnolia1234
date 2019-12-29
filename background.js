@@ -66,6 +66,7 @@ var defaultSites = {
   'San Diego Union Tribune': 'sandiegouniontribune.com',
   'San Francisco Chronicle': 'sfchronicle.com',
   'Scientific American': 'scientificamerican.com',
+  'Scribd': 'scribd.com',
   'SOFREP': 'sofrep.com',
   'Statista': 'statista.com',
   'SunSentinel': 'sun-sentinel.com',

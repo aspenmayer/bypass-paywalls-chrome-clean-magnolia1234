@@ -35,6 +35,7 @@
 * Every time you open Chrome it may warn you about running extensions in developer mode, just click 🗙 to keep the extension enabled.
 * You will be logged out for any site you have checked.
 * This extension works best along side the adblocker [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en).
+* With uBlock installed, [subscribe](https://www.fanboy.co.nz/filters.html) to the Fanboy's Enhanced Trackers List to block scripts from various paywall services.
 
 ### Bypass the following sites' paywalls with this extension
 
@@ -100,6 +101,7 @@
 [San Diego Union Tribune](https://www.sandiegouniontribune.com)\
 [San Francisco Chronicle](https://www.sfchronicle.com)\
 [Scientific American](https://www.scientificamerican.com)\
+[Scribd](http://scribd.com)\
 [SOFREP](https://sofrep.com)\
 [Statista](https://www.statista.com)\
 [SunSentinel](https://www.sun-sentinel.com)\

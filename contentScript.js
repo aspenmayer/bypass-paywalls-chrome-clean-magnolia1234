@@ -1,5 +1,5 @@
-var arr_localstorage_hold = ['sfchronicle.com', 'economist.com'];
-var localstorage_hold = arr_localstorage_hold.some(function(url) {
+let arr_localstorage_hold = ['sfchronicle.com', 'economist.com'];
+let localstorage_hold = arr_localstorage_hold.some(function(url) {
     return window.location.href.indexOf(url) !== -1;
 });
 
@@ -98,8 +98,8 @@ if (window.location.href.indexOf("nzherald.co.nz") !== -1) {
         paywall.classList.remove('premium-content');
         paywall.classList.add('full-content');
         removeClassesByPrefix(paywall, 'QUnW');
-        var paras = paywall.querySelectorAll("p, span, h2, div");
-        for (var i = 0; i < paras.length; i++){     
+        let paras = paywall.querySelectorAll("p, span, h2, div");
+        for (let i = 0; i < paras.length; i++){     
             removeClassesByPrefix(paras[i], 'QUnW');
             paras[i].classList.remove("ellipsis");
             paras[i].removeAttribute('style');
@@ -164,10 +164,10 @@ if (window.location.href.indexOf('lemonde.fr') !== -1) {
 if (window.location.href.indexOf("canberratimes.com.au") !== -1) {
         const paywall = document.querySelector('.subscribe-article.news-article-body.article__body');
         paywall.classList.remove('subscribe-article');
-        var subscribe = document.getElementsByClassName('subscriber-container')[0];
+        let subscribe = document.getElementsByClassName('subscriber-container')[0];
         removeDOMElement(subscribe);
-        var content = document.getElementsByClassName('subscriber-hider');
-        for (var i = 0; i < content.length; i++) {
+        let content = document.getElementsByClassName('subscriber-hider');
+        for (let i = 0; i < content.length; i++) {
         content[i].classList.remove('subscriber-hider');
     }
 }
@@ -198,8 +198,8 @@ if (window.location.href.indexOf("leparisien.fr") !== -1) {
         const paywall = document.querySelector('.relative.piano-paywall.below_nav.sticky');
         removeDOMElement(paywall);
         setTimeout(function () {
-            var content = document.getElementsByClassName('content');
-            for (var i = 0; i < content.length; i++) {
+            let content = document.getElementsByClassName('content');
+            for (let i = 0; i < content.length; i++) {
                 content[i].removeAttribute("style");
             }
         }, 300); // Delay (in milliseconds)
@@ -223,7 +223,7 @@ if (window.location.href.indexOf("bizjournals.com") !== -1) {
         const chunk_paywall = document.querySelector('.chunk--paywall');
         removeDOMElement(sheet_overlay, chunk_paywall);
         const overlaid = document.querySelectorAll('.is-overlaid');
-        for (var i = 0; i < overlaid.length; i++) {
+        for (let i = 0; i < overlaid.length; i++) {
             overlaid[i].classList.remove('is-overlaid');
         }
         const body_hidden = document.querySelector('.js-pre-chunks__story-body');
@@ -258,6 +258,23 @@ if (window.location.href.indexOf("nrc.nl") !== -1) {
 		paywall_overlay.classList.remove("has-paywall-overlay");
 }
 
+if (window.location.href.indexOf("scribd.com") !== -1) {
+    const blur = document.querySelectorAll('.blurred_page');
+    for (let i = 0; i < blur.length; i++) {
+        blur[i].classList.remove('blurred_page');
+    }
+    const portal = document.querySelector('.between_page_portal_root');
+    const page_module = document.querySelector('.between_page_module');
+    const promo = document.querySelector('.auto__doc_page_webpack_doc_page_body_static_promo_study');
+    const ad = document.querySelector('.auto__explain_scribd_v2_advertisement');
+    removeDOMElement(portal, page_module, promo, ad);
+}
+
+if (window.location.href.indexOf("thetimes.co.uk") !== -1) {
+	const block = document.querySelector('.subscription-block');
+	removeDOMElement(block);
+}
+
 function removeDOMElement(...elements) {
     for (let element of elements) {
         if (element)
@@ -266,7 +283,7 @@ function removeDOMElement(...elements) {
 }
 
 function removeClassesByPrefix(el, prefix) {
-    for (var i = 0; i < el.classList.length; i++){
+    for (let i = 0; i < el.classList.length; i++){
         if (el.classList[i].startsWith(prefix)) {
             el.classList.remove(el.classList[i]);
         }
