@@ -275,6 +275,15 @@ if (window.location.href.indexOf("thetimes.co.uk") !== -1) {
 	removeDOMElement(block);
 }
 
+if (window.location.href.indexOf("technologyreview.com") !== -1) {
+    const read_story = document.querySelector('.storyExpanderButton');
+        if (read_story)
+            read_story.click();
+    const meter = document.querySelector('.meter');
+        if (meter)
+            removeDOMElement(meter);
+}
+
 function removeDOMElement(...elements) {
     for (let element of elements) {
         if (element)
