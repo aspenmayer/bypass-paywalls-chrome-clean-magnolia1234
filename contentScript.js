@@ -1,5 +1,5 @@
-let arr_localstorage_hold = ['sfchronicle.com', 'economist.com'];
-let localstorage_hold = arr_localstorage_hold.some(function(url) {
+var arr_localstorage_hold = ['sfchronicle.com', 'economist.com'];
+var localstorage_hold = arr_localstorage_hold.some(function(url) {
     return window.location.href.indexOf(url) !== -1;
 });
 
