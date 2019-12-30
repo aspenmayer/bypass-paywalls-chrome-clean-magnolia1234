@@ -18,9 +18,10 @@
 #### Windows/MacOS/Linux
 1. Download this repo as a [ZIP file from GitHub](https://github.com/iamadamdev/bypass-paywalls-chrome/archive/master.zip).
 2. Unzip the file and you should have a folder named `bypass-paywalls-chrome-master`.
-3. In Chrome go to the extensions page (`chrome://extensions`).
-4. Enable Developer Mode.
-5. Drag the `bypass-paywalls-chrome-master` folder anywhere on the page to import it (do not delete the folder afterwards).
+3. Move the folder to a permanent location on your computer (do not delete the folder after installation).
+4. In Chrome go to the extensions page (`chrome://extensions`).
+5. Enable Developer Mode.
+6. Drag the `bypass-paywalls-chrome-master` folder anywhere on the page to import it.
 
 #### Android
 
@@ -32,6 +33,7 @@
 6. Find your extension folder and pick `manifest.json`.
 
 **Notes**
+* Do not delete extension's folder from your computer/smartphone, or Bypass Paywalls will disappear at restart.
 * Every time you open Chrome it may warn you about running extensions in developer mode, just click 🗙 to keep the extension enabled.
 * You will be logged out for any site you have checked.
 * This extension works best along side the adblocker [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en).
@@ -56,7 +58,6 @@
 [De Volkskrant](https://www.volkskrant.nl)\
 [DeMorgen](https://www.demorgen.be)\
 [Denver Post](https://www.denverpost.com)\
-[Dynamed Plus](https://www.dynamed.com)\
 [Eindhovens Dagblad](https://www.ed.nl)\
 [Encyclopedia Britannica](https://www.britannica.com)\
 [ET Prime](https://prime.economictimes.indiatimes.com/)\

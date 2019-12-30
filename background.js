@@ -21,7 +21,6 @@ var defaultSites = {
   'De Volkskrant': 'volkskrant.nl',
   'DeMorgen': 'demorgen.be',
   'Denver Post': 'denverpost.com',
-  'Dynamed Plus': 'dynamed.com',
   'Eindhovens Dagblad': 'ed.nl',
   'Encyclopedia Britannica': 'britannica.com',
   'ET Prime': 'prime.economictimes.indiatimes.com',

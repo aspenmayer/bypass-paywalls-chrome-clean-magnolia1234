@@ -7,6 +7,7 @@ if (!localstorage_hold){
     window.localStorage.clear();
 }
 
+// Workarounds/domain
 if (location.hostname.endsWith('rep.repubblica.it')) {
     if (location.href.includes('/pwa/')) {
         location.href = location.href.replace('/pwa/', '/ws/detail/');
@@ -126,9 +127,9 @@ if (window.location.href.indexOf("bloomberg.com") !== -1) {
         if (fence){
             fence.classList.remove('fence-body');
         }
-        const paywall = document.getElementById('paywall-banner');
-        removeDOMElement(paywall);
     });
+    const banner = document.getElementById('paywall-banner');
+    removeDOMElement(banner);
 }
 
 if (window.location.href.indexOf("bloombergquint.com") !== -1) {
@@ -284,6 +285,17 @@ if (window.location.href.indexOf("technologyreview.com") !== -1) {
             removeDOMElement(meter);
 }
 
+if (window.location.href.indexOf("haaretz.com") !== -1) {
+    const popup = document.querySelector('.footer-ruler');
+    removeDOMElement(popup);
+}
+
+if (window.location.href.indexOf("asia.nikkei.com") !== -1) {
+    const popup = document.querySelector('.pw-widget--popup');
+    removeDOMElement(popup);
+}
+
+// General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {
         if (element)
