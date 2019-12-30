@@ -128,6 +128,7 @@ var allow_cookies = [
 'chicagobusiness.com',
 'demorgen.be',
 'denverpost.com',
+'dn.se',
 'economist.com',
 'ed.nl',
 'examiner.com.au',
@@ -173,6 +174,7 @@ var remove_cookies = [
 'chicagobusiness.com',
 'demorgen.be',
 'denverpost.com',
+'dn.se',
 'economist.com',
 'ed.nl',
 'examiner.com.au',
@@ -212,6 +214,7 @@ const remove_cookies_select_drop = {
 	'bostonglobe.com': ['FMPaywall'],
 	'caixinglobal.com': ['CAIXINGLB_LOGIN_UUID'],
 	'demorgen.be': ['TID_ID'],
+	'dn.se': ['randomSplusId'],
 	'economist.com': ['rvuuid'],
 	'ed.nl': ['temptationTrackingId'],
 	'nrc.nl': ['counter']
