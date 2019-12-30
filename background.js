@@ -2,114 +2,9 @@
 
 'use strict';
 
-// Cookies from this list are blocked by default
-var defaultSites = {
-  'Algemeen Dagblad': 'ad.nl',
-  'American Banker': 'americanbanker.com',
-  'Baltimore Sun': 'baltimoresun.com',
-  'Barron\'s': 'barrons.com',
-  'Bloomberg': 'bloomberg.com',
-  'Bloomberg Quint': 'bloombergquint.com',
-  'Business Insider': 'businessinsider.com',
-  'Caixin Global': 'caixinglobal.com',
-  'Crain\'s Chicago Business': 'chicagobusiness.com',
-  'Chicago Tribune': 'chicagotribune.com',
-  'Corriere Della Sera': 'corriere.it',
-  'Daily Press': 'dailypress.com',
-  'Dagens Nyheter': 'dn.se',
-  'De Groene Amsterdammer': 'groene.nl',
-  'De Volkskrant': 'volkskrant.nl',
-  'DeMorgen': 'demorgen.be',
-  'Denver Post': 'denverpost.com',
-  'Eindhovens Dagblad': 'ed.nl',
-  'Encyclopedia Britannica': 'britannica.com',
-  'ET Prime': 'prime.economictimes.indiatimes.com',
-  'Examiner': 'examiner.com.au',
-  'First Things': 'firstthings.com',
-  'Financial News': 'fnlondon.com',
-  'Financial Times': 'ft.com',
-  'Foreign Policy': 'foreignpolicy.com',
-  'Glassdoor': 'glassdoor.com',
-  'Haaretz': 'haaretz.co.il',
-  'Haaretz English': 'haaretz.com',
-  'Handelsblatt': 'handelsblatt.com',
-  'Harper\'s Magazine': 'harpers.org',
-  'Hartford Courant': 'courant.com',
-  'Harvard Business Review': 'hbr.org',
-  'Inc.com': 'inc.com',
-  'La Nacion': 'lanacion.com.ar',
-  'La Repubblica': 'repubblica.it',
-  'La Tercera': 'latercera.com',
-  'L\'Echo': 'lecho.be',
-  'Le Devoir': 'ledevoir.com',
-  'Le Monde': 'lemonde.fr',
-  'Le Parisien': 'leparisien.fr',
-  'Les Echos': 'lesechos.fr',
-  'Loeb Classical Library': 'loebclassics.com',
-  'London Review of Books': 'lrb.co.uk',
-  'Los Angeles Business Journal': 'labusinessjournal.com',
-  'Los Angeles Times': 'latimes.com',
-  'Medium': 'medium.com',
-  'Mexico News Daily': 'mexiconewsdaily.com',
-  'MIT Sloan Management Review': 'sloanreview.mit.edu',
-  'MIT Technology Review': 'technologyreview.com',
-  'National Post': 'nationalpost.com',
-  'New York Magazine': 'nymag.com',
-  'Nikkei Asian Review': 'asia.nikkei.com',
-  'NRC': 'nrc.nl',
-  'New Zealand Herald': 'nzherald.co.nz',
-  'OrlandoSentinel': 'orlandosentinel.com',
-  'Parool': 'parool.nl',
-  'Quartz': 'qz.com',
-  'Quora': 'quora.com',
-  'San Diego Union Tribune': 'sandiegouniontribune.com',
-  'San Francisco Chronicle': 'sfchronicle.com',
-  'Scientific American': 'scientificamerican.com',
-  'Scribd': 'scribd.com',
-  'SOFREP': 'sofrep.com',
-  'Statista': 'statista.com',
-  'SunSentinel': 'sun-sentinel.com',
-  'Telegraaf': 'telegraaf.nl',
-  'The Advocate': 'theadvocate.com.au',
-  'The Age': 'theage.com.au',
-  'The American Interest': 'the-american-interest.com',
-  'The Atlantic': 'theatlantic.com',
-  'The Australian': 'theaustralian.com.au',
-  'The Australian Financial Review': 'afr.com',
-  'The Boston Globe': 'bostonglobe.com',
-  'The Business Journals': 'bizjournals.com',
-  'The Canberra Times': 'canberratimes.com.au',
-  'The Diplomat': 'thediplomat.com',
-  'The Economist': 'economist.com',
-  'The Globe and Mail': 'theglobeandmail.com',
-  'The Hindu': 'thehindu.com',
-  'The Irish Times': 'irishtimes.com',
-  'The Japan Times': 'japantimes.co.jp',
-  'TheMarker': 'themarker.com',
-  'The Mercury News': 'mercurynews.com',
-  'The Morning Call': 'mcall.com',
-  'The Nation': 'thenation.com',
-  'The News-Gazette': 'news-gazette.com',
-  'The New Statesman': 'newstatesman.com',
-  'The New York Times': 'nytimes.com',
-  'The New Yorker': 'newyorker.com',
-  'The Philadelphia Inquirer': 'inquirer.com',
-  'The Seattle Times': 'seattletimes.com',
-  'The Spectator': 'spectator.co.uk',
-  'The Sydney Morning Herald': 'smh.com.au',
-  'The Telegraph': 'telegraph.co.uk',
-  'The Times': 'thetimes.co.uk',
-  'The Toronto Star': 'thestar.com',
-  'The Washington Post': 'washingtonpost.com',
-  'The Wall Street Journal': 'wsj.com',
-  'Times Literary Supplement': 'the-tls.co.uk',
-  'Towards Data Science': 'towardsdatascience.com',
-  'Trouw': 'trouw.nl',
-  'Winston-Salem Journal': 'journalnow.com',
-  'Vanity Fair': 'vanityfair.com',
-  'Vrij Nederland': 'vn.nl',
-  'Wired': 'wired.com'
-};
+// Cookies from this list are blocked by default (obsolete)
+// defaultSites are loaded from sites(_custom).json at installation extension
+var defaultSites = {};
 
 const restrictions = {
   'barrons.com': /.+barrons\.com\/articles\/.+/,
@@ -118,87 +13,22 @@ const restrictions = {
 }
 
 // Don't remove cookies before page load
+// allow_cookies are completed with domains in sites(_custom).json (default allow/remove_cookies)
 var allow_cookies = [
-'ad.nl',
-'asia.nikkei.com',
-'bostonglobe.com',
-'caixinglobal.com',
-'canberratimes.com.au',
-'chicagobusiness.com',
-'demorgen.be',
-'denverpost.com',
-'dn.se',
-'economist.com',
-'ed.nl',
-'examiner.com.au',
-'ft.com',
-'harpers.org',
-'hbr.org',
 'lemonde.fr',
-'lesechos.fr',
-'medium.com',
-'mercurynews.com',
-'mexiconewsdaily.com',
-'nrc.nl',
-'nymag.com',
 'nytimes.com',
 'parool.nl',
-'qz.com',
-'scientificamerican.com',
-'seattletimes.com',
-'sofrep.com',
-'telegraaf.nl',
 'the-american-interest.com',
-'theadvocate.com.au',
-'theage.com.au',
-'theatlantic.com',
 'theaustralian.com.au',
-'thediplomat.com',
-'towardsdatascience.com',
 'trouw.nl',
 'vn.nl',
 'volkskrant.nl',
-'washingtonpost.com',
-'wired.com',
-'wsj.com'
+'wsj.com',
 ]
 
 // Removes cookies after page load
+// remove_cookies are completed with domains of sites(_custom).json (default allow/remove_cookies)
 var remove_cookies = [
-'ad.nl',
-'asia.nikkei.com',
-'bostonglobe.com',
-'caixinglobal.com',
-'canberratimes.com.au',
-'chicagobusiness.com',
-'demorgen.be',
-'denverpost.com',
-'dn.se',
-'economist.com',
-'ed.nl',
-'examiner.com.au',
-'ft.com',
-'harpers.org',
-'hbr.org',
-'lesechos.fr',
-'medium.com',
-'mercurynews.com',
-'mexiconewsdaily.com',
-'nrc.nl',
-'nymag.com',
-'qz.com',
-'scientificamerican.com',
-'seattletimes.com',
-'sofrep.com',
-'telegraaf.nl',
-'theadvocate.com.au',
-'theage.com.au',
-'theatlantic.com',
-'thediplomat.com',
-'towardsdatascience.com',
-'vn.nl',
-'washingtonpost.com',
-'wired.com',
 ]
 
 // select specific cookie(s) to hold from remove_cookies domains
@@ -276,19 +106,23 @@ chrome.storage.sync.get({
   });
 });
 
-var customSites = [];
+var loadSites = [];
 
-// Get the custom sites & add to defaultSites, allow/remove_cookies
+// Load the sites (from local storage) & add to allow/remove_cookies (if not already in one of these arrays)
 chrome.storage.sync.get({
-  sites_custom: {}
+  sites: {}
 }, function(items) {
-  var sites_custom = items.sites_custom;
-  customSites = Object.keys(items.sites_custom).map(function(key) {
-    return items.sites_custom[key];
+  var sites = items.sites;
+  loadSites = Object.keys(items.sites).map(function(key) {
+    return items.sites[key];
   });
-  customSites.shift(); // remove custom title
-  remove_cookies = remove_cookies.concat(customSites);
-  allow_cookies = allow_cookies.concat(customSites);
+  for (var domainIndex in loadSites) {
+    var domainVar = loadSites[domainIndex];
+    if (!allow_cookies.includes(domainVar) && !remove_cookies.includes(domainVar)) {
+      allow_cookies.push(domainVar);
+	  remove_cookies.push(domainVar);
+	}
+  }
 });
 
 // Listen for changes to options
@@ -308,16 +142,25 @@ chrome.storage.onChanged.addListener(function(changes, namespace) {
 // Set and show default options on install
 chrome.runtime.onInstalled.addListener(function (details) {
   if (details.reason == "install") {
-	// add custom sites to defaultSites at install (in options)
-	const url_sites = 'https://raw.githubusercontent.com/magnolia1234/bypass-paywalls-chrome/master/sites_custom.json';
-	//const url_sites = chrome.runtime.getURL('sites_custom.json');
+	const url_sites = chrome.runtime.getURL('sites.json');
 	fetch(url_sites)
-		.then(response => { 
-			if (response.ok) { 
+		.then(response => {
+			if (response.ok) {
 				response.json().then(json => {
-					var defaultSites_merge = {...defaultSites, ...json }; 
+					var defaultSites_merge = {...defaultSites, ...json}; 
 					defaultSites = defaultSites_merge;
-					setDefaultOptions();
+					// add custom sites
+					const url_sites_custom = 'https://raw.githubusercontent.com/magnolia1234/bypass-paywalls-chrome/master/sites_custom.json';
+					fetch(url_sites_custom)
+						.then(response => {
+							if (response.ok) {
+								response.json().then(json => {
+									var defaultSites_merge = {...defaultSites, ...json}; 
+									defaultSites = defaultSites_merge;
+									setDefaultOptions();
+								})
+							} else { setDefaultOptions(); }
+						} );
 				})
 			} else { setDefaultOptions(); }
 		} );
