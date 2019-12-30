@@ -21,7 +21,6 @@ var allow_cookies = [
 'the-american-interest.com',
 'theaustralian.com.au',
 'trouw.nl',
-'vn.nl',
 'volkskrant.nl',
 'wsj.com',
 ]
