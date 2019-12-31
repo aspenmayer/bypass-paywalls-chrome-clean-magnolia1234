@@ -281,8 +281,7 @@ if (window.location.href.indexOf("technologyreview.com") !== -1) {
         if (read_story)
             read_story.click();
     const meter = document.querySelector('.meter');
-        if (meter)
-            removeDOMElement(meter);
+    removeDOMElement(meter);
 }
 
 if (window.location.href.indexOf("haaretz.com") !== -1) {
@@ -292,6 +291,11 @@ if (window.location.href.indexOf("haaretz.com") !== -1) {
 
 if (window.location.href.indexOf("asia.nikkei.com") !== -1) {
     const popup = document.querySelector('.pw-widget--popup');
+    removeDOMElement(popup);
+}
+
+if (window.location.href.indexOf("hbr.org") !== -1) {
+    const popup = document.querySelector('.persistent-banner');
     removeDOMElement(popup);
 }
 
