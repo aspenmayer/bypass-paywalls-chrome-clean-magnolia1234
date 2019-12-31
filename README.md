@@ -45,8 +45,8 @@
 [American Banker](https://www.americanbanker.com)\
 [Baltimore Sun](https://www.baltimoresun.com)\
 [Barron's](https://www.barrons.com)\
-[Bloomberg](https://www.bloomberg.com)\
 [Bloomberg Quint](https://www.bloombergquint.com)\
+[Bloomberg](https://www.bloomberg.com)\
 [Business Insider](https://www.businessinsider.com)\
 [Caixin Global](https://www.caixinglobal.com)\
 [Chicago Tribune](https://www.chicagotribune.com)\
@@ -54,19 +54,18 @@
 [Crain's Chicago Business](https://www.chicagobusiness.com)\
 [Dagens Nyheter](https://www.dn.se)\
 [Daily Press](https://www.dailypress.com)\
-[De Groene Amsterdammer](https://www.groene.nl)\
-[De Volkskrant](https://www.volkskrant.nl)\
 [DeMorgen](https://www.demorgen.be)\
 [Denver Post](https://www.denverpost.com)\
+[ET Prime](https://prime.economictimes.indiatimes.com/)\
 [Eindhovens Dagblad](https://www.ed.nl)\
 [Encyclopedia Britannica](https://www.britannica.com)\
-[ET Prime](https://prime.economictimes.indiatimes.com/)\
 [Examiner](https://www.examiner.com.au)\
-[First Things](https://www.firstthings.com)\
 [Financial News](https://www.fnlondon.com)\
 [Financial Times](https://www.ft.com)\
+[First Things](https://www.firstthings.com)\
 [Foreign Policy](https://www.foreignpolicy.com)\
 [Glassdoor](https://www.glassdoor.com)\
+[Groene Amsterdammer](https://www.groene.nl)\
 [Haaretz.co.il](https://www.haaretz.co.il)\
 [Haaretz.com](https://www.haaretz.com)\
 [Handelsblatt](https://www.handelsblatt.com)\
@@ -74,11 +73,11 @@
 [Hartford Courant](https://www.courant.com)\
 [Harvard Business Review](https://www.hbr.org)\
 [Inc.com](https://www.inc.com)\
+[L'Écho](https://www.lecho.be)\
 [L.A. Business Journal](https://labusinessjournal.com)\
 [La Nación](https://www.lanacion.com.ar)\
 [La Repubblica](https://www.repubblica.it)\
 [La Tercera](https://www.latercera.com)\
-[L'Écho](https://www.lecho.be)\
 [Le Devoir](https://www.ledevoir.com)\
 [Le Monde](https://www.lemonde.fr)\
 [Le Parisien](http://www.leparisien.fr)\
@@ -90,20 +89,20 @@
 [MIT Technology Review](https://www.technologyreview.com)\
 [Medium](https://www.medium.com)\
 [Mexicon News Daily](https://mexiconewsdaily.com)\
+[NRC Handelsblad](https://www.nrc.nl)\
 [National Post](https://www.nationalpost.com)\
 [New York Magazine](https://www.nymag.com)\
 [New Zealand Herald](https://www.nzherald.co.nz)\
 [Nikkei Asian Review](https://asia.nikkei.com)\
-[NRC Handelsblad](https://www.nrc.nl)\
 [Orlando Sentinel](https://www.orlandosentinel.com)\
 [Parool](https://www.parool.nl)\
 [Quartz](https://qz.com)\
 [Quora](https://www.quora.com)\
+[SOFREP](https://sofrep.com)\
 [San Diego Union Tribune](https://www.sandiegouniontribune.com)\
 [San Francisco Chronicle](https://www.sfchronicle.com)\
 [Scientific American](https://www.scientificamerican.com)\
 [Scribd](http://scribd.com)\
-[SOFREP](https://sofrep.com)\
 [Statista](https://www.statista.com)\
 [SunSentinel](https://www.sun-sentinel.com)\
 [Telegraaf](https://www.telegraaf.nl)\
@@ -122,6 +121,7 @@
 [The Hindu](https://www.thehindu.com)\
 [The Irish Times](https://www.irishtimes.com)\
 [The Japan Times](https://www.japantimes.co.jp)\
+[The Marker](https://www.themarker.com)\
 [The Mercury News](https://www.mercurynews.com)\
 [The Morning Call](https://www.mcall.com)\
 [The Nation](https://www.thenation.com)\
@@ -134,17 +134,17 @@
 [The Spectator](https://www.spectator.co.uk)\
 [The Sydney Morning Herald](https://www.smh.com.au)\
 [The Telegraph](https://www.telegraph.co.uk)\
+[The Times Literary Supplement](https://www.the-tls.co.uk)\
 [The Times](https://www.thetimes.co.uk)\
 [The Toronto Star](https://www.thestar.com)\
 [The Wall Street Journal](https://www.wsj.com)\
 [The Washington Post](https://www.washingtonpost.com)\
-[TheMarker](https://www.themarker.com)\
-[Times Literary Supplement](https://www.the-tls.co.uk)\
 [Towards Data Science](https://www.towardsdatascience.com)\
 [Trouw](https://www.trouw.nl)\
 [Vanity Fair](https://www.vanityfair.com)\
-[Winston-Salem Journal](https://journalnow.com)\
+[Volkskrant](https://www.volkskrant.nl)\
 [Vrij Nederland](https://www.vn.nl)\
+[Winston-Salem Journal](https://journalnow.com)\
 [Wired](https://www.wired.com)
 
 ### Sites with limited number of free articles
