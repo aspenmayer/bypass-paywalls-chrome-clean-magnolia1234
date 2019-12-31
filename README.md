@@ -45,8 +45,8 @@
 [American Banker](https://www.americanbanker.com)\
 [Baltimore Sun](https://www.baltimoresun.com)\
 [Barron's](https://www.barrons.com)\
-[Bloomberg Quint](https://www.bloombergquint.com)\
 [Bloomberg](https://www.bloomberg.com)\
+[Bloomberg Quint](https://www.bloombergquint.com)\
 [Business Insider](https://www.businessinsider.com)\
 [Caixin Global](https://www.caixinglobal.com)\
 [Chicago Tribune](https://www.chicagotribune.com)\
@@ -56,9 +56,9 @@
 [Daily Press](https://www.dailypress.com)\
 [DeMorgen](https://www.demorgen.be)\
 [Denver Post](https://www.denverpost.com)\
-[ET Prime](https://prime.economictimes.indiatimes.com/)\
 [Eindhovens Dagblad](https://www.ed.nl)\
 [Encyclopedia Britannica](https://www.britannica.com)\
+[ET Prime](https://prime.economictimes.indiatimes.com/)\
 [Examiner](https://www.examiner.com.au)\
 [Financial News](https://www.fnlondon.com)\
 [Financial Times](https://www.ft.com)\
@@ -85,24 +85,24 @@
 [Loeb Classical Library](https://www.loebclassics.com)\
 [London Review of Books](https://www.lrb.co.uk)\
 [Los Angeles Times](https://www.latimes.com)\
-[MIT Sloan Management Review](https://sloanreview.mit.edu)\
-[MIT Technology Review](https://www.technologyreview.com)\
 [Medium](https://www.medium.com)\
 [Mexicon News Daily](https://mexiconewsdaily.com)\
-[NRC Handelsblad](https://www.nrc.nl)\
+[MIT Sloan Management Review](https://sloanreview.mit.edu)\
+[MIT Technology Review](https://www.technologyreview.com)\
 [National Post](https://www.nationalpost.com)\
 [New York Magazine](https://www.nymag.com)\
 [New Zealand Herald](https://www.nzherald.co.nz)\
 [Nikkei Asian Review](https://asia.nikkei.com)\
+[NRC Handelsblad](https://www.nrc.nl)\
 [Orlando Sentinel](https://www.orlandosentinel.com)\
 [Parool](https://www.parool.nl)\
 [Quartz](https://qz.com)\
 [Quora](https://www.quora.com)\
-[SOFREP](https://sofrep.com)\
 [San Diego Union Tribune](https://www.sandiegouniontribune.com)\
 [San Francisco Chronicle](https://www.sfchronicle.com)\
 [Scientific American](https://www.scientificamerican.com)\
 [Scribd](http://scribd.com)\
+[SOFREP](https://sofrep.com)\
 [Statista](https://www.statista.com)\
 [SunSentinel](https://www.sun-sentinel.com)\
 [Telegraaf](https://www.telegraaf.nl)\
