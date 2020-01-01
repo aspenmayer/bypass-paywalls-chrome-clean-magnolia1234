@@ -32,6 +32,7 @@ function save_options() {
     });
 }
 
+//Fetch sites.json & sites_custom.json
 function renderOptions() {
 	const url_sites = chrome.runtime.getURL('sites.json');
 	fetch(url_sites)

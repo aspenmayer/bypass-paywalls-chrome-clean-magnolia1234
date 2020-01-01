@@ -7,7 +7,7 @@ if (!localstorage_hold){
     window.localStorage.clear();
 }
 
-// Workarounds/domain
+// Content workarounds/domain
 if (location.hostname.endsWith('rep.repubblica.it')) {
     if (location.href.includes('/pwa/')) {
         location.href = location.href.replace('/pwa/', '/ws/detail/');
@@ -72,7 +72,9 @@ if (window.location.href.indexOf("wsj.com") !== -1) {
 }
 
 if (window.location.href.indexOf("sloanreview.mit.edu") !== -1) {
-    document.querySelector('#cboxClose').click();
+    const read_more = document.querySelector('.btn-read-more');
+        if(read_more)
+            read_more.click();
 }
 
 if (window.location.href.indexOf("mexiconewsdaily.com") !== -1) {
@@ -81,7 +83,6 @@ if (window.location.href.indexOf("mexiconewsdaily.com") !== -1) {
         const subMessage = document.querySelector('.sub_message_container');
         const popup = document.querySelector('.popupally-pro-outer-full-width-7-fluid_qemskqa');
         const bgFocusRemoverId = document.getElementById('popup-box-pro-gfcr-7');
-
         removeDOMElement(sideNotification, subMessage, popup, bgFocusRemoverId);
     });
 }
@@ -174,7 +175,7 @@ if (window.location.href.indexOf("canberratimes.com.au") !== -1) {
 }
 
 if (window.location.href.indexOf("ledevoir.com") !== -1) {
-        const counter = document.querySelector('.full.hidden-print.popup-msg');
+        const counter = document.querySelector('.popup-msg');
         removeDOMElement(counter);
 }
 
@@ -304,7 +305,7 @@ if (window.location.href.indexOf("techinasia.com") !== -1) {
     if (paywall){
         paywall.classList.remove('paywall-content');
     }
-	const splash_subscribe = document.querySelector('.splash-subscribe');
+    const splash_subscribe = document.querySelector('.splash-subscribe');
     const paywall_hard = document.querySelector('.paywall-hard');
     removeDOMElement(splash_subscribe, paywall_hard);
 }

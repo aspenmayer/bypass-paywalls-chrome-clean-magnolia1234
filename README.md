@@ -1,21 +1,22 @@
+# Bypass Paywalls for Chrome
+
 <p align="center">
     <a href="https://github.com/iamadamdev/bypass-paywalls-chrome/blob/master/README.md">
-        <img width="150" src="bypass.png"></a>
+        <img max-width="100%" height="auto" src="icon.png"></a>
 </p>
-
-# Bypass Paywalls for Chrome
 
 * [Installation instructions](#installation-instructions)
 * [List of supported websites](#bypass-the-following-sites-paywalls-with-this-extension)
-* [Sites with limited number of free articles](#sites-with-limited-number-of-free-articles)
+* [Sites with limited number of free articles](#list-of-supported-websites)
 * [New site requests](#new-site-requests)
 * [Troubleshooting](#troubleshooting)
+* [Changelog](#changelog)
 * [Pull Requests](#pull-requests)
 * [Show your support](#show-your-support)
 * [License](#license)
 
 ### Installation instructions
-#### Windows/MacOS/Linux
+#### Chrome (Windows/MacOS/Linux)
 1. Download this repo as a [ZIP file from GitHub](https://github.com/iamadamdev/bypass-paywalls-chrome/archive/master.zip).
 2. Unzip the file and you should have a folder named `bypass-paywalls-chrome-master`.
 3. Move the folder to a permanent location on your computer (do not delete the folder after installation).
@@ -24,26 +25,31 @@
 6. Drag the `bypass-paywalls-chrome-master` folder anywhere on the page to import it.
 
 #### Android
-
-1. Install [Yandex Browser](https://play.google.com/store/apps/details?id=com.yandex.browser&hl=en) from the Google PlayStore.
-2. Download this repo as a [ZIP file from GitHub](https://github.com/iamadamdev/bypass-paywalls-chrome/archive/master.zip).
+1. Install [Yandex Browser](https://play.google.com/store/apps/details?id=com.yandex.browser&hl=en) from the Google PlayStore (Bypass Paywalls doesn't work with Kiwi Browser yet).
+2. Download this repo as a [ZIP file from GitHub](https://github.com/iamadamdev/bypass-paywalls-chrome/archive/master.zip). Extract the file (do not delete the folder after installation).
 3. In Yandex go to the extensions page (`browser://extensions`).
 4. Turn on the Developer Mode by checking the box.
 5. Tap `Load unpacked extension`.
 6. Find your extension folder and pick `manifest.json`.
 
+#### Opera/Vivaldi/Brave/Chromium browsers
+1. Download the extension as a .crx file from the [releases page](https://github.com/iamadamdev/bypass-paywalls-chrome/releases).
+2. In your browser go to the extensions page.
+3. Enable Developer Mode.
+4. Drag your .crx file anywhere on the page to import it.
+
+#### Firefox
+Visit the [Firefox repository](https://github.com/iamadamdev/bypass-paywalls-firefox) of Bypass Paywall.
+
 **Notes**
-* Do not delete extension's folder from your computer/smartphone, or Bypass Paywalls will disappear at restart.
+* This extension works best along side the adblocker [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en).
+* Do not delete extension's folder from your computer/smartphone or Bypass Paywalls will disappear at restart.
 * Every time you open Chrome it may warn you about running extensions in developer mode, just click 🗙 to keep the extension enabled.
 * You will be logged out for any site you have checked.
-* This extension works best along side the adblocker [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en).
-* With uBlock installed, [subscribe](https://www.fanboy.co.nz/filters.html) to the Fanboy's Enhanced Tracking List to block scripts from various paywall services (click `Add Enhanced Tracking list`).
 
-### Bypass the following sites' paywalls with this extension
-
+### List of supported websites
 [Algemeen Dagblad](https://www.ad.nl)\
 [American Banker](https://www.americanbanker.com)\
-[Baltimore Sun](https://www.baltimoresun.com)\
 [Barron's](https://www.barrons.com)\
 [Bloomberg](https://www.bloomberg.com)\
 [Bloomberg Quint](https://www.bloombergquint.com)\
@@ -51,15 +57,11 @@
 [Caixin Global](https://www.caixinglobal.com)\
 [Chicago Tribune](https://www.chicagotribune.com)\
 [Corriere Della Sera](https://www.corriere.it)\
-[Crain's Chicago Business](https://www.chicagobusiness.com)\
 [Dagens Nyheter](https://www.dn.se)\
 [Daily Press](https://www.dailypress.com)\
 [DeMorgen](https://www.demorgen.be)\
-[Denver Post](https://www.denverpost.com)\
-[Eindhovens Dagblad](https://www.ed.nl)\
 [Encyclopedia Britannica](https://www.britannica.com)\
 [ET Prime](https://prime.economictimes.indiatimes.com/)\
-[Examiner](https://www.examiner.com.au)\
 [Financial News](https://www.fnlondon.com)\
 [Financial Times](https://www.ft.com)\
 [First Things](https://www.firstthings.com)\
@@ -73,8 +75,6 @@
 [Hartford Courant](https://www.courant.com)\
 [Harvard Business Review](https://www.hbr.org)\
 [Inc.com](https://www.inc.com)\
-[L'Écho](https://www.lecho.be)\
-[L.A. Business Journal](https://labusinessjournal.com)\
 [La Nación](https://www.lanacion.com.ar)\
 [La Repubblica](https://www.repubblica.it)\
 [La Tercera](https://www.latercera.com)\
@@ -86,7 +86,6 @@
 [London Review of Books](https://www.lrb.co.uk)\
 [Los Angeles Times](https://www.latimes.com)\
 [Medium](https://www.medium.com)\
-[Mexicon News Daily](https://mexiconewsdaily.com)\
 [MIT Sloan Management Review](https://sloanreview.mit.edu)\
 [MIT Technology Review](https://www.technologyreview.com)\
 [National Post](https://www.nationalpost.com)\
@@ -94,18 +93,15 @@
 [New Zealand Herald](https://www.nzherald.co.nz)\
 [Nikkei Asian Review](https://asia.nikkei.com)\
 [NRC Handelsblad](https://www.nrc.nl)\
-[Orlando Sentinel](https://www.orlandosentinel.com)\
 [Parool](https://www.parool.nl)\
 [Quartz](https://qz.com)\
 [Quora](https://www.quora.com)\
-[San Diego Union Tribune](https://www.sandiegouniontribune.com)\
 [San Francisco Chronicle](https://www.sfchronicle.com)\
 [Scientific American](https://www.scientificamerican.com)\
 [Scribd](http://scribd.com)\
 [SOFREP](https://sofrep.com)\
 [Statista](https://www.statista.com)\
-[SunSentinel](https://www.sun-sentinel.com)\
-[Tech in Asia] (https://www.techinasia.com)\
+[Tech in Asia](https://www.techinasia.com)\
 [Telegraaf](https://www.telegraaf.nl)\
 [The Advocate](https://www.theadvocate.com.au)\
 [The Age](https://www.theage.com.au)\
@@ -116,6 +112,7 @@
 [The Boston Globe](https://www.bostonglobe.com)\
 [The Business Journals](https://www.bizjournals.com)\
 [The Canberra Times](https://www.canberratimes.com.au)\
+[The Denver Post](https://www.denverpost.com)\
 [The Diplomat](https://www.thediplomat.com)\
 [The Economist](https://www.economist.com)\
 [The Globe and Mail](https://www.theglobeandmail.com)\
@@ -124,12 +121,10 @@
 [The Japan Times](https://www.japantimes.co.jp)\
 [The Marker](https://www.themarker.com)\
 [The Mercury News](https://www.mercurynews.com)\
-[The Morning Call](https://www.mcall.com)\
 [The Nation](https://www.thenation.com)\
 [The New Statesman](https://www.newstatesman.com)\
 [The New York Times](https://www.nytimes.com)\
 [The New Yorker](https://www.newyorker.com)\
-[The News-Gazette](https://www.news-gazette.com)\
 [The Philadelphia Inquirer](https://www.inquirer.com)\
 [The Seattle Times](https://www.seattletimes.com)\
 [The Spectator](https://www.spectator.co.uk)\
@@ -145,8 +140,9 @@
 [Vanity Fair](https://www.vanityfair.com)\
 [Volkskrant](https://www.volkskrant.nl)\
 [Vrij Nederland](https://www.vn.nl)\
-[Winston-Salem Journal](https://journalnow.com)\
 [Wired](https://www.wired.com)
+
+More websites (specialized or local newspapers) are available in the [custom list](https://raw.githubusercontent.com/magnolia1234/bypass-paywalls-chrome/master/sites_custom.json) of the extension (select those you want to use in options).
 
 ### Sites with limited number of free articles
 The free article limit can normally be bypassed by removing cookies for the site.*
@@ -161,9 +157,13 @@ _*May not always succeed_
 Only large or major sites will be considered.
 1. Visit an article on the site you want to bypass the paywall for and copy the article title.
 2. Open up a new incognito window (Ctrl+Shift+N) and paste the article title into Google.
-3. Click on the same article from the Google search results page. If it loads without a paywall you can [submit a request](https://github.com/iamadamdev/bypass-paywalls-chrome/issues/new) to add the site, otherwise my extension cannot bypass it either.
+3. Click on the same article from the Google search results page. Or you can:
+1. Disable javascript on the website by clicking the botton right icon `</>` on the uBlock panel.
+2. Refresh the page.
 
-Usually premium articles cannot be bypassed as they are behind a hard paywall.
+If it loads without a paywall you can [submit a request](https://github.com/iamadamdev/bypass-paywalls-chrome/issues/new) to add the site, otherwise my extension cannot bypass it either.
+
+Usually premium articles cannot be bypassed as they are behind a hard paywall. Please see for [previous requests](https://github.com/iamadamdev/bypass-paywalls-chrome/issues?q=is%3Aissue) before asking for a new website to be added.
 
 ### Troubleshooting
 * This extension works best alongside [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm).
@@ -171,6 +171,9 @@ Usually premium articles cannot be bypassed as they are behind a hard paywall.
 * Make sure the site is checked under Options (on macOS sometimes the sites are unselected).
 * Make sure you're running the last version of Bypass Paywalls. 
 * If none of these work, you can submit an issue [here](https://github.com/iamadamdev/bypass-paywalls-chrome/issues).
+
+### Changelog
+Visit the [releases page](https://github.com/iamadamdev/bypass-paywalls-chrome/releases).
 
 ### Pull Requests
 * PRs are welcome.

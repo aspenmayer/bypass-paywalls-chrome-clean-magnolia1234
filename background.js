@@ -83,7 +83,6 @@ var blockedRegexes = {
 'nzherald.co.nz': /nzherald\.co\.nz\/.+\/headjs\/.+\.js/,
 'businessinsider.com': /(.+\.tinypass\.com\/.+|cdn\.onesignal\.com\/sdks\/.+\.js)/,
 'bostonglobe.com': /meter\.bostonglobe\.com\/js\/.+/
-
 };
 /** obsolete
 'economist.com': /.+\.tinypass\.com\/.+/,
@@ -205,7 +204,7 @@ chrome.webRequest.onBeforeRequest.addListener(function(details) {
   },
   {
     urls: ["*://*.thestar.com/*", "*://*.theglobeandmail.com/*", "*://*.afr.com/*",
-		"*://*.tinypass.com/*", "*://assets.poool.fr/*"],
+		"*://*.tinypass.com/*", "*://*.poool.fr/*"],
     types: ["script"]
   },
   ["blocking"]
