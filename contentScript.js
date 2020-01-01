@@ -304,8 +304,9 @@ if (window.location.href.indexOf("techinasia.com") !== -1) {
     if (paywall){
         paywall.classList.remove('paywall-content');
     }
+	const splash_subscribe = document.querySelector('.splash-subscribe');
     const paywall_hard = document.querySelector('.paywall-hard');
-    removeDOMElement(paywall_hard);
+    removeDOMElement(splash_subscribe, paywall_hard);
 }
 
 // General Functions
