@@ -299,6 +299,15 @@ if (window.location.href.indexOf("hbr.org") !== -1) {
     removeDOMElement(popup);
 }
 
+if (window.location.href.indexOf("techinasia.com") !== -1) {
+    const paywall = document.querySelector('.paywall-content');
+    if (paywall){
+        paywall.classList.remove('paywall-content');
+    }
+    const paywall_hard = document.querySelector('.paywall-hard');
+    removeDOMElement(paywall_hard);
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {
