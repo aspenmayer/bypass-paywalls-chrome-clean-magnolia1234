@@ -47,7 +47,8 @@ const remove_cookies_select_drop = {
 	'dn.se': ['randomSplusId'],
 	'economist.com': ['rvuuid'],
 	'ed.nl': ['temptationTrackingId'],
-	'nrc.nl': ['counter']
+	'nrc.nl': ['counter'],
+	'theatlantic.com': ['articleViews']
 }
 
 // Override User-Agent with Googlebot
