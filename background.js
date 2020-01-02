@@ -18,6 +18,8 @@ var allow_cookies = [
 'lemonde.fr',
 'nytimes.com',
 'parool.nl',
+'scribd.com',
+'techinasia.com',
 'the-american-interest.com',
 'theaustralian.com.au',
 'trouw.nl',
