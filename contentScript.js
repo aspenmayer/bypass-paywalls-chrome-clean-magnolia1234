@@ -238,7 +238,7 @@ if (window.location.href.indexOf("the-tls.co.uk") !== -1) {
 }
 
 if (window.location.href.indexOf("caixinglobal.com") !== -1) {
-	const pay_tip = document.querySelectorAll('.cons-pay-tip');	
+    const pay_tip = document.querySelectorAll('.cons-pay-tip');	
     for (let i = 0; i < pay_tip.length; i++) {
         pay_tip[i].removeAttribute('style');
     }
@@ -253,11 +253,11 @@ if (window.location.href.indexOf("caixinglobal.com") !== -1) {
 
 if (window.location.href.indexOf("nrc.nl") !== -1) {
     const paywall = document.querySelector('.has-paywall');
-	if (paywall)
-		paywall.classList.remove("has-paywall");
-	const paywall_overlay = document.querySelector('.has-paywall-overlay');
-	if (paywall_overlay)
-		paywall_overlay.classList.remove("has-paywall-overlay");
+    if (paywall)
+        paywall.classList.remove("has-paywall");
+    const paywall_overlay = document.querySelector('.has-paywall-overlay');
+    if (paywall_overlay)
+        paywall_overlay.classList.remove("has-paywall-overlay");
 }
 
 if (window.location.href.indexOf("scribd.com") !== -1) {
@@ -273,8 +273,8 @@ if (window.location.href.indexOf("scribd.com") !== -1) {
 }
 
 if (window.location.href.indexOf("thetimes.co.uk") !== -1) {
-	const block = document.querySelector('.subscription-block');
-	removeDOMElement(block);
+    const block = document.querySelector('.subscription-block');
+    removeDOMElement(block);
 }
 
 if (window.location.href.indexOf("technologyreview.com") !== -1) {
@@ -308,6 +308,15 @@ if (window.location.href.indexOf("techinasia.com") !== -1) {
     const splash_subscribe = document.querySelector('.splash-subscribe');
     const paywall_hard = document.querySelector('.paywall-hard');
     removeDOMElement(splash_subscribe, paywall_hard);
+}
+
+if (window.location.href.indexOf("thestar.com") !== -1) {
+    const paywall = document.querySelector('.basic-paywall-new');
+    removeDOMElement(paywall);
+    const tbc = document.querySelectorAll('.text-block-container');	
+    for (let i = 0; i < tbc.length; i++) {
+        tbc[i].removeAttribute('style');
+    }
 }
 
 // General Functions

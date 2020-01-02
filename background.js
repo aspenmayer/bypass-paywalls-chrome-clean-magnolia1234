@@ -205,7 +205,7 @@ chrome.webRequest.onBeforeRequest.addListener(function(details) {
   return {cancel: true}; 
   },
   {
-    urls: ["*://*.thestar.com/*", "*://*.theglobeandmail.com/*", "*://*.afr.com/*",
+    urls: ["*://*.theglobeandmail.com/*", "*://*.afr.com/*",
 		"*://*.tinypass.com/*", "*://*.poool.fr/*"],
     types: ["script"]
   },
