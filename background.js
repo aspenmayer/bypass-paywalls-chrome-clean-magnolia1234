@@ -84,7 +84,9 @@ var blockedRegexes = {
 'haaretz.com': /haaretz\.com\/hdc\/web\/js\/minified\/header-scripts-int.js.+/,
 'nzherald.co.nz': /nzherald\.co\.nz\/.+\/headjs\/.+\.js/,
 'businessinsider.com': /(.+\.tinypass\.com\/.+|cdn\.onesignal\.com\/sdks\/.+\.js)/,
-'bostonglobe.com': /meter\.bostonglobe\.com\/js\/.+/
+'bostonglobe.com': /meter\.bostonglobe\.com\/js\/.+/,
+'afr.com': /afr\.com\/assets\/vendorsReactRedux_client.+\.js/,
+'theglobeandmail.com': /theglobeandmail\.com\/pb\/resources\/scripts\/build\/chunk-bootstraps\/.+\.js/
 };
 /** obsolete
 'economist.com': /.+\.tinypass\.com\/.+/,
@@ -205,8 +207,7 @@ chrome.webRequest.onBeforeRequest.addListener(function(details) {
   return {cancel: true}; 
   },
   {
-    urls: ["*://*.theglobeandmail.com/*", "*://*.afr.com/*",
-		"*://*.tinypass.com/*", "*://*.poool.fr/*"],
+    urls: ["*://*.tinypass.com/*", "*://*.poool.fr/*"],
     types: ["script"]
   },
   ["blocking"]

@@ -209,15 +209,15 @@ if (window.location.href.indexOf("leparisien.fr") !== -1) {
 
 if (window.location.href.indexOf("economist.com") !== -1) {
     document.addEventListener('DOMContentLoaded', () => {
-		const wrapper = document.getElementById('bottom-page-wrapper');
-		removeDOMElement(wrapper);
-		setTimeout(function () {
-			const paywall = document.querySelector('.layout-article-regwall');;
-			if (paywall) {
-				window.location.reload(true);
-			}
-		}, 300); // Delay (in milliseconds)
-	});
+        const wrapper = document.getElementById('bottom-page-wrapper');
+        removeDOMElement(wrapper);
+        setTimeout(function () {
+            const paywall = document.querySelector('.layout-article-regwall'); ;
+            if (paywall) {
+                window.location.reload(true);
+            }
+        }, 300); // Delay (in milliseconds)
+    });
 }
 
 if (window.location.href.indexOf("bizjournals.com") !== -1) {
@@ -317,6 +317,40 @@ if (window.location.href.indexOf("thestar.com") !== -1) {
     for (let i = 0; i < tbc.length; i++) {
         tbc[i].removeAttribute('style');
     }
+}
+
+if (window.location.href.indexOf("afr.com") !== -1) {
+    document.addEventListener('DOMContentLoaded', () => {
+        const hidden_image = document.querySelectorAll('img');
+        for (let i = 0; i < hidden_image.length; i++) {
+            var src = hidden_image[i].src;
+            if ('src: ' + src.indexOf(".gif") !== -1) {
+                var data_src = hidden_image[i].getAttribute("data-src");
+                if (data_src)
+                    hidden_image[i].setAttribute('src', data_src);
+            }
+        }
+        const plista = document.querySelector('div[data-plista-placement="underArticle_Group"]');
+        removeDOMElement(plista);
+    });
+}
+
+if (window.location.href.indexOf("theglobeandmail.com") !== -1) {
+    document.addEventListener('DOMContentLoaded', () => {
+        const lazy_image = document.querySelectorAll('.js-lazyimage');
+        for (let i = 0; i < lazy_image.length; i++) {
+            lazy_image[i].classList.remove('js-lazyimage');
+        }
+        const hidden_image = document.querySelectorAll('img');
+        for (let i = 0; i < hidden_image.length; i++) {
+            var src = hidden_image[i].src;
+            if ('src: ' + src.indexOf("image/gif") !== -1) {
+                var data_src = hidden_image[i].getAttribute("data-src");
+                if (data_src)
+                    hidden_image[i].setAttribute('src', data_src);
+            }
+        }
+    });
 }
 
 // General Functions
