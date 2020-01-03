@@ -195,18 +195,6 @@ if (window.location.href.indexOf("nytimes.com") !== -1) {
             preview_button.click();
 }
 
-if (window.location.href.indexOf("leparisien.fr") !== -1) {
-        window.removeEventListener('scroll', this.scrollListener);
-        const paywall = document.querySelector('.relative.piano-paywall.below_nav.sticky');
-        removeDOMElement(paywall);
-        setTimeout(function () {
-            let content = document.getElementsByClassName('content');
-            for (let i = 0; i < content.length; i++) {
-                content[i].removeAttribute("style");
-            }
-        }, 300); // Delay (in milliseconds)
-}
-
 if (window.location.href.indexOf("economist.com") !== -1) {
     document.addEventListener('DOMContentLoaded', () => {
         const wrapper = document.getElementById('bottom-page-wrapper');

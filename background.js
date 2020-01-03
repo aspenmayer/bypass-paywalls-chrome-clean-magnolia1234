@@ -93,7 +93,8 @@ var blockedRegexes = {
 'spectator.co.uk': /.+\.tinypass\.com\/.+/,
 'afr.com': /afr\.com\/assets\/vendorsReactRedux_client.+\.js/,
 'theglobeandmail.com': /theglobeandmail\.com\/pb\/resources\/scripts\/build\/chunk-bootstraps\/.+\.js/,
-'sloanreview.mit.edu': /.+\.tinypass\.com\/.+/
+'sloanreview.mit.edu': /.+\.tinypass\.com\/.+/,
+'leparisien.fr': /.+\.tinypass\.com\/.+/
 };
 
 const userAgentDesktop = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
