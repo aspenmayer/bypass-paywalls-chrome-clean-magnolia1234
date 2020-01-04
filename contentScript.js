@@ -267,8 +267,8 @@ if (window.location.href.indexOf("thetimes.co.uk") !== -1) {
 
 if (window.location.href.indexOf("technologyreview.com") !== -1) {
     const read_story = document.querySelector('.storyExpanderButton');
-        if (read_story)
-            read_story.click();
+    if (read_story)
+        read_story.click();
     const meter = document.querySelector('.meter');
     removeDOMElement(meter);
 }
@@ -339,6 +339,16 @@ if (window.location.href.indexOf("theglobeandmail.com") !== -1) {
             }
         }
     });
+}
+
+if (window.location.href.indexOf("newcastleherald.com.au") !== -1) {
+    const subscribe_truncate = document.querySelector('.subscribe-truncate');
+    if (subscribe_truncate)
+        subscribe_truncate.classList.remove('subscribe-truncate');
+    const subscriber_hider = document.querySelectorAll('.subscriber-hider');
+    for (let i = 0; i < subscriber_hider.length; i++) {
+        subscriber_hider[i].classList.remove('subscriber-hider');
+    }
 }
 
 // General Functions
