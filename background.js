@@ -95,7 +95,7 @@ var blockedRegexes = {
 'theglobeandmail.com': /theglobeandmail\.com\/pb\/resources\/scripts\/build\/chunk-bootstraps\/.+\.js/,
 'sloanreview.mit.edu': /.+\.tinypass\.com\/.+/,
 'leparisien.fr': /.+\.tinypass\.com\/.+/,
-'newcastleherald.com.au': /.+cdn-au\.piano\.io\/api\/tinypas.+\.js/
+'newcastleherald.com.au': /.+cdn-au\.piano\.io\/api\/tinypass.+\.js/
 };
 
 const userAgentDesktop = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
@@ -209,7 +209,7 @@ chrome.webRequest.onBeforeRequest.addListener(function(details) {
   return {cancel: true}; 
   },
   {
-    urls: ["*://*.tinypass.com/*", "*://*.poool.fr/*"],
+    urls: ["*://*.tinypass.com/*", "*://*.poool.fr/*", "*://*.piano.io/*"],
     types: ["script"]
   },
   ["blocking"]
