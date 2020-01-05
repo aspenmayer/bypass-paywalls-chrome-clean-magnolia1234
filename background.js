@@ -15,14 +15,23 @@ const restrictions = {
 // Don't remove cookies before page load
 // allow_cookies are completed with domains in sites(_custom).json (default allow/remove_cookies)
 var allow_cookies = [
+'barrons.com',
+'haaretz.co.il',
+'haaretz.com',
 'lemonde.fr',
+'mexiconewsdaily.com',
 'nytimes.com',
 'parool.nl',
+'prime.economictimes.indiatimes.com',
+'quora.com',
 'scribd.com',
 'techinasia.com',
+'telegraph.co.uk',
 'the-american-interest.com',
 'theathletic.com',
 'theaustralian.com.au',
+'themarker.com',
+'thetimes.co.uk',
 'trouw.nl',
 'volkskrant.nl',
 'wsj.com',
@@ -56,20 +65,18 @@ const remove_cookies_select_drop = {
 const use_google_bot = [
 'barrons.com',
 'haaretz.co.il',
+'haaretz.com',
 'lemonde.fr',
 'mexiconewsdaily.com',
 'nytimes.com',
+'prime.economictimes.indiatimes.com',
 'quora.com',
 'telegraph.co.uk',
+'theathletic.com',
 'theaustralian.com.au',
 'themarker.com',
 'thetimes.co.uk',
-'theathletic.com',
 'wsj.com',
-'haaretz.co.il',
-'haaretz.com',
-'themarker.com',
-'prime.economictimes.indiatimes.com',
 ]
 
 function setDefaultOptions() {
