@@ -351,6 +351,17 @@ if (window.location.href.indexOf("newcastleherald.com.au") !== -1) {
     }
 }
 
+if (window.location.href.indexOf("sofrep.com") !== -1) {
+    const banner = document.getElementById('scrollerCTA');
+    removeDOMElement(banner);
+}
+
+if (window.location.href.indexOf("theathletic.com") !== -1) {
+    const banner = document.querySelector('.border-bottom-cc');
+    const subscribe = document.querySelector('.subscribe-ad-text');
+    removeDOMElement(banner, subscribe);
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {
