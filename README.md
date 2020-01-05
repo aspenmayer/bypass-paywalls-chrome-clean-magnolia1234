@@ -91,6 +91,7 @@ Visit the [Firefox repository](https://github.com/iamadamdev/bypass-paywalls-fir
 [National Post](https://www.nationalpost.com)\
 [New York Magazine](https://www.nymag.com)\
 [New Zealand Herald](https://www.nzherald.co.nz)\
+[Newcastle Herald](https://www.newcastleherald.com.au)\
 [Nikkei Asian Review](https://asia.nikkei.com)\
 [NRC Handelsblad](https://www.nrc.nl)\
 [Parool](https://www.parool.nl)\
