@@ -104,7 +104,8 @@ var blockedRegexes = {
 'theglobeandmail.com': /theglobeandmail\.com\/pb\/resources\/scripts\/build\/chunk-bootstraps\/.+\.js/,
 'sloanreview.mit.edu': /.+\.tinypass\.com\/.+/,
 'leparisien.fr': /.+\.tinypass\.com\/.+/,
-'newcastleherald.com.au': /.+cdn-au\.piano\.io\/api\/tinypass.+\.js/
+'newcastleherald.com.au': /.+cdn-au\.piano\.io\/api\/tinypass.+\.js/,
+'lesechos.fr': /.+\.tinypass\.com\/.+/
 };
 
 const userAgentDesktop = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
