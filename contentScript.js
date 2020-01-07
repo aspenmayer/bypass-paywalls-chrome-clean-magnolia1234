@@ -191,8 +191,8 @@ if (window.location.href.indexOf("thehindu.com") !== -1) {
 
 if (window.location.href.indexOf("nytimes.com") !== -1) {
     const preview_button = document.querySelector('.css-3s1ce0');
-        if (preview_button)
-            preview_button.click();
+    if (preview_button)
+        preview_button.click();
 }
 
 if (window.location.href.indexOf("economist.com") !== -1) {
@@ -357,9 +357,11 @@ if (window.location.href.indexOf("sofrep.com") !== -1) {
 }
 
 if (window.location.href.indexOf("theathletic.com") !== -1) {
-    const banner = document.querySelector('.border-bottom-cc');
+    const landing_banner = document.querySelector('.logged-out-landing-banner');
+    const sample_banner = document.querySelector('.main-sample-banner');
+    const bottom_banner = document.querySelector('.border-bottom-cc');
     const subscribe = document.querySelector('.subscribe-ad-text');
-    removeDOMElement(banner, subscribe);
+    removeDOMElement(landing_banner, sample_banner, bottom_banner, subscribe);
 }
 
 // General Functions
