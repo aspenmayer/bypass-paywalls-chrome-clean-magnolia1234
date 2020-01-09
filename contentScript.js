@@ -1,4 +1,4 @@
-var arr_localstorage_hold = ['sfchronicle.com', 'economist.com'];
+var arr_localstorage_hold = ['sfchronicle.com'];
 var localstorage_hold = arr_localstorage_hold.some(function(url) {
     return window.location.href.indexOf(url) !== -1;
 });
@@ -197,14 +197,16 @@ if (window.location.href.indexOf("nytimes.com") !== -1) {
 
 if (window.location.href.indexOf("economist.com") !== -1) {
     document.addEventListener('DOMContentLoaded', () => {
+        const subscribe = document.querySelector('.subscription-proposition');
+        const advert = document.querySelector('.advert');
         const wrapper = document.getElementById('bottom-page-wrapper');
-        removeDOMElement(wrapper);
+        removeDOMElement(subscribe, advert, wrapper);
         setTimeout(function () {
             const paywall = document.querySelector('.layout-article-regwall'); ;
             if (paywall) {
                 window.location.reload(true);
             }
-        }, 300); // Delay (in milliseconds)
+        }, 600); // Delay (in milliseconds)
     });
 }
 

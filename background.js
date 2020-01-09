@@ -55,7 +55,6 @@ const remove_cookies_select_drop = {
 	'caixinglobal.com': ['CAIXINGLB_LOGIN_UUID'],
 	'demorgen.be': ['TID_ID'],
 	'dn.se': ['randomSplusId'],
-	'economist.com': ['rvuuid'],
 	'ed.nl': ['temptationTrackingId'],
 	'nrc.nl': ['counter'],
 	'theatlantic.com': ['articleViews']
@@ -94,7 +93,7 @@ var blockedRegexes = {
 'haaretz.com': /haaretz\.com\/hdc\/web\/js\/minified\/header-scripts-int.js.+/,
 'nzherald.co.nz': /nzherald\.co\.nz\/.+\/headjs\/.+\.js/,
 'businessinsider.com': /(.+\.tinypass\.com\/.+|cdn\.onesignal\.com\/sdks\/.+\.js)/,
-'economist.com': /.+\.tinypass\.com\/.+/,
+'economist.com': /(.+\.tinypass\.com\/.+|economist\.com\/_next\/static\/runtime\/main.+\.js)/,
 'lrb.co.uk': /.+\.tinypass\.com\/.+/,
 'bostonglobe.com': /meter\.bostonglobe\.com\/js\/.+/,
 'foreignpolicy.com': /.+\.tinypass\.com\/.+/,
@@ -164,7 +163,7 @@ chrome.runtime.onInstalled.addListener(function (details) {
 		.then(response => {
 			if (response.ok) {
 				response.json().then(json => {
-					var defaultSites_merge = {...defaultSites, ...json}; 
+					var defaultSites_merge = {...defaultSites, ...json};
 					defaultSites = defaultSites_merge;
 					// add custom sites
 					const url_sites_custom = 'https://raw.githubusercontent.com/magnolia1234/bypass-paywalls-chrome/master/sites_custom.json';
@@ -172,7 +171,7 @@ chrome.runtime.onInstalled.addListener(function (details) {
 						.then(response => {
 							if (response.ok) {
 								response.json().then(json => {
-									var defaultSites_merge = {...defaultSites, ...json}; 
+									var defaultSites_merge = {...defaultSites, ...json};
 									defaultSites = defaultSites_merge;
 									setDefaultOptions();
 								})
@@ -210,13 +209,13 @@ chrome.webRequest.onBeforeRequest.addListener(function (details) {
 ["blocking"]
 );
 **/
-
+//"*://*.economist.com/*", 
 // Disable javascript for these sites/general paywall-scripts
 chrome.webRequest.onBeforeRequest.addListener(function(details) {
   if (!isSiteEnabled(details)) {
     return;
   }
-  return {cancel: true}; 
+  return {cancel: true};
   },
   {
     urls: ["*://*.tinypass.com/*", "*://*.poool.fr/*", "*://*.piano.io/*"],
@@ -235,7 +234,7 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function(details) {
 		  continue;
 	  }
   }
-  
+
   // remove cookies for sites medium platform (mainfest.json needs in permissions: <all_urls>)
   if (isSiteEnabled({url: '.medium.com'}) && details.url.indexOf('cdn-client.medium.com') !== -1 && header_referer.indexOf('.medium.com') === -1) {
 		var domainVar = new URL(header_referer).hostname;
@@ -243,9 +242,9 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function(details) {
 			for (var i=0; i<cookies.length; i++) {
 				chrome.cookies.remove({url: (cookies[i].secure ? "https://" : "http://") + cookies[i].domain + cookies[i].path, name: cookies[i].name});
 			}
-	    });  
+	    });
   }
-  
+
   // check for blocked regular expression: domain enabled, match regex, block on an internal or external regex
   for (var domain in blockedRegexes) {
 	  if ((isSiteEnabled({url: '.'+ domain}) || isSiteEnabled({url: header_referer})) && details.url.match(blockedRegexes[domain])) {
@@ -303,7 +302,7 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function(details) {
 
   // override User-Agent to use Googlebot
   var useGoogleBot = use_google_bot.filter(function(item) {
-    return typeof item == 'string' && details.url.indexOf(item) > -1;            
+    return typeof item == 'string' && details.url.indexOf(item) > -1;
   }).length > 0;
 
   if (useGoogleBot) {
