@@ -18,6 +18,7 @@ var allow_cookies = [
 'barrons.com',
 'haaretz.co.il',
 'haaretz.com',
+'handelsblatt.com',
 'lemonde.fr',
 'mexiconewsdaily.com',
 'nytimes.com',
@@ -65,6 +66,7 @@ const use_google_bot = [
 'barrons.com',
 'haaretz.co.il',
 'haaretz.com',
+'handelsblatt.com',
 'lemonde.fr',
 'mexiconewsdaily.com',
 'nytimes.com',
@@ -209,7 +211,7 @@ chrome.webRequest.onBeforeRequest.addListener(function (details) {
 ["blocking"]
 );
 **/
-//"*://*.economist.com/*", 
+
 // Disable javascript for these sites/general paywall-scripts
 chrome.webRequest.onBeforeRequest.addListener(function(details) {
   if (!isSiteEnabled(details)) {
