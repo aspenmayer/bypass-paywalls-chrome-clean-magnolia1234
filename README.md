@@ -171,11 +171,11 @@ Usually premium articles cannot be bypassed as they are behind a hard paywall. P
 * This extension works best alongside [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm).
 * If a site doesn't work, try turning off uBlock and refreshing. Also try reinstalling the extension.
 * Make sure the site is checked under Options (on macOS sometimes the sites are unselected).
-* Make sure you're running the last version of Bypass Paywalls. 
+* Make sure you're running the last version of Bypass Paywalls.
 * If none of these work, you can submit an issue [here](https://github.com/iamadamdev/bypass-paywalls-chrome/issues).
 
 ### Changelog
-Visit the [releases page](https://github.com/iamadamdev/bypass-paywalls-chrome/releases).
+* Visit the [releases page](https://github.com/iamadamdev/bypass-paywalls-chrome/releases).
 
 ### Pull Requests
 * PRs are welcome.
@@ -184,4 +184,4 @@ Visit the [releases page](https://github.com/iamadamdev/bypass-paywalls-chrome/r
 * I am not asking for donations or anything like that, all I ask is that you star this repo.
 
 ### License
-Bypass Paywalls is [MIT-licensed](https://github.com/iamadamdev/bypass-paywalls-chrome/blob/master/LICENSE).
+* Bypass Paywalls is [MIT-licensed](https://github.com/iamadamdev/bypass-paywalls-chrome/blob/master/LICENSE).

@@ -211,7 +211,7 @@ chrome.webRequest.onBeforeRequest.addListener(function (details) {
 ["blocking"]
 );
 **/
-
+ 
 // Disable javascript for these sites/general paywall-scripts
 chrome.webRequest.onBeforeRequest.addListener(function(details) {
   if (!isSiteEnabled(details)) {
@@ -254,6 +254,9 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function(details) {
 				// allow BG paywall-script to set cookies in homepage/sections (else no article-text)
 				if (details.url.indexOf('meter.bostonglobe.com/js/') !== -1 && (header_referer === 'https://www.bostonglobe.com/' 
 						|| header_referer.indexOf('/?p1=BGHeader_') !== -1  || header_referer.indexOf('/?p1=BGMenu_') !== -1)) {
+					break;
+				} else if (header_referer.indexOf('theglobeandmail.com') !== -1 && !(header_referer.indexOf('/article-') !== -1)) {
+					chrome.webRequest.handlerBehaviorChanged(function () {});
 					break;
 				}
 				return { cancel: true };
