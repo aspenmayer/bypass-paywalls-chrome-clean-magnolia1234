@@ -12,6 +12,7 @@
 		"128": "bypass.png"
 	},
 	"manifest_version": 2,
+	"key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvLxf4oOeSoz8qKVzKGQWW5zW44hWCoOoQRGXTrObUpyoGfGzhFO8aZHQmBcLrAZMA4O6EA7GaXnHkOPCLKM11seZ4J2azb1gSswApfAlaoeOLnhDnp/Jpzz7Bt6o4HL+nhKRJUOZ9z+GXAyOkOps5O38TwJN5R6z8tLkleRgfYscp19YU/vq1x9PrbXIHJTRB7qtb/iJmiKATKisXGmFY3Nbs5m379TGqcJFBM9bI+8bSJtS4e7t0LHOwSLDq3IVRaWVsFd9P19WEDNTxuzr9+rczOrw1vgmiisNOcElse8cyVIoq4bjepvfHM/9nzDgKwQsNG5OTzujwHu2UUN4cwIDAQAB",
 	"name": "Bypass Paywalls Clean",
 	"update_url": "https://raw.githubusercontent.com/magnolia1234/bypass-paywalls-chrome-clean/master/updates.xml",
 	"short_name": "Bypass Paywall",
@@ -20,5 +21,5 @@
 		"page": "options.html"
 	},
     "permissions": [ "cookies", "<all_urls>", "storage", "webRequest", "webRequestBlocking"],
-	"version": "1.6.1.2"
+	"version": "1.6.1.3"
 }
