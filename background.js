@@ -168,7 +168,7 @@ chrome.runtime.onInstalled.addListener(function (details) {
 					var defaultSites_merge = {...defaultSites, ...json};
 					defaultSites = defaultSites_merge;
 					// add custom sites
-					const url_sites_custom = 'https://raw.githubusercontent.com/magnolia1234/bypass-paywalls-chrome/master/sites_custom.json';
+					const url_sites_custom = 'https://raw.githubusercontent.com/magnolia1234/bypass-paywalls-chrome-clean/master/sites_custom.json';
 					fetch(url_sites_custom)
 						.then(response => {
 							if (response.ok) {
