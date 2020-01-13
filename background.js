@@ -45,8 +45,9 @@ var remove_cookies = [
 
 // select specific cookie(s) to hold from remove_cookies domains
 const remove_cookies_select_hold = {
-	'washingtonpost.com': ['wp_gdpr'],
-	'qz.com': ['gdpr']
+	'newstatesman.com': ['STYXKEY_nsversion'],
+	'qz.com': ['gdpr'],
+	'washingtonpost.com': ['wp_gdpr']
 }
 
 // select only specific cookie(s) to drop from remove_cookies domains

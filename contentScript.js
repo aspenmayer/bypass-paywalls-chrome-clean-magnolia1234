@@ -1,4 +1,4 @@
-var arr_localstorage_hold = ['sfchronicle.com'];
+var arr_localstorage_hold = ['sfchronicle.com', 'newstatesman.com'];
 var localstorage_hold = arr_localstorage_hold.some(function(url) {
     return window.location.href.indexOf(url) !== -1;
 });
@@ -367,6 +367,11 @@ if (window.location.href.indexOf("theathletic.com") !== -1) {
     const bottom_banner = document.querySelector('.border-bottom-cc');
     const subscribe = document.querySelector('.subscribe-ad-text');
     removeDOMElement(landing_banner, sample_banner, bottom_banner, subscribe);
+}
+
+if (window.location.href.indexOf("newstatesman.com") !== -1) {
+    const tns_modal_wrapper = document.querySelector('.tns-modal-wrapper');
+    removeDOMElement(tns_modal_wrapper);
 }
 
 // General Functions
