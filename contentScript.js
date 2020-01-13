@@ -1,4 +1,4 @@
-var arr_localstorage_hold = ['sfchronicle.com', 'newstatesman.com'];
+var arr_localstorage_hold = ['sfchronicle.com'];
 var localstorage_hold = arr_localstorage_hold.some(function(url) {
     return window.location.href.indexOf(url) !== -1;
 });
