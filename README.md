@@ -6,8 +6,8 @@
 </p>
 
 * [Installation instructions](#installation-instructions)
-* [List of supported websites](#bypass-the-following-sites-paywalls-with-this-extension)
-* [Sites with limited number of free articles](#list-of-supported-websites)
+* [List of supported websites](#list-of-supported-websites)
+* [Sites with limited number of free articles](#sites-with-limited-number-of-free-articles)
 * [New site requests](#new-site-requests)
 * [Troubleshooting](#troubleshooting)
 * [Changelog](#changelog)
@@ -39,7 +39,7 @@
 4. Drag your .crx file anywhere on the page to import it.
 
 #### Firefox
-Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-firefox) of Bypass Paywall.
+Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-firefox-clean) of Bypass Paywall Clean.
 
 **Notes**
 * This extension works best along side the adblocker [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en).
