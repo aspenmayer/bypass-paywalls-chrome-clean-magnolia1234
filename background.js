@@ -90,24 +90,24 @@ function setDefaultOptions() {
 }
 
 var blockedRegexes = {
+'afr.com': /afr\.com\/assets\/vendorsReactRedux_client.+\.js/,
+'bostonglobe.com': /meter\.bostonglobe\.com\/js\/.+/,
+'businessinsider.com': /(.+\.tinypass\.com\/.+|cdn\.onesignal\.com\/sdks\/.+\.js)/,
 'chicagotribune.com': /.+:\/\/.+\.tribdss\.com\//,
-'thenation.com': /thenation\.com\/.+\/paywall-script\.php/,
+'economist.com': /(.+\.tinypass\.com\/.+|economist\.com\/_next\/static\/runtime\/main.+\.js)/,
+'foreignpolicy.com': /.+\.tinypass\.com\/.+/,
 'haaretz.co.il': /haaretz\.co\.il\/htz\/js\/inter\.js/,
 'haaretz.com': /haaretz\.com\/hdc\/web\/js\/minified\/header-scripts-int.js.+/,
-'nzherald.co.nz': /nzherald\.co\.nz\/.+\/headjs\/.+\.js/,
-'businessinsider.com': /(.+\.tinypass\.com\/.+|cdn\.onesignal\.com\/sdks\/.+\.js)/,
-'economist.com': /(.+\.tinypass\.com\/.+|economist\.com\/_next\/static\/runtime\/main.+\.js)/,
-'lrb.co.uk': /.+\.tinypass\.com\/.+/,
-'bostonglobe.com': /meter\.bostonglobe\.com\/js\/.+/,
-'foreignpolicy.com': /.+\.tinypass\.com\/.+/,
 'inquirer.com': /.+\.tinypass\.com\/.+/,
-'spectator.co.uk': /.+\.tinypass\.com\/.+/,
-'afr.com': /afr\.com\/assets\/vendorsReactRedux_client.+\.js/,
-'theglobeandmail.com': /theglobeandmail\.com\/pb\/resources\/scripts\/build\/chunk-bootstraps\/.+\.js/,
-'sloanreview.mit.edu': /.+\.tinypass\.com\/.+/,
 'leparisien.fr': /.+\.tinypass\.com\/.+/,
+'lesechos.fr': /.+\.tinypass\.com\/.+/,
+'lrb.co.uk': /.+\.tinypass\.com\/.+/,
 'newcastleherald.com.au': /.+cdn-au\.piano\.io\/api\/tinypass.+\.js/,
-'lesechos.fr': /.+\.tinypass\.com\/.+/
+'nzherald.co.nz': /nzherald\.co\.nz\/.+\/headjs\/.+\.js/,
+'sloanreview.mit.edu': /.+\.tinypass\.com\/.+/,
+'spectator.co.uk': /.+\.tinypass\.com\/.+/,
+'theglobeandmail.com': /theglobeandmail\.com\/pb\/resources\/scripts\/build\/chunk-bootstraps\/.+\.js/,
+'thenation.com': /thenation\.com\/.+\/paywall-script\.php/
 };
 
 const userAgentDesktop = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
@@ -115,7 +115,7 @@ const userAgentMobile = "Chrome/41.0.2272.96 Mobile Safari/537.36 (compatible ; 
 
 var enabledSites = [];
 
-// Get the enabled sites
+// Get the enabled sites (from local storage) & add to allow/remove_cookies (if not already in one of these arrays)
 chrome.storage.sync.get({
   sites: {}
 }, function(items) {
@@ -123,20 +123,9 @@ chrome.storage.sync.get({
   enabledSites = Object.keys(items.sites).map(function(key) {
     return items.sites[key];
   });
-});
-
-var loadSites = [];
-
-// Load the sites (from local storage) & add to allow/remove_cookies (if not already in one of these arrays)
-chrome.storage.sync.get({
-  sites: {}
-}, function(items) {
-  var sites = items.sites;
-  loadSites = Object.keys(items.sites).map(function(key) {
-    return items.sites[key];
-  });
-  for (var domainIndex in loadSites) {
-    var domainVar = loadSites[domainIndex];
+  enabledSites = enabledSites.filter(function(el) { return (el !== '###'); });
+  for (var domainIndex in enabledSites) {
+    var domainVar = enabledSites[domainIndex];
     if (!allow_cookies.includes(domainVar) && !remove_cookies.includes(domainVar)) {
       allow_cookies.push(domainVar);
 	  remove_cookies.push(domainVar);
@@ -187,31 +176,6 @@ chrome.runtime.onInstalled.addListener(function (details) {
     // User updated extension
   }
 });
-
-/**
-// WSJ bypass
-chrome.webRequest.onBeforeRequest.addListener(function (details) {
-  if (!isSiteEnabled(details) || details.url.indexOf("mod=rsswn") !== -1) {
-    return;
-  }
-
-  var param;
-  var updatedUrl;
-
-  param = getParameterByName("mod", details.url);
-
-  if (param === null) {
-    updatedUrl = stripQueryStringAndHashFromPath(details.url);
-    updatedUrl += "?mod=rsswn";
-  } else {
-    updatedUrl = details.url.replace(param, "rsswn");
-  }
-  return { redirectUrl: updatedUrl};
-},
-{urls:["*://*.wsj.com/*"], types:["main_frame"]},
-["blocking"]
-);
-**/
 
 // Disable javascript for these sites/general paywall-scripts
 chrome.webRequest.onBeforeRequest.addListener(function(details) {
