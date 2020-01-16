@@ -185,7 +185,7 @@ chrome.webRequest.onBeforeRequest.addListener(function(details) {
   return {cancel: true};
   },
   {
-    urls: ["*://*.tinypass.com/*", "*://*.poool.fr/*", "*://*.piano.io/*"],
+    urls: ["*://*.tinypass.com/*", "*://*.poool.fr/*", "*://*.piano.io/*", "*://*.outbrain.com/*"],
     types: ["script"]
   },
   ["blocking"]
