@@ -25,14 +25,14 @@
 6. Drag the `bypass-paywalls-chrome-clean-master` folder anywhere on the page to import it.
 
 #### Android
-1. Install [Yandex Browser](https://play.google.com/store/apps/details?id=com.yandex.browser&hl=en) from the Google PlayStore (Bypass Paywalls doesn't work with Kiwi Browser yet).
+1. Install [Yandex Browser](https://play.google.com/store/apps/details?id=com.yandex.browser&hl=en) from the Google PlayStore (Bypass Paywalls Clean doesn't work with Kiwi Browser yet).
 2. Download this repo as a [ZIP file from GitHub](https://github.com/magnolia1234/bypass-paywalls-chrome-clean/archive/master.zip). Extract the file (do not delete the folder after installation).
 3. In Yandex go to the extensions page (`browser://extensions`).
 4. Turn on the Developer Mode by checking the box.
 5. Tap `Load unpacked extension`.
 6. Find your extension folder and pick `manifest.json`.
 
-#### Opera/Vivaldi/Brave/Chromium browsers
+#### Chromium browsers (Microsoft Edge/Opera/Vivaldi/Brave)
 1. Download the extension as a .crx file from the [releases page](https://github.com/magnolia1234/bypass-paywalls-chrome-clean/releases).
 2. In your browser go to the extensions page.
 3. Enable Developer Mode.
@@ -43,7 +43,7 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 
 **Notes**
 * This extension works best along side the adblocker [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en).
-* Do not delete extension's folder from your computer/smartphone or Bypass Paywalls will disappear at restart.
+* Do not delete extension's folder from your computer/smartphone or Bypass Paywalls Clean will disappear at restart.
 * Every time you open Chrome it may warn you about running extensions in developer mode, just click 🗙 to keep the extension enabled.
 * You will be logged out for any site you have checked.
 
@@ -82,6 +82,7 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [Le Monde](https://www.lemonde.fr)\
 [Le Parisien](http://www.leparisien.fr)\
 [Les Échos](https://www.lesechos.fr)\
+[Libération](https://www.liberation.fr)\
 [Loeb Classical Library](https://www.loebclassics.com)\
 [London Review of Books](https://www.lrb.co.uk)\
 [Los Angeles Times](https://www.latimes.com)\
@@ -156,22 +157,19 @@ When coming across a paywall click the cookie icon to remove the cookies then re
 _*May not always succeed_
 
 ### New site requests
-Only large or major sites will be considered.
+You can submit a request for a new website [here](https://github.com/magnolia1234/bypass-paywalls-chrome-clean/issues/new). Please follow those instructions are share your results for a quicker process. Please remember to check the [previous requests](https://github.com/magnolia1234/bypass-paywalls-chrome-clean/issues?q=is%3Aissue) before asking for a new website.
+
 1. Visit an article on the site you want to bypass the paywall for and copy the article title.
 2. Open up a new incognito window (Ctrl+Shift+N) and paste the article title into Google.
 3. Click on the same article from the Google search results page. Or you can:
-1. Disable javascript on the website by clicking the botton right icon `</>` on the uBlock panel.
-2. Refresh the page.
-
-If it loads without a paywall you can [submit a request](https://github.com/magnolia1234/bypass-paywalls-chrome-clean/issues/new) to add the site, otherwise my extension cannot bypass it either.
-
-Usually premium articles cannot be bypassed as they are behind a hard paywall. Please see for [previous requests](https://github.com/magnolia1234/bypass-paywalls-chrome-clean/issues?q=is%3Aissue) before asking for a new website to be added.
+4. Disable javascript on the website by clicking the button right icon </> on the uBlock panel.
+5. Refresh the page.
 
 ### Troubleshooting
 * This extension works best alongside [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm).
 * If a site doesn't work, try turning off uBlock and refreshing. Also try reinstalling the extension.
 * Make sure the site is checked under Options (on macOS sometimes the sites are unselected).
-* Make sure you're running the last version of Bypass Paywalls.
+* Make sure you're running the last version of Bypass Paywalls Clean.
 * If none of these work, you can submit an issue [here](https://github.com/magnolia1234/bypass-paywalls-chrome-clean/issues).
 
 ### Changelog
@@ -184,4 +182,4 @@ Usually premium articles cannot be bypassed as they are behind a hard paywall. P
 * I am not asking for donations or anything like that, all I ask is that you star this repo.
 
 ### License
-* Bypass Paywalls is [MIT-licensed](https://github.com/magnolia1234/bypass-paywalls-chrome-clean/blob/master/LICENSE).
+* Bypass Paywalls Clean is [MIT-licensed](https://github.com/magnolia1234/bypass-paywalls-chrome-clean/blob/master/LICENSE).
