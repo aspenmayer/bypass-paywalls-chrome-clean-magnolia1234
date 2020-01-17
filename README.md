@@ -167,6 +167,8 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [Tubantia](https://tubantia.nl) -
 [Volkskrant](https://www.volkskrant.nl) -
 [Vrij Nederland](https://www.vn.nl)\
+**Spain** >
+[El País](https://elpais.com/)\
 **Sweden** >
 [Dagens Nyheter](https://www.dn.se)*
 
