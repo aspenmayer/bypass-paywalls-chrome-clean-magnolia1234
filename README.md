@@ -74,7 +74,7 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [MIT Technology Review](https://www.technologyreview.com) -
 [Towards Data Science](https://www.towardsdatascience.com) -
 [Wired](https://www.wired.com) -
-[Scientific American](https://www.scientificamerican.com)*
+[Scientific American](https://www.scientificamerican.com)*\
 *Blogs* >
 [SofRep](https://sofrep.com)
 
@@ -153,7 +153,8 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [Handelsblatt](https://www.handelsblatt.com)\
 **Italy** >
 [Corriere Della Sera](https://www.corriere.it) -
-[La Repubblica](https://www.repubblica.it)\
+[La Repubblica](https://www.repubblica.it) -
+[La Stampa](https://www.lastampa.it)\
 **Netherlands/Flanders** >
 [Algemeen Dagblad](https://www.ad.nl) -
 [Eindhovens Dagblad](https://ed.nl) -
