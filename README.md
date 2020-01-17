@@ -61,6 +61,7 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [Barron's](https://www.barrons.com) -
 [Bloomberg](https://www.bloomberg.com) -
 [Business Insider](https://www.businessinsider.com) -
+[Fortune](https://fortune.com/) -
 [Harvard Business Review](https://www.hbr.org) -
 [Inc.com](https://www.inc.com) -
 [MIT Sloan Management Review](https://sloanreview.mit.edu) -
