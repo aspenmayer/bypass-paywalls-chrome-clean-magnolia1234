@@ -37,7 +37,7 @@
 Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-firefox-clean) of Bypass Paywall Clean.
 
 **Notes**
-* This extension works best along side the adblocker [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en).
+* This extension works best alongside the adblocker [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en).
 * Do not delete extension's folder from your computer/smartphone or Bypass Paywalls Clean will disappear at restart.
 * Every time you open Chrome it may warn you about running extensions in developer mode, just click 🗙 to keep the extension enabled.
 * You will be logged out for any site you have checked.
@@ -151,15 +151,20 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [La Repubblica](https://www.repubblica.it) -
 [La Stampa](https://www.lastampa.it)
 ##### Netherlands/Flanders
-[Algemeen Dagblad](https://www.ad.nl) -
-[Eindhovens Dagblad](https://ed.nl) -
+[Algemeen Dagblad](https://www.ad.nl) & regional ADR sites like:
+[BN DeStem](https://www.bndestem.nl) -
+[Brabants Dagblad](https://www.bd.nl) -
+[Eindhovens Dagblad](https://www.ed.nl) -
+[Gelderlander](https://www.gelderlander.nl) -
+[PZC](https://www.pzc.nl) -
+[Stentor](https://www.destentor.nl) -
+[Tubantia](https://tubantia.nl)\
 [DeMorgen](https://www.demorgen.be) -
 [Groene Amsterdammer](https://www.groene.nl) -
 [NRC Handelsblad](https://www.nrc.nl) -
 [Parool](https://www.parool.nl) -
 [Telegraaf](https://www.telegraaf.nl) -
 [Trouw](https://www.trouw.nl) -
-[Tubantia](https://tubantia.nl) -
 [Volkskrant](https://www.volkskrant.nl) -
 [Vrij Nederland](https://www.vn.nl)
 ##### Spain

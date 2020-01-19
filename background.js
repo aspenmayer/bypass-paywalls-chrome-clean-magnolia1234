@@ -222,6 +222,21 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function(details) {
 	    });
   }
 
+  // remove cookies for regional ADR sites of ad.nl (mainfest.json needs in permissions: <all_urls>)
+  if (isSiteEnabled({url: '.ad.nl'})) {
+	const ad_region_domains = ['bd.nl', 'ed.nl', 'tubantia.nl', 'bndestem.nl', 'pzc.nl', 'destentor.nl', 'gelderlander.nl'];
+	var domainVar = new URL(details.url).hostname.replace('www.', '');
+	if (ad_region_domains.includes(domainVar)) {
+		chrome.cookies.getAll({domain: domainVar}, function(cookies) {
+			for (var i=0; i<cookies.length; i++) {
+				if (remove_cookies_select_drop['ad.nl'].includes(cookies[i].name)){
+					chrome.cookies.remove({url: (cookies[i].secure ? "https://" : "http://") + cookies[i].domain + cookies[i].path, name: cookies[i].name});
+				}
+			}
+		});
+	}
+  }
+
   // check for blocked regular expression: domain enabled, match regex, block on an internal or external regex
   for (var domain in blockedRegexes) {
 	  if ((isSiteEnabled({url: '.'+ domain}) || isSiteEnabled({url: header_referer})) && details.url.match(blockedRegexes[domain])) {
