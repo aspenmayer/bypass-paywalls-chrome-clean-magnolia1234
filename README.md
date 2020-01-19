@@ -44,7 +44,7 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 
 ### List of supported websites
 #### United States of America
-*Newspapers/Magazines* > 
+##### World news
 [First Things](https://www.firstthings.com) -
 [Foreign Policy](https://www.foreignpolicy.com) -
 [Harper's Magazine](https://harpers.org) -
@@ -54,39 +54,32 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [The New York Times](https://www.nytimes.com) -
 [The New Yorker](https://www.newyorker.com) -
 [The Washington Post](https://www.washingtonpost.com/) -
-[Vanity Fair](https://www.vanityfair.com)\
-*Business* >
+[Vanity Fair](https://www.vanityfair.com)
+##### Business
 [American Affairs](https://americanaffairsjournal.org) -
 [American Banker](https://www.americanbanker.com) -
 [Barron's](https://www.barrons.com) -
 [Bloomberg](https://www.bloomberg.com) -
 [Business Insider](https://www.businessinsider.com) -
+[Digiday](https://digiday.com) –
 [Fortune](https://fortune.com/) -
 [Harvard Business Review](https://www.hbr.org) -
 [Inc.com](https://www.inc.com) -
 [MIT Sloan Management Review](https://sloanreview.mit.edu) -
 [Quartz](https://qz.com) -
 [The Business Journals](https://www.bizjournals.com) -
-[The Wall Street Journal](https://www.wsj.com)\
-*Sports* >
-[The Athletic](https://theathletic.com)\
-*Tech/Science* > 
+[The Wall Street Journal](https://www.wsj.com)
+##### Sports
+[The Athletic](https://theathletic.com)
+##### Tech/Science
 [Dark Reading](https://darkreading.com) -
 [MIT Technology Review](https://www.technologyreview.com) -
 [Towards Data Science](https://www.towardsdatascience.com) -
 [Wired](https://www.wired.com) -
-[Scientific American](https://www.scientificamerican.com)*\
-*Blogs* >
+[Scientific American](https://www.scientificamerican.com)*
+##### Blogs
+[Medium](https://www.medium.com) (all sites) -
 [SofRep](https://sofrep.com)
-
-##### Encyclopedia/Book library/Knowledge base
-[Encyclopedia Britannica](https://www.britannica.com) -
-[Glassdoor](https://www.glassdoor.com) -
-[Loeb Classical Library](https://www.loebclassics.com) -
-[Medium](https://www.medium.com) -
-[Quora](https://www.quora.com) -
-[Scribd](http://scribd.com) -
-[Statista](https://www.statista.com)
 
 ##### Local US news
 [Baltimore Sun](baltimoresun.com) -
@@ -105,19 +98,13 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [SunSentinel](https://sun-sentinel.com) -
 [The Boston Globe](https://www.bostonglobe.com) -
 [The Denver Post](https://www.denverpost.com) -
-[The Mercury News](https://www.mercurynews.com) - 
+[The Mercury News](https://www.mercurynews.com) -
 [The Morning Call](https://mcall.com) -
 [The Seattle Times](https://www.seattletimes.com) -
 [The News-Gazette](https://news-gazette.com) -
 [The Philadelphia Inquirer](https://www.inquirer.com) -
 [The Sacramento Bee](sacbee.com)* -
 [Winston-Salem Journal](https://journalnow.com)
-
-### Canada
-[National Post](https://www.nationalpost.com) -
-[Le Devoir](https://www.ledevoir.com) -
-[The Toronto Star](https://www.thestar.com) -
-[The Globe and Mail](https://www.theglobeandmail.com)
 
 #### Australia/New Zealand
 [Newcastle Herald](https://www.newcastleherald.com.au) -
@@ -130,9 +117,14 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [New Zealand Herald](https://www.nzherald.co.nz) -
 [The Sydney Morning Herald](https://www.smh.com.au)
 
-#### Europe
+#### Canada
+[National Post](https://www.nationalpost.com) -
+[Le Devoir](https://www.ledevoir.com) -
+[The Toronto Star](https://www.thestar.com) -
+[The Globe and Mail](https://www.theglobeandmail.com)
 
-**United Kingdom/Ireland** >
+#### Europe
+##### United Kingdom/Ireland
 [Financial News](https://www.fnlondon.com) -
 [Financial Times](https://www.ft.com) -
 [London Review of Books](https://www.lrb.co.uk) -
@@ -143,20 +135,21 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [The Telegraph](https://www.telegraph.co.uk) -
 [The Times Literary Supplement](https://www.the-tls.co.uk) -
 [The Times](https://www.thetimes.co.uk)
-
-**France/Wallonia** >
+##### France/Wallonia
+[Challenges](https://www.challenges.fr) –
 [L'Écho](https://lecho.be) -
 [Le Monde](https://www.lemonde.fr) -
 [Le Parisien](http://www.leparisien.fr) -
 [Les Échos](https://www.lesechos.fr) -
-[Libération](https://www.liberation.fr)*\
-**Germany** >
-[Handelsblatt](https://www.handelsblatt.com)\
-**Italy** >
+[Libération](https://www.liberation.fr)* –
+[Valeurs Actuelles](https://www.valeursactuelles.com)
+##### Germany
+[Handelsblatt](https://www.handelsblatt.com)
+##### Italy
 [Corriere Della Sera](https://www.corriere.it) -
 [La Repubblica](https://www.repubblica.it) -
-[La Stampa](https://www.lastampa.it)\
-**Netherlands/Flanders** >
+[La Stampa](https://www.lastampa.it)
+##### Netherlands/Flanders
 [Algemeen Dagblad](https://www.ad.nl) -
 [Eindhovens Dagblad](https://ed.nl) -
 [DeMorgen](https://www.demorgen.be) -
@@ -167,47 +160,57 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [Trouw](https://www.trouw.nl) -
 [Tubantia](https://tubantia.nl) -
 [Volkskrant](https://www.volkskrant.nl) -
-[Vrij Nederland](https://www.vn.nl)\
-**Spain** >
-[El País](https://elpais.com/)\
-**Sweden** >
+[Vrij Nederland](https://www.vn.nl)
+##### Spain
+[El País](https://elpais.com)
+##### Sweden
 [Dagens Nyheter](https://www.dn.se)*
 
-**East Asia** >
+#### East Asia
 [Caixin Global](https://www.caixinglobal.com) -
 [Nikkei Asian Review](https://asia.nikkei.com) -
 [Tech in Asia](https://www.techinasia.com) -
 [The Diplomat](https://www.thediplomat.com) -
-[The Japan Times](https://www.japantimes.co.jp)\
-**India** >
+[The Japan Times](https://www.japantimes.co.jp)
+
+#### India
 [Bloomberg Quint](https://www.bloombergquint.com)* -
-[ET Prime](https://prime.economictimes.indiatimes.com/) -
+[ET Prime](https://prime.economictimes.indiatimes.com) -
 [The Hindu](https://www.thehindu.com)
 
-**Israel** >
+#### Israel
 [Haaretz.co.il](https://www.haaretz.co.il) -
 [Haaretz.com](https://www.haaretz.com) -
 [The Marker](https://www.themarker.com)
 
-**Latin America/Mexico** >
+#### Latin America
+[Exame](https://exame.abril.com.br) –
 [La Nación](https://www.lanacion.com.ar) -
 [La Tercera](https://www.latercera.com) -
-[Mexico News Daily](https://mexiconewsdaily.com)
+[Mexico News Daily](https://mexiconewsdaily.com) –
+[O Estado de S. Paulo](https://estadao.com.br) –
+[O Globo](https://oglobo.globo.com) –
+[Valor Econômico](https://valor.globo.com)*
+
+#### Encyclopedia/Book library/Knowledge base
+[Encyclopedia Britannica](https://www.britannica.com) -
+[Glassdoor](https://www.glassdoor.com) -
+[Loeb Classical Library](https://www.loebclassics.com) -
+[Quora](https://www.quora.com) -
+[Scribd](http://scribd.com) -
+[Statista](https://www.statista.com)
 
 _*free articles only._
 
 ### Sites with limited number of free articles
 The free article limit can normally be bypassed by removing cookies for the site.*
-
-Install the [Cookie Remover](https://chrome.google.com/webstore/detail/cookie-remover/kcgpggonjhmeaejebeoeomdlohicfhce) extension. Please rate it 5 stars if you find it useful.
-
-When coming across a paywall click the cookie icon to remove the cookies then refresh the page.
+1. Install the [Disable Cookies](https://chrome.google.com/webstore/detail/disable-cookies/lkmjmficaoifggpfapbffkggecbleang?hl=en) extension.
+2. When coming across a paywall click the cookie icon, then refresh the page.
 
 _*may not always succeed._
 
 ### New site requests
 You can submit a request for a new website [here](https://github.com/magnolia1234/bypass-paywalls-chrome-clean/issues/new). Please read the following instructions and share your results for a quicker process. Remember to check the [previous requests](https://github.com/magnolia1234/bypass-paywalls-chrome-clean/issues?q=is%3Aissue+label%3Aenhancement) before asking for a new website.
-
 1. Visit an article on the site you want to bypass the paywall for and copy the article title.
 2. Open up a new incognito window (Ctrl+Shift+N) and paste the article title into Google.
 3. Click on the same article from the Google search results page. Or you can:

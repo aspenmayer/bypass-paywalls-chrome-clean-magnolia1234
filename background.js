@@ -82,21 +82,18 @@ const use_google_bot = [
 'wsj.com',
 ]
 
-function setDefaultOptions() {
-  chrome.storage.sync.set({
-    sites: defaultSites
-  }, function() {
-    chrome.tabs.create({ 'url': 'chrome://extensions/?options=' + chrome.runtime.id });
-  });
-}
-
+// block paywall-scripts individually
 var blockedRegexes = {
 'afr.com': /afr\.com\/assets\/vendorsReactRedux_client.+\.js/,
 'bostonglobe.com': /meter\.bostonglobe\.com\/js\/.+/,
 'businessinsider.com': /(.+\.tinypass\.com\/.+|cdn\.onesignal\.com\/sdks\/.+\.js)/,
+'challenges.fr': /.+\.poool\.fr\/.+/,
 'chicagotribune.com': /.+:\/\/.+\.tribdss\.com\//,
+'digiday.com': /.+\.tinypass\.com\/.+/,
 'economist.com': /(.+\.tinypass\.com\/.+|economist\.com\/_next\/static\/runtime\/main.+\.js)/,
 'elpais.com': /.+\.epimg\.net\/js\/.+\/noticia\.min\.js/,
+'exame.abril.com.br': /.+\.tinypass\.com\/.+/,
+'globo.com': /.+\.tinypass\.com\/.+/,
 'foreignpolicy.com': /.+\.tinypass\.com\/.+/,
 'fortune.com':  /.+\.tinypass\.com\/.+/,
 'haaretz.co.il': /haaretz\.co\.il\/htz\/js\/inter\.js/,
@@ -111,13 +108,22 @@ var blockedRegexes = {
 'sloanreview.mit.edu': /.+\.tinypass\.com\/.+/,
 'spectator.co.uk': /.+\.tinypass\.com\/.+/,
 'theglobeandmail.com': /theglobeandmail\.com\/pb\/resources\/scripts\/build\/chunk-bootstraps\/.+\.js/,
-'thenation.com': /thenation\.com\/.+\/paywall-script\.php/
+'thenation.com': /thenation\.com\/.+\/paywall-script\.php/,
+'valeursactuelles.com': /.+\.poool\.fr\/.+/
 };
 
 const userAgentDesktop = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
 const userAgentMobile = "Chrome/41.0.2272.96 Mobile Safari/537.36 (compatible ; Googlebot/2.1 ; +http://www.google.com/bot.html)"
 
 var enabledSites = [];
+
+function setDefaultOptions() {
+  chrome.storage.sync.set({
+    sites: defaultSites
+  }, function() {
+    chrome.tabs.create({ 'url': 'chrome://extensions/?options=' + chrome.runtime.id });
+  });
+}
 
 // Get the enabled sites (from local storage) & add to allow/remove_cookies (if not already in one of these arrays)
 chrome.storage.sync.get({
@@ -221,7 +227,7 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function(details) {
 	  if ((isSiteEnabled({url: '.'+ domain}) || isSiteEnabled({url: header_referer})) && details.url.match(blockedRegexes[domain])) {
 			if (details.url.indexOf(domain) !== -1 || header_referer.indexOf(domain) !== -1) {
 				// allow BG paywall-script to set cookies in homepage/sections (else no article-text)
-				if (details.url.indexOf('meter.bostonglobe.com/js/') !== -1 && (header_referer === 'https://www.bostonglobe.com/' 
+				if (details.url.indexOf('meter.bostonglobe.com/js/') !== -1 && (header_referer === 'https://www.bostonglobe.com/'
 						|| header_referer.indexOf('/?p1=BGHeader_') !== -1  || header_referer.indexOf('/?p1=BGMenu_') !== -1)) {
 					break;
 				} else if (header_referer.indexOf('theglobeandmail.com') !== -1 && !(header_referer.indexOf('/article-') !== -1)) {

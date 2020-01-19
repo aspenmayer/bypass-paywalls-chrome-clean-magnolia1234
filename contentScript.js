@@ -380,6 +380,11 @@ if (window.location.href.indexOf("liberation.fr") !== -1) {
       close_button.click();
 }
 
+if (window.location.href.indexOf("estadao.com.br") !== -1) {
+    const paywall = document.getElementById('paywall-wrapper-iframe-estadao');
+    removeDOMElement(paywall);
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {
