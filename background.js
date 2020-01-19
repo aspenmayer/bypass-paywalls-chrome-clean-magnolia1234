@@ -19,6 +19,7 @@ var allow_cookies = [
 'haaretz.co.il',
 'haaretz.com',
 'handelsblatt.com',
+'kleinezeitung.at',
 'lemonde.fr',
 'mexiconewsdaily.com',
 'nytimes.com',
@@ -65,7 +66,6 @@ const remove_cookies_select_drop = {
 // Override User-Agent with Googlebot
 const use_google_bot = [
 'barrons.com',
-'elpais.com',
 'haaretz.co.il',
 'haaretz.com',
 'handelsblatt.com',
@@ -251,7 +251,7 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function(details) {
   // if referer exists, set it to google
   requestHeaders = requestHeaders.map(function (requestHeader) {
     if (requestHeader.name === 'Referer') {
-      if (details.url.indexOf("ft.com") !== -1) {
+      if (details.url.indexOf("ft.com") !== -1 || details.url.indexOf("kleinezeitung.at") !== -1) {
         requestHeader.value = 'https://www.facebook.com/';
       } else {
         requestHeader.value = 'https://www.google.com/';
@@ -267,7 +267,7 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function(details) {
 
   // otherwise add it
   if (!setReferer) {
-    if (details.url.indexOf("ft.com") !== -1) {
+      if (details.url.indexOf("ft.com") !== -1 || details.url.indexOf("kleinezeitung.at") !== -1) {
       requestHeaders.push({
         name: 'Referer',
         value: 'https://www.facebook.com/'

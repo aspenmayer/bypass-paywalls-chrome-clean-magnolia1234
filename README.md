@@ -88,9 +88,9 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [Daily Press](https://www.dailypress.com) -
 [Hartford Courant](https://www.courant.com) -
 [Los Angeles Business Journal](labusinessjournal.com) -
+[Los Angeles Times](https://www.latimes.com) -
 [Miami Herald](https://miamiherald.com) -
 [New York Magazine](https://www.nymag.com) -
-[Los Angeles Times](https://www.latimes.com) -
 [OrlandoSentinel](https://orlandosentinel.com) -
 [Pittsburgh Post Gazette](https://post-gazette.com) -
 [San Diego Union Tribune](https://sandiegouniontribune.com) -
@@ -133,8 +133,8 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [The New Statesman](https://www.newstatesman.com) -
 [The Spectator](https://www.spectator.co.uk) -
 [The Telegraph](https://www.telegraph.co.uk) -
-[The Times Literary Supplement](https://www.the-tls.co.uk) -
-[The Times](https://www.thetimes.co.uk)
+[The Times](https://www.thetimes.co.uk) -
+[The Times Literary Supplement](https://www.the-tls.co.uk)
 ##### France/Wallonia
 [Challenges](https://www.challenges.fr) –
 [L'Écho](https://lecho.be) -
@@ -143,8 +143,9 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [Les Échos](https://www.lesechos.fr) -
 [Libération](https://www.liberation.fr)* –
 [Valeurs Actuelles](https://www.valeursactuelles.com)
-##### Germany
-[Handelsblatt](https://www.handelsblatt.com)
+##### Germany/Austria
+[Handelsblatt](https://www.handelsblatt.com) -
+[Kleine Zeitung](https://www.kleinezeitung.at)
 ##### Italy
 [Corriere Della Sera](https://www.corriere.it) -
 [La Repubblica](https://www.repubblica.it) -
