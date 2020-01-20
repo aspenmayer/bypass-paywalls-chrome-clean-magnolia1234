@@ -138,6 +138,7 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 ##### France/Wallonia
 [Challenges](https://www.challenges.fr) –
 [L'Écho](https://lecho.be) -
+[Le Journal du Dimanche](https://lejdd.fr) –
 [Le Monde](https://www.lemonde.fr) -
 [Le Parisien](http://www.leparisien.fr) -
 [Les Échos](https://www.lesechos.fr) -
@@ -151,7 +152,7 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [La Repubblica](https://www.repubblica.it) -
 [La Stampa](https://www.lastampa.it)
 ##### Netherlands/Flanders
-[Algemeen Dagblad](https://www.ad.nl) & regional ADR sites like:
+[Algemeen Dagblad](https://www.ad.nl) and regional ADR sites like
 [BN DeStem](https://www.bndestem.nl) -
 [Brabants Dagblad](https://www.bd.nl) -
 [Eindhovens Dagblad](https://www.ed.nl) -
