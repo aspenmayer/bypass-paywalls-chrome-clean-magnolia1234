@@ -385,6 +385,11 @@ if (window.location.href.indexOf("estadao.com.br") !== -1) {
     removeDOMElement(paywall);
 }
 
+if (window.location.href.indexOf("folha.uol.com.br") !== -1) {
+    const signup = document.querySelector('.c-top-signup');
+    removeDOMElement(signup);
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {

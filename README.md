@@ -11,7 +11,7 @@
 * [License](#license)
 
 ### Installation instructions
-#### Chrome (Windows/MacOS/Linux)
+#### Chrome (Windows/MacOS/Linux)/Microsoft Edge (Chromium)
 1. Download this repo as a [ZIP file from GitHub](https://github.com/magnolia1234/bypass-paywalls-chrome-clean/archive/master.zip).
 2. Unzip the file and you should have a folder named `bypass-paywalls-chrome-clean-master`.
 3. Move the folder to a permanent location on your computer (do not delete the folder after installation).
@@ -27,7 +27,7 @@
 5. Tap `Load unpacked extension`.
 6. Find your extension folder and pick `manifest.json`.
 
-#### Chromium browsers (Microsoft Edge/Opera/Vivaldi/Brave)
+#### Chromium browsers (Opera/Vivaldi/Yandex/Brave)
 1. Download the extension as a .crx file from the [releases page](https://github.com/magnolia1234/bypass-paywalls-chrome-clean/releases).
 2. In your browser go to the extensions page.
 3. Enable Developer Mode.
@@ -191,13 +191,19 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [The Marker](https://www.themarker.com)
 
 #### Latin America
+
+#### Argentina
+[La Nación](https://www.lanacion.com.ar)
+#### Brazil
 [Exame](https://exame.abril.com.br) –
-[La Nación](https://www.lanacion.com.ar) -
-[La Tercera](https://www.latercera.com) -
-[Mexico News Daily](https://mexiconewsdaily.com) –
+[Folha de S. Paulo](https://www.folha.uol.com.br) -
 [O Estado de S. Paulo](https://estadao.com.br) –
 [O Globo](https://oglobo.globo.com) –
 [Valor Econômico](https://valor.globo.com)*
+#### Chile
+[La Tercera](https://www.latercera.com)
+#### Mexico
+[Mexico News Daily](https://mexiconewsdaily.com)
 
 #### Encyclopedia/Book library/Knowledge base
 [Encyclopedia Britannica](https://www.britannica.com) -

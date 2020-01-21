@@ -16,6 +16,7 @@ const restrictions = {
 // allow_cookies are completed with domains in sites(_custom).json (default allow/remove_cookies)
 var allow_cookies = [
 'barrons.com',
+'folha.uol.com.br',
 'haaretz.co.il',
 'haaretz.com',
 'handelsblatt.com',
@@ -93,6 +94,7 @@ var blockedRegexes = {
 'economist.com': /(.+\.tinypass\.com\/.+|economist\.com\/_next\/static\/runtime\/main.+\.js)/,
 'elpais.com': /.+\.epimg\.net\/js\/.+\/noticia\.min\.js/,
 'exame.abril.com.br': /.+\.tinypass\.com\/.+/,
+'folha.uol.com.br': /.+\.folha\.uol\.com\.br\/paywall\/js\/.+\/publicidade\.ads\.js/,
 'globo.com': /.+\.tinypass\.com\/.+/,
 'foreignpolicy.com': /.+\.tinypass\.com\/.+/,
 'fortune.com':  /.+\.tinypass\.com\/.+/,
