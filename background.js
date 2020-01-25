@@ -67,6 +67,7 @@ const remove_cookies_select_drop = {
 
 // Override User-Agent with Googlebot
 const use_google_bot = [
+'dn.se',
 'barrons.com',
 'haaretz.co.il',
 'haaretz.com',
@@ -91,6 +92,7 @@ var blockedRegexes = {
 'bostonglobe.com': /meter\.bostonglobe\.com\/js\/.+/,
 'businessinsider.com': /(.+\.tinypass\.com\/.+|cdn\.onesignal\.com\/sdks\/.+\.js)/,
 'challenges.fr': /.+\.poool\.fr\/.+/,
+'chicagobusiness.com': /.+\.tinypass\.com\/.+/,
 'chicagotribune.com': /.+:\/\/.+\.tribdss\.com\//,
 'digiday.com': /.+\.tinypass\.com\/.+/,
 'economist.com': /(.+\.tinypass\.com\/.+|economist\.com\/_next\/static\/runtime\/main.+\.js)/,

@@ -11,23 +11,20 @@
 * [License](#license)
 
 ### Installation instructions
-#### Windows/MacOS/Linux – Chrome/Microsoft Edge (Chromium)
+Due to [Google internal policy](https://developer.chrome.com/webstore/program_policies), the extension is not available on the Chrome Web Store. The following instructions are needed to install third-party extensions in [Chromium](https://en.wikipedia.org/wiki/Chromium_(web_browser))-based browsers:
+#### Chrome (Windows, MacOS, Linux), Microsoft Edge (version 79)
 1. Download this repo as a [ZIP file from GitHub](https://github.com/magnolia1234/bypass-paywalls-chrome-clean/archive/master.zip).
 2. Unzip the file and you should have a folder named `bypass-paywalls-chrome-clean-master`.
 3. Move the folder to a permanent location on your computer (do not delete the folder after installation).
-4. In Chrome go to the extensions page (`chrome://extensions`).
+4. Go to the extensions page (`chrome://extensions` or `edge://extensions`).
 5. Enable Developer Mode.
-6. Drag the `bypass-paywalls-chrome-clean-master` folder anywhere on the page to import it.
+6. Click `Load unpacked` and select the extension folder.
 
 #### Android
 1. Install [Yandex Browser](https://play.google.com/store/apps/details?id=com.yandex.browser&hl=en) from the Google PlayStore (Bypass Paywalls Clean doesn't work with Kiwi Browser yet).
-2. Download this repo as a [ZIP file from GitHub](https://github.com/magnolia1234/bypass-paywalls-chrome-clean/archive/master.zip). Extract the file (do not delete the folder after installation).
-3. In Yandex go to the extensions page (`browser://extensions`).
-4. Turn on the Developer Mode by checking the box.
-5. Tap `Load unpacked extension`.
-6. Find your extension folder and pick `manifest.json`.
+2. Follow Chrome instructions located just above (step 6: pick `manifest.json` instead of the folder).
 
-#### Chromium browsers (Opera/Vivaldi/Yandex/Brave)
+#### Other Chromium browsers (Opera/Vivaldi/Yandex/Brave)
 1. Download the extension as a .crx file from the [releases page](https://github.com/magnolia1234/bypass-paywalls-chrome-clean/releases).
 2. In your browser go to the extensions page.
 3. Enable Developer Mode.
@@ -37,7 +34,8 @@
 Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-firefox-clean) of Bypass Paywall Clean.
 
 **Notes**
-* This extension works best alongside the adblocker [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en).
+* This extension works best alongside the adblocker [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en). If you live in the EU, also consider installing the extension [I don't care about cookies
+](https://chrome.google.com/webstore/detail/i-dont-care-about-cookies/fihnjjcciajhdojfnbdddfaoknhalnja) in order to remove cookie warnings.
 * Do not delete extension's folder from your computer/smartphone or Bypass Paywalls Clean will disappear at restart.
 * Every time you open Chrome it may warn you about running extensions in developer mode, just click 🗙 to keep the extension enabled.
 * You will be logged out for any site you have checked.
@@ -174,7 +172,7 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 ##### Spain
 [El País](https://elpais.com)
 ##### Sweden
-[Dagens Nyheter](https://www.dn.se)*
+[Dagens Nyheter](https://www.dn.se)
 
 #### East Asia
 [Caixin Global](https://www.caixinglobal.com) -
@@ -219,8 +217,8 @@ _*free articles only._
 
 ### Sites with limited number of free articles
 The free article limit can normally be bypassed by removing cookies for the site.*
-1. Install the [Disable Cookies](https://chrome.google.com/webstore/detail/disable-cookies/lkmjmficaoifggpfapbffkggecbleang?hl=en) extension.
-2. When coming across a paywall click the cookie icon, then refresh the page.
+1. Install the extension [Disable Cookies](https://chrome.google.com/webstore/detail/disable-cookies/lkmjmficaoifggpfapbffkggecbleang?hl=en).
+2. When coming across a paywall, click the cookie icon in your extension toolbar then refresh the page.
 
 _*may not always succeed._
 
