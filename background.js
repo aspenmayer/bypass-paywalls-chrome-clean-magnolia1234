@@ -22,6 +22,7 @@ var allow_cookies = [
 'handelsblatt.com',
 'kleinezeitung.at',
 'lemonde.fr',
+'lrb.co.uk',
 'mexiconewsdaily.com',
 'nytimes.com',
 'parool.nl',
