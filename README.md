@@ -73,6 +73,7 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 ##### Sports
 [The Athletic](https://theathletic.com)
 ##### Tech/Science
+[Chemical & Engineering News](https://cen.acs.org) -
 [Dark Reading](https://darkreading.com) -
 [MIT Technology Review](https://www.technologyreview.com) -
 [Towards Data Science](https://www.towardsdatascience.com) -

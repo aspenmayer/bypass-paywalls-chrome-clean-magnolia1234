@@ -12,7 +12,6 @@ if (location.hostname.endsWith('rep.repubblica.it')) {
     if (location.href.includes('/pwa/')) {
         location.href = location.href.replace('/pwa/', '/ws/detail/');
     }
-
     if (location.href.includes('/ws/detail/')) {
         const paywall = document.querySelector('.paywall[subscriptions-section="content"]');
         if (paywall) {
@@ -388,6 +387,13 @@ if (window.location.href.indexOf("estadao.com.br") !== -1) {
 if (window.location.href.indexOf("folha.uol.com.br") !== -1) {
     const signup = document.querySelector('.c-top-signup');
     removeDOMElement(signup);
+}
+
+if (window.location.href.indexOf("cen.acs.org") !== -1) {
+    document.addEventListener('DOMContentLoaded', () => {
+        const meteredBar = document.querySelector('.meteredBar');
+        removeDOMElement(meteredBar);
+    });
 }
 
 // General Functions
