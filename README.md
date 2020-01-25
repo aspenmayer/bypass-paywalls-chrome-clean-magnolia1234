@@ -159,6 +159,7 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [Algemeen Dagblad](https://www.ad.nl) and regional ADR sites like
 [BN DeStem](https://www.bndestem.nl) -
 [Brabants Dagblad](https://www.bd.nl) -
+[De Tijd](https://www.tijd.be) -
 [Eindhovens Dagblad](https://www.ed.nl) -
 [Gelderlander](https://www.gelderlander.nl) -
 [PZC](https://www.pzc.nl) -
