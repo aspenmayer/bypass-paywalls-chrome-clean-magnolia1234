@@ -109,6 +109,7 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [Winston-Salem Journal](https://journalnow.com)
 
 #### Australia/New Zealand
+[Central Western Daily](https://www.centralwesterndaily.com.au) - 
 [Newcastle Herald](https://www.newcastleherald.com.au) -
 [The Advocate](https://www.theadvocate.com.au) -
 [The Age](https://www.theage.com.au) -

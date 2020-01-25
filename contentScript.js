@@ -396,6 +396,16 @@ if (window.location.href.indexOf("cen.acs.org") !== -1) {
     });
 }
 
+if (window.location.href.indexOf("centralwesterndaily.com.au") !== -1) {
+    const subscribe_truncate = document.querySelector('.subscribe-truncate');
+    if (subscribe_truncate)
+        subscribe_truncate.classList.remove('subscribe-truncate');
+    const subscriber_hider = document.querySelectorAll('.subscriber-hider');
+    for (let i = 0; i < subscriber_hider.length; i++) {
+        subscriber_hider[i].classList.remove('subscriber-hider');
+    }
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {
