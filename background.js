@@ -16,6 +16,7 @@ const restrictions = {
 // allow_cookies are completed with domains in sites(_custom).json (default allow/remove_cookies)
 var allow_cookies = [
 'barrons.com',
+'dn.se',
 'folha.uol.com.br',
 'haaretz.co.il',
 'haaretz.com',
@@ -24,6 +25,7 @@ var allow_cookies = [
 'lemonde.fr',
 'lrb.co.uk',
 'mexiconewsdaily.com',
+'nknews.org',
 'nytimes.com',
 'parool.nl',
 'prime.economictimes.indiatimes.com',
@@ -67,13 +69,14 @@ const remove_cookies_select_drop = {
 
 // Override User-Agent with Googlebot
 const use_google_bot = [
-'dn.se',
 'barrons.com',
+'dn.se',
 'haaretz.co.il',
 'haaretz.com',
 'handelsblatt.com',
 'lemonde.fr',
 'mexiconewsdaily.com',
+'nknews.org',
 'nytimes.com',
 'prime.economictimes.indiatimes.com',
 'quora.com',
