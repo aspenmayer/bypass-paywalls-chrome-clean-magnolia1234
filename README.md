@@ -111,6 +111,7 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 
 #### Australia/New Zealand
 [Central Western Daily](https://www.centralwesterndaily.com.au) - 
+[New Zealand Herald](https://www.nzherald.co.nz) -
 [Newcastle Herald](https://www.newcastleherald.com.au) -
 [The Advocate](https://www.theadvocate.com.au) -
 [The Age](https://www.theage.com.au) -
@@ -118,7 +119,8 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [The Australian Financial Review](https://www.afr.com) -
 [The Canberra Times](https://www.canberratimes.com.au) -
 [The Examiner](examiner.com.au)* -
-[New Zealand Herald](https://www.nzherald.co.nz) -
+[The Mercury Tasmania](https://www.themercury.com.au) -
+[The Saturday Paper](https://www.thesaturdaypaper.com.au) -
 [The Sydney Morning Herald](https://www.smh.com.au)
 
 #### Canada
@@ -159,13 +161,13 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [Algemeen Dagblad](https://www.ad.nl) and regional ADR sites like
 [BN DeStem](https://www.bndestem.nl) -
 [Brabants Dagblad](https://www.bd.nl) -
-[De Tijd](https://www.tijd.be) -
 [Eindhovens Dagblad](https://www.ed.nl) -
 [Gelderlander](https://www.gelderlander.nl) -
 [PZC](https://www.pzc.nl) -
 [Stentor](https://www.destentor.nl) -
 [Tubantia](https://tubantia.nl)\
-[DeMorgen](https://www.demorgen.be) -
+[De Morgen](https://www.demorgen.be) -
+[De Tijd](https://www.tijd.be) -
 [Groene Amsterdammer](https://www.groene.nl) -
 [NRC Handelsblad](https://www.nrc.nl) -
 [Parool](https://www.parool.nl) -
