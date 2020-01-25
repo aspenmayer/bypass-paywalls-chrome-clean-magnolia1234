@@ -90,8 +90,11 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [Los Angeles Business Journal](labusinessjournal.com) -
 [Los Angeles Times](https://www.latimes.com) -
 [Miami Herald](https://miamiherald.com) -
+[Mountain View Voice](https://www.mv-voice.com) -
 [New York Magazine](https://www.nymag.com) -
-[OrlandoSentinel](https://orlandosentinel.com) -
+[Orange County Register](https://www.ocregister.com) -
+[Orlando Sentinel](https://www.orlandosentinel.com) -
+[Palo Alto Online](https://www.paloaltoonline.com) -
 [Pittsburgh Post Gazette](https://post-gazette.com) -
 [San Diego Union Tribune](https://sandiegouniontribune.com) -
 [San Francisco Chronicle](https://www.sfchronicle.com) -
