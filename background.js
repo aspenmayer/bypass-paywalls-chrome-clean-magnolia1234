@@ -15,17 +15,24 @@ const restrictions = {
 // Don't remove cookies before page load
 // allow_cookies are completed with domains in sites(_custom).json (default allow/remove_cookies)
 var allow_cookies = [
+'adelaidenow.com.au',
 'barrons.com',
+'cairnspost.com.au',
+'couriermail.com.au',
+'dailytelegraph.com.au',
 'dn.se',
 'folha.uol.com.br',
+'goldcoastbulletin.com.au',
 'haaretz.co.il',
 'haaretz.com',
 'handelsblatt.com',
+'heraldsun.com.au',
 'kleinezeitung.at',
 'lemonde.fr',
 'lrb.co.uk',
 'mexiconewsdaily.com',
 'nknews.org',
+'ntnews.com.au',
 'nytimes.com',
 'parool.nl',
 'prime.economictimes.indiatimes.com',
@@ -37,9 +44,12 @@ var allow_cookies = [
 'theathletic.com',
 'theaustralian.com.au',
 'themarker.com',
+'themercury.com.au',
 'thetimes.co.uk',
+'townsvillebulletin.com.au',
 'trouw.nl',
 'volkskrant.nl',
+'weeklytimesnow.com.au',
 'wsj.com',
 ]
 
@@ -69,14 +79,21 @@ const remove_cookies_select_drop = {
 
 // Override User-Agent with Googlebot
 const use_google_bot = [
+'adelaidenow.com.au',
 'barrons.com',
+'cairnspost.com.au',
+'couriermail.com.au',
+'dailytelegraph.com.au',
 'dn.se',
+'goldcoastbulletin.com.au',
 'haaretz.co.il',
 'haaretz.com',
 'handelsblatt.com',
+'heraldsun.com.au',
 'lemonde.fr',
 'mexiconewsdaily.com',
 'nknews.org',
+'ntnews.com.au',
 'nytimes.com',
 'prime.economictimes.indiatimes.com',
 'quora.com',
@@ -84,7 +101,10 @@ const use_google_bot = [
 'theathletic.com',
 'theaustralian.com.au',
 'themarker.com',
+'themercury.com.au',
 'thetimes.co.uk',
+'townsvillebulletin.com.au',
+'weeklytimesnow.com.au',
 'wsj.com',
 ]
 

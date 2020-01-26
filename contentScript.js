@@ -263,7 +263,9 @@ if (window.location.href.indexOf("scribd.com") !== -1) {
 
 if (window.location.href.indexOf("thetimes.co.uk") !== -1) {
     const block = document.querySelector('.subscription-block');
-    removeDOMElement(block);
+    const ad_block = document.getElementById('ad-article-inline')
+    const ad_header = document.getElementById('sticky-ad-header')
+    removeDOMElement(block, ad_block, ad_header);
 }
 
 if (window.location.href.indexOf("technologyreview.com") !== -1) {
@@ -404,6 +406,29 @@ if (window.location.href.indexOf("centralwesterndaily.com.au") !== -1) {
     for (let i = 0; i < subscriber_hider.length; i++) {
         subscriber_hider[i].classList.remove('subscriber-hider');
     }
+}
+
+if (window.location.href.indexOf("lesechos.fr") !== -1) {
+    const ad_block = document.querySelectorAll('.jzxvkd-1');
+    for (let i=0; i < ad_block.length; i++) {
+      ad_block[i].remove();
+    }
+}
+
+if (window.location.href.indexOf("thesaturdaypaper.com.au") !== -1) {
+    const expand_button = document.querySelector('.continue-reading-button');
+    if (expand_button)
+        expand_button.click();
+}
+
+if (window.location.href.indexOf("examiner.com.au") !== -1) {
+  const subscribe_truncate = document.querySelector('.subscribe-truncate');
+  if (subscribe_truncate)
+      subscribe_truncate.classList.remove('subscribe-truncate');
+  const subscriber_hider = document.querySelectorAll('.subscriber-hider');
+  for (let i = 0; i < subscriber_hider.length; i++) {
+      subscriber_hider[i].classList.remove('subscriber-hider');
+  }
 }
 
 // General Functions

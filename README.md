@@ -51,7 +51,7 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [The Nation](https://www.thenation.com) -
 [The New York Times](https://www.nytimes.com) -
 [The New Yorker](https://www.newyorker.com) -
-[The Washington Post](https://www.washingtonpost.com/) -
+[The Washington Post](https://www.washingtonpost.com) -
 [Vanity Fair](https://www.vanityfair.com)
 ##### Business
 [Adweek](https://adweek.com) -
@@ -61,7 +61,7 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [Bloomberg](https://www.bloomberg.com) -
 [Business Insider](https://www.businessinsider.com) -
 [Digiday](https://digiday.com) –
-[Fortune](https://fortune.com/) -
+[Fortune](https://fortune.com) -
 [Harvard Business Review](https://www.hbr.org) -
 [Inc.com](https://www.inc.com) -
 [MIT Sloan Management Review](https://sloanreview.mit.edu) -
@@ -87,7 +87,7 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [Chicago Tribune](https://www.chicagotribune.com) -
 [Daily Press](https://www.dailypress.com) -
 [Hartford Courant](https://www.courant.com) -
-[Los Angeles Business Journal](labusinessjournal.com) -
+[Los Angeles Business Journal](https://labusinessjournal.com) -
 [Los Angeles Times](https://www.latimes.com) -
 [Miami Herald](https://miamiherald.com) -
 [Mountain View Voice](https://www.mv-voice.com) -
@@ -106,22 +106,31 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [The Seattle Times](https://www.seattletimes.com) -
 [The News-Gazette](https://news-gazette.com) -
 [The Philadelphia Inquirer](https://www.inquirer.com) -
-[The Sacramento Bee](sacbee.com)* -
+[The Sacramento Bee](https://sacbee.com)* -
 [Winston-Salem Journal](https://journalnow.com)
 
 #### Australia/New Zealand
-[Central Western Daily](https://www.centralwesterndaily.com.au) - 
+[Cairns Post](https://www.cairnspost.com.au) –
+[Central Western Daily](https://www.centralwesterndaily.com.au) -
+[Gold Coast Bulletin](https://www.goldcoastbulletin.com.au) –
+[Herald Sun](https://www.heraldsun.com.au) –
 [New Zealand Herald](https://www.nzherald.co.nz) -
 [Newcastle Herald](https://www.newcastleherald.com.au) -
+[Northern Territory News](https://www.ntnews.com.au) –
+[The Advertiser](https://www.adelaidenow.com.au) –
 [The Advocate](https://www.theadvocate.com.au) -
 [The Age](https://www.theage.com.au) -
 [The Australian](https://www.theaustralian.com.au) -
 [The Australian Financial Review](https://www.afr.com) -
 [The Canberra Times](https://www.canberratimes.com.au) -
-[The Examiner](examiner.com.au)* -
+[The Courier-Mail](https://www.couriermail.com.au) –
+[The Daily Telegraph](https://www.dailytelegraph.com.au) –
+[The Examiner](https://examiner.com.au)* -
 [The Mercury Tasmania](https://www.themercury.com.au) -
 [The Saturday Paper](https://www.thesaturdaypaper.com.au) -
-[The Sydney Morning Herald](https://www.smh.com.au)
+[The Sydney Morning Herald](https://www.smh.com.au) –
+[The Weekly Times](https://www.weeklytimesnow.com.au) –
+[Townsville Bulletin](https://www.townsvillebulletin.com.au)
 
 #### Canada
 [National Post](https://www.nationalpost.com) -
@@ -146,7 +155,7 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [L'Écho](https://lecho.be) -
 [Le Journal du Dimanche](https://lejdd.fr) –
 [Le Monde](https://www.lemonde.fr) -
-[Le Parisien](http://www.leparisien.fr) -
+[Le Parisien](https://www.leparisien.fr) -
 [Les Échos](https://www.lesechos.fr) -
 [Libération](https://www.liberation.fr)* –
 [Valeurs Actuelles](https://www.valeursactuelles.com)
