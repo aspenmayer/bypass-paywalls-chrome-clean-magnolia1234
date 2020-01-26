@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <gupdate xmlns='http://www.google.com/update2/response' protocol='2.0'>
   <app appid='lkbebcjgcmobigpeffafkodonchffocl'>
-    <updatecheck codebase='https://github.com/magnolia1234/bypass-paywalls-chrome-clean/releases/download/v1.6.1.5/bypass-paywalls-chrome-clean.crx' version='1.6.1.5' />
+    <updatecheck codebase='https://github.com/magnolia1234/bypass-paywalls-chrome-clean/releases/download/v1.6.1.6/bypass-paywalls-chrome-clean.crx' version='1.6.1.6' />
   </app>
 </gupdate>

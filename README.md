@@ -54,7 +54,7 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [The Washington Post](https://www.washingtonpost.com) -
 [Vanity Fair](https://www.vanityfair.com)
 ##### Business
-[Adweek](https://adweek.com) -
+[Adweek](https://www.adweek.com) -
 [American Affairs](https://americanaffairsjournal.org) -
 [American Banker](https://www.americanbanker.com) -
 [Barron's](https://www.barrons.com) -
@@ -72,7 +72,7 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [The Athletic](https://theathletic.com)
 ##### Tech/Science
 [Chemical & Engineering News](https://cen.acs.org) -
-[Dark Reading](https://darkreading.com) -
+[Dark Reading](https://www.darkreading.com) -
 [MIT Technology Review](https://www.technologyreview.com) -
 [Towards Data Science](https://www.towardsdatascience.com) -
 [Wired](https://www.wired.com) -
@@ -83,13 +83,13 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 
 ##### Local US news
 [Baltimore Sun](baltimoresun.com) -
-[Crain's Chicago Business](https://chicagobusiness.com) -
+[Crain's Chicago Business](https://www.chicagobusiness.com) -
 [Chicago Tribune](https://www.chicagotribune.com) -
 [Daily Press](https://www.dailypress.com) -
 [Hartford Courant](https://www.courant.com) -
 [Los Angeles Business Journal](https://labusinessjournal.com) -
 [Los Angeles Times](https://www.latimes.com) -
-[Miami Herald](https://miamiherald.com) -
+[Miami Herald](https://www.miamiherald.com) -
 [Mountain View Voice](https://www.mv-voice.com) -
 [New York Magazine](https://www.nymag.com) -
 [Orange County Register](https://www.ocregister.com) -
@@ -98,16 +98,16 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [Pittsburgh Post Gazette](https://post-gazette.com) -
 [San Diego Union Tribune](https://sandiegouniontribune.com) -
 [San Francisco Chronicle](https://www.sfchronicle.com) -
-[SunSentinel](https://sun-sentinel.com) -
+[SunSentinel](https://www.sun-sentinel.com) -
 [The Boston Globe](https://www.bostonglobe.com) -
 [The Denver Post](https://www.denverpost.com) -
 [The Mercury News](https://www.mercurynews.com) -
-[The Morning Call](https://mcall.com) -
+[The Morning Call](https://www.mcall.com) -
 [The Seattle Times](https://www.seattletimes.com) -
-[The News-Gazette](https://news-gazette.com) -
+[The News-Gazette](https://www.news-gazette.com) -
 [The Philadelphia Inquirer](https://www.inquirer.com) -
-[The Sacramento Bee](https://sacbee.com)* -
-[Winston-Salem Journal](https://journalnow.com)
+[The Sacramento Bee](https://www.sacbee.com)* -
+[Winston-Salem Journal](https://www.journalnow.com)
 
 #### Australia/New Zealand
 [Cairns Post](https://www.cairnspost.com.au) –
@@ -125,7 +125,7 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [The Canberra Times](https://www.canberratimes.com.au) -
 [The Courier-Mail](https://www.couriermail.com.au) –
 [The Daily Telegraph](https://www.dailytelegraph.com.au) –
-[The Examiner](https://examiner.com.au)* -
+[The Examiner](https://www.examiner.com.au)* -
 [The Mercury Tasmania](https://www.themercury.com.au) -
 [The Saturday Paper](https://www.thesaturdaypaper.com.au) -
 [The Sydney Morning Herald](https://www.smh.com.au) –
@@ -226,7 +226,7 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [Glassdoor](https://www.glassdoor.com) -
 [Loeb Classical Library](https://www.loebclassics.com) -
 [Quora](https://www.quora.com) -
-[Scribd](http://scribd.com) -
+[Scribd](http://www.scribd.com) -
 [Statista](https://www.statista.com)
 
 _*free articles only._
