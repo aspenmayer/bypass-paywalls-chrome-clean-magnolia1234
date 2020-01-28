@@ -17,6 +17,7 @@ const restrictions = {
 var allow_cookies = [
 'adelaidenow.com.au',
 'barrons.com',
+'bostonglobe.com',
 'cairnspost.com.au',
 'couriermail.com.au',
 'dailytelegraph.com.au',
@@ -68,7 +69,6 @@ const remove_cookies_select_hold = {
 // select only specific cookie(s) to drop from remove_cookies domains
 const remove_cookies_select_drop = {
 	'ad.nl': ['temptationTrackingId'],
-	'bostonglobe.com': ['FMPaywall'],
 	'caixinglobal.com': ['CAIXINGLB_LOGIN_UUID'],
 	'demorgen.be': ['TID_ID'],
 	'dn.se': ['randomSplusId'],
@@ -274,8 +274,9 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function(details) {
 				// allow BG paywall-script to set cookies in homepage/sections (else no article-text)
 				if (details.url.indexOf('meter.bostonglobe.com/js/') !== -1 && (header_referer === 'https://www.bostonglobe.com/'
 						|| header_referer.indexOf('/?p1=BGHeader_') !== -1  || header_referer.indexOf('/?p1=BGMenu_') !== -1)) {
-					break;
-				} else if (header_referer.indexOf('theglobeandmail.com') !== -1 && !(header_referer.indexOf('/article-') !== -1)) {
+					chrome.webRequest.handlerBehaviorChanged(function () {});
+					break;			
+			} else if (header_referer.indexOf('theglobeandmail.com') !== -1 && !(header_referer.indexOf('/article-') !== -1)) {
 					chrome.webRequest.handlerBehaviorChanged(function () {});
 					break;
 				}
