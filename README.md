@@ -125,7 +125,7 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [The Canberra Times](https://www.canberratimes.com.au) -
 [The Courier-Mail](https://www.couriermail.com.au) –
 [The Daily Telegraph](https://www.dailytelegraph.com.au) –
-[The Examiner](https://www.examiner.com.au)* -
+[The Examiner](https://www.examiner.com.au) -
 [The Mercury Tasmania](https://www.themercury.com.au) -
 [The Saturday Paper](https://www.thesaturdaypaper.com.au) -
 [The Sydney Morning Herald](https://www.smh.com.au) –

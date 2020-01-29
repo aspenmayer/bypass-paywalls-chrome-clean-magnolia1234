@@ -276,7 +276,7 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function(details) {
 						|| header_referer.indexOf('/?p1=BGHeader_') !== -1  || header_referer.indexOf('/?p1=BGMenu_') !== -1)) {
 					chrome.webRequest.handlerBehaviorChanged(function () {});
 					break;			
-			} else if (header_referer.indexOf('theglobeandmail.com') !== -1 && !(header_referer.indexOf('/article-') !== -1)) {
+				} else if (header_referer.indexOf('theglobeandmail.com') !== -1 && !(header_referer.indexOf('/article-') !== -1)) {
 					chrome.webRequest.handlerBehaviorChanged(function () {});
 					break;
 				}
@@ -297,7 +297,11 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function(details) {
   // if referer exists, set it to google
   requestHeaders = requestHeaders.map(function (requestHeader) {
     if (requestHeader.name === 'Referer') {
-      if (details.url.indexOf("ft.com") !== -1 || details.url.indexOf("kleinezeitung.at") !== -1) {
+      if (details.url.indexOf("cooking.nytimes.com/api/v1/users/bootstrap") !== -1) {
+        // this fixes images not being loaded on cooking.nytimes.com main page
+        // referrer has to be *nytimes.com otherwise returns 403
+        requestHeader.value = 'https://cooking.nytimes.com';
+      } else if (details.url.indexOf("ft.com") !== -1 || details.url.indexOf("kleinezeitung.at") !== -1) {
         requestHeader.value = 'https://www.facebook.com/';
       } else {
         requestHeader.value = 'https://www.google.com/';
