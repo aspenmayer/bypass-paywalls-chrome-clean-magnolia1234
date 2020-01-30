@@ -137,6 +137,7 @@ var blockedRegexes = {
 'nzherald.co.nz': /nzherald\.co\.nz\/.+\/headjs\/.+\.js/,
 'sloanreview.mit.edu': /.+\.tinypass\.com\/.+/,
 'spectator.co.uk': /.+\.tinypass\.com\/.+/,
+'thedailybeast.com': /.+\.tinypass\.com\/.+/,
 'theglobeandmail.com': /theglobeandmail\.com\/pb\/resources\/scripts\/build\/chunk-bootstraps\/.+\.js/,
 'thenation.com': /thenation\.com\/.+\/paywall-script\.php/,
 'valeursactuelles.com': /.+\.poool\.fr\/.+/
