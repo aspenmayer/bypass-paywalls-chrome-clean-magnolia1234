@@ -48,6 +48,7 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [Harper's Magazine](https://harpers.org) -
 [The American Interest](https://www.the-american-interest.com) -
 [The Atlantic](https://www.theatlantic.com) -
+[The Christian Science Monitor](https://www.csmonitor.com) -
 [The Nation](https://www.thenation.com) -
 [The New York Times](https://www.nytimes.com) -
 [The New Yorker](https://www.newyorker.com) -
@@ -81,7 +82,7 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 ##### Blogs
 [Medium](https://www.medium.com) (all sites) -
 [SofRep](https://sofrep.com) -
-[The Daily Beast](https://www.thedailybeast.com)
+[The Daily Beast](https://www.thedailybeast.com)*
 
 ##### Local US news
 [Baltimore Sun](baltimoresun.com) -
