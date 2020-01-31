@@ -51,6 +51,7 @@ var allow_cookies = [
 'trouw.nl',
 'volkskrant.nl',
 'weeklytimesnow.com.au',
+'worldpoliticsreview.com',
 'wsj.com',
 ]
 
@@ -105,6 +106,7 @@ const use_google_bot = [
 'thetimes.co.uk',
 'townsvillebulletin.com.au',
 'weeklytimesnow.com.au',
+'worldpoliticsreview.com',
 'wsj.com',
 ]
 

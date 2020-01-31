@@ -52,7 +52,8 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [The New York Times](https://www.nytimes.com) -
 [The New Yorker](https://www.newyorker.com) -
 [The Washington Post](https://www.washingtonpost.com) -
-[Vanity Fair](https://www.vanityfair.com)
+[Vanity Fair](https://www.vanityfair.com) -
+[World Politics Review](https://www.worldpoliticsreview.com)
 ##### Business
 [Adweek](https://www.adweek.com) -
 [American Affairs](https://americanaffairsjournal.org) -
