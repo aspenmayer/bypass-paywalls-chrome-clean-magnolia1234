@@ -68,6 +68,7 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [Harvard Business Review](https://www.hbr.org) -
 [Inc.com](https://www.inc.com) -
 [MIT Sloan Management Review](https://sloanreview.mit.edu) -
+[Modern Healthcare](https://www.modernhealthcare.com) -
 [Quartz](https://qz.com) -
 [The Business Journals](https://www.bizjournals.com) -
 [The Wall Street Journal](https://www.wsj.com)
