@@ -144,6 +144,8 @@ var blockedRegexes = {
 'repubblica.it': /scripts\.repubblica\.it\/pw\/pw\.js.+/,
 'sloanreview.mit.edu': /.+\.tinypass\.com\/.+/,
 'spectator.co.uk': /.+\.tinypass\.com\/.+/,
+'spectator.com.au': /.+\.tinypass\.com\/.+/,
+'thecourier.com.au': /.+cdn-au\.piano\.io\/api\/tinypass.+\.js/, 
 'thedailybeast.com': /.+\.tinypass\.com\/.+/,
 'theglobeandmail.com': /theglobeandmail\.com\/pb\/resources\/scripts\/build\/chunk-bootstraps\/.+\.js/,
 'thenation.com': /thenation\.com\/.+\/paywall-script\.php/,

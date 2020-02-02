@@ -29,6 +29,7 @@ Due to [Google internal policy](https://developer.chrome.com/webstore/program_po
 2. In your browser go to the extensions page.
 3. Enable Developer Mode.
 4. Drag your .crx file anywhere on the page to import it.
+5. If dragging crx does not work, try Chrome procedure (above).
 
 #### Firefox
 Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-firefox-clean) of Bypass Paywall Clean.
@@ -128,11 +129,13 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [The Australian](https://www.theaustralian.com.au) -
 [The Australian Financial Review](https://www.afr.com) -
 [The Canberra Times](https://www.canberratimes.com.au) -
+[The Courier](https://www.thecourier.com.au) -
 [The Courier-Mail](https://www.couriermail.com.au) –
 [The Daily Telegraph](https://www.dailytelegraph.com.au) –
 [The Examiner](https://www.examiner.com.au) -
 [The Mercury Tasmania](https://www.themercury.com.au) -
 [The Saturday Paper](https://www.thesaturdaypaper.com.au) -
+[The Spectator Australia](https://www.spectator.com.au) - 
 [The Sydney Morning Herald](https://www.smh.com.au) –
 [The Weekly Times](https://www.weeklytimesnow.com.au) –
 [Townsville Bulletin](https://www.townsvillebulletin.com.au)

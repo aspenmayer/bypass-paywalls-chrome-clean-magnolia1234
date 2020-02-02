@@ -327,7 +327,7 @@ if (window.location.href.indexOf("afr.com") !== -1) {
 }
 
 if (window.location.href.indexOf("theglobeandmail.com") !== -1) {
-    document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', () => {
         const lazy_image = document.querySelectorAll('.js-lazyimage');
         for (let i = 0; i < lazy_image.length; i++) {
             lazy_image[i].classList.remove('js-lazyimage');
@@ -347,7 +347,9 @@ if (window.location.href.indexOf("theglobeandmail.com") !== -1) {
     });
 }
 
-if (window.location.href.indexOf("newcastleherald.com.au") !== -1) {
+if (window.location.href.indexOf("newcastleherald.com.au") !== -1 
+    || window.location.href.indexOf("examiner.com.au") !== -1 
+    || window.location.href.indexOf("thecourier.com.au") !== -1) {
     const subscribe_truncate = document.querySelector('.subscribe-truncate');
     if (subscribe_truncate)
         subscribe_truncate.classList.remove('subscribe-truncate');
@@ -419,16 +421,6 @@ if (window.location.href.indexOf("thesaturdaypaper.com.au") !== -1) {
     const expand_button = document.querySelector('.continue-reading-button');
     if (expand_button)
         expand_button.click();
-}
-
-if (window.location.href.indexOf("examiner.com.au") !== -1) {
-  const subscribe_truncate = document.querySelector('.subscribe-truncate');
-  if (subscribe_truncate)
-      subscribe_truncate.classList.remove('subscribe-truncate');
-  const subscriber_hider = document.querySelectorAll('.subscriber-hider');
-  for (let i = 0; i < subscriber_hider.length; i++) {
-      subscriber_hider[i].classList.remove('subscriber-hider');
-  }
 }
 
 // General Functions
