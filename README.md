@@ -135,7 +135,7 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [The Examiner](https://www.examiner.com.au) -
 [The Mercury Tasmania](https://www.themercury.com.au) -
 [The Saturday Paper](https://www.thesaturdaypaper.com.au) -
-[The Spectator Australia](https://www.spectator.com.au) - 
+[The Spectator Australia](https://www.spectator.com.au) -
 [The Sydney Morning Herald](https://www.smh.com.au) –
 [The Weekly Times](https://www.weeklytimesnow.com.au) –
 [Townsville Bulletin](https://www.townsvillebulletin.com.au)
@@ -185,6 +185,7 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [Tubantia](https://tubantia.nl)\
 [De Morgen](https://www.demorgen.be) -
 [De Tijd](https://www.tijd.be) -
+[Het Financieel Dagblad](https://fd.nl)
 [Groene Amsterdammer](https://www.groene.nl) -
 [NRC Handelsblad](https://www.nrc.nl) -
 [Parool](https://www.parool.nl) -

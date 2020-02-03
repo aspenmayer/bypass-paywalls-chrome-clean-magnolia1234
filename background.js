@@ -22,6 +22,7 @@ var allow_cookies = [
 'couriermail.com.au',
 'dailytelegraph.com.au',
 'dn.se',
+'fd.nl',
 'folha.uol.com.br',
 'goldcoastbulletin.com.au',
 'haaretz.co.il',
@@ -88,6 +89,7 @@ const use_google_bot = [
 'couriermail.com.au',
 'dailytelegraph.com.au',
 'dn.se',
+"fd.nl",
 'goldcoastbulletin.com.au',
 'haaretz.co.il',
 'haaretz.com',
@@ -286,7 +288,7 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function(details) {
 				if (details.url.indexOf('meter.bostonglobe.com/js/') !== -1 && (header_referer === 'https://www.bostonglobe.com/'
 						|| header_referer.indexOf('/?p1=BGHeader_') !== -1  || header_referer.indexOf('/?p1=BGMenu_') !== -1)) {
 					chrome.webRequest.handlerBehaviorChanged(function () {});
-					break;			
+					break;
 				} else if (header_referer.indexOf('theglobeandmail.com') !== -1 && !(header_referer.indexOf('/article-') !== -1)) {
 					chrome.webRequest.handlerBehaviorChanged(function () {});
 					break;
