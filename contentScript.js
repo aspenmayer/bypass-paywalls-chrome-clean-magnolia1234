@@ -349,7 +349,8 @@ if (window.location.href.indexOf("theglobeandmail.com") !== -1) {
 
 if (window.location.href.indexOf("newcastleherald.com.au") !== -1 
     || window.location.href.indexOf("examiner.com.au") !== -1 
-    || window.location.href.indexOf("thecourier.com.au") !== -1) {
+    || window.location.href.indexOf("thecourier.com.au") !== -1 
+	|| window.location.href.indexOf("theadvocate.com.au") !== -1) {
     const subscribe_truncate = document.querySelector('.subscribe-truncate');
     if (subscribe_truncate)
         subscribe_truncate.classList.remove('subscribe-truncate');
