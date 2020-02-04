@@ -185,8 +185,8 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [Tubantia](https://tubantia.nl)\
 [De Morgen](https://www.demorgen.be) -
 [De Tijd](https://www.tijd.be) -
-[Het Financieel Dagblad](https://fd.nl)
 [Groene Amsterdammer](https://www.groene.nl) -
+[Het Financieel Dagblad](https://fd.nl) -
 [NRC Handelsblad](https://www.nrc.nl) -
 [Parool](https://www.parool.nl) -
 [Telegraaf](https://www.telegraaf.nl) -
@@ -200,6 +200,7 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 
 #### East Asia
 [Caixin Global](https://www.caixinglobal.com) -
+[CommonWealth Magazine Taiwan](https://www.cw.com.tw) -
 [Harvard Business Review Taiwan](https://www.hbrtaiwan.com) -
 [Nikkei Asian Review](https://asia.nikkei.com) -
 [NK News](https://www.nknews.org) -
