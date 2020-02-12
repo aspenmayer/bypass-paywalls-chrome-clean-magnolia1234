@@ -424,6 +424,14 @@ if (window.location.href.indexOf("thesaturdaypaper.com.au") !== -1) {
         expand_button.click();
 }
 
+if (window.location.href.indexOf("lc.nl") !== -1 || window.location.href.indexOf("dvhn.nl") !== -1) {
+    document.addEventListener('DOMContentLoaded', () => {
+        const preview = document.querySelector('.preview');
+        if (preview)
+            location.href = location.href + '?harvest_referrer=https%3A%2F%2Fnos.nl%2Fplus.html';
+    });
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {
