@@ -121,6 +121,7 @@ const use_google_bot = [
 var blockedRegexes = {
 'adweek.com': /.+\.lightboxcdn\.com\/.+/,
 'afr.com': /afr\.com\/assets\/vendorsReactRedux_client.+\.js/,
+'americanbanker.com': /.+\.tinypass\.com\/.+/,
 'bostonglobe.com': /meter\.bostonglobe\.com\/js\/.+/,
 'businessinsider.com': /(.+\.tinypass\.com\/.+|cdn\.onesignal\.com\/sdks\/.+\.js)/,
 'challenges.fr': /.+\.poool\.fr\/.+/,
@@ -151,6 +152,7 @@ var blockedRegexes = {
 'sloanreview.mit.edu': /.+\.tinypass\.com\/.+/,
 'spectator.co.uk': /.+\.tinypass\.com\/.+/,
 'spectator.com.au': /.+\.tinypass\.com\/.+/,
+'telegraph.co.uk': /.+\.tinypass\.com\/.+/,
 'theadvocate.com.au': /.+cdn-au\.piano\.io\/api\/tinypass.+\.js/,
 'thecourier.com.au': /.+cdn-au\.piano\.io\/api\/tinypass.+\.js/,
 'thedailybeast.com': /.+\.tinypass\.com\/.+/,

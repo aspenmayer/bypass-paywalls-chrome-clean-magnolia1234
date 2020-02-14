@@ -35,8 +35,8 @@ Due to [Google internal policy](https://developer.chrome.com/webstore/program_po
 Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-firefox-clean) of Bypass Paywall Clean.
 
 **Notes**
-* This extension works best alongside the adblocker [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en). If you live in the EU, also consider installing the extension [I don't care about cookies
-](https://chrome.google.com/webstore/detail/i-dont-care-about-cookies/fihnjjcciajhdojfnbdddfaoknhalnja) in order to remove cookie warnings.
+* This extension works best alongside the adblocker [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en).
+* If you live in the EU, also consider installing the extension [I don't care about cookies](https://chrome.google.com/webstore/detail/i-dont-care-about-cookies/fihnjjcciajhdojfnbdddfaoknhalnja) in order to remove cookie warnings.
 * Do not delete extension's folder from your computer/smartphone or Bypass Paywalls Clean will disappear at restart.
 * Every time you open Chrome it may warn you about running extensions in developer mode, just click 🗙 to keep the extension enabled.
 * You will be logged out for any site you have checked.
@@ -138,7 +138,8 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [The Spectator Australia](https://www.spectator.com.au) -
 [The Sydney Morning Herald](https://www.smh.com.au) –
 [The Weekly Times](https://www.weeklytimesnow.com.au) –
-[Townsville Bulletin](https://www.townsvillebulletin.com.au)
+[Townsville Bulletin](https://www.townsvillebulletin.com.au) -
+[WAtoday](https://www.watoday.com.au)
 
 #### Canada
 [National Post](https://www.nationalpost.com) -
