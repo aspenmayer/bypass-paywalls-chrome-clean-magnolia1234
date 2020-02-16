@@ -223,6 +223,7 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 
 #### Latin America
 ##### Argentina
+[Clarín](https://www.clarin.com) -
 [La Nación](https://www.lanacion.com.ar)
 ##### Brazil
 [Exame](https://exame.abril.com.br) –

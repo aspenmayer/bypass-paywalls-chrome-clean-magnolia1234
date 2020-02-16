@@ -19,6 +19,7 @@ var allow_cookies = [
 'barrons.com',
 'bostonglobe.com',
 'cairnspost.com.au',
+'clarin.com',
 'couriermail.com.au',
 'dailytelegraph.com.au',
 'dn.se',
@@ -320,7 +321,7 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function(details) {
         // this fixes images not being loaded on cooking.nytimes.com main page
         // referrer has to be *nytimes.com otherwise returns 403
         requestHeader.value = 'https://cooking.nytimes.com';
-      } else if (details.url.indexOf("ft.com") !== -1 || details.url.indexOf("kleinezeitung.at") !== -1) {
+      } else if (details.url.indexOf("clarin.com") !== -1 || details.url.indexOf("kleinezeitung.at") !== -1) {
         requestHeader.value = 'https://www.facebook.com/';
       } else {
         requestHeader.value = 'https://www.google.com/';
@@ -336,7 +337,7 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function(details) {
 
   // otherwise add it
   if (!setReferer) {
-      if (details.url.indexOf("ft.com") !== -1 || details.url.indexOf("kleinezeitung.at") !== -1) {
+      if (details.url.indexOf("clarin.com") !== -1 || details.url.indexOf("kleinezeitung.at") !== -1) {
       requestHeaders.push({
         name: 'Referer',
         value: 'https://www.facebook.com/'
