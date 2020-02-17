@@ -427,7 +427,7 @@ if (window.location.href.indexOf("thesaturdaypaper.com.au") !== -1) {
 if (window.location.href.indexOf("lc.nl") !== -1 || window.location.href.indexOf("dvhn.nl") !== -1) {
     document.addEventListener('DOMContentLoaded', () => {
         const preview = document.querySelector('.preview');
-        if (preview)
+        if (preview && window.location.href.indexOf("harvest_referrer") === -1)
             location.href = location.href + '?harvest_referrer=https%3A%2F%2Fnos.nl%2Fplus.html';
     });
 }
