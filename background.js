@@ -160,7 +160,7 @@ var blockedRegexes = {
 'thecourier.com.au': /.+cdn-au\.piano\.io\/api\/tinypass.+\.js/,
 'thedailybeast.com': /.+\.tinypass\.com\/.+/,
 'theglobeandmail.com': /theglobeandmail\.com\/pb\/resources\/scripts\/build\/chunk-bootstraps\/.+\.js/,
-'thenation.com': /thenation\.com\/.+\/paywall-script\.php/,
+'thenation.com': /.+\.tinypass\.com\/.+/,
 'valeursactuelles.com': /.+\.poool\.fr\/.+/
 };
 
