@@ -27,7 +27,14 @@ function save_options() {
   });
 	
   // Refresh the current tab
-  chrome.tabs.reload({bypassCache: true});
+  chrome.tabs.query({
+      active: true,
+      currentWindow: true
+  }, function (tabs) {
+      chrome.tabs.update(tabs[0].id, {
+          url: tabs[0].url
+      });
+  });
 }
 
 //Fetch sites.json & sites_custom.json
