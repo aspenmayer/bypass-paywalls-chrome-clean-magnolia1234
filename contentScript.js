@@ -162,17 +162,6 @@ if (window.location.href.indexOf('lemonde.fr') !== -1) {
     });
 }
 
-if (window.location.href.indexOf("canberratimes.com.au") !== -1) {
-        const paywall = document.querySelector('.subscribe-article.news-article-body.article__body');
-        paywall.classList.remove('subscribe-article');
-        let subscribe = document.getElementsByClassName('subscriber-container')[0];
-        removeDOMElement(subscribe);
-        let content = document.getElementsByClassName('subscriber-hider');
-        for (let i = 0; i < content.length; i++) {
-        content[i].classList.remove('subscriber-hider');
-    }
-}
-
 if (window.location.href.indexOf("ledevoir.com") !== -1) {
         const counter = document.querySelector('.popup-msg');
         removeDOMElement(counter);
@@ -315,7 +304,7 @@ if (window.location.href.indexOf("afr.com") !== -1) {
         const hidden_image = document.querySelectorAll('img');
         for (let i = 0; i < hidden_image.length; i++) {
             var src = hidden_image[i].src;
-            if ('src: ' + src.indexOf(".gif") !== -1) {
+            if (src.indexOf(".gif") !== -1) {
                 var data_src = hidden_image[i].getAttribute("data-src");
                 if (data_src)
                     hidden_image[i].setAttribute('src', data_src);
@@ -347,17 +336,25 @@ if (window.location.href.indexOf("theglobeandmail.com") !== -1) {
     });
 }
 
-if (window.location.href.indexOf("newcastleherald.com.au") !== -1 
-    || window.location.href.indexOf("examiner.com.au") !== -1 
-    || window.location.href.indexOf("thecourier.com.au") !== -1 
-	|| window.location.href.indexOf("theadvocate.com.au") !== -1) {
-    const subscribe_truncate = document.querySelector('.subscribe-truncate');
-    if (subscribe_truncate)
-        subscribe_truncate.classList.remove('subscribe-truncate');
-    const subscriber_hider = document.querySelectorAll('.subscriber-hider');
-    for (let i = 0; i < subscriber_hider.length; i++) {
-        subscriber_hider[i].classList.remove('subscriber-hider');
+// Australian Community Media newspapers
+if (window.location.href.indexOf(".com.au") !== -1 || window.location.href.indexOf(".net.au") !== -1) {
+    let au_sites = ['bendigoadvertiser.com.au', 'bordermail.com.au', 'canberratimes.com.au', 'centralwesterndaily.com.au', 'dailyadvertiser.com.au', 'dailyliberal.com.au', 'examiner.com.au', 'illawarramercury.com.au', 'newcastleherald.com.au', 'northerndailyleader.com.au', 'standard.net.au', 'theadvocate.com.au', 'thecourier.com.au'];
+    let domain = new URL(window.location.href).hostname.replace('www.', '');
+    if (au_sites.includes(domain)) {
+        const subscribe_truncate = document.querySelector('.subscribe-truncate');
+        if (subscribe_truncate)
+            subscribe_truncate.classList.remove('subscribe-truncate');
+        const subscriber_hider = document.querySelectorAll('.subscriber-hider');
+        for (let i = 0; i < subscriber_hider.length; i++) {
+            subscriber_hider[i].classList.remove('subscriber-hider');
+        }
     }
+}
+
+if (window.location.href.indexOf("thesaturdaypaper.com.au") !== -1) {
+    const expand_button = document.querySelector('.continue-reading-button');
+    if (expand_button)
+        expand_button.click();
 }
 
 if (window.location.href.indexOf("sofrep.com") !== -1) {
@@ -401,27 +398,11 @@ if (window.location.href.indexOf("cen.acs.org") !== -1) {
     });
 }
 
-if (window.location.href.indexOf("centralwesterndaily.com.au") !== -1) {
-    const subscribe_truncate = document.querySelector('.subscribe-truncate');
-    if (subscribe_truncate)
-        subscribe_truncate.classList.remove('subscribe-truncate');
-    const subscriber_hider = document.querySelectorAll('.subscriber-hider');
-    for (let i = 0; i < subscriber_hider.length; i++) {
-        subscriber_hider[i].classList.remove('subscriber-hider');
-    }
-}
-
 if (window.location.href.indexOf("lesechos.fr") !== -1) {
     const ad_block = document.querySelectorAll('.jzxvkd-1');
     for (let i=0; i < ad_block.length; i++) {
       ad_block[i].remove();
     }
-}
-
-if (window.location.href.indexOf("thesaturdaypaper.com.au") !== -1) {
-    const expand_button = document.querySelector('.continue-reading-button');
-    if (expand_button)
-        expand_button.click();
 }
 
 if (window.location.href.indexOf("lc.nl") !== -1 || window.location.href.indexOf("dvhn.nl") !== -1) {
