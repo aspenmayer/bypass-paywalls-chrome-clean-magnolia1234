@@ -172,7 +172,7 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [Le Journal du Dimanche](https://lejdd.fr) –
 [Le Monde](https://www.lemonde.fr) -
 [Le Parisien](https://www.leparisien.fr) -
-[Les Échos](https://www.lesechos.fr) -
+[Les Échos](https://www.lesechos.fr)* -
 [Libération](https://www.liberation.fr)* –
 [Valeurs Actuelles](https://www.valeursactuelles.com)
 ##### Germany/Austria
