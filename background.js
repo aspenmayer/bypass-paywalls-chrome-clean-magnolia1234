@@ -124,6 +124,7 @@ var blockedRegexes = {
 'adweek.com': /.+\.lightboxcdn\.com\/.+/,
 'afr.com': /afr\.com\/assets\/vendorsReactRedux_client.+\.js/,
 'americanbanker.com': /.+\.tinypass\.com\/.+/,
+'bloomberg.com': /.+\.tinypass\.com\/.+/,
 'bostonglobe.com': /meter\.bostonglobe\.com\/js\/.+/,
 'businessinsider.com': /(.+\.tinypass\.com\/.+|cdn\.onesignal\.com\/sdks\/.+\.js)/,
 'challenges.fr': /.+\.poool\.fr\/.+/,
