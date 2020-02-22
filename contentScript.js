@@ -413,6 +413,11 @@ if (window.location.href.indexOf("lc.nl") !== -1 || window.location.href.indexOf
     });
 }
 
+if (window.location.href.indexOf("newyorker.com") !== -1) {
+    const paywall_bar = document.querySelector('.paywall-bar');
+    removeDOMElement(paywall_bar);
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {
