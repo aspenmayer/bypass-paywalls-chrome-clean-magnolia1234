@@ -3,8 +3,8 @@
 'use strict';
 
 // Cookies from this list are blocked by default (obsolete)
-// defaultSites are loaded from sites(_custom).json at installation extension
-var defaultSites = {};
+// defaultSites are loaded from sites.js at installation extension
+// var defaultSites = {};
 
 const restrictions = {
   'barrons.com': /.+barrons\.com\/articles\/.+/,
@@ -13,7 +13,7 @@ const restrictions = {
 }
 
 // Don't remove cookies before page load
-// allow_cookies are completed with domains in sites(_custom).json (default allow/remove_cookies)
+// allow_cookies are completed with domains in sites.js (default allow/remove_cookies)
 var allow_cookies = [
 'adelaidenow.com.au',
 'barrons.com',
@@ -64,7 +64,7 @@ var allow_cookies = [
 ]
 
 // Removes cookies after page load
-// remove_cookies are completed with domains of sites(_custom).json (default allow/remove_cookies)
+// remove_cookies are completed with domains of sites.js (default allow/remove_cookies)
 var remove_cookies = [
 ]
 
@@ -177,7 +177,7 @@ function setDefaultOptions() {
     chrome.tabs.create({ 'url': 'chrome://extensions/?options=' + chrome.runtime.id });
   });
 }
-
+		
 // Get the enabled sites (from local storage) & add to allow/remove_cookies (if not already in one of these arrays)
 chrome.storage.sync.get({
   sites: {}
@@ -213,28 +213,7 @@ chrome.storage.onChanged.addListener(function(changes, namespace) {
 // Set and show default options on install
 chrome.runtime.onInstalled.addListener(function (details) {
   if (details.reason == "install") {
-	const url_sites = chrome.runtime.getURL('sites.json');
-	fetch(url_sites)
-		.then(response => {
-			if (response.ok) {
-				response.json().then(json => {
-					var defaultSites_merge = {...defaultSites, ...json};
-					defaultSites = defaultSites_merge;
-					// add custom sites
-					const url_sites_custom = 'https://raw.githubusercontent.com/magnolia1234/bypass-paywalls-chrome-clean/master/sites_custom.json';
-					fetch(url_sites_custom)
-						.then(response => {
-							if (response.ok) {
-								response.json().then(json => {
-									var defaultSites_merge = {...defaultSites, ...json};
-									defaultSites = defaultSites_merge;
-									setDefaultOptions();
-								})
-							} else { setDefaultOptions(); }
-						} );
-				})
-			} else { setDefaultOptions(); }
-		} );
+    setDefaultOptions();
   } else if (details.reason == "update") {
     // User updated extension
   }

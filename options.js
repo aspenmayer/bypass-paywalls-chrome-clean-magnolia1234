@@ -1,5 +1,5 @@
-// defaultSites are loaded from sites(_custom).json at installation extension (and are saved to local storage)
-var defaultSites = {};
+// defaultSites are loaded from sites.js at installation extension (and are saved to local storage)
+// var defaultSites = {};
 
 // Saves options to chrome.storage
 function save_options() {
@@ -37,35 +37,8 @@ function save_options() {
   });
 }
 
-//Fetch sites.json & sites_custom.json
+// Restores checkbox input states using the preferences stored in chrome.storage.
 function renderOptions() {
-	const url_sites = chrome.runtime.getURL('sites.json');
-	fetch(url_sites)
-		.then(response => { 
-			if (response.ok) { 
-				response.json().then(json => {
-					var defaultSites_merge = {...defaultSites, ...json}; 
-					defaultSites = defaultSites_merge;
-					// add custom sites
-					const url_sites_custom = 'https://raw.githubusercontent.com/magnolia1234/bypass-paywalls-chrome-clean/master/sites_custom.json';
-					fetch(url_sites_custom)
-						.then(response => {
-							if (response.ok) {
-								response.json().then(json => {
-									var defaultSites_merge = {...defaultSites, ...json}; 
-									defaultSites = defaultSites_merge;
-									renderOptions_default();
-								})
-							} else { renderOptions_default(); }
-						} );
-				})
-			} else { renderOptions_default(); }
-		} );
-}
-
-// Restores checkbox input states using the preferences
-// stored in chrome.storage.
-function renderOptions_default() {
   chrome.storage.sync.get({
     sites: {}
   }, function(items) {
