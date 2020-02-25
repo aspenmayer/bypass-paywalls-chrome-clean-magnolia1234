@@ -5,7 +5,7 @@
 * [Sites with limited number of free articles](#sites-with-limited-number-of-free-articles)
 * [New site requests](#new-site-requests)
 * [Troubleshooting](#troubleshooting)
-* [Changelog](#changelog)
+* [Changelog-releases](#changelog-releases)
 * [Pull Requests](#pull-requests)
 * [Show your support](#show-your-support)
 * [License](#license)
@@ -196,6 +196,7 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [De Tijd](https://www.tijd.be) -
 [Groene Amsterdammer](https://www.groene.nl) -
 [Het Financieel Dagblad](https://fd.nl) -
+[Humo.be]{https://www.humo.be} -
 [Leeuwarder Courant](https://www.lc.nl) -
 [NRC Handelsblad](https://www.nrc.nl) -
 [Parool](https://www.parool.nl) -
@@ -276,7 +277,7 @@ You can submit a request for a new website [here](https://github.com/magnolia123
 * Make sure you're running the last version of Bypass Paywalls Clean.
 * If none of these work, you can submit an issue [here](https://github.com/magnolia1234/bypass-paywalls-chrome-clean/issues).
 
-### Changelog
+### Changelog-releases
 * Visit the [releases page](https://github.com/magnolia1234/bypass-paywalls-chrome-clean/releases).
 
 ### Pull Requests

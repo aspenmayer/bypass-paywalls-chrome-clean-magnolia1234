@@ -33,6 +33,7 @@ var allow_cookies = [
 'haaretz.com',
 'handelsblatt.com',
 'heraldsun.com.au',
+'humo.be',
 'kleinezeitung.at',
 'lemonde.fr',
 'lc.nl',
@@ -177,7 +178,7 @@ function setDefaultOptions() {
     chrome.tabs.create({ 'url': 'chrome://extensions/?options=' + chrome.runtime.id });
   });
 }
-		
+
 // Get the enabled sites (from local storage) & add to allow/remove_cookies (if not already in one of these arrays)
 chrome.storage.sync.get({
   sites: {}

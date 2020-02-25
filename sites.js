@@ -51,6 +51,7 @@ var defaultSites =
   "Harvard Business Review Taiwan": "hbrtaiwan.com",
   "Herald Sun": "heraldsun.com.au",
   "Het Financieel Dagblad": "fd.nl",
+  "Humo.be": "humo.be",
   "Inc.com": "inc.com",
   "Illawarra Mercury": "illawarramercury.com.au",
   "Kleine Zeitung": "kleinezeitung.at",
