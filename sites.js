@@ -100,6 +100,7 @@ var defaultSites =
   "San Francisco Chronicle": "sfchronicle.com",
   "Scientific American (free articles only)": "scientificamerican.com",
   "Scribd (documents only)": "scribd.com",
+  "Seeking Alpha": "seekingalpha.com",
   "SOFREP": "sofrep.com",
   "Statista": "statista.com",
   "SunSentinel": "sun-sentinel.com",
