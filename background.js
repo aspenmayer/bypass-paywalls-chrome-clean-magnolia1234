@@ -89,7 +89,7 @@ const remove_cookies_select_drop = {
 }
 
 // Override User-Agent with Googlebot
-const use_google_bot = [
+const use_google_bot_default = [
 'adelaidenow.com.au',
 'barrons.com',
 'cairnspost.com.au',
@@ -120,7 +120,9 @@ const use_google_bot = [
 'weeklytimesnow.com.au',
 'worldpoliticsreview.com',
 'wsj.com',
-]
+];
+var use_google_bot_custom = [];
+var use_google_bot = use_google_bot_default.concat(use_google_bot_custom);
 
 // block paywall-scripts individually
 var blockedRegexes = {
@@ -182,35 +184,93 @@ function setDefaultOptions() {
 }
 
 // Get the enabled sites (from local storage) & add to allow/remove_cookies (if not already in one of these arrays)
+// Add googlebot- and block_javascript-settings for custom sites
 chrome.storage.sync.get({
-  sites: {}
-}, function(items) {
-  var sites = items.sites;
-  enabledSites = Object.keys(items.sites).map(function(key) {
-    return items.sites[key];
-  });
-  enabledSites = enabledSites.filter(function(el) { return (el !== '###'); });
-  for (var domainIndex in enabledSites) {
-    var domainVar = enabledSites[domainIndex];
-    if (!allow_cookies.includes(domainVar) && !remove_cookies.includes(domainVar)) {
-      allow_cookies.push(domainVar);
-	  remove_cookies.push(domainVar);
-	}
-  }
-});
+    sites: {},
+    sites_custom: {}
+}, function (items) {
+    var sites = items.sites;
+    var sites_custom = items.sites_custom;
 
-// Listen for changes to options
-chrome.storage.onChanged.addListener(function(changes, namespace) {
-  var key;
-  for (key in changes) {
-    var storageChange = changes[key];
-    if (key === 'sites') {
-      var sites = storageChange.newValue;
-      enabledSites = Object.keys(sites).map(function(key) {
-        return sites[key];
-      });
+    // custom googlebot
+    use_google_bot_custom = Object.keys(sites_custom).filter(function (key) {
+            return sites_custom[key]['googlebot'] > 0;
+        }).map(function (key) {
+            return sites_custom[key]['domain']
+        });
+    use_google_bot = use_google_bot_default.slice();
+
+    // custom block javascript (only (sub)domain)
+    block_js_custom = Object.keys(sites_custom).filter(function (key) {
+            return sites_custom[key]['block_javascript'] > 0;
+        }).map(function (key) {
+            return sites_custom[key]['domain']
+        });
+    block_js = block_js_default.slice();
+
+    enabledSites = Object.keys(items.sites).map(function (key) {
+            return items.sites[key];
+        });
+    enabledSites = enabledSites.filter(function (el) {
+            return (el !== '###');
+        });
+	console.log(enabledSites);
+    for (var domainIndex in enabledSites) {
+        var domainVar = enabledSites[domainIndex];
+        if (!allow_cookies.includes(domainVar) && !remove_cookies.includes(domainVar)) {
+            allow_cookies.push(domainVar);
+            remove_cookies.push(domainVar);
+        }
+        if (use_google_bot_custom.includes(domainVar)) {
+            use_google_bot.push(domainVar);
+        }
+        if (block_js_custom.includes(domainVar)) {
+            block_js.push("*://*." + domainVar + "/*"); // subdomains of site
+            block_js.push("*://" + domainVar + "/*"); // site without www.-prefix
+        }
     }
-  }
+});
+// Listen for changes to options
+chrome.storage.onChanged.addListener(function (changes, namespace) {
+    for (var key in changes) {
+        var storageChange = changes[key];
+        if (key === 'sites') {
+            var sites = storageChange.newValue;
+            enabledSites = Object.keys(sites).map(function (key) {
+                    return sites[key];
+                });
+        }
+        if (key === 'sites_custom') {
+            var sites_custom = storageChange.newValue;
+
+            use_google_bot_custom = Object.keys(sites_custom).filter(function (key) {
+                    return sites_custom[key]['googlebot'] > 0;
+                }).map(function (key) {
+                    return sites_custom[key]['domain']
+                });
+            use_google_bot = use_google_bot_default.slice();
+            for (var domainIndex in use_google_bot_custom) {
+                var domainVar = use_google_bot_custom[domainIndex];
+                if (!use_google_bot.includes(domainVar)) {
+                    use_google_bot.push(domainVar);
+                }
+            }
+
+            block_js_custom = Object.keys(sites_custom).filter(function (key) {
+                    return sites_custom[key]['block_javascript'] > 0;
+                }).map(function (key) {
+                    return sites_custom[key]['domain']
+                });
+            block_js = block_js_default.slice();
+            for (var domainIndex in block_js_custom) {
+                var domainVar = block_js_custom[domainIndex];
+                if (!block_js.includes(domainVar)) {
+                    block_js.push("*://*." + domainVar + "/*"); // subdomains of site
+                    block_js.push("*://" + domainVar + "/*"); // site without www.-prefix
+                }
+            }
+        }
+    }
 });
 
 // Set and show default options on install
@@ -222,19 +282,22 @@ chrome.runtime.onInstalled.addListener(function (details) {
   }
 });
 
+var block_js_default = ["*://*.tinypass.com/*", "*://*.poool.fr/*", "*://*.piano.io/*", "*://*.outbrain.com/*"];
+var block_js_custom = [];
+var block_js = block_js_default.concat(block_js_custom);
 // Disable javascript for these sites/general paywall-scripts
-chrome.webRequest.onBeforeRequest.addListener(function(details) {
-  if (!isSiteEnabled(details)) {
-    return;
-  }
-  return {cancel: true};
-  },
-  {
-    urls: ["*://*.tinypass.com/*", "*://*.poool.fr/*", "*://*.piano.io/*", "*://*.outbrain.com/*"],
+chrome.webRequest.onBeforeRequest.addListener(function (details) {
+    if (!isSiteEnabled(details)) {
+        return;
+    }
+    return {
+        cancel: true
+    };
+}, {
+    urls: block_js,
     types: ["script"]
-  },
-  ["blocking"]
-);
+},
+    ["blocking"]);
 
 chrome.webRequest.onBeforeSendHeaders.addListener(function(details) {
   var requestHeaders = details.requestHeaders;

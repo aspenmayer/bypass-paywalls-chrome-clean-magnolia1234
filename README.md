@@ -4,6 +4,7 @@
 * [List of supported websites](#list-of-supported-websites)
 * [Sites with limited number of free articles](#sites-with-limited-number-of-free-articles)
 * [New site requests](#new-site-requests)
+* [Add custom site](#add-custom-site)
 * [Troubleshooting](#troubleshooting)
 * [Changelog-releases](#changelog-releases)
 * [Pull Requests](#pull-requests)
@@ -270,6 +271,12 @@ You can submit a request for a new website [here](https://github.com/magnolia123
 3. Click on the same article from the Google search results page. Or you can:
 4. Disable javascript on the website by clicking the button right icon </> on the uBlock panel.
 5. Refresh the page.
+
+### Add custom site
+Add your own custom site (also for testing).
+Check 'Custom'-link in popup-menu.
+By default sites' cookies are removed after page loads (to bypass article limit).
+Also you can enable Googlebot user-agent or disable Javascript for (sub)domain(s).
 
 ### Troubleshooting
 * This extension works best alongside [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm).

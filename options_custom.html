@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Bypass Paywalls Clean Options Custom</title>
+  <style>
+    #bypass_sites label, #add_site label {
+      display: block;
+    }
+    body {
+      width:350px;
+      height:600px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Options Custom</h1>
+  <div>
+    Add new site: enter unique title/domain (without www.)<br/>
+    & options for googlebot/block javascript (only on (sub)domain).<br/>
+    Enable new site in options (cookies removed by default).<br/>
+    Redefine options of custom site by adding entry with same title.
+  <br/><br/>
+  </div>
+  <div id='add_site'></div>
+    <br/>
+  <span style='float:left;padding-bottom:20px'>
+    <button id="add">Add</button>
+  </span> 
+  <div style="clear:both;"></div>
+  <div>
+    Current custom sites (edit textarea & save).<br/>
+    Saves only when valid json-text; clear & save to reset.<br/>
+    Also possible to export/import json-text for new installation.
+  </div>
+  <br/>
+  <div id='bypass_sites'></div>
+    <br/>
+  <div id="status"></div>
+  <div id="error"></div>
+  <span style='float:left;padding-bottom:20px'>
+    <button id="save">Save</button>
+  </span>
+ <script src="options_custom.js"></script>
+</body>
+</html>

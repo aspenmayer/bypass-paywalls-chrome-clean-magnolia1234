@@ -40,7 +40,7 @@ function save_options() {
 // Restores checkbox input states using the preferences stored in chrome.storage.
 function renderOptions() {
   chrome.storage.sync.get({
-    sites: {}
+    sites: {}, sites_custom: {}
   }, function(items) {
     var sites = items.sites;
     var sitesEl = document.getElementById('bypass_sites');
@@ -62,6 +62,29 @@ function renderOptions() {
       labelEl.appendChild(document.createTextNode(' '+key));
       sitesEl.appendChild(labelEl);
     }
+	// custom
+    var labelEl = document.createElement('label');	
+    labelEl.appendChild(document.createTextNode(' ——— Custom Sites ———'));
+    sitesEl.appendChild(labelEl);
+    var sites_custom = items.sites_custom;
+	for (var key in sites_custom) {
+      if (defaultSites.hasOwnProperty(key)) {
+        continue;
+      }
+
+      var value = sites_custom[key]['domain'];
+      var labelEl = document.createElement('label');
+      var inputEl = document.createElement('input');
+      inputEl.type = 'checkbox';
+      inputEl.dataset.key = key;
+      inputEl.dataset.value = value;
+      inputEl.checked = (key in sites) || (key.replace(/\s\(.*\)/, '') in sites);
+	  if (value !=='###') {
+        labelEl.appendChild(inputEl);
+      }
+      labelEl.appendChild(document.createTextNode(' '+key));
+      sitesEl.appendChild(labelEl);
+	}
   });
 }
 
