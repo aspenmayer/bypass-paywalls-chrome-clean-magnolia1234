@@ -214,7 +214,6 @@ chrome.storage.sync.get({
     enabledSites = enabledSites.filter(function (el) {
             return (el !== '###');
         });
-	console.log(enabledSites);
     for (var domainIndex in enabledSites) {
         var domainVar = enabledSites[domainIndex];
         if (!allow_cookies.includes(domainVar) && !remove_cookies.includes(domainVar)) {
