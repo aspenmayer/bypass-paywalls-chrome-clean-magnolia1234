@@ -41,7 +41,6 @@ var allow_cookies = [
 'mexiconewsdaily.com',
 'modernhealthcare.com',
 'nationalreview.com',
-'nknews.org',
 'ntnews.com.au',
 'nytimes.com',
 'parool.nl',
@@ -96,7 +95,7 @@ const use_google_bot_default = [
 'couriermail.com.au',
 'dailytelegraph.com.au',
 'dn.se',
-"fd.nl",
+'fd.nl',
 'goldcoastbulletin.com.au',
 'haaretz.co.il',
 'haaretz.com',
@@ -104,7 +103,6 @@ const use_google_bot_default = [
 'heraldsun.com.au',
 'lemonde.fr',
 'mexiconewsdaily.com',
-'nknews.org',
 'ntnews.com.au',
 'nytimes.com',
 'prime.economictimes.indiatimes.com',
@@ -208,12 +206,12 @@ chrome.storage.sync.get({
         });
     block_js = block_js_default.slice();
 
-    enabledSites = Object.keys(items.sites).map(function (key) {
-            return items.sites[key];
+    enabledSites = Object.keys(sites).filter(function (key) {
+            return (sites[key] !== '' && sites[key] !== '###');
+        }).map(function (key) {
+            return sites[key];
         });
-    enabledSites = enabledSites.filter(function (el) {
-            return (el !== '###');
-        });
+
     for (var domainIndex in enabledSites) {
         var domainVar = enabledSites[domainIndex];
         if (!allow_cookies.includes(domainVar) && !remove_cookies.includes(domainVar)) {
@@ -235,7 +233,9 @@ chrome.storage.onChanged.addListener(function (changes, namespace) {
         var storageChange = changes[key];
         if (key === 'sites') {
             var sites = storageChange.newValue;
-            enabledSites = Object.keys(sites).map(function (key) {
+            enabledSites = Object.keys(sites).filter(function (key) {
+                    return (sites[key] !== '' && sites[key] !== '###');
+                }).map(function (key) {
                     return sites[key];
                 });
         }
@@ -250,7 +250,7 @@ chrome.storage.onChanged.addListener(function (changes, namespace) {
             use_google_bot = use_google_bot_default.slice();
             for (var domainIndex in use_google_bot_custom) {
                 var domainVar = use_google_bot_custom[domainIndex];
-                if (!use_google_bot.includes(domainVar)) {
+                if (domainVar && !use_google_bot.includes(domainVar)) {
                     use_google_bot.push(domainVar);
                 }
             }
@@ -263,7 +263,7 @@ chrome.storage.onChanged.addListener(function (changes, namespace) {
             block_js = block_js_default.slice();
             for (var domainIndex in block_js_custom) {
                 var domainVar = block_js_custom[domainIndex];
-                if (!block_js.includes(domainVar)) {
+                if (domainVar && !block_js.includes(domainVar)) {
                     block_js.push("*://*." + domainVar + "/*"); // subdomains of site
                     block_js.push("*://" + domainVar + "/*"); // site without www.-prefix
                 }

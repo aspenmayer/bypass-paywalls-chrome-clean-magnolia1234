@@ -84,7 +84,6 @@ var defaultSites =
   "New Zealand Herald": "nzherald.co.nz",
   "Newcastle Herald": "newcastleherald.com.au",
   "Nikkei Asian Review": "asia.nikkei.com",
-  "NK News": "nknews.org",
   "Northern Territory News": "ntnews.com.au",
   "NRC Handelsblad": "nrc.nl",
   "O Estado de S. Paulo": "estadao.com.br",
