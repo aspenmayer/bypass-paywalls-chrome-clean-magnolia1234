@@ -142,6 +142,7 @@ var defaultSites =
   "The News-Gazette": "news-gazette.com",
   "The Northern Daily Leader": "northerndailyleader.com.au",
   "The Philadelphia Inquirer": "inquirer.com",
+  "The Port Macquarie News": "portnews.com.au",
   "The Sacramento Bee (free articles only)": "sacbee.com",
   "The Saturday Paper": "thesaturdaypaper.com.au",
   "The Seattle Times": "seattletimes.com",

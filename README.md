@@ -142,6 +142,7 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [The Examiner](https://www.examiner.com.au) -
 [The Mercury Tasmania](https://www.themercury.com.au) -
 [The Northern Daily Leader](https://www.northerndailyleader.com.au) -
+[The Port Macquarie News](https://www.portnews.com.au) -
 [The Saturday Paper](https://www.thesaturdaypaper.com.au) -
 [The Spectator Australia](https://www.spectator.com.au) -
 [The Standard](https://www.standard.net.au) -
