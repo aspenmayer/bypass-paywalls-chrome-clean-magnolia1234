@@ -407,9 +407,12 @@ if (window.location.href.indexOf("lesechos.fr") !== -1) {
 
 if (window.location.href.indexOf("lc.nl") !== -1 || window.location.href.indexOf("dvhn.nl") !== -1) {
     document.addEventListener('DOMContentLoaded', () => {
+        var new_location = window.location.href;
+        if (new_location.indexOf("utm_source=") !== -1)
+            var new_location = new_location.split('?')[0];
         const preview = document.querySelector('.preview');
-        if (preview && window.location.href.indexOf("harvest_referrer") === -1)
-            location.href = location.href + '?harvest_referrer=https%3A%2F%2Fnos.nl%2Fplus.html';
+        if (preview && new_location.indexOf("harvest_referrer=") === -1)
+            window.location.href = new_location + '?harvest_referrer=https%3A%2F%2Fnos.nl%2Fplus.html';
     });
 }
 
