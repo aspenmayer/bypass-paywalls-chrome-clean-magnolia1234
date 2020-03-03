@@ -282,6 +282,18 @@ chrome.runtime.onInstalled.addListener(function (details) {
   }
 });
 
+// repubblica.it bypass
+chrome.webRequest.onBeforeRequest.addListener(function (details) {
+  if (!isSiteEnabled(details)) {
+    return;
+  }
+  var updatedUrl = details.url.replace('/pwa/', '/ws/detail/');
+  return { redirectUrl: updatedUrl };
+},
+{urls:["*://*.repubblica.it/pwa/*"], types:["main_frame"]},
+["blocking"]
+);
+
 var block_js_default = ["*://*.tinypass.com/*", "*://*.poool.fr/*", "*://*.piano.io/*", "*://*.outbrain.com/*"];
 var block_js_custom = [];
 var block_js = block_js_default.concat(block_js_custom);
