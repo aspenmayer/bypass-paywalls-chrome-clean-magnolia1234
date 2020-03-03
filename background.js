@@ -456,9 +456,30 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function(details) {
   urls: ['<all_urls>']
 }, ['blocking', 'requestHeaders', 'extraHeaders']);
 
+chrome.tabs.onUpdated.addListener(updateBadge);
+chrome.tabs.onActivated.addListener(updateBadge);
+
+function updateBadge() {
+    chrome.tabs.query({
+        active: true,
+        currentWindow: true
+    }, function (arrayOfTabs) {
+        var activeTab = arrayOfTabs[0];
+        if (!activeTab)
+            return;
+        var textB = getTextB(activeTab.url);
+        chrome.browserAction.setBadgeBackgroundColor({color: "red"});
+        chrome.browserAction.setBadgeText({text: textB});
+    });
+}
+
+function getTextB(currentUrl) {
+    return currentUrl && isSiteEnabled({url: currentUrl}) ? 'ON' : '';
+}
+
 // remove cookies after page load
-chrome.webRequest.onCompleted.addListener(function(details) {
-  for (var domainIndex in remove_cookies) {
+chrome.webRequest.onCompleted.addListener(function (details) {
+    for (var domainIndex in remove_cookies) {
     var domainVar = remove_cookies[domainIndex];
     if (!enabledSites.includes(domainVar) || details.url.indexOf(domainVar) === -1) {
       continue; // don't remove cookies
