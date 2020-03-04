@@ -1,6 +1,7 @@
 var defaultSites =
 {
   "Adweek": "adweek.com",
+  "Aftonbladet": "aftonbladet.se",
   "Algemeen Dagblad": "ad.nl",
   "American Affairs": "americanaffairsjournal.org",
   "American Banker": "americanbanker.com",

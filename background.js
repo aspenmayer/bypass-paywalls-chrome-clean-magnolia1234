@@ -16,6 +16,7 @@ const restrictions = {
 // allow_cookies are completed with domains in sites.js (default allow/remove_cookies)
 var allow_cookies = [
 'adelaidenow.com.au',
+'aftonbladet.se',
 'barrons.com',
 'bostonglobe.com',
 'cairnspost.com.au',
@@ -90,6 +91,7 @@ const remove_cookies_select_drop = {
 // Override User-Agent with Googlebot
 const use_google_bot_default = [
 'adelaidenow.com.au',
+'aftonbladet.se',
 'barrons.com',
 'cairnspost.com.au',
 'couriermail.com.au',
