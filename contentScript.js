@@ -195,6 +195,19 @@ if (window.location.href.indexOf("economist.com") !== -1) {
                 window.location.reload(true);
             }
         }, 600); // Delay (in milliseconds)
+        const p_article = document.querySelectorAll('p.article__body-text');
+        var href;
+        for (let i = 0; i < p_article.length; i++) {
+            const anchor = document.querySelectorAll('a');
+            href = '';
+            for (let j = 0; j < anchor.length; j++) {
+                if (anchor[j].href) {
+                    href = anchor[j].href;
+                } else {
+                    anchor[j].href = href;
+                }
+            }
+        }
     });
 }
 
@@ -419,6 +432,11 @@ if (window.location.href.indexOf("lc.nl") !== -1 || window.location.href.indexOf
 
 if (window.location.href.indexOf("newyorker.com") !== -1) {
     const paywall_bar = document.querySelector('.paywall-bar');
+    removeDOMElement(paywall_bar);
+}
+
+if (window.location.href.indexOf("americanaffairsjournal.org") !== -1) {
+    const paywall_bar = document.querySelector('.paywall-notification-bar-wrapper');
     removeDOMElement(paywall_bar);
 }
 
