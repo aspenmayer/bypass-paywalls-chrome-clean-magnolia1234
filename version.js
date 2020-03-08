@@ -9,7 +9,7 @@ fetch(manifest_new)
 			response.json().then(json => {
 				var version_new = json['version'];
 				if (version_new > manifestData.version) {
-					versionString_new = 'New release v' + version_new.link("https://github.com/magnolia1234/bypass-paywalls-chrome-clean/releases").replace('a href=', 'a target="_blank" href=');
+					versionString_new = ' | New release v' + version_new.link("https://github.com/magnolia1234/bypass-paywalls-chrome-clean/releases").replace('a href=', 'a target="_blank" href=');
 				} else {
 					versionString_new  = ''; //'Latest release';
 				}

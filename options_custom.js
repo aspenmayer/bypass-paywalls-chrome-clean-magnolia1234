@@ -20,6 +20,46 @@ function save_options() {
     });
 }
 
+// Export custom sites to file
+function export_options() {
+    chrome.storage.sync.get({
+        sites_custom: {}
+    }, function (items) {
+        var result = JSON.stringify(items.sites_custom);
+        var a = document.createElement("a");
+        var file = new Blob([result], {type: "text/plain"});
+        a.href = window.URL.createObjectURL(file);
+        let date = new Date();
+        let dateStr = new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toISOString().split("T")[0];
+        a.download = 'bypass_paywalls_clean_custom_' + dateStr + '.txt';
+        a.click();
+    });
+}
+
+// Import custom sites from file
+function import_options(e) {
+  var files = e.target.files;
+  var reader = new FileReader();
+  reader.onload = _imp;
+  reader.readAsText(files[0]);
+}
+
+function _imp() {
+    let sites_custom = JSON.parse(this.result);
+    chrome.storage.sync.set({
+        sites_custom: sites_custom
+    }, function () {
+        // Update status to let user know custom sites were imported.
+        var status = document.getElementById('status');
+        status.textContent = 'Custom sites imported.';
+        setTimeout(function () {
+            //status.textContent = '';
+            importInput.value = '';
+            renderOptions();
+        }, 800);
+    });
+}
+
 // Add custom site to chrome.storage
 function add_options() {
     var gh_url = document.getElementById('add_site').value;
@@ -62,16 +102,14 @@ function add_options() {
             var status = document.getElementById('status');
             status.textContent = 'Site added.';
             setTimeout(function () {
-                status.textContent = '';
+                //status.textContent = '';
                 renderOptions();
-                //location.href = 'options.html';
-                //window.close();
             }, 800);
         });
     });
 }
 
-// Delete custom site to chrome.storage
+// Delete custom site from chrome.storage
 function delete_options() {
     var gh_url = document.getElementById('custom_sites').value;
     var selectEl = document.querySelector('#custom_sites select');
@@ -94,8 +132,6 @@ function delete_options() {
             setTimeout(function () {
                 status.textContent = '';
                 renderOptions();
-                //location.href = 'options.html';
-                //window.close();
             }, 800);
         });
     });
@@ -135,7 +171,10 @@ function renderOptions() {
             if (add_checkboxes[key]) {
                 inputEl.type = 'checkbox';
                 inputEl.dataset.value = 1;
-            }
+            } else if (key === 'title') {
+                inputEl.placeholder = 'Example';
+            } else if (key === 'domain')
+                inputEl.placeholder = 'example.com';
             labelEl.appendChild(document.createTextNode(' ' + key));
             add_sitesEl.appendChild(labelEl);
         }
@@ -164,5 +203,8 @@ function renderOptions() {
 
 document.addEventListener('DOMContentLoaded', renderOptions);
 document.getElementById('save').addEventListener('click', save_options);
+document.getElementById('export').addEventListener('click', export_options);
+document.getElementById('import').onclick = function () {importInput.click()}
+document.getElementById('importInput').addEventListener("change", import_options, false);
 document.getElementById('add').addEventListener('click', add_options);
 document.getElementById('delete').addEventListener('click', delete_options);
