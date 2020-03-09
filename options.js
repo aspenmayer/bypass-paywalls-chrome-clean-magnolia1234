@@ -25,15 +25,17 @@ function save_options() {
       window.close();
     }, 800);
   });
-	
+
   // Refresh the current tab
   chrome.tabs.query({
       active: true,
       currentWindow: true
   }, function (tabs) {
+      if (tabs[0].url.indexOf("http") !== -1) {
       chrome.tabs.update(tabs[0].id, {
           url: tabs[0].url
       });
+      }
   });
 }
 
@@ -56,7 +58,7 @@ function renderOptions() {
       inputEl.dataset.key = key;
       inputEl.dataset.value = value;
       inputEl.checked = (key in sites) || (key.replace(/\s\(.*\)/, '') in sites);
-      if (value !=='###') {
+      if (value !== '###') {
         labelEl.appendChild(inputEl);
       }
       labelEl.appendChild(document.createTextNode(' '+key));
@@ -79,7 +81,7 @@ function renderOptions() {
       inputEl.dataset.key = key;
       inputEl.dataset.value = value;
       inputEl.checked = (key in sites) || (key.replace(/\s\(.*\)/, '') in sites);
-	  if (value !=='' && value !=='###') {
+	  if (value !== '' && value !== '###') {
         labelEl.appendChild(inputEl);
       }
       labelEl.appendChild(document.createTextNode(' '+key));

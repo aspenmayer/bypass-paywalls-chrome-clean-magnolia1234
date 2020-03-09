@@ -197,7 +197,7 @@ chrome.storage.sync.get({
     use_google_bot_custom = Object.keys(sites_custom).filter(function (key) {
             return sites_custom[key]['googlebot'] > 0;
         }).map(function (key) {
-            return sites_custom[key]['domain']
+            return sites_custom[key]['domain'].toLowerCase();
         });
     use_google_bot = use_google_bot_default.slice();
 
@@ -205,14 +205,14 @@ chrome.storage.sync.get({
     block_js_custom = Object.keys(sites_custom).filter(function (key) {
             return sites_custom[key]['block_javascript'] > 0;
         }).map(function (key) {
-            return sites_custom[key]['domain']
+            return sites_custom[key]['domain'].toLowerCase();
         });
     block_js = block_js_default.slice();
 
     enabledSites = Object.keys(sites).filter(function (key) {
             return (sites[key] !== '' && sites[key] !== '###');
         }).map(function (key) {
-            return sites[key];
+            return sites[key].toLowerCase();
         });
 
     for (var domainIndex in enabledSites) {
@@ -248,7 +248,7 @@ chrome.storage.onChanged.addListener(function (changes, namespace) {
             use_google_bot_custom = Object.keys(sites_custom).filter(function (key) {
                     return sites_custom[key]['googlebot'] > 0;
                 }).map(function (key) {
-                    return sites_custom[key]['domain']
+                    return sites_custom[key]['domain'].toLowerCase();
                 });
             use_google_bot = use_google_bot_default.slice();
             for (var domainIndex in use_google_bot_custom) {
@@ -261,7 +261,7 @@ chrome.storage.onChanged.addListener(function (changes, namespace) {
             block_js_custom = Object.keys(sites_custom).filter(function (key) {
                     return sites_custom[key]['block_javascript'] > 0;
                 }).map(function (key) {
-                    return sites_custom[key]['domain']
+                    return sites_custom[key]['domain'].toLowerCase();
                 });
             block_js = block_js_default.slice();
             for (var domainIndex in block_js_custom) {
