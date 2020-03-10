@@ -9,11 +9,14 @@ fetch(manifest_new)
 			response.json().then(json => {
 				var version_new = json['version'];
 				if (version_new > manifestData.version) {
-					versionString_new = ' | New release v' + version_new.link("https://github.com/magnolia1234/bypass-paywalls-chrome-clean/releases").replace('a href=', 'a target="_blank" href=');
-				} else {
-					versionString_new  = ''; //'Latest release';
+					var versionString_new = document.getElementById('version_new');
+					versionString_new.appendChild(document.createTextNode(' | '));
+					var anchorEl = document.createElement('a');
+					anchorEl.text = 'New release v' + version_new;
+					anchorEl.href = 'https://github.com/magnolia1234/bypass-paywalls-chrome-clean/releases';
+					anchorEl.target = '_blank';
+					versionString_new.appendChild(anchorEl);
 				}
-				document.getElementById('version_new').innerHTML = versionString_new;
 			})
 		}
 	});
