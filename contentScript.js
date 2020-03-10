@@ -376,7 +376,7 @@ if (window.location.href.indexOf("sofrep.com") !== -1) {
     removeDOMElement(banner);
 }
 
-if (window.location.href.indexOf("theathletic.com") !== -1) {
+if (window.location.href.indexOf("theathletic.co") !== -1) {
     const landing_banner = document.querySelector('.logged-out-landing-banner');
     const sample_banner = document.querySelector('.main-sample-banner');
     const bottom_banner = document.querySelector('.border-bottom-cc');
