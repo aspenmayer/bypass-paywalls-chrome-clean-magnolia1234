@@ -458,7 +458,7 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function(details) {
   return { requestHeaders: requestHeaders };
 }, {
   urls: ['<all_urls>']
-}, ['blocking', 'requestHeaders', 'extraHeaders']);
+}, ['blocking', 'requestHeaders']);
 
 chrome.tabs.onUpdated.addListener(updateBadge);
 chrome.tabs.onActivated.addListener(updateBadge);

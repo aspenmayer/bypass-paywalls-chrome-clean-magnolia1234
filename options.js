@@ -31,7 +31,7 @@ function save_options() {
       active: true,
       currentWindow: true
   }, function (tabs) {
-      if (tabs[0].url.indexOf("http") !== -1) {
+      if (tabs[0].url && tabs[0].url.indexOf("http") !== -1) {
       chrome.tabs.update(tabs[0].id, {
           url: tabs[0].url
       });
