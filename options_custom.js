@@ -149,7 +149,7 @@ function renderOptions() {
         var textareaEl = document.createElement('textarea');
         textareaEl.value = JSON.stringify(sites_custom);
         textareaEl.rows = 12;
-        textareaEl.cols = 45;
+        textareaEl.cols = 40;
         labelEl.appendChild(textareaEl);
         sitesEl.appendChild(labelEl);
 
