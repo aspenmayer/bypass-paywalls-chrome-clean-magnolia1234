@@ -23,6 +23,7 @@ var allow_cookies = [
 'clarin.com',
 'couriermail.com.au',
 'dailytelegraph.com.au',
+'demorgen.be',
 'dn.se',
 'dvhn.nl',
 'elmercurio.com',
