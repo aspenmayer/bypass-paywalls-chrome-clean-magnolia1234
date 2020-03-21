@@ -152,6 +152,7 @@ var blockedRegexes = {
 'haaretz.com': /haaretz\.com\/hdc\/web\/js\/minified\/header-scripts-int.js.+/,
 'inquirer.com': /.+\.tinypass\.com\/.+/,
 'lastampa.it': /.+\.repstatic\.it\/minify\/sites\/lastampa\/.+\/config\.cache\.php\?name=social_js/,
+'ladepeche.fr': /.+\.poool\.fr\/.+/,
 'lejdd.fr': /.+\.swisspay\.ch\/.+/,
 'leparisien.fr': /.+\.tinypass\.com\/.+/,
 'lesechos.fr': /.+\.tinypass\.com\/.+/,

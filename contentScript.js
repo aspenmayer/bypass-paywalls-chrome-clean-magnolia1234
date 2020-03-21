@@ -440,6 +440,14 @@ if (window.location.href.indexOf("americanaffairsjournal.org") !== -1) {
     removeDOMElement(paywall_bar);
 }
 
+if (window.location.href.indexOf('ladepeche.fr') !== -1) {
+    document.addEventListener('DOMContentLoaded', () => {
+        const hidden_section = document.querySelector('.article-full__body-content');
+        if (hidden_section)
+            hidden_section.classList.remove('article-full__body-content');
+    });
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {

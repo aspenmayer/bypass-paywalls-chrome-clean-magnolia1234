@@ -58,6 +58,7 @@ var defaultSites =
   "Illawarra Mercury": "illawarramercury.com.au",
   "Kleine Zeitung": "kleinezeitung.at",
   "L'Écho": "lecho.be",
+  "La Dépêche": "ladepeche.fr",
   "La Nación": "lanacion.com.ar",
   "La Repubblica": "repubblica.it",
   "La Stampa": "lastampa.it",
