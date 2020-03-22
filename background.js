@@ -17,7 +17,6 @@ const restrictions = {
 var allow_cookies = [
 'adelaidenow.com.au',
 'aftonbladet.se',
-'barrons.com',
 'bostonglobe.com',
 'cairnspost.com.au',
 'clarin.com',
@@ -72,6 +71,7 @@ var remove_cookies = [
 
 // select specific cookie(s) to hold from remove_cookies domains
 const remove_cookies_select_hold = {
+	'barrons.com': ['wsjregion'],
 	'newstatesman.com': ['STYXKEY_nsversion'],
 	'qz.com': ['gdpr'],
 	'washingtonpost.com': ['wp_gdpr'],
@@ -151,8 +151,8 @@ var blockedRegexes = {
 'haaretz.co.il': /haaretz\.co\.il\/htz\/js\/inter\.js/,
 'haaretz.com': /haaretz\.com\/hdc\/web\/js\/minified\/header-scripts-int.js.+/,
 'inquirer.com': /.+\.tinypass\.com\/.+/,
-'lastampa.it': /.+\.repstatic\.it\/minify\/sites\/lastampa\/.+\/config\.cache\.php\?name=social_js/,
 'ladepeche.fr': /.+\.poool\.fr\/.+/,
+'lastampa.it': /.+\.repstatic\.it\/minify\/sites\/lastampa\/.+\/config\.cache\.php\?name=social_js/,
 'lejdd.fr': /.+\.swisspay\.ch\/.+/,
 'leparisien.fr': /.+\.tinypass\.com\/.+/,
 'lesechos.fr': /.+\.tinypass\.com\/.+/,
