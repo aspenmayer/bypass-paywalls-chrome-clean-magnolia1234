@@ -53,6 +53,7 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [The Atlantic](https://www.theatlantic.com) -
 [The Christian Science Monitor](https://www.csmonitor.com) -
 [The Nation](https://www.thenation.com) -
+[The New Republic](https://newrepublic.com) -
 [The New York Times](https://www.nytimes.com) -
 [The New Yorker](https://www.newyorker.com) -
 [The Washington Post](https://www.washingtonpost.com) -
@@ -278,7 +279,7 @@ You can submit a request for a new website [here](https://github.com/magnolia123
 
 ### Add custom site
 Add your own custom site (also for testing).
-Check 'Custom'-link in popup-menu.
+Check 'Options'-link in popup-menu and go to custom sites.
 By default sites' cookies are removed after page loads (to bypass article limit).
 Also you can enable Googlebot user-agent or disable Javascript for (sub)domain(s).
 

@@ -140,6 +140,7 @@ var defaultSites =
   "The Mercury Tasmania": "themercury.com.au",
   "The Morning Call": "mcall.com",
   "The Nation": "thenation.com",
+  "The New Republic": "newrepublic.com",
   "The New Statesman": "newstatesman.com",
   "The New York Times": "nytimes.com",
   "The New Yorker": "newyorker.com",
