@@ -158,6 +158,7 @@ var blockedRegexes = {
 'leparisien.fr': /.+\.tinypass\.com\/.+/,
 'lesechos.fr': /.+\.tinypass\.com\/.+/,
 'lrb.co.uk': /.+\.tinypass\.com\/.+/,
+'lopinion.fr': /.+\.poool\.fr\/.+/,
 'modernhealthcare.com': /.+\.tinypass\.com\/.+/,
 'nationalreview.com': /.+\.blueconic\.net\/.+/,
 'newcastleherald.com.au': /.+cdn-au\.piano\.io\/api\/tinypass.+\.js/,

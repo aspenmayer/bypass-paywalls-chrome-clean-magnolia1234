@@ -66,6 +66,7 @@ var defaultSites =
   "Le Devoir": "ledevoir.com",
   "Le Journal du Dimanche": "lejdd.fr",
   "Le Monde": "lemonde.fr",
+  "L'Opinion": "lopinion.fr",
   "Le Parisien": "leparisien.fr",
   "Leeuwarder Courant": "lc.nl",
   "Les Échos": "lesechos.fr (free articles only)",

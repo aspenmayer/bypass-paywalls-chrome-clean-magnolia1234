@@ -174,6 +174,7 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 ##### France/Wallonia
 [Challenges](https://www.challenges.fr) –
 [L'Écho](https://lecho.be) -
+[L'Opinion](https://www.lopinion.fr) –
 [La Dépêche](https://www.ladepeche.fr) –
 [Le Journal du Dimanche](https://lejdd.fr) –
 [Le Monde](https://www.lemonde.fr) -
