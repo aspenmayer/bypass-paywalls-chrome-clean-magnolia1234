@@ -1,6 +1,7 @@
 /* Please respect alphabetical order when adding a site in any list */
 
 'use strict';
+var ext_api = chrome || browser;
 
 // Cookies from this list are blocked by default (obsolete)
 // defaultSites are loaded from sites.js at installation extension
@@ -109,7 +110,6 @@ const use_google_bot_default = [
 'lemonde.fr',
 'mexiconewsdaily.com',
 'ntnews.com.au',
-'nytimes.com',
 'prime.economictimes.indiatimes.com',
 'quora.com',
 'seekingalpha.com',
@@ -157,12 +157,13 @@ var blockedRegexes = {
 'lejdd.fr': /.+\.swisspay\.ch\/.+/,
 'leparisien.fr': /.+\.tinypass\.com\/.+/,
 'lesechos.fr': /.+\.tinypass\.com\/.+/,
-'lrb.co.uk': /.+\.tinypass\.com\/.+/,
 'lopinion.fr': /.+\.poool\.fr\/.+/,
+'lrb.co.uk': /.+\.tinypass\.com\/.+/,
 'modernhealthcare.com': /.+\.tinypass\.com\/.+/,
 'nationalreview.com': /.+\.blueconic\.net\/.+/,
 'newcastleherald.com.au': /.+cdn-au\.piano\.io\/api\/tinypass.+\.js/,
 'newrepublic.com': /.+\.onecount\.net\/js\/.+/,
+'nytimes.com': /(.+meter-svc\.nytimes\.com\/meter\.js.+|.+mwcm\.nyt\.com\/.+\.js)/,
 'nzherald.co.nz': /nzherald\.co\.nz\/.+\/headjs\/.+\.js/,
 'portnews.com.au': /.+cdn-au\.piano\.io\/api\/tinypass.+\.js/,
 'repubblica.it': /scripts\.repubblica\.it\/pw\/pw\.js.+/,
@@ -184,16 +185,16 @@ const userAgentMobile = "Chrome/41.0.2272.96 Mobile Safari/537.36 (compatible ; 
 var enabledSites = [];
 
 function setDefaultOptions() {
-  chrome.storage.sync.set({
+  ext_api.storage.sync.set({
     sites: defaultSites
   }, function() {
-    chrome.tabs.create({ 'url': 'chrome://extensions/?options=' + chrome.runtime.id });
+    ext_api.runtime.openOptionsPage();
   });
 }
 
 // Get the enabled sites (from local storage) & add to allow/remove_cookies (if not already in one of these arrays)
 // Add googlebot- and block_javascript-settings for custom sites
-chrome.storage.sync.get({
+ext_api.storage.sync.get({
     sites: {},
     sites_custom: {}
 }, function (items) {
@@ -237,8 +238,9 @@ chrome.storage.sync.get({
         }
     }
 });
+
 // Listen for changes to options
-chrome.storage.onChanged.addListener(function (changes, namespace) {
+ext_api.storage.onChanged.addListener(function (changes, namespace) {
     for (var key in changes) {
         var storageChange = changes[key];
         if (key === 'sites') {
@@ -283,7 +285,7 @@ chrome.storage.onChanged.addListener(function (changes, namespace) {
 });
 
 // Set and show default options on install
-chrome.runtime.onInstalled.addListener(function (details) {
+ext_api.runtime.onInstalled.addListener(function (details) {
   if (details.reason == "install") {
     setDefaultOptions();
   } else if (details.reason == "update") {
@@ -292,7 +294,7 @@ chrome.runtime.onInstalled.addListener(function (details) {
 });
 
 // repubblica.it bypass
-chrome.webRequest.onBeforeRequest.addListener(function (details) {
+ext_api.webRequest.onBeforeRequest.addListener(function (details) {
   if (!isSiteEnabled(details)) {
     return;
   }
@@ -307,7 +309,7 @@ var block_js_default = ["*://*.tinypass.com/*", "*://*.poool.fr/*", "*://*.piano
 var block_js_custom = [];
 var block_js = block_js_default.concat(block_js_custom);
 // Disable javascript for these sites/general paywall-scripts
-chrome.webRequest.onBeforeRequest.addListener(function (details) {
+ext_api.webRequest.onBeforeRequest.addListener(function (details) {
     if (!isSiteEnabled(details)) {
         return;
     }
@@ -320,9 +322,13 @@ chrome.webRequest.onBeforeRequest.addListener(function (details) {
 },
     ["blocking"]);
 
+var extraInfoSpec = ['blocking', 'requestHeaders'];
+if (ext_api.webRequest.OnBeforeSendHeadersOptions.hasOwnProperty('EXTRA_HEADERS'))
+  extraInfoSpec.push('extraHeaders');
+
 // list of regional ad.nl sites
 const ad_region_domains = ['bd.nl', 'ed.nl', 'tubantia.nl', 'bndestem.nl', 'pzc.nl', 'destentor.nl', 'gelderlander.nl'];
-chrome.webRequest.onBeforeSendHeaders.addListener(function(details) {
+ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   var requestHeaders = details.requestHeaders;
 
   var header_referer = '';
@@ -336,9 +342,9 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function(details) {
   // remove cookies for sites medium platform (mainfest.json needs in permissions: <all_urls>)
   if (isSiteEnabled({url: '.medium.com'}) && details.url.indexOf('cdn-client.medium.com') !== -1 && header_referer.indexOf('.medium.com') === -1) {
 		var domainVar = new URL(header_referer).hostname;
-		chrome.cookies.getAll({domain: domainVar}, function(cookies) {
+		ext_api.cookies.getAll({domain: domainVar}, function(cookies) {
 			for (var i=0; i<cookies.length; i++) {
-				chrome.cookies.remove({url: (cookies[i].secure ? "https://" : "http://") + cookies[i].domain + cookies[i].path, name: cookies[i].name});
+				ext_api.cookies.remove({url: (cookies[i].secure ? "https://" : "http://") + cookies[i].domain + cookies[i].path, name: cookies[i].name});
 			}
 	    });
   }
@@ -347,10 +353,10 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function(details) {
   if (isSiteEnabled({url: '.ad.nl'})) {
 	var domainVar = new URL(details.url).hostname.replace('www.', '');
 	if (ad_region_domains.includes(domainVar)) {
-		chrome.cookies.getAll({domain: domainVar}, function(cookies) {
+		ext_api.cookies.getAll({domain: domainVar}, function(cookies) {
 			for (var i=0; i<cookies.length; i++) {
 				if (remove_cookies_select_drop['ad.nl'].includes(cookies[i].name)){
-					chrome.cookies.remove({url: (cookies[i].secure ? "https://" : "http://") + cookies[i].domain + cookies[i].path, name: cookies[i].name});
+					ext_api.cookies.remove({url: (cookies[i].secure ? "https://" : "http://") + cookies[i].domain + cookies[i].path, name: cookies[i].name});
 				}
 			}
 		});
@@ -364,10 +370,10 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function(details) {
 				// allow BG paywall-script to set cookies in homepage/sections (else no article-text)
 				if (details.url.indexOf('meter.bostonglobe.com/js/') !== -1 && (header_referer === 'https://www.bostonglobe.com/'
 						|| header_referer.indexOf('/?p1=BGHeader_') !== -1  || header_referer.indexOf('/?p1=BGMenu_') !== -1)) {
-					chrome.webRequest.handlerBehaviorChanged(function () {});
+					ext_api.webRequest.handlerBehaviorChanged(function () {});
 					break;
 				} else if (header_referer.indexOf('theglobeandmail.com') !== -1 && !(header_referer.indexOf('/article-') !== -1)) {
-					chrome.webRequest.handlerBehaviorChanged(function () {});
+					ext_api.webRequest.handlerBehaviorChanged(function () {});
 					break;
 				}
 				return { cancel: true };
@@ -451,11 +457,11 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function(details) {
 
   if (tabId !== -1) {
     // run contentScript inside tab
-    chrome.tabs.executeScript(tabId, {
+    ext_api.tabs.executeScript(tabId, {
       file: 'contentScript.js',
       runAt: 'document_start'
     }, function(res) {
-      if (chrome.runtime.lastError || res[0]) {
+      if (ext_api.runtime.lastError || res[0]) {
         return;
       }
     });
@@ -464,13 +470,14 @@ chrome.webRequest.onBeforeSendHeaders.addListener(function(details) {
   return { requestHeaders: requestHeaders };
 }, {
   urls: ['<all_urls>']
-}, ['blocking', 'requestHeaders', 'extraHeaders']);
+}, extraInfoSpec);
+// extraInfoSpec is ['blocking', 'requestHeaders'] + possible 'extraHeaders'
 
-chrome.tabs.onUpdated.addListener(updateBadge);
-chrome.tabs.onActivated.addListener(updateBadge);
+ext_api.tabs.onUpdated.addListener(updateBadge);
+ext_api.tabs.onActivated.addListener(updateBadge);
 
 function updateBadge() {
-    chrome.tabs.query({
+    ext_api.tabs.query({
         active: true,
         currentWindow: true
     }, function (arrayOfTabs) {
@@ -478,8 +485,8 @@ function updateBadge() {
         if (!activeTab)
             return;
         var textB = getTextB(activeTab.url);
-        chrome.browserAction.setBadgeBackgroundColor({color: "red"});
-        chrome.browserAction.setBadgeText({text: textB});
+        ext_api.browserAction.setBadgeBackgroundColor({color: "red"});
+        ext_api.browserAction.setBadgeText({text: textB});
     });
 }
 
@@ -494,30 +501,35 @@ function getTextB(currentUrl) {
 }
 
 // remove cookies after page load
-chrome.webRequest.onCompleted.addListener(function (details) {
+ext_api.webRequest.onCompleted.addListener(function (details) {
     for (var domainIndex in remove_cookies) {
-    var domainVar = remove_cookies[domainIndex];
-    if (!enabledSites.includes(domainVar) || details.url.indexOf(domainVar) === -1) {
-      continue; // don't remove cookies
+        var domainVar = remove_cookies[domainIndex];
+        if (!enabledSites.includes(domainVar) || details.url.indexOf(domainVar) === -1) {
+            continue; // don't remove cookies
+        }
+        ext_api.cookies.getAll({
+            domain: domainVar
+        }, function (cookies) {
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie_domain = cookies[i].domain;
+                var rc_domain = cookie_domain.replace(/^(\.?www\.|\.)/, '');
+                // hold specific cookie(s) from remove_cookies domains
+                if ((rc_domain in remove_cookies_select_hold) && remove_cookies_select_hold[rc_domain].includes(cookies[i].name)) {
+                    continue; // don't remove specific cookie
+                }
+                // drop only specific cookie(s) from remove_cookies domains
+                if ((rc_domain in remove_cookies_select_drop) && !(remove_cookies_select_drop[rc_domain].includes(cookies[i].name))) {
+                    continue; // only remove specific cookie
+                }
+                ext_api.cookies.remove({
+                    url: (cookies[i].secure ? "https://" : "http://") + cookies[i].domain + cookies[i].path,
+                    name: cookies[i].name
+                });
+            }
+        });
     }
-    chrome.cookies.getAll({domain: domainVar}, function(cookies) {
-		for (var i=0; i<cookies.length; i++) {
-			var cookie_domain = cookies[i].domain;
-			var rc_domain = cookie_domain.replace(/^(\.?www\.|\.)/, '');
-			// hold specific cookie(s) from remove_cookies domains
-			if ((rc_domain in remove_cookies_select_hold) && remove_cookies_select_hold[rc_domain].includes(cookies[i].name)) {
-				continue; // don't remove specific cookie
-			}
-			// drop only specific cookie(s) from remove_cookies domains
-			if ((rc_domain in remove_cookies_select_drop) && !(remove_cookies_select_drop[rc_domain].includes(cookies[i].name))) {
-				continue; // only remove specific cookie
-			}
-			chrome.cookies.remove({url: (cookies[i].secure ? "https://" : "http://") + cookies[i].domain + cookies[i].path, name: cookies[i].name});
-		}
-    });
-  }
 }, {
-  urls: ["<all_urls>"]
+    urls: ["<all_urls>"]
 });
 
 function isSiteEnabled(details) {
