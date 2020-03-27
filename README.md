@@ -231,7 +231,6 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 
 #### India
 [Bloomberg Quint](https://www.bloombergquint.com)* -
-[ET Prime](https://prime.economictimes.indiatimes.com) -
 [The Hindu](https://www.thehindu.com)
 
 #### Israel

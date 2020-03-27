@@ -9,7 +9,6 @@ var ext_api = chrome || browser;
 
 const restrictions = {
   'barrons.com': /.+barrons\.com\/articles\/.+/,
-  'prime.economictimes.indiatimes.com': /.+prime\.economictimes\.indiatimes\.com\/news\/[0-9]{8}\/.+/,
   'wsj.com': /(.+wsj\.com\/articles\/.+|.+blogs\.wsj\.com\/.+)/
 }
 
@@ -46,7 +45,6 @@ var allow_cookies = [
 'ntnews.com.au',
 'nytimes.com',
 'parool.nl',
-'prime.economictimes.indiatimes.com',
 'quora.com',
 'scribd.com',
 'seekingalpha.com',
@@ -110,7 +108,6 @@ const use_google_bot_default = [
 'lemonde.fr',
 'mexiconewsdaily.com',
 'ntnews.com.au',
-'prime.economictimes.indiatimes.com',
 'quora.com',
 'seekingalpha.com',
 'telegraph.co.uk',

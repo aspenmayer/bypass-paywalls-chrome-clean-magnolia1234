@@ -32,7 +32,6 @@ var defaultSites =
   "El Mercurio": "elmercurio.com",
   "El País": "elpais.com",
   "Encyclopedia Britannica": "britannica.com",
-  "ET Prime": "prime.economictimes.indiatimes.com",
   "Exame": "exame.abril.com.br",
   "Financial News": "fnlondon.com",
   "Financial Times": "ft.com",
