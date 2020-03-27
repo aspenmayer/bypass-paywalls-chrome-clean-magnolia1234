@@ -217,6 +217,8 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 ##### Sweden
 [Aftonbladet](https://www.aftonbladet.se) -
 [Dagens Nyheter](https://www.dn.se)
+##### Switzerland
+[Neue Zürcher Zeitung](https://www.nzz.ch)
 
 #### East Asia
 [Caixin Global](https://www.caixinglobal.com) -
