@@ -234,6 +234,7 @@ ext_api.storage.sync.get({
             block_js.push("*://" + domainVar + "/*"); // site without www.-prefix
         }
     }
+    disableJavascriptOnListedSites();     
 });
 
 // Listen for changes to options
@@ -247,6 +248,9 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
                 }).map(function (key) {
                     return sites[key];
                 });
+			// reset disableJavascriptOnListedSites eventListener 
+            ext_api.webRequest.onBeforeRequest.removeListener(disableJavascriptOnListedSites);
+            ext_api.webRequest.handlerBehaviorChanged();
         }
         if (key === 'sites_custom') {
             var sites_custom = storageChange.newValue;
@@ -277,6 +281,9 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
                     block_js.push("*://" + domainVar + "/*"); // site without www.-prefix
                 }
             }
+			// reset disableJavascriptOnListedSites eventListener 
+            ext_api.webRequest.onBeforeRequest.removeListener(disableJavascriptOnListedSites);
+            ext_api.webRequest.handlerBehaviorChanged();
         }
     }
 });
@@ -305,19 +312,22 @@ ext_api.webRequest.onBeforeRequest.addListener(function (details) {
 var block_js_default = ["*://*.tinypass.com/*", "*://*.poool.fr/*", "*://*.piano.io/*", "*://*.outbrain.com/*"];
 var block_js_custom = [];
 var block_js = block_js_default.concat(block_js_custom);
+
 // Disable javascript for these sites/general paywall-scripts
-ext_api.webRequest.onBeforeRequest.addListener(function (details) {
-    if (!isSiteEnabled(details)) {
-        return;
-    }
-    return {
-        cancel: true
-    };
-}, {
-    urls: block_js,
-    types: ["script"]
-},
-    ["blocking"]);
+function disableJavascriptOnListedSites() {
+    ext_api.webRequest.onBeforeRequest.addListener(function (details) {
+        if (!isSiteEnabled(details)) {
+            return;
+        }
+        return {
+            cancel: true
+        };
+    }, {
+        urls: block_js,
+        types: ["script"]
+    },
+        ["blocking"]);
+}
 
 var extraInfoSpec = ['blocking', 'requestHeaders'];
 if (ext_api.webRequest.OnBeforeSendHeadersOptions.hasOwnProperty('EXTRA_HEADERS'))
