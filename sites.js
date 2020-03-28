@@ -71,6 +71,7 @@ var defaultSites =
   "Leeuwarder Courant": "lc.nl",
   "Les Échos": "lesechos.fr (free articles only)",
   "Libération (free articles only)": "liberation.fr",
+  "LiveMint": "livemint.com",
   "Loeb Classical Library": "loebclassics.com",
   "London Review of Books": "lrb.co.uk",
   "Los Angeles Business Journal": "labusinessjournal.com",
