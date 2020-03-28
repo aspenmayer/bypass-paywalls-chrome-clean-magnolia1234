@@ -139,6 +139,7 @@ var blockedRegexes = {
 'corriere.it': /(\.rcsobjects\.it\/rcs_cpmt\/|\.rcsobjects\.it\/rcs_tracking-service\/|\.corriereobjects\.it\/.+\/js\/_paywall\.sjs|\.corriereobjects\.it\/.*\/js\/tracking\/|\.userzoom\.com\/files\/js\/|\.lp4\.io\/app\/)/,
 'digiday.com': /.+\.tinypass\.com\/.+/,
 'economist.com': /(.+\.tinypass\.com\/.+|economist\.com\/_next\/static\/runtime\/main.+\.js)/,
+'elcomercio.pe': /elcomercio\.pe\/pf\/dist\/template\/elcomercio-noticia\/default.js/,
 'elmercurio.com': /merreader\.emol\.cl\/assets\/js\/vendor\/modal\.js/,
 'elpais.com': /.+\.epimg\.net\/js\/.+\/noticia\.min\.js/,
 'exame.abril.com.br': /.+\.tinypass\.com\/.+/,
@@ -248,7 +249,7 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
                 }).map(function (key) {
                     return sites[key];
                 });
-			// reset disableJavascriptOnListedSites eventListener 
+            // reset disableJavascriptOnListedSites eventListener 
             ext_api.webRequest.onBeforeRequest.removeListener(disableJavascriptOnListedSites);
             ext_api.webRequest.handlerBehaviorChanged();
         }
@@ -281,7 +282,7 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
                     block_js.push("*://" + domainVar + "/*"); // site without www.-prefix
                 }
             }
-			// reset disableJavascriptOnListedSites eventListener 
+            // reset disableJavascriptOnListedSites eventListener 
             ext_api.webRequest.onBeforeRequest.removeListener(disableJavascriptOnListedSites);
             ext_api.webRequest.handlerBehaviorChanged();
         }

@@ -253,6 +253,8 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [La Tercera](https://www.latercera.com)
 ##### Mexico
 [Mexico News Daily](https://mexiconewsdaily.com)
+##### Peru
+[El Comercio](https://elcomercio.pe)
 
 #### Encyclopedia/Book library/Knowledge base
 [Encyclopedia Britannica](https://www.britannica.com) -
