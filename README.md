@@ -181,6 +181,7 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [Le Parisien](https://www.leparisien.fr) -
 [Les Échos](https://www.lesechos.fr)* -
 [Libération](https://www.liberation.fr)* –
+[Science & Vie](https://www.science-et-vie.com) -
 [Valeurs Actuelles](https://www.valeursactuelles.com)
 ##### Germany/Austria
 [Handelsblatt](https://www.handelsblatt.com) -
