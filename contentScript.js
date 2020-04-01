@@ -481,8 +481,8 @@ else if (window.location.href.indexOf("barrons.com") !== -1) {
     for (let i = 0; i < signin_links.length; i++) {
         href = signin_links[i].href;
         if (href.includes('target=')) {
-            href = href.split('target')[1].split('%3F')[0]
-                href = href.replace('=', '').replace('%3A', ':');
+            href = href.split('target')[1].split('%3F')[0];
+            href = href.replace('=', '').replace('%3A', ':');
             href = href.replace('%2F', '/').replace('%2F', '/').replace('%2F', '/').replace('%2F', '/');
             signin_links[i].href = href;
             signin_links[i].text = 'Click';

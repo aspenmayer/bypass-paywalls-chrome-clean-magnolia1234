@@ -9,6 +9,7 @@ var ext_api = chrome || browser;
 
 const restrictions = {
   'barrons.com': /.+barrons\.com\/articles\/.+/,
+  'quora.com': /^((?!quora\.com\/search\?q=).)*$/,
   'wsj.com': /(.+wsj\.com\/articles\/.+|.+blogs\.wsj\.com\/.+)/
 }
 
@@ -380,10 +381,10 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
 				// allow BG paywall-script to set cookies in homepage/sections (else no article-text)
 				if (details.url.indexOf('meter.bostonglobe.com/js/') !== -1 && (header_referer === 'https://www.bostonglobe.com/'
 						|| header_referer.indexOf('/?p1=BGHeader_') !== -1  || header_referer.indexOf('/?p1=BGMenu_') !== -1)) {
-					ext_api.webRequest.handlerBehaviorChanged(function () {});
+					ext_api.webRequest.handlerBehaviorChanged();
 					break;
 				} else if (header_referer.indexOf('theglobeandmail.com') !== -1 && !(header_referer.indexOf('/article-') !== -1)) {
-					ext_api.webRequest.handlerBehaviorChanged(function () {});
+					ext_api.webRequest.handlerBehaviorChanged();
 					break;
 				}
 				return { cancel: true };
