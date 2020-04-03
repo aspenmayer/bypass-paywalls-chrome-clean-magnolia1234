@@ -256,7 +256,8 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 ##### Mexico
 [Mexico News Daily](https://mexiconewsdaily.com)
 ##### Peru
-[El Comercio](https://elcomercio.pe)
+[El Comercio](https://elcomercio.pe) -
+[Gestión](https://gestion.pe)
 
 #### Encyclopedia/Book library/Knowledge base
 [Encyclopedia Britannica](https://www.britannica.com) -
