@@ -29,7 +29,6 @@ var allow_cookies = [
 'dn.se',
 'dvhn.nl',
 'elmercurio.com',
-'fd.nl',
 'folha.uol.com.br',
 'gestion.pe',
 'goldcoastbulletin.com.au',
@@ -88,7 +87,7 @@ const remove_cookies_select_drop = {
 	'caixinglobal.com': ['CAIXINGLB_LOGIN_UUID'],
 	'demorgen.be': ['TID_ID'],
 	'dn.se': ['randomSplusId'],
-	'ed.nl': ['temptationTrackingId'],
+	'fd.nl': ['socialread'],
 	'nrc.nl': ['counter'],
 	'theatlantic.com': ['articleViews']
 }
@@ -102,7 +101,6 @@ const use_google_bot_default = [
 'couriermail.com.au',
 'dailytelegraph.com.au',
 'dn.se',
-'fd.nl',
 'ft.com',
 'goldcoastbulletin.com.au',
 'haaretz.co.il',
@@ -412,7 +410,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
         // this fixes images not being loaded on cooking.nytimes.com main page
         // referrer has to be *nytimes.com otherwise returns 403
         requestHeader.value = 'https://cooking.nytimes.com';
-      } else if (details.url.indexOf("clarin.com") !== -1 || details.url.indexOf("kleinezeitung.at") !== -1) {
+      } else if (details.url.indexOf("clarin.com") !== -1 || details.url.indexOf("kleinezeitung.at") !== -1 || details.url.indexOf("fd.nl") !== -1) {
         requestHeader.value = 'https://www.facebook.com/';
       } else {
         requestHeader.value = 'https://www.google.com/';
@@ -428,7 +426,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
 
   // otherwise add it
   if (!setReferer) {
-      if (details.url.indexOf("clarin.com") !== -1 || details.url.indexOf("kleinezeitung.at") !== -1) {
+      if (details.url.indexOf("clarin.com") !== -1 || details.url.indexOf("kleinezeitung.at") !== -1 || details.url.indexOf("fd.nl") !== -1) {
       requestHeaders.push({
         name: 'Referer',
         value: 'https://www.facebook.com/'
