@@ -69,6 +69,7 @@ var defaultSites =
   "Le Journal du Dimanche": "lejdd.fr",
   "Le Monde": "lemonde.fr",
   "Le Parisien": "leparisien.fr",
+  "Le Scienze": "lescienze.it",
   "Leeuwarder Courant": "lc.nl",
   "Les Échos (free articles only)": "lesechos.fr",
   "Libération (free articles only)": "liberation.fr",

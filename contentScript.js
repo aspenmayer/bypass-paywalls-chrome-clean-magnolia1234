@@ -490,6 +490,18 @@ else if (window.location.href.indexOf("barrons.com") !== -1) {
     }
 }
 
+else if (matchDomain('lescienze.it')) {
+    const paywall = document.querySelector('.paywall-adagio');
+    const body_paywall = document.getElementById('detail-body-paywall');
+    const shade = document.querySelector('.shade');
+    removeDOMElement(paywall, body_paywall, shade);
+    const hidden_body = document.querySelectorAll('.detail_body');
+    for (let i = 0; i < hidden_body.length; i++) {
+        hidden_body[i].removeAttribute('hidden');
+        hidden_body[i].setAttribute('style', 'display:block; max-height:auto; overflow:visible');
+    }
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {
