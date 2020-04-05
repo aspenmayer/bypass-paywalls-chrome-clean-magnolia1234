@@ -32,7 +32,7 @@ else if (matchDomain("thesaturdaypaper.com.au")) {
 }
 
 else if (matchDomain('rep.repubblica.it')) {
-    setTimeout(function () {
+    window.setTimeout(function () {
         if (window.location.href.includes('/pwa/')) {
             window.location.href = window.location.href.replace('/pwa/', '/ws/detail/');
         }
@@ -56,6 +56,12 @@ else if (matchDomain("americanbanker.com")) {
 else if (matchDomain('telegraaf.nl')) {
     if (window.location.href.startsWith('https://www.telegraaf.nl/error?ref=/')) {
         window.location.href = window.location.href.split('&')[0].replace('error?ref=/', '');
+    }
+    let refresh = document.querySelector('div[id="content"] > meta[http-equiv="refresh"]');
+    if (refresh) {
+        window.setTimeout(function () {
+            window.location.reload(true);
+        }, 500);
     }
     let article_wrapper = document.querySelector('.ArticlePageWrapper__uid');
     let spotx_banner = document.querySelector('.ArticleBodyBlocks__inlineArticleSpotXBanner');
@@ -100,7 +106,7 @@ else if (matchDomain("washingtonpost.com")) {
         const free_button = document.querySelector('.gdpr-consent-container .continue-btn.button.free');
         if (free_button)
             free_button.click();
-        setTimeout(function () {
+        window.setTimeout(function () {
             const gdprcheckbox = document.querySelector('.gdpr-consent-container .consent-page:not(.hide) #agree');
             if (gdprcheckbox) {
                 gdprcheckbox.checked = true;
@@ -238,7 +244,7 @@ else if (matchDomain("economist.com")) {
         const advert = document.querySelector('.advert');
         const wrapper = document.getElementById('bottom-page-wrapper');
         removeDOMElement(subscribe, advert, wrapper);
-        setTimeout(function () {
+        window.setTimeout(function () {
             const paywall = document.querySelector('.layout-article-regwall'); ;
             if (paywall) {
                 window.location.reload(true);
