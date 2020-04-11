@@ -1,8 +1,20 @@
 var ext_api = chrome || browser;
 
+function capitalize(str) {
+  if (typeof str !== 'string') return '';
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+function sortJson(json) {
+    return Object.keys(json)
+        .sort().reduce(function (Obj, key) {
+            Obj[key] = json[key];
+            return Obj;
+        }, {});
+}
+
 // Saves options to ext_api.storage
 function save_options() {
-    var gh_url = document.getElementById('bypass_sites').value;
     var textareaEl = document.querySelector('#bypass_sites textarea');
     var sites_custom = {};
     if (textareaEl.value !== '')
@@ -19,6 +31,18 @@ function save_options() {
             //window.close();
         }, 800);
     });
+}
+
+// Sort json by key in textarea
+function sort_options() {
+    var textareaEl = document.querySelector('#bypass_sites textarea');
+    var sites_custom = {};
+    if (textareaEl.value !== '') {
+        var sites_custom = JSON.parse(textareaEl.value);
+		var sites_custom_sorted = sortJson(sites_custom);
+		textareaEl.value = JSON.stringify(sites_custom_sorted);
+	}
+
 }
 
 // Export custom sites to file
@@ -63,13 +87,12 @@ function _imp() {
 
 // Add custom site to ext_api.storage
 function add_options() {
-    var gh_url = document.getElementById('add_site').value;
     var inputEls = document.querySelectorAll('#add_site input');
     var sites_custom = {};
 
     for (let i = 0; i < inputEls.length; i++) {
         if (inputEls[i].dataset.key === 'title') {
-            var title = inputEls[i].value;
+            var title = capitalize(inputEls[i].value);
             if (title === '')
                 break;
             sites_custom[title] = {};
@@ -84,7 +107,7 @@ function add_options() {
     if (sites_custom[title]['domain'] === '')
         sites_custom = {};
     else
-        sites_custom[title]['domain'] = sites_custom[title]['domain'].replace('www.', '');
+        sites_custom[title]['domain'] = sites_custom[title]['domain'].replace('www.', '').toLowerCase();
 
     // add new site to local storage
     ext_api.storage.sync.get({
@@ -112,7 +135,6 @@ function add_options() {
 
 // Delete custom site from ext_api.storage
 function delete_options() {
-    var gh_url = document.getElementById('custom_sites').value;
     var selectEl = document.querySelector('#custom_sites select');
     var sites_custom = {};
     var remove_key = selectEl.value;
@@ -204,6 +226,7 @@ function renderOptions() {
 
 document.addEventListener('DOMContentLoaded', renderOptions);
 document.getElementById('save').addEventListener('click', save_options);
+document.getElementById('sort').addEventListener('click', sort_options);
 document.getElementById('export').addEventListener('click', export_options);
 document.getElementById('import').onclick = function () {importInput.click()}
 document.getElementById('importInput').addEventListener("change", import_options, false);
