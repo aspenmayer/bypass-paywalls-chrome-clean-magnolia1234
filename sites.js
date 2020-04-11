@@ -102,6 +102,7 @@ var defaultSites =
   "Orlando Sentinel": "orlandosentinel.com",
   "Palo Alto Online": "paloaltoonline.com",
   "Parool": "parool.nl",
+  "Philosophy Now": "philosophynow.org",
   "Pittsburgh Post Gazette": "post-gazette.com",
   "Quartz": "qz.com",
   "Quora": "quora.com",
