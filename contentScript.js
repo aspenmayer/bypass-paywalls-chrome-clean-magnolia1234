@@ -96,9 +96,10 @@ else if (matchDomain('telegraaf.nl')) {
     }
 }
 
-else if (matchDomain('ad.nl')) {
+else if (matchDomain(['ad.nl', 'bd.nl', 'ed.nl', 'tubantia.nl', 'bndestem.nl', 'pzc.nl', 'destentor.nl', 'gelderlander.nl'])) {
     let paywall = document.querySelector('.article__component.article__component--paywall-module-notification');
-    removeDOMElement(paywall);
+	let modal_login = document.querySelector('.modal--login');
+    removeDOMElement(paywall, modal_login);
 }
 
 else if (matchDomain("washingtonpost.com")) {

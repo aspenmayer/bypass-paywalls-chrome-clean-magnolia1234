@@ -84,15 +84,21 @@ const remove_cookies_select_hold = {
 	'wsj.com': ['wsjregion']
 }
 
+// list of regional ad.nl sites
+const ad_region_domains = ['bd.nl', 'ed.nl', 'tubantia.nl', 'bndestem.nl', 'pzc.nl', 'destentor.nl', 'gelderlander.nl'];
+
 // select only specific cookie(s) to drop from remove_cookies domains
-const remove_cookies_select_drop = {
+var remove_cookies_select_drop = {
 	'ad.nl': ['temptationTrackingId'],
 	'caixinglobal.com': ['CAIXINGLB_LOGIN_UUID'],
-	'demorgen.be': ['TID_ID'],
 	'dn.se': ['randomSplusId'],
 	'fd.nl': ['socialread'],
 	'nrc.nl': ['counter'],
 	'theatlantic.com': ['articleViews']
+}
+for (var domainIndex in ad_region_domains) {
+	let domain = ad_region_domains[domainIndex];
+	remove_cookies_select_drop[domain] = ['temptationTrackingId'];
 }
 
 // Override User-Agent with Googlebot
@@ -231,6 +237,9 @@ ext_api.storage.sync.get({
         }).map(function (key) {
             return sites[key].toLowerCase();
         });
+    if (enabledSites.includes('ad.nl')) {
+        enabledSites = enabledSites.concat(ad_region_domains);
+    }
 
     for (var domainIndex in enabledSites) {
         var domainVar = enabledSites[domainIndex];
@@ -260,13 +269,15 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
                 }).map(function (key) {
                     return sites[key];
                 });
+            if (enabledSites.includes('ad.nl')) {
+                enabledSites = enabledSites.concat(ad_region_domains);
+            }
             // reset disableJavascriptOnListedSites eventListener 
             ext_api.webRequest.onBeforeRequest.removeListener(disableJavascriptOnListedSites);
             ext_api.webRequest.handlerBehaviorChanged();
         }
         if (key === 'sites_custom') {
             var sites_custom = storageChange.newValue;
-
             use_google_bot_custom = Object.keys(sites_custom).filter(function (key) {
                     return sites_custom[key]['googlebot'] > 0;
                 }).map(function (key) {
@@ -279,7 +290,6 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
                     use_google_bot.push(domainVar);
                 }
             }
-
             block_js_custom = Object.keys(sites_custom).filter(function (key) {
                     return sites_custom[key]['block_javascript'] > 0;
                 }).map(function (key) {
@@ -345,8 +355,6 @@ var extraInfoSpec = ['blocking', 'requestHeaders'];
 if (ext_api.webRequest.OnBeforeSendHeadersOptions.hasOwnProperty('EXTRA_HEADERS'))
   extraInfoSpec.push('extraHeaders');
 
-// list of regional ad.nl sites
-const ad_region_domains = ['bd.nl', 'ed.nl', 'tubantia.nl', 'bndestem.nl', 'pzc.nl', 'destentor.nl', 'gelderlander.nl'];
 ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   var requestHeaders = details.requestHeaders;
 
@@ -366,20 +374,6 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
 				ext_api.cookies.remove({url: (cookies[i].secure ? "https://" : "http://") + cookies[i].domain + cookies[i].path, name: cookies[i].name});
 			}
 	    });
-  }
-
-  // remove cookies for regional ADR sites of ad.nl (mainfest.json needs in permissions: <all_urls>)
-  if (isSiteEnabled({url: '.ad.nl'})) {
-	var domainVar = new URL(details.url).hostname.replace('www.', '');
-	if (ad_region_domains.includes(domainVar)) {
-		ext_api.cookies.getAll({domain: domainVar}, function(cookies) {
-			for (var i=0; i<cookies.length; i++) {
-				if (remove_cookies_select_drop['ad.nl'].includes(cookies[i].name)){
-					ext_api.cookies.remove({url: (cookies[i].secure ? "https://" : "http://") + cookies[i].domain + cookies[i].path, name: cookies[i].name});
-				}
-			}
-		});
-	}
   }
 
   // check for blocked regular expression: domain enabled, match regex, block on an internal or external regex
@@ -510,13 +504,7 @@ function updateBadge() {
 }
 
 function getTextB(currentUrl) {
-    // check regional ad.nl site
-    let is_adr_site = false;
-    if (currentUrl && isSiteEnabled({url: '.ad.nl'})) {
-        let domainVar = new URL(currentUrl).hostname.replace('www.', '');
-        is_adr_site = ad_region_domains.includes(domainVar);
-    }
-    return currentUrl && (isSiteEnabled({url: currentUrl}) || is_adr_site) ? 'ON' : '';
+    return currentUrl && isSiteEnabled({url: currentUrl}) ? 'ON' : '';
 }
 
 // remove cookies after page load
