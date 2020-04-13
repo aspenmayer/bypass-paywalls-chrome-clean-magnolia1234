@@ -115,6 +115,7 @@ var defaultSites =
   "SOFREP": "sofrep.com",
   "Statista": "statista.com",
   "SunSentinel": "sun-sentinel.com",
+  "Switzer Report": "switzersuperreport.com.au",
   "Tech in Asia": "techinasia.com",
   "Telegraaf": "telegraaf.nl",
   "The Advertiser": "adelaidenow.com.au",
