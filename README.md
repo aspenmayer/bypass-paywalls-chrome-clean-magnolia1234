@@ -14,7 +14,7 @@
 ### Installation instructions
 Due to [Google internal policy](https://developer.chrome.com/webstore/program_policies), the extension is not available on the Chrome Web Store. The following instructions are needed to install third-party extensions in [Chromium](https://en.wikipedia.org/wiki/Chromium_(web_browser))-based browsers:
 #### Chrome (Windows, MacOS, Linux), Microsoft Edge (version 79)
-1. Download this repo as a [ZIP file from GitHub](https://github.com/magnolia1234/bypass-paywalls-chrome-clean/archive/master.zip).
+1. Download this repo as a [ZIP file from GitHub](https://github.com/magnolia1234-new/bypass-paywalls-chrome-clean/archive/master.zip).
 2. Unzip the file and you should have a folder named `bypass-paywalls-chrome-clean-master`.
 3. Move the folder to a permanent location on your computer (do not delete the folder after installation).
 4. Go to the extensions page (`chrome://extensions` or `edge://extensions`).
@@ -26,14 +26,14 @@ Due to [Google internal policy](https://developer.chrome.com/webstore/program_po
 2. Follow Chrome instructions located just above (step 6: pick `manifest.json` instead of the folder).
 
 #### Other Chromium browsers (Opera/Vivaldi/Yandex/Brave)
-1. Download the extension as a .crx file from the [releases page](https://github.com/magnolia1234/bypass-paywalls-chrome-clean/releases).
+1. Download the extension as a .crx file from the [releases page](https://github.com/magnolia1234-new/bypass-paywalls-chrome-clean/releases).
 2. In your browser go to the extensions page.
 3. Enable Developer Mode.
 4. Drag your .crx file anywhere on the page to import it.
 5. If dragging crx does not work, try Chrome procedure (above).
 
 #### Firefox
-Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-firefox-clean) of Bypass Paywall Clean.
+Visit the [Firefox repository](https://github.com/magnolia1234-new/bypass-paywalls-firefox-clean) of Bypass Paywall Clean.
 
 **Notes**
 * This extension works best alongside the adblocker [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en).
@@ -282,7 +282,7 @@ The free article limit can normally be bypassed by removing cookies for the site
 _*may not always succeed._
 
 ### New site requests
-You can submit a request for a new website [here](https://github.com/magnolia1234/bypass-paywalls-chrome-clean/issues/new). Please read the following instructions and share your results for a quicker process. Remember to check the [previous requests](https://github.com/magnolia1234/bypass-paywalls-chrome-clean/issues?q=is%3Aissue+label%3Aenhancement) before asking for a new website.
+You can submit a request for a new website [here](https://github.com/magnolia1234-new/bypass-paywalls-chrome-clean/issues/new). Please read the following instructions and share your results for a quicker process. Remember to check the [previous requests](https://github.com/magnolia1234-new/bypass-paywalls-chrome-clean/issues?q=is%3Aissue+label%3Aenhancement) before asking for a new website.
 1. Visit an article on the site you want to bypass the paywall for and copy the article title.
 2. Open up a new incognito window (Ctrl+Shift+N) and paste the article title into Google.
 3. Click on the same article from the Google search results page. Or you can:
@@ -300,10 +300,10 @@ Also you can enable Googlebot user-agent or disable Javascript for (sub)domain(s
 * If a site doesn't work, try turning off uBlock and refreshing. Also try reinstalling the extension.
 * Make sure the (new) site is checked under Options (on macOS sometimes the sites are unselected).
 * Make sure you're running the last version of Bypass Paywalls Clean.
-* If none of these work, you can submit an issue [here](https://github.com/magnolia1234/bypass-paywalls-chrome-clean/issues).
+* If none of these work, you can submit an issue [here](https://github.com/magnolia1234-new/bypass-paywalls-chrome-clean/issues).
 
 ### Changelog-releases
-* Visit the [releases page](https://github.com/magnolia1234/bypass-paywalls-chrome-clean/releases).
+* Visit the [releases page](https://github.com/magnolia1234-new/bypass-paywalls-chrome-clean/releases).
 
 ### Pull Requests
 * PRs are welcome.
@@ -312,4 +312,4 @@ Also you can enable Googlebot user-agent or disable Javascript for (sub)domain(s
 * I am not asking for donations or anything like that, all I ask is that you star this repo.
 
 ### License
-* Bypass Paywalls Clean is [MIT-licensed](https://github.com/magnolia1234/bypass-paywalls-chrome-clean/blob/master/LICENSE).
+* Bypass Paywalls Clean is [MIT-licensed](https://github.com/magnolia1234-new/bypass-paywalls-chrome-clean/blob/master/LICENSE).
