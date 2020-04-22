@@ -69,7 +69,6 @@ var defaultSites =
   "La Tercera": "latercera.com",
   "Le Devoir": "ledevoir.com",
   "Le Journal du Dimanche": "lejdd.fr",
-  "Le Monde": "lemonde.fr",
   "Le Parisien": "leparisien.fr",
   "Le Scienze": "lescienze.it",
   "Leeuwarder Courant": "lc.nl",

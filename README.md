@@ -190,7 +190,6 @@ Visit the [Firefox repository](https://github.com/magnolia1234/bypass-paywalls-f
 [L'Opinion](https://www.lopinion.fr) –
 [La Dépêche](https://www.ladepeche.fr) –
 [Le Journal du Dimanche](https://lejdd.fr) –
-[Le Monde](https://www.lemonde.fr) -
 [Le Parisien](https://www.leparisien.fr) -
 [Les Échos](https://www.lesechos.fr)* -
 [Libération](https://www.liberation.fr)* –

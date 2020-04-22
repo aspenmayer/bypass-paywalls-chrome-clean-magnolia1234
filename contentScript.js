@@ -200,24 +200,6 @@ else if (matchDomain("medium.com")) {
     if (DOMElementsToTextDiv[2]) removeDOMElement(DOMElementsToTextDiv[2]);
 }
 
-else if (matchDomain('lemonde.fr')) {
-    document.addEventListener('DOMContentLoaded', () => {
-        const hidden_section = document.querySelector('.article__content--restricted-media');
-        if (hidden_section)
-            hidden_section.classList.remove('article__content--restricted-media');
-        const longform_article_restricted = document.querySelector('.article__content--restricted');
-        if (longform_article_restricted)
-            longform_article_restricted.classList.remove('article__content--restricted');
-        const longform_paywall = document.querySelector('.paywall--longform');
-        if (longform_paywall)
-            longform_paywall.classList.remove('paywall--longform');
-        const paywall = document.getElementById('js-paywall-content');
-        const friend_paywall = document.querySelector('.friend--paywall');
-        const cookie_banner = document.getElementById('cookie-banner');
-        removeDOMElement(paywall, friend_paywall, cookie_banner);
-    });
-}
-
 else if (matchDomain("ledevoir.com")) {
         const counter = document.querySelector('.popup-msg');
         removeDOMElement(counter);
