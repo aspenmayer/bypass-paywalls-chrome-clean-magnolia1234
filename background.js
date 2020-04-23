@@ -162,6 +162,7 @@ var blockedRegexes = {
 'gestion.pe': /gestion\.pe\/pf\/dist\/template\/gestion-noticia\/default.js/,
 'haaretz.co.il': /haaretz\.co\.il\/htz\/js\/inter\.js/,
 'haaretz.com': /haaretz\.com\/hdc\/web\/js\/minified\/header-scripts-int.js.+/,
+'ilmessaggero.it': /(utils\.cedsdigital\.it\/js\/PaywallMeter\.js|static\.viralize\.tv\/viralize_player)/,
 'inquirer.com': /.+\.tinypass\.com\/.+/,
 'ladepeche.fr': /.+\.poool\.fr\/.+/,
 'lastampa.it': /.+\.repstatic\.it\/minify\/sites\/lastampa\/.+\/config\.cache\.php\?name=social_js/,

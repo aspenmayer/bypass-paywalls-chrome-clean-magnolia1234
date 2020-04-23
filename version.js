@@ -12,7 +12,7 @@ fetch(manifest_new)
             var version_new = json['version'];
             if (version_new > manifestData.version) {
                 var versionString_new = document.getElementById('version_new');
-                versionString_new.appendChild(document.createTextNode(' | '));
+                versionString_new.appendChild(document.createTextNode(' * '));
                 var anchorEl = document.createElement('a');
                 anchorEl.text = 'New release v' + version_new;
                 anchorEl.href = 'https://github.com/magnolia1234-new/bypass-paywalls-chrome-clean/releases';
