@@ -540,6 +540,13 @@ else if (matchDomain('faz.net')) {
     }
 }
 
+else if (matchDomain('gestion.pe')) {
+    const paywall = document.querySelector('.story-content__nota-premium');
+    if (paywall) {
+        paywall.classList.remove('story-content__nota-premium');
+    }
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {
