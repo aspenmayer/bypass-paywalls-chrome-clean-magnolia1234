@@ -41,6 +41,7 @@ var defaultSites =
   "Folha de S. Paulo": "folha.uol.com.br",
   "Foreign Policy": "foreignpolicy.com",
   "Fortune": "fortune.com",
+  "Frankfurter Allgemeine Zeitung": "faz.net",
   "Gestión": "gestion.pe",
   "Glassdoor": "glassdoor.com",
   "Gold Coast Bulletin": "goldcoastbulletin.com.au",

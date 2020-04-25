@@ -196,6 +196,7 @@ Visit the [Firefox repository](https://github.com/magnolia1234-new/bypass-paywal
 [Science & Vie](https://www.science-et-vie.com) -
 [Valeurs Actuelles](https://www.valeursactuelles.com)
 ##### Germany/Austria
+[Frankfurter Allgemeine Zeitung](https://www.faz.net) -
 [Handelsblatt](https://www.handelsblatt.com) -
 [Kleine Zeitung](https://www.kleinezeitung.at)
 ##### Italy

@@ -30,6 +30,7 @@ var allow_cookies = [
 'dvhn.nl',
 'elmercurio.com',
 'eurekareport.com.au',
+'faz.net',
 'folha.uol.com.br',
 'gestion.pe',
 'goldcoastbulletin.com.au',
@@ -329,6 +330,22 @@ ext_api.webRequest.onBeforeRequest.addListener(function (details) {
 {urls:["*://*.repubblica.it/pwa/*"], types:["main_frame"]},
 ["blocking"]
 );
+
+const faz_uaMobile = "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Mobile Safari/537.36";
+ext_api.webRequest.onBeforeSendHeaders.addListener(
+    function (details) {
+    let headers = details.requestHeaders;
+    headers.forEach(function (header, i) {
+        if (header.name.toLowerCase() == 'user-agent')
+            header.value = faz_uaMobile;
+    });
+    if (!details.originUrl && details.type == "xmlhttprequest" ||
+        details.initiator == "https://www.faz.net" && details.type == "xmlhttprequest")
+        return { requestHeaders: headers };
+}, {
+    urls: ["*://m.faz.net/*"]
+},
+    ["blocking", "requestHeaders"]);
 
 var block_js_default = ["*://*.tinypass.com/*", "*://*.poool.fr/*", "*://*.piano.io/*", "*://*.outbrain.com/*"];
 var block_js_custom = [];

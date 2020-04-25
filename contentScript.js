@@ -464,7 +464,7 @@ else if (matchDomain('ladepeche.fr')) {
     });
 }
 
-else if (window.location.href.indexOf("barrons.com") !== -1) {
+else if (matchDomain('barrons.com')) {
     var href = '';
     const signin_links = document.querySelectorAll('a.primary-button--link');
     for (let i = 0; i < signin_links.length; i++) {
@@ -488,6 +488,55 @@ else if (matchDomain('lescienze.it')) {
     for (let i = 0; i < hidden_body.length; i++) {
         hidden_body[i].removeAttribute('hidden');
         hidden_body[i].setAttribute('style', 'display:block; max-height:auto; overflow:visible');
+    }
+}
+
+else if (matchDomain('faz.net')) {
+    let paywall = document.querySelector('#paywall-form-container-outer,.atc-ContainerPaywall');
+    if (paywall) {
+        removeDOMElement(paywall);
+        let url = new URL(window.location.href);
+        let mUrl = new URL(url.pathname, "https://m.faz.net/");
+        fetch(mUrl)
+        .then(response => {
+            if (response.ok) {
+                response.text().then(html => {
+                    var parser = new DOMParser();
+                    var doc = parser.parseFromString(html, 'text/html');
+                    let json = doc.querySelector('script[id="schemaOrgJson"]');
+                    if (json) {
+                        var json_text = JSON.parse(json.text).ArticleBody;
+                        let article_text = document.querySelector('.art_txt.paywall,.atc-Text.js-atc-Text');
+                        article_text.innerText = '';
+
+                        const breakText = (str) => {
+                            str = str.replace(/(?:^|[\w\"\“])(\.|\?|!)(?=[A-Za-zÀ-ÿ\„]{2,})/gm, "$&\n\n");
+                            str = str.replace(/([a-z\"\“])(?=[A-Z])/gm, "$&\n\n");
+                            // exceptions: names with alternating lower/uppercase (no general fix)
+                            str = str.replace(/Glaxo\n\nSmith\n\nKline/g, "GlaxoSmithKline");
+                            str = str.replace(/If\n\nSG/g, "IfSG");
+                            str = str.replace(/La\n\nPierre/g, "LaPierre");
+                            return str;
+                        };
+
+                        json_text = breakText(json_text);
+                        json_text.split("\n\n").forEach(
+                            (p_text) => {
+                            let elem;
+                            if (p_text.length < 80) {
+                                elem = document.createElement("h2");
+                                elem.setAttribute('class', 'atc-SubHeadline');
+                            } else {
+                                elem = document.createElement("p");
+                                elem.setAttribute('class', 'atc-TextParagraph');
+                            };
+                            elem.innerText = p_text;
+                            article_text.appendChild(elem);
+                        });
+                    }
+                })
+            }
+        });
     }
 }
 
