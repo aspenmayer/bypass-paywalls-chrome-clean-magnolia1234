@@ -11,8 +11,7 @@ const restrictions = {
   'barrons.com': /.+barrons\.com\/articles\/.+/,
   'elcomercio.pe': /.+\/elcomercio.pe\/.+((\w)+(\-)+){3,}.+/,
   'gestion.pe': /.+\/gestion.pe\/.+((\w)+(\-)+){3,}.+/,
-  'quora.com': /^((?!quora\.com\/search\?q=).)*$/,
-  'wsj.com': /(.+wsj\.com\/articles\/.+|.+blogs\.wsj\.com\/.+)/
+  'quora.com': /^((?!quora\.com\/search\?q=).)*$/
 }
 
 // Don't remove cookies before page load
