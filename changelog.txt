@@ -1,0 +1,206 @@
+
+Changelog Bypass Paywalls Clean - Chrome
+
+* v1.7.0.5 (2020-04-28)
+BitBucket transfer
+
+Add Eureka Report, Intelligent Investor & Switzer Report (Australia)
+Add Frankfurter Allgemeine (Faz.net)
+Add Philosophy NowFix-update Gestión.pe/ElComercio.pe
+Remove LeMonde.fr (obsolete)
+Fix-update ilMessaggero.it
+Fix-update WSJ (lift restrictions)
+Maintenance Ad.nl (regional)
+Sort-button custom sites
+
+* v1.7.0.2 (2020-04-05)
+Add Gestión (Peru) & fix El Comercio
+Add LeScienze.it
+Add Science & Vie
+Fix Barron's links to sign in/read more articles
+Fix-update Fd.nl
+Fix LesEchos.fr (url)
+Fix Quora (search)
+Fix-update Telegraaf.nl (FF meta-refresh)
+
+* v1.7.0.1 (2020-03-29)
+Add El Comercio (Peru)
+Add L'Opinion.fr
+Add LiveMint (India)
+Add Neue Zürcher Zeitung
+Add The New Republic
+Remove ET Prime (obsolete)
+Fix Telegraaf.nl
+Fix blocking Javascript for new (custom)sites
+Maintenance contentScript.js
+Synching Chrome/Firefox scripts
+
+* v1.6.4.5 (2020-03-22)
+Add LaDepeche.fr
+Fix-update Barron's (remove cookies)
+Fix-update DeMorgen.be
+Fix-update WSJ (cookie-fix)
+
+* v1.6.4.4 (2020-03-15)
+Add The Athletic UK
+Add Il Messaggero (Italy)
+Fix-update Financial Times (ft.com)
+Update (custom)options UI
+Fix-update Corriere Della Sera
+Fix custom sites (domains with capitals)
+Update version-check (replace innerHTML)
+
+* v1.6.4.3 (2020-03-08)
+Add Aftonbladet.se
+Fix Australian Community Media newspapers
+Fix Economist (inactive links)
+Fix Corriere Della Sera
+Add link to releases (version check)
+Show badge-notification for regional Ad.nl sites
+Prepare release (limited permissions)
+Update custom sites UI (export/import)
+Update refresh tab after save options (Chrome-synch)
+
+* v1.6.4.2 (2020-03-03)
+Add The Port Macquarie News (Australia)
+Remove nknews.org (obsolete)
+Fix Lc.nl & DvhN.nl (newsletter)
+Fix-update Repubblica.it
+Show badge-notification if active on tab
+Update custom sites UI (delete site)
+
+* v1.6.4.1 (2020-02-27)
+Add Humo.be
+Add Seeking Alpha
+Add option for custom sites
+Fix The New Yorker paywall-banner
+Fix-update LesEchos.fr (hide ads instead of removing)
+Fix-update Bloomberg paywall-script
+Include sites from local js-file (maintenance)
+Update Options - new release check
+
+* v1.6.3.1 (2020-02-20)
+Add Australian Community Media daily newspapers
+Add Clarín (Argentina)
+Add WAtoday (Australia)
+Fix-update TheNation paywall-script block
+Refresh tab after saved options
+Fix-update Leeuwarder Courant
+Fix Corriere Della Sera
+
+* v1.6.2.3 (2020-02-12)
+Add CommonWealth Magazine Taiwan
+Add El Mercurio (Chile)
+Add Leeuwarder Courant & Dagblad van het Noorden (Netherlands)
+
+* v1.6.2.2 (2020-02-03)
+Add Fd.nl (Googlebot)
+Add Spectator.com.au & TheCourier.com.au
+Fix Repubblica.it - L'Espresso
+Fix TheAdvocate.com.au
+
+* v1.6.2.1 (2020-01-31)
+Add Harvard Business Review Taiwan
+Add Modern Healthcare
+Add National Review
+Add The Christian Science Monitor
+Add The Daily Beast
+Add World Politics Review
+Fix-update Boston Globe (proper)
+Fix NYTimes Cooking (images)
+Fix Townsville Bulletin (url)
+Fix Wall Street Journal (blogs)
+
+* v1.6.1.6 (2020-01-26)
+Add regional Ad.nl sites (ADR)
+Add Australian newspapers (FF-synch)
+Add Chemical & Engineering News
+Add KleineZeitung.at
+Add Le Journal du Dimanche (lejdd.fr)
+Add NkNews.org (FF-synch)
+Add Tijd.be (FF-synch)
+Fix Dn.se
+Fix ChicagoBusiness
+Fix London Review of Books (allow cookies)
+
+* v1.6.1.5 (2020-01-19)
+Add Challenges.fr
+Add Digiday
+Add El País
+Add Folha de S. Paulo, O Globo, Valor Econômico, O Estado de S. Paulo, Exame (Brazil)
+Add Fortune (magazine)
+Add LaStampa.it
+Add Libération.fr
+Add Miami Herald
+Add ValeursActuelles.fr
+Fix json-bug at install/options (when not saving options)
+Fix The New Statesman (version US/UK)
+
+* v1.6.1.3 (2020-01-12)
+Add Caixin Global
+Add Newcastle Herald
+Add Scribd (unblur text of documents)
+Add Tech in Asia
+Add The Athletic
+Fix Australian Financial Review (enable javascript)
+Fix Dagens Nyheter (dn.se)
+Fix Economist (Javascript/cookies)
+Fix ET Prime restrictions (only articles)
+Fix Globe and Mail
+Fix Handelsblatt (Googlebot)
+Fix-update MIT Tech Review
+Fix LeParisien.fr (block TinyPass paywall)
+Fix LesEchos.fr (block TinyPass)
+Fix Toronto Star (enable Javascript)
+Remove The Athletic trial-banners
+Load sites from json
+Block general paywall scripts (like TinyPass/Piano)
+Remove Google Analytics
+
+* v1.6.1.0 (2020-12-15)
+Add ET Prime
+Fix Foreign Policy (proper)
+Fix-update Globe and Mail
+Fix Medium content on non-Medium sites
+Fix-update Philidelphia Inquirer (block paywall-script)
+Fix Spectator.co.uk (block paywall-script)
+Fix Quartz/qz.com (gdpr)
+Fix WSJ (reformatting & restrictions to only articles)
+Rename thenewsrep to new domain sofrep
+
+* v1.6.0.0 (2019-12-08)
+Add Handelsblatt
+Add London Review of Books
+Add National Post
+Add The Diplomat
+Add Times Literary Supplement
+Add Towards Data Science
+Fix Boston Globe (block paywall-script)
+Fix Haaretz.com (anti-adblocker script)
+Fix sites on Medium platform (remove cookies)
+
+* v1.5.9.0 (2019-11-25)
+Fix Ad.nl/Ed.nl (cookie)
+Fix BizJournals (enable Javascript)
+Fix Bloomberg
+Fix Businessinsider (new option: blocking external scripts)
+Fix Economist (Javascript/cookies)
+Fix SfChronicle (reload loop)
+Fix Telegraaf.nl (timing issue)
+Fix The Atlantic
+
+* v1.5.8.0 (2019-11-12)
+Add LeParisien.fr
+Fix NzHerald
+Fix Quora (read more)
+
+* v1.5.6.0 (2019-10-28)
+Add Le Monde
+Fix Quartz/qz.com
+Fix WaPo (gdpr)
+Fix WSJ (Googlebot & mod=rsswn obsolete)
+
+* v1.5.4.0 (2019-10-01)
+Add Dutch papers: ad.nl, ed.nl (cookie fix), parool.nl, trouw.nl, volkskrant.nl
+Add Dutch magazines: groene.nl, vn.nl
+Fix-update Dutch papers: parool.nl, trouw.nl, volkskrant.nl (enable) Javascript)

@@ -4,7 +4,7 @@ var manifestData = ext_api.runtime.getManifest();
 var versionString = 'v' + manifestData.version;
 document.getElementById('version').innerText = versionString;
 
-const manifest_new = 'https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/downloads/manifest.json';
+const manifest_new = 'https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/raw/master/manifest.json';
 fetch(manifest_new)
 .then(response => {
     if (response.ok) {
