@@ -4,7 +4,7 @@ var manifestData = ext_api.runtime.getManifest();
 var versionString = 'v' + manifestData.version;
 document.getElementById('version').innerText = versionString;
 
-const manifest_new = 'https://raw.githubusercontent.com/magnolia1234-new/bypass-paywalls-chrome-clean/master/manifest.json';
+const manifest_new = 'https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/downloads/manifest.json';
 fetch(manifest_new)
 .then(response => {
     if (response.ok) {
@@ -15,7 +15,7 @@ fetch(manifest_new)
                 versionString_new.appendChild(document.createTextNode(' * '));
                 var anchorEl = document.createElement('a');
                 anchorEl.text = 'New release v' + version_new;
-                anchorEl.href = 'https://github.com/magnolia1234-new/bypass-paywalls-chrome-clean/releases';
+                anchorEl.href = 'https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/downloads';
                 anchorEl.target = '_blank';
                 versionString_new.appendChild(anchorEl);
             }
