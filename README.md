@@ -305,6 +305,7 @@ Also you can enable Googlebot user-agent or disable Javascript for (sub)domain(s
 
 ### Changelog-releases
 * Visit the [changelog page](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/src/master/changelog.txt).
+* Or check the [commits](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/commits).
 * [Download the latest version](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/downloads)
 
 ### Pull Requests
