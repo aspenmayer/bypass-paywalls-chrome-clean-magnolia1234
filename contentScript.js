@@ -547,6 +547,13 @@ else if (matchDomain('gestion.pe')) {
     }
 }
 
+else if (matchDomain("challenges.fr")) {
+    const hidden_par = document.querySelector('.corps[style="display:none"]');
+	if (hidden_par) {
+		hidden_par.removeAttribute('style');
+    }
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {
