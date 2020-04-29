@@ -457,11 +457,18 @@ else if (matchDomain("americanaffairsjournal.org")) {
 }
 
 else if (matchDomain('ladepeche.fr')) {
-    document.addEventListener('DOMContentLoaded', () => {
+    window.setTimeout(function () {
         const hidden_section = document.querySelector('.article-full__body-content');
-        if (hidden_section)
+        if (hidden_section) {
             hidden_section.classList.remove('article-full__body-content');
-    });
+            let paras = hidden_section.querySelectorAll("p, h2, div");
+            for (let i = 0; i < paras.length; i++) {
+                paras[i].removeAttribute('style');
+            }
+        }
+        const abon = document.querySelector('#noscript-paywall-content, #noscript-paywall');
+        removeDOMElement(abon);
+    }, 500); // Delay (in milliseconds)
 }
 
 else if (matchDomain('barrons.com')) {
@@ -549,8 +556,8 @@ else if (matchDomain('gestion.pe')) {
 
 else if (matchDomain("challenges.fr")) {
     const hidden_par = document.querySelector('.corps[style="display:none"]');
-	if (hidden_par) {
-		hidden_par.removeAttribute('style');
+    if (hidden_par) {
+        hidden_par.removeAttribute('style');
     }
 }
 
