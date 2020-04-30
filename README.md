@@ -276,24 +276,26 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 _*free articles only._
 
 ### Sites with limited number of free articles
-The free article limit can normally be bypassed by removing cookies for the site.*
-1. Install the extension [Disable Cookies](https://chrome.google.com/webstore/detail/disable-cookies/lkmjmficaoifggpfapbffkggecbleang?hl=en).
+The free article limit can normally be bypassed by removing cookies for the site.*  
+1. Install the extension [Disable Cookies](https://chrome.google.com/webstore/detail/disable-cookies/lkmjmficaoifggpfapbffkggecbleang?hl=en).  
 2. When coming across a paywall, click the cookie icon in your extension toolbar then refresh the page.
 
 _*may not always succeed._
 
 ### New site requests
-You can submit a request for a new website [here](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/issues?status=new&status=open). Please read the following instructions and share your results for a quicker process. Remember to check the [previous requests](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/issues) before asking for a new website.
-1. Visit an article on the site you want to bypass the paywall for and copy the article title.
-2. Open up a new incognito window (Ctrl+Shift+N) and paste the article title into Google.
-3. Click on the same article from the Google search results page. Or you can:
-4. Disable javascript on the website by clicking the button right icon </> on the uBlock panel.
+You can submit a request for a new website [here](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/issues?status=new&status=open).  
+Please read the following instructions and share your results for a quicker process.  
+Remember to check the [previous requests](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/issues) before asking for a new website.  
+1. Visit an article on the site you want to bypass the paywall for and copy the article title.  
+2. Open up a new incognito window (Ctrl+Shift+N) and paste the article title into Google.  
+3. Click on the same article from the Google search results page. Or you can:  
+4. Disable javascript on the website by clicking the button right icon </> on the uBlock panel.  
 5. Refresh the page.
 
 ### Add custom site
-Add your own custom site (also for testing).
-Check 'Options'-link in popup-menu and go to custom sites.
-By default sites' cookies are removed after page loads (to bypass article limit).
+Add your own custom site (also for testing).  
+Check 'Options'-link in popup-menu and go to custom sites.  
+By default sites' cookies are removed after page loads (to bypass article limit).  
 Also you can enable Googlebot user-agent or disable Javascript for (sub)domain(s).
 
 ### Troubleshooting
