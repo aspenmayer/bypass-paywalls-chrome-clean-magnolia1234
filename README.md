@@ -12,7 +12,8 @@
 * [License](#license)
 
 ### Installation instructions
-Due to [Google internal policy](https://developer.chrome.com/webstore/program_policies), the extension is not available on the Chrome Web Store. The following instructions are needed to install third-party extensions in [Chromium](https://en.wikipedia.org/wiki/Chromium_(web_browser))-based browsers:
+Due to [Google internal policy](https://developer.chrome.com/webstore/program_policies), the extension is not available on the Chrome Web Store.  
+The following instructions are needed to install third-party extensions in [Chromium](https://en.wikipedia.org/wiki/Chromium_(web_browser))-based browsers:
 #### Chrome (Windows, MacOS, Linux), Microsoft Edge (version 79)
 1. Download this repository as a [ZIP file from BitBucket](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/get/master.zip).
 2. Unzip the file and you should have a folder named `magnolia1234-bypass-paywalls-chrome-clean-master`.

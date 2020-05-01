@@ -471,6 +471,26 @@ else if (matchDomain('ladepeche.fr')) {
     }, 500); // Delay (in milliseconds)
 }
 
+else if (matchDomain('challenges.fr')) {
+    document.addEventListener('DOMContentLoaded', () => {
+        const hidden_par = document.querySelector('.corps[style="display:none"]');
+        if (hidden_par) {
+            hidden_par.removeAttribute('style');
+        }
+		if (typeof browser === 'object'){
+        const hidden_image = document.querySelectorAll('img.lazyload');
+        for (let i = 0; i < hidden_image.length; i++) {
+            var src = hidden_image[i].src;
+            if (src.includes("/placeholders/") || src === '') {
+                var data_src = hidden_image[i].getAttribute("data-src");
+                if (data_src)
+                    hidden_image[i].setAttribute('src', data_src);
+            }
+        }
+		}
+    });
+}
+
 else if (matchDomain('barrons.com')) {
     var href = '';
     const signin_links = document.querySelectorAll('a.primary-button--link');
@@ -554,13 +574,6 @@ else if (matchDomain('gestion.pe')) {
     }
 }
 
-else if (matchDomain("challenges.fr")) {
-    const hidden_par = document.querySelector('.corps[style="display:none"]');
-    if (hidden_par) {
-        hidden_par.removeAttribute('style');
-    }
-}
-
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {
@@ -569,11 +582,14 @@ function removeDOMElement(...elements) {
     }
 }
 
-function matchDomain(domains) {
-    var hostname = window.location.hostname;
+function matchDomain(domains, hostname) {
+    var matched_domain = false;
+    if (!hostname)
+        hostname = window.location.hostname;
     if (typeof domains === 'string')
         domains = [domains];
-    return domains.some(domain => hostname === domain || hostname.endsWith('.' + domain));
+    domains.some(domain => (hostname === domain || hostname.endsWith('.' + domain)) && (matched_domain = domain));
+    return matched_domain;
 }
 
 function removeClassesByPrefix(el, prefix) {

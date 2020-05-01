@@ -1,7 +1,7 @@
 /* Please respect alphabetical order when adding a site in any list */
 
 'use strict';
-var ext_api = chrome || browser;
+var ext_api = (typeof browser === 'object') ? browser : chrome;
 
 // Cookies from this list are blocked by default (obsolete)
 // defaultSites are loaded from sites.js at installation extension
@@ -147,7 +147,7 @@ var blockedRegexes = {
 'bloomberg.com': /.+\.tinypass\.com\/.+/,
 'bostonglobe.com': /meter\.bostonglobe\.com\/js\/.+/,
 'businessinsider.com': /(.+\.tinypass\.com\/.+|cdn\.onesignal\.com\/sdks\/.+\.js)/,
-'challenges.fr': /.+\.poool\.fr\/.+/,
+'challenges.fr': /(.+\.challenges\.fr\/js\/|.+\.poool\.fr\/.+)/,
 'chicagobusiness.com': /.+\.tinypass\.com\/.+/,
 'chicagotribune.com': /.+:\/\/.+\.tribdss\.com\//,
 'corriere.it': /(\.rcsobjects\.it\/rcs_cpmt\/|\.rcsobjects\.it\/rcs_tracking-service\/|\.corriereobjects\.it\/.+\/js\/_paywall\.sjs|\.corriereobjects\.it\/.*\/js\/tracking\/|\.userzoom\.com\/files\/js\/|\.lp4\.io\/app\/)/,
@@ -194,6 +194,10 @@ var blockedRegexes = {
 'thenation.com': /.+\.tinypass\.com\/.+/,
 'valeursactuelles.com': /.+\.poool\.fr\/.+/
 };
+// browser-specific block
+if (ext_api === chrome) {
+	blockedRegexes['challenges.fr'] = /.+\.poool\.fr\/.+/;
+}
 
 const userAgentDesktop = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
 const userAgentMobile = "Chrome/41.0.2272.96 Mobile Safari/537.36 (compatible ; Googlebot/2.1 ; +http://www.google.com/bot.html)"
@@ -384,31 +388,27 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   }
 
   // remove cookies for sites medium platform (mainfest.json needs in permissions: <all_urls>)
-  if (isSiteEnabled({url: '.medium.com'}) && details.url.indexOf('cdn-client.medium.com') !== -1 && header_referer.indexOf('.medium.com') === -1) {
-		var domainVar = new URL(header_referer).hostname;
-		ext_api.cookies.getAll({domain: domainVar}, function(cookies) {
-			for (var i=0; i<cookies.length; i++) {
-				ext_api.cookies.remove({url: (cookies[i].secure ? "https://" : "http://") + cookies[i].domain + cookies[i].path, name: cookies[i].name});
-			}
-	    });
+  if (isSiteEnabled({url: 'https://medium.com'}) && matchUrlDomain('cdn-client.medium.com', details.url) && !matchUrlDomain('medium.com', header_referer)) {
+    ext_api.cookies.getAll({domain: urlHost(header_referer)}, function(cookies) {
+      for (var i=0; i<cookies.length; i++) {
+        ext_api.cookies.remove({url: (cookies[i].secure ? "https://" : "http://") + cookies[i].domain + cookies[i].path, name: cookies[i].name});
+      }
+    });
   }
 
   // check for blocked regular expression: domain enabled, match regex, block on an internal or external regex
-  for (var domain in blockedRegexes) {
-	  if ((isSiteEnabled({url: '.'+ domain}) || isSiteEnabled({url: header_referer})) && details.url.match(blockedRegexes[domain])) {
-			if (details.url.indexOf(domain) !== -1 || header_referer.indexOf(domain) !== -1) {
-				// allow BG paywall-script to set cookies in homepage/sections (else no article-text)
-				if (details.url.indexOf('meter.bostonglobe.com/js/') !== -1 && (header_referer === 'https://www.bostonglobe.com/'
-						|| header_referer.indexOf('/?p1=BGHeader_') !== -1  || header_referer.indexOf('/?p1=BGMenu_') !== -1)) {
-					ext_api.webRequest.handlerBehaviorChanged();
-					break;
-				} else if (header_referer.indexOf('theglobeandmail.com') !== -1 && !(header_referer.indexOf('/article-') !== -1)) {
-					ext_api.webRequest.handlerBehaviorChanged();
-					break;
-				}
-				return { cancel: true };
-			}
-	  }
+  var domain;
+  var blockedDomains = Object.keys(blockedRegexes);
+  if (((domain = matchUrlDomain(blockedDomains, details.url)) || (domain = matchUrlDomain(blockedDomains, header_referer))) &&
+      isSiteEnabled({url: domain}) && details.url.match(blockedRegexes[domain])) {
+      // allow BG paywall-script to set cookies in homepage/sections (else no article-text)
+      if (domain == 'bostonglobe.com' &&
+          (header_referer === 'https://www.bostonglobe.com/' || header_referer.includes('/?p1=BGHeader_') || header_referer.includes('/?p1=BGMenu_'))) {
+          ext_api.webRequest.handlerBehaviorChanged();
+      } else if (domain == 'theglobeandmail.com' && !(header_referer.includes('/article-'))) {
+          ext_api.webRequest.handlerBehaviorChanged();
+      }
+      return { cancel: true };
   }
 
   if (!isSiteEnabled(details)) {
@@ -423,11 +423,11 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   // if referer exists, set it to google
   requestHeaders = requestHeaders.map(function (requestHeader) {
     if (requestHeader.name === 'Referer') {
-      if (details.url.indexOf("cooking.nytimes.com/api/v1/users/bootstrap") !== -1) {
+      if (details.url.includes("cooking.nytimes.com/api/v1/users/bootstrap")) {
         // this fixes images not being loaded on cooking.nytimes.com main page
         // referrer has to be *nytimes.com otherwise returns 403
         requestHeader.value = 'https://cooking.nytimes.com';
-      } else if (details.url.indexOf("clarin.com") !== -1 || details.url.indexOf("kleinezeitung.at") !== -1 || details.url.indexOf("fd.nl") !== -1) {
+      } else if (matchUrlDomain(['clarin.com', 'kleinezeitung.at', 'fd.nl'], details.url)) {
         requestHeader.value = 'https://www.facebook.com/';
       } else {
         requestHeader.value = 'https://www.google.com/';
@@ -443,7 +443,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
 
   // otherwise add it
   if (!setReferer) {
-      if (details.url.indexOf("clarin.com") !== -1 || details.url.indexOf("kleinezeitung.at") !== -1 || details.url.indexOf("fd.nl") !== -1) {
+      if (matchUrlDomain(['clarin.com', 'kleinezeitung.at', 'fd.nl'], details.url)) {
       requestHeaders.push({
         name: 'Referer',
         value: 'https://www.facebook.com/'
@@ -457,11 +457,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   }
 
   // override User-Agent to use Googlebot
-  var useGoogleBot = use_google_bot.filter(function(item) {
-    return typeof item == 'string' && details.url.indexOf(item) > -1;
-  }).length > 0;
-
-  if (useGoogleBot) {
+  if (matchUrlDomain(use_google_bot, details.url)) {
     requestHeaders.push({
       "name": "User-Agent",
       "value": useUserAgentMobile ? userAgentMobile : userAgentDesktop
@@ -473,17 +469,14 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   }
 
   // remove cookies before page load
-  requestHeaders = requestHeaders.map(function(requestHeader) {
-    for (var siteIndex in allow_cookies) {
-      if (details.url.indexOf(allow_cookies[siteIndex]) !== -1) {
-        return requestHeader;
+  if (!matchUrlDomain(allow_cookies, details.url)) {
+    requestHeaders = requestHeaders.map(function(requestHeader) {
+      if (requestHeader.name === 'Cookie') {
+        requestHeader.value = '';
       }
-    }
-    if (requestHeader.name === 'Cookie') {
-      requestHeader.value = '';
-    }
-    return requestHeader;
-  });
+      return requestHeader;
+    });
+  }
 
   if (tabId !== -1) {
     // run contentScript inside tab
@@ -503,21 +496,17 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
 }, extraInfoSpec);
 // extraInfoSpec is ['blocking', 'requestHeaders'] + possible 'extraHeaders'
 
-ext_api.tabs.onUpdated.addListener(updateBadge);
-ext_api.tabs.onActivated.addListener(updateBadge);
+ext_api.tabs.onUpdated.addListener(function (tabId, info, tab) { updateBadge(tab); });
+ext_api.tabs.onActivated.addListener(function (activeInfo) { ext_api.tabs.get(activeInfo.tabId, updateBadge); });
 
-function updateBadge() {
-    ext_api.tabs.query({
-        active: true,
-        currentWindow: true
-    }, function (arrayOfTabs) {
-        var activeTab = arrayOfTabs[0];
-        if (!activeTab)
-            return;
-        var textB = getTextB(activeTab.url);
-        ext_api.browserAction.setBadgeBackgroundColor({color: "red"});
-        ext_api.browserAction.setBadgeText({text: textB});
-    });
+let cachedBadgeText = '';
+function updateBadge (activeTab) {
+  if (!activeTab) { return; }
+  const badgeText = getTextB(activeTab.url);
+  if (cachedBadgeText === badgeText) { return; }
+  cachedBadgeText = badgeText;
+  ext_api.browserAction.setBadgeBackgroundColor({color: 'red'});
+  ext_api.browserAction.setBadgeText({text: badgeText});
 }
 
 function getTextB(currentUrl) {
@@ -526,45 +515,64 @@ function getTextB(currentUrl) {
 
 // remove cookies after page load
 ext_api.webRequest.onCompleted.addListener(function (details) {
-    for (var domainIndex in remove_cookies) {
-        var domainVar = remove_cookies[domainIndex];
-        if (!enabledSites.includes(domainVar) || details.url.indexOf(domainVar) === -1) {
-            continue; // don't remove cookies
-        }
-        ext_api.cookies.getAll({
-            domain: domainVar
-        }, function (cookies) {
-            for (var i = 0; i < cookies.length; i++) {
-                var cookie_domain = cookies[i].domain;
-                var rc_domain = cookie_domain.replace(/^(\.?www\.|\.)/, '');
-                // hold specific cookie(s) from remove_cookies domains
-                if ((rc_domain in remove_cookies_select_hold) && remove_cookies_select_hold[rc_domain].includes(cookies[i].name)) {
-                    continue; // don't remove specific cookie
-                }
-                // drop only specific cookie(s) from remove_cookies domains
-                if ((rc_domain in remove_cookies_select_drop) && !(remove_cookies_select_drop[rc_domain].includes(cookies[i].name))) {
-                    continue; // only remove specific cookie
-                }
-                ext_api.cookies.remove({
-                    url: (cookies[i].secure ? "https://" : "http://") + cookies[i].domain + cookies[i].path,
-                    name: cookies[i].name
-                });
+    var domainVar = matchUrlDomain(remove_cookies, details.url);
+    if (!domainVar || !enabledSites.includes(domainVar))
+        return;
+    ext_api.cookies.getAll({
+        domain: domainVar
+    }, function (cookies) {
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie_domain = cookies[i].domain;
+            var rc_domain = cookie_domain.replace(/^(\.?www\.|\.)/, '');
+            // hold specific cookie(s) from remove_cookies domains
+            if ((rc_domain in remove_cookies_select_hold) && remove_cookies_select_hold[rc_domain].includes(cookies[i].name)) {
+                continue; // don't remove specific cookie
             }
-        });
-    }
+            // drop only specific cookie(s) from remove_cookies domains
+            if ((rc_domain in remove_cookies_select_drop) && !(remove_cookies_select_drop[rc_domain].includes(cookies[i].name))) {
+                continue; // only remove specific cookie
+            }
+            ext_api.cookies.remove({
+                url: (cookies[i].secure ? "https://" : "http://") + cookies[i].domain + cookies[i].path,
+                name: cookies[i].name
+            });
+        }
+    });
 }, {
     urls: ["<all_urls>"]
 });
 
 function isSiteEnabled(details) {
-  var isEnabled = enabledSites.some(function(enabledSite) {
-    var useSite = (details.url.indexOf("." + enabledSite) !== -1 || details.url.indexOf("/" + enabledSite) !== -1);
+    var enabledSite = matchUrlDomain(enabledSites, details.url);
     if (enabledSite in restrictions) {
-      return useSite && details.url.match(restrictions[enabledSite]);
+        return restrictions[enabledSite].test(details.url);
     }
-    return useSite;
-  });
-  return isEnabled;
+    return !!enabledSite;
+}
+
+function matchDomain(domains, hostname) {
+    var matched_domain = false;
+    if (!hostname)
+        hostname = window.location.hostname;
+    if (typeof domains === 'string')
+        domains = [domains];
+    domains.some(domain => (hostname === domain || hostname.endsWith('.' + domain)) && (matched_domain = domain));
+    return matched_domain;
+}
+
+function urlHost(url) {
+    if (url.startsWith('http')) {
+        try {
+            return new URL(url).hostname;
+        } catch (e) {
+            console.log(`url not valid: ${url} error: ${e}`);
+        }
+    }
+    return url;
+}
+
+function matchUrlDomain(domains, url) {
+    return matchDomain(domains, urlHost(url));
 }
 
 function getParameterByName(name, url) {
