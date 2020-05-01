@@ -73,7 +73,7 @@ var defaultSites =
   "Le Parisien": "leparisien.fr",
   "Le Scienze": "lescienze.it",
   "Leeuwarder Courant": "lc.nl",
-  "Les Échos (free articles only)": "lesechos.fr",
+  "Les Échos": "lesechos.fr",
   "Libération (free articles only)": "liberation.fr",
   "LiveMint": "livemint.com",
   "Loeb Classical Library": "loebclassics.com",

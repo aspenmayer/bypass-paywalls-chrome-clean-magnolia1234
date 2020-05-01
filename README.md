@@ -192,7 +192,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [La Dépêche](https://www.ladepeche.fr) –
 [Le Journal du Dimanche](https://lejdd.fr) –
 [Le Parisien](https://www.leparisien.fr) -
-[Les Échos](https://www.lesechos.fr)* -
+[Les Échos](https://www.lesechos.fr) -
 [Libération](https://www.liberation.fr)* –
 [Science & Vie](https://www.science-et-vie.com) -
 [Valeurs Actuelles](https://www.valeursactuelles.com)

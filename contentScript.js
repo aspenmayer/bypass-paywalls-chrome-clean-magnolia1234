@@ -429,10 +429,39 @@ else if (matchDomain("cen.acs.org")) {
 }
 
 else if (matchDomain("lesechos.fr")) {
-    const ad_block = document.querySelectorAll('.jzxvkd-1');
-    for (let i = 0; i < ad_block.length; i++) {
-        ad_block[i].setAttribute('style', 'display:none');
-    }
+    window.setTimeout(function () {
+        const ad_block = document.querySelectorAll('.jzxvkd-1');
+        for (let i = 0; i < ad_block.length; i++) {
+            ad_block[i].setAttribute('style', 'display:none');
+        }
+        const abo_banner = document.querySelector('[class^=pgxf3b]');
+        removeDOMElement(abo_banner);
+
+        const url = window.location.href;
+        const html = document.documentElement.outerHTML;
+        const split1 = html.split('window.__PRELOADED_STATE__')[1];
+        const split2 = split1.split('</script>')[0].trim();
+        const state = split2.substr(1, split2.length - 2);
+        try {
+            const data = JSON.parse(state);
+            const article = data.article.data.stripes[0].mainContent[0].data.description;
+            const paywallNode = document.querySelector('.post-paywall');
+            if (paywallNode) {
+                const contentNode = document.createElement('div');
+                contentNode.innerHTML = article;
+                contentNode.className = paywallNode.className;
+                paywallNode.parentNode?.insertBefore(contentNode, paywallNode);
+                removeDOMElement(paywallNode);
+                const paywallLastChildNode = document.querySelector('.post-paywall  > :last-child');
+                if (paywallLastChildNode) {
+                    paywallLastChildNode.setAttribute('style', 'height: auto !important; overflow: hidden !important; max-height: none !important;');
+                }
+            }
+        } catch (err) {
+            console.warn('unable to parse lesechos text');
+            console.warn(err);
+        }
+    }, 500); // Delay (in milliseconds)
 }
 
 else if (matchDomain(["lc.nl", "dvhn.nl"])) {
