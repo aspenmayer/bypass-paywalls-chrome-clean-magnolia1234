@@ -430,15 +430,12 @@ else if (matchDomain("cen.acs.org")) {
 
 else if (matchDomain("lesechos.fr")) {
     window.setTimeout(function () {
-        const ad_block = document.querySelectorAll('.jzxvkd-1');
-        for (let i = 0; i < ad_block.length; i++) {
-            ad_block[i].setAttribute('style', 'display:none');
-        }
-        const abo_banner = document.querySelector('[class^=pgxf3b]');
-        removeDOMElement(abo_banner);
-
         const url = window.location.href;
         const html = document.documentElement.outerHTML;
+        // refresh cache
+        if (!window.location.hash) {
+            window.location.href = url + '#loaded'
+        }
         const split1 = html.split('window.__PRELOADED_STATE__')[1];
         const split2 = split1.split('</script>')[0].trim();
         const state = split2.substr(1, split2.length - 2);
@@ -461,6 +458,12 @@ else if (matchDomain("lesechos.fr")) {
             console.warn('unable to parse lesechos text');
             console.warn(err);
         }
+        const ad_block = document.querySelectorAll('.jzxvkd-1');
+        for (let i = 0; i < ad_block.length; i++) {
+            ad_block[i].setAttribute('style', 'display:none');
+        }
+        const abo_banner = document.querySelector('[class^=pgxf3b]');
+        removeDOMElement(abo_banner);
     }, 500); // Delay (in milliseconds)
 }
 
