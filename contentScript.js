@@ -603,6 +603,15 @@ else if (matchDomain('gestion.pe')) {
     }
 }
 
+else if (matchDomain('journaldunet.com')) {
+    const reg_wall = document.querySelector('.reg_wall');
+    removeDOMElement(reg_wall);
+    const entry_reg_wall = document.querySelector('.entry_reg_wall');
+    if (entry_reg_wall) {
+        entry_reg_wall.removeAttribute('style');
+    }
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {
