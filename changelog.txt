@@ -1,6 +1,19 @@
 
 Changelog Bypass Paywalls Clean - Chrome
 
+* v1.7.1.0 (2020-05-02)
+Add Le Journal du Net.fr
+Add Sciences et Avenir.fr
+Fix-update Challenges.fr
+Fix-update Economist
+Fix-update Faz.net (layout)
+Fix-update LaDepeche.fr
+Fix-update LesEchos.fr (premium)
+Fix-update Miami Herald
+Add changelog & update json links (raw)
+Fix mismatch domain with url query string (usse matchDomain also in background.js)
+Resynch Chrome/Firefox code
+
 * v1.7.0.5 (2020-04-28)
 BitBucket transfer
 
