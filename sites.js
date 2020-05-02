@@ -109,6 +109,7 @@ var defaultSites =
   "San Diego Union Tribune": "sandiegouniontribune.com",
   "San Francisco Chronicle": "sfchronicle.com",
   "Science & Vie": "science-et-vie.com",
+  "Sciences et Avenir": "sciencesetavenir.fr",
   "Scientific American (free articles only)": "scientificamerican.com",
   "Scribd (documents only)": "scribd.com",
   "Seeking Alpha": "seekingalpha.com",

@@ -183,6 +183,7 @@ var blockedRegexes = {
 'portnews.com.au': /.+cdn-au\.piano\.io\/api\/tinypass.+\.js/,
 'repubblica.it': /scripts\.repubblica\.it\/pw\/pw\.js.+/,
 'science-et-vie.com': /.+\.qiota\.com\/.+/,
+'sciencesetavenir.fr': /.+\.poool\.fr\/.+/,
 'sloanreview.mit.edu': /.+\.tinypass\.com\/.+/,
 'spectator.co.uk': /.+\.tinypass\.com\/.+/,
 'spectator.com.au': /.+\.tinypass\.com\/.+/,

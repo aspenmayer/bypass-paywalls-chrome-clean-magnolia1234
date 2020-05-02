@@ -195,6 +195,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [Les Échos](https://www.lesechos.fr) -
 [Libération](https://www.liberation.fr)* –
 [Science & Vie](https://www.science-et-vie.com) -
+[Sciences et Avenir](https://www.sciencesetavenir.fr) -
 [Valeurs Actuelles](https://www.valeursactuelles.com)
 ##### Germany/Austria
 [Frankfurter Allgemeine Zeitung](https://www.faz.net) -
