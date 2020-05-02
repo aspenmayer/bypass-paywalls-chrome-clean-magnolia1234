@@ -148,7 +148,7 @@ var blockedRegexes = {
 'bloomberg.com': /.+\.tinypass\.com\/.+/,
 'bostonglobe.com': /meter\.bostonglobe\.com\/js\/.+/,
 'businessinsider.com': /(.+\.tinypass\.com\/.+|cdn\.onesignal\.com\/sdks\/.+\.js)/,
-'challenges.fr': /(.+\.challenges\.fr\/js\/|.+\.poool\.fr\/.+)/,
+'challenges.fr': /.+\.poool\.fr\/.+/,
 'chicagobusiness.com': /.+\.tinypass\.com\/.+/,
 'chicagotribune.com': /.+:\/\/.+\.tribdss\.com\//,
 'corriere.it': /(\.rcsobjects\.it\/rcs_cpmt\/|\.rcsobjects\.it\/rcs_tracking-service\/|\.corriereobjects\.it\/.+\/js\/_paywall\.sjs|\.corriereobjects\.it\/.*\/js\/tracking\/|\.userzoom\.com\/files\/js\/|\.lp4\.io\/app\/)/,
@@ -196,10 +196,6 @@ var blockedRegexes = {
 'thenation.com': /.+\.tinypass\.com\/.+/,
 'valeursactuelles.com': /.+\.poool\.fr\/.+/
 };
-// browser-specific block
-if (ext_api === chrome) {
-	blockedRegexes['challenges.fr'] = /.+\.poool\.fr\/.+/;
-}
 
 const userAgentDesktop = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
 const userAgentMobile = "Chrome/41.0.2272.96 Mobile Safari/537.36 (compatible ; Googlebot/2.1 ; +http://www.google.com/bot.html)"
