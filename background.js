@@ -9,6 +9,7 @@ var ext_api = (typeof browser === 'object') ? browser : chrome;
 
 const restrictions = {
   'barrons.com': /.+barrons\.com\/articles\/.+/,
+  'economist.com': /.+economist\.com\/.+\/\d{1,4}\/\d{1,2}\/\d{2}\/.+/,
   'elcomercio.pe': /.+\/elcomercio.pe\/.+((\w)+(\-)+){3,}.+/,
   'gestion.pe': /.+\/gestion.pe\/.+((\w)+(\-)+){3,}.+/,
   'quora.com': /^((?!quora\.com\/search\?q=).)*$/
@@ -152,7 +153,7 @@ var blockedRegexes = {
 'chicagotribune.com': /.+:\/\/.+\.tribdss\.com\//,
 'corriere.it': /(\.rcsobjects\.it\/rcs_cpmt\/|\.rcsobjects\.it\/rcs_tracking-service\/|\.corriereobjects\.it\/.+\/js\/_paywall\.sjs|\.corriereobjects\.it\/.*\/js\/tracking\/|\.userzoom\.com\/files\/js\/|\.lp4\.io\/app\/)/,
 'digiday.com': /.+\.tinypass\.com\/.+/,
-'economist.com': /(.+\.tinypass\.com\/.+|economist\.com\/_next\/static\/runtime\/main.+\.js)/,
+'economist.com': /(.+\.tinypass\.com\/.+|economist\.com\/engassets\/_next\/static\/chunks\/framework.+\.js)/,
 'elcomercio.pe': /elcomercio\.pe\/pf\/dist\/template\/elcomercio-noticia.+\.js/,
 'elmercurio.com': /merreader\.emol\.cl\/assets\/js\/vendor\/modal\.js/,
 'elpais.com': /.+\.epimg\.net\/js\/.+\/noticia\.min\.js/,
@@ -398,10 +399,9 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   }
 
   // check for blocked regular expression: domain enabled, match regex, block on an internal or external regex
-  var domain;
   var blockedDomains = Object.keys(blockedRegexes);
-  if (((domain = matchUrlDomain(blockedDomains, details.url)) || (domain = matchUrlDomain(blockedDomains, header_referer))) &&
-      isSiteEnabled({url: domain}) && details.url.match(blockedRegexes[domain])) {
+  var domain = (matchUrlDomain(blockedDomains, details.url) || matchUrlDomain(blockedDomains, header_referer));
+  if (domain && details.url.match(blockedRegexes[domain]) && (isSiteEnabled({url: details.url}) || isSiteEnabled({url: header_referer}))) {
       // allow BG paywall-script to set cookies in homepage/sections (else no article-text)
       if (domain == 'bostonglobe.com' &&
           (header_referer === 'https://www.bostonglobe.com/' || header_referer.includes('/?p1=BGHeader_') || header_referer.includes('/?p1=BGMenu_'))) {
