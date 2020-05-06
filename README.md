@@ -31,7 +31,7 @@ The following instructions are needed to install third-party extensions in [Chro
 2. In your browser go to the extensions page.
 3. Enable Developer Mode.
 4. Drag your .crx file anywhere on the page to import it.
-5. If dragging crx does not work, try Chrome procedure (above).
+5. If dragging crx does not work, try Chrome procedure (above).  
 * Brave Browser doesn't support specific blocking of external paywall-scripts (referer of main site isn't available in Javascript)
 
 #### Firefox

@@ -1,10 +1,6 @@
 // clean local storage of sites (with an exemption for hold-list)
 var arr_localstorage_hold = ['sfchronicle.com'];
-var localstorage_hold = arr_localstorage_hold.some(function(url) {
-    return matchDomain(url);
-});
-
-if (!localstorage_hold){
+if (!matchDomain(arr_localstorage_hold)){
     window.localStorage.clear();
 }
 
@@ -605,6 +601,15 @@ else if (matchDomain('journaldunet.com')) {
     const entry_reg_wall = document.querySelector('.entry_reg_wall');
     if (entry_reg_wall) {
         entry_reg_wall.removeAttribute('style');
+    }
+}
+
+else if (matchDomain('nzz.ch')) {
+    let messagebox = document.querySelector('.messagebox');
+    removeDOMElement(messagebox);
+    let overlay = document.querySelector('.semi-disruptive-overlay__closebtn');
+    if (overlay) {
+        overlay.click();
     }
 }
 
