@@ -396,8 +396,8 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
 
   // check for blocked regular expression: domain enabled, match regex, block on an internal or external regex
   var blockedDomains = Object.keys(blockedRegexes);
-  var domain = (matchUrlDomain(blockedDomains, details.url) || matchUrlDomain(blockedDomains, header_referer));
-  if (domain && details.url.match(blockedRegexes[domain]) && (isSiteEnabled({url: details.url}) || isSiteEnabled({url: header_referer}))) {
+  var domain = matchUrlDomain(blockedDomains, header_referer);
+  if (domain && details.url.match(blockedRegexes[domain]) && isSiteEnabled({url: header_referer})) {
       // allow BG paywall-script to set cookies in homepage/sections (else no article-text)
       if (domain == 'bostonglobe.com' &&
           (header_referer === 'https://www.bostonglobe.com/' || header_referer.includes('/?p1=BGHeader_') || header_referer.includes('/?p1=BGMenu_'))) {

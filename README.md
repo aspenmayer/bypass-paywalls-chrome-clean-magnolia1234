@@ -26,12 +26,13 @@ The following instructions are needed to install third-party extensions in [Chro
 1. Install [Yandex Browser](https://play.google.com/store/apps/details?id=com.yandex.browser&hl=en) from the Google PlayStore (Bypass Paywalls Clean doesn't work with Kiwi Browser yet).
 2. Follow Chrome instructions located just above (step 6: pick `manifest.json` instead of the folder).
 
-#### Other Chromium browsers (Opera/Vivaldi/Yandex/Brave)
+#### Other Chromium browsers (Opera/Vivaldi/Yandex)
 1. Download the extension as a .crx file from the [download page](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/downloads).
 2. In your browser go to the extensions page.
 3. Enable Developer Mode.
 4. Drag your .crx file anywhere on the page to import it.
 5. If dragging crx does not work, try Chrome procedure (above).
+* Brave Browser doesn't support specific blocking of external paywall-scripts (referer of main site isn't available in Javascript)
 
 #### Firefox
 Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywalls-firefox-clean) of Bypass Paywall Clean.
