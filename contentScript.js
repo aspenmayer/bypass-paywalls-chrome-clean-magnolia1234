@@ -218,8 +218,13 @@ else if (matchDomain('ft.com')) {
 }
 
 else if (matchDomain("thehindu.com")) {
-        const paywall = document.getElementById('test');
-        removeDOMElement(paywall);
+    document.addEventListener('DOMContentLoaded', () => {
+        let paywall = document.querySelector('body.articlepaywall');
+        if (paywall)
+            window.location.reload(true);
+        let banner = document.querySelector('.co-bannerparent');
+        removeDOMElement(banner);
+    });
 }
 
 else if (matchDomain("nytimes.com")) {
@@ -280,7 +285,7 @@ else if (matchDomain("caixinglobal.com")) {
     }
     const appContent = document.getElementById('appContent');
     if (appContent) {
-        const p_hidden = document.querySelectorAll('p:not([style="display:block;"]');
+        const p_hidden = document.querySelectorAll('p:not([style="display:block;"])');
         for (let i = 0; i < p_hidden.length; i++) {
             p_hidden[i].setAttribute('style', 'display:block;');
         }
