@@ -496,12 +496,9 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
 ext_api.tabs.onUpdated.addListener(function (tabId, info, tab) { updateBadge(tab); });
 ext_api.tabs.onActivated.addListener(function (activeInfo) { ext_api.tabs.get(activeInfo.tabId, updateBadge); });
 
-let cachedBadgeText = '';
 function updateBadge (activeTab) {
   if (!activeTab) { return; }
   const badgeText = getTextB(activeTab.url);
-  if (cachedBadgeText === badgeText) { return; }
-  cachedBadgeText = badgeText;
   ext_api.browserAction.setBadgeBackgroundColor({color: 'red'});
   ext_api.browserAction.setBadgeText({text: badgeText});
 }

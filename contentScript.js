@@ -120,6 +120,17 @@ else if (matchDomain("wsj.com")) {
         if (close_button)
             close_button.click();
     }
+    document.addEventListener('DOMContentLoaded', () => {
+        let wsj_login = document.querySelector('.wsj-snippet-login');
+        if (wsj_login && !window.location.hash) {
+            let url = window.location.href;
+            if (url.includes('?')) {
+                window.location.href = url.replace('?', '#refreshed?');
+            } else {
+                window.location.href = url + '#refreshed';
+            }
+        }
+    });
 }
 
 else if (matchDomain("sloanreview.mit.edu")) {
@@ -562,6 +573,7 @@ else if (matchDomain('faz.net')) {
                             str = str.replace(/([a-z\"\“])(?=[A-Z](?=[A-Za-zÀ-ÿ]+))/gm, "$&\n\n");
                             // exceptions: names with alternating lower/uppercase (no general fix)
                             str = str.replace(/Glaxo\n\nSmith\n\nKline/g, "GlaxoSmithKline");
+                            str = str.replace(/Eu\n\nGH/g, "EuGH");
                             str = str.replace(/If\n\nSG/g, "IfSG");
                             str = str.replace(/La\n\nPierre/g, "LaPierre");
                             return str;
