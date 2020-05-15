@@ -254,6 +254,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [The Hindu](https://www.thehindu.com)
 
 #### Israel
+[Globes](https://www.globes.co.il) -
 [Haaretz.co.il](https://www.haaretz.co.il) -
 [Haaretz.com](https://www.haaretz.com) -
 [The Marker](https://www.themarker.com)

@@ -163,6 +163,7 @@ var blockedRegexes = {
 'foreignpolicy.com': /.+\.tinypass\.com\/.+/,
 'fortune.com':  /.+\.tinypass\.com\/.+/,
 'gestion.pe': /gestion\.pe\/pf\/dist\/template\/gestion-noticia.+\.js/,
+'globes.co.il': /.+\.tinypass\.com\/.+/,
 'haaretz.co.il': /haaretz\.co\.il\/htz\/js\/inter\.js/,
 'haaretz.com': /haaretz\.com\/hdc\/web\/js\/minified\/header-scripts-int.js.+/,
 'ilmessaggero.it': /(utils\.cedsdigital\.it\/js\/PaywallMeter\.js|static\.viralize\.tv\/viralize_player)/,

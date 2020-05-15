@@ -44,6 +44,7 @@ var defaultSites =
   "Frankfurter Allgemeine Zeitung": "faz.net",
   "Gestión": "gestion.pe",
   "Glassdoor": "glassdoor.com",
+  "Globes": "globes.co.il",
   "Gold Coast Bulletin": "goldcoastbulletin.com.au",
   "Groene Amsterdammer": "groene.nl",
   "Haaretz English": "haaretz.com",
