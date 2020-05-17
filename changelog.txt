@@ -1,6 +1,15 @@
 
 Changelog Bypass Paywalls Clean - Chrome
 
+* v1.7.2.0 (2020-05-17)
+Add Globes (Israel)
+Fix-update Challenges.fr (proper)
+Fix-update Nzz.ch (banners)
+Fix-update The Hindu (timing issue)
+Fix-update WSJ (timing issues)
+Add Limited permissions version
+Simplify blocking of specific paywall-scripts
+
 * v1.7.1.0 (2020-05-02)
 Add Le Journal du Net.fr
 Add Sciences et Avenir.fr
