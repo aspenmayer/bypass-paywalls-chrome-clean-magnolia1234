@@ -17,10 +17,12 @@ The following instructions are needed to install third-party extensions in [Chro
 #### Chrome (Windows, MacOS, Linux), Microsoft Edge (version 79)
 1. Download this repository as a [ZIP file from BitBucket](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/get/master.zip).
 2. Unzip the file and you should have a folder named `magnolia1234-bypass-paywalls-chrome-clean-master`.
-3. Move the folder to a permanent location on your computer (do not delete the folder after installation).
+3. Move the folder to a permanent location on your computer (do not delete the folder after installation).  
+* replace manifest.json with the one in lp-folder if you want to use the limited permissions version (custom sites will not be working though).
 4. Go to the extensions page (`chrome://extensions` or `edge://extensions`).
 5. Enable Developer Mode.
-6. Click `Load unpacked` and select the extension folder.
+6. Click `Load unpacked` and select the extension folder.  
+* in Chrome disable developer mode extensions popup by enabling the extensions toolbar menu under (experimental) chrome flags: chrome://flags/#extensions-toolbar-menu
 
 #### Android
 1. Install [Yandex Browser](https://play.google.com/store/apps/details?id=com.yandex.browser&hl=en) from the Google PlayStore (Bypass Paywalls Clean doesn't work with Kiwi Browser yet).
