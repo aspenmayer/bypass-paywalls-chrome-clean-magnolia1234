@@ -605,10 +605,11 @@ else if (matchDomain('faz.net')) {
     }
 }
 
-else if (matchDomain('gestion.pe')) {
+else if (matchDomain(['elcomercio.pe', 'gestion.pe'])) {
     const paywall = document.querySelector('.story-content__nota-premium');
     if (paywall) {
         paywall.classList.remove('story-content__nota-premium');
+        paywall.removeAttribute('style');
     }
 }
 
