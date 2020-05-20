@@ -170,7 +170,7 @@ var blockedRegexes = {
 'inquirer.com': /.+\.tinypass\.com\/.+/,
 'ladepeche.fr': /.+\.poool\.fr\/.+/,
 'lastampa.it': /.+\.repstatic\.it\/minify\/sites\/lastampa\/.+\/config\.cache\.php\?name=social_js/,
-'lejdd.fr': /.+\.swisspay\.ch\/.+/,
+'lejdd.fr': /.+\.poool\.fr\/.+/,
 'leparisien.fr': /.+\.tinypass\.com\/.+/,
 'lesechos.fr': /.+\.tinypass\.com\/.+/,
 'livemint.com': /(.+\.livemint\.com\/js\/localWorker\.js|analytics\.htmedia\.in\/analytics-js\/.+\.js)/,

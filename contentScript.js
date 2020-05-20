@@ -631,6 +631,16 @@ else if (matchDomain('nzz.ch')) {
     }
 }
 
+else if (matchDomain('lejdd.fr')) {
+    let poool_banner = document.querySelector('#poool-container');
+    removeDOMElement(poool_banner);
+    let bottom_hide = document.querySelector('.cnt[data-poool-mode="hide"]');
+    if (bottom_hide) {
+        bottom_hide.removeAttribute('data-poool-mode');
+        bottom_hide.removeAttribute('style');
+    }
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {
