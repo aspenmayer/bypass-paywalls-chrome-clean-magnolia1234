@@ -328,11 +328,6 @@ else if (matchDomain("technologyreview.com")) {
     removeDOMElement(meter);
 }
 
-else if (matchDomain("haaretz.com")) {
-    const popup = document.querySelector('.footer-ruler');
-    removeDOMElement(popup);
-}
-
 else if (matchDomain("asia.nikkei.com")) {
     const popup = document.querySelector('.pw-widget--popup');
     removeDOMElement(popup);
