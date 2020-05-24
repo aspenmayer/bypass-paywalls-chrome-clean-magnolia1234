@@ -207,6 +207,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [Kleine Zeitung](https://www.kleinezeitung.at)
 ##### Italy
 [Corriere Della Sera](https://www.corriere.it) -
+[Il Manifesto](https://ilmanifesto.it) -
 [Il Messaggero](https://www.ilmessaggero.it) -
 [La Repubblica](https://www.repubblica.it) -
 [La Stampa](https://www.lastampa.it) -

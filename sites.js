@@ -58,6 +58,7 @@ var defaultSites =
   "Het Financieel Dagblad": "fd.nl",
   "Humo.be": "humo.be",
   "Inc.com": "inc.com",
+  "Il Manifesto": "ilmanifesto.it",
   "Il Messaggero": "ilmessaggero.it",
   "Illawarra Mercury": "illawarramercury.com.au",
   "Intelligent Investor": "intelligentinvestor.com.au",
