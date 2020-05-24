@@ -477,13 +477,17 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   }
 
   if (tabId !== -1) {
-    // run contentScript inside tab
-    ext_api.tabs.executeScript(tabId, {
-      file: 'contentScript.js',
-      runAt: 'document_start'
-    }, function(res) {
-      if (ext_api.runtime.lastError || res[0]) {
-        return;
+    ext_api.tabs.get(tabId, function (currentTab) {
+      if (isSiteEnabled(currentTab)) {
+        // run contentScript inside tab
+        ext_api.tabs.executeScript(tabId, {
+          file: 'contentScript.js',
+          runAt: 'document_start'
+        }, function(res) {
+          if (ext_api.runtime.lastError || res[0]) {
+            return;
+          }
+        });
       }
     });
   }
@@ -556,7 +560,7 @@ function matchDomain(domains, hostname) {
 }
 
 function urlHost(url) {
-    if (url.startsWith('http')) {
+    if (url && url.startsWith('http')) {
         try {
             return new URL(url).hostname;
         } catch (e) {
