@@ -31,6 +31,7 @@ var defaultSites =
   "Digiday": "digiday.com",
   "El Comercio": "elcomercio.pe",
   "El Mercurio": "elmercurio.com",
+  "El Mundo": "elmundo.es",
   "El País": "elpais.com",
   "Encyclopedia Britannica": "britannica.com",
   "Eureka Report": "eurekareport.com.au",

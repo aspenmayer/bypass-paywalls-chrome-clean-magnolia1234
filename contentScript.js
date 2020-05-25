@@ -636,6 +636,25 @@ else if (matchDomain('lejdd.fr')) {
     }
 }
 
+else if (matchDomain('elmundo.es')) {
+    let premium = document.querySelector('.ue-c-article__premium');
+    window.setTimeout(function () {
+        if (premium && window.location.href.includes('/www.elmundo.es/')) {
+            window.location.href = window.location.href.replace('/www.', '/amp.');
+        }
+    }, 500); // Delay (in milliseconds)
+    if (window.location.href.includes('/amp.elmundo.es/')) {
+        let paywall = document.querySelector('div[amp-access="authorized!=true"]');
+        if (paywall) {
+            removeDOMElement(paywall);
+            let div_hidden = document.querySelector('div[amp-access="authorized=true"]');
+            if (div_hidden) {
+                div_hidden.removeAttribute('amp-access-hide');
+            }
+        }
+    }
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {

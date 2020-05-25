@@ -235,6 +235,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [Volkskrant](https://www.volkskrant.nl) -
 [Vrij Nederland](https://www.vn.nl)
 ##### Spain
+[El Mundo](https://www.elmundo.es) -
 [El País](https://elpais.com)
 ##### Sweden
 [Aftonbladet](https://www.aftonbladet.se) -
