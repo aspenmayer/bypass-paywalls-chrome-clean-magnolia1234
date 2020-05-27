@@ -12,7 +12,8 @@ const restrictions = {
   'economist.com': /.+economist\.com\/.+\/\d{1,4}\/\d{1,2}\/\d{2}\/.+/,
   'elcomercio.pe': /.+\/elcomercio.pe\/.+((\w)+(\-)+){3,}.+/,
   'gestion.pe': /.+\/gestion.pe\/.+((\w)+(\-)+){3,}.+/,
-  'quora.com': /^((?!quora\.com\/search\?q=).)*$/
+  'quora.com': /^((?!quora\.com\/search\?q=).)*$/,
+  'seekingalpha.com': /.+seekingalpha\.com\/article\/.+/
 }
 
 // Don't remove cookies before page load

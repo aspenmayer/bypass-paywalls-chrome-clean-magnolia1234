@@ -1,5 +1,5 @@
 // clean local storage of sites (with an exemption for hold-list)
-var arr_localstorage_hold = ['sfchronicle.com'];
+var arr_localstorage_hold = ['seekingalpha.com', 'sfchronicle.com'];
 if (!matchDomain(arr_localstorage_hold)){
     window.localStorage.clear();
 }
