@@ -201,10 +201,9 @@ else if (matchDomain("bloombergquint.com")) {
     removeDOMElement(articlesLeftModal, paywall);
 }
 
-else if (matchDomain("medium.com")) {
-    const bottomMessageText = 'Get one more story in your member preview when you sign up. It’s free.';
-    const DOMElementsToTextDiv = pageContains('div', bottomMessageText);
-    if (DOMElementsToTextDiv[2]) removeDOMElement(DOMElementsToTextDiv[2]);
+else if (matchDomain(["medium.com", "towardsdatascience.com"])) {
+    let meter = document.querySelector('#lo-highlight-meter-1-highlight-box');
+    removeDOMElement(meter);
 }
 
 else if (matchDomain("ledevoir.com")) {
