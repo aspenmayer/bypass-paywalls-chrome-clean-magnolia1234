@@ -655,6 +655,15 @@ else if (matchDomain('elmundo.es')) {
     }
 }
 
+else if (matchDomain('spectator.co.uk')) {
+    let premium = document.querySelector('.HardPayWallContainer-module__overlay');
+    window.setTimeout(function () {
+        if (premium && window.location.href.includes('/www.spectator.co.uk/')) {
+            window.location.href = window.location.href + '/amp';
+        }
+    }, 500); // Delay (in milliseconds)
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {
