@@ -173,9 +173,11 @@ else if (matchDomain("nzherald.co.nz")) {
 
 else if (matchDomain(["parool.nl", "trouw.nl", "volkskrant.nl", "humo.be", "demorgen.be"])) {
     document.addEventListener('DOMContentLoaded', () => {
-        const paywall = document.querySelector('div[data-temptation-position="ARTICLE_BOTTOM"]');
-        const hidden_section = document.querySelector('div[data-temptation-position="ARTICLE_INLINE"]');
-        removeDOMElement(paywall, hidden_section);
+        let top_banner = document.querySelector('div[data-temptation-position="PAGE_TOP"]');
+        let paywall = document.querySelector('div[data-temptation-position="ARTICLE_BOTTOM"]');
+        let hidden_section = document.querySelector('div[data-temptation-position="ARTICLE_INLINE"]');
+        let overlay = document.querySelector('div[data-temptation-position="PAGE_BOTTOM"]');
+        removeDOMElement(top_banner, paywall, hidden_section, overlay);
     });
 }
 
