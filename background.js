@@ -389,7 +389,8 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   }
 
   // remove cookies for sites medium platform (mainfest.json needs in permissions: <all_urls>)
-  if (isSiteEnabled({url: 'https://medium.com'}) && matchUrlDomain('cdn-client.medium.com', details.url) && !matchUrlDomain('medium.com', header_referer)) {
+  var medium_custom_domain = (isSiteEnabled({url: 'https://medium.com'}) && matchUrlDomain('cdn-client.medium.com', details.url) && !matchUrlDomain('medium.com', header_referer));
+  if (medium_custom_domain) {
     ext_api.cookies.getAll({domain: urlHost(header_referer)}, function(cookies) {
       for (var i=0; i<cookies.length; i++) {
         ext_api.cookies.remove({url: (cookies[i].secure ? "https://" : "http://") + cookies[i].domain + cookies[i].path, name: cookies[i].name});
@@ -480,7 +481,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
 
   if (tabId !== -1) {
     ext_api.tabs.get(tabId, function (currentTab) {
-      if (isSiteEnabled(currentTab)) {
+      if (isSiteEnabled(currentTab) || medium_custom_domain) {
         // run contentScript inside tab
         ext_api.tabs.executeScript(tabId, {
           file: 'contentScript.js',
