@@ -665,6 +665,13 @@ else if (matchDomain('spectator.co.uk')) {
     }, 500); // Delay (in milliseconds)
 }
 
+else if (matchDomain('bostonglobe.com')) {
+    if (!document.cookie.split(';').some(function(item) { return item.trim().indexOf('s_fid=') === 0 })) {
+		let s_fid = genHexString(16) + '-' + genHexString(16);
+        document.cookie = "s_fid=" + s_fid + "; domain=bostonglobe.com; path=/; max-age=1209600";
+    }
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {
@@ -689,6 +696,14 @@ function removeClassesByPrefix(el, prefix) {
             el.classList.remove(el.classList[i]);
         }
     }
+}
+
+function genHexString(len) {
+    let output = '';
+    for (let i = 0; i < len; i++) {
+        output += (Math.floor(Math.random() * 16)).toString(16);
+    }
+    return output;
 }
 
 function pageContains(selector, text) {

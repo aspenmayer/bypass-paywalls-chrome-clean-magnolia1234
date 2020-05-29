@@ -402,11 +402,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   var blockedDomains = Object.keys(blockedRegexes);
   var domain = matchUrlDomain(blockedDomains, header_referer);
   if (domain && details.url.match(blockedRegexes[domain]) && isSiteEnabled({url: header_referer})) {
-      // allow BG paywall-script to set cookies in homepage/sections (else no article-text)
-      if (domain == 'bostonglobe.com' &&
-          (header_referer === 'https://www.bostonglobe.com/' || header_referer.includes('/?p1=BGHeader_') || header_referer.includes('/?p1=BGMenu_'))) {
-          ext_api.webRequest.handlerBehaviorChanged();
-      } else if (domain == 'theglobeandmail.com' && !(header_referer.includes('/article-'))) {
+      if (domain == 'theglobeandmail.com' && !(header_referer.includes('/article-'))) {
           ext_api.webRequest.handlerBehaviorChanged();
       }
       return { cancel: true };
