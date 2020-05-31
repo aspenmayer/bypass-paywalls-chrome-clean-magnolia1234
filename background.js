@@ -388,6 +388,9 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
 		  continue;
 	  }
   }
+  // fix brave browser
+  if (!details.originUrl && !header_referer.includes(details.initiator))
+      header_referer = details.initiator;
 
   // remove cookies for sites medium platform (mainfest.json needs in permissions: <all_urls>)
   var medium_custom_domain = (isSiteEnabled({url: 'https://medium.com'}) && matchUrlDomain('cdn-client.medium.com', details.url) && !matchUrlDomain('medium.com', header_referer));
