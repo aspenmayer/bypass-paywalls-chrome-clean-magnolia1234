@@ -375,24 +375,33 @@ else if (matchDomain("afr.com")) {
 }
 
 else if (matchDomain("theglobeandmail.com")) {
+  let paywall = document.querySelector('div.c-article-body__teaser-enabled');
+  if (paywall) {
+      window.setTimeout(function () {
+          if (!window.location.href.includes('?ref=premium'))
+              window.location.href = window.location.href + '?ref=premium';
+          else
+              window.location.reload(true);
+      }, 500);
+  }
   document.addEventListener('DOMContentLoaded', () => {
-        const lazy_image = document.querySelectorAll('.js-lazyimage');
-        for (let i = 0; i < lazy_image.length; i++) {
-            lazy_image[i].classList.remove('js-lazyimage');
-        }
-        const hidden_image = document.querySelectorAll('img');
-        for (let i = 0; i < hidden_image.length; i++) {
-            var src = hidden_image[i].src;
-            if (src.includes("data:image/gif")) {
-                var data_src = hidden_image[i].getAttribute("data-src");
-                if (data_src)
-                    hidden_image[i].setAttribute('src', data_src);
-                var data_bg = hidden_image[i].getAttribute("data-bg");
-                if (data_bg)
-                    hidden_image[i].setAttribute('src', data_bg);
-            }
-        }
-    });
+      const lazy_images = document.querySelectorAll('.js-lazyimage');
+      for (let lazy_image of lazy_images) {
+          lazy_image.classList.remove('js-lazyimage');
+      }
+      const hidden_images = document.querySelectorAll('img');
+      for (let hidden_image of hidden_images) {
+          var src = hidden_image.src;
+          if (src.includes("data:image/gif")) {
+              var data_src = hidden_image.getAttribute("data-src");
+              if (data_src)
+                  hidden_image.setAttribute('src', data_src);
+              var data_bg = hidden_image.getAttribute("data-bg");
+              if (data_bg)
+                  hidden_image.setAttribute('src', data_bg);
+          }
+      }
+  });
 }
 
 else if (matchDomain("sofrep.com")) {
@@ -667,7 +676,7 @@ else if (matchDomain('spectator.co.uk')) {
 
 else if (matchDomain('bostonglobe.com')) {
     if (!document.cookie.split(';').some(function(item) { return item.trim().indexOf('s_fid=') === 0 })) {
-		let s_fid = genHexString(16) + '-' + genHexString(16);
+        let s_fid = genHexString(16) + '-' + genHexString(16);
         document.cookie = "s_fid=" + s_fid + "; domain=bostonglobe.com; path=/; max-age=1209600";
     }
 }

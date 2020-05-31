@@ -13,7 +13,8 @@ const restrictions = {
   'elcomercio.pe': /.+\/elcomercio.pe\/.+((\w)+(\-)+){3,}.+/,
   'gestion.pe': /.+\/gestion.pe\/.+((\w)+(\-)+){3,}.+/,
   'quora.com': /^((?!quora\.com\/search\?q=).)*$/,
-  'seekingalpha.com': /.+seekingalpha\.com\/article\/.+/
+  'seekingalpha.com': /.+seekingalpha\.com\/article\/.+/,
+  'theglobeandmail.com': /(.+theglobeandmail\.com\/.+\/article-.+|.+theglobeandmail\.com\/pb\/resources\/scripts\/build\/.+\.js)/
 }
 
 // Don't remove cookies before page load
@@ -195,7 +196,7 @@ var blockedRegexes = {
 'theadvocate.com.au': /.+cdn-au\.piano\.io\/api\/tinypass.+\.js/,
 'thecourier.com.au': /.+cdn-au\.piano\.io\/api\/tinypass.+\.js/,
 'thedailybeast.com': /.+\.tinypass\.com\/.+/,
-'theglobeandmail.com': /theglobeandmail\.com\/pb\/resources\/scripts\/build\/chunk-bootstraps\/.+\.js/,
+'theglobeandmail.com': /theglobeandmail\.com\/pb\/resources\/scripts\/build\/chunk-common-vendor.+\.js/,
 'thenation.com': /.+\.tinypass\.com\/.+/,
 'valeursactuelles.com': /.+\.poool\.fr\/.+/
 };
@@ -401,11 +402,12 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   // check for blocked regular expression: domain enabled, match regex, block on an internal or external regex
   var blockedDomains = Object.keys(blockedRegexes);
   var domain = matchUrlDomain(blockedDomains, header_referer);
+  var block_regex = true;
   if (domain && details.url.match(blockedRegexes[domain]) && isSiteEnabled({url: header_referer})) {
-      if (domain == 'theglobeandmail.com' && !(header_referer.includes('/article-'))) {
-          ext_api.webRequest.handlerBehaviorChanged();
-      }
-      return { cancel: true };
+    if (domain === 'theglobeandmail.com' && !(header_referer.includes('?ref=premium'))) {
+      block_regex = false;
+    }
+    if (block_regex) return { cancel: true };
   }
 
   if (!isSiteEnabled(details)) {
