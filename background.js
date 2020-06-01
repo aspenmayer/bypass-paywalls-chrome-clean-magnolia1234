@@ -354,7 +354,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(
 },
     ["blocking", "requestHeaders"]);
 
-var block_js_default = ["*://cdn.tinypass.com/*", "*://*.poool.fr/*", "*://*.piano.io/*"];
+var block_js_default = ["*://cdn.tinypass.com/*", "*://*.piano.io/*", "*://*.poool.fr/*",  "*://*.blueconic.net/*", "*://*.onecount.net/*", "*://*.qiota.com/*", "*://*.tribdss.com/*"];
 var block_js_custom = [];
 var block_js = block_js_default.concat(block_js_custom);
 
