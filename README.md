@@ -304,7 +304,7 @@ Remember to check the [previous requests](https://bitbucket.org/magnolia1234/byp
 Add your own custom site (also for testing).  
 Check 'Options'-link in popup-menu and go to custom sites.  
 By default sites' cookies are removed after page loads (to bypass article limit).  
-Also you can enable Googlebot user-agent or disable Javascript for (sub)domain(s).
+Also you can enable Googlebot user-agent or disable Javascript for (sub)domain(s)/external sources.
 
 ### Troubleshooting
 * This extension works best alongside [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm).

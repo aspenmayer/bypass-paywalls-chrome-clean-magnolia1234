@@ -401,6 +401,11 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
       }
     });
   }
+  
+  // block external javascript for custom sites (optional)
+  if (matchUrlDomain([block_js_custom], header_referer) && details.url.match(/(\.js$|\.js\?)/) && isSiteEnabled({url: header_referer})) {
+    return { cancel: true };
+  }
 
   // check for blocked regular expression: domain enabled, match regex, block on an internal or external regex
   var blockedDomains = Object.keys(blockedRegexes);
