@@ -189,8 +189,11 @@ var defaultSites =
   "Wired": "wired.com",
   "World Politics Review": "worldpoliticsreview.com",
   "——— Block Paywall-scripts ———": "###",
-  "Outbrain": "outbrain.com",
+  "BlueConic": "blueconic.net",
+  "OneCount": "onecount.net",
+  "Piano.io": "piano.io",
   "Poool.fr": "poool.fr",
+  "Qiota": "qiota.com",
   "TinyPass": "tinypass.com",
-  "Piano.io": "piano.io"
+  "TribDss": "tribdss.com"
 }
