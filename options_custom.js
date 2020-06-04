@@ -184,7 +184,8 @@ function renderOptions() {
             'title': 0,
             'domain': 0,
             'googlebot': 1,
-            'block_javascript': 1
+            'block_javascript': 1,
+            'block_javascript_ext': 1
         };
         for (var key in add_checkboxes) {
             labelEl = document.createElement('label');
@@ -213,7 +214,9 @@ function renderOptions() {
         for (var key in sites_custom) {
             optionEl = document.createElement('option');
             optionEl.text = key + ': ' + sites_custom[key]['domain'] +
-                (sites_custom[key]['googlebot'] ? ' | googlebot' : '') + (sites_custom[key]['block_javascript'] ? ' | block javascript' : '');
+                (sites_custom[key]['googlebot']>0 ? ' | googlebot' : '') + 
+                (sites_custom[key]['block_javascript']>0 ? ' | block javascript' : '') + 
+                (sites_custom[key]['block_javascript_ext']>0 ? ' | block javascript ext' : '');
             optionEl.value = key;
             selectEl.add(optionEl);
         }

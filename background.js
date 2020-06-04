@@ -223,21 +223,18 @@ ext_api.storage.sync.get({
     var sites = items.sites;
     var sites_custom = items.sites_custom;
 
-    // custom googlebot
-    use_google_bot_custom = Object.keys(sites_custom).filter(function (key) {
-            return sites_custom[key]['googlebot'] > 0;
-        }).map(function (key) {
-            return sites_custom[key]['domain'].toLowerCase();
-        });
-    use_google_bot = use_google_bot_default.slice();
-
-    // custom block javascript (only (sub)domain)
-    block_js_custom = Object.keys(sites_custom).filter(function (key) {
-            return sites_custom[key]['block_javascript'] > 0;
-        }).map(function (key) {
-            return sites_custom[key]['domain'].toLowerCase();
-        });
-    block_js = block_js_default.slice();
+    for (let key in sites_custom) {
+        var domainVar = sites_custom[key]['domain'].toLowerCase();
+        if (sites_custom[key]['googlebot'] > 0 && !use_google_bot.includes(domainVar)) {
+            use_google_bot.push(domainVar);
+        }
+        if (sites_custom[key]['block_javascript'] > 0) {
+            block_js_custom.push(domainVar);
+        }
+        if (sites_custom[key]['block_javascript_ext'] > 0) {
+            block_js_custom_ext.push(domainVar);
+        }
+    }
 
     enabledSites = Object.keys(sites).filter(function (key) {
             return (sites[key] !== '' && sites[key] !== '###');
@@ -248,18 +245,10 @@ ext_api.storage.sync.get({
         enabledSites = enabledSites.concat(ad_region_domains);
     }
 
-    for (var domainIndex in enabledSites) {
-        var domainVar = enabledSites[domainIndex];
+    for (let domainVar of enabledSites) {
         if (!allow_cookies.includes(domainVar) && !remove_cookies.includes(domainVar)) {
             allow_cookies.push(domainVar);
             remove_cookies.push(domainVar);
-        }
-        if (use_google_bot_custom.includes(domainVar)) {
-            use_google_bot.push(domainVar);
-        }
-        if (block_js_custom.includes(domainVar)) {
-            block_js.push("*://*." + domainVar + "/*"); // subdomains of site
-            block_js.push("*://" + domainVar + "/*"); // site without www.-prefix
         }
     }
     disableJavascriptOnListedSites();     
@@ -285,32 +274,23 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
         }
         if (key === 'sites_custom') {
             var sites_custom = storageChange.newValue;
-            use_google_bot_custom = Object.keys(sites_custom).filter(function (key) {
-                    return sites_custom[key]['googlebot'] > 0;
-                }).map(function (key) {
-                    return sites_custom[key]['domain'].toLowerCase();
-                });
             use_google_bot = use_google_bot_default.slice();
-            for (var domainIndex in use_google_bot_custom) {
-                var domainVar = use_google_bot_custom[domainIndex];
-                if (domainVar && !use_google_bot.includes(domainVar)) {
+            block_js_custom = [];
+            block_js_custom_ext = [];
+            for (let key in sites_custom) {
+                var domainVar = sites_custom[key]['domain'].toLowerCase();
+                if (sites_custom[key]['googlebot'] > 0 && !use_google_bot.includes(domainVar)) {
                     use_google_bot.push(domainVar);
                 }
-            }
-            block_js_custom = Object.keys(sites_custom).filter(function (key) {
-                    return sites_custom[key]['block_javascript'] > 0;
-                }).map(function (key) {
-                    return sites_custom[key]['domain'].toLowerCase();
-                });
-            block_js = block_js_default.slice();
-            for (var domainIndex in block_js_custom) {
-                var domainVar = block_js_custom[domainIndex];
-                if (domainVar && !block_js.includes(domainVar)) {
-                    block_js.push("*://*." + domainVar + "/*"); // subdomains of site
-                    block_js.push("*://" + domainVar + "/*"); // site without www.-prefix
+                if (sites_custom[key]['block_javascript'] > 0) {
+                    block_js_custom.push(domainVar);
+                }
+                if (sites_custom[key]['block_javascript_ext'] > 0) {
+                    block_js_custom_ext.push(domainVar);
                 }
             }
-            // reset disableJavascriptOnListedSites eventListener 
+
+            // reset disableJavascriptOnListedSites eventListener
             ext_api.webRequest.onBeforeRequest.removeListener(disableJavascriptOnListedSites);
             ext_api.webRequest.handlerBehaviorChanged();
         }
@@ -356,6 +336,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(
 
 var block_js_default = ["*://cdn.tinypass.com/*", "*://*.piano.io/*", "*://*.poool.fr/*",  "*://*.blueconic.net/*", "*://*.onecount.net/*", "*://*.qiota.com/*", "*://*.tribdss.com/*"];
 var block_js_custom = [];
+var block_js_custom_ext = [];
 var block_js = block_js_default.concat(block_js_custom);
 
 // Disable javascript for these sites/general paywall-scripts
@@ -392,18 +373,19 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   if (!details.originUrl && !header_referer.includes(details.initiator))
       header_referer = details.initiator;
 
-  // remove cookies for sites medium platform (mainfest.json needs in permissions: <all_urls>)
-  var medium_custom_domain = (isSiteEnabled({url: 'https://medium.com'}) && matchUrlDomain('cdn-client.medium.com', details.url) && !matchUrlDomain('medium.com', header_referer));
+  // remove cookies for sites medium platform (custom domains)
+  var medium_custom_domain = (matchUrlDomain('cdn-client.medium.com', details.url) && !matchUrlDomain('medium.com', header_referer) && isSiteEnabled({url: 'https://medium.com'}));
   if (medium_custom_domain) {
     ext_api.cookies.getAll({domain: urlHost(header_referer)}, function(cookies) {
-      for (var i=0; i<cookies.length; i++) {
-        ext_api.cookies.remove({url: (cookies[i].secure ? "https://" : "http://") + cookies[i].domain + cookies[i].path, name: cookies[i].name});
+      for (let cookie of cookies) {
+        ext_api.cookies.remove({url: (cookie.secure ? "https://" : "http://") + cookie.domain + cookie.path, name: cookie.name});
       }
     });
   }
   
   // block external javascript for custom sites (optional)
-  if (matchUrlDomain([block_js_custom], header_referer) && details.url.match(/(\.js$|\.js\?)/) && isSiteEnabled({url: header_referer})) {
+  var domain_blockjs_ext = matchUrlDomain([block_js_custom_ext], header_referer);
+  if (domain_blockjs_ext && !matchUrlDomain(domain_blockjs_ext, details.url) && details.url.match(/(\.js$|\.js\?)/) && isSiteEnabled({url: header_referer})) {
     return { cancel: true };
   }
 
@@ -420,6 +402,12 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
 
   if (!isSiteEnabled(details)) {
     return;
+  }
+
+  // block javascript of (sub)domain for custom sites (optional)
+  var domain_blockjs = matchUrlDomain([block_js_custom], details.url);
+  if (domain_blockjs && matchUrlDomain(domain_blockjs, details.url) && details.url.match(/(\.js$|\.js\?)/)) {
+    return { cancel: true };
   }
 
   var tabId = details.tabId;
@@ -529,20 +517,20 @@ ext_api.webRequest.onCompleted.addListener(function (details) {
     ext_api.cookies.getAll({
         domain: domainVar
     }, function (cookies) {
-        for (var i = 0; i < cookies.length; i++) {
-            var cookie_domain = cookies[i].domain;
+        for (let cookie of cookies) {
+            var cookie_domain = cookie.domain;
             var rc_domain = cookie_domain.replace(/^(\.?www\.|\.)/, '');
             // hold specific cookie(s) from remove_cookies domains
-            if ((rc_domain in remove_cookies_select_hold) && remove_cookies_select_hold[rc_domain].includes(cookies[i].name)) {
+            if ((rc_domain in remove_cookies_select_hold) && remove_cookies_select_hold[rc_domain].includes(cookie.name)) {
                 continue; // don't remove specific cookie
             }
             // drop only specific cookie(s) from remove_cookies domains
-            if ((rc_domain in remove_cookies_select_drop) && !(remove_cookies_select_drop[rc_domain].includes(cookies[i].name))) {
+            if ((rc_domain in remove_cookies_select_drop) && !(remove_cookies_select_drop[rc_domain].includes(cookie.name))) {
                 continue; // only remove specific cookie
             }
             ext_api.cookies.remove({
-                url: (cookies[i].secure ? "https://" : "http://") + cookies[i].domain + cookies[i].path,
-                name: cookies[i].name
+                url: (cookie.secure ? "https://" : "http://") + cookie.domain + cookie.path,
+                name: cookie.name
             });
         }
     });
