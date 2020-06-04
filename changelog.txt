@@ -1,6 +1,19 @@
 
 Changelog Bypass Paywalls Clean - Chrome
 
+* v1.7.4.0 (2020-06-04)
+Add ElMundo.es (amp for premium)
+Fix-update Boston Globe
+Fix-update DeMorgen.be (overlay)
+Fix-update Globe and Mail (premium-only)
+Fix-update Medium (banner)
+Fix Medium custom domains
+Fix-update SeekingAlpha (limit robot-captcha)
+Fix-update Spectator.co.uk (amp for premium)
+New option to block external Javascript for custom sites
+Fix support Brave Browser
+Add block general paywall scripts: BlueConic, OneCount, Qiota & TribDss. Remove Outbrain.
+
 * v1.7.3.0 (2020-05-24)
 Add ilManifesto.it
 Fix-update Gestion.pe/ElComercio.pe
