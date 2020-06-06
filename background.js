@@ -169,6 +169,7 @@ var blockedRegexes = {
 'globes.co.il': /.+\.tinypass\.com\/.+/,
 'haaretz.co.il': /haaretz\.co\.il\/htz\/js\/inter\.js/,
 'haaretz.com': /haaretz\.com\/hdc\/web\/js\/minified\/header-scripts-int.js.+/,
+'historyextra.com': /.+\.evolok\.net\/.+\/authorize\/.+/,
 'ilmessaggero.it': /(utils\.cedsdigital\.it\/js\/PaywallMeter\.js|static\.viralize\.tv\/viralize_player)/,
 'inquirer.com': /.+\.tinypass\.com\/.+/,
 'ladepeche.fr': /.+\.poool\.fr\/.+/,

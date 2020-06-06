@@ -681,6 +681,19 @@ else if (matchDomain('bostonglobe.com')) {
     }
 }
 
+else if (matchDomain('historyextra.com')) {
+    let article_masked = document.querySelector('.template-article__masked');
+    if (article_masked) {
+        let extra_pars = document.querySelectorAll('div.template-article__masked > p');
+        for (let extra_par of extra_pars) {
+            removeDOMElement(extra_par);
+        }
+        article_masked.classList.remove('template-article__masked');
+    }
+    let ad_banner = document.querySelector('.ad-banner-container');
+    removeDOMElement(ad_banner);
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {

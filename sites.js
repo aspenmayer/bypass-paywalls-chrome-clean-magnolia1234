@@ -7,6 +7,7 @@ var defaultSites =
   "American Banker": "americanbanker.com",
   "Baltimore Sun": "baltimoresun.com",
   "Barron's": "barrons.com",
+  "BBC History Extra": "historyextra.com",
   "Bendigo Advertiser": "bendigoadvertiser.com.au",
   "Bloomberg": "bloomberg.com",
   "Bloomberg Quint (free articles only)": "bloombergquint.com",
