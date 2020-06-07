@@ -65,7 +65,6 @@ var allow_cookies = [
 'theaustralian.com.au',
 'themarker.com',
 'themercury.com.au',
-'thetimes.co.uk',
 'townsvillebulletin.com.au',
 'trouw.nl',
 'volkskrant.nl',
