@@ -179,6 +179,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 ##### United Kingdom/Ireland
 [Financial News](https://www.fnlondon.com) -
 [Financial Times](https://www.ft.com) -
+[Irish Independent](https://www.independent.ie) -
 [London Review of Books](https://www.lrb.co.uk) -
 [The Athletic UK](https://theathletic.com) -
 [The Economist](https://www.economist.com) -

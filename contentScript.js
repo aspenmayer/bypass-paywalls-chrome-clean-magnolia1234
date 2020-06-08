@@ -71,7 +71,7 @@ else if (matchDomain('telegraaf.nl')) {
         removeDOMElement(article_body_old);
         let json = document.querySelector('script[type="application/ld+json"][data-react-helmet="true"]');
         if (json) {
-            json_text = JSON.parse(json.text).articleBody;
+            var json_text = JSON.parse(json.text).articleBody;
             let article_body = document.querySelector('section.TextArticlePage__bodyText');
             if (article_body) {
                 let div_main = document.createElement("div");
@@ -540,8 +540,7 @@ else if (matchDomain('barrons.com')) {
         href = signin_links[i].href;
         if (href.includes('target=')) {
             href = href.split('target')[1].split('%3F')[0];
-            href = href.replace('=', '').replace('%3A', ':');
-            href = href.replace('%2F', '/').replace('%2F', '/').replace('%2F', '/').replace('%2F', '/');
+            href = href.replace('=', '').replace('%3A', ':').replace(/%2F/g, '/');
             signin_links[i].href = href;
             signin_links[i].text = 'Click';
         }
@@ -675,9 +674,9 @@ else if (matchDomain('spectator.co.uk')) {
 }
 
 else if (matchDomain('bostonglobe.com')) {
-    if (!document.cookie.split(';').some(function(item) { return item.trim().indexOf('s_fid=') === 0 })) {
+    if (!cookieExists('s_fid')) {
         let s_fid = genHexString(16) + '-' + genHexString(16);
-        document.cookie = "s_fid=" + s_fid + "; domain=bostonglobe.com; path=/; max-age=1209600";
+        setCookie('s_fid', s_fid, 'bostonglobe.com', '/', 14);
     }
 }
 
@@ -692,6 +691,12 @@ else if (matchDomain('historyextra.com')) {
     }
     let ad_banner = document.querySelector('.ad-banner-container');
     removeDOMElement(ad_banner);
+}
+
+else if (matchDomain('independent.ie')) {
+    if (!cookieExists('subscriber')) {
+        setCookie('subscriber', '{"subscriptionStatus": true}', 'www.independent.ie', '/', 14);
+    }
 }
 
 // General Functions
@@ -718,6 +723,15 @@ function removeClassesByPrefix(el, prefix) {
             el.classList.remove(el.classList[i]);
         }
     }
+}
+
+function cookieExists(name) {
+	return document.cookie.split(';').some(function(item) { return item.trim().indexOf(name + '=') === 0 })
+}
+
+function setCookie(name, value, domain, path, days) {
+    var max_age = days * 24 * 60 * 60;
+    document.cookie = name + "=" + (value || "") + "; domain=" + domain + "; path=" + path + "; max-age=" + max_age;
 }
 
 function genHexString(len) {

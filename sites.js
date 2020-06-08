@@ -64,6 +64,7 @@ var defaultSites =
   "Il Messaggero": "ilmessaggero.it",
   "Illawarra Mercury": "illawarramercury.com.au",
   "Intelligent Investor": "intelligentinvestor.com.au",
+  "Irish Independent": "independent.ie",
   "Kleine Zeitung": "kleinezeitung.at",
   "L'Écho": "lecho.be",
   "L'Opinion": "lopinion.fr",
