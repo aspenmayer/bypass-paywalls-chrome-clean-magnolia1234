@@ -30,6 +30,7 @@ var defaultSites =
   "De Tijd": "tijd.be",
   "DeMorgen": "demorgen.be",
   "Digiday": "digiday.com",
+  "Discover Magazine": "discovermagazine.com",
   "El Comercio": "elcomercio.pe",
   "El Mercurio": "elmercurio.com",
   "El Mundo": "elmundo.es",
