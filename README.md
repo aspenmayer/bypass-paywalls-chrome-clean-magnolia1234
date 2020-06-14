@@ -236,6 +236,8 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [Trouw](https://www.trouw.nl) -
 [Volkskrant](https://www.volkskrant.nl) -
 [Vrij Nederland](https://www.vn.nl)
+##### Russia
+[Republic.ru](https://republic.ru)
 ##### Spain
 [El Mundo](https://www.elmundo.es) -
 [El País](https://elpais.com)

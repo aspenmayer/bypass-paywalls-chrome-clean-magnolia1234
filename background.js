@@ -123,6 +123,7 @@ const use_google_bot_default = [
 'miamiherald.com',
 'ntnews.com.au',
 'quora.com',
+'republic.ru',
 'seekingalpha.com',
 'switzersuperreport.com.au',
 'theathletic.co.uk',
@@ -382,7 +383,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   }
   
   // remove cookies Discover Magazine
-  if (matchUrlDomain('ctfassets.net', details.url) && matchUrlDomain('discovermagazine.com', header_referer) && isSiteEnabled({url: 'https://www.discovermagazine.com'}) {
+  if (matchUrlDomain('ctfassets.net', details.url) && matchUrlDomain('discovermagazine.com', header_referer) && isSiteEnabled({url: 'https://www.discovermagazine.com'})) {
     ext_api.cookies.getAll({domain: 'discovermagazine.com'}, function(cookies) {
       for (let cookie of cookies) {
         ext_api.cookies.remove({url: (cookie.secure ? "https://" : "http://") + cookie.domain + cookie.path, name: cookie.name});

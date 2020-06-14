@@ -679,6 +679,11 @@ else if (matchDomain('independent.ie')) {
     }
 }
 
+else if (matchDomain('republic.ru')) {
+    let paywall = document.querySelector('.paywall-section');
+    removeDOMElement(paywall);
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {

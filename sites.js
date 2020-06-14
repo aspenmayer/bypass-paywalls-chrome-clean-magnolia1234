@@ -113,6 +113,7 @@ var defaultSites =
   "Pittsburgh Post Gazette": "post-gazette.com",
   "Quartz": "qz.com",
   "Quora": "quora.com",
+  "Republic.ru": "republic.ru",
   "San Diego Union Tribune": "sandiegouniontribune.com",
   "San Francisco Chronicle": "sfchronicle.com",
   "Science & Vie": "science-et-vie.com",
