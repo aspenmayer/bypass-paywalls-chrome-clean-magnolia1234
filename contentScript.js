@@ -509,15 +509,24 @@ else if (matchDomain('challenges.fr')) {
 }
 
 else if (matchDomain('barrons.com')) {
-    var href = '';
-    const signin_links = document.querySelectorAll('a.primary-button--link');
-    for (let i = 0; i < signin_links.length; i++) {
-        href = signin_links[i].href;
-        if (href.includes('target=')) {
-            href = href.split('target')[1].split('%3F')[0];
-            href = href.replace('=', '').replace('%3A', ':').replace(/%2F/g, '/');
-            signin_links[i].href = href;
-            signin_links[i].text = 'Click';
+    document.addEventListener('DOMContentLoaded', () => {
+        let body_continuous = document.querySelector('body.is-continuous');
+        let snippet = document.querySelector('meta[content="snippet"]');
+        if (body_continuous && snippet) {
+            window.location.href = window.location.href.replace('barrons.com', 'barrons.com/amp');
+        }
+    });
+    if (!window.location.href.includes('barrons.com/amp/')) {
+        var href = '';
+        let signin_links = document.querySelectorAll('a.primary-button--link');
+        for (let signin_link of signin_links) {
+            href = signin_link.href;
+            if (href.includes('target=')) {
+                href = href.split('target')[1].split('%3F')[0];
+                href = href.replace('=', '').replace('%3A', ':').replace(/%2F/g, '/');
+                signin_link.href = href;
+                signin_link.text = 'Click';
+            }
         }
     }
 }

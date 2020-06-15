@@ -8,7 +8,7 @@ var ext_api = (typeof browser === 'object') ? browser : chrome;
 // var defaultSites = {};
 
 const restrictions = {
-  'barrons.com': /.+barrons\.com\/articles\/.+/,
+  'barrons.com': /.+barrons\.com\/(amp\/)?article(s)?\/.+/,
   'economist.com': /.+economist\.com\/.+\/\d{1,4}\/\d{1,2}\/\d{2}\/.+/,
   'elcomercio.pe': /.+\/elcomercio.pe\/.+((\w)+(\-)+){3,}.+/,
   'gestion.pe': /.+\/gestion.pe\/.+((\w)+(\-)+){3,}.+/,
@@ -145,6 +145,7 @@ var blockedRegexes = {
 'adweek.com': /.+\.lightboxcdn\.com\/.+/,
 'afr.com': /afr\.com\/assets\/vendorsReactRedux_client.+\.js/,
 'americanbanker.com': /.+\.tinypass\.com\/.+/,
+'barrons.com': /cdn\.ampproject\.org\/v\d\/amp-access-.+\.js/,
 'bloomberg.com': /.+\.tinypass\.com\/.+/,
 'bostonglobe.com': /meter\.bostonglobe\.com\/js\/.+/,
 'businessinsider.com': /(.+\.tinypass\.com\/.+|cdn\.onesignal\.com\/sdks\/.+\.js)/,
