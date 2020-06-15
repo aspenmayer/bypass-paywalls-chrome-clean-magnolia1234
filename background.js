@@ -197,7 +197,8 @@ var blockedRegexes = {
 'thecourier.com.au': /.+cdn-au\.piano\.io\/api\/tinypass.+\.js/,
 'thedailybeast.com': /.+\.tinypass\.com\/.+/,
 'thenation.com': /.+\.tinypass\.com\/.+/,
-'valeursactuelles.com': /.+\.poool\.fr\/.+/
+'valeursactuelles.com': /.+\.poool\.fr\/.+/,
+'wsj.com': /cdn\.ampproject\.org\/v\d\/amp-access-.+\.js/
 };
 
 const userAgentDesktop = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"

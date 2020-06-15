@@ -121,22 +121,17 @@ else if (matchDomain("wsj.com")) {
             close_button.click();
     }
     document.addEventListener('DOMContentLoaded', () => {
-        let wsj_login = document.querySelector('.wsj-snippet-login');
-        if (wsj_login && !window.location.hash) {
-            let url = window.location.href;
-            if (url.includes('?')) {
-                window.location.href = url.replace('?', '#refreshed?');
-            } else {
-                window.location.href = url + '#refreshed';
-            }
+        let wsj_login = document.querySelector('.wsj-snippet-login, .wsjpro-label');
+        if (wsj_login) {
+            window.location.href = window.location.href.replace('wsj.com', 'wsj.com/amp');
         }
     });
 }
 
 else if (matchDomain("sloanreview.mit.edu")) {
     const read_more = document.querySelector('.btn-read-more');
-        if(read_more)
-            read_more.click();
+    if (read_more)
+        read_more.click();
 }
 
 else if (matchDomain("mexiconewsdaily.com")) {
