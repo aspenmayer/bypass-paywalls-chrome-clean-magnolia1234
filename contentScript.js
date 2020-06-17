@@ -460,14 +460,9 @@ else if (matchDomain("lesechos.fr")) {
 }
 
 else if (matchDomain(["lc.nl", "dvhn.nl"])) {
-    document.addEventListener('DOMContentLoaded', () => {
-        var new_location = window.location.href;
-        if (new_location.includes("utm_source="))
-            var new_location = new_location.split('?')[0];
-        const preview = document.querySelector('.preview');
-        if (preview && new_location.indexOf("harvest_referrer=") === -1)
-            window.location.href = new_location + '?harvest_referrer=https%3A%2F%2Fnos.nl%2Fplus.html';
-    });
+    let top_ad = document.querySelector('.top__ad');
+    let plus = document.querySelector('.plusJustRead');
+    removeDOMElement(top_ad, plus);
 }
 
 else if (matchDomain("newyorker.com")) {
