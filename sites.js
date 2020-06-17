@@ -93,6 +93,7 @@ var defaultSites =
   "MIT Sloan Management Review": "sloanreview.mit.edu",
   "MIT Technology Review": "technologyreview.com",
   "Modern Healthcare": "modernhealthcare.com",
+  "National Geographic USA": "nationalgeographic.com",
   "Mountain View Voice": "mv-voice.com",
   "National Post": "nationalpost.com",
   "National Review": "nationalreview.com",

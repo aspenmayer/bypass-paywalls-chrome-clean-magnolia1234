@@ -86,6 +86,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [Dark Reading](https://www.darkreading.com) -
 [Discover Magazine](https://www.discovermagazine.com) -
 [MIT Technology Review](https://www.technologyreview.com) -
+[National Geographic USA](https://www.nationalgeographic.com) -
 [Towards Data Science](https://www.towardsdatascience.com) -
 [Wired](https://www.wired.com) -
 [Scientific American](https://www.scientificamerican.com)*
