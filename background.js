@@ -156,6 +156,7 @@ var blockedRegexes = {
 'corriere.it': /(\.rcsobjects\.it\/rcs_cpmt\/|\.rcsobjects\.it\/rcs_tracking-service\/|\.corriereobjects\.it\/.+\/js\/_paywall\.sjs|\.corriereobjects\.it\/.*\/js\/tracking\/|\.userzoom\.com\/files\/js\/|\.lp4\.io\/app\/)/,
 'digiday.com': /.+\.tinypass\.com\/.+/,
 'economist.com': /(.+\.tinypass\.com\/.+|economist\.com\/engassets\/_next\/static\/chunks\/framework.+\.js)/,
+'estadao.com.br': /acesso\.estadao\.com\.br\/paywall\/.+\/pw\.js/,
 'dvhn.nl': /.+\.evolok\.net\/.+\/authorize\/.+/,
 'elcomercio.pe': /elcomercio\.pe\/pf\/dist\/template\/elcomercio-noticia.+\.js/,
 'elmercurio.com': /merreader\.emol\.cl\/assets\/js\/vendor\/modal\.js/,
