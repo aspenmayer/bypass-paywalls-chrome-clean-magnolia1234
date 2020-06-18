@@ -227,6 +227,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [Dagblad van het Noorden](https://www.dvhn.nl) -
 [De Morgen](https://www.demorgen.be) -
 [De Tijd](https://www.tijd.be) -
+[Follow the Money](https://www.ftm.nl) -
 [Groene Amsterdammer](https://www.groene.nl) -
 [Het Financieel Dagblad](https://fd.nl) -
 [Humo.be](https://www.humo.be) -

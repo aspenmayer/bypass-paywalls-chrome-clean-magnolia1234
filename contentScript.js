@@ -683,6 +683,11 @@ else if (matchDomain('republic.ru')) {
     removeDOMElement(paywall);
 }
 
+else if (matchDomain('ftm.nl')) {
+    let banner_pp = document.querySelector('div.banner-pp');
+    removeDOMElement(banner_pp);
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {
