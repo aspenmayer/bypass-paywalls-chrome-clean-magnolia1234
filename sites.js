@@ -65,6 +65,7 @@ var defaultSites =
   "Il Manifesto": "ilmanifesto.it",
   "Il Messaggero": "ilmessaggero.it",
   "Illawarra Mercury": "illawarramercury.com.au",
+  "Inkl": "inkl.com",
   "Intelligent Investor": "intelligentinvestor.com.au",
   "Irish Independent": "independent.ie",
   "Kleine Zeitung": "kleinezeitung.at",

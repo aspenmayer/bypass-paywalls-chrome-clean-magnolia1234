@@ -688,6 +688,17 @@ else if (matchDomain('ftm.nl')) {
     removeDOMElement(banner_pp);
 }
 
+else if (matchDomain('inkl.com')) {
+    document.addEventListener('DOMContentLoaded', () => {
+        let article_container = document.querySelector('div.article-content-container');
+        if (article_container)
+            article_container.setAttribute("style", "overflow: visible;");
+        let gradient_container = document.querySelector('div.gradient-container');
+        if (gradient_container)
+            gradient_container.setAttribute("style", "height:auto;");
+    });
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {

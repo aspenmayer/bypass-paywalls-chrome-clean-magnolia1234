@@ -46,11 +46,11 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 * You will be logged out for any site you have checked.
 
 ### List of supported websites
-#### United States of America
 ##### World news
 [First Things](https://www.firstthings.com) -
 [Foreign Policy](https://www.foreignpolicy.com) -
 [Harper's Magazine](https://harpers.org) -
+[Inkl](https://www.inkl.com) -
 [National Review](https://www.nationalreview.com) -
 [The American Interest](https://www.the-american-interest.com) -
 [The Atlantic](https://www.theatlantic.com) -
@@ -104,7 +104,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [SofRep](https://sofrep.com) -
 [The Daily Beast](https://www.thedailybeast.com)*
 
-##### Local US news
+##### Local USA news
 [Baltimore Sun](https://www.baltimoresun.com) -
 [Crain's Chicago Business](https://www.chicagobusiness.com) -
 [Chicago Tribune](https://www.chicagotribune.com) -

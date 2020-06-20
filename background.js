@@ -42,6 +42,7 @@ var allow_cookies = [
 'heraldsun.com.au',
 'humo.be',
 'independent.ie',
+'inkl.com',
 'intelligentinvestor.com.au',
 'kleinezeitung.at',
 'lc.nl',
@@ -413,7 +414,8 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
     return { cancel: true };
   }
 
-  if (!isSiteEnabled(details)) {
+  let inkl_site = (matchUrlDomain('cdn.jsdelivr.net', details.url) && matchUrlDomain('inkl.com', header_referer) && isSiteEnabled({url: header_referer}));
+  if (!isSiteEnabled(details) && !(inkl_site)) {
     return;
   }
 
