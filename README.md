@@ -206,8 +206,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [Valeurs Actuelles](https://www.valeursactuelles.com)
 ##### Germany/Austria
 [Frankfurter Allgemeine Zeitung](https://www.faz.net) -
-[Handelsblatt](https://www.handelsblatt.com) -
-[Kleine Zeitung](https://www.kleinezeitung.at)
+[Handelsblatt](https://www.handelsblatt.com)
 ##### Italy
 [Corriere Della Sera](https://www.corriere.it) -
 [Il Manifesto](https://ilmanifesto.it) -

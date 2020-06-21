@@ -44,7 +44,6 @@ var allow_cookies = [
 'independent.ie',
 'inkl.com',
 'intelligentinvestor.com.au',
-'kleinezeitung.at',
 'lc.nl',
 'lrb.co.uk',
 'mexiconewsdaily.com',
@@ -437,7 +436,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
         // this fixes images not being loaded on cooking.nytimes.com main page
         // referrer has to be *nytimes.com otherwise returns 403
         requestHeader.value = 'https://cooking.nytimes.com';
-      } else if (matchUrlDomain(['clarin.com', 'kleinezeitung.at', 'fd.nl'], details.url)) {
+      } else if (matchUrlDomain(['clarin.com', 'fd.nl'], details.url)) {
         requestHeader.value = 'https://www.facebook.com/';
       } else {
         requestHeader.value = 'https://www.google.com/';
@@ -453,7 +452,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
 
   // otherwise add it
   if (!setReferer) {
-      if (matchUrlDomain(['clarin.com', 'kleinezeitung.at', 'fd.nl'], details.url)) {
+      if (matchUrlDomain(['clarin.com', 'fd.nl'], details.url)) {
       requestHeaders.push({
         name: 'Referer',
         value: 'https://www.facebook.com/'

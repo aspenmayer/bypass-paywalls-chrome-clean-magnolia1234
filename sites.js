@@ -68,7 +68,6 @@ var defaultSites =
   "Inkl": "inkl.com",
   "Intelligent Investor": "intelligentinvestor.com.au",
   "Irish Independent": "independent.ie",
-  "Kleine Zeitung": "kleinezeitung.at",
   "L'Écho": "lecho.be",
   "L'Opinion": "lopinion.fr",
   "La Dépêche": "ladepeche.fr",
