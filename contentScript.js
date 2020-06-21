@@ -1,5 +1,5 @@
 // clean local storage of sites (with an exemption for hold-list)
-var arr_localstorage_hold = ['seekingalpha.com', 'sfchronicle.com'];
+var arr_localstorage_hold = ['inkl.com', 'seekingalpha.com', 'sfchronicle.com'];
 if (!matchDomain(arr_localstorage_hold)){
     window.localStorage.clear();
 }
@@ -690,13 +690,31 @@ else if (matchDomain('ftm.nl')) {
 
 else if (matchDomain('inkl.com')) {
     document.addEventListener('DOMContentLoaded', () => {
-        let article_container = document.querySelector('div.article-content-container');
-        if (article_container)
-            article_container.setAttribute("style", "overflow: visible;");
-        let gradient_container = document.querySelector('div.gradient-container');
-        if (gradient_container)
-            gradient_container.setAttribute("style", "height:auto;");
+        let menu_btn = document.querySelector('div.left-buttons-container button.menu-btn');
+        if (!menu_btn) {
+            let article_container = document.querySelector('div.article-content-container');
+            if (article_container)
+                article_container.setAttribute("style", "overflow: visible; max-height: none;");
+            let gradient_container = document.querySelector('div.gradient-container');
+            if (gradient_container)
+                gradient_container.setAttribute("style", "height:auto;");
+        }
     });
+	let dismiss_button = document.querySelector('div.dismiss-button-container button.btn');
+	if (dismiss_button)
+		dismiss_button.click();
+    let dive_deeper_summary_bodies = document.querySelectorAll('div.dive-deeper-container div.summary-body');
+    if (dive_deeper_summary_bodies) {
+        for (summary_body of dive_deeper_summary_bodies) {
+            if (!summary_body.outerHTML.includes('<a href=')) {
+                var ng_click = summary_body.getAttribute('ng-click').replace("showArticle('", '').replace("')", '');
+                var weblink = document.createElement('a');
+                weblink.text = 'open';
+                weblink.href = 'https://www.inkl.com/news/' + ng_click;
+                summary_body.appendChild(weblink);
+            }
+        }
+    }
 }
 
 // General Functions
