@@ -1,6 +1,17 @@
 
 Changelog Bypass Paywalls Clean - Chrome
 
+* v1.7.6.0 (2020-06-21)
+Add Follow the Money (Ftm.nl)
+Add Inkl
+Add National Geographic USA
+Remove KleineZeitung.at (obsolete)
+Fix-update Barron's (amp for snippet)
+Fix-update Estadao.com.br
+Fix-update Inkl (Dive Deeper links)
+Fix-update Lc.nl & DvhN.nl (Evolok)
+Fix-update WSJ (amp for pro/login)
+
 * v1.7.5.0 (2020-06-14)
 Add BBC History Extra
 Add Discover Magazine
