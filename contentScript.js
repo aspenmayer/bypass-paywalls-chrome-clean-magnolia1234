@@ -116,7 +116,7 @@ else if (matchDomain("washingtonpost.com")) {
 
 else if (matchDomain("wsj.com")) {
     if (location.href.includes('/articles/')) {
-        const close_button = document.querySelector('.close-btn');
+        const close_button = document.querySelector('div.close-btn[role="button"]');
         if (close_button)
             close_button.click();
     }
