@@ -68,6 +68,7 @@ var defaultSites =
   "Inkl": "inkl.com",
   "Intelligent Investor": "intelligentinvestor.com.au",
   "Irish Independent": "independent.ie",
+  "Knack.be": "knack.be",
   "L'Écho": "lecho.be",
   "L'Opinion": "lopinion.fr",
   "La Dépêche": "ladepeche.fr",

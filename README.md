@@ -231,6 +231,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [Groene Amsterdammer](https://www.groene.nl) -
 [Het Financieel Dagblad](https://fd.nl) -
 [Humo.be](https://www.humo.be) -
+[Knack.be](https://www.knack.be) -
 [Leeuwarder Courant](https://www.lc.nl) -
 [NRC Handelsblad](https://www.nrc.nl) -
 [Parool](https://www.parool.nl) -
