@@ -98,6 +98,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [Philosophy Now](https://philosophynow.org) -
 [Quora](https://www.quora.com) -
 [Scribd](http://www.scribd.com) -
+[Slader](https://www.slader.com) -
 [Statista](https://www.statista.com)
 ##### Blogs
 [Medium](https://www.medium.com) (all sites) -

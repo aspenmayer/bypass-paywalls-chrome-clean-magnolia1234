@@ -123,6 +123,7 @@ var defaultSites =
   "Scientific American (free articles only)": "scientificamerican.com",
   "Scribd (documents only)": "scribd.com",
   "Seeking Alpha": "seekingalpha.com",
+  "Slader": "slader.com",
   "SOFREP": "sofrep.com",
   "Statista": "statista.com",
   "SunSentinel": "sun-sentinel.com",

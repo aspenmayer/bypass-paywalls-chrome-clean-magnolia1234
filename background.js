@@ -58,6 +58,7 @@ var allow_cookies = [
 'quora.com',
 'scribd.com',
 'seekingalpha.com',
+'slader.com',
 'switzersuperreport.com.au',
 'techinasia.com',
 'the-american-interest.com',

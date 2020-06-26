@@ -717,6 +717,17 @@ else if (matchDomain('inkl.com')) {
     }
 }
 
+else if (matchDomain('slader.com')) {
+    window.setTimeout(function () {
+        let paywall = document.querySelector('.Paywall');
+        let paywall_footer = document.querySelector('.Paywall__footer-counter');
+        removeDOMElement(paywall, paywall_footer);
+        let blur = document.querySelector('section.Paywall__blur');
+        if (blur)
+            blur.classList.remove('Paywall__blur');
+    }, 500); // Delay (in milliseconds)
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {
