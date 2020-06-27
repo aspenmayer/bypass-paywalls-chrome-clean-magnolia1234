@@ -19,6 +19,7 @@ const restrictions = {
 // Don't remove cookies before page load
 // allow_cookies are completed with domains in sites.js (default allow/remove_cookies)
 var allow_cookies = [
+'abc.es',
 'adelaidenow.com.au',
 'aftonbladet.se',
 'bostonglobe.com',
@@ -109,6 +110,7 @@ for (var domainIndex in ad_region_domains) {
 
 // Override User-Agent with Googlebot
 const use_google_bot_default = [
+'abc.es',
 'adelaidenow.com.au',
 'aftonbladet.se',
 'barrons.com',

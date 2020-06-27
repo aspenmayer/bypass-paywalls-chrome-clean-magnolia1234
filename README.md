@@ -243,6 +243,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 ##### Russia
 [Republic.ru](https://republic.ru)
 ##### Spain
+[ABC](https://www.abc.es) -
 [El Mundo](https://www.elmundo.es) -
 [El País](https://elpais.com)
 ##### Sweden

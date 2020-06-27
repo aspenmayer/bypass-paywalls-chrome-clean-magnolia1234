@@ -22,6 +22,7 @@
 	},
     "permissions": [
         "cookies",
+        "*://*.abc.es/*",
         "*://*.ad.nl/*",
         "*://*.adelaidenow.com.au/*",
         "*://*.adweek.com/*",
