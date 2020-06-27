@@ -41,6 +41,7 @@ var allow_cookies = [
 'handelsblatt.com',
 'heraldsun.com.au',
 'humo.be',
+'ilfattoquotidiano.it',
 'independent.ie',
 'inkl.com',
 'intelligentinvestor.com.au',

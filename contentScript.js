@@ -749,6 +749,28 @@ else if (matchDomain('knack.be')) {
     }
 }
 
+else if (matchDomain('ilfattoquotidiano.it')) {
+    window.setTimeout(function () {
+        let subscribe = document.querySelector('.article-ifq-bottom-pro-sostenitore');
+        removeDOMElement(subscribe);
+        let paywall = document.querySelector('.read-more');
+        if (paywall) {
+            if (window.location.href.includes('?'))
+                window.location.href = window.location.href.replace('?', 'amp/?');
+            else
+                window.location.href = window.location.href + 'amp';
+        }
+        if (window.location.href.includes('/amp/')) {
+            let section_not_granted = document.querySelector('section[subscriptions-section="content-not-granted"]');
+            let comments = document.querySelector('div.content.comments');
+            removeDOMElement(section_not_granted, comments);
+            let hidden_content = document.querySelector('section[subscriptions-section="content"]');
+            if (hidden_content)
+                hidden_content.setAttribute('style', 'display:block !important;');
+        }
+    }, 500); // Delay (in milliseconds)
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {
