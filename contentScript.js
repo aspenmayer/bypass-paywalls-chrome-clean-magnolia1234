@@ -121,9 +121,16 @@ else if (matchDomain("wsj.com")) {
             close_button.click();
     }
     document.addEventListener('DOMContentLoaded', () => {
-        let wsj_login = document.querySelector('.wsj-snippet-login, .wsjpro-label');
-        if (wsj_login) {
-            window.location.href = window.location.href.replace('wsj.com', 'wsj.com/amp');
+        let url = window.location.href;
+        let snippet = document.querySelector('.snippet-promotion');
+        if (snippet) {
+            if (!window.location.hash) {
+                if (url.includes('?')) {
+                    window.location.href = url.replace('?', '#refreshed?');
+                } else
+                    window.location.href = url + '#refreshed';
+            } else
+                window.location.href = window.location.href.replace('wsj.com', 'wsj.com/amp').replace('#refreshed', '');
         }
     });
 }
