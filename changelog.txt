@@ -1,6 +1,15 @@
 
 Changelog Bypass Paywalls Clean - Chrome
 
+* v1.7.7.0 (2020-06-28)
+Add ABC.es
+Add ilFattoQuotidiano.it
+Add Knack.be
+Add Slader
+Fix-update Quartz (non-premium)
+Fix-update WSJ (pro & snippet)
+Fix-update WSJ (close Cxense-banner)
+
 * v1.7.6.0 (2020-06-21)
 Add Follow the Money (Ftm.nl)
 Add Inkl

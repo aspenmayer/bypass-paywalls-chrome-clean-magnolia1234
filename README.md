@@ -7,8 +7,6 @@
 * [Add custom site](#add-custom-site)
 * [Troubleshooting](#troubleshooting)
 * [Changelog-releases](#changelog-releases)
-* [Pull Requests](#pull-requests)
-* [Show your support](#show-your-support)
 * [License](#license)
 
 ### Installation instructions
@@ -327,12 +325,6 @@ Also you can enable Googlebot user-agent or disable Javascript for (sub)domain(s
 * Visit the [changelog page](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/src/master/changelog.txt).
 * Or check the [commits](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/commits).
 * [Download the latest version](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/downloads)
-
-### Pull Requests
-* PRs are welcome.
-
-### Show your support
-* I am not asking for donations or anything like that, all I ask is that you star this repo.
 
 ### License
 * Bypass Paywalls Clean is [MIT-licensed](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/src/master/LICENSE).
