@@ -116,7 +116,7 @@ var defaultSites =
   "Parool": "parool.nl",
   "Philosophy Now": "philosophynow.org",
   "Pittsburgh Post Gazette": "post-gazette.com",
-  "Quartz": "qz.com",
+  "Quartz (free articles only)": "qz.com",
   "Quora": "quora.com",
   "Republic.ru": "republic.ru",
   "San Diego Union Tribune": "sandiegouniontribune.com",

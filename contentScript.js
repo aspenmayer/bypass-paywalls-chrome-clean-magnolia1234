@@ -771,6 +771,13 @@ else if (matchDomain('ilfattoquotidiano.it')) {
     }, 500); // Delay (in milliseconds)
 }
 
+else if (matchDomain('qz.com')) {
+    window.setTimeout(function () {
+        if (pageContains('._33dc2 h2', 'Become a member, and we promise').length)
+            document.location.reload(true);
+    }, 500); // Delay (in milliseconds)
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {
