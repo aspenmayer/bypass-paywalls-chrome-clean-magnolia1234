@@ -123,7 +123,8 @@ else if (matchDomain("wsj.com")) {
     document.addEventListener('DOMContentLoaded', () => {
         let url = window.location.href;
         let snippet = document.querySelector('.snippet-promotion');
-        if (snippet) {
+        let wsj_pro = document.querySelector('meta[name="page.site"][content="wsjpro"]');
+        if (snippet || wsj_pro) {
             if (!window.location.hash) {
                 if (url.includes('?')) {
                     window.location.href = url.replace('?', '#refreshed?');
