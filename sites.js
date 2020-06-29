@@ -105,6 +105,7 @@ var defaultSites =
   "New York Magazine": "nymag.com",
   "New Zealand Herald": "nzherald.co.nz",
   "Newcastle Herald": "newcastleherald.com.au",
+  "Newsweek": "newsweek.com",
   "Nikkei Asian Review": "asia.nikkei.com",
   "Northern Territory News": "ntnews.com.au",
   "NRC Handelsblad": "nrc.nl",

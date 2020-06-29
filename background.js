@@ -197,6 +197,7 @@ var blockedRegexes = {
 'nationalreview.com': /.+\.blueconic\.net\/.+/,
 'newcastleherald.com.au': /.+cdn-au\.piano\.io\/api\/tinypass.+\.js/,
 'newrepublic.com': /.+\.onecount\.net\/js\/.+/,
+'newsweek.com': /.+\.googletagmanager\.com\/gtm\.js/,
 'nytimes.com': /(.+meter-svc\.nytimes\.com\/meter\.js.+|.+mwcm\.nyt\.com\/.+\.js)/,
 'nzherald.co.nz': /nzherald\.co\.nz\/.+\/headjs\/.+\.js/,
 'portnews.com.au': /.+cdn-au\.piano\.io\/api\/tinypass.+\.js/,
