@@ -378,13 +378,22 @@ else if (matchDomain("afr.com")) {
 }
 
 else if (matchDomain("theglobeandmail.com")) {
-  let paywall = document.querySelector('div.c-article-body__teaser-enabled');
-  if (paywall) {
-      window.setTimeout(function () {
-          if (!window.location.href.includes('?ref=premium'))
-              window.location.href = new URL(window.location.href).pathname + '?ref=premium';
-      }, 500);
-  }
+    document.addEventListener('DOMContentLoaded', () => {
+    let subscribed = document.querySelector('html.story-subscribed');
+    if (subscribed && !window.location.href.includes('?ref=premium')) {
+        window.setTimeout(function () {
+            window.location.href = new URL(window.location.href).pathname + '?ref=premium';
+        }, 100);
+    }
+    });
+    let c_cards = document.querySelectorAll('div.c-card');
+    for (c_card of c_cards) {
+        var a_link = c_card.querySelector('a');
+		var subscr_key = c_card.querySelector('span.c-indicator-icon--key');
+        if (subscr_key && a_link && !a_link.href.includes('?ref=premium')) {
+            a_link.href = a_link.href + '?ref=premium';
+        }
+    }
 }
 
 else if (matchDomain("sofrep.com")) {
@@ -708,13 +717,15 @@ else if (matchDomain('inkl.com')) {
                 gradient_container.setAttribute("style", "height:auto;");
         }
     });
-	let dismiss_button = document.querySelector('div.dismiss-button-container button.btn');
-	if (dismiss_button)
-		dismiss_button.click();
+    let dismiss_button = document.querySelector('div.dismiss-button-container button.btn');
+    if (dismiss_button)
+        dismiss_button.click();
+    let shared_banner = document.querySelector('div.shared-article-inline-banner');
+    removeDOMElement(shared_banner);
     let dive_deeper_summary_bodies = document.querySelectorAll('div.dive-deeper-container div.summary-body');
     if (dive_deeper_summary_bodies) {
         for (summary_body of dive_deeper_summary_bodies) {
-            if (!summary_body.outerHTML.includes('<a href=')) {
+            if (!summary_body.querySelector('a')) {
                 var ng_click = summary_body.getAttribute('ng-click').replace("showArticle('", '').replace("')", '');
                 var weblink = document.createElement('a');
                 weblink.text = 'open';
