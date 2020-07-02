@@ -46,6 +46,7 @@ function renderOptions() {
   }, function(items) {
     var sites = items.sites;
     var sitesEl = document.getElementById('bypass_sites');
+    var clean_key;
     for (var key in defaultSites) {
       if (!defaultSites.hasOwnProperty(key)) {
         continue;
@@ -57,19 +58,20 @@ function renderOptions() {
       inputEl.type = 'checkbox';
       inputEl.dataset.key = key;
       inputEl.dataset.value = value;
-      inputEl.checked = (key in sites) || (key.replace(/\s\(.*\)/, '') in sites);
+      clean_key = key.replace(/\s\(.*\)/, '');
+      inputEl.checked = Object.keys(sites).some(title => (title.replace(/\s\(.*\)/, '') === clean_key));
       if (value !== '###') {
-        labelEl.appendChild(inputEl);
+          labelEl.appendChild(inputEl);
       }
-      labelEl.appendChild(document.createTextNode(' '+key));
+      labelEl.appendChild(document.createTextNode(' ' + key));
       sitesEl.appendChild(labelEl);
     }
-	// custom
+    // custom
     var labelEl = document.createElement('label');	
     labelEl.appendChild(document.createTextNode(' ——— Custom Sites ———'));
     sitesEl.appendChild(labelEl);
     var sites_custom = items.sites_custom;
-	for (var key in sites_custom) {
+    for (var key in sites_custom) {
       if (defaultSites.hasOwnProperty(key)) {
         continue;
       }
@@ -80,13 +82,14 @@ function renderOptions() {
       inputEl.type = 'checkbox';
       inputEl.dataset.key = key;
       inputEl.dataset.value = value;
-      inputEl.checked = (key in sites) || (key.replace(/\s\(.*\)/, '') in sites);
-	  if (value !== '' && value !== '###') {
+      clean_key = key.replace(/\s\(.*\)/, '');
+      inputEl.checked = Object.keys(sites).some(title => (title.replace(/\s\(.*\)/, '') === clean_key));
+      if (value !== '' && value !== '###') {
         labelEl.appendChild(inputEl);
       }
       labelEl.appendChild(document.createTextNode(' '+key));
       sitesEl.appendChild(labelEl);
-	}
+    }
   });
 }
 

@@ -779,6 +779,15 @@ else if (matchDomain('qz.com')) {
     }, 500); // Delay (in milliseconds)
 }
 
+else if (matchDomain("magazine.atavist.com")) {
+    let bottom_notification = document.querySelector('div.bottom-notification');
+    let overlay = document.querySelector('div.notification-overlay');
+    removeDOMElement(bottom_notification, overlay);
+    let paywall = document.querySelector('body.paywall-notification-visible');
+    if (paywall)
+        paywall.classList.remove('paywall-notification-visible');
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {

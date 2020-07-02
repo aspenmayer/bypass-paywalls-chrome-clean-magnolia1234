@@ -86,6 +86,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [Discover Magazine](https://www.discovermagazine.com) -
 [MIT Technology Review](https://www.technologyreview.com) -
 [National Geographic USA](https://www.nationalgeographic.com) -
+[Nautilus](https://nautil.us) -
 [Towards Data Science](https://www.towardsdatascience.com) -
 [Wired](https://www.wired.com) -
 [Scientific American](https://www.scientificamerican.com)*
@@ -100,6 +101,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [Slader](https://www.slader.com) -
 [Statista](https://www.statista.com)
 ##### Blogs
+[Atavist Magazine](https://magazine.atavist.com) -
 [Medium](https://www.medium.com) (all sites) -
 [SofRep](https://sofrep.com) -
 [The Daily Beast](https://www.thedailybeast.com)*
