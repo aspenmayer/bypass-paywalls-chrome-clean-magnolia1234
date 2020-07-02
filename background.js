@@ -50,7 +50,6 @@ var allow_cookies = [
 'lc.nl',
 'lrb.co.uk',
 'mexiconewsdaily.com',
-'miamiherald.com',
 'modernhealthcare.com',
 'nationalgeographic.com',
 'nationalreview.com',
