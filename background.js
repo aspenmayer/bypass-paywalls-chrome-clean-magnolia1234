@@ -23,6 +23,7 @@ var allow_cookies = [
 'adelaidenow.com.au',
 'aftonbladet.se',
 'bostonglobe.com',
+'business-standard.com',
 'cairnspost.com.au',
 'clarin.com',
 'couriermail.com.au',

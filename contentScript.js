@@ -799,6 +799,36 @@ else if (matchDomain("magazine.atavist.com")) {
         paywall.classList.remove('paywall-notification-visible');
 }
 
+else if (matchDomain("business-standard.com")) {
+    document.addEventListener('DOMContentLoaded', () => {
+        let paywall = document.querySelector('div.sbc_panel');
+        if (paywall) {
+            removeDOMElement(paywall.parentElement);
+            let scripts = document.querySelectorAll('script[type="application/ld+json"]');
+            let json;
+            for (let script of scripts) {
+                if (script.innerText.includes('articleBody'))
+                    json = script;
+            }
+            if (json) {
+                var json_text = JSON.parse(json.text.replace(/(\r\n|\n|\r|\t)/gm, ''))[0].articleBody;
+                json_text = parseHtmlEntities(json_text.replace(/(?:^|[\w\"\'\’])(\.|\?|!)(?=[A-Za-zÀ-ÿ\"\”\']{2,})/gm, "$&\n\n") + '\n\n');
+                let p_content = document.querySelector('span.p-content.paywall');
+                if (p_content) {
+                    let old_pars = p_content.querySelectorAll('p');
+                    for (let old_par of old_pars) {
+                        if (!old_par.querySelector('img'))
+                            removeDOMElement(old_par);
+                    }
+                    let new_par = document.createElement("p");
+                    new_par.innerText = json_text;
+                    p_content.appendChild(new_par);
+                }
+            }
+        }
+    });
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {
@@ -847,4 +877,10 @@ function pageContains(selector, text) {
     return Array.prototype.filter.call(elements, function(element){
         return RegExp(text).test(element.textContent);
     });
+}
+
+function parseHtmlEntities(str) {
+    var elem = document.createElement('textarea');
+    elem.innerHTML = str;
+    return elem.value;
 }

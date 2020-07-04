@@ -14,6 +14,7 @@ var defaultSites =
   "Bloomberg": "bloomberg.com",
   "Bloomberg Quint (free articles only)": "bloombergquint.com",
   "Business Insider": "businessinsider.com",
+  "Business Standard": "business-standard.com",
   "Cairns Post": "cairnspost.com.au",
   "Caixin Global": "caixinglobal.com",
   "Central Western Daily": "centralwesterndaily.com.au",
