@@ -689,9 +689,10 @@ else if (matchDomain('historyextra.com')) {
     removeDOMElement(ad_banner);
 }
 
-else if (matchDomain('independent.ie')) {
+else if (matchDomain(['independent.ie', 'belfasttelegraph.co.uk'])) {
+	let domain = matchDomain(['independent.ie', 'belfasttelegraph.co.uk']);
     if (!cookieExists('subscriber')) {
-        setCookie('subscriber', '{"subscriptionStatus": true}', 'www.independent.ie', '/', 14);
+        setCookie('subscriber', '{"subscriptionStatus": true}', domain, '/', 14);
     }
 }
 

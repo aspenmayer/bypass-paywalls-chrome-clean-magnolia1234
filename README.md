@@ -20,7 +20,7 @@ The following instructions are needed to install third-party extensions in [Chro
 4. Go to the extensions page (`chrome://extensions` or `edge://extensions`).
 5. Enable Developer Mode.
 6. Click `Load unpacked` and select the extension folder.  
-* in Chrome disable developer mode extensions popup by enabling the extensions toolbar menu under (experimental) chrome flags: chrome://flags/#extensions-toolbar-menu
+* in Chrome disable the developer mode extensions popup by enabling the extensions toolbar menu under (experimental) chrome flags: chrome://flags/#extensions-toolbar-menu
 
 #### Android
 1. Install [Yandex Browser](https://play.google.com/store/apps/details?id=com.yandex.browser&hl=en) from the Google PlayStore (Bypass Paywalls Clean doesn't work with Kiwi Browser yet).
@@ -181,6 +181,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 
 #### Europe
 ##### United Kingdom/Ireland
+[Belfast Telegraph](https://www.belfasttelegraph.co.uk) -
 [Financial News](https://www.fnlondon.com) -
 [Financial Times](https://www.ft.com) -
 [Irish Independent](https://www.independent.ie) -
@@ -299,6 +300,8 @@ _*free articles only._
 The free article limit can normally be bypassed by removing cookies for the site.*  
 1. Install the extension [Disable Cookies](https://chrome.google.com/webstore/detail/disable-cookies/lkmjmficaoifggpfapbffkggecbleang?hl=en).  
 2. When coming across a paywall, click the cookie icon in your extension toolbar then refresh the page.
+
+If removing the cookies works you can also add the site as a custom site.
 
 _*may not always succeed._
 
