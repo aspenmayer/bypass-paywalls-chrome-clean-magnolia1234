@@ -20,15 +20,11 @@ const restrictions = {
 // allow_cookies are completed with domains in sites.js (default allow/remove_cookies)
 var allow_cookies = [
 'abc.es',
-'adelaidenow.com.au',
 'aftonbladet.se',
 'belfasttelegraph.co.uk',
 'bostonglobe.com',
 'business-standard.com',
-'cairnspost.com.au',
 'clarin.com',
-'couriermail.com.au',
-'dailytelegraph.com.au',
 'demorgen.be',
 'dn.se',
 'dvhn.nl',
@@ -38,11 +34,9 @@ var allow_cookies = [
 'folha.uol.com.br',
 'ftm.nl',
 'gestion.pe',
-'goldcoastbulletin.com.au',
 'haaretz.co.il',
 'haaretz.com',
 'handelsblatt.com',
-'heraldsun.com.au',
 'humo.be',
 'ilfattoquotidiano.it',
 'independent.ie',
@@ -56,7 +50,6 @@ var allow_cookies = [
 'nationalgeographic.com',
 'nationalreview.com',
 'newrepublic.com',
-'ntnews.com.au',
 'nytimes.com',
 'parool.nl',
 'quora.com',
@@ -71,7 +64,6 @@ var allow_cookies = [
 'theaustralian.com.au',
 'themarker.com',
 'themercury.com.au',
-'townsvillebulletin.com.au',
 'trouw.nl',
 'volkskrant.nl',
 'weeklytimesnow.com.au',
@@ -110,26 +102,19 @@ for (var domainIndex in ad_region_domains) {
 }
 
 // Override User-Agent with Googlebot
-const use_google_bot_default = [
+var use_google_bot_default = [
 'abc.es',
-'adelaidenow.com.au',
 'aftonbladet.se',
 'barrons.com',
-'cairnspost.com.au',
-'couriermail.com.au',
-'dailytelegraph.com.au',
 'dn.se',
 'eurekareport.com.au',
 'ft.com',
-'goldcoastbulletin.com.au',
 'haaretz.co.il',
 'haaretz.com',
 'handelsblatt.com',
-'heraldsun.com.au',
 'intelligentinvestor.com.au',
 'mexiconewsdaily.com',
 'miamiherald.com',
-'ntnews.com.au',
 'quora.com',
 'republic.ru',
 'seekingalpha.com',
@@ -140,7 +125,6 @@ const use_google_bot_default = [
 'themarker.com',
 'themercury.com.au',
 'thetimes.co.uk',
-'townsvillebulletin.com.au',
 'weeklytimesnow.com.au',
 'worldpoliticsreview.com',
 'wsj.com',
@@ -197,12 +181,10 @@ var blockedRegexes = {
 'modernhealthcare.com': /.+\.tinypass\.com\/.+/,
 'nationalgeographic.com': /.+\.blueconic\.net\/.+/,
 'nationalreview.com': /.+\.blueconic\.net\/.+/,
-'newcastleherald.com.au': /.+cdn-au\.piano\.io\/api\/tinypass.+\.js/,
 'newrepublic.com': /.+\.onecount\.net\/js\/.+/,
 'newsweek.com': /.+\.googletagmanager\.com\/gtm\.js/,
 'nytimes.com': /(.+meter-svc\.nytimes\.com\/meter\.js.+|.+mwcm\.nyt\.com\/.+\.js)/,
 'nzherald.co.nz': /nzherald\.co\.nz\/.+\/headjs\/.+\.js/,
-'portnews.com.au': /.+cdn-au\.piano\.io\/api\/tinypass.+\.js/,
 'repubblica.it': /scripts\.repubblica\.it\/pw\/pw\.js.+/,
 'science-et-vie.com': /.+\.qiota\.com\/.+/,
 'sciencesetavenir.fr': /.+\.poool\.fr\/.+/,
@@ -210,13 +192,14 @@ var blockedRegexes = {
 'spectator.co.uk': /.+\.tinypass\.com\/.+/,
 'spectator.com.au': /.+\.tinypass\.com\/.+/,
 'telegraph.co.uk': /.+\.tinypass\.com\/.+/,
-'theadvocate.com.au': /.+cdn-au\.piano\.io\/api\/tinypass.+\.js/,
-'thecourier.com.au': /.+cdn-au\.piano\.io\/api\/tinypass.+\.js/,
 'thedailybeast.com': /.+\.tinypass\.com\/.+/,
 'thenation.com': /.+\.tinypass\.com\/.+/,
 'valeursactuelles.com': /.+\.poool\.fr\/.+/,
 'wsj.com': /cdn\.ampproject\.org\/v\d\/amp-access-.+\.js/
 };
+
+const au_comm_media_domains = ['bendigoadvertiser.com.au', 'bordermail.com.au', 'canberratimes.com.au', 'centralwesterndaily.com.au', 'dailyadvertiser.com.au', 'dailyliberal.com.au', 'examiner.com.au', 'illawarramercury.com.au', 'newcastleherald.com.au', 'northerndailyleader.com.au', 'portnews.com.au', 'standard.net.au', 'theadvocate.com.au', 'thecourier.com.au', 'westernadvocate.com.au'];
+const au_news_corps_domains = ['adelaidenow.com.au', 'cairnspost.com.au', 'couriermail.com.au', 'dailytelegraph.com.au', 'geelongadvertiser.com.au', 'goldcoastbulletin.com.au', 'heraldsun.com.au', 'ntnews.com.au', 'townsvillebulletin.com.au'];
 
 const userAgentDesktop = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
 const userAgentMobile = "Chrome/41.0.2272.96 Mobile Safari/537.36 (compatible ; Googlebot/2.1 ; +http://www.google.com/bot.html)"
@@ -258,8 +241,21 @@ ext_api.storage.sync.get({
         }).map(function (key) {
             return sites[key].toLowerCase();
         });
-    if (enabledSites.includes('ad.nl')) {
+    if (enabledSites.includes('ad.nl'))
         enabledSites = enabledSites.concat(ad_region_domains);
+    if (enabledSites.includes('###_au_comm_media')) {
+        enabledSites = enabledSites.concat(au_comm_media_domains);
+        for (let domain of au_comm_media_domains) {
+            blockedRegexes[domain] = /.+cdn-au\.piano\.io\/api\/tinypass.+\.js/;
+        }
+    }
+    if (enabledSites.includes('###_au_news_corps')) {
+        enabledSites = enabledSites.concat(au_news_corps_domains);
+        for (let domain of au_news_corps_domains) {
+            allow_cookies.push(domain);
+            use_google_bot_default.push(domain);
+        }
+		use_google_bot = use_google_bot_default.slice();
     }
 
     for (let domainVar of enabledSites) {
@@ -282,10 +278,13 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
                 }).map(function (key) {
                     return sites[key];
                 });
-            if (enabledSites.includes('ad.nl')) {
+            if (enabledSites.includes('ad.nl'))
                 enabledSites = enabledSites.concat(ad_region_domains);
-            }
-            // reset disableJavascriptOnListedSites eventListener 
+            if (enabledSites.includes('###_au_comm_media'))
+                enabledSites = enabledSites.concat(au_comm_media_domains);
+            if (enabledSites.includes('###_au_news_corps'))
+                enabledSites = enabledSites.concat(au_news_corps_domains);
+            // reset disableJavascriptOnListedSites eventListener
             ext_api.webRequest.onBeforeRequest.removeListener(disableJavascriptOnListedSites);
             ext_api.webRequest.handlerBehaviorChanged();
         }

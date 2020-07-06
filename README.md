@@ -135,43 +135,51 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [Winston-Salem Journal](https://www.journalnow.com)
 
 #### Australia/New Zealand
-[Bendigo Advertiser](https://www.bendigoadvertiser.com.au) -
-[Cairns Post](https://www.cairnspost.com.au) –
-[Central Western Daily](https://www.centralwesterndaily.com.au) -
-[Daily Liberal](https://www.dailyliberal.com.au) -
-[Gold Coast Bulletin](https://www.goldcoastbulletin.com.au) –
-[Herald Sun](https://www.heraldsun.com.au) –
-[Illawarra Mercury](https://www.illawarramercury.com.au) -
+
 [New Zealand Herald](https://www.nzherald.co.nz) -
-[Newcastle Herald](https://www.newcastleherald.com.au) -
-[Northern Territory News](https://www.ntnews.com.au) –
-[The Advertiser/AdelaideNow](https://www.adelaidenow.com.au) –
-[The Advocate](https://www.theadvocate.com.au) -
 [The Age](https://www.theage.com.au) -
 [The Australian](https://www.theaustralian.com.au) -
+[The Australian Financial Review](https://www.afr.com) -
+[The Mercury Tasmania](https://www.themercury.com.au) -
+[The Saturday Paper](https://www.thesaturdaypaper.com.au) -
+[The Spectator Australia](https://www.spectator.com.au) -
+[The Sydney Morning Herald](https://www.smh.com.au) –
+[The Weekly Times](https://www.weeklytimesnow.com.au) –
+[WAtoday](https://www.watoday.com.au)
+
+##### > News Corps Australia
+[Cairns Post](https://www.cairnspost.com.au) –
+[Geelong Advertiser](https://www.geelongadvertiser.com.au) -
+[Gold Coast Bulletin](https://www.goldcoastbulletin.com.au) –
+[Herald Sun](https://www.heraldsun.com.au) –
+[Northern Territory News](https://www.ntnews.com.au) –
+[The Advertiser/AdelaideNow](https://www.adelaidenow.com.au) –
+[The Courier-Mail](https://www.couriermail.com.au) –
+[The Daily Telegraph](https://www.dailytelegraph.com.au) –
+[Townsville Bulletin](https://www.townsvillebulletin.com.au)
+
+##### > Financial
+
+[Eureka Report](https://www.eurekareport.com.au) -
+[Intelligent Investor](https://www.intelligentinvestor.com.au) -
+[Switzer Report](https://switzersuperreport.com.au)
+
+##### > Australian Community Media
+[Bendigo Advertiser](https://www.bendigoadvertiser.com.au) -
+[Central Western Daily](https://www.centralwesterndaily.com.au) -
+[Daily Liberal](https://www.dailyliberal.com.au) -
+[Illawarra Mercury](https://www.illawarramercury.com.au) -
+[Newcastle Herald](https://www.newcastleherald.com.au) -
+[The Advocate](https://www.theadvocate.com.au) -
 [The Border Mail](https://www.bordermail.com.au) -
 [The Canberra Times](https://www.canberratimes.com.au) -
 [The Courier](https://www.thecourier.com.au) -
-[The Courier-Mail](https://www.couriermail.com.au) –
 [The Daily Advertiser](https://www.dailyadvertiser.com.au) -
-[The Daily Telegraph](https://www.dailytelegraph.com.au) –
 [The Examiner](https://www.examiner.com.au) -
-[The Mercury Tasmania](https://www.themercury.com.au) -
 [The Northern Daily Leader](https://www.northerndailyleader.com.au) -
 [The Port Macquarie News](https://www.portnews.com.au) -
-[The Saturday Paper](https://www.thesaturdaypaper.com.au) -
-[The Spectator Australia](https://www.spectator.com.au) -
 [The Standard](https://www.standard.net.au) -
-[The Sydney Morning Herald](https://www.smh.com.au) –
-[The Weekly Times](https://www.weeklytimesnow.com.au) –
-[Townsville Bulletin](https://www.townsvillebulletin.com.au) -
-[WAtoday](https://www.watoday.com.au)
-
-##### > Financial
-[Eureka Report](https://www.eurekareport.com.au) -
-[Intelligent Investor](https://www.intelligentinvestor.com.au) -
-[Switzer Report](https://switzersuperreport.com.au) -
-[The Australian Financial Review](https://www.afr.com)
+[Western Advocate](https://www.westernadvocate.com.au)
 
 #### Canada
 [National Post](https://www.nationalpost.com) -
