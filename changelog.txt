@@ -1,6 +1,16 @@
 
 Changelog Bypass Paywalls Clean - Chrome
 
+* v1.7.8.0 (2020-07-06)
+Add Atavist Magazine
+Add Belfast Telegraph
+Add Business Standard (India)
+Add Geelong Advertiser & Western Advocate (plus grouping Australian sites)
+Add Nautilus
+Add Newsweek
+Fix-update Globe and Mail (postfix premium links)
+Update paywall scripts: MatherAnalytics
+
 * v1.7.7.0 (2020-06-28)
 Add ABC.es
 Add ilFattoQuotidiano.it
