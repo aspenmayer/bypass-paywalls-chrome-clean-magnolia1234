@@ -623,12 +623,8 @@ else if (matchDomain('journaldunet.com')) {
 }
 
 else if (matchDomain('nzz.ch')) {
-    let messagebox = document.querySelector('.messagebox');
-    removeDOMElement(messagebox);
-    let overlay = document.querySelector('.semi-disruptive-overlay__closebtn');
-    if (overlay) {
-        overlay.click();
-    }
+    let regwall = document.querySelector('.dynamic-regwall');
+    removeDOMElement(regwall);
 }
 
 else if (matchDomain('lejdd.fr')) {
