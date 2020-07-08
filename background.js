@@ -147,7 +147,7 @@ var blockedRegexes = {
 'estadao.com.br': /acesso\.estadao\.com\.br\/paywall\/.+\/pw\.js/,
 'dvhn.nl': /.+\.evolok\.net\/.+\/authorize\/.+/,
 'elcomercio.pe': /elcomercio\.pe\/pf\/dist\/template\/elcomercio-noticia.+\.js/,
-'elmercurio.com': /merreader\.emol\.cl\/assets\/js\/vendor\/modal\.js/,
+'elmercurio.com': /merreader\.emol\.cl\/assets\/js\/(vendor\/modal\.js|merPramV\d\.js)/,
 'elmundo.es': /cdn\.ampproject\.org\/v\d\/amp-access-.+\.js/,
 'elpais.com': /.+\.epimg\.net\/js\/.+\/noticia\.min\.js/,
 'exame.abril.com.br': /.+\.tinypass\.com\/.+/,
