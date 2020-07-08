@@ -221,16 +221,6 @@ else if (matchDomain('ft.com')) {
     removeDOMElement(cookie_banner);
 }
 
-else if (matchDomain("thehindu.com")) {
-    document.addEventListener('DOMContentLoaded', () => {
-        let paywall = document.querySelector('body.articlepaywall');
-        if (paywall)
-            window.location.reload(true);
-        let banner = document.querySelector('.co-bannerparent');
-        removeDOMElement(banner);
-    });
-}
-
 else if (matchDomain("nytimes.com")) {
     const preview_button = document.querySelector('.css-3s1ce0');
     if (preview_button)
