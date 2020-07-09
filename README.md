@@ -136,6 +136,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 
 #### Australia/New Zealand
 
+[Brisbane Times](https://www.brisbanetimes.com.au) -
 [New Zealand Herald](https://www.nzherald.co.nz) -
 [The Age](https://www.theage.com.au) -
 [The Australian Financial Review](https://www.afr.com) -

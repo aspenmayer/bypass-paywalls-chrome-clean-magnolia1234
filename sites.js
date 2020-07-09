@@ -15,6 +15,7 @@ var defaultSites =
   "Belfast Telegraph": "belfasttelegraph.co.uk",
   "Bloomberg": "bloomberg.com",
   "Bloomberg Quint (free articles only)": "bloombergquint.com",
+  "Brisbane Times": "brisbanetimes.com.au",
   "Business Insider": "businessinsider.com",
   "Business Standard": "business-standard.com",
   "Caixin Global": "caixinglobal.com",
