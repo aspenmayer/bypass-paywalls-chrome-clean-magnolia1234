@@ -227,9 +227,10 @@ else if (matchDomain('ft.com')) {
 
 else if (matchDomain("thehindu.com")) {
     document.addEventListener('DOMContentLoaded', () => {
+        let counter = document.querySelector('#test');
         let co_banner = document.querySelector('.co-banner');
         let support = document.querySelector('div.support-jlm');
-        removeDOMElement(co_banner, support);
+        removeDOMElement(counter, co_banner, support);
     });
 }
 
