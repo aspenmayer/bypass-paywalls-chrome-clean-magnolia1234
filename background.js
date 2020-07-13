@@ -191,7 +191,7 @@ var blockedRegexes = {
 'telegraph.co.uk': /.+\.tinypass\.com\/.+/,
 'thedailybeast.com': /.+\.tinypass\.com\/.+/,
 'thenation.com': /.+\.tinypass\.com\/.+/,
-'valeursactuelles.com': /.+\.poool\.fr\/.+/,
+'valeursactuelles.com': /.+\.qiota\.com\/.+/,
 'wsj.com': /cdn\.ampproject\.org\/v\d\/amp-access-.+\.js/
 };
 
