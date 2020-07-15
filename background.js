@@ -317,7 +317,7 @@ ext_api.runtime.onInstalled.addListener(function (details) {
   if (details.reason == "install") {
     setDefaultOptions();
   } else if (details.reason == "update") {
-    // User updated extension
+    setDefaultOptions(); // User updated extension
   }
 });
 
