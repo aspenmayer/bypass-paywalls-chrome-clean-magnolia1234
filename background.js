@@ -349,7 +349,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(
 },
     ["blocking", "requestHeaders"]);
 
-var block_js_default = ["*://cdn.tinypass.com/*", "*://*.piano.io/*", "*://*.poool.fr/*",  "*://*.blueconic.net/*", "*://js.matheranalytics.com/*", "*://*.onecount.net/*", "*://*.qiota.com/*", "*://*.tribdss.com/*"];
+var block_js_default = ["*://cdn.tinypass.com/*", "*://*.piano.io/*", "*://*.poool.fr/*",  "*://*.blueconic.net/*",  "*://*.evolok.net/*", "*://js.matheranalytics.com/*", "*://*.onecount.net/*", "*://*.qiota.com/*", "*://*.tribdss.com/*"];
 var block_js_custom = [];
 var block_js_custom_ext = [];
 var block_js = block_js_default.concat(block_js_custom);
@@ -365,7 +365,7 @@ function disableJavascriptOnListedSites() {
         };
     }, {
         urls: block_js,
-        types: ["script"]
+        types: ["script", "xmlhttprequest"]
     },
         ["blocking"]);
 }
@@ -409,7 +409,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   
   // block external javascript for custom sites (optional)
   var domain_blockjs_ext = matchUrlDomain([block_js_custom_ext], header_referer);
-  if (domain_blockjs_ext && !matchUrlDomain(domain_blockjs_ext, details.url) && details.url.match(/(\.js$|\.js\?)/) && isSiteEnabled({url: header_referer})) {
+  if (domain_blockjs_ext && !matchUrlDomain(domain_blockjs_ext, details.url) && details.url.match(/(\.js$|\.js\?|\/json\?)/) && isSiteEnabled({url: header_referer})) {
     return { cancel: true };
   }
 
@@ -427,7 +427,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
 
   // block javascript of (sub)domain for custom sites (optional)
   var domain_blockjs = matchUrlDomain([block_js_custom], details.url);
-  if (domain_blockjs && matchUrlDomain(domain_blockjs, details.url) && details.url.match(/(\.js$|\.js\?)/)) {
+  if (domain_blockjs && matchUrlDomain(domain_blockjs, details.url) && details.url.match(/(\.js$|\.js\?|\/json\?)/)) {
     return { cancel: true };
   }
 

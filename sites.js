@@ -183,6 +183,7 @@ var defaultSites =
   "World Politics Review": "worldpoliticsreview.com",
   "——— Block Paywall-scripts ———": "###",
   "BlueConic": "blueconic.net",
+  "Evolok": "evolok.net",
   "MatherAnalytics": "matheranalytics.com",
   "OneCount": "onecount.net",
   "Piano.io": "piano.io",
