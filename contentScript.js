@@ -235,7 +235,12 @@ else if (matchDomain("thehindu.com")) {
 }
 
 else if (matchDomain("nytimes.com")) {
-    const preview_button = document.querySelector('.css-3s1ce0');
+    function nyt_main() {
+        navigator.storage.estimate = undefined;
+        webkitRequestFileSystem = function () {};
+    }
+    insert_script(nyt_main);
+    let preview_button = document.querySelector('.css-3s1ce0');
     if (preview_button)
         preview_button.click();
 }
@@ -883,6 +888,16 @@ function cookieExists(name) {
 function setCookie(name, value, domain, path, days) {
     var max_age = days * 24 * 60 * 60;
     document.cookie = name + "=" + (value || "") + "; domain=" + domain + "; path=" + path + "; max-age=" + max_age;
+}
+
+function insert_script(func) {
+    let bpc_script = document.querySelector('script#bpc_script');
+    if (!bpc_script) {
+        let script = document.createElement('script');
+        script.setAttribute('id', 'bpc_script');
+        script.appendChild(document.createTextNode('(' + func + ')();'));
+        (document.body || document.head || document.documentElement).appendChild(script);
+    }
 }
 
 function genHexString(len) {
