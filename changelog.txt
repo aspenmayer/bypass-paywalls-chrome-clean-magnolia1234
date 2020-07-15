@@ -1,6 +1,17 @@
 
 Changelog Bypass Paywalls Clean - Chrome
 
+* v1.7.9.0 (2020-07-15)
+Fix-update Clarin (block MatherAnalytics)
+Fix-update El Mercurio (Chile)
+Fix-update Neue Zürcher Zeitung
+Fix-update NY Times (incognito mode)
+Fix-update The Hindu (cookies)
+Fix-update ValeursActuelles.fr (Qiota)
+Grouping Australia News Corp sites
+Open options on update (or reload)
+Update paywall scripts: Evolok
+
 * v1.7.8.0 (2020-07-06)
 Add Atavist Magazine
 Add Belfast Telegraph
