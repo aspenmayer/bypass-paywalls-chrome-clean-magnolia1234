@@ -44,6 +44,7 @@ var allow_cookies = [
 'intelligentinvestor.com.au',
 'knack.be',
 'lc.nl',
+'lesoir.be',
 'lrb.co.uk',
 'mexiconewsdaily.com',
 'modernhealthcare.com',
@@ -112,6 +113,7 @@ var use_google_bot_default = [
 'haaretz.com',
 'handelsblatt.com',
 'intelligentinvestor.com.au',
+'lesoir.be',
 'mexiconewsdaily.com',
 'miamiherald.com',
 'nzz.ch',
@@ -138,12 +140,12 @@ var blockedRegexes = {
 'belfasttelegraph.co.uk': /cdn\.flip-pay\.com\/clients\/inm\/flip-pay\.js/,
 'bloomberg.com': /.+\.tinypass\.com\/.+/,
 'bostonglobe.com': /meter\.bostonglobe\.com\/js\/.+/,
-'businessinsider.com': /(.+\.tinypass\.com\/.+|cdn\.onesignal\.com\/sdks\/.+\.js)/,
+'businessinsider.com': /.+\.tinypass\.com\/.+/,
 'challenges.fr': /.+\.poool\.fr\/.+/,
 'chicagobusiness.com': /.+\.tinypass\.com\/.+/,
 'chicagotribune.com': /.+:\/\/.+\.tribdss\.com\/.+/,
 'clarin.com': /js\.matheranalytics\.com\/.+/,
-'corriere.it': /(\.rcsobjects\.it\/rcs_cpmt\/|\.rcsobjects\.it\/rcs_tracking-service\/|\.corriereobjects\.it\/.+\/js\/_paywall\.sjs|\.corriereobjects\.it\/.*\/js\/tracking\/|\.userzoom\.com\/files\/js\/|\.lp4\.io\/app\/)/,
+'corriere.it': /(\.rcsobjects\.it\/(rcs_cpmt|rcs_tracking-service)\/|\.corriereobjects\.it\/.+\/js\/(_paywall\.sjs|tracking\/)|\.userzoom\.com\/files\/js\/|\.lp4\.io\/app\/)/,
 'digiday.com': /.+\.tinypass\.com\/.+/,
 'economist.com': /(.+\.tinypass\.com\/.+|economist\.com\/engassets\/_next\/static\/chunks\/framework.+\.js)/,
 'estadao.com.br': /acesso\.estadao\.com\.br\/paywall\/.+\/pw\.js/,
@@ -317,7 +319,7 @@ ext_api.runtime.onInstalled.addListener(function (details) {
   if (details.reason == "install") {
     setDefaultOptions();
   } else if (details.reason == "update") {
-    setDefaultOptions(); // User updated extension
+    ext_api.runtime.openOptionsPage(); // User updated extension
   }
 });
 

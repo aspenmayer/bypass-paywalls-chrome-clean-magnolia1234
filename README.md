@@ -183,10 +183,10 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [Western Advocate](https://www.westernadvocate.com.au)
 
 #### Canada
-[National Post](https://www.nationalpost.com) -
 [Le Devoir](https://www.ledevoir.com) -
-[The Toronto Star](https://www.thestar.com) -
-[The Globe and Mail](https://www.theglobeandmail.com)
+[National Post](https://www.nationalpost.com) -
+[The Globe and Mail](https://www.theglobeandmail.com) -
+[The Toronto Star](https://www.thestar.com)
 
 #### Europe
 ##### United Kingdom/Ireland
@@ -211,6 +211,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [Le Journal du Dimanche](https://lejdd.fr) –
 [Le Journal du Net](https://www.journaldunet.com) -
 [Le Parisien](https://www.leparisien.fr) -
+[Le Soir](https://plus.lesoir.be) -
 [Les Échos](https://www.lesechos.fr) -
 [Libération](https://www.liberation.fr)* –
 [Science & Vie](https://www.science-et-vie.com) -
