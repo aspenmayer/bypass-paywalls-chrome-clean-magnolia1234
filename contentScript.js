@@ -854,6 +854,15 @@ else if (matchDomain("harpers.org")) {
 	removeDOMElement(overlay);
 }
 
+else if (matchDomain("irishtimes.com")) {
+    document.addEventListener('DOMContentLoaded', () => {
+        let stub_article_msg = document.querySelector('div.stub-article-msg');
+        let url = window.location.href;
+        if (url.includes('mode=sample') || stub_article_msg)
+            window.location.href = new URL(url).pathname + '?mode=amp';
+    });
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {

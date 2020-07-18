@@ -148,7 +148,7 @@ var defaultSites =
   "The Economist": "economist.com",
   "The Globe and Mail": "theglobeandmail.com",
   "The Hindu": "thehindu.com",
-  "The Irish Times (free articles only)": "irishtimes.com",
+  "The Irish Times": "irishtimes.com",
   "The Japan Times": "japantimes.co.jp",
   "The Marker": "themarker.com",
   "The Mercury News": "mercurynews.com",

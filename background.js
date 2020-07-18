@@ -168,6 +168,7 @@ var blockedRegexes = {
 'ilmessaggero.it': /(utils\.cedsdigital\.it\/js\/PaywallMeter\.js|static\.viralize\.tv\/viralize_player)/,
 'independent.ie': /cdn\.flip-pay\.com\/clients\/inm\/flip-pay\.js/,
 'inquirer.com': /.+\.tinypass\.com\/.+/,
+'irishtimes.com': /cdn\.ampproject\.org\/v\d\/amp-access-.+\.js/,
 'knack.be': /.+\.knack\.be\/js\/responsive\/rmgModal\.js/,
 'ladepeche.fr': /.+\.poool\.fr\/.+/,
 'lastampa.it': /.+\.repstatic\.it\/minify\/sites\/lastampa\/.+\/config\.cache\.php\?name=social_js/,
