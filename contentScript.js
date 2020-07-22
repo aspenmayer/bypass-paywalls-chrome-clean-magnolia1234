@@ -863,6 +863,15 @@ else if (matchDomain("irishtimes.com")) {
     });
 }
 
+else if (matchDomain("sueddeutsche.de")) {
+    document.addEventListener('DOMContentLoaded', () => {
+        let reduced_par = document.querySelector('div.sz-article-body__paragraph--reduced');
+        let url = window.location.href;
+        if (url.includes('reduced=true') || reduced_par)
+            window.location.href = url.split('?')[0].replace('www.', 'amphtml.');
+    });
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {

@@ -129,6 +129,7 @@ var defaultSites =
   "Slader": "slader.com",
   "SOFREP": "sofrep.com",
   "Statista": "statista.com",
+  "Süddeutsche Zeitung": "sueddeutsche.de",
   "SunSentinel": "sun-sentinel.com",
   "Switzer Report": "switzersuperreport.com.au",
   "Tech in Asia": "techinasia.com",
