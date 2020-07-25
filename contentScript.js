@@ -492,6 +492,10 @@ else if (matchDomain("lesechos.fr")) {
 }
 
 else if (matchDomain(["lc.nl", "dvhn.nl"])) {
+    document.addEventListener('DOMContentLoaded', () => {
+        if (window.location.href.includes('?'))
+            window.location.href = window.location.href.split('?')[0];
+    });
     let top_ad = document.querySelector('.top__ad');
     let plus = document.querySelector('.plusJustRead');
     removeDOMElement(top_ad, plus);
@@ -880,6 +884,15 @@ else if (matchDomain("charliehebdo.fr")) {
     removeDOMElement(poool_widget);
 }
 
+else if (matchDomain("fd.nl")) {
+    document.addEventListener('DOMContentLoaded', () => {
+        if (window.location.href.includes('?'))
+            window.location.href = window.location.href.split('?')[0];
+        let reg_modal = document.querySelector('div.modal.upsell');
+        if (reg_modal)
+            window.location.reload(true);
+    });
+}
 
 // General Functions
 function removeDOMElement(...elements) {
