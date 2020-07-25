@@ -172,6 +172,7 @@ var blockedRegexes = {
 'irishtimes.com': /cdn\.ampproject\.org\/v\d\/amp-access-.+\.js/,
 'knack.be': /.+\.knack\.be\/js\/responsive\/rmgModal\.js/,
 'ladepeche.fr': /.+\.poool\.fr\/.+/,
+'lasegunda.com': /segreader\.emol\.cl\/assets\/js\/(vendor\/modal\.js|merPramV\d\.js)/,
 'lastampa.it': /.+\.repstatic\.it\/minify\/sites\/lastampa\/.+\/config\.cache\.php\?name=social_js/,
 'lc.nl': /.+\.evolok\.net\/.+\/authorize\/.+/,
 'lejdd.fr': /.+\.poool\.fr\/.+/,

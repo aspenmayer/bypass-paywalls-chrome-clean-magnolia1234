@@ -76,6 +76,7 @@ var defaultSites =
   "La Dépêche": "ladepeche.fr",
   "La Nación": "lanacion.com.ar",
   "La Repubblica": "repubblica.it",
+  "La Segunda": "lasegunda.com",
   "La Stampa": "lastampa.it",
   "La Tercera": "latercera.com",
   "Le Devoir": "ledevoir.com",
