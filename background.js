@@ -40,7 +40,6 @@ var allow_cookies = [
 'humo.be',
 'ilfattoquotidiano.it',
 'independent.ie',
-'inkl.com',
 'intelligentinvestor.com.au',
 'knack.be',
 'lc.nl',
