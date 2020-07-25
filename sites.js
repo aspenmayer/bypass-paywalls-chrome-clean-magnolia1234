@@ -20,6 +20,7 @@ var defaultSites =
   "Business Standard": "business-standard.com",
   "Caixin Global": "caixinglobal.com",
   "Challenges": "challenges.fr",
+  "Charlie Hebdo": "charliehebdo.fr",
   "Chemical & Engineering News": "cen.acs.org",
   "Chicago Tribune": "chicagotribune.com",
   "Clarín": "clarin.com",

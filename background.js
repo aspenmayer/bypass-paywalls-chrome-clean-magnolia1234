@@ -142,6 +142,7 @@ var blockedRegexes = {
 'bostonglobe.com': /meter\.bostonglobe\.com\/js\/.+/,
 'businessinsider.com': /.+\.tinypass\.com\/.+/,
 'challenges.fr': /.+\.poool\.fr\/.+/,
+'charliehebdo.fr': /.+\.poool\.fr\/.+/,
 'chicagobusiness.com': /.+\.tinypass\.com\/.+/,
 'chicagotribune.com': /.+:\/\/.+\.tribdss\.com\/.+/,
 'clarin.com': /js\.matheranalytics\.com\/.+/,

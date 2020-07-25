@@ -205,6 +205,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [The Times Literary Supplement](https://www.the-tls.co.uk)
 ##### France/Wallonia
 [Challenges](https://www.challenges.fr) –
+[Charlie Hebdo](https://charliehebdo.fr) -
 [L'Écho](https://lecho.be) -
 [L'Opinion](https://www.lopinion.fr) –
 [La Dépêche](https://www.ladepeche.fr) –
@@ -309,7 +310,7 @@ _*free articles only._
 
 ### Sites with limited number of free articles
 The free article limit can normally be bypassed by removing cookies for the site.*  
-1. Install the extension [Disable Cookies](https://chrome.google.com/webstore/detail/disable-cookies/lkmjmficaoifggpfapbffkggecbleang?hl=en).  
+1. Install the extension [Cookie Remover](https://chrome.google.com/webstore/detail/cookie-remover/kcgpggonjhmeaejebeoeomdlohicfhce) or [Disable Cookies](https://chrome.google.com/webstore/detail/disable-cookies/lkmjmficaoifggpfapbffkggecbleang?hl=en).  
 2. When coming across a paywall, click the cookie icon in your extension toolbar then refresh the page.
 
 If removing the cookies works you can also add the site as a custom site.
