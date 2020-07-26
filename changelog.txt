@@ -1,6 +1,17 @@
 
 Changelog Bypass Paywalls Clean - Chrome
 
+* v1.8.0.0 (2020-07-26)
+Add CharlieHebdo.fr
+Add La Segunda (Chile)
+Add LeSoir.be
+Add Süddeutsche Zeitung (amp for plus)
+Fix-update elMercurio Legal (Chile)
+Fix-update Fd.nl (modal/newsletter query string)
+Fix-update Inkl (cookies)
+Fix-update Irish Times (amp for premium)
+Fix-update LesEchos.fr (lp-version)
+
 * v1.7.9.0 (2020-07-15)
 Fix-update Clarin (block MatherAnalytics)
 Fix-update El Mercurio (Chile)

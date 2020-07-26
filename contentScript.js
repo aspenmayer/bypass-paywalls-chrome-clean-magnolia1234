@@ -879,11 +879,13 @@ else if (matchDomain("sueddeutsche.de")) {
 }
 
 else if (matchDomain("charliehebdo.fr")) {
-    let paywalled_content = document.querySelector('div.ch-paywalled-content');
-    if (paywalled_content)
-        paywalled_content.removeAttribute('style');
-    let poool_widget = document.querySelector('div#poool-widget');
-    removeDOMElement(poool_widget);
+    window.setTimeout(function () {
+        let paywalled_content = document.querySelector('div.ch-paywalled-content');
+        if (paywalled_content)
+            paywalled_content.removeAttribute('style');
+        let poool_widget = document.querySelector('div#poool-widget');
+        removeDOMElement(poool_widget);
+    }, 500); // Delay (in milliseconds)
 }
 
 else if (matchDomain("fd.nl")) {
