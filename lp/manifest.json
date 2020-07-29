@@ -253,6 +253,7 @@
         "*://*.jsdelivr.net/*",
         "*://*.lightboxcdn.com/*",
         "*://*.lp4.io/*",
+        "*://*.netdna-ssl.com/*",
         "*://*.nyt.com/*",
         "*://*.rcsobjects.it/*",
         "*://*.repstatic.it/*",
