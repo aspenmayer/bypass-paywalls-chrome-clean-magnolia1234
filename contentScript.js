@@ -898,6 +898,61 @@ else if (matchDomain("fd.nl")) {
     });
 }
 
+else if (matchDomain("noordhollandsdagblad.nl")) {
+    window.setTimeout(function () {
+        let close_button = document.querySelector('button[data-testid="button-close"]');
+        if (close_button)
+            close_button.click();
+        let premium = document.querySelector('div.common-components-plus_pluslabel--container');
+        if (premium) {
+            let hidden_article = document.querySelector('div[data-auth-body="article"]');
+            if (hidden_article)
+                hidden_article.removeAttribute('style');
+            let paywall = document.querySelector('div[data-auth-root="paywall"]');
+            removeDOMElement(paywall);
+            let auth_body = document.querySelector('div[data-auth-body="article"]');
+            if (auth_body) {
+                let auth_body_par_count = auth_body.querySelectorAll('p');
+                if (auth_body_par_count.length == 1) {
+                    let url = window.location.href;
+                    let html = document.documentElement.outerHTML;
+                    let split1 = html.split('window["__PRELOADED_STATE_GRAPH__')[1];
+                    let split2 = split1.split('</script>')[0].trim();
+                    let split3 = split2.split('"body":')[1];
+                    let state = split3.split('},"')[0] + '}';
+                    try {
+                        let data = JSON.parse(state);
+                        let article = data.json;
+                        auth_body.innerHTML = '';
+                        var par_styled = '';
+                        for (let par of article) {
+                            for (let key in par) {
+                                par_styled = par[key];
+                                if (key === 'subhead')
+                                    par_styled = '<strong>' + par_styled + '</strong>';
+                                else if (key === 'twitter')
+                                    par_styled = '<a href="' + par_styled + '" target="_blank">' + par_styled + '</a>';
+                                else if (key === 'youtube')
+                                    par_styled = '<iframe id="ytplayer" type="text/html" width="640" height="360" src="https://www.youtube.com/embed/'
+                                         + par[key].id + '" frameborder="0"></iframe>';
+                                else if (key === 'image') {
+                                    par_styled = '<img src="' + par[key].url + '">';
+                                    par_styled += par[key].caption ? '<div>' + par[key].caption + '</div>' : '';
+                                    par_styled += par[key].credit ? '<div>' + '&copy; ' + par[key].credit + '</div>' : '';
+                                }
+                                auth_body.innerHTML += '<p>' + par_styled + '</p>';
+                            }
+                        }
+                    } catch (err) {
+                        console.warn('unable to parse noordhollands dagblad text');
+                        console.warn(err);
+                    }
+                }
+            }
+        }
+    }, 500); // Delay (in milliseconds)
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {

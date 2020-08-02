@@ -109,6 +109,7 @@ var defaultSites =
   "New Zealand Herald": "nzherald.co.nz",
   "Newsweek": "newsweek.com",
   "Nikkei Asian Review": "asia.nikkei.com",
+  "Noordhollands Dagblad": "noordhollandsdagblad.nl",
   "NRC Handelsblad": "nrc.nl",
   "O Estado de S. Paulo": "estadao.com.br",
   "O Globo": "globo.com",

@@ -50,6 +50,7 @@ var allow_cookies = [
 'nationalgeographic.com',
 'nationalreview.com',
 'newrepublic.com',
+'noordhollandsdagblad.nl',
 'nytimes.com',
 'nzz.ch',
 'parool.nl',
