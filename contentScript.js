@@ -913,7 +913,7 @@ else if (matchDomain("noordhollandsdagblad.nl")) {
             let auth_body = document.querySelector('div[data-auth-body="article"]');
             if (auth_body) {
                 let auth_body_par_count = auth_body.querySelectorAll('p');
-                if (auth_body_par_count.length == 1) {
+                if (auth_body_par_count.length < 2) {
                     let url = window.location.href;
                     let html = document.documentElement.outerHTML;
                     let split1 = html.split('window["__PRELOADED_STATE_GRAPH__')[1];
@@ -935,6 +935,9 @@ else if (matchDomain("noordhollandsdagblad.nl")) {
                                 else if (key === 'youtube')
                                     par_styled = '<iframe id="ytplayer" type="text/html" width="640" height="360" src="https://www.youtube.com/embed/'
                                          + par[key].id + '" frameborder="0"></iframe>';
+                                else if (key === 'streamone')
+                                    par_styled = '<iframe type="text/html" width="640" height="360" src="https://content.tmgvideo.nl/embed/item='
+                                        + par[key].id + '" frameborder="0"></iframe>';
                                 else if (key === 'image') {
                                     par_styled = '<img src="' + par[key].url + '">';
                                     par_styled += par[key].caption ? '<div>' + par[key].caption + '</div>' : '';
