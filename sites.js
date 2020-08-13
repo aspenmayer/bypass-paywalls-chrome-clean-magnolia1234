@@ -174,7 +174,7 @@ var defaultSites =
   "The Times": "thetimes.co.uk",
   "The Times Literary Supplement": "the-tls.co.uk",
   "The Toronto Star": "thestar.com",
-  "The Wall Street Journal": "wsj.com",
+  "The Wall Street Journal (not Chinese)": "wsj.com",
   "The Washington Post": "washingtonpost.com",
   "Towards Data Science": "towardsdatascience.com",
   "Trouw": "trouw.nl",
