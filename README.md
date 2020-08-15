@@ -12,7 +12,7 @@
 ### Installation instructions
 Due to [Google internal policy](https://developer.chrome.com/webstore/program_policies), the extension is not available on the Chrome Web Store.  
 The following instructions are needed to install third-party extensions in [Chromium](https://en.wikipedia.org/wiki/Chromium_(web_browser))-based browsers:
-#### Chrome (Windows, MacOS, Linux), Microsoft Edge (version 79)
+#### Chrome (Windows, MacOS, Linux), Microsoft Edge (version 79)/Brave/Yandex
 1. Download this repository as a [ZIP file from BitBucket](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/get/master.zip).
 2. Unzip the file and you should have a folder named `magnolia1234-bypass-paywalls-chrome-clean-master`.
 3. Move the folder to a permanent location on your computer (do not delete the folder after installation).  
@@ -22,22 +22,23 @@ The following instructions are needed to install third-party extensions in [Chro
 6. Click `Load unpacked` and select the extension folder.  
 * in Chrome disable the developer mode extensions popup by enabling the extensions toolbar menu under (experimental) chrome flags: chrome://flags/#extensions-toolbar-menu
 
-#### Android
-1. Install [Yandex Browser](https://play.google.com/store/apps/details?id=com.yandex.browser&hl=en) from the Google PlayStore (Bypass Paywalls Clean doesn't work with Kiwi Browser yet).
-2. Follow Chrome instructions located just above (step 6: pick `manifest.json` instead of the folder).
-
-#### Other Chromium browsers (Opera/Vivaldi/Brave/Yandex)
+#### Other Chromium browsers (Opera/Vivaldi)
 1. Download the extension as a .crx file from the [download page](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/downloads).
 2. In your browser go to the extensions page.
 3. Enable Developer Mode.
 4. Drag your .crx file anywhere on the page to import it.
 5. If dragging crx does not work, try Chrome procedure (above).
 
+#### Android
+1. Install [Yandex Browser](https://play.google.com/store/apps/details?id=com.yandex.browser&hl=en) from the Google PlayStore (Bypass Paywalls Clean doesn't work completely with Kiwi Browser).
+2. Follow Chrome instructions located just above (step 6: pick `manifest.json` instead of the folder).
+
 #### Firefox
 Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywalls-firefox-clean) of Bypass Paywall Clean.
 
 **Notes**
 * This extension works best alongside the adblocker [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en).
+* On Yandex Android use uBlock Origin dev-release.
 * If you live in the EU, also consider installing the extension [I don't care about cookies](https://chrome.google.com/webstore/detail/i-dont-care-about-cookies/fihnjjcciajhdojfnbdddfaoknhalnja) in order to remove cookie warnings.
 * Do not delete extension's folder from your computer/smartphone or Bypass Paywalls Clean will disappear at restart.
 * Every time you open Chrome it may warn you about running extensions in developer mode, just click 🗙 to keep the extension enabled.
