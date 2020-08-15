@@ -11,6 +11,13 @@ if (matchDomain("thesaturdaypaper.com.au")) {
     removeDOMElement(paywall);
 }
 
+// Australian Provincial Newspapers
+else if (domain = matchDomain(['news-mail.com.au', 'frasercoastchronicle.com.au', 'gladstoneobserver.com.au', 'dailyexaminer.com.au', 'dailymercury.com.au', 'themorningbulletin.com.au', 'sunshinecoastdaily.com.au', 'gympietimes.com.au', 'northernstar.com.au', 'qt.com.au', 'thechronicle.com.au', 'warwickdailynews.com.au'])) {
+    if (!cookieExists('subscribed')) {
+        setCookie('subscribed', 'true', domain, '/', 14);
+    }
+}
+
 // Australian Community Media newspapers
 else if (window.location.hostname.endsWith(".com.au") || window.location.hostname.endsWith(".net.au")) {
     let au_sites = ['bendigoadvertiser.com.au', 'bordermail.com.au', 'canberratimes.com.au', 'centralwesterndaily.com.au', 'dailyadvertiser.com.au', 'dailyliberal.com.au', 'examiner.com.au', 'illawarramercury.com.au', 'newcastleherald.com.au', 'northerndailyleader.com.au', 'portnews.com.au', 'standard.net.au', 'theadvocate.com.au', 'thecourier.com.au', 'westernadvocate.com.au'];
@@ -703,8 +710,7 @@ else if (matchDomain('historyextra.com')) {
     removeDOMElement(ad_banner);
 }
 
-else if (matchDomain(['independent.ie', 'belfasttelegraph.co.uk'])) {
-	let domain = matchDomain(['independent.ie', 'belfasttelegraph.co.uk']);
+else if (domain = matchDomain(['independent.ie', 'belfasttelegraph.co.uk'])) {
     if (!cookieExists('subscriber')) {
         setCookie('subscriber', '{"subscriptionStatus": true}', domain, '/', 14);
     }

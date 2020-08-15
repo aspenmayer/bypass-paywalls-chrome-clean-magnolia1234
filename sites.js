@@ -9,6 +9,7 @@ var defaultSites =
   "Atavist Magazine": "atavist.com",
   "Australia News Corp": "###_au_news_corp",
   "Australian Community Media (daily)": "###_au_comm_media",
+  "Australian Provincial Newspapers (daily)": "###_au_prov_news",
   "Baltimore Sun": "baltimoresun.com",
   "Barron's": "barrons.com",
   "BBC History Extra": "historyextra.com",
