@@ -1,6 +1,16 @@
 
 Changelog Bypass Paywalls Clean - Chrome
 
+* v1.8.1.0 (2020-08-16)
+Add Australian Provincial Newspapers (daily)
+Add NoordhollandsDagblad.nl
+Fix-update elMercurio (modals)
+Fix-update MIT Sloan Management Review (modal)
+Fix-update TheSaturdayPaper.com.au
+Fix-update WSJ (disable Chinese amp-redirect)
+Update custom sites (auto-enable in options)
+Update installation instructions
+
 * v1.8.0.0 (2020-07-26)
 Add CharlieHebdo.fr
 Add La Segunda (Chile)

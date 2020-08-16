@@ -351,7 +351,7 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
                 active: true,
                 currentWindow: true
             }, function (tabs) {
-                if (tabs[0].url && tabs[0].url.indexOf("http") !== -1) {
+                if (tabs.length > 0 && tabs[0].url && tabs[0].url.indexOf("http") !== -1) {
                     ext_api.tabs.update(tabs[0].id, {
                         url: tabs[0].url
                     });
