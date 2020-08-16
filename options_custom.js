@@ -124,7 +124,7 @@ function add_options() {
         }, function () {
             // Update status to let user know new custom site was added.
             var status_add = document.getElementById('status_add');
-            status_add.textContent = 'Site added. Also enable site in options (save).';
+            status_add.textContent = 'Site added.';
             setTimeout(function () {
                 //status.textContent = '';
                 renderOptions();
@@ -151,7 +151,7 @@ function delete_options() {
         }, function () {
             // Update status to let user know custom site was deleted.
             var status_delete = document.getElementById('status_delete');
-            status_delete.textContent = 'Site deleted. Also disable site in options (save).';
+            status_delete.textContent = 'Site deleted.';
             setTimeout(function () {
                 //status.textContent = '';
                 renderOptions();
@@ -221,7 +221,6 @@ function renderOptions() {
             selectEl.add(optionEl);
         }
         labelEl.appendChild(selectEl);
-        //labelEl.appendChild(document.createTextNode(''));
         custom_sitesEl.appendChild(labelEl);
 
     });

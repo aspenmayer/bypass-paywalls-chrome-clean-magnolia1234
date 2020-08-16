@@ -20,7 +20,7 @@ The following instructions are needed to install third-party extensions in [Chro
 4. Go to the extensions page (`chrome://extensions` or `edge://extensions`).
 5. Enable Developer Mode.
 6. Click `Load unpacked` and select the extension folder.  
-* in Chrome disable the developer mode extensions popup by enabling the extensions toolbar menu under (experimental) chrome flags: chrome://flags/#extensions-toolbar-menu
+* in Chrome/Opera/Brave disable the developer mode extensions popup by enabling the extensions toolbar menu under (experimental) chrome flags: chrome://flags/#extensions-toolbar-menu
 
 #### Other Chromium browsers (Opera/Vivaldi)
 1. Download the extension as a .crx file from the [download page](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/downloads).
@@ -38,11 +38,11 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 
 **Notes**
 * This extension works best alongside the adblocker [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en).
-* On Yandex Android use uBlock Origin dev-release.
-* If you live in the EU, also consider installing the extension [I don't care about cookies](https://chrome.google.com/webstore/detail/i-dont-care-about-cookies/fihnjjcciajhdojfnbdddfaoknhalnja) in order to remove cookie warnings.
-* Do not delete extension's folder from your computer/smartphone or Bypass Paywalls Clean will disappear at restart.
+* On Yandex Android use [uBlock Origin development build](https://chrome.google.com/webstore/detail/ublock-origin-dev-build/cgbcahbpdhpcegmbfconppldiemgcoii).
+* If you live in the EU, also consider installing the extension [I don't care about cookies](https://chrome.google.com/webstore/detail/i-dont-care-about-cookies/fihnjjcciajhdojfnbdddfaoknhalnja) in order to remove cookie warnings (or use filter Easylist Cookies in uBlock Origin).
+* Do not delete extension's folder from your computer/smartphone or Bypass Paywalls Clean (in developer mode) will disappear at restart.
 * Every time you open Chrome it may warn you about running extensions in developer mode, just click 🗙 to keep the extension enabled.
-* You will be logged out for any site you have checked.
+* You will be logged out for most of the sites you have checked.
 
 ### List of supported websites
 ##### World news
@@ -341,13 +341,13 @@ Remember to check the [previous requests](https://bitbucket.org/magnolia1234/byp
 1. Visit an article on the site you want to bypass the paywall for and copy the article title.  
 2. Open up a new incognito window (Ctrl+Shift+N) and paste the article title into Google.  
 3. Click on the same article from the Google search results page. Or you can:  
-4. Disable javascript on the website by clicking the button right icon </> on the uBlock panel.  
+4. Disable javascript on the website by clicking the button right icon </> on the uBlock Origin panel.  
 5. Refresh the page.
 
 ### Add custom site
 Add your own custom site (also for testing).  
 Check 'Options'-link in popup-menu and go to custom sites.  
-By default sites' cookies are removed after page loads (to bypass article limit).  
+By default sites' cookies/local storage are removed after page loads (to bypass article limit).  
 Also you can enable Googlebot user-agent or disable Javascript for (sub)domain(s)/external sources.
 
 ### Troubleshooting

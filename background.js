@@ -304,6 +304,28 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
         }
         if (key === 'sites_custom') {
             var sites_custom = storageChange.newValue;
+            var sites_custom_old = storageChange.oldValue;
+
+            // add/remove custom sites in options
+            var sites_custom_added = Object.keys(sites_custom).filter(x => !Object.keys(sites_custom_old).includes(x) && !defaultSites.hasOwnProperty(x));
+            var sites_custom_removed = Object.keys(sites_custom_old).filter(x => !Object.keys(sites_custom).includes(x) && !defaultSites.hasOwnProperty(x));
+
+            chrome.storage.sync.get({
+                sites: {}
+            }, function (items) {
+                var sites = items.sites;
+                for (var key of sites_custom_added)
+                    sites[key] = sites_custom[key].domain;
+                for (var key of sites_custom_removed)
+                    delete sites[key];
+
+                chrome.storage.sync.set({
+                    sites: sites
+                }, function () {
+                    true;
+                });
+            });
+
             use_google_bot = use_google_bot_default.slice();
             block_js_custom = [];
             block_js_custom_ext = [];
@@ -323,6 +345,18 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
             // reset disableJavascriptOnListedSites eventListener
             ext_api.webRequest.onBeforeRequest.removeListener(disableJavascriptOnListedSites);
             ext_api.webRequest.handlerBehaviorChanged();
+
+            // Refresh the current tab
+            ext_api.tabs.query({
+                active: true,
+                currentWindow: true
+            }, function (tabs) {
+                if (tabs[0].url && tabs[0].url.indexOf("http") !== -1) {
+                    ext_api.tabs.update(tabs[0].id, {
+                        url: tabs[0].url
+                    });
+                }
+            });
         }
     }
 });
