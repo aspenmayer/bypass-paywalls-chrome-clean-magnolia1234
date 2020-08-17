@@ -458,41 +458,45 @@ else if (matchDomain("cen.acs.org")) {
     });
 }
 
-else if (matchDomain("lesechos.fr")) {
+else if (matchDomain("lesechos.fr") && window.location.href.match(/-\d{6,}/)) {
     window.setTimeout(function () {
-        const url = window.location.href;
-        const html = document.documentElement.outerHTML;
-        // refresh cache
-        if (!window.location.hash) {
-            window.location.href = url + '#loaded'
-        }
-        const split1 = html.split('window.__PRELOADED_STATE__')[1];
-        const split2 = split1.split('</script>')[0].trim();
-        const state = split2.substr(1, split2.length - 2);
+        let url = window.location.href;
+        let html = document.documentElement.outerHTML;
+        let split1 = html.split('window.__PRELOADED_STATE__')[1];
+        let split2 = split1.split('</script>')[0].trim();
+        let state = split2.substr(1, split2.length - 2);
         try {
-            const data = JSON.parse(state);
-            const article = data.article.data.stripes[0].mainContent[0].data.description;
-            const paywallNode = document.querySelector('.post-paywall');
+            let data = JSON.parse(state);
+            let article = data.article.data.stripes[0].mainContent[0].data.description;
+            let url_loaded = data.article.data.path;
+            if (!url.includes(url_loaded))
+                document.location.reload(true);
+            let paywallNode = document.querySelector('.post-paywall');
             if (paywallNode) {
-                const contentNode = document.createElement('div');
-                contentNode.innerHTML = article;
-                contentNode.className = paywallNode.className;
-                paywallNode.parentNode.insertBefore(contentNode, paywallNode);
-                removeDOMElement(paywallNode);
-                const paywallLastChildNode = document.querySelector('.post-paywall  > :last-child');
-                if (paywallLastChildNode) {
-                    paywallLastChildNode.setAttribute('style', 'height: auto !important; overflow: hidden !important; max-height: none !important;');
+                let contentNode = document.createElement('div');
+                let parser = new DOMParser();
+                let article_html = parser.parseFromString('<div id="bpc">' + article + '</div>', 'text/html');
+                let article_par = article_html.querySelector('div#bpc');
+                if (article_par) {
+                    contentNode.appendChild(article_par);
+                    contentNode.className = paywallNode.className;
+                    paywallNode.parentNode.insertBefore(contentNode, paywallNode);
+                    removeDOMElement(paywallNode);
+                    let paywallLastChildNode = document.querySelector('.post-paywall  > :last-child');
+                    if (paywallLastChildNode) {
+                        paywallLastChildNode.setAttribute('style', 'height: auto !important; overflow: hidden !important; max-height: none !important;');
+                    }
                 }
             }
         } catch (err) {
             console.warn('unable to parse lesechos text');
             console.warn(err);
         }
-        const ad_blocks = document.querySelectorAll('.jzxvkd-1');
+        let ad_blocks = document.querySelectorAll('.jzxvkd-1');
         for (let ad_block of ad_blocks) {
             ad_block.setAttribute('style', 'display:none');
         }
-        const abo_banner = document.querySelector('[class^="pgxf3b"]');
+        let abo_banner = document.querySelector('[class^="pgxf3b"]');
         removeDOMElement(abo_banner);
     }, 1000); // Delay (in milliseconds)
 }
@@ -606,6 +610,7 @@ else if (matchDomain('faz.net')) {
                             str = str.replace(/Eu\n\nGH/g, "EuGH");
                             str = str.replace(/If\n\nSG/g, "IfSG");
                             str = str.replace(/La\n\nPierre/g, "LaPierre");
+                            str = str.replace(/De\n\nJoy/g, "DeJoy");
                             return str;
                         };
 
@@ -827,6 +832,9 @@ else if (matchDomain("magazine.atavist.com")) {
 
 else if (matchDomain("business-standard.com")) {
     document.addEventListener('DOMContentLoaded', () => {
+        let skip_button = document.querySelector('a.btn_skip');
+        if (skip_button)
+            skip_button.click();
         let paywall = document.querySelector('div.sbc_panel');
         if (paywall) {
             removeDOMElement(paywall.parentElement);
@@ -837,18 +845,22 @@ else if (matchDomain("business-standard.com")) {
                     json = script;
             }
             if (json) {
-                var json_text = JSON.parse(json.text.replace(/(\r\n|\n|\r|\t)/gm, ''))[0].articleBody;
-                json_text = parseHtmlEntities(json_text.replace(/(?:^|[\w\"\'\’])(\.|\?|!)(?=[A-Za-zÀ-ÿ\"\”\']{2,})/gm, "$&\n\n") + '\n\n');
-                let p_content = document.querySelector('span.p-content.paywall');
-                if (p_content) {
-                    let old_pars = p_content.querySelectorAll('p');
-                    for (let old_par of old_pars) {
-                        if (!old_par.querySelector('img'))
-                            removeDOMElement(old_par);
+                let json_text = JSON.parse(json.text.replace(/(\r\n|\n|\r|\t)/gm, ''))[0].articleBody;
+                json_text = parseHtmlEntities(json_text);
+                json_text = json_text.replace(/(?:^|[\w\"\'\’])(\.|\?|!)(?=[A-Z\"\”\“\‘\’\'][A-Za-zÀ-ÿ\"\”\“\‘\’\']{1,})/gm, "$&</br></br>") + '</br></br>';
+                let parser = new DOMParser();
+                let html = parser.parseFromString('<div id="bpc">' + json_text + '</div>', 'text/html');
+                let article = html.querySelector('div#bpc');
+                if (article) {
+                    let p_content = document.querySelector('span.p-content.paywall');
+                    if (p_content) {
+                        let old_pars = p_content.querySelectorAll('p');
+                        for (let old_par of old_pars) {
+                            if (!old_par.querySelector('img'))
+                                removeDOMElement(old_par);
+                        }
+                        p_content.appendChild(article);
                     }
-                    let new_par = document.createElement("p");
-                    new_par.innerText = json_text;
-                    p_content.appendChild(new_par);
                 }
             }
         }
@@ -929,26 +941,58 @@ else if (matchDomain("noordhollandsdagblad.nl")) {
                         let data = JSON.parse(state);
                         let article = data.json;
                         auth_body.innerHTML = '';
-                        var par_styled = '';
+                        let par_html, par_dom, par_elem, par_div;
+                        let parser = new DOMParser();
                         for (let par of article) {
                             for (let key in par) {
-                                par_styled = par[key];
-                                if (key === 'subhead')
-                                    par_styled = '<strong>' + par_styled + '</strong>';
-                                else if (key === 'twitter')
-                                    par_styled = '<a href="' + par_styled + '" target="_blank">' + par_styled + '</a>';
-                                else if (key === 'youtube')
-                                    par_styled = '<iframe id="ytplayer" type="text/html" width="640" height="360" src="https://www.youtube.com/embed/'
-                                         + par[key].id + '" frameborder="0"></iframe>';
-                                else if (key === 'streamone')
-                                    par_styled = '<iframe type="text/html" width="640" height="360" src="https://content.tmgvideo.nl/embed/item='
-                                        + par[key].id + '" frameborder="0"></iframe>';
-                                else if (key === 'image') {
-                                    par_styled = '<img src="' + par[key].url + '">';
-                                    par_styled += par[key].caption ? '<div>' + par[key].caption + '</div>' : '';
-                                    par_styled += par[key].credit ? '<div>' + '&copy; ' + par[key].credit + '</div>' : '';
+                                par_dom = document.createElement("p");
+                                par_elem = '';
+                                par_key = par[key];
+                                if (key === 'subhead') {
+                                    par_elem = document.createElement("strong");
+                                    par_elem.innerText = par_key;
+                                } else if (key === 'twitter' || key === 'instagram') {
+                                    par_elem = document.createElement("a");
+                                    Object.assign(par_elem, {
+                                        href: par_key,
+                                        innerText: par_key,
+                                        target: '_blank'
+                                    });
+                                } else if (key === 'youtube') {
+                                    par_elem = document.createElement("iframe");
+                                    Object.assign(par_elem, {
+                                        src: 'https://www.youtube.com/embed/' + par_key.id,
+                                        id: 'ytplayer',
+                                        type: 'text/html',
+                                        width: 640,
+                                        height: 360,
+                                        frameborder: 0
+                                    });
+                                } else if (key === 'streamone') {
+                                    par_elem = document.createElement("iframe");
+                                    Object.assign(par_elem, {
+                                        src: 'https://content.tmgvideo.nl/embed/item=' + par_key.id,
+                                        type: 'text/html',
+                                        width: 640,
+                                        height: 360,
+                                        frameborder: 0
+                                    });
+                                } else if (key === 'image') {
+                                    par_elem = document.createElement("div");
+                                    let par_img = document.createElement("img");
+                                    par_img.src = par_key.url;
+                                    par_elem.appendChild(par_img)
+                                    par_div = document.createElement("div");
+                                    par_div.innerText = par[key].caption ? par[key].caption : '';
+                                    par_div.innerText += par[key].credit ? '\n' + par[key].credit : '';
+                                    par_elem.appendChild(par_div);
+                                } else {
+                                    par_html = parser.parseFromString('<div id="bpc">' + par_key + '</div>', 'text/html');
+                                    par_elem = par_html.querySelector('div#bpc');
                                 }
-                                auth_body.innerHTML += '<p>' + par_styled + '</p>';
+                                if (par_elem)
+                                    par_dom.appendChild(par_elem);
+                                auth_body.appendChild(par_dom);
                             }
                         }
                     } catch (err) {
@@ -1022,8 +1066,14 @@ function pageContains(selector, text) {
     });
 }
 
-function parseHtmlEntities(str) {
-    var elem = document.createElement('textarea');
-    elem.innerHTML = str;
-    return elem.value;
+function parseHtmlEntities(encodedString) {
+    var translate_re = /&(nbsp|amp|quot|lt|gt|deg|hellip|laquo|raquo|ldquo|rdquo|lsquo|rsquo|mdash);/g;
+    var translate = {"nbsp": " ", "amp": "&", "quot": "\"", "lt": "<", "gt": ">", "deg": "°", "hellip": "…", 
+        "laquo": "«", "raquo": "»", "ldquo": "“", "rdquo": "”", "lsquo": "‘", "rsquo": "’", "mdash": "—"};
+    return encodedString.replace(translate_re, function (match, entity) {
+        return translate[entity];
+    }).replace(/&#(\d+);/gi, function (match, numStr) {
+        var num = parseInt(numStr, 10);
+        return String.fromCharCode(num);
+    });
 }
