@@ -160,6 +160,26 @@ function delete_options() {
     });
 }
 
+// Edit custom site (copy to add)
+function edit_options() {
+    var selectEl = document.querySelector('#custom_sites select');
+    var sites_custom = {};
+    var title = selectEl.value;
+
+    // copy site to add-fields
+    ext_api.storage.sync.get({
+        sites_custom: {}
+    }, function (items) {
+        sites_custom = items.sites_custom;
+        var edit_site = sites_custom[title];
+        document.querySelector('input[data-key="title"]').value = title;
+        document.querySelector('input[data-key="domain"]').value = edit_site.domain;
+        document.querySelector('input[data-key="googlebot"]').checked = (edit_site.googlebot > 0);
+        document.querySelector('input[data-key="block_javascript"]').checked = (edit_site.block_javascript > 0);
+        document.querySelector('input[data-key="block_javascript_ext"]').checked = (edit_site.block_javascript_ext > 0);
+    });
+}
+
 // Restores checkbox input states using the preferences stored in ext_api.storage.
 function renderOptions() {
     ext_api.storage.sync.get({
@@ -234,3 +254,4 @@ document.getElementById('import').onclick = function () {importInput.click()}
 document.getElementById('importInput').addEventListener("change", import_options, false);
 document.getElementById('add').addEventListener('click', add_options);
 document.getElementById('delete').addEventListener('click', delete_options);
+document.getElementById('edit').addEventListener('click', edit_options);
