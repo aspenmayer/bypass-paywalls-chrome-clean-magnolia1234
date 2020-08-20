@@ -1,5 +1,6 @@
 // defaultSites are loaded from sites.js at installation extension (and are saved to local storage)
 // var defaultSites = {};
+var ext_api = chrome || browser;
 
 // Saves options to ext_api.storage
 function save_options() {
@@ -71,17 +72,18 @@ function renderOptions() {
     labelEl.appendChild(document.createTextNode(' ——— Custom Sites ———'));
     sitesEl.appendChild(labelEl);
     var sites_custom = items.sites_custom;
+    var defaultSites_domains = ext_api.extension.getBackgroundPage().defaultSites_domains;
     for (var key in sites_custom) {
-      if (defaultSites.hasOwnProperty(key)) {
+      var domain = sites_custom[key]['domain'];
+      if (defaultSites.hasOwnProperty(key) || defaultSites_domains.includes(domain)) {
         continue;
       }
 
-      var value = sites_custom[key]['domain'];
       var labelEl = document.createElement('label');
       var inputEl = document.createElement('input');
       inputEl.type = 'checkbox';
       inputEl.dataset.key = key;
-      inputEl.dataset.value = value;
+      inputEl.dataset.value = domain;
       clean_key = key.replace(/\s\(.*\)/, '');
       inputEl.checked = Object.keys(sites).some(title => (title.replace(/\s\(.*\)/, '') === clean_key));
       if (value !== '' && value !== '###') {

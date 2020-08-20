@@ -13,7 +13,8 @@ const restrictions = {
   'elcomercio.pe': /.+\/elcomercio.pe\/.+((\w)+(\-)+){3,}.+/,
   'gestion.pe': /.+\/gestion.pe\/.+((\w)+(\-)+){3,}.+/,
   'quora.com': /^((?!quora\.com\/search\?q=).)*$/,
-  'seekingalpha.com': /.+seekingalpha\.com\/article\/.+/
+  'seekingalpha.com': /.+seekingalpha\.com\/article\/.+/,
+  'wsj.com': /^((?!\/cn\.wsj\.com\/).)*$/
 }
 
 // Don't remove cookies before page load
@@ -210,6 +211,10 @@ const userAgentDesktop = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.go
 const userAgentMobile = "Chrome/41.0.2272.96 Mobile Safari/537.36 (compatible ; Googlebot/2.1 ; +http://www.google.com/bot.html)"
 
 var enabledSites = [];
+var disabledSites = [];
+var defaultSites_domains = Object.values(defaultSites);
+var customSites = {};
+var customSites_domains = [];
 
 function setDefaultOptions() {
   ext_api.storage.sync.set({
@@ -246,6 +251,9 @@ ext_api.storage.sync.get({
         }).map(function (key) {
             return sites[key].toLowerCase();
         });
+    customSites = sites_custom;
+    customSites_domains = Object.values(sites_custom).map(x => x.domain);
+    disabledSites = defaultSites_domains.concat(customSites_domains).filter(x => !enabledSites.includes(x) && x !== '###');
     if (enabledSites.includes('ad.nl'))
         enabledSites = enabledSites.concat(ad_region_domains);
     if (enabledSites.includes('###_au_comm_media')) {
@@ -290,6 +298,7 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
                 }).map(function (key) {
                     return sites[key];
                 });
+            disabledSites = defaultSites_domains.concat(customSites_domains).filter(x => !enabledSites.includes(x) && x !== '###');
             if (enabledSites.includes('ad.nl'))
                 enabledSites = enabledSites.concat(ad_region_domains);
             if (enabledSites.includes('###_au_comm_media'))
@@ -305,6 +314,8 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
         if (key === 'sites_custom') {
             var sites_custom = storageChange.newValue;
             var sites_custom_old = storageChange.oldValue;
+            customSites = sites_custom;
+            customSites_domains = Object.values(sites_custom).map(x => x.domain);
 
             // add/remove custom sites in options
             var sites_custom_added = Object.keys(sites_custom).filter(x => !Object.keys(sites_custom_old).includes(x) && !defaultSites.hasOwnProperty(x));
@@ -345,19 +356,18 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
             // reset disableJavascriptOnListedSites eventListener
             ext_api.webRequest.onBeforeRequest.removeListener(disableJavascriptOnListedSites);
             ext_api.webRequest.handlerBehaviorChanged();
-
-            // Refresh the current tab
-            ext_api.tabs.query({
-                active: true,
-                currentWindow: true
-            }, function (tabs) {
-                if (tabs.length > 0 && tabs[0].url && tabs[0].url.indexOf("http") !== -1) {
-                    ext_api.tabs.update(tabs[0].id, {
-                        url: tabs[0].url
-                    });
-                }
-            });
         }
+        // Refresh the current tab
+        ext_api.tabs.query({
+            active: true,
+            currentWindow: true
+        }, function (tabs) {
+            if (tabs.length > 0 && tabs[0].url && tabs[0].url.indexOf("http") !== -1) {
+                ext_api.tabs.update(tabs[0].id, {
+                    url: tabs[0].url
+                });
+            }
+        });
     }
 });
 
@@ -570,13 +580,64 @@ ext_api.tabs.onActivated.addListener(function (activeInfo) { ext_api.tabs.get(ac
 
 function updateBadge (activeTab) {
   if (!activeTab) { return; }
-  const badgeText = getTextB(activeTab.url);
-  ext_api.browserAction.setBadgeBackgroundColor({color: 'red'});
+  let badgeText = '';
+  let color = 'red';
+  let currentUrl = activeTab.url;
+  if (currentUrl) {
+    let isDefaultSite = matchUrlDomain(defaultSites_domains, currentUrl);
+    if (isSiteEnabled({url: currentUrl})) {
+      badgeText = 'ON';
+      color = 'red';
+    } else if (matchUrlDomain(enabledSites, currentUrl)) {
+      badgeText = 'ON-';
+      color = 'orange';  
+    } else if (matchUrlDomain(disabledSites, currentUrl)) {
+      badgeText = 'OFF';
+      color = 'blue';  
+    }
+  }
+  ext_api.browserAction.setBadgeBackgroundColor({color: color});
   ext_api.browserAction.setBadgeText({text: badgeText});
 }
 
-function getTextB(currentUrl) {
-    return currentUrl && isSiteEnabled({url: currentUrl}) ? 'ON' : '';
+function site_switch() {
+    ext_api.tabs.query({
+        active: true,
+        currentWindow: true
+    }, function (tabs) {
+        if (tabs.length > 0 && tabs[0].url && tabs[0].url.indexOf("http") !== -1) {
+            let currentUrl = tabs[0].url;
+            let isDefaultSite = matchUrlDomain(defaultSites_domains, currentUrl);
+            let defaultSite_title = isDefaultSite ? Object.keys(defaultSites).find(key => defaultSites[key] === isDefaultSite) : '';
+            let isCustomSite = matchUrlDomain(Object.values(customSites_domains), currentUrl);
+            let customSite_title = isCustomSite ? Object.keys(customSites).find(key => customSites[key].domain === isCustomSite) : '';
+            let site_title = defaultSite_title || customSite_title;
+            let domain = isDefaultSite || isCustomSite;
+            if (domain) {
+                let added_site = [];
+                let removed_site = [];
+                if (enabledSites.includes(domain))
+                    removed_site.push(site_title);
+                else
+                    added_site.push(site_title);
+                chrome.storage.sync.get({
+                    sites: {}
+                }, function (items) {
+                    var sites = items.sites;
+                    for (var key of added_site)
+                        sites[key] = domain;
+                    for (var key of removed_site)
+                        delete sites[key];
+
+                    chrome.storage.sync.set({
+                        sites: sites
+                    }, function () {
+                        true;
+                    });
+                });
+            }
+        }
+    });
 }
 
 // remove cookies after page load

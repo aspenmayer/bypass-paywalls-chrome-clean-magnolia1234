@@ -233,7 +233,10 @@ function renderOptions() {
         var optionEl;
         for (var key in sites_custom) {
             optionEl = document.createElement('option');
-            optionEl.text = key + ': ' + sites_custom[key]['domain'] +
+            let domain = sites_custom[key]['domain'];
+            let isDefaultSite = ext_api.extension.getBackgroundPage().defaultSites_domains.includes(domain);
+            optionEl.text = isDefaultSite ? '*' : '';
+            optionEl.text += key + ': ' + domain +
                 (sites_custom[key]['googlebot']>0 ? ' | googlebot' : '') + 
                 (sites_custom[key]['block_javascript']>0 ? ' | block javascript' : '') + 
                 (sites_custom[key]['block_javascript_ext']>0 ? ' | block javascript ext' : '');
