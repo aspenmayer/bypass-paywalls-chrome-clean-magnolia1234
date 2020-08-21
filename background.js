@@ -192,6 +192,7 @@ var blockedRegexes = {
 'repubblica.it': /scripts\.repubblica\.it\/pw\/pw\.js.+/,
 'science-et-vie.com': /.+\.qiota\.com\/.+/,
 'sciencesetavenir.fr': /.+\.poool\.fr\/.+/,
+'scmp.com': /.+\.tinypass\.com\/.+/,
 'sfchronicle.com': /.+\.blueconic\.net\/.+/,
 'sloanreview.mit.edu': /(.+\.tinypass\.com\/.+|.+\.netdna-ssl\.com\/wp-content\/themes\/smr\/assets\/js\/libs\/welcome-ad\.js)/,
 'spectator.co.uk': /.+\.tinypass\.com\/.+/,
