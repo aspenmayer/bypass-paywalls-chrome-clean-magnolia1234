@@ -1005,6 +1005,14 @@ else if (matchDomain("noordhollandsdagblad.nl")) {
     }, 500); // Delay (in milliseconds)
 }
 
+else if (matchDomain("limesonline.com")) {
+    window.setTimeout(function () {
+        let url = window.location.href;
+        if (url.includes('prv=true'))
+            window.location.href = new URL(url).pathname;
+    }, 500); // Delay (in milliseconds)
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {
