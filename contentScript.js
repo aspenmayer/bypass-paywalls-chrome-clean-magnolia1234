@@ -106,7 +106,8 @@ else if (matchDomain(['ad.nl', 'bd.nl', 'ed.nl', 'tubantia.nl', 'bndestem.nl', '
 
 else if (matchDomain("washingtonpost.com")) {
     let leaderboard = document.querySelector('#leaderboard-wrapper');
-    removeDOMElement(leaderboard);
+    let adverts = document.querySelectorAll('div[data-qa="article-body-ad"]');
+    removeDOMElement(leaderboard, ...adverts);
     if (location.href.includes('/gdpr-consent/')) {
         let free_button = document.querySelector('.gdpr-consent-container .continue-btn.button.free');
         if (free_button)
@@ -257,8 +258,7 @@ else if (matchDomain("economist.com")) {
         const wrapper = document.getElementById('bottom-page-wrapper');
         removeDOMElement(subscribe, wrapper);
         const adverts = document.querySelectorAll('.advert');
-        for (let advert of adverts)
-            removeDOMElement(advert);
+        removeDOMElement(...adverts);
         window.setTimeout(function () {
             const paywall = document.querySelector('.layout-article-regwall'); ;
             if (paywall) {
@@ -706,9 +706,7 @@ else if (matchDomain('historyextra.com')) {
     let article_masked = document.querySelector('.template-article__masked');
     if (article_masked) {
         let extra_pars = document.querySelectorAll('div.template-article__masked > p');
-        for (let extra_par of extra_pars) {
-            removeDOMElement(extra_par);
-        }
+        removeDOMElement(...extra_pars);
         article_masked.classList.remove('template-article__masked');
     }
     let ad_banner = document.querySelector('.ad-banner-container');

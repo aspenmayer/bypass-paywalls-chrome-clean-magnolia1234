@@ -68,6 +68,7 @@ var allow_cookies = [
 'themarker.com',
 'trouw.nl',
 'volkskrant.nl',
+'washingtonpost.com',
 'worldpoliticsreview.com',
 ]
 
@@ -81,7 +82,6 @@ const remove_cookies_select_hold = {
 	'barrons.com': ['wsjregion'],
 	'newstatesman.com': ['STYXKEY_nsversion'],
 	'qz.com': ['gdpr'],
-	'washingtonpost.com': ['wp_gdpr'],
 	'wsj.com': ['wsjregion']
 }
 
@@ -126,6 +126,7 @@ var use_google_bot_default = [
 'theathletic.com',
 'themarker.com',
 'thetimes.co.uk',
+'washingtonpost.com',
 'worldpoliticsreview.com',
 'wsj.com',
 ];
@@ -202,6 +203,7 @@ var blockedRegexes = {
 'thedailybeast.com': /.+\.tinypass\.com\/.+/,
 'thenation.com': /.+\.tinypass\.com\/.+/,
 'valeursactuelles.com': /.+\.qiota\.com\/.+/,
+'washingtonpost.com': /.+\.washingtonpost\.com\/dr\/resources\/dist\/washpost\/pwapi-proxy\.min\.js/,
 'wsj.com': /cdn\.ampproject\.org\/v\d\/amp-access-.+\.js/
 };
 
