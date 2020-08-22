@@ -9,7 +9,6 @@ var ext_api = (typeof browser === 'object') ? browser : chrome;
 
 const restrictions = {
   'barrons.com': /.+barrons\.com\/(amp\/)?article(s)?\/.+/,
-  'economist.com': /(.+economist\.com\/.+\/\d{1,4}\/\d{1,2}\/\d{2}\/.+|.+economist\.com\/engassets\/.+\.js)/,
   'elcomercio.pe': /.+\/elcomercio.pe\/.+((\w)+(\-)+){3,}.+/,
   'gestion.pe': /.+\/gestion.pe\/.+((\w)+(\-)+){3,}.+/,
   'quora.com': /^((?!quora\.com\/search\?q=).)*$/,
@@ -150,7 +149,7 @@ var blockedRegexes = {
 'clarin.com': /js\.matheranalytics\.com\/.+/,
 'corriere.it': /(\.rcsobjects\.it\/(rcs_cpmt|rcs_tracking-service)\/|\.corriereobjects\.it\/.+\/js\/(_paywall\.sjs|tracking\/)|\.userzoom\.com\/files\/js\/|\.lp4\.io\/app\/)/,
 'digiday.com': /.+\.tinypass\.com\/.+/,
-'economist.com': /(.+\.tinypass\.com\/.+|economist\.com\/engassets\/_next\/static\/chunks\/framework.+\.js)/,
+'economist.com': /.+\.tinypass\.com\/.+/,
 'estadao.com.br': /acesso\.estadao\.com\.br\/paywall\/.+\/pw\.js/,
 'dvhn.nl': /.+\.evolok\.net\/.+\/authorize\/.+/,
 'elcomercio.pe': /elcomercio\.pe\/pf\/dist\/template\/elcomercio-noticia.+\.js/,
