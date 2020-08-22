@@ -379,7 +379,10 @@ ext_api.runtime.onInstalled.addListener(function (details) {
   if (details.reason == "install") {
     setDefaultOptions();
   } else if (details.reason == "update") {
-    ext_api.runtime.openOptionsPage(); // User updated extension
+    ext_api.management.getSelf(function (result) {
+      if (result.installType !== 'development')
+        ext_api.runtime.openOptionsPage(); // User updated extension (non-developer mode)
+    });
   }
 });
 
