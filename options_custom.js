@@ -104,33 +104,33 @@ function add_options() {
                 sites_custom[title][inputEls[i].dataset.key] = inputEls[i].value;
         }
     }
-    if (sites_custom[title]['domain'] === '')
-        sites_custom = {};
-    else
+
+    if (title && sites_custom[title]['domain']) {
         sites_custom[title]['domain'] = sites_custom[title]['domain'].replace('www.', '').toLowerCase();
 
-    // add new site to local storage
-    ext_api.storage.sync.get({
-        sites_custom: {}
-    }, function (items) {
-        var sites_custom_old = items.sites_custom;
+        // add new site to local storage
+        ext_api.storage.sync.get({
+            sites_custom: {}
+        }, function (items) {
+            var sites_custom_old = items.sites_custom;
 
-        for (var key in sites_custom) {
-            sites_custom_old[key] = sites_custom[key];
-        }
+            for (var key in sites_custom) {
+                sites_custom_old[key] = sites_custom[key];
+            }
 
-        ext_api.storage.sync.set({
-            sites_custom: sites_custom_old
-        }, function () {
-            // Update status to let user know new custom site was added.
-            var status_add = document.getElementById('status_add');
-            status_add.textContent = 'Site added.';
-            setTimeout(function () {
-                //status.textContent = '';
-                renderOptions();
-            }, 800);
+            ext_api.storage.sync.set({
+                sites_custom: sites_custom_old
+            }, function () {
+                // Update status to let user know new custom site was added.
+                var status_add = document.getElementById('status_add');
+                status_add.textContent = 'Site added.';
+                setTimeout(function () {
+                    //status.textContent = '';
+                    renderOptions();
+                }, 800);
+            });
         });
-    });
+    }
 }
 
 // Delete custom site from ext_api.storage

@@ -470,7 +470,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   }  
   
   // block external javascript for custom sites (optional)
-  var domain_blockjs_ext = matchUrlDomain([block_js_custom_ext], header_referer);
+  var domain_blockjs_ext = matchUrlDomain(block_js_custom_ext, header_referer);
   if (domain_blockjs_ext && !matchUrlDomain(domain_blockjs_ext, details.url) && details.url.match(/(\.js$|\.js\?|\/json\?)/) && isSiteEnabled({url: header_referer})) {
     return { cancel: true };
   }
@@ -488,7 +488,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   }
 
   // block javascript of (sub)domain for custom sites (optional)
-  var domain_blockjs = matchUrlDomain([block_js_custom], details.url);
+  var domain_blockjs = matchUrlDomain(block_js_custom, details.url);
   if (domain_blockjs && matchUrlDomain(domain_blockjs, details.url) && details.url.match(/(\.js$|\.js\?|\/json\?)/)) {
     return { cancel: true };
   }
