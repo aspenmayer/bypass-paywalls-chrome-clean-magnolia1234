@@ -266,21 +266,24 @@ ext_api.storage.sync.get({
             allow_cookies.push(domain);
             blockedRegexes[domain] = /.+cdn-au\.piano\.io\/api\/tinypass.+\.js/;
         }
-    }
+    } else
+        disabledSites = disabledSites.concat(au_comm_media_domains);
     if (enabledSites.includes('###_au_news_corp')) {
         enabledSites = enabledSites.concat(au_news_corp_domains);
         for (let domain of au_news_corp_domains) {
             allow_cookies.push(domain);
             use_google_bot_default.push(domain);
         }
-		use_google_bot = use_google_bot_default.slice();
-    }
+        use_google_bot = use_google_bot_default.slice();
+    } else
+        disabledSites = disabledSites.concat(au_news_corp_domains);
     if (enabledSites.includes('###_au_prov_news')) {
         enabledSites = enabledSites.concat(au_prov_news_domains);
         for (let domain of au_prov_news_domains) {
             allow_cookies.push(domain);
         }
-    }
+    } else
+        disabledSites = disabledSites.concat(au_prov_news_domains);
 
     for (let domainVar of enabledSites) {
         if (!allow_cookies.includes(domainVar) && !remove_cookies.includes(domainVar)) {
@@ -307,10 +310,16 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
                 enabledSites = enabledSites.concat(ad_region_domains);
             if (enabledSites.includes('###_au_comm_media'))
                 enabledSites = enabledSites.concat(au_comm_media_domains);
+            else
+                disabledSites = disabledSites.concat(au_comm_media_domains);
             if (enabledSites.includes('###_au_news_corp'))
                 enabledSites = enabledSites.concat(au_news_corp_domains);
+            else
+                disabledSites = disabledSites.concat(au_news_corp_domains);
             if (enabledSites.includes('###_au_prov_news'))
                 enabledSites = enabledSites.concat(au_prov_news_domains);
+            else
+                disabledSites = disabledSites.concat(au_prov_news_domains);
             // reset disableJavascriptOnListedSites eventListener
             ext_api.webRequest.onBeforeRequest.removeListener(disableJavascriptOnListedSites);
             ext_api.webRequest.handlerBehaviorChanged();

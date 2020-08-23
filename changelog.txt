@@ -1,6 +1,17 @@
 
 Changelog Bypass Paywalls Clean - Chrome
 
+* v1.8.2.0 (2020-08-23)
+Add LimesOnline (it/en)
+Add South China Morning Post
+Add on/off-switch (popup)
+Fix-update Economist (menu)
+Fix-update WaPo (Googlebot & block Javascript)
+Fix custom sites (block Javascript)
+Update custom sites: (edit options) & hide double (custom) domain in options
+Maintenance contentScript (replace innerHTML): LesEchos.fr (plus reload), Business-Standard.com & NoordhollandsDagblad.nl
+Prepare subrelease notification (developer mode)
+
 * v1.8.1.0 (2020-08-16)
 Add Australian Provincial Newspapers (daily)
 Add NoordhollandsDagblad.nl

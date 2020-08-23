@@ -254,13 +254,13 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [Gelderlander](https://www.gelderlander.nl) -
 [PZC](https://www.pzc.nl) -
 [Stentor](https://www.destentor.nl) -
-[Tubantia](https://tubantia.nl)\
+[Tubantia](https://tubantia.nl)  
 [Dagblad van het Noorden](https://www.dvhn.nl) -
 [De Morgen](https://www.demorgen.be) -
 [De Tijd](https://www.tijd.be) -
+[Financieele Dagblad](https://fd.nl) -
 [Follow the Money](https://www.ftm.nl) -
 [Groene Amsterdammer](https://www.groene.nl) -
-[Het Financieel Dagblad](https://fd.nl) -
 [Humo.be](https://www.humo.be) -
 [Knack.be](https://www.knack.be) -
 [Leeuwarder Courant](https://www.lc.nl) -
