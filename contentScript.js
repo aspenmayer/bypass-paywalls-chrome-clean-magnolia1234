@@ -1011,6 +1011,17 @@ else if (matchDomain("limesonline.com")) {
     }, 500); // Delay (in milliseconds)
 }
 
+else if (matchDomain("mercuriovalpo.cl")) {
+    let content = document.querySelector('div.content');
+    if (content)
+        content.setAttribute('id', 'content_new');
+    let modal_wrapper = document.querySelector('div.modal-wrapper');
+    removeDOMElement(modal_wrapper);
+    let body_modal = document.querySelector('body.modal-open');
+    if (body_modal)
+        body_modal.classList.remove('modal-open');
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {

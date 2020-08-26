@@ -29,6 +29,7 @@ var allow_cookies = [
 'dn.se',
 'dvhn.nl',
 'elmercurio.com',
+'mercuriovalpo.cl',
 'eurekareport.com.au',
 'faz.net',
 'folha.uol.com.br',
@@ -184,6 +185,7 @@ var blockedRegexes = {
 'livemint.com': /(.+\.livemint\.com\/js\/localWorker\.js|analytics\.htmedia\.in\/analytics-js\/.+\.js)/,
 'lopinion.fr': /.+\.poool\.fr\/.+/,
 'lrb.co.uk': /.+\.tinypass\.com\/.+/,
+'mercuriovalpo.cl': /(.+\.mercuriovalpo\.cl\/impresa\/wp-content\/themes\/papel-digital-2019-desktop\/assets\/(vendor|\d)\.js|pram\.pasedigital\.cl\/API\/User\/Status\?)/,
 'modernhealthcare.com': /.+\.tinypass\.com\/.+/,
 'nationalgeographic.com': /.+\.blueconic\.net\/.+/,
 'nationalreview.com': /.+\.blueconic\.net\/.+/,
@@ -569,21 +571,24 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
     });
   }
 
-  if (tabId !== -1) {
-    ext_api.tabs.get(tabId, function (currentTab) {
-      if (isSiteEnabled(currentTab) || medium_custom_domain) {
+  ext_api.tabs.query({
+    active: true,
+    currentWindow: true
+  }, function (tabs) {
+    if (tabs.length > 0 && tabs[0].url && tabs[0].url.indexOf("http") !== -1) {
+      if (isSiteEnabled({url: tabs[0].url}) || medium_custom_domain) {
         // run contentScript inside tab
-        ext_api.tabs.executeScript(tabId, {
+        ext_api.tabs.executeScript({
           file: 'contentScript.js',
           runAt: 'document_start'
-        }, function(res) {
+        }, function (res) {
           if (ext_api.runtime.lastError || res[0]) {
             return;
           }
         });
       }
-    });
-  }
+    }
+  });
 
   return { requestHeaders: requestHeaders };
 }, {

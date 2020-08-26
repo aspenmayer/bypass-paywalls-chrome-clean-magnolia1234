@@ -38,6 +38,7 @@ var defaultSites =
   "Discover Magazine": "discovermagazine.com",
   "El Comercio": "elcomercio.pe",
   "El Mercurio": "elmercurio.com",
+  "El Mercurio de Valparaíso": "mercuriovalpo.cl",
   "El Mundo": "elmundo.es",
   "El País": "elpais.com",
   "Encyclopedia Britannica": "britannica.com",
