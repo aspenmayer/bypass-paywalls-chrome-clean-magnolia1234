@@ -272,6 +272,7 @@
         "*://*.lp4.io/*",
         "*://*.netdna-ssl.com/*",
         "*://*.nyt.com/*",
+        "*://*.pasedigital.cl/*",
         "*://*.rcsobjects.it/*",
         "*://*.repstatic.it/*",
         "*://*.userzoom.com/*",
@@ -287,5 +288,5 @@
         "webRequest",
         "webRequestBlocking"
     ],
-	"version": "1.8.2.0"
+	"version": "1.8.2.1"
 }

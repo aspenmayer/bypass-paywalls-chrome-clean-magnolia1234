@@ -200,5 +200,7 @@ var defaultSites =
   "Poool.fr": "poool.fr",
   "Qiota": "qiota.com",
   "TinyPass": "tinypass.com",
-  "TribDss": "tribdss.com"
+  "TribDss": "tribdss.com",
+  "——— BPC settings ———": "###",
+  "Show options on update": "#options_on_update"
 }
