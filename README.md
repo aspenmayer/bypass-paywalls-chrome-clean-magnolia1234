@@ -316,6 +316,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [O Globo](https://oglobo.globo.com) –
 [Valor Econômico](https://valor.globo.com)*
 ##### Chile
+[Diario Financiero](https://www.df.cl) -
 [El Mercurio](https://digital.elmercurio.com) -
 [El Mercurio de Valparaíso](https://www.mercuriovalpo.cl) -
 [La Segunda](https://digital.lasegunda.com) -

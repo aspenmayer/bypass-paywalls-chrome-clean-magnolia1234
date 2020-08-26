@@ -34,6 +34,7 @@ var defaultSites =
   "Dark Reading": "darkreading.com",
   "De Tijd": "tijd.be",
   "DeMorgen": "demorgen.be",
+  "Diario Financiero": "df.cl",
   "Digiday": "digiday.com",
   "Discover Magazine": "discovermagazine.com",
   "El Comercio": "elcomercio.pe",
