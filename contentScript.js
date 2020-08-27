@@ -346,11 +346,14 @@ else if (matchDomain("thetimes.co.uk")) {
 }
 
 else if (matchDomain("technologyreview.com")) {
-    const read_story = document.querySelector('.storyExpanderButton');
-    if (read_story)
-        read_story.click();
-    const meter = document.querySelector('.meter');
-    removeDOMElement(meter);
+    window.setTimeout(function () {
+        let body_obscured = document.querySelector('body[class*="body__obscureContent"]');
+        if (body_obscured)
+            removeClassesByPrefix(body_obscured, 'body__obscureContent');
+        let overlay = document.querySelector('div[class*="overlayFooter__wrapper"]');
+        if (overlay)
+            overlay.setAttribute('style', 'display:none');
+    }, 500);
 }
 
 else if (matchDomain("asia.nikkei.com")) {
@@ -1020,6 +1023,11 @@ else if (matchDomain("mercuriovalpo.cl")) {
     let body_modal = document.querySelector('body.modal-open');
     if (body_modal)
         body_modal.classList.remove('modal-open');
+}
+
+else if (matchDomain("discovermagazine.com")) {
+    let banner = document.querySelector('div.hWOjDZ, div.qa7yll-1');
+    removeDOMElement(banner);
 }
 
 // General Functions

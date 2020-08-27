@@ -203,6 +203,7 @@ var blockedRegexes = {
 'sloanreview.mit.edu': /(.+\.tinypass\.com\/.+|.+\.netdna-ssl\.com\/wp-content\/themes\/smr\/assets\/js\/libs\/welcome-ad\.js)/,
 'spectator.co.uk': /.+\.tinypass\.com\/.+/,
 'spectator.com.au': /.+\.tinypass\.com\/.+/,
+'technologyreview.com': /.+\.blueconic\.net\/.+/,
 'telegraph.co.uk': /.+\.tinypass\.com\/.+/,
 'thedailybeast.com': /.+\.tinypass\.com\/.+/,
 'thenation.com': /.+\.tinypass\.com\/.+/,
