@@ -24,6 +24,7 @@ var defaultSites =
   "Charlie Hebdo": "charliehebdo.fr",
   "Chemical & Engineering News": "cen.acs.org",
   "Chicago Tribune": "chicagotribune.com",
+  "Chronicle of Higher Education": "chronicle.com",
   "Clarín": "clarin.com",
   "CommonWealth Magazine Taiwan": "cw.com.tw",
   "Corriere Della Sera": "corriere.it",

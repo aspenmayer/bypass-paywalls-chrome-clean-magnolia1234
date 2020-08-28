@@ -83,6 +83,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [The Athletic](https://theathletic.com)
 ##### Tech/Science
 [Chemical & Engineering News](https://cen.acs.org) -
+[Chronicle of Higher Education](https://www.chronicle.com) -
 [Dark Reading](https://www.darkreading.com) -
 [Discover Magazine](https://www.discovermagazine.com) -
 [MIT Technology Review](https://www.technologyreview.com) -

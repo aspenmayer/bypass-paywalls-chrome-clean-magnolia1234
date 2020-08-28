@@ -54,6 +54,7 @@
         "*://*.charliehebdo.fr/*",
         "*://*.chicagobusiness.com/*",
         "*://*.chicagotribune.com/*",
+        "*://*.chronicle.com/*",
         "*://*.clarin.com/*",
         "*://*.corriere.it/*",
         "*://*.courant.com/*",
@@ -288,5 +289,5 @@
         "webRequest",
         "webRequestBlocking"
     ],
-	"version": "1.8.2.1"
+	"version": "1.8.2.2"
 }
