@@ -1,6 +1,14 @@
 
 Changelog Bypass Paywalls Clean - Chrome
 
+* v1.8.3.0 (2020-08-30)
+Add Chronicle of Higher Education
+Add Diario Financiero (Chile)
+Add El Mercurio de Valparaíso (Chile)
+Fix-update MIT Technology Review
+Remove copy-notice in copied text of Financial Times (ft.com)
+Update show options on update (now optional)
+
 * v1.8.2.0 (2020-08-23)
 Add LimesOnline (it/en)
 Add South China Morning Post
