@@ -194,6 +194,7 @@ var defaultSites =
   "World Politics Review": "worldpoliticsreview.com",
   "——— Block Paywall-scripts ———": "###",
   "BlueConic": "blueconic.net",
+  "Cxense": "cxense.com",
   "Evolok": "evolok.net",
   "MatherAnalytics": "matheranalytics.com",
   "OneCount": "onecount.net",

@@ -129,18 +129,14 @@ else if (matchDomain("wsj.com") && !matchDomain("cn.wsj.com")) {
         if (close_button)
             close_button.click();
     }
+    let wsj_ads = document.querySelectorAll('div.wsj-ad');
+    removeDOMElement(...wsj_ads);
     document.addEventListener('DOMContentLoaded', () => {
         let url = window.location.href;
         let snippet = document.querySelector('.snippet-promotion');
         let wsj_pro = document.querySelector('meta[name="page.site"][content="wsjpro"]');
         if (snippet || wsj_pro) {
-            if (!window.location.hash) {
-                if (url.includes('?')) {
-                    window.location.href = url.replace('?', '#refreshed?');
-                } else
-                    window.location.href = url + '#refreshed';
-            } else
-                window.location.href = window.location.href.replace('wsj.com', 'wsj.com/amp').replace('#refreshed', '');
+            window.location.href = window.location.href.replace('wsj.com', 'wsj.com/amp').replace('#refreshed', '');
         }
     });
 }
