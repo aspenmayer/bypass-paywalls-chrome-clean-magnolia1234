@@ -1026,6 +1026,30 @@ else if (matchDomain("discovermagazine.com")) {
     removeDOMElement(banner);
 }
 
+else if (matchDomain("sacbee.com")) {
+    let url = window.location.href;
+    if (url.includes('account.sacbee.com/paywall/')) {
+        window.setTimeout(function () {
+            window.location.href = 'https://amp.sacbee.com/article' + url.split('resume=')[1].split('#')[0] + '.html';
+        }, 500); // Delay (in milliseconds)
+    } else if (url.includes('amp.sacbee.com')) {
+        let subscr_sections = document.querySelectorAll('div[subscriptions-section="content"]');
+        for (let subscr_section of subscr_sections) {
+            subscr_section.removeAttribute('subscriptions-section');
+        }
+        let subscr_tag = document.querySelector('div#subscriber-exclusive-tag');
+        let amp_players = document.querySelectorAll('amp-connatix-player');
+        removeDOMElement(subscr_tag, ...amp_players);
+    }
+    let premium_svgs = document.querySelectorAll('h3 > a > svg');
+    let premium_link;
+    for (let premium_svg of premium_svgs) {
+        premium_link = premium_svg.parentElement;
+        if (premium_link.href.includes('www.'))
+            premium_link.href = premium_link.href.replace('www.', 'amp.');
+    }
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {

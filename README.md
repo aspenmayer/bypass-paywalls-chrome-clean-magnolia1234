@@ -133,7 +133,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [The Seattle Times](https://www.seattletimes.com) -
 [The News-Gazette](https://www.news-gazette.com) -
 [The Philadelphia Inquirer](https://www.inquirer.com) -
-[The Sacramento Bee](https://www.sacbee.com)* -
+[The Sacramento Bee](https://www.sacbee.com) -
 [Winston-Salem Journal](https://www.journalnow.com)
 
 #### Australia/New Zealand

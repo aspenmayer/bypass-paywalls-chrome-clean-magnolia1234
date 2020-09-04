@@ -199,6 +199,7 @@ var blockedRegexes = {
 'nytimes.com': /(.+meter-svc\.nytimes\.com\/meter\.js.+|.+mwcm\.nyt\.com\/.+\.js)/,
 'nzherald.co.nz': /nzherald\.co\.nz\/.+\/headjs\/.+\.js/,
 'repubblica.it': /scripts\.repubblica\.it\/pw\/pw\.js.+/,
+'sacbee.com': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
 'science-et-vie.com': /.+\.qiota\.com\/.+/,
 'sciencesetavenir.fr': /.+\.poool\.fr\/.+/,
 'scmp.com': /.+\.tinypass\.com\/.+/,
