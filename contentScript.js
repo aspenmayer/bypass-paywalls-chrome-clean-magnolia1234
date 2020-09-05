@@ -1026,13 +1026,13 @@ else if (matchDomain("discovermagazine.com")) {
     removeDOMElement(banner);
 }
 
-else if (matchDomain("sacbee.com")) {
+else if (domain = matchDomain(["fresnobee.com", "sacbee.com"])) {
     let url = window.location.href;
-    if (url.includes('account.sacbee.com/paywall/')) {
+    if (url.includes('account.' + domain + '/paywall/')) {
         window.setTimeout(function () {
-            window.location.href = 'https://amp.sacbee.com/article' + url.split('resume=')[1].split('#')[0] + '.html';
+            window.location.href = 'https://amp.' + domain + '/article' + url.split('resume=')[1].split('#')[0] + '.html';
         }, 500); // Delay (in milliseconds)
-    } else if (url.includes('amp.sacbee.com')) {
+    } else if (url.includes('amp.' + domain)) {
         let subscr_sections = document.querySelectorAll('div[subscriptions-section="content"]');
         for (let subscr_section of subscr_sections) {
             subscr_section.removeAttribute('subscriptions-section');

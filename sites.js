@@ -156,6 +156,7 @@ var defaultSites =
   "The Denver Post": "denverpost.com",
   "The Diplomat": "thediplomat.com",
   "The Economist": "economist.com",
+  "The Fresno Bee": "fresnobee.com",
   "The Globe and Mail": "theglobeandmail.com",
   "The Hindu": "thehindu.com",
   "The Irish Times": "irishtimes.com",

@@ -91,6 +91,7 @@
         "*://*.foreignpolicy.com/*",
         "*://*.fortune.com/*",
         "*://*.frasercoastchronicle.com.au/*",
+        "*://*.fresnobee.com/*",
         "*://*.ft.com/*",
         "*://*.ftm.nl/*",
         "*://*.geelongadvertiser.com.au/*",
@@ -290,5 +291,5 @@
         "webRequest",
         "webRequestBlocking"
     ],
-	"version": "1.8.3.1"
+	"version": "1.8.3.2"
 }

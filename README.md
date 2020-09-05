@@ -128,6 +128,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [SunSentinel](https://www.sun-sentinel.com) -
 [The Boston Globe](https://www.bostonglobe.com) -
 [The Denver Post](https://www.denverpost.com) -
+[The Fresno Bee](https://www.fresnobee.com) -
 [The Mercury News](https://www.mercurynews.com) -
 [The Morning Call](https://www.mcall.com) -
 [The Seattle Times](https://www.seattletimes.com) -

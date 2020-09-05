@@ -169,6 +169,7 @@ var blockedRegexes = {
 'fortune.com':  /.+\.tinypass\.com\/.+/,
 'ft.com': /.+\.ft\.com\/__assets\/hashed\/page-kit\/shared\.volatile\..+\.bundle\.js/,
 'ftm.nl': /.+\.ftm\.nl\/js\/routing\?/,
+'fresnobee.com': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
 'gestion.pe': /gestion\.pe\/pf\/dist\/template\/gestion-noticia.+\.js/,
 'globes.co.il': /.+\.tinypass\.com\/.+/,
 'haaretz.co.il': /haaretz\.co\.il\/htz\/js\/inter\.js/,
