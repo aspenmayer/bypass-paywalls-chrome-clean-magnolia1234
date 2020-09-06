@@ -260,6 +260,7 @@
         "*://*.tinypass.com/*",
         "*://*.tribdss.com/*",
         "*://*.ampproject.org/*",
+        "*://*.bwbx.io/*",
         "*://*.cedsdigital.it/*",
         "*://*.corriereobjects.it/*",
         "*://*.ctfassets.net/*",
@@ -291,5 +292,5 @@
         "webRequest",
         "webRequestBlocking"
     ],
-	"version": "1.8.3.4"
+	"version": "1.8.3.5"
 }

@@ -507,7 +507,8 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   }
 
   let inkl_site = (matchUrlDomain('cdn.jsdelivr.net', details.url) && matchUrlDomain('inkl.com', header_referer) && isSiteEnabled({url: header_referer}));
-  if (!isSiteEnabled(details) && !(inkl_site)) {
+  let bloomberg_site = (matchUrlDomain('assets.bwbx.io', details.url) && matchUrlDomain('bloomberg.com', header_referer) && isSiteEnabled({url: header_referer}));
+  if (!isSiteEnabled(details) && !(inkl_site) && !(bloomberg_site)) {
     return;
   }
 
