@@ -1,6 +1,15 @@
 
 Changelog Bypass Paywalls Clean - Chrome
 
+* v1.8.4.0 (2020-09-06)
+Add Fresno Bee (USA)
+Fix-update Bloomberg
+Fix-update Sacramento Bee (amp for premium)
+Fix-update The New Yorker
+Fix-update WSJ (remove refresh)
+Add daily users counter (by counting downloads of empty json-file)
+Add general paywall-script Cxense
+
 * v1.8.3.0 (2020-08-30)
 Add Chronicle of Higher Education
 Add Diario Financiero (Chile)
