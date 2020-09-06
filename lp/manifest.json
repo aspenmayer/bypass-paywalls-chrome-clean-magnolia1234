@@ -1,6 +1,6 @@
 {
 	"background": {
-		"scripts": ["sites.js", "background.js"]
+		"scripts": ["sites.js", "background.js", "bpc_count_daily_users.js"]
 	},
 	"content_security_policy": "script-src 'self'; object-src 'self'",
 	"browser_action": {
@@ -291,5 +291,5 @@
         "webRequest",
         "webRequestBlocking"
     ],
-	"version": "1.8.3.3"
+	"version": "1.8.3.4"
 }
