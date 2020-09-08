@@ -1,21 +1,43 @@
+"use strict";
+var ext_api = (typeof browser === 'object') ? browser : chrome;
+var domain;
+
 // clean local storage of sites (with an exemption for hold-list)
 var arr_localstorage_hold = ['seekingalpha.com', 'sfchronicle.com'];
 if (!matchDomain(arr_localstorage_hold)){
     window.localStorage.clear();
 }
 
+// listen to responses from background script
+ext_api.runtime.onMessage.addListener(function (message, sender) {
+    // setCookie opt-in
+    if (message.optIn) {
+        // Australian Provincial Newspapers
+        if (domain = matchDomain(['news-mail.com.au', 'frasercoastchronicle.com.au', 'gladstoneobserver.com.au', 'dailyexaminer.com.au', 'dailymercury.com.au', 'themorningbulletin.com.au', 'sunshinecoastdaily.com.au', 'gympietimes.com.au', 'northernstar.com.au', 'qt.com.au', 'thechronicle.com.au', 'warwickdailynews.com.au'])) {
+            if (!cookieExists('subscribed')) {
+                setCookie('subscribed', 'true', domain, '/', 14);
+            }
+        } else if (matchDomain('bostonglobe.com')) {
+            if (!cookieExists('s_fid')) {
+                let s_fid = genHexString(16) + '-' + genHexString(16);
+                setCookie('s_fid', s_fid, 'bostonglobe.com', '/', 14);
+            }
+        } else if (domain = matchDomain(['independent.ie', 'belfasttelegraph.co.uk'])) {
+            if (!cookieExists('subscriber')) {
+                setCookie('subscriber', '{"subscriptionStatus": true}', domain, '/', 14);
+            }
+        }
+    }
+});
+
+// ask for opt-in confirmation
+ext_api.runtime.sendMessage({});
+
 // Content workarounds/domain
 
 if (matchDomain("thesaturdaypaper.com.au")) {
     let paywall = document.querySelector('div.paywall-hard-always-show');
     removeDOMElement(paywall);
-}
-
-// Australian Provincial Newspapers
-else if (domain = matchDomain(['news-mail.com.au', 'frasercoastchronicle.com.au', 'gladstoneobserver.com.au', 'dailyexaminer.com.au', 'dailymercury.com.au', 'themorningbulletin.com.au', 'sunshinecoastdaily.com.au', 'gympietimes.com.au', 'northernstar.com.au', 'qt.com.au', 'thechronicle.com.au', 'warwickdailynews.com.au'])) {
-    if (!cookieExists('subscribed')) {
-        setCookie('subscribed', 'true', domain, '/', 14);
-    }
 }
 
 // Australian Community Media newspapers
@@ -275,18 +297,6 @@ else if (matchDomain("economist.com")) {
             }
         }
     });
-}
-
-else if (matchDomain("bizjournals.com")) {
-        const sheet_overlay = document.querySelector('.sheet-overlay');
-        const chunk_paywall = document.querySelector('.chunk--paywall');
-        removeDOMElement(sheet_overlay, chunk_paywall);
-        const overlaids = document.querySelectorAll('.is-overlaid');
-        for (let overlaid of overlaids) {
-            overlaid.classList.remove('is-overlaid');
-        }
-        const body_hidden = document.querySelector('.js-pre-chunks__story-body');
-        body_hidden.removeAttribute('style');
 }
 
 else if (matchDomain("the-tls.co.uk")) {
@@ -694,13 +704,6 @@ else if (matchDomain('spectator.co.uk')) {
     }, 500); // Delay (in milliseconds)
 }
 
-else if (matchDomain('bostonglobe.com')) {
-    if (!cookieExists('s_fid')) {
-        let s_fid = genHexString(16) + '-' + genHexString(16);
-        setCookie('s_fid', s_fid, 'bostonglobe.com', '/', 14);
-    }
-}
-
 else if (matchDomain('historyextra.com')) {
     let article_masked = document.querySelector('.template-article__masked');
     if (article_masked) {
@@ -710,12 +713,6 @@ else if (matchDomain('historyextra.com')) {
     }
     let ad_banner = document.querySelector('.ad-banner-container');
     removeDOMElement(ad_banner);
-}
-
-else if (domain = matchDomain(['independent.ie', 'belfasttelegraph.co.uk'])) {
-    if (!cookieExists('subscriber')) {
-        setCookie('subscriber', '{"subscriptionStatus": true}', domain, '/', 14);
-    }
 }
 
 else if (matchDomain('republic.ru')) {

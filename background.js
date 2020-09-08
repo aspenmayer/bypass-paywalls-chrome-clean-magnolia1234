@@ -144,6 +144,7 @@ var blockedRegexes = {
 'americanbanker.com': /.+\.tinypass\.com\/.+/,
 'barrons.com': /cdn\.ampproject\.org\/v\d\/amp-access-.+\.js/,
 'belfasttelegraph.co.uk': /cdn\.flip-pay\.com\/clients\/inm\/flip-pay\.js/,
+'bizjournals.com': /(assets\.bizjournals\.com\/static\/js\/app\/cxense\.js|cdn\.cxense\.com)/,
 'bloomberg.com': /.+\.tinypass\.com\/.+/,
 'bostonglobe.com': /meter\.bostonglobe\.com\/js\/.+/,
 'businessinsider.com': /.+\.tinypass\.com\/.+/,
@@ -698,6 +699,26 @@ ext_api.webRequest.onCompleted.addListener(function (details) {
     });
 }, {
     urls: ["<all_urls>"]
+});
+
+ext_api.runtime.onMessage.addListener(function (message, sender) {
+    // check storage for opt in
+    ext_api.storage.sync.get("optIn", function (result) {
+        // send message back to content script with value of opt in
+        ext_api.tabs.sendMessage(
+            sender.tab.id, {
+            "optIn": (true == result.optIn)
+        });
+    });
+});
+
+// show the tab if we haven't registered the user reacting to the prompt.
+ext_api.storage.sync.get("optInShown", function (result) {
+    if (!result.optInShown) {
+        ext_api.tabs.create({
+            url: "optin/opt-in.html"
+        });
+    }
 });
 
 function isSiteEnabled(details) {
