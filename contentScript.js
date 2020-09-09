@@ -275,8 +275,9 @@ else if (matchDomain("economist.com")) {
         const subscribe = document.querySelector('.subscription-proposition');
         const wrapper = document.getElementById('bottom-page-wrapper');
         removeDOMElement(subscribe, wrapper);
-        const adverts = document.querySelectorAll('.advert');
-        removeDOMElement(...adverts);
+        const adverts = document.querySelectorAll('div.advert');
+        for (let advert of adverts)
+            advert.setAttribute('style', 'display:none');
         window.setTimeout(function () {
             const paywall = document.querySelector('.layout-article-regwall'); ;
             if (paywall) {

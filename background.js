@@ -10,6 +10,7 @@ var ext_api = (typeof browser === 'object') ? browser : chrome;
 const restrictions = {
   'barrons.com': /.+barrons\.com\/(amp\/)?article(s)?\/.+/,
   'elcomercio.pe': /.+\/elcomercio.pe\/.+((\w)+(\-)+){3,}.+/,
+  'ft.com': /.+\.ft\.com\/content\/.+/,
   'gestion.pe': /.+\/gestion.pe\/.+((\w)+(\-)+){3,}.+/,
   'quora.com': /^((?!quora\.com\/search\?q=).)*$/,
   'seekingalpha.com': /.+seekingalpha\.com\/article\/.+/,
