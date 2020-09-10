@@ -259,6 +259,7 @@
         "*://*.qiota.com/*",
         "*://*.tinypass.com/*",
         "*://*.tribdss.com/*",
+        "*://ajax.cloudflare.com/*",
         "*://*.ampproject.org/*",
         "*://*.bwbx.io/*",
         "*://*.cedsdigital.it/*",

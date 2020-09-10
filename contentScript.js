@@ -613,7 +613,7 @@ else if (matchDomain('faz.net')) {
                         article_text.innerText = '';
 
                         const breakText = (str) => {
-                            str = str.replace(/(?:^|[\w\"\“])(\.|\?|!)(?=[A-Za-zÀ-ÿ\„]{2,})/gm, "$&\n\n");
+                            str = str.replace(/(?:^|[\w\"\“])(\.|\?|!)(?=[A-Z\„][A-Za-zÀ-ÿ\„]{1,})/gm, "$&\n\n");
                             str = str.replace(/([a-z\"\“])(?=[A-Z](?=[A-Za-zÀ-ÿ]+))/gm, "$&\n\n");
                             // exceptions: names with alternating lower/uppercase (no general fix)
                             str = str.replace(/Glaxo\n\nSmith\n\nKline/g, "GlaxoSmithKline");
@@ -621,6 +621,7 @@ else if (matchDomain('faz.net')) {
                             str = str.replace(/If\n\nSG/g, "IfSG");
                             str = str.replace(/La\n\nPierre/g, "LaPierre");
                             str = str.replace(/De\n\nJoy/g, "DeJoy");
+                            str = str.replace(/m\n\nRNA/g, "mNRA");
                             return str;
                         };
 

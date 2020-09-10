@@ -214,6 +214,7 @@ var blockedRegexes = {
 'technologyreview.com': /.+\.blueconic\.net\/.+/,
 'telegraph.co.uk': /.+\.tinypass\.com\/.+/,
 'thedailybeast.com': /.+\.tinypass\.com\/.+/,
+'thehindu.com': /ajax\.cloudflare\.com\/cdn-cgi\/scripts\/.+\/cloudflare-static\/rocket-loader\.min\.js/,
 'thenation.com': /.+\.tinypass\.com\/.+/,
 'valeursactuelles.com': /.+\.qiota\.com\/.+/,
 'washingtonpost.com': /.+\.washingtonpost\.com\/dr\/resources\/dist\/washpost\/pwapi-proxy\.min\.js/,
