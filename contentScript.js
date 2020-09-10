@@ -42,7 +42,7 @@ if (matchDomain("thesaturdaypaper.com.au")) {
 
 else if (matchDomain(["theage.com.au"])) {
     let url = window.location.href;
-    let for_subscribers = document.querySelector('meta[content="FOR SUBSCRIBERS"]');
+    let for_subscribers = document.querySelector('meta[content^="FOR SUBSCRIBERS"]');
     if (for_subscribers) {
         window.setTimeout(function () {
             window.location.href = url.replace('www.', 'amp.');
