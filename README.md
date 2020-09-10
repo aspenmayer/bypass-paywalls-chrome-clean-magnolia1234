@@ -79,8 +79,6 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [Seeking Alpha](https://seekingalpha.com) -
 [The Business Journals](https://www.bizjournals.com) -
 [The Wall Street Journal](https://www.wsj.com)
-##### Sports
-[The Athletic](https://theathletic.com)
 ##### Tech/Science
 [Chemical & Engineering News](https://cen.acs.org) -
 [Chronicle of Higher Education](https://www.chronicle.com) -
@@ -212,7 +210,6 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [Financial Times](https://www.ft.com) -
 [Irish Independent](https://www.independent.ie) -
 [London Review of Books](https://www.lrb.co.uk) -
-[The Athletic UK](https://theathletic.com) -
 [The Economist](https://www.economist.com) -
 [The Irish Times](https://www.irishtimes.com) -
 [The New Statesman](https://www.newstatesman.com) -

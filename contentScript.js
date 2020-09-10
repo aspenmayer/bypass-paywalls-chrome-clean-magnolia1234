@@ -432,14 +432,6 @@ else if (matchDomain("sofrep.com")) {
     removeDOMElement(banner);
 }
 
-else if (matchDomain(["theathletic.com", "theathletic.co.uk"])) {
-    const landing_banner = document.querySelector('.logged-out-landing-banner');
-    const sample_banner = document.querySelector('.main-sample-banner');
-    const bottom_banner = document.querySelector('.border-bottom-cc');
-    const subscribe = document.querySelector('.subscribe-ad-text');
-    removeDOMElement(landing_banner, sample_banner, bottom_banner, subscribe);
-}
-
 else if (matchDomain("newstatesman.com")) {
     const tns_modal_wrapper = document.querySelector('.tns-modal-wrapper');
     removeDOMElement(tns_modal_wrapper);

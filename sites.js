@@ -145,8 +145,6 @@ var defaultSites =
   "Telegraaf": "telegraaf.nl",
   "The Age": "theage.com.au",
   "The American Interest": "the-american-interest.com",
-  "The Athletic": "theathletic.com",
-  "The Athletic UK": "theathletic.co.uk",
   "The Atlantic": "theatlantic.com",
   "The Australian Financial Review": "afr.com",
   "The Boston Globe (opt-in)": "bostonglobe.com",
