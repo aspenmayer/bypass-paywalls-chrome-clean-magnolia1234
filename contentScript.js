@@ -40,6 +40,21 @@ if (matchDomain("thesaturdaypaper.com.au")) {
     removeDOMElement(paywall);
 }
 
+else if (matchDomain(["theage.com.au"])) {
+    let url = window.location.href;
+    let for_subscribers = document.querySelector('meta[content="FOR SUBSCRIBERS"]');
+    if (for_subscribers) {
+        window.setTimeout(function () {
+            window.location.href = url.replace('www.', 'amp.');
+        }, 500); // Delay (in milliseconds)
+    } else if (url.includes('amp.theage.com.au')) {
+        let subscr_sections = document.querySelectorAll('div[subscriptions-section="content"]');
+        for (let subscr_section of subscr_sections) {
+            subscr_section.removeAttribute('subscriptions-section');
+        }
+    }
+}
+
 // Australian Community Media newspapers
 else if (window.location.hostname.endsWith(".com.au") || window.location.hostname.endsWith(".net.au")) {
     let au_sites = ['bendigoadvertiser.com.au', 'bordermail.com.au', 'canberratimes.com.au', 'centralwesterndaily.com.au', 'dailyadvertiser.com.au', 'dailyliberal.com.au', 'examiner.com.au', 'illawarramercury.com.au', 'newcastleherald.com.au', 'northerndailyleader.com.au', 'portnews.com.au', 'standard.net.au', 'theadvocate.com.au', 'thecourier.com.au', 'westernadvocate.com.au'];

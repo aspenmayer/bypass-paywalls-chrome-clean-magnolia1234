@@ -209,6 +209,7 @@ var blockedRegexes = {
 'spectator.com.au': /.+\.tinypass\.com\/.+/,
 'technologyreview.com': /.+\.blueconic\.net\/.+/,
 'telegraph.co.uk': /.+\.tinypass\.com\/.+/,
+'theage.com.au': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
 'thedailybeast.com': /.+\.tinypass\.com\/.+/,
 'thehindu.com': /ajax\.cloudflare\.com\/cdn-cgi\/scripts\/.+\/cloudflare-static\/rocket-loader\.min\.js/,
 'thenation.com': /.+\.tinypass\.com\/.+/,
