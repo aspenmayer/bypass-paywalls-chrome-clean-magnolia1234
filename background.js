@@ -461,14 +461,22 @@ if (ext_api.webRequest.OnBeforeSendHeadersOptions.hasOwnProperty('EXTRA_HEADERS'
   extraInfoSpec.push('extraHeaders');
 
 ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
+  if (details.type === 'main_frame') {
+    let current_date_str = currentDateStr();
+    if (last_date_str < current_date_str) {
+      bpc_count_daily_users(current_date_str);
+      last_date_str = current_date_str;
+    }
+  }
+
   var requestHeaders = details.requestHeaders;
 
   var header_referer = '';
   for (var n in requestHeaders) {
-	  if (requestHeaders[n].name.toLowerCase() == 'referer') {
-		  header_referer = requestHeaders[n].value;
-		  continue;
-	  }
+    if (requestHeaders[n].name.toLowerCase() == 'referer') {
+      header_referer = requestHeaders[n].value;
+      continue;
+    }
   }
   // fix brave browser
   if (!details.originUrl && !header_referer.includes(details.initiator))
