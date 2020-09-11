@@ -40,14 +40,14 @@ if (matchDomain("thesaturdaypaper.com.au")) {
     removeDOMElement(paywall);
 }
 
-else if (matchDomain(["theage.com.au"])) {
+else if (domain = matchDomain(["brisbanetimes.com.au", "smh.com.au", "theage.com.au", "watoday.com.au"])) {
     let url = window.location.href;
     let for_subscribers = document.querySelector('meta[content^="FOR SUBSCRIBERS"]');
     if (for_subscribers) {
         window.setTimeout(function () {
             window.location.href = url.replace('www.', 'amp.');
         }, 500); // Delay (in milliseconds)
-    } else if (url.includes('amp.theage.com.au')) {
+    } else if (url.includes('amp.' + domain)) {
         let subscr_sections = document.querySelectorAll('div[subscriptions-section="content"]');
         for (let subscr_section of subscr_sections) {
             subscr_section.removeAttribute('subscriptions-section');

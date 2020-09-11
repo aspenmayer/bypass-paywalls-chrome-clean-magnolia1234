@@ -144,6 +144,7 @@ var blockedRegexes = {
 'bizjournals.com': /(assets\.bizjournals\.com\/static\/js\/app\/cxense\.js|cdn\.cxense\.com)/,
 'bloomberg.com': /.+\.tinypass\.com\/.+/,
 'bostonglobe.com': /meter\.bostonglobe\.com\/js\/.+/,
+'brisbanetimes.com.au': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
 'businessinsider.com': /.+\.tinypass\.com\/.+/,
 'challenges.fr': /.+\.poool\.fr\/.+/,
 'charliehebdo.fr': /.+\.poool\.fr\/.+/,
@@ -205,6 +206,7 @@ var blockedRegexes = {
 'scmp.com': /.+\.tinypass\.com\/.+/,
 'sfchronicle.com': /.+\.blueconic\.net\/.+/,
 'sloanreview.mit.edu': /(.+\.tinypass\.com\/.+|.+\.netdna-ssl\.com\/wp-content\/themes\/smr\/assets\/js\/libs\/welcome-ad\.js)/,
+'smh.com.au': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
 'spectator.co.uk': /.+\.tinypass\.com\/.+/,
 'spectator.com.au': /.+\.tinypass\.com\/.+/,
 'technologyreview.com': /.+\.blueconic\.net\/.+/,
@@ -215,6 +217,7 @@ var blockedRegexes = {
 'thenation.com': /.+\.tinypass\.com\/.+/,
 'valeursactuelles.com': /.+\.qiota\.com\/.+/,
 'washingtonpost.com': /.+\.washingtonpost\.com\/dr\/resources\/dist\/washpost\/pwapi-proxy\.min\.js/,
+'watoday.com.au': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
 'wsj.com': /(cdn\.ampproject\.org\/v\d\/amp-access-.+\.js|cdn\.cxense\.com)/
 };
 
