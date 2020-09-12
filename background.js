@@ -12,6 +12,7 @@ const restrictions = {
   'elcomercio.pe': /.+\/elcomercio.pe\/.+((\w)+(\-)+){3,}.+/,
   'ft.com': /.+\.ft\.com\/content\/.+/,
   'gestion.pe': /.+\/gestion.pe\/.+((\w)+(\-)+){3,}.+/,
+  'nknews.org': /^((?!\.nknews\.org\/pro\/).)*$/,
   'quora.com': /^((?!quora\.com\/search\?q=).)*$/,
   'seekingalpha.com': /.+seekingalpha\.com\/article\/.+/,
   'wsj.com': /^((?!\/cn\.wsj\.com\/).)*$/
@@ -55,6 +56,7 @@ var allow_cookies = [
 'nationalgeographic.com',
 'nationalreview.com',
 'newrepublic.com',
+'nknews.org',
 'noordhollandsdagblad.nl',
 'nytimes.com',
 'nzz.ch',
@@ -197,6 +199,7 @@ var blockedRegexes = {
 'newrepublic.com': /.+\.onecount\.net\/js\/.+/,
 'newsweek.com': /.+\.googletagmanager\.com\/gtm\.js/,
 'newyorker.com': /.+\.newyorker\.com\/verso\/static\/presenter-articles.+\.js/,
+'nknews.org': /.+\.nknews\.org\/wp-content\/plugins\/leaky-paywall-ajax\/js\/leaky-paywall-ajax\.js/,
 'nytimes.com': /(.+meter-svc\.nytimes\.com\/meter\.js.+|.+mwcm\.nyt\.com\/.+\.js)/,
 'nzherald.co.nz': /nzherald\.co\.nz\/.+\/headjs\/.+\.js/,
 'repubblica.it': /scripts\.repubblica\.it\/pw\/pw\.js.+/,

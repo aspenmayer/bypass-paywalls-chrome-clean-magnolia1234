@@ -3,7 +3,7 @@ var ext_api = (typeof browser === 'object') ? browser : chrome;
 var domain;
 
 // clean local storage of sites (with an exemption for hold-list)
-var arr_localstorage_hold = ['seekingalpha.com', 'sfchronicle.com'];
+var arr_localstorage_hold = ['nknews.org', 'seekingalpha.com', 'sfchronicle.com'];
 if (!matchDomain(arr_localstorage_hold)){
     window.localStorage.clear();
 }
@@ -1056,6 +1056,15 @@ else if (domain = matchDomain(["fresnobee.com", "sacbee.com"])) {
     }
 }
 
+else if (matchDomain("nknews.org")) {
+    let full_content = document.querySelector('div#fullContent');
+    if (full_content)
+        full_content.removeAttribute('style');
+    let excerpt = document.querySelector('div#excerptContent');
+    let mobile_widget = document.querySelector('div.mobile-widget');
+    removeDOMElement(excerpt, mobile_widget);
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {
@@ -1092,13 +1101,14 @@ function setCookie(name, value, domain, path, days) {
     document.cookie = name + "=" + (value || "") + "; domain=" + domain + "; path=" + path + "; max-age=" + max_age;
 }
 
-function insert_script(func) {
+function insert_script(func, insertAfterDom) {
     let bpc_script = document.querySelector('script#bpc_script');
     if (!bpc_script) {
         let script = document.createElement('script');
         script.setAttribute('id', 'bpc_script');
         script.appendChild(document.createTextNode('(' + func + ')();'));
-        (document.body || document.head || document.documentElement).appendChild(script);
+        let insertAfter = insertAfterDom ? insertAfterDom : (document.body || document.head || document.documentElement);
+        insertAfter.appendChild(script);
     }
 }
 

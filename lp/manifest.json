@@ -167,6 +167,7 @@
         "*://*.newstatesman.com/*",
         "*://*.newsweek.com/*",
         "*://*.newyorker.com/*",
+        "*://*.nknews.org/*",
         "*://*.noordhollandsdagblad.nl/*",
         "*://*.northerndailyleader.com.au/*",
         "*://*.northernstar.com.au/*",
@@ -291,5 +292,5 @@
         "webRequest",
         "webRequestBlocking"
     ],
-	"version": "1.8.4.3"
+	"version": "1.8.4.4"
 }
