@@ -26,6 +26,7 @@ var defaultSites =
   "Chicago Tribune": "chicagotribune.com",
   "Chronicle of Higher Education": "chronicle.com",
   "Clarín": "clarin.com",
+  "Commentary Magazine": "commentarymagazine.com",
   "CommonWealth Magazine Taiwan": "cw.com.tw",
   "Corriere Della Sera": "corriere.it",
   "Crain's Chicago Business": "chicagobusiness.com",

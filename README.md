@@ -20,7 +20,8 @@ The following instructions are needed to install third-party extensions in [Chro
 4. Go to the extensions page (`chrome://extensions` or `edge://extensions`).
 5. Enable Developer Mode.
 6. Click `Load unpacked` and select the extension folder.  
-* in Chrome/Opera/Brave disable the developer mode extensions popup by enabling the extensions toolbar menu under (experimental) chrome flags: chrome://flags/#extensions-toolbar-menu
+* in Chrome/Opera/Brave disable the developer mode extensions popup by enabling the extensions toolbar menu under (experimental) chrome flags: chrome://flags/#extensions-toolbar-menu  
+If you're familiar with Git(Hub)-clients you can also clone this repo and update the extension that way (load unpacked folder used by Git(Hub)-client).
 
 #### Other Chromium browsers (Opera/Vivaldi)
 1. Download the extension as a .crx file from the [download page](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/downloads).
@@ -30,7 +31,7 @@ The following instructions are needed to install third-party extensions in [Chro
 5. If dragging crx does not work, try Chrome procedure (above).
 
 #### Android
-1. Install [Yandex Browser](https://play.google.com/store/apps/details?id=com.yandex.browser&hl=en) from the Google PlayStore (Bypass Paywalls Clean doesn't work completely with Kiwi Browser).
+1. Install [Yandex Browser](https://play.google.com/store/apps/details?id=com.yandex.browser&hl=en) from the Google PlayStore (Bypass Paywalls Clean doesn't work completely with Kiwi Browser; new Kiwi release expected).
 2. Follow Chrome instructions located just above (step 6: pick `manifest.json` instead of the folder).
 
 #### Firefox
@@ -100,8 +101,9 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [Scribd](http://www.scribd.com) -
 [Slader](https://www.slader.com) -
 [Statista](https://www.statista.com)
-##### Blogs
+##### Magazines/Blogs
 [Atavist Magazine](https://magazine.atavist.com) -
+[Commentary Magazine](https://www.commentarymagazine.com) -
 [Medium](https://www.medium.com) (all sites) -
 [SofRep](https://sofrep.com) -
 [The Daily Beast](https://www.thedailybeast.com)*
