@@ -1,6 +1,18 @@
 
 Changelog Bypass Paywalls Clean - Chrome
 
+* v1.8.5.0 (2020-09-13)
+Add Commentary Magazine
+Add NK News (free articles only)
+Remove Switzer Report (obsolete)
+Remove The Athletic (obsolete)
+Fix-update Economist (layout)
+Fix-update Financial Times (layout)
+Fix-update Brisbane Times, Sydney Morning Herald, The Age & WAtoday
+Fix-update The Hindu
+Add opt-in for setCookie (for specific sites)
+Update daily users counter (on page)
+
 * v1.8.4.0 (2020-09-06)
 Add Fresno Bee (USA)
 Fix-update Bloomberg

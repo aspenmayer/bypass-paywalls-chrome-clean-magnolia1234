@@ -12,7 +12,7 @@
 ### Installation instructions
 Due to [Google internal policy](https://developer.chrome.com/webstore/program_policies), the extension is not available on the Chrome Web Store.  
 The following instructions are needed to install third-party extensions in [Chromium](https://en.wikipedia.org/wiki/Chromium_(web_browser))-based browsers:
-#### Chrome (Windows, MacOS, Linux), Microsoft Edge (version 79)/Brave/Yandex
+#### Chrome (Windows, MacOS, Linux), Microsoft Edge (Chromium)/Brave/Yandex
 1. Download this repository as a [ZIP file from BitBucket](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/get/master.zip).
 2. Unzip the file and you should have a folder named `magnolia1234-bypass-paywalls-chrome-clean-master`.
 3. Move the folder to a permanent location on your computer (do not delete the folder after installation).  
@@ -21,6 +21,7 @@ The following instructions are needed to install third-party extensions in [Chro
 5. Enable Developer Mode.
 6. Click `Load unpacked` and select the extension folder.  
 * in Chrome/Opera/Brave disable the developer mode extensions popup by enabling the extensions toolbar menu under (experimental) chrome flags: chrome://flags/#extensions-toolbar-menu  
+  
 If you're familiar with Git(Hub)-clients you can also clone this repo and update the extension that way (load unpacked folder used by Git(Hub)-client).
 
 #### Other Chromium browsers (Opera/Vivaldi)
