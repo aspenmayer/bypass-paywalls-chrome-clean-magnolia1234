@@ -141,7 +141,6 @@ var defaultSites =
   "Statista": "statista.com",
   "Süddeutsche Zeitung": "sueddeutsche.de",
   "SunSentinel": "sun-sentinel.com",
-  "Switzer Report": "switzersuperreport.com.au",
   "Tech in Asia": "techinasia.com",
   "Telegraaf": "telegraaf.nl",
   "The Age": "theage.com.au",

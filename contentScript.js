@@ -629,6 +629,7 @@ else if (matchDomain('faz.net')) {
                             str = str.replace(/La\n\nPierre/g, "LaPierre");
                             str = str.replace(/De\n\nJoy/g, "DeJoy");
                             str = str.replace(/m\n\nRNA/g, "mNRA");
+                            str = str.replace(/Mc\n\nCarthy/g, "McCarthy");
                             return str;
                         };
 

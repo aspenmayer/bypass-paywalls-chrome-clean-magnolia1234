@@ -163,8 +163,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 ##### > Financial
 
 [Eureka Report](https://www.eurekareport.com.au) -
-[Intelligent Investor](https://www.intelligentinvestor.com.au) -
-[Switzer Report](https://switzersuperreport.com.au)
+[Intelligent Investor](https://www.intelligentinvestor.com.au)
 
 ##### > Australian Community Media
 [Bendigo Advertiser](https://www.bendigoadvertiser.com.au) -
