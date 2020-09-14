@@ -1,6 +1,11 @@
 
 Changelog Bypass Paywalls Clean - Chrome
 
+* v1.8.6.0 (2020-09-14)
+Add Star Tribune
+Fix-update FT.com (layout)
+Fix contentScript in background tab
+
 * v1.8.5.0 (2020-09-13)
 Add Commentary Magazine
 Add NK News (free articles only)
