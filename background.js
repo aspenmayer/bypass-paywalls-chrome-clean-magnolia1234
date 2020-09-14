@@ -47,6 +47,7 @@ var allow_cookies = [
 'intelligentinvestor.com.au',
 'knack.be',
 'lc.nl',
+'lesechos.fr',
 'lesoir.be',
 'limesonline.com',
 'lrb.co.uk',
@@ -591,24 +592,38 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
     });
   }
 
-  ext_api.tabs.query({
-    active: true,
-    currentWindow: true
-  }, function (tabs) {
-    if (tabs.length > 0 && tabs[0].url && tabs[0].url.indexOf("http") !== -1) {
-      if (isSiteEnabled({url: tabs[0].url}) || medium_custom_domain) {
-        // run contentScript inside tab
-        ext_api.tabs.executeScript({
-          file: 'contentScript.js',
-          runAt: 'document_start'
+  if (tabId !== -1) {
+    ext_api.tabs.get(tabId, function (currentTab) {
+      if (isSiteEnabled(currentTab) || medium_custom_domain) {
+        ext_api.tabs.executeScript(tabId, {
+           file: 'contentScript.js',
+           runAt: 'document_start'
         }, function (res) {
-          if (ext_api.runtime.lastError || res[0]) {
-            return;
-          }
-        });
+           if (ext_api.runtime.lastError || res[0]) {
+             return;
+           }
+         });
+       }
+    });
+  } else {//mercuriovalpo.cl
+    ext_api.tabs.query({
+      active: true,
+      currentWindow: true
+    }, function (tabs) {
+      if (tabs.length > 0 && tabs[0].url && tabs[0].url.indexOf("http") !== -1) {
+        if (isSiteEnabled({url: tabs[0].url}) || medium_custom_domain) {
+          ext_api.tabs.executeScript({
+            file: 'contentScript.js',
+            runAt: 'document_start'
+          }, function (res) {
+            if (ext_api.runtime.lastError || res[0]) {
+              return;
+            }
+          });
+        }
       }
-    }
-  });
+    });
+  }
 
   return { requestHeaders: requestHeaders };
 }, {
