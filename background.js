@@ -10,7 +10,6 @@ var ext_api = (typeof browser === 'object') ? browser : chrome;
 const restrictions = {
   'barrons.com': /.+barrons\.com\/(amp\/)?article(s)?\/.+/,
   'elcomercio.pe': /.+\/elcomercio.pe\/.+((\w)+(\-)+){3,}.+/,
-  'ft.com': /.+\.ft\.com\/content\/.+/,
   'gestion.pe': /.+\/gestion.pe\/.+((\w)+(\-)+){3,}.+/,
   'nknews.org': /^((?!\.nknews\.org\/pro\/).)*$/,
   'quora.com': /^((?!quora\.com\/search\?q=).)*$/,
@@ -166,7 +165,6 @@ var blockedRegexes = {
 'globo.com': /.+\.tinypass\.com\/.+/,
 'foreignpolicy.com': /.+\.tinypass\.com\/.+/,
 'fortune.com':  /.+\.tinypass\.com\/.+/,
-'ft.com': /.+\.ft\.com\/__assets\/hashed\/page-kit\/shared\.volatile\..+\.bundle\.js/,
 'ftm.nl': /.+\.ftm\.nl\/js\/routing\?/,
 'fresnobee.com': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
 'gestion.pe': /gestion\.pe\/pf\/dist\/template\/gestion-noticia.+\.js/,
