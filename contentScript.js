@@ -1066,6 +1066,17 @@ else if (matchDomain("nknews.org")) {
     removeDOMElement(excerpt, mobile_widget);
 }
 
+else if (matchDomain("startribune.com")) {
+    document.addEventListener('DOMContentLoaded', () => {
+        let react_modal_portal = document.querySelectorAll('div.ReactModalPortal');
+        removeDOMElement(...react_modal_portal);
+        let body_modal = document.querySelector('body.ReactModal__Body--open');
+        if (body_modal)
+            body_modal.classList.remove('ReactModal__Body--open');
+    });
+}
+
+ReactModalPortal
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {

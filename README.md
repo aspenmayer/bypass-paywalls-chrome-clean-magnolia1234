@@ -126,6 +126,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [Pittsburgh Post Gazette](https://post-gazette.com) -
 [San Diego Union Tribune](https://sandiegouniontribune.com) -
 [San Francisco Chronicle](https://www.sfchronicle.com) -
+[Star Tribune](https://www.startribune.com) -
 [SunSentinel](https://www.sun-sentinel.com) -
 [The Boston Globe](https://www.bostonglobe.com) -
 [The Denver Post](https://www.denverpost.com) -

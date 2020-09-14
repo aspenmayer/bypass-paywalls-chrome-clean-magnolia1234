@@ -139,6 +139,7 @@ var defaultSites =
   "Slader": "slader.com",
   "SOFREP": "sofrep.com",
   "South China Morning Post": "scmp.com",
+  "Star Tribune": "startribune.com",
   "Statista": "statista.com",
   "Süddeutsche Zeitung": "sueddeutsche.de",
   "SunSentinel": "sun-sentinel.com",
