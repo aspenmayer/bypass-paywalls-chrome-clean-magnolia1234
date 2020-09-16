@@ -241,6 +241,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [Süddeutsche Zeitung](https://www.sueddeutsche.de)
 ##### Italy
 [Corriere Della Sera](https://www.corriere.it) -
+[Domani](https://editorialedomani.it) -
 [Il Fatto Quotidiano](https://www.ilfattoquotidiano.it) -
 [Il Manifesto](https://ilmanifesto.it) -
 [Il Messaggero](https://www.ilmessaggero.it) -

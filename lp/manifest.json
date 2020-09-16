@@ -76,6 +76,7 @@
         "*://*.dn.se/*",
         "*://*.dvhn.nl/*",
         "*://*.economist.com/*",
+        "*://*.editorialedomani.it/*",
         "*://*.elcomercio.pe/*",
         "*://*.elmercurio.com/*",
         "*://*.elmundo.es/*",
@@ -293,5 +294,5 @@
         "webRequest",
         "webRequestBlocking"
     ],
-	"version": "1.8.6.0"
+	"version": "1.8.6.1"
 }

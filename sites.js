@@ -39,6 +39,7 @@ var defaultSites =
   "Diario Financiero": "df.cl",
   "Digiday": "digiday.com",
   "Discover Magazine": "discovermagazine.com",
+  "Domani": "editorialedomani.it",
   "El Comercio": "elcomercio.pe",
   "El Mercurio": "elmercurio.com",
   "El Mercurio de Valparaíso": "mercuriovalpo.cl",
