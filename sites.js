@@ -152,6 +152,7 @@ var defaultSites =
   "The Australian Financial Review": "afr.com",
   "The Boston Globe (opt-in)": "bostonglobe.com",
   "The Business Journals": "bizjournals.com",
+  "The Business Times": "businesstimes.com.sg",
   "The Christian Science Monitor": "csmonitor.com",
   "The Daily Beast (free articles only)": "thedailybeast.com",
   "The Denver Post": "denverpost.com",

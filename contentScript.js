@@ -1076,7 +1076,19 @@ else if (matchDomain("startribune.com")) {
     });
 }
 
-ReactModalPortal
+else if (domain = matchDomain("businesstimes.com.sg")) {
+    let url = window.location.href;
+    let paywall_login = document.querySelector('div.paywall-login');
+    if (paywall_login) {
+        window.setTimeout(function () {
+            window.location.href = url + '?amp';
+        }, 500); // Delay (in milliseconds)
+    }
+    let cx_custom = document.querySelector('div#cx_custom');
+    if (cx_custom)
+        cx_custom.setAttribute('style', 'display:none');
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {

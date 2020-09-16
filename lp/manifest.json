@@ -6,7 +6,7 @@
 	"browser_action": {
 		"default_popup": "popup.html"
 	},
-	"description": "Bypass News Sites' Paywalls",
+	"description": "Bypass Paywalls of news sites",
 	"homepage_url": "https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/src/master/README.md",
 	"icons": {
 		"128": "bypass.png"
@@ -45,6 +45,7 @@
         "*://*.britannica.com/*",
         "*://*.business-standard.com/*",
         "*://*.businessinsider.com/*",
+        "*://*.businesstimes.com.sg/*",
         "*://*.cairnspost.com.au/*",
         "*://*.caixinglobal.com/*",
         "*://*.canberratimes.com.au/*",
@@ -294,5 +295,5 @@
         "webRequest",
         "webRequestBlocking"
     ],
-	"version": "1.8.6.1"
+	"version": "1.8.6.2"
 }

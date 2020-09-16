@@ -18,7 +18,7 @@ fetch(manifest_new)
                     versionString_new.appendChild(document.createTextNode(' * '));
                     var anchorEl = document.createElement('a');
                     anchorEl.text = 'New release v' + version_new;
-                    anchorEl.href = 'https://bitbucket.org/magnolia1234/bypass-paywalls-firefox-clean/downloads';
+                    anchorEl.href = 'https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/downloads';
                     anchorEl.target = '_blank';
                     versionString_new.appendChild(anchorEl);
                 }
