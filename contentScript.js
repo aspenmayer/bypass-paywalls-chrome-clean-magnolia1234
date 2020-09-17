@@ -375,6 +375,12 @@ else if (matchDomain("technologyreview.com")) {
         let overlay = document.querySelector('div[class*="overlayFooter__wrapper"]');
         if (overlay)
             overlay.setAttribute('style', 'display:none');
+        let content_body_hidden = document.querySelector('div[class*="contentBody__contentHidden"]');
+        if (content_body_hidden)
+            removeClassesByPrefix(content_body_hidden, 'contentBody__contentHidden');
+        let content_body_overlay = document.querySelector('div[class*="contentBody__overlay"]');
+        if (content_body_overlay)
+            content_body_overlay.removeAttribute('class');
     }, 500);
 }
 
