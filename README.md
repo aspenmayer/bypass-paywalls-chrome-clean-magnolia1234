@@ -47,6 +47,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 * You will be logged out for most of the sites you have checked.
 
 ### List of supported websites
+
 ##### World news
 [First Things](https://www.firstthings.com) -
 [Foreign Policy](https://www.foreignpolicy.com) -
@@ -62,8 +63,8 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [The New York Times](https://www.nytimes.com) -
 [The New Yorker](https://www.newyorker.com) -
 [The Washington Post](https://www.washingtonpost.com) -
-[Vanity Fair](https://www.vanityfair.com) -
 [World Politics Review](https://www.worldpoliticsreview.com)
+
 ##### Business
 [Adweek](https://www.adweek.com) -
 [American Affairs](https://americanaffairsjournal.org) -
@@ -81,6 +82,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [Seeking Alpha](https://seekingalpha.com) -
 [The Business Journals](https://www.bizjournals.com) -
 [The Wall Street Journal](https://www.wsj.com)
+
 ##### Tech/Science
 [Chemical & Engineering News](https://cen.acs.org) -
 [Chronicle of Higher Education](https://www.chronicle.com) -
@@ -92,6 +94,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [Towards Data Science](https://www.towardsdatascience.com) -
 [Wired](https://www.wired.com) -
 [Scientific American](https://www.scientificamerican.com)*
+
 #### Encyclopedia/Book library/Knowledge base
 [BBC History Extra](https://www.historyextra.com) -
 [Encyclopedia Britannica](https://www.britannica.com) -
@@ -102,12 +105,15 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [Scribd](http://www.scribd.com) -
 [Slader](https://www.slader.com) -
 [Statista](https://www.statista.com)
+
 ##### Magazines/Blogs
 [Atavist Magazine](https://magazine.atavist.com) -
 [Commentary Magazine](https://www.commentarymagazine.com) -
 [Medium](https://www.medium.com) (all sites) -
 [SofRep](https://sofrep.com) -
-[The Daily Beast](https://www.thedailybeast.com)*
+[The Daily Beast](https://www.thedailybeast.com)* -
+[Vanity Fair](https://www.vanityfair.com) -
+[Variety](https://variety.com)
 
 ##### Local USA news
 [Baltimore Sun](https://www.baltimoresun.com) -

@@ -72,6 +72,7 @@ var allow_cookies = [
 'thehindu.com',
 'themarker.com',
 'trouw.nl',
+'variety.com',
 'volkskrant.nl',
 'washingtonpost.com',
 'worldpoliticsreview.com',
@@ -221,6 +222,7 @@ var blockedRegexes = {
 'thehindu.com': /ajax\.cloudflare\.com\/cdn-cgi\/scripts\/.+\/cloudflare-static\/rocket-loader\.min\.js/,
 'thenation.com': /.+\.tinypass\.com\/.+/,
 'valeursactuelles.com': /.+\.qiota\.com\/.+/,
+'variety.com': /cdn\.cxense\.com/,
 'washingtonpost.com': /.+\.washingtonpost\.com\/dr\/resources\/dist\/washpost\/pwapi-proxy\.min\.js/,
 'watoday.com.au': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
 'wsj.com': /(cdn\.ampproject\.org\/v\d\/amp-access-.+\.js|cdn\.cxense\.com)/

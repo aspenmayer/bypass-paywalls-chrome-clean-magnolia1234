@@ -189,6 +189,7 @@ var defaultSites =
   "Trouw": "trouw.nl",
   "Valeurs Actuelles": "valeursactuelles.com",
   "Vanity Fair": "vanityfair.com",
+  "Variety": "variety.com",
   "Volkskrant": "volkskrant.nl",
   "Vrij Nederland": "vn.nl",
   "WAtoday": "watoday.com.au",

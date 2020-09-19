@@ -243,6 +243,7 @@
         "*://*.trouw.nl/*",
         "*://*.valeursactuelles.com/*",
         "*://*.vanityfair.com/*",
+        "*://*.variety.com/*",
         "*://*.vn.nl/*",
         "*://*.volkskrant.nl/*",
         "*://*.warwickdailynews.com.au/*",
@@ -295,5 +296,5 @@
         "webRequest",
         "webRequestBlocking"
     ],
-	"version": "1.8.6.2"
+	"version": "1.8.6.3"
 }
