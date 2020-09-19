@@ -217,6 +217,7 @@ var blockedRegexes = {
 'telegraph.co.uk': /.+\.tinypass\.com\/.+/,
 'theage.com.au': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
 'thedailybeast.com': /.+\.tinypass\.com\/.+/,
+'theglobeandmail.com': /theglobeandmail\.com\/pb\/resources\/scripts\/build\/chunk-common-vendor.+\.js/,
 'thehindu.com': /ajax\.cloudflare\.com\/cdn-cgi\/scripts\/.+\/cloudflare-static\/rocket-loader\.min\.js/,
 'thenation.com': /.+\.tinypass\.com\/.+/,
 'valeursactuelles.com': /.+\.qiota\.com\/.+/,
@@ -517,8 +518,12 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   // check for blocked regular expression: domain enabled, match regex, block on an internal or external regex
   var blockedDomains = Object.keys(blockedRegexes);
   var domain = matchUrlDomain(blockedDomains, header_referer);
+  var block_regex = true;
   if (domain && details.url.match(blockedRegexes[domain]) && isSiteEnabled({url: header_referer})) {
-    return { cancel: true };
+    if (domain === 'theglobeandmail.com' && !(header_referer.includes('?ref=premium')))
+      block_regex = false;
+    if (block_regex)
+      return { cancel: true };
   }
 
   let inkl_site = (matchUrlDomain('cdn.jsdelivr.net', details.url) && matchUrlDomain('inkl.com', header_referer) && isSiteEnabled({url: header_referer}));

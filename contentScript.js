@@ -430,18 +430,32 @@ else if (matchDomain("afr.com")) {
 }
 
 else if (matchDomain("theglobeandmail.com")) {
-    document.addEventListener('DOMContentLoaded', () => {
     let subscribed = document.querySelector('html.story-subscribed');
     if (subscribed && !window.location.href.includes('?ref=premium')) {
         window.setTimeout(function () {
             window.location.href = new URL(window.location.href).pathname + '?ref=premium';
         }, 100);
     }
-    });
+    let lazy_images = document.querySelectorAll('.js-lazyimage');
+    for (let lazy_image of lazy_images) {
+        lazy_image.classList.remove('js-lazyimage');
+    }
+    let hidden_images = document.querySelectorAll('img');
+    for (let hidden_image of hidden_images) {
+        var src = hidden_image.src;
+        if (src.includes("data:image/gif")) {
+            var data_src = hidden_image.getAttribute("data-src");
+            if (data_src)
+                hidden_image.setAttribute('src', data_src);
+            var data_bg = hidden_image.getAttribute("data-bg");
+            if (data_bg)
+                hidden_image.setAttribute('src', data_bg);
+        }
+    }
     let c_cards = document.querySelectorAll('div.c-card');
-    for (c_card of c_cards) {
+    for (let c_card of c_cards) {
         var a_link = c_card.querySelector('a');
-		var subscr_key = c_card.querySelector('span.c-indicator-icon--key');
+        var subscr_key = c_card.querySelector('span.c-indicator-icon--key');
         if (subscr_key && a_link && !a_link.href.includes('?ref=premium')) {
             a_link.href = a_link.href + '?ref=premium';
         }
@@ -827,7 +841,7 @@ else if (matchDomain('ilfattoquotidiano.it')) {
 else if (matchDomain('qz.com')) {
     window.setTimeout(function () {
         if (pageContains('._33dc2 h2', 'Become a member, and we promise').length)
-            document.location.reload(true);
+            window.location.reload(true);
     }, 500); // Delay (in milliseconds)
 }
 
