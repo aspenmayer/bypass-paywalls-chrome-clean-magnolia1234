@@ -218,7 +218,6 @@ var blockedRegexes = {
 'telegraph.co.uk': /.+\.tinypass\.com\/.+/,
 'theage.com.au': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
 'thedailybeast.com': /.+\.tinypass\.com\/.+/,
-'theglobeandmail.com': /theglobeandmail\.com\/pb\/resources\/scripts\/build\/chunk-common-vendor.+\.js/,
 'thehindu.com': /ajax\.cloudflare\.com\/cdn-cgi\/scripts\/.+\/cloudflare-static\/rocket-loader\.min\.js/,
 'thenation.com': /.+\.tinypass\.com\/.+/,
 'valeursactuelles.com': /.+\.qiota\.com\/.+/,
@@ -522,8 +521,6 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   var domain = matchUrlDomain(blockedDomains, header_referer);
   var block_regex = true;
   if (domain && details.url.match(blockedRegexes[domain]) && isSiteEnabled({url: header_referer})) {
-    if (domain === 'theglobeandmail.com' && !(header_referer.includes('?ref=premium')))
-      block_regex = false;
     if (block_regex)
       return { cancel: true };
   }
