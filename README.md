@@ -32,7 +32,7 @@ If you're familiar with Git(Hub)-clients you can also clone this repo and update
 5. If dragging crx does not work, try Chrome procedure (above).
 
 #### Android
-1. Install [Yandex Browser](https://play.google.com/store/apps/details?id=com.yandex.browser&hl=en) from the Google PlayStore (Bypass Paywalls Clean doesn't work completely with Kiwi Browser; new Kiwi release expected).
+1. Install [Kiwi Browser](https://play.google.com/store/apps/details?id=com.kiwibrowser.browser&hl=nl) or [Yandex Browser](https://play.google.com/store/apps/details?id=com.yandex.browser&hl=en) from the Google PlayStore.
 2. Follow Chrome instructions located just above (step 6: pick `manifest.json` instead of the folder).
 
 #### Firefox
