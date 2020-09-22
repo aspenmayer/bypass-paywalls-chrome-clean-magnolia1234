@@ -1087,6 +1087,21 @@ else if (domain = matchDomain("businesstimes.com.sg")) {
         cx_custom.setAttribute('style', 'display:none');
 }
 
+else if (matchDomain("nationalreview.com")) {
+    document.addEventListener('DOMContentLoaded', () => {
+        let url = window.location.href;
+        let article_truncated = document.querySelector('div#article-content-truncate-wrap');
+        window.setTimeout(function () {
+            if (article_truncated && !url.includes('/amp/')) {
+                if (url.includes('?'))
+                    window.location.href = url.replace('?', 'amp/?')
+                else
+                    window.location.href = url + 'amp';
+            }
+        }, 500); // Delay (in milliseconds)
+    });
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {

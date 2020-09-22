@@ -197,7 +197,7 @@ var blockedRegexes = {
 'mercuriovalpo.cl': /(.+\.mercuriovalpo\.cl\/impresa\/wp-content\/themes\/papel-digital-2019-desktop\/assets\/(vendor|\d)\.js|pram\.pasedigital\.cl\/API\/User\/Status\?)/,
 'modernhealthcare.com': /.+\.tinypass\.com\/.+/,
 'nationalgeographic.com': /.+\.blueconic\.net\/.+/,
-'nationalreview.com': /.+\.blueconic\.net\/.+/,
+'nationalreview.com': /(.+\.blueconic\.net\/.+|cdn\.ampproject\.org\/v\d\/amp-access-.+\.js)/,
 'newrepublic.com': /.+\.onecount\.net\/js\/.+/,
 'newsweek.com': /.+\.googletagmanager\.com\/gtm\.js/,
 'newyorker.com': /.+\.newyorker\.com\/verso\/static\/presenter-articles.+\.js/,
