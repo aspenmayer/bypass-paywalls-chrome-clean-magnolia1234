@@ -254,6 +254,7 @@
         "*://*.wired.com/*",
         "*://*.worldpoliticsreview.com/*",
         "*://*.wsj.com/*",
+        "*://*.zeit.de/*",
         "*://*.blueconic.net/*",
         "*://*.matheranalytics.com/*",
         "*://*.onecount.net/*",
@@ -296,5 +297,5 @@
         "webRequest",
         "webRequestBlocking"
     ],
-	"version": "1.8.7.1"
+	"version": "1.8.7.2"
 }

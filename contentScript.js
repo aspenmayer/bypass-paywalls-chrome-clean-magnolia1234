@@ -249,8 +249,11 @@ else if (matchDomain("bloombergquint.com")) {
 }
 
 else if (matchDomain(["medium.com", "towardsdatascience.com"])) {
-    let meter = document.querySelector('#lo-highlight-meter-1-highlight-box');
-    removeDOMElement(meter);
+    window.setTimeout(function () {
+        let meter = document.querySelector('[id^="lo-highlight-meter-"]');
+        if (meter)
+            meter.hidden = true;
+    }, 500); // Delay (in milliseconds)
 }
 
 else if (matchDomain("ledevoir.com")) {
@@ -624,10 +627,12 @@ else if (matchDomain('faz.net')) {
                             str = str.replace(/Glaxo\n\nSmith\n\nKline/g, "GlaxoSmithKline");
                             str = str.replace(/Eu\n\nGH/g, "EuGH");
                             str = str.replace(/If\n\nSG/g, "IfSG");
-                            str = str.replace(/La\n\nPierre/g, "LaPierre");
-                            str = str.replace(/De\n\nJoy/g, "DeJoy");
                             str = str.replace(/m\n\nRNA/g, "mNRA");
-                            str = str.replace(/Mc\n\nCarthy/g, "McCarthy");
+                            str = str.replace(/St\n\nVO/g, "StVO");
+                            str = str.replace(/De\n\n([A-Z])/g, "De$1");
+                            str = str.replace(/La\n\n([A-Z])/g, "La$1");
+                            str = str.replace(/Le\n\n([A-Z])/g, "Le$1");
+                            str = str.replace(/Mc\n\n([A-Z])/g, "Mc$1");
                             return str;
                         };
 

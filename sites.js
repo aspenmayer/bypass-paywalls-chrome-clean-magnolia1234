@@ -37,6 +37,7 @@ var defaultSites =
   "De Tijd": "tijd.be",
   "DeMorgen": "demorgen.be",
   "Diario Financiero": "df.cl",
+  "Die Zeit": "zeit.de",
   "Digiday": "digiday.com",
   "Discover Magazine": "discovermagazine.com",
   "Domani": "editorialedomani.it",

@@ -9,6 +9,7 @@ var ext_api = (typeof browser === 'object') ? browser : chrome;
 
 const restrictions = {
   'barrons.com': /.+barrons\.com\/(amp\/)?article(s)?\/.+/,
+  'bloombergquint.com': /^((?!\.bloombergquint\.com\/bq-blue-exclusive\/).)*$/,
   'elcomercio.pe': /.+\/elcomercio.pe\/.+((\w)+(\-)+){3,}.+/,
   'gestion.pe': /.+\/gestion.pe\/.+((\w)+(\-)+){3,}.+/,
   'nknews.org': /^((?!\.nknews\.org\/pro\/).)*$/,
@@ -76,6 +77,7 @@ var allow_cookies = [
 'volkskrant.nl',
 'washingtonpost.com',
 'worldpoliticsreview.com',
+'zeit.de',
 ]
 
 // Removes cookies after page load
@@ -134,6 +136,7 @@ var use_google_bot_default = [
 'washingtonpost.com',
 'worldpoliticsreview.com',
 'wsj.com',
+'zeit.de',
 ];
 var use_google_bot_custom = [];
 var use_google_bot = use_google_bot_default.concat(use_google_bot_custom);
@@ -600,6 +603,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
     });
   }
 
+  if (!['image', 'font', 'stylesheet'].includes(details.type)) {
   if (tabId !== -1) {
     ext_api.tabs.get(tabId, function (currentTab) {
       if (isSiteEnabled(currentTab) || medium_custom_domain) {
@@ -631,6 +635,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
         }
       }
     });
+  }
   }
 
   return { requestHeaders: requestHeaders };
