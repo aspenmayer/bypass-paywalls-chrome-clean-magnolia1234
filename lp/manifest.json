@@ -238,6 +238,7 @@
         "*://*.thestar.com/*",
         "*://*.thetimes.co.uk/*",
         "*://*.tijd.be/*",
+        "*://*.timeshighereducation.com/*",
         "*://*.towardsdatascience.com/*",
         "*://*.townsvillebulletin.com.au/*",
         "*://*.trouw.nl/*",
@@ -297,5 +298,5 @@
         "webRequest",
         "webRequestBlocking"
     ],
-	"version": "1.8.7.2"
+	"version": "1.8.7.3"
 }

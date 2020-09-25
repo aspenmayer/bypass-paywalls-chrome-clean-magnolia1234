@@ -72,6 +72,7 @@ var allow_cookies = [
 'the-american-interest.com',
 'thehindu.com',
 'themarker.com',
+'timeshighereducation.com',
 'trouw.nl',
 'variety.com',
 'volkskrant.nl',

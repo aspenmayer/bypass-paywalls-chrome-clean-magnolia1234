@@ -91,9 +91,10 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [MIT Technology Review](https://www.technologyreview.com) -
 [National Geographic USA](https://www.nationalgeographic.com) -
 [Nautilus](https://nautil.us) -
+[Scientific American](https://www.scientificamerican.com)* -
+[Times Higher Education](https://www.timeshighereducation.com) -
 [Towards Data Science](https://www.towardsdatascience.com) -
-[Wired](https://www.wired.com) -
-[Scientific American](https://www.scientificamerican.com)*
+[Wired](https://www.wired.com)
 
 #### Encyclopedia/Book library/Knowledge base
 [BBC History Extra](https://www.historyextra.com) -

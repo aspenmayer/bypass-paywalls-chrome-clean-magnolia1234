@@ -1107,6 +1107,19 @@ else if (matchDomain("nationalreview.com")) {
     });
 }
 
+else if (matchDomain("timeshighereducation.com")) {
+    let paywall_cta = document.querySelector('div.paywall-cta');
+    if (paywall_cta) {
+        paywall_cta.removeAttribute('style');
+        let hidden_divs = document.querySelectorAll('div[style="display: none;"]');
+        for (let hidden_div of hidden_divs)
+            hidden_div.removeAttribute('style');
+        let paywall_fade = document.querySelector('div.paywall-fade');
+        if (paywall_fade)
+            paywall_fade.classList.remove('paywall-fade');
+    }
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {
