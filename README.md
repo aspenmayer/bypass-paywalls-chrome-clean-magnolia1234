@@ -280,8 +280,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [Parool](https://www.parool.nl) -
 [Telegraaf](https://www.telegraaf.nl) -
 [Trouw](https://www.trouw.nl) -
-[Volkskrant](https://www.volkskrant.nl) -
-[Vrij Nederland](https://www.vn.nl)
+[Volkskrant](https://www.volkskrant.nl)
 ##### Russia
 [Republic.ru](https://republic.ru)
 ##### Spain

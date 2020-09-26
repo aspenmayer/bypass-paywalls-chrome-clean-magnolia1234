@@ -193,7 +193,6 @@ var defaultSites =
   "Vanity Fair": "vanityfair.com",
   "Variety": "variety.com",
   "Volkskrant": "volkskrant.nl",
-  "Vrij Nederland": "vn.nl",
   "WAtoday": "watoday.com.au",
   "Winston-Salem Journal": "journalnow.com",
   "Wired": "wired.com",
