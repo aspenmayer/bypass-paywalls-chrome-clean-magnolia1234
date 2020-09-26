@@ -68,6 +68,7 @@ var allow_cookies = [
 'seekingalpha.com',
 'slader.com',
 'startribune.com',
+'stocknews.com',
 'techinasia.com',
 'the-american-interest.com',
 'thehindu.com',

@@ -211,6 +211,7 @@
         "*://*.standard.net.au/*",
         "*://*.startribune.com/*",
         "*://*.statista.com/*",
+        "*://*.stocknews.com/*",
         "*://*.sueddeutsche.de/*",
         "*://*.sun-sentinel.com/*",
         "*://*.sunshinecoastdaily.com.au/*",
@@ -297,5 +298,5 @@
         "webRequest",
         "webRequestBlocking"
     ],
-	"version": "1.8.7.3"
+	"version": "1.8.7.4"
 }

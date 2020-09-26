@@ -143,6 +143,7 @@ var defaultSites =
   "South China Morning Post": "scmp.com",
   "Star Tribune": "startribune.com",
   "Statista": "statista.com",
+  "Stock News": "stocknews.com",
   "Süddeutsche Zeitung": "sueddeutsche.de",
   "SunSentinel": "sun-sentinel.com",
   "Tech in Asia": "techinasia.com",

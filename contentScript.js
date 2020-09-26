@@ -1120,6 +1120,14 @@ else if (matchDomain("timeshighereducation.com")) {
     }
 }
 
+else if (matchDomain("stocknews.com")) {
+    let hideme = document.querySelector('div#hideme');
+    removeDOMElement(hideme);
+    let blurmes = document.querySelectorAll('div[id^="blurme"]');
+    for (let i = 0; i < blurmes.length; i++)
+        blurmes[i].setAttribute('id', 'blurmenot' + i);
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {
