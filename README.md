@@ -112,6 +112,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [Atavist Magazine](https://magazine.atavist.com) -
 [Commentary Magazine](https://www.commentarymagazine.com) -
 [Medium](https://www.medium.com) (all sites) -
+[Rolling Stone](https://www.rollingstone.com) -
 [SofRep](https://sofrep.com) -
 [The Daily Beast](https://www.thedailybeast.com)* -
 [Vanity Fair](https://www.vanityfair.com) -

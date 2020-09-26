@@ -131,6 +131,7 @@ var defaultSites =
   "Quartz (free articles only)": "qz.com",
   "Quora": "quora.com",
   "Republic.ru": "republic.ru",
+  "Rolling Stone": "rollingstone.com",
   "San Diego Union Tribune": "sandiegouniontribune.com",
   "San Francisco Chronicle": "sfchronicle.com",
   "Science & Vie": "science-et-vie.com",
