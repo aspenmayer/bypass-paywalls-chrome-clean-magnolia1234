@@ -41,9 +41,9 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 **Notes**
 * This extension works best alongside the adblocker [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en).
 * On Yandex Android use [uBlock Origin development build](https://chrome.google.com/webstore/detail/ublock-origin-dev-build/cgbcahbpdhpcegmbfconppldiemgcoii).
-* If you live in the EU, also consider installing the extension [I don't care about cookies](https://chrome.google.com/webstore/detail/i-dont-care-about-cookies/fihnjjcciajhdojfnbdddfaoknhalnja) in order to remove cookie warnings (or use filter Easylist Cookies in uBlock Origin).
+* If you live in the EU, also consider installing the extension [I don't care about cookies](https://chrome.google.com/webstore/detail/i-dont-care-about-cookies/fihnjjcciajhdojfnbdddfaoknhalnja) in order to remove cookie warnings (or use filter Easylist Cookies/[I don't care about cookies custom filter](https://www.i-dont-care-about-cookies.eu/abp) in uBlock Origin).
 * Do not delete extension's folder from your computer/smartphone or Bypass Paywalls Clean (in developer mode) will disappear at restart.
-* Every time you open Chrome it may warn you about running extensions in developer mode, just click 🗙 to keep the extension enabled.
+* Every time you open Chrome it may warn you about running extensions in developer mode, just close the popup to keep the extension enabled.
 * You will be logged out for most of the sites you have checked.
 
 ### List of supported websites
@@ -248,7 +248,8 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [Die Zeit](https://www.zeit.de) -
 [Frankfurter Allgemeine Zeitung](https://www.faz.net) -
 [Handelsblatt](https://www.handelsblatt.com) -
-[Süddeutsche Zeitung](https://www.sueddeutsche.de)
+[Süddeutsche Zeitung](https://www.sueddeutsche.de) -
+[Westdeutsche Allgemeine Zeitung](https://www.waz.de)
 ##### Italy
 [Corriere Della Sera](https://www.corriere.it) -
 [Domani](https://editorialedomani.it) -

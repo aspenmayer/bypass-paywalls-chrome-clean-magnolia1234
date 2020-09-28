@@ -196,6 +196,7 @@ var defaultSites =
   "Variety": "variety.com",
   "Volkskrant": "volkskrant.nl",
   "WAtoday": "watoday.com.au",
+  "Westdeutsche Allgemeine Zeitung": "waz.de",
   "Winston-Salem Journal": "journalnow.com",
   "Wired": "wired.com",
   "World Politics Review": "worldpoliticsreview.com",

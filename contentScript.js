@@ -3,7 +3,7 @@ var ext_api = (typeof browser === 'object') ? browser : chrome;
 var domain;
 
 // clean local storage of sites (with an exemption for hold-list)
-var arr_localstorage_hold = ['nknews.org', 'seekingalpha.com', 'sfchronicle.com'];
+var arr_localstorage_hold = ['elmundo.es', 'nknews.org', 'seekingalpha.com', 'sfchronicle.com', 'waz.de'];
 if (!matchDomain(arr_localstorage_hold)){
     window.localStorage.clear();
 }
@@ -1128,6 +1128,14 @@ else if (matchDomain("stocknews.com")) {
         blurmes[i].setAttribute('id', 'blurmenot' + i);
 }
 
+else if (matchDomain("waz.de")) {
+    let obfuscated_elems = document.querySelectorAll('.obfuscated');
+    for (let obfuscated_elem of obfuscated_elems) {
+        obfuscated_elem.classList.remove('obfuscated');
+        obfuscated_elem.innerHTML = deobfuscateFUNKE(obfuscated_elem.innerText);
+    }
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {
@@ -1200,4 +1208,9 @@ function parseHtmlEntities(encodedString) {
         var num = parseInt(numStr, 10);
         return String.fromCharCode(num);
     });
+}
+
+function deobfuscateFUNKE(str) {
+    return str.replace(/[0-9A-ZÅÝÀµ#@$²±:`^'´\\,{[/.÷;=?)*\-]/gi, c =>
+        '012345678@ABCDEFGHIJKLMNOPQRSTUVWXYÄÜẞZzabcdefghijklmnopqrstuvwxyäüößz,+.-:<>/()!"=[;9]&_?%#\''['123456789ABCDEFGHIJKLMNOPQRSTUVWXYZÅÝÀ[abcdefghijklmnopqrstuvwxyzåý÷à{-,/.;=?0)*²#µ\\´:^\'`@±$'.indexOf(c)])
 }

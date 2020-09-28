@@ -79,6 +79,7 @@ var allow_cookies = [
 'variety.com',
 'volkskrant.nl',
 'washingtonpost.com',
+'waz.de',
 'worldpoliticsreview.com',
 'zeit.de',
 ]
@@ -231,6 +232,7 @@ var blockedRegexes = {
 'variety.com': /cdn\.cxense\.com/,
 'washingtonpost.com': /.+\.washingtonpost\.com\/dr\/resources\/dist\/washpost\/pwapi-proxy\.min\.js/,
 'watoday.com.au': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
+'waz.de': /(.+\.tinypass\.com\/.+|cdn\.cxense\.com)/,
 'wsj.com': /(cdn\.ampproject\.org\/v\d\/amp-access-.+\.js|cdn\.cxense\.com)/
 };
 
