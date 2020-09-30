@@ -12,7 +12,7 @@
 ### Installation instructions
 Due to [Google internal policy](https://developer.chrome.com/webstore/program_policies), the extension is not available on the Chrome Web Store.  
 The following instructions are needed to install third-party extensions in [Chromium](https://en.wikipedia.org/wiki/Chromium_(web_browser))-based browsers:
-#### Chrome (Windows, MacOS, Linux), Microsoft Edge (Chromium)/Brave/Yandex
+#### Chrome (Windows, MacOS, Linux), Microsoft Edge (Chromium)/Brave/Yandex (or 'whitelist' extension and install automatically updating crx-file; see below)
 1. Download this repository as a [ZIP file from BitBucket](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/get/master.zip).
 2. Unzip the file and you should have a folder named `magnolia1234-bypass-paywalls-chrome-clean-master`.
 3. Move the folder to a permanent location on your computer (do not delete the folder after installation).  
@@ -24,12 +24,18 @@ The following instructions are needed to install third-party extensions in [Chro
   
 If you're familiar with Git(Hub)-clients you can also clone this repo and update the extension that way (load unpacked folder used by Git(Hub)-client).
 
-#### Other Chromium browsers (Opera/Vivaldi)
+#### Other Chromium browsers (Opera/Vivaldi) or add extension to 'whitelist' for Chrome, MS Edge, Brave or Yandex (see instructions below for Windows)
 1. Download the extension as a .crx file from the [download page](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/downloads).
 2. In your browser go to the extensions page.
 3. Enable Developer Mode.
 4. Drag your .crx file anywhere on the page to import it.
-5. If dragging crx does not work, try Chrome procedure (above).
+5. If dragging crx does not work, try Chrome procedure (above).  
+* In Windows 'whitelist' BPC (run as administrator one of the files in [whitelist-downloads](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean-whitelist/downloads)  
+If you already have 'whitelisted' extensions than you should change "1" to a new key (and change name in HLM-key for beta/developer versions of browsers).  
+Example Chrome-regfile:  
+Windows Registry Editor Version 5.00  
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\ExtensionInstallWhitelist]  
+"1"="lkbebcjgcmobigpeffafkodonchffocl" 
 
 #### Android
 1. Install [Kiwi Browser](https://play.google.com/store/apps/details?id=com.kiwibrowser.browser&hl=nl) or [Yandex Browser](https://play.google.com/store/apps/details?id=com.yandex.browser&hl=en) from the Google PlayStore.
