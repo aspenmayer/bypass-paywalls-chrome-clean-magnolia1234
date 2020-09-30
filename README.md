@@ -38,7 +38,7 @@ If you're familiar with Git(Hub)-clients you can also clone this repo and update
 #### Firefox
 Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywalls-firefox-clean) of Bypass Paywall Clean.
 
-**Notes**
+#### Notes
 * This extension works best alongside the adblocker [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en).
 * On Yandex Android use [uBlock Origin development build](https://chrome.google.com/webstore/detail/ublock-origin-dev-build/cgbcahbpdhpcegmbfconppldiemgcoii).
 * If you live in the EU, also consider installing the extension [I don't care about cookies](https://chrome.google.com/webstore/detail/i-dont-care-about-cookies/fihnjjcciajhdojfnbdddfaoknhalnja) in order to remove cookie warnings (or use filter Easylist Cookies/[I don't care about cookies custom filter](https://www.i-dont-care-about-cookies.eu/abp) in uBlock Origin).
@@ -371,8 +371,7 @@ Also you can enable Googlebot user-agent or disable Javascript for (sub)domain(s
 
 ### Troubleshooting
 * This extension works best alongside [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm).
-* If a site doesn't work, try turning off uBlock and refreshing. Also try reinstalling the extension.
-* Make sure the (new) site is checked under Options (on macOS sometimes the sites are unselected).
+* Make sure the (new) site is checked under Options.
 * Make sure you're running the last version of Bypass Paywalls Clean.
 * If none of these work, you can submit an issue [here](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/issues).
 

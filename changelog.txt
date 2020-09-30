@@ -1,6 +1,10 @@
 
 Changelog Bypass Paywalls Clean - Chrome
 
+Post-release
+Add Westdeutsche Allgemeine Zeitung
+Fix custom sites Googlebot-fix (after reload)
+
 * v1.8.8.0 (2020-09-27)
 Add Die Zeit (Germany)
 Add Rolling Stone

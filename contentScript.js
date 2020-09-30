@@ -1130,9 +1130,13 @@ else if (matchDomain("stocknews.com")) {
 
 else if (matchDomain("waz.de")) {
     let obfuscated_elems = document.querySelectorAll('.obfuscated');
+    let parser = new DOMParser();
     for (let obfuscated_elem of obfuscated_elems) {
+        let html = parser.parseFromString('<div>' + deobfuscateFUNKE(obfuscated_elem.innerText) + '</div>', 'text/html');
+        let par = html.querySelector('div');
         obfuscated_elem.classList.remove('obfuscated');
-        obfuscated_elem.innerHTML = deobfuscateFUNKE(obfuscated_elem.innerText);
+        obfuscated_elem.innerHTML = '';
+        obfuscated_elem.appendChild(par);
     }
 }
 
@@ -1211,6 +1215,6 @@ function parseHtmlEntities(encodedString) {
 }
 
 function deobfuscateFUNKE(str) {
-    return str.replace(/[0-9A-ZÅÝÀµ#@$²±:`^'´\\,{[/.÷;=?)*\-]/gi, c =>
-        '012345678@ABCDEFGHIJKLMNOPQRSTUVWXYÄÜẞZzabcdefghijklmnopqrstuvwxyäüößz,+.-:<>/()!"=[;9]&_?%#\''['123456789ABCDEFGHIJKLMNOPQRSTUVWXYZÅÝÀ[abcdefghijklmnopqrstuvwxyzåý÷à{-,/.;=?0)*²#µ\\´:^\'`@±$'.indexOf(c)])
+    return str.replace(/[0-9A-ZÅÝÀµ×#@$²±:`^'´\\,{[/.÷;=?)*\-]/gi, c =>
+        '012345678@ABCDEFGHIJKLMNOPQRSTUVWXYÄöÜẞZzabcdefghijklmnopqrstuvwxyäüößz,+.-:<>/()!"=[;9]&_?%#\''['123456789ABCDEFGHIJKLMNOPQRSTUVWXYZÅ×ÝÀ[abcdefghijklmnopqrstuvwxyzåý÷à{-,/.;=?0)*²#µ\\´:^\'`@±$'.indexOf(c)])
 }

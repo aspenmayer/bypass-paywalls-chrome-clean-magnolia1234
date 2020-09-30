@@ -301,9 +301,8 @@ ext_api.storage.sync.get({
         enabledSites = enabledSites.concat(au_news_corp_domains);
         for (let domain of au_news_corp_domains) {
             allow_cookies.push(domain);
-            use_google_bot_default.push(domain);
+            use_google_bot.push(domain);
         }
-        use_google_bot = use_google_bot_default.slice();
     } else
         disabledSites = disabledSites.concat(au_news_corp_domains);
     if (enabledSites.includes('###_au_prov_news')) {
