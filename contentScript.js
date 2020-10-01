@@ -1128,7 +1128,7 @@ else if (matchDomain("stocknews.com")) {
         blurmes[i].setAttribute('id', 'blurmenot' + i);
 }
 
-else if (matchDomain("waz.de")) {
+else if (matchDomain(["nrz.de", "wp.de", "wr.de", "waz.de"])) {
     let obfuscated_elems = document.querySelectorAll('.obfuscated');
     let parser = new DOMParser();
     for (let obfuscated_elem of obfuscated_elems) {

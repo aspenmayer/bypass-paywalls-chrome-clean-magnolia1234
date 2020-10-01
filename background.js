@@ -139,7 +139,6 @@ var use_google_bot_default = [
 'thetimes.co.uk',
 'washingtonpost.com',
 'worldpoliticsreview.com',
-'wsj.com',
 'zeit.de',
 ];
 var use_google_bot_custom = [];
