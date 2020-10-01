@@ -433,6 +433,10 @@ else if (matchDomain("afr.com")) {
 }
 
 else if (matchDomain("theglobeandmail.com")) {
+    let article_body_subscribed = document.querySelector('.c-article-body--subscribed');
+    if (article_body_subscribed) {
+        article_body_subscribed.removeAttribute('class');
+    }
     function tgam_main() {
         document.addEventListener('bpc_event', function (e) {
             if (window.tgam)

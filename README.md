@@ -14,27 +14,25 @@ Due to [Google internal policy](https://developer.chrome.com/webstore/program_po
 The following instructions are needed to install third-party extensions in [Chromium](https://en.wikipedia.org/wiki/Chromium_(web_browser))-based desktop browsers.  
 In extension developer mode you can always install BPC by `Load unpacked` (no automatic updates) or by crx-file (automatic updates, but possible 'whitelisting' of extension is needed).
 
-#### Load unpacked: Chrome (Windows, MacOS, Linux), Microsoft Edge (Chromium)/Brave/Yandex
-Or 'whitelist' extension and install automatically updating crx-file (see next section)
+#### Load unpacked: Chrome (Windows, MacOS, Linux), Microsoft Edge (Chromium)/Brave/Yandex (or 'whitelist' extension and install automatically updating crx-file (see next section))
 1. Download this repository as a [ZIP-file from BitBucket](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/get/master.zip).
 2. Unzip the file and you should have a folder named `magnolia1234-bypass-paywalls-chrome-clean-master`.
-3. Move the folder to a permanent location on your computer (do not delete the folder after installation).  
-* replace manifest.json with the one in lp-folder if you want to use the limited permissions version (custom sites will not be working though).
+3. Move the folder to a permanent location on your computer (do not delete the folder after installation).
+* replace manifest.json with the one in lp-folder if you want to use the limited permissions version (custom sites will not be working though).  
 4. Go to the extensions page (`chrome://extensions` or `edge://extensions`).
 5. Enable Developer Mode.
-6. Click `Load unpacked` and select the extension folder.  
+6. Click `Load unpacked` and select the extension folder.
   
 * in Chrome/Opera/Brave disable the developer mode extensions popup by enabling the extensions toolbar menu under (experimental) chrome flags: chrome://flags/#extensions-toolbar-menu  
   
 If you're familiar with Git(Hub)-clients you can also clone this repo and update the extension that way (load unpacked folder used by Git(Hub)-client).
 
-#### CRX-file: other Chromium browsers (Opera/Vivaldi)
-Or add extension to 'whitelist' for Chrome, MS Edge, Brave or Yandex (see instructions below for Windows)
+#### CRX-file: other Chromium browsers (Opera/Vivaldi) (or add extension to 'whitelist' for Chrome, MS Edge, Brave or Yandex (see instructions below for Windows))
 1. Download the extension as a crx-file from the [download page](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/downloads).
 2. In your browser go to the extensions page.
 3. Enable Developer Mode.
 4. Drag your crx-file anywhere on the page to import it.
-5. If dragging crx-file does not work, try Chrome procedure (above).  
+5. If dragging crx-file does not work, try Chrome procedure (above).
   
 * In Windows 'whitelist' BPC (run as administrator one of the reg-files in [whitelist-downloads](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean-whitelist/downloads)  
 If you already have 'whitelisted' extensions than you should change "1" to a new key (also change name of HLM-key for beta/developer versions of browsers).  
