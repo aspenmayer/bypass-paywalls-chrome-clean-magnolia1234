@@ -50,7 +50,7 @@ Add general paywall-script Cxense
 * v1.8.3.0 (2020-08-30)
 Add Chronicle of Higher Education
 Add Diario Financiero (Chile)
-Add El Mercurio de Valparaíso (Chile)
+Add El Mercurio de Valparaiso (Chile)
 Fix-update MIT Technology Review
 Remove copy-notice in copied text of Financial Times (ft.com)
 Update show options on update (now optional)
@@ -80,7 +80,7 @@ Update installation instructions
 Add CharlieHebdo.fr
 Add La Segunda (Chile)
 Add LeSoir.be
-Add Süddeutsche Zeitung (amp for plus)
+Add Sueddeutsche Zeitung (amp for plus)
 Fix-update elMercurio Legal (Chile)
 Fix-update Fd.nl (modal/newsletter query string)
 Fix-update Inkl (cookies)
@@ -90,7 +90,7 @@ Fix-update LesEchos.fr (lp-version)
 * v1.7.9.0 (2020-07-15)
 Fix-update Clarin (block MatherAnalytics)
 Fix-update El Mercurio (Chile)
-Fix-update Neue Zürcher Zeitung
+Fix-update Neue Zuercher Zeitung
 Fix-update NY Times (incognito mode)
 Fix-update The Hindu (cookies)
 Fix-update ValeursActuelles.fr (Qiota)
@@ -193,7 +193,7 @@ Maintenance Ad.nl (regional)
 Sort-button custom sites
 
 * v1.7.0.2 (2020-04-05)
-Add Gestión (Peru) & fix El Comercio
+Add Gestion (Peru) & fix El Comercio
 Add LeScienze.it
 Add Science & Vie
 Fix Barron's links to sign in/read more articles
@@ -206,7 +206,7 @@ Fix-update Telegraaf.nl (FF meta-refresh)
 Add El Comercio (Peru)
 Add L'Opinion.fr
 Add LiveMint (India)
-Add Neue Zürcher Zeitung
+Add Neue Zuercher Zeitung
 Add The New Republic
 Remove ET Prime (obsolete)
 Fix Telegraaf.nl
@@ -260,7 +260,7 @@ Update Options - new release check
 
 * v1.6.3.1 (2020-02-20)
 Add Australian Community Media daily newspapers
-Add Clarín (Argentina)
+Add Clarin (Argentina)
 Add WAtoday (Australia)
 Fix-update TheNation paywall-script block
 Refresh tab after saved options
@@ -305,11 +305,11 @@ Fix London Review of Books (allow cookies)
 * v1.6.1.5 (2020-01-19)
 Add Challenges.fr
 Add Digiday
-Add El País
+Add El Pais
 Add Folha de S. Paulo, O Globo, Valor Econômico, O Estado de S. Paulo, Exame (Brazil)
 Add Fortune (magazine)
 Add LaStampa.it
-Add Libération.fr
+Add Liberation.fr
 Add Miami Herald
 Add ValeursActuelles.fr
 Fix json-bug at install/options (when not saving options)

@@ -1,4 +1,4 @@
-"use strict";
+//"use strict";
 var ext_api = (typeof browser === 'object') ? browser : chrome;
 var domain;
 
@@ -940,7 +940,7 @@ else if (matchDomain("noordhollandsdagblad.nl")) {
                 if (auth_body_par_count.length < 2) {
                     let url = window.location.href;
                     let html = document.documentElement.outerHTML;
-                    let split1 = html.split('window["__PRELOADED_STATE_GRAPH__')[1];
+                    let split1 = html.split('window["__PRELOADED_STATE_GRAPH__')[1].split(/=(.+)/)[1];
                     let split2 = split1.split('</script>')[0].trim();
                     let split3 = split2.split('"body":')[1];
                     let state = split3.split('},"')[0] + '}';
@@ -948,7 +948,7 @@ else if (matchDomain("noordhollandsdagblad.nl")) {
                         let data = JSON.parse(state);
                         let article = data.json;
                         auth_body.innerHTML = '';
-                        let par_html, par_dom, par_elem, par_div;
+                        let par_html, par_dom, par_elem, par_div, par_key;
                         let parser = new DOMParser();
                         for (let par of article) {
                             for (let key in par) {
