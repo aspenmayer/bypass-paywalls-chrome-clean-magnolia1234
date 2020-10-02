@@ -5,7 +5,11 @@ Post-release
 Add Neue Ruhr Zeitung
 Add Westdeutsche Allgemeine Zeitung
 Add Westfalenpost
-Add Westfälische Rundschau
+Add Westfaelische Rundschau
+Fix-update Domani (Italy)
+Fix-update Globe and Mail (FF for Android v68)
+Fix-update WSJ
+Add whitelist for BPC extension
 Fix custom sites Googlebot-fix (after reload)
 
 * v1.8.8.0 (2020-09-27)

@@ -288,6 +288,7 @@
         "*://*.netdna-ssl.com/*",
         "*://*.nyt.com/*",
         "*://*.pasedigital.cl/*",
+        "*://*.pelcro.com/*",
         "*://*.rcsobjects.it/*",
         "*://*.repstatic.it/*",
         "*://*.userzoom.com/*",
@@ -303,5 +304,5 @@
         "webRequest",
         "webRequestBlocking"
     ],
-	"version": "1.8.8.3"
+	"version": "1.8.8.4"
 }
