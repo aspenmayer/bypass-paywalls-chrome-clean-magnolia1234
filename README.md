@@ -44,6 +44,7 @@ Windows Registry Editor Version 5.00
 #### Android
 1. Install [Kiwi Browser](https://play.google.com/store/apps/details?id=com.kiwibrowser.browser&hl=nl) or [Yandex Browser](https://play.google.com/store/apps/details?id=com.yandex.browser&hl=en) from the Google PlayStore.
 2. Follow Chrome instructions located just above (step 6: pick `manifest.json` instead of the folder).  
+  
 * for Kiwi Browser you can also load the CRX-file in downloads (auto-updating, no whitelist needed)
 
 #### Firefox
@@ -259,6 +260,8 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [Die Zeit](https://www.zeit.de) -
 [Frankfurter Allgemeine Zeitung](https://www.faz.net) -
 [Handelsblatt](https://www.handelsblatt.com) -
+[Hannoversche Allgemeine Zeitung](https://www.haz.de) -
+[Leipziger Volkszeitung](https://www.lvz.de) -
 [Neue Ruhr Zeitung](https://www.nrz.de) -
 [Süddeutsche Zeitung](https://www.sueddeutsche.de) -
 [Westdeutsche Allgemeine Zeitung](https://www.waz.de) -

@@ -2,6 +2,8 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Add Hannoversche Allgemeine Zeitung
+Add Leipziger Volkszeitung
 Add Neue Ruhr Zeitung
 Add Westdeutsche Allgemeine Zeitung
 Add Westfalenpost

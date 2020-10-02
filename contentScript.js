@@ -1144,6 +1144,22 @@ else if (matchDomain(["nrz.de", "wp.de", "wr.de", "waz.de"])) {
     }
 }
 
+else if (matchDomain(["haz.de", "lvz.de"])) {
+    let paidcontent_intro = document.querySelector('div.pdb-article-body-paidcontentintro');
+    if (paidcontent_intro) {
+        paidcontent_intro.classList.remove('pdb-article-body-paidcontentintro');
+        let json_script = document.querySelector('div.pdb-article > script[type="application/ld+json"]');
+        let json_text = JSON.parse(json_script.text).articleBody;
+        if (json_text) {
+            let pdb_richtext_field = document.querySelectorAll('div.pdb-richtext-field');
+            if (pdb_richtext_field[1])
+                pdb_richtext_field[1].innerText = json_text;
+        }
+        let paidcontent_reg = document.querySelector('div.pdb-article-paidcontent-registration');
+        removeDOMElement(paidcontent_reg);
+    }
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {

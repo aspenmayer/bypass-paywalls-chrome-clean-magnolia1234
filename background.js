@@ -64,6 +64,7 @@ var allow_cookies = [
 'nzz.ch',
 'parool.nl',
 'quora.com',
+'repubblica.it',
 'rollingstone.com',
 'scribd.com',
 'seekingalpha.com',
