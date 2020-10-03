@@ -8,6 +8,7 @@ Add Neue Ruhr Zeitung
 Add Westdeutsche Allgemeine Zeitung
 Add Westfalenpost
 Add Westfaelische Rundschau
+Fix-update Australian Financial Review (images)
 Fix-update Domani (Italy)
 Fix-update Globe and Mail (FF for Android v68)
 Fix-update WSJ

@@ -53,7 +53,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 #### Notes
 * This extension works best alongside the adblocker [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en).
 * On Yandex Android use [uBlock Origin development build](https://chrome.google.com/webstore/detail/ublock-origin-dev-build/cgbcahbpdhpcegmbfconppldiemgcoii).
-* If you live in the EU, also consider installing the extension [I don't care about cookies](https://chrome.google.com/webstore/detail/i-dont-care-about-cookies/fihnjjcciajhdojfnbdddfaoknhalnja) in order to remove cookie warnings (or use filter Easylist Cookies/[I don't care about cookies custom filter](https://www.i-dont-care-about-cookies.eu/abp) in uBlock Origin).
+* If you live in the EU, also consider installing the extension [I don't care about cookies](https://chrome.google.com/webstore/detail/i-dont-care-about-cookies/fihnjjcciajhdojfnbdddfaoknhalnja) in order to remove cookie warnings (or add filter [Easylist Cookies](abp:subscribe?location=https://easylist-downloads.adblockplus.org/easylist-cookie.txt&title=EasyList%20Cookie%20List) | [I don't care about cookies custom filter](abp:subscribe?location=https%3A%2F%2Fwww.i-dont-care-about-cookies.eu%2Fabp%2F&title=I%20don%27t%20care%20about%20cookies) to uBlock Origin).
 * Do not delete extension's folder from your computer/smartphone or Bypass Paywalls Clean (in developer mode) will disappear at restart.
 * Every time you open Chrome it may warn you about running extensions in developer mode, just close the popup to keep the extension enabled.
 * You will be logged out for most of the sites you have checked.
