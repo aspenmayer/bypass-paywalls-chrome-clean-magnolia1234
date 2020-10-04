@@ -269,6 +269,9 @@ else if (matchDomain('ft.com')) {
 }
 
 else if (matchDomain("thehindu.com")) {
+    if (!localStorage.geo) {
+        localStorage.setItem("geo", '{"v":{"clientTcpRtt":20,"longitude":"'+ makeRandomNumber(2) + '.' + makeRandomNumber(5) + '","httpProtocol":"HTTP/2","tlsCipher":"AEAD-AES128-GCM-SHA256","continent":"EU","asn":1234,"clientAcceptEncoding":"gzip, deflate,br","country":"UK","isEUCountry":"1","tlsClientAuth":{"certIssuerDNLegacy":"","certIssuerDN":"","certIssuerDNRFC2253":"","certSubjectDNLegacy":"","certVerified":"NONE","certNotAfter":"","certSubjectDN":"","certFingerprintSHA1":"","certNotBefore":"","certSerial":"","certPresented":"0","certSubjectDNRFC2253":""},"tlsVersion":"TLSv1.3","colo":"DUS","timezone":"Europe/London","edgeRequestKeepAliveStatus":1,"requestPriority":"weight=220;exclusive=1","botManagement":{"staticResource":false,"verifiedBot":false,"score":99},"clientTrustScore":99,"postalCode":"' + makeRandomNumber(4) + '","regionCode":"QR","region":"County","city":"London","latitude":"' + makeRandomNumber(2) + '.' + makeRandomNumber(5) + '"},"e":' + makeRandomNumber(13) + '}');
+    }
     let counter = document.querySelector('#test');
     removeDOMElement(counter);
     function hindu_main() {
@@ -1251,6 +1254,16 @@ function genHexString(len) {
         output += (Math.floor(Math.random() * 16)).toString(16);
     }
     return output;
+}
+
+function makeRandomNumber(len) {
+    let result = '';
+    var characters = '123456789';
+    var charactersLength = characters.length;
+    for (var i = 0; i < len; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
 }
 
 function pageContains(selector, text) {
