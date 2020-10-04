@@ -1091,7 +1091,7 @@ else if (matchDomain("startribune.com")) {
 
 else if (domain = matchDomain("businesstimes.com.sg")) {
     let url = window.location.href;
-    let paywall_login = document.querySelector('div.paywall-login');
+    let paywall_login = document.querySelector('div.paywall-login2');
     if (paywall_login) {
         window.setTimeout(function () {
             window.location.href = url + '?amp';
@@ -1164,6 +1164,38 @@ else if (matchDomain(["haz.de", "lvz.de"])) {
         let paidcontent_reg = document.querySelector('div.pdb-article-paidcontent-registration');
         removeDOMElement(paidcontent_reg);
     }
+}
+
+else if (matchDomain("elpais.com")) {
+    let login_register = document.querySelector('.login_register');
+    if (login_register) {
+        let scripts = document.querySelectorAll('script');
+        let json_script;
+        for (let script of scripts) {
+            if (script.innerText.includes('Fusion.globalContent'))
+                json_script = script;
+            continue;
+        }
+        if (json_script) {
+            let json_text = json_script.innerHTML.split('Fusion.globalContent=')[1].split(';Fusion.globalContentConfig')[0];
+            let json_article = JSON.parse(json_text).content_elements;
+            let article_body_par = document.querySelector('div.article_body > p');
+            if (article_body_par) {
+                article_body_par.innerText = '';
+                let parser = new DOMParser();
+                let par_text, par_html;
+                for (let par of json_article) {
+                    par_html = parser.parseFromString('<div id="bpc"><p>' + par.content + '</p></br></div>', 'text/html');
+                    par_text = par_html.querySelector('div#bpc');
+                    if (par_text)
+                        article_body_par.appendChild(par_text);
+                }
+            }
+        }
+        removeDOMElement(login_register);
+    }
+    let paywall_offer = document.querySelector('.paywallOffer');
+    removeDOMElement(paywall_offer);
 }
 
 // General Functions

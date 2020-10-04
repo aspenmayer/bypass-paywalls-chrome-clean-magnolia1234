@@ -10,6 +10,7 @@ Add Westfalenpost
 Add Westfaelische Rundschau
 Fix-update Australian Financial Review (images)
 Fix-update Domani (Italy)
+Fix-update El Pais (Spain)
 Fix-update Globe and Mail (FF for Android v68)
 Fix-update The Hindu (menu)
 Fix-update WSJ

@@ -34,6 +34,7 @@ var allow_cookies = [
 'dvhn.nl',
 'editorialedomani.it',
 'elmercurio.com',
+'elpais.com',
 'mercuriovalpo.cl',
 'eurekareport.com.au',
 'faz.net',
