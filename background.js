@@ -60,6 +60,7 @@ var allow_cookies = [
 'newrepublic.com',
 'nknews.org',
 'noordhollandsdagblad.nl',
+'nrz.de',
 'nytimes.com',
 'nzz.ch',
 'parool.nl',
@@ -82,6 +83,8 @@ var allow_cookies = [
 'washingtonpost.com',
 'waz.de',
 'worldpoliticsreview.com',
+'wp.de',
+'wr.de',
 'zeit.de',
 ]
 
@@ -226,7 +229,7 @@ var blockedRegexes = {
 'telegraph.co.uk': /.+\.tinypass\.com\/.+/,
 'theage.com.au': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
 'thedailybeast.com': /.+\.tinypass\.com\/.+/,
-'thehindu.com': /ajax\.cloudflare\.com\/cdn-cgi\/scripts\/.+\/cloudflare-static\/rocket-loader\.min\.js/,
+'thehindu.com': /(cdn\.cxense\.com|.+\.tinypass\.com\/.+)/,
 'thenation.com': /.+\.tinypass\.com\/.+/,
 'valeursactuelles.com': /.+\.qiota\.com\/.+/,
 'variety.com': /cdn\.cxense\.com/,

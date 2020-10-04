@@ -3,7 +3,7 @@ var ext_api = (typeof browser === 'object') ? browser : chrome;
 var domain;
 
 // clean local storage of sites (with an exemption for hold-list)
-var arr_localstorage_hold = ['elmundo.es', 'nknews.org', 'seekingalpha.com', 'sfchronicle.com', 'waz.de'];
+var arr_localstorage_hold = ['elmundo.es', 'nknews.org', 'nrz.de', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'waz.de', 'wp.de', 'wr.de'];
 if (!matchDomain(arr_localstorage_hold)){
     window.localStorage.clear();
 }
@@ -269,12 +269,18 @@ else if (matchDomain('ft.com')) {
 }
 
 else if (matchDomain("thehindu.com")) {
-    document.addEventListener('DOMContentLoaded', () => {
-        let counter = document.querySelector('#test');
-        let co_banner = document.querySelector('.co-banner');
-        let support = document.querySelector('div.support-jlm');
-        removeDOMElement(counter, co_banner, support);
-    });
+    let counter = document.querySelector('#test');
+    removeDOMElement(counter);
+    function hindu_main() {
+        document.addEventListener('bpc_event', function (e) {
+            if (window) {
+                window.Adblock = false;
+                window.isNonSubcribed = false;
+            }
+        })
+    }
+    insert_script(hindu_main);
+    document.dispatchEvent(new CustomEvent('bpc_event', {}));
 }
 
 else if (matchDomain("nytimes.com")) {
@@ -1132,7 +1138,7 @@ else if (matchDomain("stocknews.com")) {
         blurmes[i].setAttribute('id', 'blurmenot' + i);
 }
 
-else if (matchDomain(["nrz.de", "wp.de", "wr.de", "waz.de"])) {
+else if (matchDomain(["nrz.de", "waz.de", "wp.de", "wr.de"])) {
     let obfuscated_elems = document.querySelectorAll('.obfuscated');
     let parser = new DOMParser();
     for (let obfuscated_elem of obfuscated_elems) {

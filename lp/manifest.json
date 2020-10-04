@@ -271,7 +271,6 @@
         "*://*.qiota.com/*",
         "*://*.tinypass.com/*",
         "*://*.tribdss.com/*",
-        "*://ajax.cloudflare.com/*",
         "*://*.ampproject.org/*",
         "*://*.bwbx.io/*",
         "*://*.cedsdigital.it/*",
@@ -306,5 +305,5 @@
         "webRequest",
         "webRequestBlocking"
     ],
-	"version": "1.8.8.5"
+	"version": "1.8.8.6"
 }

@@ -11,6 +11,7 @@ Add Westfaelische Rundschau
 Fix-update Australian Financial Review (images)
 Fix-update Domani (Italy)
 Fix-update Globe and Mail (FF for Android v68)
+Fix-update The Hindu (menu)
 Fix-update WSJ
 Add whitelist for BPC extension
 Fix custom sites Googlebot-fix (after reload)

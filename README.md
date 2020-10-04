@@ -53,7 +53,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 #### Notes
 * This extension works best alongside the adblocker [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en).
 * On Yandex Android use [uBlock Origin development build](https://chrome.google.com/webstore/detail/ublock-origin-dev-build/cgbcahbpdhpcegmbfconppldiemgcoii).
-* If you live in the EU, also consider installing the extension [I don't care about cookies](https://chrome.google.com/webstore/detail/i-dont-care-about-cookies/fihnjjcciajhdojfnbdddfaoknhalnja) in order to remove cookie warnings (or add filter [Easylist Cookies](abp:subscribe?location=https://easylist-downloads.adblockplus.org/easylist-cookie.txt&title=EasyList%20Cookie%20List) | [I don't care about cookies custom filter](abp:subscribe?location=https%3A%2F%2Fwww.i-dont-care-about-cookies.eu%2Fabp%2F&title=I%20don%27t%20care%20about%20cookies) to uBlock Origin).
+* If you live in the EU, also consider installing the extension [I don't care about cookies](https://chrome.google.com/webstore/detail/i-dont-care-about-cookies/fihnjjcciajhdojfnbdddfaoknhalnja) in order to remove cookie warnings (or add filter [Easylist Cookies](https://easylist-downloads.adblockplus.org/easylist-cookie.txt) | [I don't care about cookies custom filter](https://www.i-dont-care-about-cookies.eu/abp) to uBlock Origin).
 * Do not delete extension's folder from your computer/smartphone or Bypass Paywalls Clean (in developer mode) will disappear at restart.
 * Every time you open Chrome it may warn you about running extensions in developer mode, just close the popup to keep the extension enabled.
 * You will be logged out for most of the sites you have checked.
@@ -388,6 +388,7 @@ Also you can enable Googlebot user-agent or disable Javascript for (sub)domain(s
 
 ### Troubleshooting
 * This extension works best alongside [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm).
+* If a site doesn't work, try turning off uBlock and refreshing.
 * Make sure the (new) site is checked under Options.
 * Make sure you're running the last version of Bypass Paywalls Clean.
 * If none of these work, you can submit an issue [here](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/issues).
