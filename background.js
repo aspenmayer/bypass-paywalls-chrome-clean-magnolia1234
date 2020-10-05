@@ -612,7 +612,6 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
     });
   }
 
-  if (!['image', 'font', 'stylesheet'].includes(details.type) || matchUrlDomain('afr.com', details.url)) {
   if (tabId !== -1) {
     ext_api.tabs.get(tabId, function (currentTab) {
       if (isSiteEnabled(currentTab) || medium_custom_domain) {
@@ -644,7 +643,6 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
         }
       }
     });
-  }
   }
 
   return { requestHeaders: requestHeaders };
@@ -813,4 +811,3 @@ function getParameterByName(name, url) {
 function stripQueryStringAndHashFromPath(url) {
   return url.split("?")[0].split("#")[0];
 }
-

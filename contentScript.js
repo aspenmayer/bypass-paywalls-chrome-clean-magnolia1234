@@ -3,7 +3,7 @@ var ext_api = (typeof browser === 'object') ? browser : chrome;
 var domain;
 
 // clean local storage of sites (with an exemption for hold-list)
-var arr_localstorage_hold = ['elmundo.es', 'nknews.org', 'nrz.de', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'waz.de', 'wp.de', 'wr.de'];
+var arr_localstorage_hold = ['elmundo.es', 'nknews.org', 'nrz.de', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk', 'waz.de', 'wp.de', 'wr.de'];
 if (!matchDomain(arr_localstorage_hold)){
     window.localStorage.clear();
 }
@@ -233,13 +233,20 @@ else if (matchDomain("firstthings.com")) {
 
 else if (matchDomain("bloomberg.com")) {
     document.addEventListener('DOMContentLoaded', () => {
-        const fence = document.querySelector('.fence-body');
-        if (fence){
+        let fence = document.querySelector('.fence-body');
+        if (fence) {
             fence.classList.remove('fence-body');
         }
     });
-    const banner = document.getElementById('paywall-banner');
-    removeDOMElement(banner);
+    let body_overlay = document.querySelector('body[data-paywall-overlay-status="show"]');
+    if (body_overlay)
+        body_overlay.removeAttribute('data-paywall-overlay-status');
+    let noscroll = document.querySelector('body[class*="noScroll"]');
+    if (noscroll)
+        removeClassesByPrefix(noscroll, 'noScroll');
+    let paywall_overlay = document.querySelector('div#graphics-paywall-overlay');
+    let banner = document.getElementById('paywall-banner');
+    removeDOMElement(banner, paywall_overlay);
 }
 
 else if (matchDomain("bloombergquint.com")) {
