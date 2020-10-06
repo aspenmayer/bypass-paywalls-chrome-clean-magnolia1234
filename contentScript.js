@@ -425,10 +425,40 @@ else if (matchDomain("techinasia.com")) {
 
 else if (matchDomain("thestar.com")) {
     let paywall = document.querySelector('.basic-paywall-new');
-    removeDOMElement(paywall);
-    let tbcs = document.querySelectorAll('.text-block-container');
-    for (let tbc of tbcs) {
-        tbc.removeAttribute('style');
+    if (paywall) {
+        removeDOMElement(paywall);
+        let tbcs = document.querySelectorAll('.text-block-container');
+        for (let tbc of tbcs) {
+            tbc.removeAttribute('style');
+        }
+        if (document.head.innerText.includes('window.__PRELOADED_STATE__')) {
+            let html = document.head.outerHTML;
+            let split1 = html.split('window.__PRELOADED_STATE__ =')[1];
+            let state = split1.split('//--><!]]></script>')[0].trim();
+            let json = JSON.parse(state);
+            if (json) {
+                let body = json.body;
+                let par_append_text, par_append;
+                for (let elem of body) {
+                    if (elem.isParagraph) {
+                        par_append_text = parseHtmlEntities(elem.text);
+                    } else if (elem.snippet) {
+                        let parser = new DOMParser();
+                        let article_html = parser.parseFromString('<div id="bpc">' + elem.snippet + '</div>', 'text/html');
+                        let article_snippet = article_html.querySelector('div#bpc');
+                        let pars = document.querySelectorAll('div.c-article-body__content > p');
+                        for (let par of pars) {
+                            if (par.innerText.includes(par_append_text)) {
+                                par_append = par;
+                                continue;
+                            }
+                        }
+                        if (article_snippet && par_append)
+                            par_append.appendChild(article_snippet);
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -649,6 +679,7 @@ else if (matchDomain('faz.net')) {
                             str = str.replace(/If\n\nSG/g, "IfSG");
                             str = str.replace(/m\n\nRNA/g, "mNRA");
                             str = str.replace(/St\n\nVO/g, "StVO");
+                            str = str.replace(/Berl\n\nHG/g, "BerlHG");
                             str = str.replace(/De\n\n([A-Z])/g, "De$1");
                             str = str.replace(/La\n\n([A-Z])/g, "La$1");
                             str = str.replace(/Le\n\n([A-Z])/g, "Le$1");

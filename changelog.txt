@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Fix-update Bloomberg (overlay)
+Fix-update Toronto Star (map-snippet)
 
 * v1.8.9.0 (2020-10-04)
 Add Hannoversche Allgemeine Zeitung
