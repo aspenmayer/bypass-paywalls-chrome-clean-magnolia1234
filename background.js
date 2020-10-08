@@ -234,7 +234,7 @@ var blockedRegexes = {
 'thenation.com': /.+\.tinypass\.com\/.+/,
 'valeursactuelles.com': /.+\.qiota\.com\/.+/,
 'variety.com': /cdn\.cxense\.com/,
-'washingtonpost.com': /.+\.washingtonpost\.com\/dr\/resources\/dist\/washpost\/pwapi-proxy\.min\.js/,
+'washingtonpost.com': /.+\.washingtonpost\.com\/.+\/pwapi-proxy\.min\.js/,
 'watoday.com.au': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
 'waz.de': /(.+\.tinypass\.com\/.+|cdn\.cxense\.com)/,
 'wsj.com': /(cdn\.ampproject\.org\/v\d\/amp-access-.+\.js|cdn\.cxense\.com)/
