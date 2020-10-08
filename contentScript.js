@@ -438,14 +438,16 @@ else if (matchDomain("thestar.com")) {
             let json = JSON.parse(state);
             if (json) {
                 let body = json.body;
-                let par_append_text, par_append;
+                let content = document.querySelector('div.c-article-body__content');
+                let par_append_text, par_append, related_text;
+                let parser = new DOMParser();
+                let related_stories = [];
                 for (let elem of body) {
                     if (elem.isParagraph) {
                         par_append_text = parseHtmlEntities(elem.text);
                     } else if (elem.snippet) {
-                        let parser = new DOMParser();
-                        let article_html = parser.parseFromString('<div id="bpc">' + elem.snippet + '</div>', 'text/html');
-                        let article_snippet = article_html.querySelector('div#bpc');
+                        let article_html = parser.parseFromString('<div>' + elem.snippet + '</div>', 'text/html');
+                        let article_snippet = article_html.querySelector('div');
                         let pars = document.querySelectorAll('div.c-article-body__content > p');
                         for (let par of pars) {
                             if (par.innerText.includes(par_append_text)) {
@@ -455,8 +457,35 @@ else if (matchDomain("thestar.com")) {
                         }
                         if (article_snippet && par_append)
                             par_append.appendChild(article_snippet);
+                    } else if (elem.text && elem.type === 'endnote') {
+                        let endnote_html;
+                        if (elem.author) {
+                            endnote_html = parser.parseFromString('<div class="author-endnote-container" data-lpos="article|author|bottom">' +
+                                    '<a class="author-endnote-container__author-img-link" href="' + elem.authorPageUrl + '">' +
+                                    '<div class="c-author-badge author-endnote-container__author-img">' +
+                                    '<img class="c-author-badge__img" src="' + elem.author.photo.sizes['1:1'].small + '" alt="' + elem.author.author + '"/></div></a>' +
+                                    '<div>' + elem.text + '</div></div>', 'text/html');
+                        } else
+                            endnote_html = parser.parseFromString('<div><p>' + elem.text + '</p></div>', 'text/html');
+                        let endnote_par = endnote_html.querySelector('div');
+                        content.appendChild(endnote_par);
+                    } else if (elem.type === 'relatedStories') {
+                        related_text = '<div class="article-related-inline">' +
+                            '<div class="c-related-articles" data-lpos="article|related-stories"><h2 class="article-list-heading">' +
+                            '<div class="article-list-heading-text article-list-heading-text--small">RELATED STORIES</div></h2>' +
+                            '<div class="c-related-articles-inline__content">';
+                        for (let story of elem.relatedStories) {
+                            related_text = related_text + '<a href="' + story.url + '" class="c-mediacard c-related-articles__article c-mediacard--row c-mediacard--small-only-row c-mediacard--medium-only-row c-mediacard--large-only-row" data-test-id="mediacard"><div class="c-mediacard__content">' +
+                                '<h3 class="c-mediacard__heading mediacard-headline__long"><span data-test-id="mediacard-headline">' + story.headline + '</span></h3>' +
+                                '<div class="c-mediacard-footer"><div class="c-mediacard-footer__items-left">' +
+                                '<span class="article__published-date">' + story.abstract + '</span></div></div></div></a>';
+                        }
+                        related_text = related_text + '</div></div></div>';
                     }
                 }
+                let related_html = parser.parseFromString(related_text, 'text/html');
+                let related_par = related_html.querySelector('div');
+                content.appendChild(related_par);
             }
         }
     }
@@ -543,8 +572,8 @@ else if (matchDomain("lesechos.fr") && window.location.href.match(/-\d{6,}/)) {
             if (paywallNode) {
                 let contentNode = document.createElement('div');
                 let parser = new DOMParser();
-                let article_html = parser.parseFromString('<div id="bpc">' + article + '</div>', 'text/html');
-                let article_par = article_html.querySelector('div#bpc');
+                let article_html = parser.parseFromString('<div>' + article + '</div>', 'text/html');
+                let article_par = article_html.querySelector('div');
                 if (article_par) {
                     contentNode.appendChild(article_par);
                     contentNode.className = paywallNode.className;
@@ -675,8 +704,10 @@ else if (matchDomain('faz.net')) {
                             str = str.replace(/([a-z\"\“])(?=[A-Z](?=[A-Za-zÀ-ÿ]+))/gm, "$&\n\n");
                             // exceptions: names with alternating lower/uppercase (no general fix)
                             str = str.replace(/Glaxo\n\nSmith\n\nKline/g, "GlaxoSmithKline");
+                            str = str.replace(/Bil\n\nMoG/g, "BilMoG");
                             str = str.replace(/Eu\n\nGH/g, "EuGH");
                             str = str.replace(/If\n\nSG/g, "IfSG");
+                            str = str.replace(/med\n\nRxiv/g, "medRxiv");
                             str = str.replace(/m\n\nRNA/g, "mNRA");
                             str = str.replace(/St\n\nVO/g, "StVO");
                             str = str.replace(/Berl\n\nHG/g, "BerlHG");
@@ -907,8 +938,8 @@ else if (matchDomain("business-standard.com")) {
                 json_text = parseHtmlEntities(json_text);
                 json_text = json_text.replace(/(?:^|[\w\"\'\’])(\.|\?|!)(?=[A-Z\"\”\“\‘\’\'][A-Za-zÀ-ÿ\"\”\“\‘\’\']{1,})/gm, "$&</br></br>") + '</br></br>';
                 let parser = new DOMParser();
-                let html = parser.parseFromString('<div id="bpc">' + json_text + '</div>', 'text/html');
-                let article = html.querySelector('div#bpc');
+                let html = parser.parseFromString('<div>' + json_text + '</div>', 'text/html');
+                let article = html.querySelector('div');
                 if (article) {
                     let p_content = document.querySelector('span.p-content.paywall');
                     if (p_content) {
@@ -1045,8 +1076,8 @@ else if (matchDomain("noordhollandsdagblad.nl")) {
                                     par_div.innerText += par[key].credit ? '\n' + par[key].credit : '';
                                     par_elem.appendChild(par_div);
                                 } else {
-                                    par_html = parser.parseFromString('<div id="bpc">' + par_key + '</div>', 'text/html');
-                                    par_elem = par_html.querySelector('div#bpc');
+                                    par_html = parser.parseFromString('<div>' + par_key + '</div>', 'text/html');
+                                    par_elem = par_html.querySelector('div');
                                 }
                                 if (par_elem)
                                     par_dom.appendChild(par_elem);
@@ -1226,8 +1257,8 @@ else if (matchDomain("elpais.com")) {
                 let parser = new DOMParser();
                 let par_text, par_html;
                 for (let par of json_article) {
-                    par_html = parser.parseFromString('<div id="bpc"><p>' + par.content + '</p></br></div>', 'text/html');
-                    par_text = par_html.querySelector('div#bpc');
+                    par_html = parser.parseFromString('<div><p>' + par.content + '</p></br></div>', 'text/html');
+                    par_text = par_html.querySelector('div');
                     if (par_text)
                         article_body_par.appendChild(par_text);
                 }
