@@ -2,8 +2,9 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Remove BusinessTimes.com.sg (obsolete)
 Fix-update Bloomberg (overlay)
-Fix-update Toronto Star (map-snippet)
+Fix-update Toronto Star (map-snippet/footer)
 
 * v1.8.9.0 (2020-10-04)
 Add Hannoversche Allgemeine Zeitung

@@ -45,7 +45,6 @@
         "*://*.britannica.com/*",
         "*://*.business-standard.com/*",
         "*://*.businessinsider.com/*",
-        "*://*.businesstimes.com.sg/*",
         "*://*.cairnspost.com.au/*",
         "*://*.caixinglobal.com/*",
         "*://*.canberratimes.com.au/*",
@@ -305,5 +304,5 @@
         "webRequest",
         "webRequestBlocking"
     ],
-	"version": "1.8.9.2"
+	"version": "1.8.9.3"
 }
