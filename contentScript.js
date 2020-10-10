@@ -204,55 +204,23 @@ else if (matchDomain("nzherald.co.nz")) {
     if (article_content) {
         let article_offer = document.querySelector('.article-offer');
         if (article_offer) {
-            let scripts = document.querySelectorAll('script');
-            let json_script;
-            for (let script of scripts) {
-                if (script.innerText.includes('Fusion.globalContent'))
-                    json_script = script;
-                continue;
+            let css_selector = article_content.querySelectorAll('p')[5].getAttribute('class');
+            let hidden_not_pars = article_content.querySelectorAll('.' + css_selector + ':not(p)');
+            for (let hidden_not_par of hidden_not_pars) {
+                hidden_not_par.classList.remove(css_selector);
+                hidden_not_par.removeAttribute('style');
             }
-            let first_pars = article_content.querySelectorAll('p[class=""], div[class="article__raw-html__top"]');
-            removeDOMElement(...first_pars);
-            if (json_script) {
-                let json_text = json_script.innerHTML.split('Fusion.globalContent=')[1].split(';Fusion.globalContentConfig')[0];
-                let json_pars = JSON.parse(json_text).elements;
-                let par_dom;
-                let article_action_bar = document.querySelector('.article__action-bar:not([data-ref-group="author"])');
-                for (let par of json_pars) {
-                    par_dom = document.createElement('div');
-                    par_dom.setAttribute('style', 'margin: 10px; font-size: 1.1rem');
-                    if (par.type === 'text') {
-                        par_dom.innerHTML = par.content;
-                    } else if (par.type === 'raw_html') {
-                        if (par.subtype)
-                            par_dom.innerHTML = par.content;
-                        else {
-                            let raw_html = document.querySelector('div.article__raw-html');
-                            if (raw_html) {
-                                raw_html.setAttribute('class', 'article__raw-html');
-                                raw_html.removeAttribute('style');
-                            }
-                            par_dom = raw_html;
-                        }
-                    } else if (par.type === 'header') {
-                        par_dom.innerHTML = '<h2 class="article__heading">' + par.content + '</h2>';
-                    } else if (par.type === 'image') {
-                        par_dom.innerHTML = '<img src="' + par.url + '"</img>' + par.caption;
-                    } else if (par.type === 'video') {
-                        let video = document.querySelector('figure > div.video-outer');
-                        if (video) {
-                            video.parentElement.setAttribute('class', 'figure');
-                            video.parentElement.removeAttribute('style');
-                        }
-                        par_dom = video.parentElement;
-                    } else
-                        console.log(par);
-                    if (article_action_bar)
-                        article_action_bar.parentNode.insertBefore(par_dom, article_action_bar);
-                    else
-                        article_content.appendChild(par_dom);
-                }
+            let hidden_pars = article_content.querySelectorAll('p.' + css_selector);
+            let par_html, par_dom;
+            let parser = new DOMParser();
+            for (let hidden_par of hidden_pars) {
+                let par_html = parser.parseFromString('<div style="margin: 10px 0px; font-size: 17px">' + hidden_par.innerHTML + '</div>', 'text/html');
+                let par_dom = par_html.querySelector('div');
+                article_content.insertBefore(par_dom, hidden_par);
             }
+            let first_span = document.querySelector('p > span');
+            if (first_span)
+                first_span.removeAttribute('class');
             removeDOMElement(article_offer);
         }
     }
@@ -746,6 +714,7 @@ else if (matchDomain('faz.net')) {
                             str = str.replace(/([a-z\"\“])(?=[A-Z](?=[A-Za-zÀ-ÿ]+))/gm, "$&\n\n");
                             // exceptions: names with alternating lower/uppercase (no general fix)
                             str = str.replace(/Glaxo\n\nSmith\n\nKline/g, "GlaxoSmithKline");
+                            str = str.replace(/Ba\n\nFin/g, "BaFin");
                             str = str.replace(/Bil\n\nMoG/g, "BilMoG");
                             str = str.replace(/Eu\n\nGH/g, "EuGH");
                             str = str.replace(/If\n\nSG/g, "IfSG");
