@@ -214,7 +214,6 @@ var blockedRegexes = {
 'newyorker.com': /.+\.newyorker\.com\/verso\/static\/presenter-articles.+\.js/,
 'nknews.org': /.+\.nknews\.org\/wp-content\/plugins\/leaky-paywall-ajax\/js\/leaky-paywall-ajax\.js/,
 'nytimes.com': /(.+meter-svc\.nytimes\.com\/meter\.js.+|.+mwcm\.nyt\.com\/.+\.js)/,
-'nzherald.co.nz': /nzherald\.co\.nz\/.+\/headjs\/.+\.js/,
 'repubblica.it': /scripts\.repubblica\.it\/pw\/pw\.js.+/,
 'rollingstone.com': /cdn\.cxense\.com/,
 'sacbee.com': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,

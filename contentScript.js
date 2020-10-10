@@ -200,20 +200,64 @@ else if (matchDomain("the-american-interest.com")) {
 }
 
 else if (matchDomain("nzherald.co.nz")) {
-    let article_content = document.getElementById('article-content');
+    let article_content = document.querySelector('.article__content');
     if (article_content) {
-        let premium = document.querySelector('.premium-sub');
-        removeDOMElement(premium);
-        article_content.classList.remove('premium-content');
-        article_content.classList.add('full-content');
-        removeClassesByPrefix(article_content, 'QUnW');
-        let elems = article_content.querySelectorAll("p, span, h2, div");
-        for (let elem of elems){
-            removeClassesByPrefix(elem, 'QUnW');
-            elem.classList.remove("ellipsis");
-            elem.removeAttribute('style');
+        let article_offer = document.querySelector('.article-offer');
+        if (article_offer) {
+            let scripts = document.querySelectorAll('script');
+            let json_script;
+            for (let script of scripts) {
+                if (script.innerText.includes('Fusion.globalContent'))
+                    json_script = script;
+                continue;
+            }
+            let first_pars = article_content.querySelectorAll('p[class=""], div[class="article__raw-html__top"]');
+            removeDOMElement(...first_pars);
+            if (json_script) {
+                let json_text = json_script.innerHTML.split('Fusion.globalContent=')[1].split(';Fusion.globalContentConfig')[0];
+                let json_pars = JSON.parse(json_text).elements;
+                let par_dom;
+                let article_action_bar = document.querySelector('.article__action-bar:not([data-ref-group="author"])');
+                for (let par of json_pars) {
+                    par_dom = document.createElement('div');
+                    par_dom.setAttribute('style', 'margin: 10px; font-size: 1.1rem');
+                    if (par.type === 'text') {
+                        par_dom.innerHTML = par.content;
+                    } else if (par.type === 'raw_html') {
+                        if (par.subtype)
+                            par_dom.innerHTML = par.content;
+                        else {
+                            let raw_html = document.querySelector('div.article__raw-html');
+                            if (raw_html) {
+                                raw_html.setAttribute('class', 'article__raw-html');
+                                raw_html.removeAttribute('style');
+                            }
+                            par_dom = raw_html;
+                        }
+                    } else if (par.type === 'header') {
+                        par_dom.innerHTML = '<h2 class="article__heading">' + par.content + '</h2>';
+                    } else if (par.type === 'image') {
+                        par_dom.innerHTML = '<img src="' + par.url + '"</img>' + par.caption;
+                    } else if (par.type === 'video') {
+                        let video = document.querySelector('figure > div.video-outer');
+                        if (video) {
+                            video.parentElement.setAttribute('class', 'figure');
+                            video.parentElement.removeAttribute('style');
+                        }
+                        par_dom = video.parentElement;
+                    } else
+                        console.log(par);
+                    if (article_action_bar)
+                        article_action_bar.parentNode.insertBefore(par_dom, article_action_bar);
+                    else
+                        article_content.appendChild(par_dom);
+                }
+            }
+            removeDOMElement(article_offer);
         }
     }
+    let premium_toaster = document.querySelector('#premium-toaster');
+    removeDOMElement(premium_toaster);
 }
 
 else if (matchDomain(["parool.nl", "trouw.nl", "volkskrant.nl", "humo.be", "demorgen.be"])) {
@@ -634,7 +678,6 @@ else if (matchDomain('ladepeche.fr')) {
 }
 
 else if (matchDomain('challenges.fr')) {
-    document.addEventListener('DOMContentLoaded', () => {
         const amorce = document.querySelector('.user-paying-amorce');
         if (amorce)
             amorce.setAttribute('style', 'display:none !important');
@@ -643,7 +686,6 @@ else if (matchDomain('challenges.fr')) {
             content.setAttribute('style', 'display: block !important');
         const paywall = document.querySelector('.temp-paywall');
         removeDOMElement(paywall);
-    });
 }
 
 else if (matchDomain('barrons.com')) {
