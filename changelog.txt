@@ -2,8 +2,9 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
-Add Slate (Plus)
+Add Slate
 Remove BusinessTimes.com.sg (obsolete)
+Fix-update Australian Provincial Newspapers (now all)
 Fix-update Bloomberg (overlay)
 Fix-update Challenges.fr (timing)
 Fix-update NzHerald

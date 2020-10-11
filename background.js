@@ -72,7 +72,6 @@ var allow_cookies = [
 'scribd.com',
 'seekingalpha.com',
 'slader.com',
-'slate.com',
 'startribune.com',
 'stocknews.com',
 'techinasia.com',
@@ -223,6 +222,7 @@ var blockedRegexes = {
 'sciencesetavenir.fr': /.+\.poool\.fr\/.+/,
 'scmp.com': /.+\.tinypass\.com\/.+/,
 'sfchronicle.com': /.+\.blueconic\.net\/.+/,
+'slate.com': /(cdn\.cxense\.com|.+\.tinypass\.com\/.+)/,
 'sloanreview.mit.edu': /(.+\.tinypass\.com\/.+|.+\.netdna-ssl\.com\/wp-content\/themes\/smr\/assets\/js\/libs\/welcome-ad\.js)/,
 'smh.com.au': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
 'spectator.co.uk': /.+\.tinypass\.com\/.+/,
@@ -540,7 +540,8 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
 
   let inkl_site = (matchUrlDomain('cdn.jsdelivr.net', details.url) && matchUrlDomain('inkl.com', header_referer) && isSiteEnabled({url: header_referer}));
   let bloomberg_site = (matchUrlDomain('assets.bwbx.io', details.url) && matchUrlDomain('bloomberg.com', header_referer) && isSiteEnabled({url: header_referer}));
-  if (!isSiteEnabled(details) && !(inkl_site) && !(bloomberg_site)) {
+  let au_apn_site = (urlHost(header_referer).endsWith('com.au')|| urlHost(header_referer).endsWith('net.au')) && details.url.includes('https://media.apnarm.net.au/');
+  if (!isSiteEnabled(details) && !(inkl_site) && !(bloomberg_site) && !(au_apn_site)) {
     return;
   }
 
@@ -615,7 +616,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
 
   if (tabId !== -1) {
     ext_api.tabs.get(tabId, function (currentTab) {
-      if (isSiteEnabled(currentTab) || medium_custom_domain) {
+      if (isSiteEnabled(currentTab) || medium_custom_domain || au_apn_site) {
         ext_api.tabs.executeScript(tabId, {
            file: 'contentScript.js',
            runAt: 'document_start'
