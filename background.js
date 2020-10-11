@@ -540,7 +540,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
 
   let inkl_site = (matchUrlDomain('cdn.jsdelivr.net', details.url) && matchUrlDomain('inkl.com', header_referer) && isSiteEnabled({url: header_referer}));
   let bloomberg_site = (matchUrlDomain('assets.bwbx.io', details.url) && matchUrlDomain('bloomberg.com', header_referer) && isSiteEnabled({url: header_referer}));
-  let au_apn_site = (urlHost(header_referer).endsWith('com.au')|| urlHost(header_referer).endsWith('net.au')) && details.url.includes('https://media.apnarm.net.au/');
+  let au_apn_site = (header_referer && (urlHost(header_referer).endsWith('com.au') || urlHost(header_referer).endsWith('net.au'))) && details.url.includes('https://media.apnarm.net.au/');
   if (!isSiteEnabled(details) && !(inkl_site) && !(bloomberg_site) && !(au_apn_site)) {
     return;
   }
