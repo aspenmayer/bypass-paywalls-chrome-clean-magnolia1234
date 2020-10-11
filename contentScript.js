@@ -1268,6 +1268,12 @@ else if (matchDomain("elpais.com")) {
     removeDOMElement(paywall_offer);
 }
 
+else if (matchDomain("slate.com")) {
+    let slate_roadblock = document.querySelector('.slate-roadblock');
+    removeDOMElement(slate_roadblock);
+}
+
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {

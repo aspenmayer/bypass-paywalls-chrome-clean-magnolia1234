@@ -206,6 +206,7 @@
         "*://*.seekingalpha.com/*",
         "*://*.sfchronicle.com/*",
         "*://*.slader.com/*",
+        "*://*.slate.com/*",
         "*://*.sloanreview.mit.edu/*",
         "*://*.smh.com.au/*",
         "*://*.sofrep.com/*",
@@ -304,5 +305,5 @@
         "webRequest",
         "webRequestBlocking"
     ],
-	"version": "1.8.9.4"
+	"version": "1.8.9.5"
 }
