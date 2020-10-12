@@ -39,7 +39,7 @@ ext_api.runtime.onMessage.addListener(function (message, sender) {
 });
 
 // ask for opt-in confirmation
-ext_api.runtime.sendMessage({});
+ext_api.runtime.sendMessage({request: 'optin'});
 
 // Content workarounds/domain
 

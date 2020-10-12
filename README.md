@@ -16,7 +16,7 @@ In extension developer mode you can always install BPC by `Load unpacked` (no au
 
 #### Load unpacked: Chrome (Windows, MacOS, Linux), Microsoft Edge (Chromium)/Brave/Yandex (or 'whitelist' extension and install automatically updating crx-file (see next section))
 1. Download this repository as a [ZIP-file from BitBucket](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/get/master.zip).
-2. Unzip the file and you should have a folder named `magnolia1234-bypass-paywalls-chrome-clean-master`.
+2. Unzip the file and you should have a folder named `magnolia1234-bypass-paywalls-chrome-clean-(commit-hash)`.
 3. Move the folder to a permanent location on your computer (do not delete the folder after installation).
 * replace manifest.json with the one in lp-folder if you want to use the limited permissions version (custom sites will not be working though).  
 4. Go to the extensions page (`chrome://extensions` or `edge://extensions`).
@@ -363,13 +363,13 @@ For example:
 _*free articles only._
 
 ### Sites with limited number of free articles
-The free article limit can normally be bypassed by removing cookies for the site.*  
+The free article limit can normally be bypassed by removing cookies for the site.  
+Click on the BPC-icon and then 'clear cookies' button in the popup.  
+For user with the limited permissions BPC-version this will only work for supported sites; for other sites use:
 1. Install the extension [Cookie Remover](https://chrome.google.com/webstore/detail/cookie-remover/kcgpggonjhmeaejebeoeomdlohicfhce) or [Disable Cookies](https://chrome.google.com/webstore/detail/disable-cookies/lkmjmficaoifggpfapbffkggecbleang?hl=en).  
 2. When coming across a paywall, click the cookie icon in your extension toolbar then refresh the page.
 
 If removing the cookies works you can also add the site as a custom site.
-
-_*may not always succeed._
 
 ### New site requests
 You can submit a request for a new website [here](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/issues?status=new&status=open).  

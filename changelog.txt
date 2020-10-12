@@ -2,6 +2,8 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Fix-update MIT Sloan Management Review (modal)
+Option to clear cookies & local storage (of site)
 
 * v1.9.0.0 (2020-10-11)
 Add Slate
