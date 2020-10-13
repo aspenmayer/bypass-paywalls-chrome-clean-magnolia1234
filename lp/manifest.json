@@ -1,25 +1,29 @@
 {
-	"background": {
-		"scripts": ["sites.js", "bpc_count_daily_users.js", "background.js"]
-	},
-	"content_security_policy": "script-src 'self'; object-src 'self'",
-	"browser_action": {
-		"default_popup": "popup.html"
-	},
-	"description": "Bypass Paywalls of news sites",
-	"homepage_url": "https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/src/master/README.md",
-	"icons": {
-		"128": "bypass.png"
-	},
-	"manifest_version": 2,
-	"key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvLxf4oOeSoz8qKVzKGQWW5zW44hWCoOoQRGXTrObUpyoGfGzhFO8aZHQmBcLrAZMA4O6EA7GaXnHkOPCLKM11seZ4J2azb1gSswApfAlaoeOLnhDnp/Jpzz7Bt6o4HL+nhKRJUOZ9z+GXAyOkOps5O38TwJN5R6z8tLkleRgfYscp19YU/vq1x9PrbXIHJTRB7qtb/iJmiKATKisXGmFY3Nbs5m379TGqcJFBM9bI+8bSJtS4e7t0LHOwSLDq3IVRaWVsFd9P19WEDNTxuzr9+rczOrw1vgmiisNOcElse8cyVIoq4bjepvfHM/9nzDgKwQsNG5OTzujwHu2UUN4cwIDAQAB",
-	"name": "Bypass Paywalls Clean (limited permissions)",
-	"update_url": "https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/raw/master/updates_lp.xml",
-	"short_name": "Bypass Paywall",
-	"options_ui": {
-		"chrome_style": true,
-		"page": "options.html"
-	},
+    "background": {
+        "scripts": ["sites.js", "bpc_count_daily_users.js", "background.js"]
+    },
+    "content_security_policy": "script-src 'self'; object-src 'self'",
+    "browser_action": {
+        "default_popup": "popup.html"
+    },
+    "description": "Bypass Paywalls of news sites",
+    "homepage_url": "https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/src/master/README.md",
+    "icons": {
+        "128": "bypass.png"
+    },
+    "manifest_version": 2,
+    "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvLxf4oOeSoz8qKVzKGQWW5zW44hWCoOoQRGXTrObUpyoGfGzhFO8aZHQmBcLrAZMA4O6EA7GaXnHkOPCLKM11seZ4J2azb1gSswApfAlaoeOLnhDnp/Jpzz7Bt6o4HL+nhKRJUOZ9z+GXAyOkOps5O38TwJN5R6z8tLkleRgfYscp19YU/vq1x9PrbXIHJTRB7qtb/iJmiKATKisXGmFY3Nbs5m379TGqcJFBM9bI+8bSJtS4e7t0LHOwSLDq3IVRaWVsFd9P19WEDNTxuzr9+rczOrw1vgmiisNOcElse8cyVIoq4bjepvfHM/9nzDgKwQsNG5OTzujwHu2UUN4cwIDAQAB",
+    "name": "Bypass Paywalls Clean (lp - no more updates)",
+    "update_url": "https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/raw/master/updates_lp.xml",
+    "short_name": "Bypass Paywall",
+    "options_ui": {
+        "chrome_style": true,
+        "open_in_tab": true,							
+        "page": "options.html"
+    },
+    "optional_permissions": [
+        "<all_urls>"
+    ],				 
     "permissions": [
         "cookies",
         "*://*.abc.es/*",
@@ -305,5 +309,5 @@
         "webRequest",
         "webRequestBlocking"
     ],
-	"version": "1.9.0.1"
+    "version": "1.9.0.2"
 }

@@ -17,11 +17,13 @@
   <h2>Custom Sites</h2>
   <div style="width:90%;">
     To add a new site, enter an unique title/domain (without www.) and select options for Googlebot/block Javascript (block on (sub)domain(s) of site and/or external domains).<br>
-    Custom sites are enabled automatically in <a href="options.html" style="color:black">options</a> (cookies will be removed by default).
-    <br/><br/>
+    Custom sites are enabled automatically in <small><button><a href="options.html" style="text-decoration:none;color:inherit">Options</a></button></small> (cookies will be removed by default).<br>
+    If you want to use custom sites enable it in <small><button><a href="optin/opt-in.html" style="text-decoration:none;color:inherit">Opt-in</a></button></small><br>
+    <strong>Custom sites enabled: <span id="custom-enabled"></span></strong>
+    <br><br>
   </div>
   <div id='add_site'></div>
-    <br/>
+    <br>
   <div id="status_add"></div>
   <span style='float:left;padding-bottom:5px'>
     <button id="add">Add</button>
@@ -30,10 +32,10 @@
   <div>
     <h3>List of custom sites</h3>
      * already in default list (double domain)
-  <br/>
+    <br>
   </div>
   <div id='custom_sites'></div>
-    <br/>
+    <br>
   <div id="status_delete"></div>
   <span style='float:left;padding-bottom:5px'>
     <button id="delete">Delete</button>
@@ -45,9 +47,9 @@
     You can edit/sort the text area and save (only when json-text is valid). 
     Clear & save to reset. You can also export/import json-text for new installations.
   </div>
-  <br/>
+  <br>
   <div id='bypass_sites'></div>
-    <br/>
+    <br>
   <div id="status"></div>
   <div id="error"></div>
   <span style='float:left;padding-bottom:50px'>

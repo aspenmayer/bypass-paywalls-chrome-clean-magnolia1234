@@ -245,7 +245,17 @@ function renderOptions() {
         }
         labelEl.appendChild(selectEl);
         custom_sitesEl.appendChild(labelEl);
+    });
 
+    var custom_enabled = document.getElementById('custom-enabled');
+    ext_api.permissions.contains({
+        origins: ["<all_urls>"]
+    }, function (result) {
+        if (result) {
+            custom_enabled.innerText = 'YES';
+        } else {
+            custom_enabled.innerText = 'NO';
+        }
     });
 }
 

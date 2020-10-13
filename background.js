@@ -797,8 +797,8 @@ ext_api.runtime.onMessage.addListener(function (message, sender) {
 });
 
 // show the tab if we haven't registered the user reacting to the prompt.
-ext_api.storage.sync.get("optInShown", function (result) {
-    if (!result.optInShown) {
+ext_api.storage.sync.get(["optInShown", "customShown"], function (result) {
+    if (!result.optInShown || !result.customShown) {
         ext_api.tabs.create({
             url: "optin/opt-in.html"
         });

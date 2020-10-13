@@ -21,6 +21,11 @@ fetch(manifest_new)
                     anchorEl.href = 'https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/downloads';
                     anchorEl.target = '_blank';
                     versionString_new.appendChild(anchorEl);
+                    if (!manifestData.name.includes('Clean')) {
+                        let par = document.createElement('p');
+                        par.innerHTML = "<strong>You've installed a fake version of BPC (check BitBucket)</strong>";
+                        versionString_new.appendChild(par);
+                    }
                 }
             });
         })

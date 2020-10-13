@@ -18,7 +18,7 @@ In extension developer mode you can always install BPC by `Load unpacked` (no au
 1. Download this repository as a [ZIP-file from BitBucket](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/get/master.zip).
 2. Unzip the file and you should have a folder named `magnolia1234-bypass-paywalls-chrome-clean-(commit-hash)`.
 3. Move the folder to a permanent location on your computer (do not delete the folder after installation).
-* replace manifest.json with the one in lp-folder if you want to use the limited permissions version (custom sites will not be working though).  
+* by default BPC has limited permissions, but you can opt-in to enable custom sites (and also clear cookies for non-listed sites).  
 4. Go to the extensions page (`chrome://extensions` or `edge://extensions`).
 5. Enable Developer Mode.
 6. Click `Load unpacked` and select the extension folder.
@@ -123,7 +123,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 ##### Magazines/Blogs
 [Atavist Magazine](https://magazine.atavist.com) -
 [Commentary Magazine](https://www.commentarymagazine.com) -
-[Medium](https://www.medium.com) (all sites) -
+[Medium](https://www.medium.com/topics) (all sites) -
 [Rolling Stone](https://www.rollingstone.com) -
 [Slate](https://slate.com) -
 [SofRep](https://sofrep.com) -
@@ -364,7 +364,7 @@ _*free articles only._
 
 ### Sites with limited number of free articles
 The free article limit can normally be bypassed by removing cookies for the site.  
-Click on the BPC-icon and then 'clear cookies' button in the popup.  
+Click on the BPC-icon and then 'clear cookies'-button in the popup.  
 For user with the limited permissions BPC-version this will only work for supported sites; for other sites use:
 1. Install the extension [Cookie Remover](https://chrome.google.com/webstore/detail/cookie-remover/kcgpggonjhmeaejebeoeomdlohicfhce) or [Disable Cookies](https://chrome.google.com/webstore/detail/disable-cookies/lkmjmficaoifggpfapbffkggecbleang?hl=en).  
 2. When coming across a paywall, click the cookie icon in your extension toolbar then refresh the page.
@@ -384,6 +384,8 @@ Remember to check the [previous requests](https://bitbucket.org/magnolia1234/byp
 ### Add custom site
 Add your own custom site (also for testing).  
 Check 'Options'-link in popup-menu and go to custom sites.  
+* by default BPC has limited permissions, but you can opt-in to enable custom sites (and also clear cookies for non-listed sites).   
+Make sure the (new) site is checked under Options (or check on/off-buton). 
 By default sites' cookies/local storage are removed after page loads (to bypass article limit).  
 Also you can enable Googlebot user-agent or disable Javascript for (sub)domain(s)/external sources.
 
