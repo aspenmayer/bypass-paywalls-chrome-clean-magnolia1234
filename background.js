@@ -738,7 +738,7 @@ ext_api.webRequest.onCompleted.addListener(function (details) {
                 continue; // only remove specific cookie
             }
             ext_api.cookies.remove({
-                url: (cookie.secure ? "https://" : "http://") + cookie.domain + cookie.path,
+                url: (cookie.secure ? "https://" : "http://") + rc_domain + cookie.path,
                 name: cookie.name
             });
         }
