@@ -33,6 +33,15 @@ window.addEventListener("load", function () {
         }, 800);
     });
 
+    document.getElementById("button-close").addEventListener(
+        "click",
+        function () {
+        ext_api.storage.sync.set({
+            "optInShown": true
+        });
+        window.close();
+    });
+
     var custom_enabled = document.getElementById('custom-enabled');
     ext_api.permissions.contains({
         origins: ["<all_urls>"]

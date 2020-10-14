@@ -2,6 +2,8 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+
+* v1.9.0.2 (2020-10-14)
 Fix-update MIT Sloan Management Review (modal)
 Default limited permissions (opt-in custom sites)
 Fix Chrome-mismatch permissions .domain cookies

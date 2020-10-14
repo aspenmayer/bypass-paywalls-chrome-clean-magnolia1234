@@ -718,7 +718,7 @@ else if (matchDomain('faz.net')) {
                         article_text.innerText = '';
 
                         const breakText = (str) => {
-                            str = str.replace(/(?:^|[\w\"\“])(\.|\?|!)(?=[A-Z\„][A-Za-zÀ-ÿ\„]{1,})/gm, "$&\n\n");
+                            str = str.replace(/(?:^|[\w\"\“])(\.|\?|!)(?=[A-ZÖÜ\„][A-Za-zÀ-ÿ\„]{1,})/gm, "$&\n\n");
                             str = str.replace(/([a-z\"\“])(?=[A-Z](?=[A-Za-zÀ-ÿ]+))/gm, "$&\n\n");
                             // exceptions: names with alternating lower/uppercase (no general fix)
                             str = str.replace(/Glaxo\n\nSmith\n\nKline/g, "GlaxoSmithKline");
