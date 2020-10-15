@@ -7,7 +7,7 @@ window.addEventListener("load", function () {
         opt_in_enabled.innerText = result.optIn ? 'YES' : 'NO';
     });
 
-    document.getElementById("button-enable").addEventListener(
+    document.getElementById("optin-enable").addEventListener(
         "click",
         function () {
         ext_api.storage.sync.set({
@@ -20,7 +20,7 @@ window.addEventListener("load", function () {
         }, 800);
     });
 
-    document.getElementById("button-cancel").addEventListener(
+    document.getElementById("optin-disable").addEventListener(
         "click",
         function () {
         ext_api.storage.sync.set({
@@ -37,7 +37,8 @@ window.addEventListener("load", function () {
         "click",
         function () {
         ext_api.storage.sync.set({
-            "optInShown": true
+            "optInShown": true,
+            "customShown": true
         });
         window.close();
     });

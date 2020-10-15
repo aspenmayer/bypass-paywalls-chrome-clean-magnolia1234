@@ -802,6 +802,10 @@ ext_api.storage.sync.get(["optInShown", "customShown"], function (result) {
         ext_api.tabs.create({
             url: "optin/opt-in.html"
         });
+        ext_api.storage.sync.set({
+            "optInShown": true,
+            "customShown": true
+        });
     }
 });
 
