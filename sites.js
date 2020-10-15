@@ -191,6 +191,7 @@ var defaultSites =
   "The Toronto Star": "thestar.com",
   "The Wall Street Journal (not Chinese)": "wsj.com",
   "The Washington Post": "washingtonpost.com",
+  "The West Australian (+ regional)": "thewest.com.au",
   "Times Higher Education": "timeshighereducation.com",
   "Towards Data Science": "towardsdatascience.com",
   "Trouw": "trouw.nl",
