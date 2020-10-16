@@ -216,7 +216,8 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [La Repubblica](https://www.repubblica.it) -
 [La Stampa](https://www.lastampa.it) -
 [Le Scienze](https://www.lescienze.it) -
-[LimesOnline (it/en)](https://www.limesonline.com)
+[LimesOnline (it/en)](https://www.limesonline.com) -
+[Quotidiano.net](https://www.quotidiano.net)
 ##### Netherlands/Flanders
 [Algemeen Dagblad](https://www.ad.nl) and regional ADR sites like
 [BN DeStem](https://www.bndestem.nl) -

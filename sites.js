@@ -133,6 +133,7 @@ var defaultSites =
   "Pittsburgh Post Gazette": "post-gazette.com",
   "Quartz (free articles only)": "qz.com",
   "Quora": "quora.com",
+  "Quotidiano.net": "quotidiano.net",
   "Republic.ru": "republic.ru",
   "Rolling Stone": "rollingstone.com",
   "San Diego Union Tribune": "sandiegouniontribune.com",

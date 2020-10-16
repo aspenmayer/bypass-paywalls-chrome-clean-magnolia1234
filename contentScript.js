@@ -1365,6 +1365,15 @@ else if (matchDomain("slate.com")) {
     removeDOMElement(slate_roadblock);
 }
 
+else if (matchDomain("quotidiano.net")) {
+    let detail_text_truncated = document.querySelector('div.detail-text--truncated');
+    let detail_page_paywall = document.querySelector('body.detail-page--paywall');
+    if (detail_page_paywall) {
+        removeDOMElement(detail_text_truncated);
+        detail_page_paywall.classList.remove('detail-page--paywall');
+    }
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {
