@@ -116,7 +116,7 @@ var defaultSites =
   "Nautilus": "nautil.us",
   "Neue Ruhr Zeitung": "nrz.de",
   "Neue Zürcher Zeitung": "nzz.ch",
-  "New York Magazine": "nymag.com",
+  "New York Magazine (+ Grub Street, The Cut & Vulture)": "nymag.com",
   "New Zealand Herald": "nzherald.co.nz",
   "Newsweek": "newsweek.com",
   "Nikkei Asian Review": "asia.nikkei.com",

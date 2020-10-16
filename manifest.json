@@ -108,6 +108,7 @@
         "*://*.globo.com/*",
         "*://*.goldcoastbulletin.com.au/*",
         "*://*.groene.nl/*",
+        "*://*.grubstreet.com/*",
         "*://*.gympietimes.com.au/*",
         "*://*.haaretz.co.il/*",
         "*://*.haaretz.com/*",
@@ -236,6 +237,7 @@
         "*://*.theaustralian.com.au/*",
         "*://*.thechronicle.com.au/*",
         "*://*.thecourier.com.au/*",
+        "*://*.thecut.com/*",
         "*://*.thedailybeast.com/*",
         "*://*.thediplomat.com/*",
         "*://*.theglobeandmail.com/*",
@@ -257,6 +259,7 @@
         "*://*.vanityfair.com/*",
         "*://*.variety.com/*",
         "*://*.volkskrant.nl/*",
+        "*://*.vulture.com/*",
         "*://*.warwickdailynews.com.au/*",
         "*://*.washingtonpost.com/*",
         "*://*.watoday.com.au/*",
@@ -312,5 +315,5 @@
         "webRequest",
         "webRequestBlocking"
     ],
-    "version": "1.9.0.5"
+    "version": "1.9.0.6"
 }

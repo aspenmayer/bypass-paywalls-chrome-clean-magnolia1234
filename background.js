@@ -248,6 +248,7 @@ var blockedRegexes = {
 const au_comm_media_domains = ['bendigoadvertiser.com.au', 'bordermail.com.au', 'canberratimes.com.au', 'centralwesterndaily.com.au', 'dailyadvertiser.com.au', 'dailyliberal.com.au', 'examiner.com.au', 'illawarramercury.com.au', 'newcastleherald.com.au', 'northerndailyleader.com.au', 'portnews.com.au', 'standard.net.au', 'theadvocate.com.au', 'thecourier.com.au', 'westernadvocate.com.au'];
 const au_news_corp_domains = ['adelaidenow.com.au', 'cairnspost.com.au', 'couriermail.com.au', 'dailytelegraph.com.au', 'geelongadvertiser.com.au', 'goldcoastbulletin.com.au', 'heraldsun.com.au', 'ntnews.com.au', 'theaustralian.com.au', 'themercury.com.au', 'townsvillebulletin.com.au', 'weeklytimesnow.com.au'];
 const au_prov_news_domains = ['news-mail.com.au', 'frasercoastchronicle.com.au', 'gladstoneobserver.com.au', 'dailyexaminer.com.au', 'dailymercury.com.au', 'themorningbulletin.com.au', 'sunshinecoastdaily.com.au', 'gympietimes.com.au', 'northernstar.com.au', 'qt.com.au', 'thechronicle.com.au', 'warwickdailynews.com.au'];
+const nymag_domains = ['grubstreet.com', 'thecut.com', 'vulture.com'];
 
 const userAgentDesktop = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
 const userAgentMobile = "Chrome/41.0.2272.96 Mobile Safari/537.36 (compatible ; Googlebot/2.1 ; +http://www.google.com/bot.html)"
@@ -298,6 +299,16 @@ ext_api.storage.sync.get({
     disabledSites = defaultSites_domains.concat(customSites_domains).filter(x => !enabledSites.includes(x) && x !== '###');
     if (enabledSites.includes('ad.nl'))
         enabledSites = enabledSites.concat(ad_region_domains);
+    else
+        disabledSites = disabledSites.concat(ad_region_domains);
+    if (enabledSites.includes('nymag.com')) {
+        enabledSites = enabledSites.concat(nymag_domains);
+        for (let domain of nymag_domains) {
+            allow_cookies.push(domain);
+            remove_cookies.push(domain);
+        }
+    } else
+        disabledSites = disabledSites.concat(nymag_domains);
     if (enabledSites.includes('###_au_comm_media')) {
         enabledSites = enabledSites.concat(au_comm_media_domains);
         for (let domain of au_comm_media_domains) {
@@ -345,6 +356,12 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
             disabledSites = defaultSites_domains.concat(customSites_domains).filter(x => !enabledSites.includes(x) && x !== '###');
             if (enabledSites.includes('ad.nl'))
                 enabledSites = enabledSites.concat(ad_region_domains);
+            else
+                disabledSites = disabledSites.concat(ad_region_domains);
+            if (enabledSites.includes('nymag.com'))
+                enabledSites = enabledSites.concat(nymag_domains);
+            else
+                disabledSites = disabledSites.concat(nymag_domains);
             if (enabledSites.includes('###_au_comm_media'))
                 enabledSites = enabledSites.concat(au_comm_media_domains);
             else

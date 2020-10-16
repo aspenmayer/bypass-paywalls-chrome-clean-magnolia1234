@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Add NYmag-sites Grub Street, The Cut & Vulture
 Add Quotidiano.net (Italy)
 Add The West Australian (+ regional)
 Fix-update Toronto Star (external cookie-script)
