@@ -234,6 +234,7 @@ var blockedRegexes = {
 'thedailybeast.com': /.+\.tinypass\.com\/.+/,
 'thehindu.com': /(cdn\.cxense\.com|.+\.tinypass\.com\/.+)/,
 'thenation.com': /.+\.tinypass\.com\/.+/,
+'thestar.com': /emeter-nam\.mppglobal\.com\/probes\/JSONP\?/,
 'valeursactuelles.com': /.+\.qiota\.com\/.+/,
 'variety.com': /cdn\.cxense\.com/,
 'washingtonpost.com': /.+\.washingtonpost\.com\/.+\/pwapi-proxy\.min\.js/,

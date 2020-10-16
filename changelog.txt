@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add The West Australian (+ regional)
+Fix-update Toronto Star (external cookie-script)
 Update opt-in tab (default settings)
 
 * v1.9.0.2 (2020-10-14)

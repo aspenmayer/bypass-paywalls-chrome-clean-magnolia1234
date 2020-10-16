@@ -292,6 +292,7 @@
         "*://*.jsdelivr.net/*",
         "*://*.lightboxcdn.com/*",
         "*://*.lp4.io/*",
+        "*://*.mppglobal.com/*",
         "*://*.nyt.com/*",
         "*://*.pasedigital.cl/*",
         "*://*.pelcro.com/*",
@@ -310,5 +311,5 @@
         "webRequest",
         "webRequestBlocking"
     ],
-    "version": "1.9.0.3"
+    "version": "1.9.0.4"
 }
