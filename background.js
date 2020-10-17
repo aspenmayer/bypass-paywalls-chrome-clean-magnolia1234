@@ -462,6 +462,18 @@ ext_api.webRequest.onBeforeRequest.addListener(function (details) {
 ["blocking"]
 );
 
+// inkl disable newsletter login
+ext_api.webRequest.onBeforeRequest.addListener(function (details) {
+  if (!isSiteEnabled(details)) {
+    return;
+  }
+  var updatedUrl = details.url.replace(/etok=[\w]*&/, '');
+  return { redirectUrl: updatedUrl };
+},
+{urls:["*://*.inkl.com/*"], types:["main_frame"]},
+["blocking"]
+);
+
 const faz_uaMobile = "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Mobile Safari/537.36";
 ext_api.webRequest.onBeforeSendHeaders.addListener(
     function (details) {

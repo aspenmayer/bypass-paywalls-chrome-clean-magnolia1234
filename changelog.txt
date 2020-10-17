@@ -5,6 +5,7 @@ Post-release
 Add NYmag-sites Grub Street, The Cut & Vulture
 Add Quotidiano.net (Italy)
 Add The West Australian (+ regional)
+Fix-update Inkl (disable newsletter login)
 Fix-update Toronto Star (external cookie-script)
 Update opt-in tab (default settings)
 

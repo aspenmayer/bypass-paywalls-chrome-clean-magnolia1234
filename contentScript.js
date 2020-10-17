@@ -925,8 +925,6 @@ else if (matchDomain('ftm.nl')) {
 
 else if (matchDomain('inkl.com')) {
     document.addEventListener('DOMContentLoaded', () => {
-        if (window.location.href.includes('?'))
-            window.location.href = window.location.href.split('?')[0];
         let menu_btn = document.querySelector('div.left-buttons-container button.menu-btn');
         if (!menu_btn) {
             let article_container = document.querySelector('div.article-content-container');
