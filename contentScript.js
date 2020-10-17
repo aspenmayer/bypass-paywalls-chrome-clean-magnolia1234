@@ -526,8 +526,10 @@ else if (matchDomain("techinasia.com")) {
 
 else if (matchDomain("thestar.com")) {
     let meter_banner = document.querySelector('.c-article-meter-banner');
+    removeDOMElement(meter_banner);
     let rightrail = document.querySelector('.c-article-body__rightrail');
-    removeDOMElement(meter_banner, rightrail);
+    if (rightrail)
+        rightrail.setAttribute('style', 'display:none;');
     let paywall = document.querySelector('.basic-paywall-new');
     if (paywall) {
         removeDOMElement(paywall);

@@ -42,10 +42,10 @@ Windows Registry Editor Version 5.00
 "1"="lkbebcjgcmobigpeffafkodonchffocl" 
 
 #### Android
-1. Install [Kiwi Browser](https://play.google.com/store/apps/details?id=com.kiwibrowser.browser&hl=nl) or [Yandex Browser](https://play.google.com/store/apps/details?id=com.yandex.browser&hl=en) from the Google PlayStore.
+1. Install [Yandex Browser](https://play.google.com/store/apps/details?id=com.yandex.browser&hl=en) from the Google PlayStore.
 2. Follow Chrome instructions located just above (step 6: pick `manifest.json` instead of the folder).  
   
-* for Kiwi Browser you can also load the CRX-file in downloads (auto-updating, no whitelist needed)
+* for some sites you can also use [Kiwi Browser](https://play.google.com/store/apps/details?id=com.kiwibrowser.browser&hl=nl); load the CRX-file in downloads (auto-updating, no whitelist needed, still some cookie-removal issues ...)
 
 #### Firefox
 Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywalls-firefox-clean) of Bypass Paywall Clean.
