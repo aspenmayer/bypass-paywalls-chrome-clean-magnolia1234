@@ -208,6 +208,7 @@ var defaultSites =
   "Wired": "wired.com",
   "World Politics Review": "worldpoliticsreview.com",
   "——— Block Paywall-scripts ———": "###",
+  "Amp-access": "cdn.ampproject.org",
   "BlueConic": "blueconic.net",
   "Cxense": "cxense.com",
   "Evolok": "evolok.net",
