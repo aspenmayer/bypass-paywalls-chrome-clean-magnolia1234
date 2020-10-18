@@ -65,9 +65,9 @@ else if (domain = matchDomain(["brisbanetimes.com.au", "smh.com.au", "theage.com
 
 else if (window.location.hostname.endsWith(".com.au") || window.location.hostname.endsWith(".net.au")) {
     // Australian Community Media newspapers
-    let au_sites = ['bendigoadvertiser.com.au', 'bordermail.com.au', 'canberratimes.com.au', 'centralwesterndaily.com.au', 'dailyadvertiser.com.au', 'dailyliberal.com.au', 'examiner.com.au', 'illawarramercury.com.au', 'newcastleherald.com.au', 'northerndailyleader.com.au', 'portnews.com.au', 'standard.net.au', 'theadvocate.com.au', 'thecourier.com.au', 'westernadvocate.com.au'];
+    let au_cm_sites = ['bendigoadvertiser.com.au', 'bordermail.com.au', 'canberratimes.com.au', 'centralwesterndaily.com.au', 'dailyadvertiser.com.au', 'dailyliberal.com.au', 'examiner.com.au', 'illawarramercury.com.au', 'newcastleherald.com.au', 'northerndailyleader.com.au', 'portnews.com.au', 'standard.net.au', 'theadvocate.com.au', 'thecourier.com.au', 'westernadvocate.com.au'];
     let au_piano_script = document.querySelector('script[src="https://cdn-au.piano.io/api/tinypass.min.js"]');
-    if (matchDomain(au_sites) || au_piano_script) {
+    if (matchDomain(au_cm_sites) || au_piano_script) {
         const subscribe_truncate = document.querySelector('.subscribe-truncate');
         if (subscribe_truncate)
             subscribe_truncate.classList.remove('subscribe-truncate');
@@ -76,85 +76,93 @@ else if (window.location.hostname.endsWith(".com.au") || window.location.hostnam
             subscriber_hider.classList.remove('subscriber-hider');
         }
     } else if (window.location.hostname.endsWith(".com.au")) {
-        // Australian Seven West Media
-        let swm_script = document.querySelector('script[src^="https://s.thewest.com.au"]');
-        if (matchDomain("thewest.com.au") || swm_script) {
-            window.setTimeout(function () {
-                let breach_screen = document.querySelector('div[data-testid*="BreachScreen"]');
-                if (breach_screen) {
-                    let scripts = document.querySelectorAll('script');
-                    let json_script;
-                    for (let script of scripts) {
-                        if (script.innerText.includes('window.PAGE_DATA ='))
-                            json_script = script;
-                        continue;
-                    }
-                    if (json_script) {
-                        let json_text = json_script.innerHTML.split('window.PAGE_DATA =')[1].split('</script')[0];
-                        json_text = json_text.replace(/undefined/g, '"undefined"');
-                        let json_article = JSON.parse(json_text);
-                        let json_pub = Object.entries(json_article)[0][1].data.result.resolution.publication;
-                        let json_content = json_pub.content.blocks;
-                        //let json_video = json_pub.mainVideo;
-                        let url = window.location.href;
-                        let url_loaded = json_pub._self;
-                        if (!url.includes(url_loaded.slice(-10)))
-                            document.location.reload(true);
-                        let article = '';
-                        let div_content = document.createElement('div');
-                        for (let par of json_content) {
-                            if (par.kind === 'text') {
-                                article = article + '<p>' + par.text + '</p>';
-                            } else if (par.kind === 'subhead') {
-                                article = article + '<h2>' + par.text + '</h2>';
-                            } else if (par.kind === 'pull-quote') {
-                                article = article + '<i>' + (par.attribution ? par.attribution + ': ' : '') + par.text + '</i>';
-                            } else if (par.kind === 'embed') {
-                                if (par.reference.includes('https://omny.fm/') || par.reference.includes('https://docdro.id/')) {
-                                    article = article + '<embed src="' + par.reference + '" style="height:500px; width:100%" frameborder="0"></embed>';
+        // Australia News Corp
+        let au_nc_sites = ['adelaidenow.com.au', 'cairnspost.com.au', 'couriermail.com.au', 'dailytelegraph.com.au', 'geelongadvertiser.com.au', 'goldcoastbulletin.com.au', 'heraldsun.com.au', 'ntnews.com.au', 'theaustralian.com.au', 'themercury.com.au', 'townsvillebulletin.com.au', 'weeklytimesnow.com.au'];
+        if (matchDomain(au_nc_sites) && window.location.hostname.startsWith('amp.')) {
+            let div_hidden_all = document.querySelectorAll('div[amp-access="access AND subscriber"]');
+            for (let div_hidden of div_hidden_all)
+                div_hidden.removeAttribute('amp-access-hide');
+        } else {
+            // Australian Seven West Media
+            let swm_script = document.querySelector('script[src^="https://s.thewest.com.au"]');
+            if (matchDomain("thewest.com.au") || swm_script) {
+                window.setTimeout(function () {
+                    let breach_screen = document.querySelector('div[data-testid*="BreachScreen"]');
+                    if (breach_screen) {
+                        let scripts = document.querySelectorAll('script');
+                        let json_script;
+                        for (let script of scripts) {
+                            if (script.innerText.includes('window.PAGE_DATA ='))
+                                json_script = script;
+                            continue;
+                        }
+                        if (json_script) {
+                            let json_text = json_script.innerHTML.split('window.PAGE_DATA =')[1].split('</script')[0];
+                            json_text = json_text.replace(/undefined/g, '"undefined"');
+                            let json_article = JSON.parse(json_text);
+                            let json_pub = Object.entries(json_article)[0][1].data.result.resolution.publication;
+                            let json_content = json_pub.content.blocks;
+                            //let json_video = json_pub.mainVideo;
+                            let url = window.location.href;
+                            let url_loaded = json_pub._self;
+                            if (!url.includes(url_loaded.slice(-10)))
+                                document.location.reload(true);
+                            let article = '';
+                            let div_content = document.createElement('div');
+                            for (let par of json_content) {
+                                if (par.kind === 'text') {
+                                    article = article + '<p>' + par.text + '</p>';
+                                } else if (par.kind === 'subhead') {
+                                    article = article + '<h2>' + par.text + '</h2>';
+                                } else if (par.kind === 'pull-quote') {
+                                    article = article + '<i>' + (par.attribution ? par.attribution + ': ' : '') + par.text + '</i>';
+                                } else if (par.kind === 'embed') {
+                                    if (par.reference.includes('https://omny.fm/') || par.reference.includes('https://docdro.id/')) {
+                                        article = article + '<embed src="' + par.reference + '" style="height:500px; width:100%" frameborder="0"></embed>';
+                                    } else {
+                                        article = article + 'Embed: ' + '<a href="' + par.reference + '" target="_blank">' + par.reference + '</a>';
+                                        console.log('embed: ' + par.reference);
+                                    }
+                                } else if (par.kind === 'unordered-list') {
+                                    if (par.items) {
+                                        article = article + '<ul>';
+                                        for (let item of par.items)
+                                            if (item.text && item.intentions[0].href) {
+                                                article = article + '<li><a href="' + item.intentions[0].href + '">' + item.text + '</a></li>';
+                                            }
+                                        article = article + '</ul>';
+                                    }
+                                } else if (par.kind === 'inline') {
+                                    if (par.asset.kind === 'image') {
+                                        article = article + '<figure><img src="' + par.asset.original.reference + '" style="width:100%">';
+                                        article = article + '<figcaption>' +
+                                            par.asset.captionText + ' ' + par.asset.copyrightByline +
+                                            ((par.asset.copyrightCredit && par.asset.captionText !== par.asset.copyrightByline) ? '/' + par.asset.copyrightCredit : '') +
+                                            '<figcaption></figure>';
+                                    }
                                 } else {
-                                    article = article + 'Embed: ' + '<a href="' + par.reference + '" target="_blank">' + par.reference + '</a>';
-                                    console.log('embed: ' + par.reference);
+                                    article = article + '<p>' + par.text + '</p>';
+                                    console.log(par.kind);
                                 }
-                            } else if (par.kind === 'unordered-list') {
-                                if (par.items) {
-                                    article = article + '<ul>';
-                                    for (let item of par.items)
-                                        if (item.text && item.intentions[0].href) {
-                                            article = article + '<li><a href="' + item.intentions[0].href + '">' + item.text + '</a></li>';
-                                        }
-                                    article = article + '</ul>';
-                                }
-                            } else if (par.kind === 'inline') {
-                                if (par.asset.kind === 'image') {
-                                    article = article + '<figure><img src="' + par.asset.original.reference + '" style="width:100%">';
-                                    article = article + '<figcaption>' +
-                                        par.asset.captionText + ' ' + par.asset.copyrightByline +
-                                        ((par.asset.copyrightCredit && par.asset.captionText !== par.asset.copyrightByline) ? '/' + par.asset.copyrightCredit : '') +
-                                        '<figcaption></figure>';
-                                }
+                            }
+                            let content = document.querySelector('div[class*="StyledArticleContent"]');
+                            let parser = new DOMParser();
+                            let par_html = parser.parseFromString('<div>' + article + '</div>', 'text/html');
+                            let par_dom = par_html.querySelector('div');
+                            if (content) {
+                                content.appendChild(par_dom);
                             } else {
-                                article = article + '<p>' + par.text + '</p>';
-                                console.log(par.kind);
+                                par_dom.setAttribute('style', 'margin: 20px;');
+                                breach_screen.parentElement.insertBefore(par_dom, breach_screen);
                             }
                         }
-                        let content = document.querySelector('div[class*="StyledArticleContent"]');
-                        let parser = new DOMParser();
-                        let par_html = parser.parseFromString('<div>' + article + '</div>', 'text/html');
-                        let par_dom = par_html.querySelector('div');
-                        if (content) {
-                            content.appendChild(par_dom);
-                        } else {
-                            par_dom.setAttribute('style', 'margin: 20px;');
-                            breach_screen.parentElement.insertBefore(par_dom, breach_screen);
-                        }
+                        removeDOMElement(breach_screen);
                     }
-                    removeDOMElement(breach_screen);
-                }
-            }, 1000); // Delay (in milliseconds)
-            let header_advert = document.querySelector('.headerAdvertisement');
-            if (header_advert)
-                header_advert.setAttribute('style', 'display: none;');
+                }, 1000); // Delay (in milliseconds)
+                let header_advert = document.querySelector('.headerAdvertisement');
+                if (header_advert)
+                    header_advert.setAttribute('style', 'display: none;');
+            }
         }
     }
 }
