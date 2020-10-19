@@ -3,6 +3,9 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 
+* v1.9.1.1 (2020-10-19)
+Hotfix remove cookies (www)
+
 * v1.9.1.0 (2020-10-18)
 Add NYmag-sites Grub Street, The Cut & Vulture
 Add Quotidiano.net (Italy)
