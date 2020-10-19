@@ -63,6 +63,7 @@ var allow_cookies = [
 'nknews.org',
 'noordhollandsdagblad.nl',
 'nrz.de',
+'nybooks.com',
 'nytimes.com',
 'nzz.ch',
 'parool.nl',

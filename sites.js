@@ -176,6 +176,7 @@ var defaultSites =
   "The Nation": "thenation.com",
   "The New Republic": "newrepublic.com",
   "The New Statesman": "newstatesman.com",
+  "The New York Review of Books": "nybooks.com",
   "The New York Times": "nytimes.com",
   "The New Yorker": "newyorker.com",
   "The News-Gazette": "news-gazette.com",

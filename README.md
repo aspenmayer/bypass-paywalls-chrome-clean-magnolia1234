@@ -73,6 +73,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [The Christian Science Monitor](https://www.csmonitor.com) -
 [The Nation](https://www.thenation.com) -
 [The New Republic](https://newrepublic.com) -
+[The New York Review of Books](https://www.nybooks.com) -
 [The New York Times](https://www.nytimes.com) -
 [The New Yorker](https://www.newyorker.com) -
 [The Washington Post](https://www.washingtonpost.com) -

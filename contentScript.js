@@ -815,15 +815,17 @@ else if (matchDomain('faz.net')) {
                             str = str.replace(/(?:^|[\w\"\“])(\.|\?|!)(?=[A-ZÖÜ\„][A-Za-zÀ-ÿ\„]{1,})/gm, "$&\n\n");
                             str = str.replace(/([a-z\"\“])(?=[A-Z](?=[A-Za-zÀ-ÿ]+))/gm, "$&\n\n");
                             // exceptions: names with alternating lower/uppercase (no general fix)
-                            str = str.replace(/Glaxo\n\nSmith\n\nKline/g, "GlaxoSmithKline");
-                            str = str.replace(/Ba\n\nFin/g, "BaFin");
-                            str = str.replace(/Bil\n\nMoG/g, "BilMoG");
-                            str = str.replace(/Eu\n\nGH/g, "EuGH");
-                            str = str.replace(/If\n\nSG/g, "IfSG");
-                            str = str.replace(/med\n\nRxiv/g, "medRxiv");
-                            str = str.replace(/m\n\nRNA/g, "mNRA");
-                            str = str.replace(/St\n\nVO/g, "StVO");
-                            str = str.replace(/Berl\n\nHG/g, "BerlHG");
+                            let str_rep_arr = ["BaFin", "BerlHG", "BilMoG", "EuGH", "GlaxoSmithKline", "IfSG", "iMessage", "iOS", "iPad", "iPhone", "medRxiv", "mNRA", "StVO"];
+                            let str_rep_split, str_rep_src;
+                            for (let str_rep of str_rep_arr) {
+                                str_rep_split = str_rep.split(/([a-z]+)(?=[A-Z](?=[A-Za-z]+))/);
+                                str_rep_src = str_rep_split.reduce(function (accumulator, currentValue) {
+                                        return accumulator + currentValue + ((currentValue !== currentValue.toUpperCase()) ? '\n\n' : '');
+                                    });
+                                if (str_rep_src.endsWith('\n\n'))
+                                    str_rep_src = str_rep_src.slice(0, -2);
+                                str = str.replace(new RegExp(str_rep_src, "g"), str_rep);
+                            }
                             str = str.replace(/De\n\n([A-Z])/g, "De$1");
                             str = str.replace(/La\n\n([A-Z])/g, "La$1");
                             str = str.replace(/Le\n\n([A-Z])/g, "Le$1");
@@ -1380,6 +1382,12 @@ else if (matchDomain("quotidiano.net")) {
         removeDOMElement(detail_text_truncated);
         detail_page_paywall.classList.remove('detail-page--paywall');
     }
+}
+
+else if (matchDomain("nybooks.com")) {
+    let paywall_article = document.querySelector('.paywall-article');
+    if (paywall_article)
+        paywall_article.classList.remove('paywall-article');
 }
 
 // General Functions

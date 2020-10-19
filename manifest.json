@@ -183,6 +183,7 @@
         "*://*.nrc.nl/*",
         "*://*.nrz.de/*",
         "*://*.ntnews.com.au/*",
+        "*://*.nybooks.com/*",
         "*://*.nymag.com/*",
         "*://*.nytimes.com/*",
         "*://*.nzherald.co.nz/*",
@@ -315,5 +316,5 @@
         "webRequest",
         "webRequestBlocking"
     ],
-    "version": "1.9.1.1"
+    "version": "1.9.1.2"
 }
