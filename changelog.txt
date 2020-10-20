@@ -4,6 +4,7 @@ Changelog Bypass Paywalls Clean - Chrome
 Post-release
 Add Il Resto del Carlino (Italy)
 Add The New York Review of Books
+Fix-update Funke Medien (TinyPass)
 
 * v1.9.1.1 (2020-10-19)
 Hotfix remove cookies (www)

@@ -12,9 +12,10 @@ const restrictions = {
   'barrons.com': /.+barrons\.com\/(amp\/)?article(s)?\/.+/,
   'bloombergquint.com': /^((?!\.bloombergquint\.com\/bq-blue-exclusive\/).)*$/,
   'elcomercio.pe': /.+\/elcomercio.pe\/.+((\w)+(\-)+){3,}.+/,
+  'faz.net': /^((?!\/zeitung\.faz\.net\/).)*$/,
   'gestion.pe': /.+\/gestion.pe\/.+((\w)+(\-)+){3,}.+/,
   'nknews.org': /^((?!\.nknews\.org\/pro\/).)*$/,
-  'globo.com': /^((?!\/valor.globo\.com\/).)*$/,
+  'globo.com': /^((?!\/valor\.globo\.com\/).)*$/,
   'quora.com': /^((?!quora\.com\/search\?q=).)*$/,
   'seekingalpha.com': /.+seekingalpha\.com\/article\/.+/,
   'wsj.com': /^((?!\/cn\.wsj\.com\/).)*$/
@@ -221,6 +222,7 @@ var blockedRegexes = {
 'newsweek.com': /.+\.googletagmanager\.com\/gtm\.js/,
 'newyorker.com': /.+\.newyorker\.com\/verso\/static\/presenter-articles.+\.js/,
 'nknews.org': /.+\.nknews\.org\/wp-content\/plugins\/leaky-paywall-ajax\/js\/leaky-paywall-ajax\.js/,
+'nrz.de': /(cdn\.cxense\.com|.+\.tinypass\.com\/.+)/,
 'nytimes.com': /(.+meter-svc\.nytimes\.com\/meter\.js.+|.+mwcm\.nyt\.com\/.+\.js)/,
 'quotidiano.net': /.+\.tinypass\.com\/.+/,
 'repubblica.it': /scripts\.repubblica\.it\/pw\/pw\.js.+/,
@@ -246,7 +248,9 @@ var blockedRegexes = {
 'variety.com': /cdn\.cxense\.com/,
 'washingtonpost.com': /.+\.washingtonpost\.com\/.+\/pwapi-proxy\.min\.js/,
 'watoday.com.au': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
-'waz.de': /(.+\.tinypass\.com\/.+|cdn\.cxense\.com)/,
+'waz.de': /(cdn\.cxense\.com|.+\.tinypass\.com\/.+)/,
+'wp.de': /(cdn\.cxense\.com|.+\.tinypass\.com\/.+)/,
+'wr.de': /(cdn\.cxense\.com|.+\.tinypass\.com\/.+)/,
 'wsj.com': /(cdn\.ampproject\.org\/v\d\/amp-access-.+\.js|cdn\.cxense\.com)/
 };
 
