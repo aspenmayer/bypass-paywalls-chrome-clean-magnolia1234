@@ -2,6 +2,7 @@
 
 'use strict';
 var ext_api = (typeof browser === 'object') ? browser : chrome;
+var ext_name = ext_api.runtime.getManifest().name;
 
 // Cookies from this list are blocked by default (obsolete)
 // defaultSites are loaded from sites.js at installation extension
@@ -13,6 +14,7 @@ const restrictions = {
   'elcomercio.pe': /.+\/elcomercio.pe\/.+((\w)+(\-)+){3,}.+/,
   'gestion.pe': /.+\/gestion.pe\/.+((\w)+(\-)+){3,}.+/,
   'nknews.org': /^((?!\.nknews\.org\/pro\/).)*$/,
+  'globo.com': /^((?!\/valor.globo\.com\/).)*$/,
   'quora.com': /^((?!quora\.com\/search\?q=).)*$/,
   'seekingalpha.com': /.+seekingalpha\.com\/article\/.+/,
   'wsj.com': /^((?!\/cn\.wsj\.com\/).)*$/
@@ -47,6 +49,7 @@ var allow_cookies = [
 'handelsblatt.com',
 'humo.be',
 'ilfattoquotidiano.it',
+'ilrestodelcarlino.it',
 'independent.ie',
 'intelligentinvestor.com.au',
 'knack.be',
@@ -194,6 +197,7 @@ var blockedRegexes = {
 'haaretz.com': /haaretz\.com\/hdc\/web\/js\/minified\/header-scripts-int.js.+/,
 'historyextra.com': /.+\.evolok\.net\/.+\/authorize\/.+/,
 'ilmessaggero.it': /(utils\.cedsdigital\.it\/js\/PaywallMeter\.js|static\.viralize\.tv\/viralize_player)/,
+'ilrestodelcarlino.it': /.+\.tinypass\.com\/.+/,
 'independent.ie': /cdn\.flip-pay\.com\/clients\/inm\/flip-pay\.js/,
 'inquirer.com': /.+\.tinypass\.com\/.+/,
 'irishtimes.com': /cdn\.ampproject\.org\/v\d\/amp-access-.+\.js/,

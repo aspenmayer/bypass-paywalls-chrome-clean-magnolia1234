@@ -74,6 +74,7 @@ var defaultSites =
   "Il Fatto Quotidiano": "ilfattoquotidiano.it",
   "Il Manifesto": "ilmanifesto.it",
   "Il Messaggero": "ilmessaggero.it",
+  "Il Resto del Carlino": "ilrestodelcarlino.it",
   "Inc.com": "inc.com",
   "Inkl": "inkl.com",
   "Intelligent Investor": "intelligentinvestor.com.au",

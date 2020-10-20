@@ -124,6 +124,7 @@
         "*://*.illawarramercury.com.au/*",
         "*://*.ilmanifesto.it/*",
         "*://*.ilmessaggero.it/*",
+        "*://*.ilrestodelcarlino.it/*",
         "*://*.inc.com/*",
         "*://*.independent.ie/*",
         "*://*.inkl.com/*",
@@ -316,5 +317,5 @@
         "webRequest",
         "webRequestBlocking"
     ],
-    "version": "1.9.1.2"
+    "version": "1.9.1.3"
 }

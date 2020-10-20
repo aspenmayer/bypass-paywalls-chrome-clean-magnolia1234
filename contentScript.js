@@ -1375,7 +1375,7 @@ else if (matchDomain("slate.com")) {
     removeDOMElement(slate_roadblock);
 }
 
-else if (matchDomain("quotidiano.net")) {
+else if (matchDomain(["ilrestodelcarlino.it", "quotidiano.net"])) {
     let detail_text_truncated = document.querySelector('div.detail-text--truncated');
     let detail_page_paywall = document.querySelector('body.detail-page--paywall');
     if (detail_page_paywall) {
