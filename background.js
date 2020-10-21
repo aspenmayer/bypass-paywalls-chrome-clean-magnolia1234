@@ -104,10 +104,10 @@ var remove_cookies = [
 
 // select specific cookie(s) to hold from remove_cookies domains
 const remove_cookies_select_hold = {
-	'barrons.com': ['wsjregion'],
-	'newstatesman.com': ['STYXKEY_nsversion'],
-	'qz.com': ['gdpr'],
-	'wsj.com': ['wsjregion']
+    'barrons.com': ['wsjregion'],
+    'newstatesman.com': ['STYXKEY_nsversion'],
+    'qz.com': ['gdpr'],
+    'wsj.com': ['wsjregion']
 }
 
 // list of regional ad.nl sites
@@ -115,16 +115,16 @@ const ad_region_domains = ['bd.nl', 'ed.nl', 'tubantia.nl', 'bndestem.nl', 'pzc.
 
 // select only specific cookie(s) to drop from remove_cookies domains
 var remove_cookies_select_drop = {
-	'ad.nl': ['temptationTrackingId'],
-	'caixinglobal.com': ['CAIXINGLB_LOGIN_UUID'],
-	'dn.se': ['randomSplusId'],
-	'fd.nl': ['socialread'],
-	'nrc.nl': ['counter'],
-	'theatlantic.com': ['articleViews']
+    'ad.nl': ['temptationTrackingId'],
+    'caixinglobal.com': ['CAIXINGLB_LOGIN_UUID'],
+    'dn.se': ['randomSplusId'],
+    'fd.nl': ['socialread'],
+    'nrc.nl': ['counter'],
+    'theatlantic.com': ['articleViews']
 }
 for (var domainIndex in ad_region_domains) {
-	let domain = ad_region_domains[domainIndex];
-	remove_cookies_select_drop[domain] = ['temptationTrackingId'];
+    let domain = ad_region_domains[domainIndex];
+    remove_cookies_select_drop[domain] = ['temptationTrackingId'];
 }
 
 // Override User-Agent with Googlebot
@@ -857,6 +857,7 @@ ext_api.storage.sync.get(["optInShown", "customShown"], function (result) {
 
 function isSiteEnabled(details) {
     var enabledSite = matchUrlDomain(enabledSites, details.url);
+    if (ext_name.includes(' for ')) enabledSite = '';
     if (enabledSite in restrictions) {
         return restrictions[enabledSite].test(details.url);
     }

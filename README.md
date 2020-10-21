@@ -167,6 +167,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [Le Devoir](https://www.ledevoir.com) -
 [National Post](https://www.nationalpost.com) -
 [The Globe and Mail](https://www.theglobeandmail.com) -
+[The Logic](https://thelogic.co) -
 [The Toronto Star](https://www.thestar.com)
 
 #### Europe

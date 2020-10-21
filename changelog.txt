@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add Il Resto del Carlino (Italy)
+Add The Logic (Canada)
 Add The New York Review of Books
 Fix-update Funke Medien (TinyPass)
 
