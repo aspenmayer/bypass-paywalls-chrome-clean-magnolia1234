@@ -500,6 +500,25 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(
 },
     ["blocking", "requestHeaders"]);
 
+// fix nytimes x-frame-options (hidden iframe content)
+ext_api.webRequest.onHeadersReceived.addListener(function (details) {
+  if (!isSiteEnabled(details)) {
+    return;
+  }
+  var responseHeaders = details.responseHeaders;
+  responseHeaders = responseHeaders.map(function (responseHeader) {
+      if (responseHeader.name === 'x-frame-options')
+        responseHeader.value = 'SAMEORIGIN';
+      return responseHeader;
+    });
+  return {
+    responseHeaders: responseHeaders
+  };
+}, {
+  urls: ["*://*.nytimes.com/*"]
+},
+  ['blocking', 'responseHeaders']);
+
 var block_js_default = ["*://cdn.tinypass.com/*", "*://*.piano.io/*", "*://*.poool.fr/*",  "*://cdn.ampproject.org/v*/amp-access-*.js", "*://*.blueconic.net/*", "*://*.cxense.com/*", "*://*.evolok.net/*", "*://js.matheranalytics.com/*", "*://*.onecount.net/*", "*://*.qiota.com/*", "*://*.tribdss.com/*"];
 var block_js_custom = [];
 var block_js_custom_ext = [];
@@ -618,7 +637,6 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
     if (requestHeader.name === 'User-Agent') {
       useUserAgentMobile = requestHeader.value.toLowerCase().includes("mobile");
     }
-
     return requestHeader;
   });
 
