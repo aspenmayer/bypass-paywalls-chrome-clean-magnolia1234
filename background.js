@@ -188,6 +188,7 @@ var blockedRegexes = {
 'exame.abril.com.br': /.+\.tinypass\.com\/.+/,
 'folha.uol.com.br': /.+\.folha\.uol\.com\.br\/paywall\/js\/.+\/publicidade\.ads\.js/,
 'globo.com': /.+\.tinypass\.com\/.+/,
+'foreignaffairs.com': /.+\.foreignaffairs\.com\/sites\/default\/files\/js\/js_P9zr.+\.js/,
 'foreignpolicy.com': /.+\.tinypass\.com\/.+/,
 'fortune.com':  /.+\.tinypass\.com\/.+/,
 'ftm.nl': /.+\.ftm\.nl\/js\/routing\?/,

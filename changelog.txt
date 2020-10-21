@@ -2,11 +2,12 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Add Foreign Affairs
 Add Il Resto del Carlino (Italy)
 Add The Logic (Canada)
 Add The New York Review of Books
 Fix-update Funke Medien (TinyPass)
-Fix-update NY Times (hidden iframe-content)
+Fix bug in NY Times (hidden iframe-content)
 
 * v1.9.1.1 (2020-10-19)
 Hotfix remove cookies (www)

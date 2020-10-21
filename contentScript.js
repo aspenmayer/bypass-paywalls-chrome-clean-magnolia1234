@@ -1383,6 +1383,15 @@ else if (matchDomain("thelogic.co")) {
     removeDOMElement(article_subscribe);
 }
 
+else if (matchDomain("foreignaffairs.com")) {
+    let paywall = document.querySelector('.paywall');
+    let loading_indicator = document.querySelector('.loading-indicator');
+    removeDOMElement(paywall, loading_indicator);
+    let article_dropcap = document.querySelectorAll('.article-dropcap');
+    for (let elem of article_dropcap)
+        elem.classList.add('loaded');
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {

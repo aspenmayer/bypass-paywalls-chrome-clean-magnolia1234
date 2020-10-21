@@ -63,6 +63,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 
 ##### World news
 [First Things](https://www.firstthings.com) -
+[Foreign Affairs](https://www.foreignaffairs.com) -
 [Foreign Policy](https://www.foreignpolicy.com) -
 [Harper's Magazine](https://harpers.org) -
 [Inkl](https://www.inkl.com) -

@@ -55,6 +55,7 @@ var defaultSites =
   "First Things": "firstthings.com",
   "Folha de S. Paulo": "folha.uol.com.br",
   "Follow the Money (ftm.nl)": "ftm.nl",
+  "Foreign Affairs": "foreignaffairs.com",
   "Foreign Policy": "foreignpolicy.com",
   "Fortune": "fortune.com",
   "Frankfurter Allgemeine Zeitung": "faz.net",
