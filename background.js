@@ -340,6 +340,7 @@ ext_api.storage.sync.get({
         enabledSites = enabledSites.concat(au_prov_news_domains);
         for (let domain of au_prov_news_domains) {
             allow_cookies.push(domain);
+            use_google_bot.push(domain);
         }
     } else
         disabledSites = disabledSites.concat(au_prov_news_domains);
@@ -604,9 +605,8 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   let inkl_site = (matchUrlDomain('cdn.jsdelivr.net', details.url) && matchUrlDomain('inkl.com', header_referer) && isSiteEnabled({url: header_referer}));
   let bloomberg_site = (matchUrlDomain('assets.bwbx.io', details.url) && matchUrlDomain('bloomberg.com', header_referer) && isSiteEnabled({url: header_referer}));
   let au_nc_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain(au_news_corp_domains, header_referer) && isSiteEnabled({url: header_referer}));
-  let au_apn_site = (header_referer && (urlHost(header_referer).endsWith('com.au') || urlHost(header_referer).endsWith('net.au')) && details.url.includes('https://media.apnarm.net.au/'));
   let au_swm_site = (header_referer && urlHost(header_referer).endsWith('com.au') && details.url.includes('https://s.thewest.com.au/'));
-  if (!isSiteEnabled(details) && !(inkl_site) && !(bloomberg_site) && !(au_nc_amp_site) && !(au_apn_site) && !(au_swm_site)) {
+  if (!isSiteEnabled(details) && !(inkl_site) && !(bloomberg_site) && !(au_nc_amp_site) && !(au_swm_site)) {
     return;
   }
 
@@ -680,7 +680,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
 
   if (tabId !== -1) {
     ext_api.tabs.get(tabId, function (currentTab) {
-      if (isSiteEnabled(currentTab) || medium_custom_domain || au_apn_site || au_swm_site) {
+      if (isSiteEnabled(currentTab) || medium_custom_domain || au_swm_site) {
         ext_api.tabs.executeScript(tabId, {
            file: 'contentScript.js',
            runAt: 'document_start'

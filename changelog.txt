@@ -6,9 +6,10 @@ Add Foreign Affairs
 Add Il Resto del Carlino (Italy)
 Add The Logic (Canada)
 Add The New York Review of Books
-Fix-update The West Australian (timing)
+Fix-update Australian Provincial Newspapers (Googlebot)
 Fix-update Funke Medien (TinyPass)
 Fix bug in NY Times (hidden iframe-content)
+Fix-update The West Australian (timing)
 
 * v1.9.1.1 (2020-10-19)
 Hotfix remove cookies (www)
