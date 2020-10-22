@@ -136,6 +136,7 @@
         "*://*.journaldunet.com/*",
         "*://*.journalnow.com/*",
         "*://*.knack.be/*",
+        "*://*.kurier.at/*",
         "*://*.labusinessjournal.com/*",
         "*://*.ladepeche.fr/*",
         "*://*.lanacion.com.ar/*",
@@ -319,5 +320,5 @@
         "webRequest",
         "webRequestBlocking"
     ],
-    "version": "1.9.1.6"
+    "version": "1.9.1.7"
 }

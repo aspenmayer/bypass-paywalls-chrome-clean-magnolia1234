@@ -3,7 +3,7 @@ var ext_api = (typeof browser === 'object') ? browser : chrome;
 var domain;
 
 // clean local storage of sites (with an exemption for hold-list)
-var arr_localstorage_hold = ['elmundo.es', 'nknews.org', 'nrz.de', 'seekingalpha.com', 'sfchronicle.com', 'thechronicle.com.au', 'thehindu.com', 'thetimes.co.uk', 'waz.de', 'wp.de', 'wr.de'];
+var arr_localstorage_hold = ['elmundo.es', 'nknews.org', 'nrz.de', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk', 'waz.de', 'wp.de', 'wr.de'];
 if (!matchDomain(arr_localstorage_hold)){
     window.localStorage.clear();
 }
@@ -1382,6 +1382,14 @@ else if (matchDomain("foreignaffairs.com")) {
     let article_dropcap = document.querySelectorAll('.article-dropcap');
     for (let elem of article_dropcap)
         elem.classList.add('loaded');
+}
+
+else if (matchDomain("kurier.at")) {
+    let view_offer = document.querySelector('.view-offer');
+    removeDOMElement(view_offer);
+    let plus_content = document.querySelector('.plusContent');
+    if (plus_content)
+        plus_content.classList.remove('plusContent');
 }
 
 // General Functions

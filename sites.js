@@ -81,6 +81,7 @@ var defaultSites =
   "Intelligent Investor": "intelligentinvestor.com.au",
   "Irish Independent (opt-in)": "independent.ie",
   "Knack.be": "knack.be",
+  "Kurier.at": "kurier.at",
   "L'Écho": "lecho.be",
   "L'Opinion": "lopinion.fr",
   "La Dépêche": "ladepeche.fr",
