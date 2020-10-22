@@ -100,7 +100,12 @@ else if (window.location.hostname.endsWith(".com.au") || window.location.hostnam
                             let json_text = json_script.innerHTML.split('window.PAGE_DATA =')[1].split('</script')[0];
                             json_text = json_text.replace(/undefined/g, '"undefined"');
                             let json_article = JSON.parse(json_text);
-                            let json_pub = Object.entries(json_article)[0][1].data.result.resolution.publication;
+                            let json_pub;
+                            for (let key in json_article)
+                                if (json_article[key].data.result.resolution && json_article[key].data.result.resolution.publication) {
+                                    json_pub = json_article[key].data.result.resolution.publication;
+                                    continue;
+                                }
                             let json_content = json_pub.content.blocks;
                             //let json_video = json_pub.mainVideo;
                             let url = window.location.href;

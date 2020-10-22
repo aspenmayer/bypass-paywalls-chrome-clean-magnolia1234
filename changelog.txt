@@ -6,6 +6,7 @@ Add Foreign Affairs
 Add Il Resto del Carlino (Italy)
 Add The Logic (Canada)
 Add The New York Review of Books
+Fix-update The West Australian (timing)
 Fix-update Funke Medien (TinyPass)
 Fix bug in NY Times (hidden iframe-content)
 
