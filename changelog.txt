@@ -5,6 +5,7 @@ Post-release
 Add Foreign Affairs
 Add Il Resto del Carlino (Italy)
 Add Kurier.at
+Add L'Orient-Le Jour (Lebanon)
 Add The Logic (Canada)
 Add The New York Review of Books
 Fix-update Australian Provincial Newspapers (Googlebot)

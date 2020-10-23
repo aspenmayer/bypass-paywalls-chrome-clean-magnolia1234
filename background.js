@@ -236,7 +236,7 @@ var blockedRegexes = {
 'scmp.com': /.+\.tinypass\.com\/.+/,
 'sfchronicle.com': /.+\.blueconic\.net\/.+/,
 'slate.com': /(cdn\.cxense\.com|.+\.tinypass\.com\/.+)/,
-'sloanreview.mit.edu': /(.+\.tinypass\.com\/.+|.+\/sloanreview\.mit\.edu\/.+\/welcome-ad\.js)/,
+'sloanreview.mit.edu': /(cdn\.tinypass\.com\/.+|.+\/sloanreview\.mit\.edu\/.+\/welcome-ad\.js)/,
 'smh.com.au': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
 'spectator.co.uk': /.+\.tinypass\.com\/.+/,
 'spectator.com.au': /.+\.tinypass\.com\/.+/,

@@ -84,6 +84,7 @@ var defaultSites =
   "Kurier.at": "kurier.at",
   "L'Écho": "lecho.be",
   "L'Opinion": "lopinion.fr",
+  "L'Orient-Le Jour": "lorientlejour.com",
   "La Dépêche": "ladepeche.fr",
   "La Nación": "lanacion.com.ar",
   "La Repubblica": "repubblica.it",
