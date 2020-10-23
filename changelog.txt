@@ -11,6 +11,7 @@ Fix-update Australian Provincial Newspapers (Googlebot)
 Fix-update Funke Medien (TinyPass)
 Fix bug in NY Times (hidden iframe-content)
 Fix-update The West Australian (timing)
+Open (custom) options in new tab
 
 * v1.9.1.1 (2020-10-19)
 Hotfix remove cookies (www)

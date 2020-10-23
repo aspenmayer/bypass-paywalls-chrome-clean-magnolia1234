@@ -3,7 +3,7 @@ var ext_api = (typeof browser === 'object') ? browser : chrome;
 var domain;
 
 // clean local storage of sites (with an exemption for hold-list)
-var arr_localstorage_hold = ['elmundo.es', 'nknews.org', 'nrz.de', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk', 'waz.de', 'wp.de', 'wr.de'];
+var arr_localstorage_hold = ['elmundo.es', 'kurier.at', 'nknews.org', 'nrz.de', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk', 'waz.de', 'wp.de', 'wr.de'];
 if (!matchDomain(arr_localstorage_hold)){
     window.localStorage.clear();
 }
