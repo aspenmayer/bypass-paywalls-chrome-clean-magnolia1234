@@ -11,6 +11,7 @@ Add The New York Review of Books
 Fix-update Australian Provincial Newspapers (Googlebot)
 Fix-update Funke Medien (TinyPass)
 Fix bug in NY Times (hidden iframe-content)
+Fix-update Australian Financial Review (images)
 Fix-update The West Australian (timing)
 Open (custom) options in new tab
 

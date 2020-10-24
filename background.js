@@ -24,78 +24,78 @@ const restrictions = {
 // Don't remove cookies before page load
 // allow_cookies are completed with domains in sites.js (default allow/remove_cookies)
 var allow_cookies = [
-'abc.es',
-'aftonbladet.se',
-'belfasttelegraph.co.uk',
-'bostonglobe.com',
-'business-standard.com',
-'clarin.com',
-'chronicle.com',
-'demorgen.be',
-'df.cl',
-'dn.se',
-'dvhn.nl',
-'editorialedomani.it',
-'elmercurio.com',
-'elmundo.es',
-'elpais.com',
-'mercuriovalpo.cl',
-'eurekareport.com.au',
-'faz.net',
-'folha.uol.com.br',
-'ftm.nl',
-'gestion.pe',
-'haaretz.co.il',
-'haaretz.com',
-'handelsblatt.com',
-'humo.be',
-'ilfattoquotidiano.it',
-'ilrestodelcarlino.it',
-'independent.ie',
-'intelligentinvestor.com.au',
-'knack.be',
-'kurier.at',
-'lc.nl',
-'lesechos.fr',
-'lesoir.be',
-'limesonline.com',
-'lrb.co.uk',
-'mexiconewsdaily.com',
-'modernhealthcare.com',
-'nationalgeographic.com',
-'nationalreview.com',
-'newrepublic.com',
-'nknews.org',
-'noordhollandsdagblad.nl',
-'nrz.de',
-'nybooks.com',
-'nytimes.com',
-'nzz.ch',
-'parool.nl',
-'quotidiano.net',
-'quora.com',
-'repubblica.it',
-'rollingstone.com',
-'scribd.com',
-'seekingalpha.com',
-'slader.com',
-'startribune.com',
-'stocknews.com',
-'techinasia.com',
-'the-american-interest.com',
-'thehindu.com',
-'themarker.com',
-'thewest.com.au',
-'timeshighereducation.com',
-'trouw.nl',
-'variety.com',
-'volkskrant.nl',
-'washingtonpost.com',
-'waz.de',
-'worldpoliticsreview.com',
-'wp.de',
-'wr.de',
-'zeit.de',
+  'abc.es',
+  'aftonbladet.se',
+  'belfasttelegraph.co.uk',
+  'bostonglobe.com',
+  'business-standard.com',
+  'clarin.com',
+  'chronicle.com',
+  'demorgen.be',
+  'df.cl',
+  'dn.se',
+  'dvhn.nl',
+  'editorialedomani.it',
+  'elmercurio.com',
+  'elmundo.es',
+  'elpais.com',
+  'mercuriovalpo.cl',
+  'eurekareport.com.au',
+  'faz.net',
+  'folha.uol.com.br',
+  'ftm.nl',
+  'gestion.pe',
+  'haaretz.co.il',
+  'haaretz.com',
+  'handelsblatt.com',
+  'humo.be',
+  'ilfattoquotidiano.it',
+  'ilrestodelcarlino.it',
+  'independent.ie',
+  'intelligentinvestor.com.au',
+  'knack.be',
+  'kurier.at',
+  'lc.nl',
+  'lesechos.fr',
+  'lesoir.be',
+  'limesonline.com',
+  'lrb.co.uk',
+  'mexiconewsdaily.com',
+  'modernhealthcare.com',
+  'nationalgeographic.com',
+  'nationalreview.com',
+  'newrepublic.com',
+  'nknews.org',
+  'noordhollandsdagblad.nl',
+  'nrz.de',
+  'nybooks.com',
+  'nytimes.com',
+  'nzz.ch',
+  'parool.nl',
+  'quotidiano.net',
+  'quora.com',
+  'repubblica.it',
+  'rollingstone.com',
+  'scribd.com',
+  'seekingalpha.com',
+  'slader.com',
+  'startribune.com',
+  'stocknews.com',
+  'techinasia.com',
+  'the-american-interest.com',
+  'thehindu.com',
+  'themarker.com',
+  'thewest.com.au',
+  'timeshighereducation.com',
+  'trouw.nl',
+  'variety.com',
+  'volkskrant.nl',
+  'washingtonpost.com',
+  'waz.de',
+  'worldpoliticsreview.com',
+  'wp.de',
+  'wr.de',
+  'zeit.de',
 ]
 
 // Removes cookies after page load
@@ -105,10 +105,10 @@ var remove_cookies = [
 
 // select specific cookie(s) to hold from remove_cookies domains
 const remove_cookies_select_hold = {
-    'barrons.com': ['wsjregion'],
-    'newstatesman.com': ['STYXKEY_nsversion'],
-    'qz.com': ['gdpr'],
-    'wsj.com': ['wsjregion']
+  'barrons.com': ['wsjregion'],
+  'newstatesman.com': ['STYXKEY_nsversion'],
+  'qz.com': ['gdpr'],
+  'wsj.com': ['wsjregion']
 }
 
 // list of regional ad.nl sites
@@ -116,145 +116,145 @@ const ad_region_domains = ['bd.nl', 'ed.nl', 'tubantia.nl', 'bndestem.nl', 'pzc.
 
 // select only specific cookie(s) to drop from remove_cookies domains
 var remove_cookies_select_drop = {
-    'ad.nl': ['temptationTrackingId'],
-    'caixinglobal.com': ['CAIXINGLB_LOGIN_UUID'],
-    'dn.se': ['randomSplusId'],
-    'fd.nl': ['socialread'],
-    'nrc.nl': ['counter'],
-    'theatlantic.com': ['articleViews']
+  'ad.nl': ['temptationTrackingId'],
+  'caixinglobal.com': ['CAIXINGLB_LOGIN_UUID'],
+  'dn.se': ['randomSplusId'],
+  'fd.nl': ['socialread'],
+  'nrc.nl': ['counter'],
+  'theatlantic.com': ['articleViews']
 }
 for (var domainIndex in ad_region_domains) {
-    let domain = ad_region_domains[domainIndex];
-    remove_cookies_select_drop[domain] = ['temptationTrackingId'];
+  let domain = ad_region_domains[domainIndex];
+  remove_cookies_select_drop[domain] = ['temptationTrackingId'];
 }
 
 // Override User-Agent with Googlebot
 var use_google_bot_default = [
-'abc.es',
-'aftonbladet.se',
-'barrons.com',
-'df.cl',
-'dn.se',
-'editorialedomani.it',
-'eurekareport.com.au',
-'ft.com',
-'haaretz.co.il',
-'haaretz.com',
-'handelsblatt.com',
-'intelligentinvestor.com.au',
-'lesoir.be',
-'mexiconewsdaily.com',
-'miamiherald.com',
-'nzz.ch',
-'quora.com',
-'republic.ru',
-'seekingalpha.com',
-'themarker.com',
-'thetimes.co.uk',
-'washingtonpost.com',
-'worldpoliticsreview.com',
-'zeit.de',
+  'abc.es',
+  'aftonbladet.se',
+  'barrons.com',
+  'df.cl',
+  'dn.se',
+  'editorialedomani.it',
+  'eurekareport.com.au',
+  'ft.com',
+  'haaretz.co.il',
+  'haaretz.com',
+  'handelsblatt.com',
+  'intelligentinvestor.com.au',
+  'lesoir.be',
+  'mexiconewsdaily.com',
+  'miamiherald.com',
+  'nzz.ch',
+  'quora.com',
+  'republic.ru',
+  'seekingalpha.com',
+  'themarker.com',
+  'thetimes.co.uk',
+  'washingtonpost.com',
+  'worldpoliticsreview.com',
+  'zeit.de',
 ];
 var use_google_bot_custom = [];
 var use_google_bot = use_google_bot_default.concat(use_google_bot_custom);
 
 // block paywall-scripts individually
 var blockedRegexes = {
-'adweek.com': /.+\.lightboxcdn\.com\/.+/,
-'afr.com': /afr\.com\/assets\/vendorsReactRedux_client.+\.js/,
-'americanbanker.com': /.+\.tinypass\.com\/.+/,
-'barrons.com': /cdn\.ampproject\.org\/v\d\/amp-access-.+\.js/,
-'belfasttelegraph.co.uk': /cdn\.flip-pay\.com\/clients\/inm\/flip-pay\.js/,
-'bizjournals.com': /(assets\.bizjournals\.com\/static\/js\/app\/cxense\.js|cdn\.cxense\.com)/,
-'bloomberg.com': /.+\.tinypass\.com\/.+/,
-'bostonglobe.com': /meter\.bostonglobe\.com\/js\/.+/,
-'brisbanetimes.com.au': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
-'businessinsider.com': /.+\.tinypass\.com\/.+/,
-'challenges.fr': /.+\.poool\.fr\/.+/,
-'charliehebdo.fr': /.+\.poool\.fr\/.+/,
-'chicagobusiness.com': /.+\.tinypass\.com\/.+/,
-'chicagotribune.com': /.+:\/\/.+\.tribdss\.com\/.+/,
-'chronicle.com': /(.+\.blueconic\.net\/.+|assets\.login\.chronicle\.com\/common\/che-auth0-user\.js)/,
-'clarin.com': /js\.matheranalytics\.com\/.+/,
-'corriere.it': /(\.rcsobjects\.it\/(rcs_cpmt|rcs_tracking-service)\/|\.corriereobjects\.it\/.+\/js\/(_paywall\.sjs|tracking\/)|\.userzoom\.com\/files\/js\/|\.lp4\.io\/app\/)/,
-'digiday.com': /.+\.tinypass\.com\/.+/,
-'economist.com': /.+\.tinypass\.com\/.+/,
-'editorialedomani.it': /(.+\.editorialedomani\.it\/pelcro\.js|js\.pelcro\.com\/.+)/,
-'estadao.com.br': /acesso\.estadao\.com\.br\/paywall\/.+\/pw\.js/,
-'dvhn.nl': /.+\.evolok\.net\/.+\/authorize\/.+/,
-'elcomercio.pe': /elcomercio\.pe\/pf\/dist\/template\/elcomercio-noticia.+\.js/,
-'elmercurio.com': /(elmercurio\.com\/.+\/js\/modal\.js|merreader\.emol\.cl\/assets\/js\/(vendor\/modal|merPramV\d)\.js|staticmer(\d)?\.emol\.cl\/js\/.+\/(modal|PramModal\.min)\.js)/,
-'elmundo.es': /cdn\.ampproject\.org\/v\d\/amp-access-.+\.js/,
-'elpais.com': /.+\.epimg\.net\/js\/.+\/noticia\.min\.js/,
-'exame.abril.com.br': /.+\.tinypass\.com\/.+/,
-'folha.uol.com.br': /.+\.folha\.uol\.com\.br\/paywall\/js\/.+\/publicidade\.ads\.js/,
-'globo.com': /.+\.tinypass\.com\/.+/,
-'foreignaffairs.com': /.+\.foreignaffairs\.com\/sites\/default\/files\/js\/js_P9zr.+\.js/,
-'foreignpolicy.com': /.+\.tinypass\.com\/.+/,
-'fortune.com':  /.+\.tinypass\.com\/.+/,
-'ftm.nl': /.+\.ftm\.nl\/js\/routing\?/,
-'fresnobee.com': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
-'gestion.pe': /gestion\.pe\/pf\/dist\/template\/gestion-noticia.+\.js/,
-'globes.co.il': /.+\.tinypass\.com\/.+/,
-'haaretz.co.il': /haaretz\.co\.il\/htz\/js\/inter\.js/,
-'haaretz.com': /haaretz\.com\/hdc\/web\/js\/minified\/header-scripts-int.js.+/,
-'historyextra.com': /.+\.evolok\.net\/.+\/authorize\/.+/,
-'ilmessaggero.it': /(utils\.cedsdigital\.it\/js\/PaywallMeter\.js|static\.viralize\.tv\/viralize_player)/,
-'ilrestodelcarlino.it': /.+\.tinypass\.com\/.+/,
-'independent.ie': /cdn\.flip-pay\.com\/clients\/inm\/flip-pay\.js/,
-'inquirer.com': /.+\.tinypass\.com\/.+/,
-'irishtimes.com': /cdn\.ampproject\.org\/v\d\/amp-access-.+\.js/,
-'knack.be': /.+\.knack\.be\/js\/responsive\/rmgModal\.js/,
-'kurier.at': /.+\.tinypass\.com\/.+/,
-'ladepeche.fr': /.+\.poool\.fr\/.+/,
-'lasegunda.com': /segreader\.emol\.cl\/assets\/js\/(vendor\/modal\.js|merPramV\d\.js)/,
-'lastampa.it': /.+\.repstatic\.it\/minify\/sites\/lastampa\/.+\/config\.cache\.php\?name=social_js/,
-'lc.nl': /.+\.evolok\.net\/.+\/authorize\/.+/,
-'lejdd.fr': /.+\.poool\.fr\/.+/,
-'leparisien.fr': /.+\.tinypass\.com\/.+/,
-'lesechos.fr': /.+\.tinypass\.com\/.+/,
-'limesonline.com': /scripts\.repubblica\.it\/pw\/pw\.js.+/,
-'livemint.com': /(.+\.livemint\.com\/js\/localWorker\.js|analytics\.htmedia\.in\/analytics-js\/.+\.js)/,
-'lopinion.fr': /.+\.poool\.fr\/.+/,
-'lrb.co.uk': /.+\.tinypass\.com\/.+/,
-'mercuriovalpo.cl': /(.+\.mercuriovalpo\.cl\/impresa\/wp-content\/themes\/papel-digital-2019-desktop\/assets\/(vendor|\d)\.js|pram\.pasedigital\.cl\/API\/User\/Status\?)/,
-'modernhealthcare.com': /.+\.tinypass\.com\/.+/,
-'nationalgeographic.com': /.+\.blueconic\.net\/.+/,
-'nationalreview.com': /(.+\.blueconic\.net\/.+|cdn\.ampproject\.org\/v\d\/amp-access-.+\.js)/,
-'newrepublic.com': /.+\.onecount\.net\/js\/.+/,
-'newsweek.com': /.+\.googletagmanager\.com\/gtm\.js/,
-'newyorker.com': /.+\.newyorker\.com\/verso\/static\/presenter-articles.+\.js/,
-'nknews.org': /.+\.nknews\.org\/wp-content\/plugins\/leaky-paywall-ajax\/js\/leaky-paywall-ajax\.js/,
-'nrz.de': /(cdn\.cxense\.com|.+\.tinypass\.com\/.+)/,
-'nytimes.com': /(.+meter-svc\.nytimes\.com\/meter\.js.+|.+mwcm\.nyt\.com\/.+\.js)/,
-'quotidiano.net': /.+\.tinypass\.com\/.+/,
-'repubblica.it': /scripts\.repubblica\.it\/pw\/pw\.js.+/,
-'rollingstone.com': /cdn\.cxense\.com/,
-'sacbee.com': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
-'science-et-vie.com': /.+\.qiota\.com\/.+/,
-'sciencesetavenir.fr': /.+\.poool\.fr\/.+/,
-'scmp.com': /.+\.tinypass\.com\/.+/,
-'sfchronicle.com': /.+\.blueconic\.net\/.+/,
-'slate.com': /(cdn\.cxense\.com|.+\.tinypass\.com\/.+)/,
-'sloanreview.mit.edu': /(cdn\.tinypass\.com\/.+|.+\/sloanreview\.mit\.edu\/.+\/welcome-ad\.js)/,
-'smh.com.au': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
-'spectator.co.uk': /.+\.tinypass\.com\/.+/,
-'spectator.com.au': /.+\.tinypass\.com\/.+/,
-'technologyreview.com': /.+\.blueconic\.net\/.+/,
-'telegraph.co.uk': /.+\.tinypass\.com\/.+/,
-'theage.com.au': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
-'thedailybeast.com': /.+\.tinypass\.com\/.+/,
-'thehindu.com': /(cdn\.cxense\.com|.+\.tinypass\.com\/.+)/,
-'thenation.com': /.+\.tinypass\.com\/.+/,
-'thestar.com': /emeter-nam\.mppglobal\.com\/probes\/JSONP\?/,
-'valeursactuelles.com': /.+\.qiota\.com\/.+/,
-'variety.com': /cdn\.cxense\.com/,
-'washingtonpost.com': /.+\.washingtonpost\.com\/.+\/pwapi-proxy\.min\.js/,
-'watoday.com.au': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
-'waz.de': /(cdn\.cxense\.com|.+\.tinypass\.com\/.+)/,
-'wp.de': /(cdn\.cxense\.com|.+\.tinypass\.com\/.+)/,
-'wr.de': /(cdn\.cxense\.com|.+\.tinypass\.com\/.+)/,
-'wsj.com': /(cdn\.ampproject\.org\/v\d\/amp-access-.+\.js|cdn\.cxense\.com)/
+  'adweek.com': /.+\.lightboxcdn\.com\/.+/,
+  'afr.com': /afr\.com\/assets\/vendorsReactRedux_client.+\.js/,
+  'americanbanker.com': /.+\.tinypass\.com\/.+/,
+  'barrons.com': /cdn\.ampproject\.org\/v\d\/amp-access-.+\.js/,
+  'belfasttelegraph.co.uk': /cdn\.flip-pay\.com\/clients\/inm\/flip-pay\.js/,
+  'bizjournals.com': /(assets\.bizjournals\.com\/static\/js\/app\/cxense\.js|cdn\.cxense\.com)/,
+  'bloomberg.com': /.+\.tinypass\.com\/.+/,
+  'bostonglobe.com': /meter\.bostonglobe\.com\/js\/.+/,
+  'brisbanetimes.com.au': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
+  'businessinsider.com': /.+\.tinypass\.com\/.+/,
+  'challenges.fr': /.+\.poool\.fr\/.+/,
+  'charliehebdo.fr': /.+\.poool\.fr\/.+/,
+  'chicagobusiness.com': /.+\.tinypass\.com\/.+/,
+  'chicagotribune.com': /.+:\/\/.+\.tribdss\.com\/.+/,
+  'chronicle.com': /(.+\.blueconic\.net\/.+|assets\.login\.chronicle\.com\/common\/che-auth0-user\.js)/,
+  'clarin.com': /js\.matheranalytics\.com\/.+/,
+  'corriere.it': /(\.rcsobjects\.it\/(rcs_cpmt|rcs_tracking-service)\/|\.corriereobjects\.it\/.+\/js\/(_paywall\.sjs|tracking\/)|\.userzoom\.com\/files\/js\/|\.lp4\.io\/app\/)/,
+  'digiday.com': /.+\.tinypass\.com\/.+/,
+  'economist.com': /.+\.tinypass\.com\/.+/,
+  'editorialedomani.it': /(.+\.editorialedomani\.it\/pelcro\.js|js\.pelcro\.com\/.+)/,
+  'estadao.com.br': /acesso\.estadao\.com\.br\/paywall\/.+\/pw\.js/,
+  'dvhn.nl': /.+\.evolok\.net\/.+\/authorize\/.+/,
+  'elcomercio.pe': /elcomercio\.pe\/pf\/dist\/template\/elcomercio-noticia.+\.js/,
+  'elmercurio.com': /(elmercurio\.com\/.+\/js\/modal\.js|merreader\.emol\.cl\/assets\/js\/(vendor\/modal|merPramV\d)\.js|staticmer(\d)?\.emol\.cl\/js\/.+\/(modal|PramModal\.min)\.js)/,
+  'elmundo.es': /cdn\.ampproject\.org\/v\d\/amp-access-.+\.js/,
+  'elpais.com': /.+\.epimg\.net\/js\/.+\/noticia\.min\.js/,
+  'exame.abril.com.br': /.+\.tinypass\.com\/.+/,
+  'folha.uol.com.br': /.+\.folha\.uol\.com\.br\/paywall\/js\/.+\/publicidade\.ads\.js/,
+  'globo.com': /.+\.tinypass\.com\/.+/,
+  'foreignaffairs.com': /.+\.foreignaffairs\.com\/sites\/default\/files\/js\/js_P9zr.+\.js/,
+  'foreignpolicy.com': /.+\.tinypass\.com\/.+/,
+  'fortune.com': /.+\.tinypass\.com\/.+/,
+  'ftm.nl': /.+\.ftm\.nl\/js\/routing\?/,
+  'fresnobee.com': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
+  'gestion.pe': /gestion\.pe\/pf\/dist\/template\/gestion-noticia.+\.js/,
+  'globes.co.il': /.+\.tinypass\.com\/.+/,
+  'haaretz.co.il': /haaretz\.co\.il\/htz\/js\/inter\.js/,
+  'haaretz.com': /haaretz\.com\/hdc\/web\/js\/minified\/header-scripts-int.js.+/,
+  'historyextra.com': /.+\.evolok\.net\/.+\/authorize\/.+/,
+  'ilmessaggero.it': /(utils\.cedsdigital\.it\/js\/PaywallMeter\.js|static\.viralize\.tv\/viralize_player)/,
+  'ilrestodelcarlino.it': /.+\.tinypass\.com\/.+/,
+  'independent.ie': /cdn\.flip-pay\.com\/clients\/inm\/flip-pay\.js/,
+  'inquirer.com': /.+\.tinypass\.com\/.+/,
+  'irishtimes.com': /cdn\.ampproject\.org\/v\d\/amp-access-.+\.js/,
+  'knack.be': /.+\.knack\.be\/js\/responsive\/rmgModal\.js/,
+  'kurier.at': /.+\.tinypass\.com\/.+/,
+  'ladepeche.fr': /.+\.poool\.fr\/.+/,
+  'lasegunda.com': /segreader\.emol\.cl\/assets\/js\/(vendor\/modal\.js|merPramV\d\.js)/,
+  'lastampa.it': /.+\.repstatic\.it\/minify\/sites\/lastampa\/.+\/config\.cache\.php\?name=social_js/,
+  'lc.nl': /.+\.evolok\.net\/.+\/authorize\/.+/,
+  'lejdd.fr': /.+\.poool\.fr\/.+/,
+  'leparisien.fr': /.+\.tinypass\.com\/.+/,
+  'lesechos.fr': /.+\.tinypass\.com\/.+/,
+  'limesonline.com': /scripts\.repubblica\.it\/pw\/pw\.js.+/,
+  'livemint.com': /(.+\.livemint\.com\/js\/localWorker\.js|analytics\.htmedia\.in\/analytics-js\/.+\.js)/,
+  'lopinion.fr': /.+\.poool\.fr\/.+/,
+  'lrb.co.uk': /.+\.tinypass\.com\/.+/,
+  'mercuriovalpo.cl': /(.+\.mercuriovalpo\.cl\/impresa\/wp-content\/themes\/papel-digital-2019-desktop\/assets\/(vendor|\d)\.js|pram\.pasedigital\.cl\/API\/User\/Status\?)/,
+  'modernhealthcare.com': /.+\.tinypass\.com\/.+/,
+  'nationalgeographic.com': /.+\.blueconic\.net\/.+/,
+  'nationalreview.com': /(.+\.blueconic\.net\/.+|cdn\.ampproject\.org\/v\d\/amp-access-.+\.js)/,
+  'newrepublic.com': /.+\.onecount\.net\/js\/.+/,
+  'newsweek.com': /.+\.googletagmanager\.com\/gtm\.js/,
+  'newyorker.com': /.+\.newyorker\.com\/verso\/static\/presenter-articles.+\.js/,
+  'nknews.org': /.+\.nknews\.org\/wp-content\/plugins\/leaky-paywall-ajax\/js\/leaky-paywall-ajax\.js/,
+  'nrz.de': /(cdn\.cxense\.com|.+\.tinypass\.com\/.+)/,
+  'nytimes.com': /(.+meter-svc\.nytimes\.com\/meter\.js.+|.+mwcm\.nyt\.com\/.+\.js)/,
+  'quotidiano.net': /.+\.tinypass\.com\/.+/,
+  'repubblica.it': /scripts\.repubblica\.it\/pw\/pw\.js.+/,
+  'rollingstone.com': /cdn\.cxense\.com/,
+  'sacbee.com': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
+  'science-et-vie.com': /.+\.qiota\.com\/.+/,
+  'sciencesetavenir.fr': /.+\.poool\.fr\/.+/,
+  'scmp.com': /.+\.tinypass\.com\/.+/,
+  'sfchronicle.com': /.+\.blueconic\.net\/.+/,
+  'slate.com': /(cdn\.cxense\.com|.+\.tinypass\.com\/.+)/,
+  'sloanreview.mit.edu': /(cdn\.tinypass\.com\/.+|.+\/sloanreview\.mit\.edu\/.+\/welcome-ad\.js)/,
+  'smh.com.au': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
+  'spectator.co.uk': /.+\.tinypass\.com\/.+/,
+  'spectator.com.au': /.+\.tinypass\.com\/.+/,
+  'technologyreview.com': /.+\.blueconic\.net\/.+/,
+  'telegraph.co.uk': /.+\.tinypass\.com\/.+/,
+  'theage.com.au': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
+  'thedailybeast.com': /.+\.tinypass\.com\/.+/,
+  'thehindu.com': /(cdn\.cxense\.com|.+\.tinypass\.com\/.+)/,
+  'thenation.com': /.+\.tinypass\.com\/.+/,
+  'thestar.com': /emeter-nam\.mppglobal\.com\/probes\/JSONP\?/,
+  'valeursactuelles.com': /.+\.qiota\.com\/.+/,
+  'variety.com': /cdn\.cxense\.com/,
+  'washingtonpost.com': /.+\.washingtonpost\.com\/.+\/pwapi-proxy\.min\.js/,
+  'watoday.com.au': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
+  'waz.de': /(cdn\.cxense\.com|.+\.tinypass\.com\/.+)/,
+  'wp.de': /(cdn\.cxense\.com|.+\.tinypass\.com\/.+)/,
+  'wr.de': /(cdn\.cxense\.com|.+\.tinypass\.com\/.+)/,
+  'wsj.com': /(cdn\.ampproject\.org\/v\d\/amp-access-.+\.js|cdn\.cxense\.com)/
 };
 
 const au_comm_media_domains = ['bendigoadvertiser.com.au', 'bordermail.com.au', 'canberratimes.com.au', 'centralwesterndaily.com.au', 'dailyadvertiser.com.au', 'dailyliberal.com.au', 'examiner.com.au', 'illawarramercury.com.au', 'newcastleherald.com.au', 'northerndailyleader.com.au', 'portnews.com.au', 'standard.net.au', 'theadvocate.com.au', 'thecourier.com.au', 'westernadvocate.com.au'];
@@ -274,7 +274,7 @@ var customSites_domains = [];
 function setDefaultOptions() {
   ext_api.storage.sync.set({
     sites: defaultSites
-  }, function() {
+  }, function () {
     ext_api.runtime.openOptionsPage();
   });
 }
@@ -282,174 +282,174 @@ function setDefaultOptions() {
 // Get the enabled sites (from local storage) & add to allow/remove_cookies (if not already in one of these arrays)
 // Add googlebot- and block_javascript-settings for custom sites
 ext_api.storage.sync.get({
-    sites: {},
-    sites_custom: {}
+  sites: {},
+  sites_custom: {}
 }, function (items) {
-    var sites = items.sites;
-    var sites_custom = items.sites_custom;
+  var sites = items.sites;
+  var sites_custom = items.sites_custom;
 
-    for (let key in sites_custom) {
-        var domainVar = sites_custom[key]['domain'].toLowerCase();
-        if (sites_custom[key]['googlebot'] > 0 && !use_google_bot.includes(domainVar)) {
-            use_google_bot.push(domainVar);
-        }
-        if (sites_custom[key]['block_javascript'] > 0) {
-            block_js_custom.push(domainVar);
-        }
-        if (sites_custom[key]['block_javascript_ext'] > 0) {
-            block_js_custom_ext.push(domainVar);
-        }
+  for (let key in sites_custom) {
+    var domainVar = sites_custom[key]['domain'].toLowerCase();
+    if (sites_custom[key]['googlebot'] > 0 && !use_google_bot.includes(domainVar)) {
+      use_google_bot.push(domainVar);
     }
-
-    enabledSites = Object.keys(sites).filter(function (key) {
-            return (sites[key] !== '' && sites[key] !== '###');
-        }).map(function (key) {
-            return sites[key].toLowerCase();
-        });
-    customSites = sites_custom;
-    customSites_domains = Object.values(sites_custom).map(x => x.domain);
-    disabledSites = defaultSites_domains.concat(customSites_domains).filter(x => !enabledSites.includes(x) && x !== '###');
-    if (enabledSites.includes('ad.nl'))
-        enabledSites = enabledSites.concat(ad_region_domains);
-    else
-        disabledSites = disabledSites.concat(ad_region_domains);
-    if (enabledSites.includes('nymag.com')) {
-        enabledSites = enabledSites.concat(nymag_domains);
-        for (let domain of nymag_domains) {
-            allow_cookies.push(domain);
-            remove_cookies.push(domain);
-        }
-    } else
-        disabledSites = disabledSites.concat(nymag_domains);
-    if (enabledSites.includes('###_au_comm_media')) {
-        enabledSites = enabledSites.concat(au_comm_media_domains);
-        for (let domain of au_comm_media_domains) {
-            allow_cookies.push(domain);
-            blockedRegexes[domain] = /.+cdn-au\.piano\.io\/api\/tinypass.+\.js/;
-        }
-    } else
-        disabledSites = disabledSites.concat(au_comm_media_domains);
-    if (enabledSites.includes('###_au_news_corp')) {
-        enabledSites = enabledSites.concat(au_news_corp_domains);
-        for (let domain of au_news_corp_domains) {
-            allow_cookies.push(domain);
-            use_google_bot.push(domain);
-            blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-access-.+\.js/;
-        }
-    } else
-        disabledSites = disabledSites.concat(au_news_corp_domains);
-    if (enabledSites.includes('###_au_prov_news')) {
-        enabledSites = enabledSites.concat(au_prov_news_domains);
-        for (let domain of au_prov_news_domains) {
-            allow_cookies.push(domain);
-            use_google_bot.push(domain);
-        }
-    } else
-        disabledSites = disabledSites.concat(au_prov_news_domains);
-
-    for (let domainVar of enabledSites) {
-        if (!allow_cookies.includes(domainVar) && !remove_cookies.includes(domainVar)) {
-            allow_cookies.push(domainVar);
-            remove_cookies.push(domainVar);
-        }
+    if (sites_custom[key]['block_javascript'] > 0) {
+      block_js_custom.push(domainVar);
     }
-    disableJavascriptOnListedSites();     
+    if (sites_custom[key]['block_javascript_ext'] > 0) {
+      block_js_custom_ext.push(domainVar);
+    }
+  }
+
+  enabledSites = Object.keys(sites).filter(function (key) {
+      return (sites[key] !== '' && sites[key] !== '###');
+    }).map(function (key) {
+      return sites[key].toLowerCase();
+    });
+  customSites = sites_custom;
+  customSites_domains = Object.values(sites_custom).map(x => x.domain);
+  disabledSites = defaultSites_domains.concat(customSites_domains).filter(x => !enabledSites.includes(x) && x !== '###');
+  if (enabledSites.includes('ad.nl'))
+    enabledSites = enabledSites.concat(ad_region_domains);
+  else
+    disabledSites = disabledSites.concat(ad_region_domains);
+  if (enabledSites.includes('nymag.com')) {
+    enabledSites = enabledSites.concat(nymag_domains);
+    for (let domain of nymag_domains) {
+      allow_cookies.push(domain);
+      remove_cookies.push(domain);
+    }
+  } else
+    disabledSites = disabledSites.concat(nymag_domains);
+  if (enabledSites.includes('###_au_comm_media')) {
+    enabledSites = enabledSites.concat(au_comm_media_domains);
+    for (let domain of au_comm_media_domains) {
+      allow_cookies.push(domain);
+      blockedRegexes[domain] = /.+cdn-au\.piano\.io\/api\/tinypass.+\.js/;
+    }
+  } else
+    disabledSites = disabledSites.concat(au_comm_media_domains);
+  if (enabledSites.includes('###_au_news_corp')) {
+    enabledSites = enabledSites.concat(au_news_corp_domains);
+    for (let domain of au_news_corp_domains) {
+      allow_cookies.push(domain);
+      use_google_bot.push(domain);
+      blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-access-.+\.js/;
+    }
+  } else
+    disabledSites = disabledSites.concat(au_news_corp_domains);
+  if (enabledSites.includes('###_au_prov_news')) {
+    enabledSites = enabledSites.concat(au_prov_news_domains);
+    for (let domain of au_prov_news_domains) {
+      allow_cookies.push(domain);
+      use_google_bot.push(domain);
+    }
+  } else
+    disabledSites = disabledSites.concat(au_prov_news_domains);
+
+  for (let domainVar of enabledSites) {
+    if (!allow_cookies.includes(domainVar) && !remove_cookies.includes(domainVar)) {
+      allow_cookies.push(domainVar);
+      remove_cookies.push(domainVar);
+    }
+  }
+  disableJavascriptOnListedSites();
 });
 
 // Listen for changes to options
 ext_api.storage.onChanged.addListener(function (changes, namespace) {
-    for (var key in changes) {
-        var storageChange = changes[key];
-        if (key === 'sites') {
-            var sites = storageChange.newValue;
-            enabledSites = Object.keys(sites).filter(function (key) {
-                    return (sites[key] !== '' && sites[key] !== '###');
-                }).map(function (key) {
-                    return sites[key];
-                });
-            disabledSites = defaultSites_domains.concat(customSites_domains).filter(x => !enabledSites.includes(x) && x !== '###');
-            if (enabledSites.includes('ad.nl'))
-                enabledSites = enabledSites.concat(ad_region_domains);
-            else
-                disabledSites = disabledSites.concat(ad_region_domains);
-            if (enabledSites.includes('nymag.com'))
-                enabledSites = enabledSites.concat(nymag_domains);
-            else
-                disabledSites = disabledSites.concat(nymag_domains);
-            if (enabledSites.includes('###_au_comm_media'))
-                enabledSites = enabledSites.concat(au_comm_media_domains);
-            else
-                disabledSites = disabledSites.concat(au_comm_media_domains);
-            if (enabledSites.includes('###_au_news_corp'))
-                enabledSites = enabledSites.concat(au_news_corp_domains);
-            else
-                disabledSites = disabledSites.concat(au_news_corp_domains);
-            if (enabledSites.includes('###_au_prov_news'))
-                enabledSites = enabledSites.concat(au_prov_news_domains);
-            else
-                disabledSites = disabledSites.concat(au_prov_news_domains);
-            // reset disableJavascriptOnListedSites eventListener
-            ext_api.webRequest.onBeforeRequest.removeListener(disableJavascriptOnListedSites);
-            ext_api.webRequest.handlerBehaviorChanged();
-        }
-        if (key === 'sites_custom') {
-            var sites_custom = storageChange.newValue;
-            var sites_custom_old = storageChange.oldValue;
-            customSites = sites_custom;
-            customSites_domains = Object.values(sites_custom).map(x => x.domain);
-
-            // add/remove custom sites in options
-            var sites_custom_added = Object.keys(sites_custom).filter(x => !Object.keys(sites_custom_old).includes(x) && !defaultSites.hasOwnProperty(x));
-            var sites_custom_removed = Object.keys(sites_custom_old).filter(x => !Object.keys(sites_custom).includes(x) && !defaultSites.hasOwnProperty(x));
-
-            chrome.storage.sync.get({
-                sites: {}
-            }, function (items) {
-                var sites = items.sites;
-                for (var key of sites_custom_added)
-                    sites[key] = sites_custom[key].domain;
-                for (var key of sites_custom_removed)
-                    delete sites[key];
-
-                chrome.storage.sync.set({
-                    sites: sites
-                }, function () {
-                    true;
-                });
-            });
-
-            use_google_bot = use_google_bot_default.slice();
-            block_js_custom = [];
-            block_js_custom_ext = [];
-            for (let key in sites_custom) {
-                var domainVar = sites_custom[key]['domain'].toLowerCase();
-                if (sites_custom[key]['googlebot'] > 0 && !use_google_bot.includes(domainVar)) {
-                    use_google_bot.push(domainVar);
-                }
-                if (sites_custom[key]['block_javascript'] > 0) {
-                    block_js_custom.push(domainVar);
-                }
-                if (sites_custom[key]['block_javascript_ext'] > 0) {
-                    block_js_custom_ext.push(domainVar);
-                }
-            }
-
-            // reset disableJavascriptOnListedSites eventListener
-            ext_api.webRequest.onBeforeRequest.removeListener(disableJavascriptOnListedSites);
-            ext_api.webRequest.handlerBehaviorChanged();
-        }
-        // Refresh the current tab
-        ext_api.tabs.query({
-            active: true,
-            currentWindow: true
-        }, function (tabs) {
-            if (tabs.length > 0 && tabs[0].url && tabs[0].url.indexOf("http") !== -1) {
-                ext_api.tabs.update(tabs[0].id, {
-                    url: tabs[0].url
-                });
-            }
+  for (var key in changes) {
+    var storageChange = changes[key];
+    if (key === 'sites') {
+      var sites = storageChange.newValue;
+      enabledSites = Object.keys(sites).filter(function (key) {
+          return (sites[key] !== '' && sites[key] !== '###');
+        }).map(function (key) {
+          return sites[key];
         });
+      disabledSites = defaultSites_domains.concat(customSites_domains).filter(x => !enabledSites.includes(x) && x !== '###');
+      if (enabledSites.includes('ad.nl'))
+        enabledSites = enabledSites.concat(ad_region_domains);
+      else
+        disabledSites = disabledSites.concat(ad_region_domains);
+      if (enabledSites.includes('nymag.com'))
+        enabledSites = enabledSites.concat(nymag_domains);
+      else
+        disabledSites = disabledSites.concat(nymag_domains);
+      if (enabledSites.includes('###_au_comm_media'))
+        enabledSites = enabledSites.concat(au_comm_media_domains);
+      else
+        disabledSites = disabledSites.concat(au_comm_media_domains);
+      if (enabledSites.includes('###_au_news_corp'))
+        enabledSites = enabledSites.concat(au_news_corp_domains);
+      else
+        disabledSites = disabledSites.concat(au_news_corp_domains);
+      if (enabledSites.includes('###_au_prov_news'))
+        enabledSites = enabledSites.concat(au_prov_news_domains);
+      else
+        disabledSites = disabledSites.concat(au_prov_news_domains);
+      // reset disableJavascriptOnListedSites eventListener
+      ext_api.webRequest.onBeforeRequest.removeListener(disableJavascriptOnListedSites);
+      ext_api.webRequest.handlerBehaviorChanged();
     }
+    if (key === 'sites_custom') {
+      var sites_custom = storageChange.newValue;
+      var sites_custom_old = storageChange.oldValue;
+      customSites = sites_custom;
+      customSites_domains = Object.values(sites_custom).map(x => x.domain);
+
+      // add/remove custom sites in options
+      var sites_custom_added = Object.keys(sites_custom).filter(x => !Object.keys(sites_custom_old).includes(x) && !defaultSites.hasOwnProperty(x));
+      var sites_custom_removed = Object.keys(sites_custom_old).filter(x => !Object.keys(sites_custom).includes(x) && !defaultSites.hasOwnProperty(x));
+
+      chrome.storage.sync.get({
+        sites: {}
+      }, function (items) {
+        var sites = items.sites;
+        for (var key of sites_custom_added)
+          sites[key] = sites_custom[key].domain;
+        for (var key of sites_custom_removed)
+          delete sites[key];
+
+        chrome.storage.sync.set({
+          sites: sites
+        }, function () {
+          true;
+        });
+      });
+
+      use_google_bot = use_google_bot_default.slice();
+      block_js_custom = [];
+      block_js_custom_ext = [];
+      for (let key in sites_custom) {
+        var domainVar = sites_custom[key]['domain'].toLowerCase();
+        if (sites_custom[key]['googlebot'] > 0 && !use_google_bot.includes(domainVar)) {
+          use_google_bot.push(domainVar);
+        }
+        if (sites_custom[key]['block_javascript'] > 0) {
+          block_js_custom.push(domainVar);
+        }
+        if (sites_custom[key]['block_javascript_ext'] > 0) {
+          block_js_custom_ext.push(domainVar);
+        }
+      }
+
+      // reset disableJavascriptOnListedSites eventListener
+      ext_api.webRequest.onBeforeRequest.removeListener(disableJavascriptOnListedSites);
+      ext_api.webRequest.handlerBehaviorChanged();
+    }
+    // Refresh the current tab
+    ext_api.tabs.query({
+      active: true,
+      currentWindow: true
+    }, function (tabs) {
+      if (tabs.length > 0 && tabs[0].url && tabs[0].url.indexOf("http") !== -1) {
+        ext_api.tabs.update(tabs[0].id, {
+          url: tabs[0].url
+        });
+      }
+    });
+  }
 });
 
 // Set and show default options on install
@@ -530,18 +530,18 @@ var block_js = block_js_default.concat(block_js_custom);
 
 // Disable javascript for these sites/general paywall-scripts
 function disableJavascriptOnListedSites() {
-    ext_api.webRequest.onBeforeRequest.addListener(function (details) {
-        if (!isSiteEnabled(details)) {
-            return;
-        }
-        return {
-            cancel: true
-        };
-    }, {
-        urls: block_js,
-        types: ["script", "xmlhttprequest"]
-    },
-        ["blocking"]);
+  ext_api.webRequest.onBeforeRequest.addListener(function (details) {
+    if (!isSiteEnabled(details)) {
+      return;
+    }
+    return {
+      cancel: true
+    };
+  }, {
+    urls: block_js,
+    types: ["script", "xmlhttprequest"]
+  },
+    ["blocking"]);
 }
 
 var extraInfoSpec = ['blocking', 'requestHeaders'];
@@ -786,128 +786,129 @@ function site_switch() {
 
 // remove cookies after page load
 ext_api.webRequest.onCompleted.addListener(function (details) {
-    var domainVar = matchUrlDomain(remove_cookies, details.url);
-    if (!domainVar || !enabledSites.includes(domainVar))
-        return;
-    ext_api.cookies.getAll({
-        domain: domainVar
-    }, function (cookies) {
-        for (let cookie of cookies) {
-            var cookie_domain = cookie.domain;
-            var rc_domain = cookie_domain.replace(/^(\.?www\.|\.)/, '');
-            // hold specific cookie(s) from remove_cookies domains
-            if ((rc_domain in remove_cookies_select_hold) && remove_cookies_select_hold[rc_domain].includes(cookie.name)) {
-                continue; // don't remove specific cookie
-            }
-            // drop only specific cookie(s) from remove_cookies domains
-            if ((rc_domain in remove_cookies_select_drop) && !(remove_cookies_select_drop[rc_domain].includes(cookie.name))) {
-                continue; // only remove specific cookie
-            }
-            cookie.domain = cookie.domain.replace(/^\./, '');
-            ext_api.cookies.remove({
-                url: (cookie.secure ? "https://" : "http://") + cookie.domain + cookie.path,
-                name: cookie.name
-            });
-        }
-    });
+  var domainVar = matchUrlDomain(remove_cookies, details.url);
+  if (!domainVar || !enabledSites.includes(domainVar))
+    return;
+  ext_api.cookies.getAll({
+    domain: domainVar
+  }, function (cookies) {
+    for (let cookie of cookies) {
+      var cookie_domain = cookie.domain;
+      var rc_domain = cookie_domain.replace(/^(\.?www\.|\.)/, '');
+      // hold specific cookie(s) from remove_cookies domains
+      if ((rc_domain in remove_cookies_select_hold) && remove_cookies_select_hold[rc_domain].includes(cookie.name)) {
+        continue; // don't remove specific cookie
+      }
+      // drop only specific cookie(s) from remove_cookies domains
+      if ((rc_domain in remove_cookies_select_drop) && !(remove_cookies_select_drop[rc_domain].includes(cookie.name))) {
+        continue; // only remove specific cookie
+      }
+      cookie.domain = cookie.domain.replace(/^\./, '');
+      ext_api.cookies.remove({
+        url: (cookie.secure ? "https://" : "http://") + cookie.domain + cookie.path,
+        name: cookie.name
+      });
+    }
+  });
 }, {
-    urls: ["<all_urls>"]
+  urls: ["<all_urls>"]
 });
 
 function clear_cookies() {
-    ext_api.tabs.query({
-        active: true,
-        currentWindow: true
-    }, function (tabs) {
-        if (tabs.length > 0 && tabs[0].url && tabs[0].url.indexOf("http") !== -1) {
-            ext_api.tabs.executeScript({
-                file: 'clearCookies.js',
-                runAt: 'document_start'
-            }, function (res) {
-                if (ext_api.runtime.lastError || res[0]) {
-                    return;
-                }
-            });
-            ext_api.tabs.update(tabs[0].id, {
-                url: tabs[0].url
-            });
+  ext_api.tabs.query({
+    active: true,
+    currentWindow: true
+  }, function (tabs) {
+    if (tabs.length > 0 && tabs[0].url && tabs[0].url.indexOf("http") !== -1) {
+      ext_api.tabs.executeScript({
+        file: 'clearCookies.js',
+        runAt: 'document_start'
+      }, function (res) {
+        if (ext_api.runtime.lastError || res[0]) {
+          return;
         }
-    });
+      });
+      ext_api.tabs.update(tabs[0].id, {
+        url: tabs[0].url
+      });
+    }
+  });
 }
 
 ext_api.runtime.onMessage.addListener(function (message, sender) {
-    // check storage for opt in
-    if (message.request === 'optin') {
-        ext_api.storage.sync.get("optIn", function (result) {
-            // send message back to content script with value of opt in
-            ext_api.tabs.sendMessage(
-                sender.tab.id, {
-                "optIn": (true == result.optIn)
-            });
+  // check storage for opt in
+  if (message.request === 'optin') {
+    ext_api.storage.sync.get("optIn", function (result) {
+      // send message back to content script with value of opt in
+      ext_api.tabs.sendMessage(
+        sender.tab.id, {
+        "optIn": (true == result.optIn)
+      });
+    });
+  }
+  // clear cookies for domain
+  if (message.domain) {
+    var domainVar = message.domain.replace('www.', '');
+    ext_api.cookies.getAll({
+      domain: domainVar
+    }, function (cookies) {
+      for (let cookie of cookies) {
+        var cookie_domain = cookie.domain;
+        ext_api.cookies.remove({
+          url: (cookie.secure ? "https://" : "http://") + cookie.domain + cookie.path,
+          name: cookie.name
         });
-    }
-    // clear cookies for domain
-    if (message.domain) {
-        var domainVar = message.domain.replace('www.', '');
-        ext_api.cookies.getAll({
-            domain: domainVar
-        }, function (cookies) {
-            for (let cookie of cookies) {
-                var cookie_domain = cookie.domain;
-                ext_api.cookies.remove({
-                    url: (cookie.secure ? "https://" : "http://") + cookie.domain + cookie.path,
-                    name: cookie.name
-                });
-            }
-        });
-    }
+      }
+    });
+  }
 });
 
 // show the tab if we haven't registered the user reacting to the prompt.
 ext_api.storage.sync.get(["optInShown", "customShown"], function (result) {
-    if (!result.optInShown || !result.customShown) {
-        ext_api.tabs.create({
-            url: "optin/opt-in.html"
-        });
-        ext_api.storage.sync.set({
-            "optInShown": true,
-            "customShown": true
-        });
-    }
+  if (!result.optInShown || !result.customShown) {
+    ext_api.tabs.create({
+      url: "optin/opt-in.html"
+    });
+    ext_api.storage.sync.set({
+      "optInShown": true,
+      "customShown": true
+    });
+  }
 });
 
 function isSiteEnabled(details) {
-    var enabledSite = matchUrlDomain(enabledSites, details.url);
-    if (ext_name.includes(' for ')) enabledSite = '';
-    if (enabledSite in restrictions) {
-        return restrictions[enabledSite].test(details.url);
-    }
-    return !!enabledSite;
+  var enabledSite = matchUrlDomain(enabledSites, details.url);
+  if (!ext_name.includes('Clean'))
+    enabledSite = '';
+  if (enabledSite in restrictions) {
+    return restrictions[enabledSite].test(details.url);
+  }
+  return !!enabledSite;
 }
 
 function matchDomain(domains, hostname) {
-    var matched_domain = false;
-    if (!hostname)
-        hostname = window.location.hostname;
-    if (typeof domains === 'string')
-        domains = [domains];
-    domains.some(domain => (hostname === domain || hostname.endsWith('.' + domain)) && (matched_domain = domain));
-    return matched_domain;
+  var matched_domain = false;
+  if (!hostname)
+    hostname = window.location.hostname;
+  if (typeof domains === 'string')
+    domains = [domains];
+  domains.some(domain => (hostname === domain || hostname.endsWith('.' + domain)) && (matched_domain = domain));
+  return matched_domain;
 }
 
 function urlHost(url) {
-    if (url && url.startsWith('http')) {
-        try {
-            return new URL(url).hostname;
-        } catch (e) {
-            console.log(`url not valid: ${url} error: ${e}`);
-        }
+  if (url && url.startsWith('http')) {
+    try {
+      return new URL(url).hostname;
+    } catch (e) {
+      console.log(`url not valid: ${url} error: ${e}`);
     }
-    return url;
+  }
+  return url;
 }
 
 function matchUrlDomain(domains, url) {
-    return matchDomain(domains, urlHost(url));
+  return matchDomain(domains, urlHost(url));
 }
 
 function getParameterByName(name, url) {

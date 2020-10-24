@@ -345,7 +345,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [Haaretz.com](https://www.haaretz.com) -
 [The Marker](https://www.themarker.com)
 
-####Lebanon
+#### Lebanon
 [L'Orient-Le Jour](https://www.lorientlejour.com)
 
 #### Latin America

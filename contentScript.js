@@ -598,19 +598,17 @@ else if (matchDomain("thestar.com")) {
 }
 
 else if (matchDomain("afr.com")) {
-    document.addEventListener('DOMContentLoaded', () => {
-        let hidden_images = document.querySelectorAll('img');
-        for (let hidden_image of hidden_images) {
-            var src = hidden_image.src;
-            if (src.includes(".gif")) {
-                var data_src = hidden_image.getAttribute("data-src");
-                if (data_src)
-                    hidden_image.setAttribute('src', data_src);
-            }
+    let hidden_images = document.querySelectorAll('img');
+    for (let hidden_image of hidden_images) {
+        var src = hidden_image.src;
+        if (src.includes(".gif")) {
+            var data_src = hidden_image.getAttribute("data-src");
+            if (data_src)
+                hidden_image.setAttribute('src', data_src);
         }
-        let plista = document.querySelector('div[data-plista-placement="underArticle_Group"]');
-        removeDOMElement(plista);
-    });
+    }
+    let plista = document.querySelector('div[data-plista-placement="underArticle_Group"]');
+    removeDOMElement(plista);
 }
 
 else if (matchDomain("theglobeandmail.com")) {
