@@ -1390,6 +1390,24 @@ else if (matchDomain("kurier.at")) {
         plus_content.classList.remove('plusContent');
 }
 
+else if (matchDomain('gelocal.it')) {
+    let premium = document.querySelector('.paywall-adagio');
+    let url = window.location.href;
+    window.setTimeout(function () {
+        if (premium && !url.includes('/amp/')) {
+            if (url.includes('?'))
+                window.location.href = url.replace('?', '/amp/?');
+            else
+                window.location.href = url + '/amp/';
+        }
+    }, 500); // Delay (in milliseconds)
+    if (url.includes('/amp/')) {
+        let paywall = document.querySelector('div[amp-access="showContent"]');
+        if (paywall)
+           paywall.removeAttribute('amp-access-hide');
+    }
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {

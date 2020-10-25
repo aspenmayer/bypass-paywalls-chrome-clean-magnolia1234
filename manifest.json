@@ -102,6 +102,7 @@
         "*://*.ft.com/*",
         "*://*.ftm.nl/*",
         "*://*.geelongadvertiser.com.au/*",
+        "*://*.gelocal.it/*",
         "*://*.gestion.pe/*",
         "*://*.gladstoneobserver.com.au/*",
         "*://*.glassdoor.com/*",
@@ -321,5 +322,5 @@
         "webRequest",
         "webRequestBlocking"
     ],
-    "version": "1.9.1.8"
+    "version": "1.9.1.9"
 }

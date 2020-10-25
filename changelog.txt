@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add Foreign Affairs
+Add GElocal.it
 Add Il Resto del Carlino (Italy)
 Add Kurier.at
 Add L'Orient-Le Jour (Lebanon)

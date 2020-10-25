@@ -59,6 +59,7 @@ var defaultSites =
   "Foreign Policy": "foreignpolicy.com",
   "Fortune": "fortune.com",
   "Frankfurter Allgemeine Zeitung": "faz.net",
+  "GElocal.it": "gelocal.it",
   "Gestión": "gestion.pe",
   "Glassdoor": "glassdoor.com",
   "Globes": "globes.co.il",

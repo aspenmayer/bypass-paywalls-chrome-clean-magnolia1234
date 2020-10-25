@@ -215,6 +215,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 ##### Italy
 [Corriere Della Sera](https://www.corriere.it) -
 [Domani](https://editorialedomani.it) -
+[GElocal.it](https://quotidiani.gelocal.it) -
 [Il Fatto Quotidiano](https://www.ilfattoquotidiano.it) -
 [Il Manifesto](https://ilmanifesto.it) -
 [Il Messaggero](https://www.ilmessaggero.it) -
