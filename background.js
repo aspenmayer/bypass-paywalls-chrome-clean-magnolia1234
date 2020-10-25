@@ -31,7 +31,6 @@ var allow_cookies = [
   'business-standard.com',
   'clarin.com',
   'chronicle.com',
-  'demorgen.be',
   'df.cl',
   'dn.se',
   'dvhn.nl',
@@ -48,7 +47,6 @@ var allow_cookies = [
   'haaretz.co.il',
   'haaretz.com',
   'handelsblatt.com',
-  'humo.be',
   'ilfattoquotidiano.it',
   'ilrestodelcarlino.it',
   'independent.ie',
@@ -71,7 +69,6 @@ var allow_cookies = [
   'nybooks.com',
   'nytimes.com',
   'nzz.ch',
-  'parool.nl',
   'quotidiano.net',
   'quora.com',
   'repubblica.it',
@@ -87,9 +84,7 @@ var allow_cookies = [
   'themarker.com',
   'thewest.com.au',
   'timeshighereducation.com',
-  'trouw.nl',
   'variety.com',
-  'volkskrant.nl',
   'washingtonpost.com',
   'waz.de',
   'worldpoliticsreview.com',
@@ -113,6 +108,7 @@ const remove_cookies_select_hold = {
 
 // list of regional ad.nl sites
 const ad_region_domains = ['bd.nl', 'ed.nl', 'tubantia.nl', 'bndestem.nl', 'pzc.nl', 'destentor.nl', 'gelderlander.nl'];
+const pg_domains = ["parool.nl", "trouw.nl", "volkskrant.nl", "humo.be", "demorgen.be"];
 
 // select only specific cookie(s) to drop from remove_cookies domains
 var remove_cookies_select_drop = {
@@ -123,10 +119,11 @@ var remove_cookies_select_drop = {
   'nrc.nl': ['counter'],
   'theatlantic.com': ['articleViews']
 }
-for (var domainIndex in ad_region_domains) {
-  let domain = ad_region_domains[domainIndex];
+for (let domain of ad_region_domains)
   remove_cookies_select_drop[domain] = ['temptationTrackingId'];
-}
+
+for (let domain of pg_domains)
+  remove_cookies_select_drop[domain] = ['TID_ID'];
 
 // Override User-Agent with Googlebot
 var use_google_bot_default = [
