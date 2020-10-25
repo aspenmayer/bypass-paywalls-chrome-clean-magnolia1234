@@ -226,7 +226,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [LimesOnline (it/en)](https://www.limesonline.com) -
 [Quotidiano.net](https://www.quotidiano.net)
 ##### Netherlands/Flanders
-[Algemeen Dagblad](https://www.ad.nl) and regional ADR sites like
+[Algemeen Dagblad](https://www.ad.nl) and regional ADR sites (grouped in options) like
 [BN DeStem](https://www.bndestem.nl) -
 [Brabants Dagblad](https://www.bd.nl) -
 [Eindhovens Dagblad](https://www.ed.nl) -
@@ -273,7 +273,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [The West Australian (+ regional)](https://thewest.com.au) -
 [WAtoday](https://www.watoday.com.au)
 
-##### > News Corp Australia
+##### > News Corp Australia (grouped in options)
 [Cairns Post](https://www.cairnspost.com.au) –
 [Geelong Advertiser](https://www.geelongadvertiser.com.au) -
 [Gold Coast Bulletin](https://www.goldcoastbulletin.com.au) –
@@ -292,7 +292,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [Eureka Report](https://www.eurekareport.com.au) -
 [Intelligent Investor](https://www.intelligentinvestor.com.au)
 
-##### > Australian Community Media
+##### > Australian Community Media (daily, grouped in options)
 [Bendigo Advertiser](https://www.bendigoadvertiser.com.au) -
 [Central Western Daily](https://www.centralwesterndaily.com.au) -
 [Daily Liberal](https://www.dailyliberal.com.au) -
@@ -309,7 +309,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [The Standard](https://www.standard.net.au) -
 [Western Advocate](https://www.westernadvocate.com.au)
 
-#### > Australian Provincial Newspapers
+#### > Australian Provincial Newspapers (daily, grouped in options)
 [Bundaberg News Mail](https://www.news-mail.com.au) -
 [Fraser Coast Chronicle](https://www.frasercoastchronicle.com.au) -
 [Gladstone Observer](https://www.gladstoneobserver.com.au) -

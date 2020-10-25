@@ -208,6 +208,7 @@ var blockedRegexes = {
   'ladepeche.fr': /.+\.poool\.fr\/.+/,
   'lasegunda.com': /segreader\.emol\.cl\/assets\/js\/(vendor\/modal\.js|merPramV\d\.js)/,
   'lastampa.it': /.+\.repstatic\.it\/minify\/sites\/lastampa\/.+\/config\.cache\.php\?name=social_js/,
+  'latimes.com': /js\.matheranalytics\.com\/.+/,
   'lc.nl': /.+\.evolok\.net\/.+\/authorize\/.+/,
   'lejdd.fr': /.+\.poool\.fr\/.+/,
   'leparisien.fr': /.+\.tinypass\.com\/.+/,
