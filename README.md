@@ -201,6 +201,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [Sciences et Avenir](https://www.sciencesetavenir.fr) -
 [Valeurs Actuelles](https://www.valeursactuelles.com)
 ##### Germany/Austria
+[Deutsche Wirtschafts Nachrichten](https://deutsche-wirtschafts-nachrichten.de) -
 [Die Zeit](https://www.zeit.de) -
 [Frankfurter Allgemeine Zeitung](https://www.faz.net) -
 [Handelsblatt](https://www.handelsblatt.com) -

@@ -36,6 +36,7 @@ var defaultSites =
   "Dark Reading": "darkreading.com",
   "De Tijd": "tijd.be",
   "DeMorgen": "demorgen.be",
+  "Deutsche Wirtschafts Nachrichten": "deutsche-wirtschafts-nachrichten.de",
   "Diario Financiero": "df.cl",
   "Die Zeit": "zeit.de",
   "Digiday": "digiday.com",
