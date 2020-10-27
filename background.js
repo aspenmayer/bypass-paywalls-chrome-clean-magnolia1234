@@ -89,6 +89,7 @@ var allow_cookies = [
   'variety.com',
   'washingtonpost.com',
   'waz.de',
+  'wiwo.de',
   'worldpoliticsreview.com',
   'wp.de',
   'wr.de',
@@ -152,6 +153,7 @@ var use_google_bot_default = [
   'themarker.com',
   'thetimes.co.uk',
   'washingtonpost.com',
+  'wiwo.de',
   'worldpoliticsreview.com',
   'zeit.de',
 ];

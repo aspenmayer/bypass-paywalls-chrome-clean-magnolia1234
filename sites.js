@@ -214,6 +214,7 @@ var defaultSites =
   "Westfälische Rundschau": "wr.de",
   "Winston-Salem Journal": "journalnow.com",
   "Wired": "wired.com",
+  "WirtschaftsWoche": "wiwo.de",
   "World Politics Review": "worldpoliticsreview.com",
   "——— Block Paywall-scripts ———": "###",
   "Amp-access": "cdn.ampproject.org",
