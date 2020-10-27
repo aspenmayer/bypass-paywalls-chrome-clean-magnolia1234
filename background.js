@@ -155,6 +155,7 @@ var use_google_bot_default = [
   'washingtonpost.com',
   'wiwo.de',
   'worldpoliticsreview.com',
+  'wsj.com',
   'zeit.de',
 ];
 var use_google_bot_custom = [];
