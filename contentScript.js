@@ -1008,8 +1008,9 @@ else if (matchDomain('ilfattoquotidiano.it')) {
 
 else if (matchDomain('qz.com')) {
     window.setTimeout(function () {
-        if (pageContains('._33dc2 h2', 'Become a member, and we promise').length)
-            window.location.reload(true);
+        let url = window.location.href;
+        if (url.includes('utm_source='))
+            window.location.href = url.split('?')[0];
     }, 500); // Delay (in milliseconds)
 }
 

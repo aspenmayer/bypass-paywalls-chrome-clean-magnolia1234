@@ -4,6 +4,7 @@ Changelog Bypass Paywalls Clean - Chrome
 Post-release
 Add Deutsche Wirtschafts Nachrichten
 Add WirtschaftsWoche (Germany)
+Fix-update Quartz (newsletter)
 
 * v1.9.2.0 (2020-10-25)
 Add Foreign Affairs
