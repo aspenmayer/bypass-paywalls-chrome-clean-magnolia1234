@@ -28,6 +28,13 @@ ext_api.runtime.onMessage.addListener(function (message, sender) {
 // ask for opt-in confirmation
 ext_api.runtime.sendMessage({request: 'optin'});
 
+// message for dark or incognito mode (chrome)
+if (typeof browser !== 'object')
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches || ext_api.extension.inIncognitoContext)
+        ext_api.runtime.sendMessage({scheme: 'dark'});
+    else
+        ext_api.runtime.sendMessage({scheme: 'light'});
+
 // Content workarounds/domain
 
 if (matchDomain("thesaturdaypaper.com.au")) {

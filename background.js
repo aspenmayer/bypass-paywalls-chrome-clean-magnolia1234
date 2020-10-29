@@ -840,6 +840,7 @@ function clear_cookies() {
   });
 }
 
+var chrome_scheme = 'light';
 ext_api.runtime.onMessage.addListener(function (message, sender) {
   // check storage for opt in
   if (message.request === 'optin') {
@@ -865,6 +866,13 @@ ext_api.runtime.onMessage.addListener(function (message, sender) {
         });
       }
     });
+  }
+  if (message.scheme && message.scheme !== chrome_scheme) {
+      let icon_path = {path: {'128': 'bypass.png'}};
+      if (message.scheme === 'dark')
+          icon_path = {path: {'128': 'bypass-dark.png'}};
+      ext_api.browserAction.setIcon(icon_path);
+      chrome_scheme = message.scheme;
   }
 });
 
