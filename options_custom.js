@@ -19,7 +19,7 @@ function save_options() {
     var sites_custom = {};
     if (textareaEl.value !== '')
         var sites_custom = JSON.parse(textareaEl.value);
-    ext_api.storage.sync.set({
+    ext_api.storage.local.set({
         sites_custom: sites_custom
     }, function () {
         // Update status to let user know custom sites were saved.
@@ -47,7 +47,7 @@ function sort_options() {
 
 // Export custom sites to file
 function export_options() {
-    ext_api.storage.sync.get({
+    ext_api.storage.local.get({
         sites_custom: {}
     }, function (items) {
         var result = JSON.stringify(items.sites_custom);
@@ -71,7 +71,7 @@ function import_options(e) {
 
 function _imp() {
     let sites_custom = JSON.parse(this.result);
-    ext_api.storage.sync.set({
+    ext_api.storage.local.set({
         sites_custom: sites_custom
     }, function () {
         // Update status to let user know custom sites were imported.
@@ -109,7 +109,7 @@ function add_options() {
         sites_custom[title]['domain'] = sites_custom[title]['domain'].replace('www.', '').toLowerCase();
 
         // add new site to local storage
-        ext_api.storage.sync.get({
+        ext_api.storage.local.get({
             sites_custom: {}
         }, function (items) {
             var sites_custom_old = items.sites_custom;
@@ -118,7 +118,7 @@ function add_options() {
                 sites_custom_old[key] = sites_custom[key];
             }
 
-            ext_api.storage.sync.set({
+            ext_api.storage.local.set({
                 sites_custom: sites_custom_old
             }, function () {
                 // Update status to let user know new custom site was added.
@@ -140,13 +140,13 @@ function delete_options() {
     var remove_key = selectEl.value;
 
     // delete site from local storage
-    ext_api.storage.sync.get({
+    ext_api.storage.local.get({
         sites_custom: {}
     }, function (items) {
         var sites_custom_old = items.sites_custom;
         delete sites_custom_old[remove_key];
 
-        ext_api.storage.sync.set({
+        ext_api.storage.local.set({
             sites_custom: sites_custom_old
         }, function () {
             // Update status to let user know custom site was deleted.
@@ -167,7 +167,7 @@ function edit_options() {
     var title = selectEl.value;
 
     // copy site to add-fields
-    ext_api.storage.sync.get({
+    ext_api.storage.local.get({
         sites_custom: {}
     }, function (items) {
         sites_custom = items.sites_custom;
@@ -182,7 +182,7 @@ function edit_options() {
 
 // Restores checkbox input states using the preferences stored in ext_api.storage.
 function renderOptions() {
-    ext_api.storage.sync.get({
+    ext_api.storage.local.get({
         sites_custom: {}
     }, function (items) {
         var sites_custom = items.sites_custom;

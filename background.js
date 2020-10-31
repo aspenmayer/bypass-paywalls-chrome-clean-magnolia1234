@@ -277,16 +277,39 @@ var customSites = {};
 var customSites_domains = [];
 
 function setDefaultOptions() {
-  ext_api.storage.sync.set({
+  ext_api.storage.local.set({
     sites: defaultSites
   }, function () {
     ext_api.runtime.openOptionsPage();
   });
 }
 
+// copy storage.sync to storage.local (quota exceeded)
+ext_api.storage.sync.get({
+  sites: {},
+  sites_custom: {},
+  daily_users: {},
+  optIn: {},
+  optInShown: {},
+  customShown: {}
+}, function (items) {
+  if (Object.keys(items.sites).length > 0) {
+    ext_api.storage.local.set({
+      sites: items.sites,
+      sites_custom: items.sites_custom,
+      daily_users: items.daily_users,
+      optIn: items.optIn,
+      optInShown: items.optInShown,
+      customShown: items.customShown
+    }, function () {
+      ext_api.storage.sync.remove(['sites', 'sites_custom']);
+    });
+  }
+});
+
 // Get the enabled sites (from local storage) & add to allow/remove_cookies (if not already in one of these arrays)
 // Add googlebot- and block_javascript-settings for custom sites
-ext_api.storage.sync.get({
+ext_api.storage.local.get({
   sites: {},
   sites_custom: {}
 }, function (items) {
@@ -363,6 +386,8 @@ ext_api.storage.sync.get({
 
 // Listen for changes to options
 ext_api.storage.onChanged.addListener(function (changes, namespace) {
+  if (namespace === 'sync')
+    return;
   for (var key in changes) {
     var storageChange = changes[key];
     if (key === 'sites') {
@@ -407,7 +432,7 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
       var sites_custom_added = Object.keys(sites_custom).filter(x => !Object.keys(sites_custom_old).includes(x) && !defaultSites.hasOwnProperty(x));
       var sites_custom_removed = Object.keys(sites_custom_old).filter(x => !Object.keys(sites_custom).includes(x) && !defaultSites.hasOwnProperty(x));
 
-      chrome.storage.sync.get({
+      ext_api.storage.local.get({
         sites: {}
       }, function (items) {
         var sites = items.sites;
@@ -416,7 +441,7 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
         for (var key of sites_custom_removed)
           delete sites[key];
 
-        chrome.storage.sync.set({
+        ext_api.storage.local.set({
           sites: sites
         }, function () {
           true;
@@ -769,7 +794,7 @@ function site_switch() {
                     removed_site.push(site_title);
                 else
                     added_site.push(site_title);
-                chrome.storage.sync.get({
+                ext_api.storage.local.get({
                     sites: {}
                 }, function (items) {
                     var sites = items.sites;
@@ -778,7 +803,7 @@ function site_switch() {
                     for (var key of removed_site)
                         delete sites[key];
 
-                    chrome.storage.sync.set({
+                    ext_api.storage.local.set({
                         sites: sites
                     }, function () {
                         true;
@@ -844,7 +869,7 @@ var chrome_scheme = 'light';
 ext_api.runtime.onMessage.addListener(function (message, sender) {
   // check storage for opt in
   if (message.request === 'optin') {
-    ext_api.storage.sync.get("optIn", function (result) {
+    ext_api.storage.local.get("optIn", function (result) {
       // send message back to content script with value of opt in
       ext_api.tabs.sendMessage(
         sender.tab.id, {
@@ -877,12 +902,12 @@ ext_api.runtime.onMessage.addListener(function (message, sender) {
 });
 
 // show the tab if we haven't registered the user reacting to the prompt.
-ext_api.storage.sync.get(["optInShown", "customShown"], function (result) {
+ext_api.storage.local.get(["optInShown", "customShown"], function (result) {
   if (!result.optInShown || !result.customShown) {
     ext_api.tabs.create({
       url: "optin/opt-in.html"
     });
-    ext_api.storage.sync.set({
+    ext_api.storage.local.set({
       "optInShown": true,
       "customShown": true
     });

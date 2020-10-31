@@ -6,6 +6,7 @@ Add Deutsche Wirtschafts Nachrichten
 Add WirtschaftsWoche (Germany)
 Fix-update Quartz (newsletter)
 Icon for dark/incognito mode (Chrome)
+Save options to storage.local (quota exceeded)
 
 * v1.9.2.0 (2020-10-25)
 Add Foreign Affairs

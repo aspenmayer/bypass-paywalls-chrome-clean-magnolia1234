@@ -15,7 +15,7 @@ function save_options() {
     return memo;
   }, {});
 
-  ext_api.storage.sync.set({
+  ext_api.storage.local.set({
     sites: sites
   }, function() {
     // Update status to let user know options were saved.
@@ -42,7 +42,7 @@ function save_options() {
 
 // Restores checkbox input states using the preferences stored in ext_api.storage.
 function renderOptions() {
-  ext_api.storage.sync.get({
+  ext_api.storage.local.get({
     sites: {}, sites_custom: {}
   }, function(items) {
     var sites = items.sites;
