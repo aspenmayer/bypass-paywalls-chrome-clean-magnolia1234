@@ -1087,12 +1087,28 @@ else if (matchDomain("irishtimes.com")) {
 }
 
 else if (matchDomain("sueddeutsche.de")) {
+    let url = window.location.href;
     document.addEventListener('DOMContentLoaded', () => {
-        let reduced_par = document.querySelector('div.sz-article-body__paragraph--reduced');
-        let url = window.location.href;
-        if (url.includes('reduced=true') || reduced_par)
+        let offer_page = document.querySelector('div.offer-page');
+        if (url.startsWith('https://www.sueddeutsche.de') && (url.includes('reduced=true') || offer_page))
             window.location.href = url.split('?')[0].replace('www.', 'amphtml.');
+        else if (url.startsWith('https://sz-magazin.sueddeutsche.de')) {
+            if (url.includes('reduced=true') || offer_page)
+                window.location.href = new URL(url).pathname + '!amp';
+        }
     });
+    window.setTimeout(function () {
+        if (url.includes('!amp')) {
+            let paragraph_reduced = document.querySelector('.paragraph--reduced');
+            if (paragraph_reduced)
+                paragraph_reduced.classList.remove('paragraph--reduced');
+            let paragraph_hidden = document.querySelectorAll('.paragraph--hidden');
+            for (let par_hidden of paragraph_hidden)
+                par_hidden.classList.remove('paragraph--hidden');
+            let amp_offerpage = document.querySelector('.amp-offerpage');
+            removeDOMElement(amp_offerpage);
+        }
+    }, 500); // Delay (in milliseconds)
 }
 
 else if (matchDomain("charliehebdo.fr")) {

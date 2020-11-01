@@ -5,6 +5,7 @@ Post-release
 Add Deutsche Wirtschafts Nachrichten
 Add WirtschaftsWoche (Germany)
 Fix-update Quartz (newsletter)
+Fix-update Sueddeutsche Zeitung (+ magazine)
 Icon for dark/incognito mode (Chrome)
 Save options to storage.local (quota exceeded)
 
