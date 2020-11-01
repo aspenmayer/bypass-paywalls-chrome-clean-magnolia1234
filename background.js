@@ -761,6 +761,7 @@ function updateBadge (activeTab) {
   let currentUrl = activeTab.url;
   if (currentUrl) {
     let isDefaultSite = matchUrlDomain(defaultSites_domains, currentUrl);
+    let isCustomSite = matchUrlDomain(customSites_domains, currentUrl);
     if (isSiteEnabled({url: currentUrl})) {
       badgeText = 'ON';
       color = 'red';
@@ -771,10 +772,27 @@ function updateBadge (activeTab) {
       badgeText = 'OFF';
       color = 'blue';  
     }
+    if (!isDefaultSite) {
+      if (isCustomSite) {
+        ext_api.permissions.contains({
+          origins: ["<all_urls>"]
+        }, function (result) {
+          if (!result)
+            badgeText = '';
+          if (color && badgeText)
+            ext_api.browserAction.setBadgeBackgroundColor({color: color});
+          ext_api.browserAction.setBadgeText({text: badgeText});
+        });
+      } else {
+        ext_api.browserAction.setBadgeText({text: ''});
+	  }
+    } else {
+      ext_api.browserAction.setBadgeBackgroundColor({color: color});
+      ext_api.browserAction.setBadgeText({text: badgeText});
+	}
   }
-  ext_api.browserAction.setBadgeBackgroundColor({color: color});
-  ext_api.browserAction.setBadgeText({text: badgeText});
 }
+
 
 function site_switch() {
     ext_api.tabs.query({

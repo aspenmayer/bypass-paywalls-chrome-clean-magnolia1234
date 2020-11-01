@@ -321,6 +321,7 @@
         "*://*.destentor.nl/*",
         "*://*.tubantia.nl/*",
         "storage",
+        "tabs",
         "webRequest",
         "webRequestBlocking"
     ],
