@@ -2,11 +2,13 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+
+* v1.9.3.0 (2020-11-01)
 Add Deutsche Wirtschafts Nachrichten
 Add WirtschaftsWoche (Germany)
 Fix-update Quartz (newsletter)
 Fix-update Sueddeutsche Zeitung (+ magazine)
-Fix updateBadge (custom site disabled)
+Fix updateBadge (custom sites disabled)
 Icon for dark/incognito mode (Chrome)
 Save options to storage.local (quota exceeded)
 
