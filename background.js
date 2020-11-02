@@ -273,7 +273,7 @@ const userAgentMobile = "Chrome/41.0.2272.96 Mobile Safari/537.36 (compatible ; 
 
 var enabledSites = [];
 var disabledSites = [];
-var defaultSites_domains = Object.values(defaultSites);
+var defaultSites_domains = Object.values(defaultSites).concat(ad_region_domains, au_comm_media_domains, au_news_corp_domains, au_prov_news_domains, nymag_domains);
 var customSites = {};
 var customSites_domains = [];
 
@@ -754,42 +754,40 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
 ext_api.tabs.onUpdated.addListener(function (tabId, info, tab) { updateBadge(tab); });
 ext_api.tabs.onActivated.addListener(function (activeInfo) { ext_api.tabs.get(activeInfo.tabId, updateBadge); });
 
-function updateBadge (activeTab) {
-  if (!activeTab) { return; }
+function updateBadge(activeTab) {
+  if (!activeTab)
+    return;
   let badgeText = '';
   let color = 'red';
   let currentUrl = activeTab.url;
   if (currentUrl) {
-    let isDefaultSite = matchUrlDomain(defaultSites_domains, currentUrl);
-    let isCustomSite = matchUrlDomain(customSites_domains, currentUrl);
     if (isSiteEnabled({url: currentUrl})) {
       badgeText = 'ON';
       color = 'red';
     } else if (matchUrlDomain(enabledSites, currentUrl)) {
       badgeText = 'ON-';
-      color = 'orange';  
+      color = 'orange';
     } else if (matchUrlDomain(disabledSites, currentUrl)) {
       badgeText = 'OFF';
-      color = 'blue';  
+      color = 'blue';
     }
-    if (!isDefaultSite) {
-      if (isCustomSite) {
-        ext_api.permissions.contains({
-          origins: ["<all_urls>"]
-        }, function (result) {
-          if (!result)
-            badgeText = '';
-          if (color && badgeText)
-            ext_api.browserAction.setBadgeBackgroundColor({color: color});
-          ext_api.browserAction.setBadgeText({text: badgeText});
-        });
-      } else {
-        ext_api.browserAction.setBadgeText({text: ''});
-	  }
+    let isDefaultSite = matchUrlDomain(defaultSites_domains, currentUrl);
+    let isCustomSite = matchUrlDomain(customSites_domains, currentUrl);
+    if (!isDefaultSite && isCustomSite) {
+      ext_api.permissions.contains({
+        origins: ["<all_urls>"]
+      }, function (result) {
+        if (!result)
+          badgeText = '';
+        if (color && badgeText)
+          ext_api.browserAction.setBadgeBackgroundColor({color: color});
+        ext_api.browserAction.setBadgeText({text: badgeText});
+      });
     } else {
-      ext_api.browserAction.setBadgeBackgroundColor({color: color});
+      if (color && badgeText)
+        ext_api.browserAction.setBadgeBackgroundColor({color: color});
       ext_api.browserAction.setBadgeText({text: badgeText});
-	}
+    }
   }
 }
 
