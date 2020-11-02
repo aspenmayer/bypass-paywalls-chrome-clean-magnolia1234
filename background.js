@@ -141,8 +141,6 @@ var use_google_bot_default = [
   'editorialedomani.it',
   'eurekareport.com.au',
   'ft.com',
-  'haaretz.co.il',
-  'haaretz.com',
   'handelsblatt.com',
   'intelligentinvestor.com.au',
   'lesoir.be',
@@ -152,7 +150,6 @@ var use_google_bot_default = [
   'quora.com',
   'republic.ru',
   'seekingalpha.com',
-  'themarker.com',
   'thetimes.co.uk',
   'washingtonpost.com',
   'wiwo.de',
@@ -162,6 +159,13 @@ var use_google_bot_default = [
 ];
 var use_google_bot_custom = [];
 var use_google_bot = use_google_bot_default.concat(use_google_bot_custom);
+
+// Override User-Agent with Bingbot
+var use_bing_bot = [
+  'haaretz.co.il',
+  'haaretz.com',
+  'themarker.com',
+];
 
 // block paywall-scripts individually
 var blockedRegexes = {
@@ -269,8 +273,11 @@ const au_news_corp_domains = ['adelaidenow.com.au', 'cairnspost.com.au', 'courie
 const au_prov_news_domains = ['news-mail.com.au', 'frasercoastchronicle.com.au', 'gladstoneobserver.com.au', 'dailyexaminer.com.au', 'dailymercury.com.au', 'themorningbulletin.com.au', 'sunshinecoastdaily.com.au', 'gympietimes.com.au', 'northernstar.com.au', 'qt.com.au', 'thechronicle.com.au', 'warwickdailynews.com.au'];
 const nymag_domains = ['grubstreet.com', 'thecut.com', 'vulture.com'];
 
-const userAgentDesktop = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
-const userAgentMobile = "Chrome/41.0.2272.96 Mobile Safari/537.36 (compatible ; Googlebot/2.1 ; +http://www.google.com/bot.html)"
+const userAgentDesktopG = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
+const userAgentMobileG = "Chrome/80.0.3987.92 Mobile Safari/537.36 (compatible ; Googlebot/2.1 ; +http://www.google.com/bot.html)"
+
+const userAgentDesktopB = "Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)"
+const userAgentMobileB = "Chrome/80.0.3987.92 Mobile Safari/537.36 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)"
 
 var enabledSites = [];
 var disabledSites = [];
@@ -695,11 +702,19 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   if (matchUrlDomain(use_google_bot, details.url)) {
     requestHeaders.push({
       "name": "User-Agent",
-      "value": useUserAgentMobile ? userAgentMobile : userAgentDesktop
+      "value": useUserAgentMobile ? userAgentMobileG : userAgentDesktopG
     })
     requestHeaders.push({
       "name": "X-Forwarded-For",
       "value": "66.249.66.1"
+    })
+  }
+
+  // override User-Agent to use Bingbot
+  if (matchUrlDomain(use_bing_bot, details.url)) {
+    requestHeaders.push({
+      "name": "User-Agent",
+      "value": useUserAgentMobile ? userAgentMobileB : userAgentDesktopB
     })
   }
 
