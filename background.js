@@ -106,6 +106,7 @@ var remove_cookies = [
 const remove_cookies_select_hold = {
   'barrons.com': ['wsjregion'],
   'newstatesman.com': ['STYXKEY_nsversion'],
+  'telegraph.co.uk': ['consentUUID'],
   'qz.com': ['gdpr'],
   'wsj.com': ['wsjregion']
 }
@@ -247,7 +248,7 @@ var blockedRegexes = {
   'spectator.co.uk': /.+\.tinypass\.com\/.+/,
   'spectator.com.au': /.+\.tinypass\.com\/.+/,
   'technologyreview.com': /.+\.blueconic\.net\/.+/,
-  'telegraph.co.uk': /.+\.tinypass\.com\/.+/,
+  'telegraph.co.uk': /(.+\.tinypass\.com\/.+|.+\.telegraph\.co\.uk\/.+\/piano.+\.js|assets\.adobedtm\.com\/.+\.js)/,
   'theage.com.au': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
   'thedailybeast.com': /.+\.tinypass\.com\/.+/,
   'thehindu.com': /(cdn\.cxense\.com|.+\.tinypass\.com\/.+)/,
@@ -714,7 +715,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
 
   if (tabId !== -1) {
     ext_api.tabs.get(tabId, function (currentTab) {
-      if (isSiteEnabled(currentTab) || medium_custom_domain || au_swm_site || sz_amp_site) {
+      if ((currentTab && isSiteEnabled(currentTab)) || medium_custom_domain || au_swm_site || sz_amp_site) {
         ext_api.tabs.executeScript(tabId, {
            file: 'contentScript.js',
            runAt: 'document_start'
