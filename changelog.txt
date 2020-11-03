@@ -4,6 +4,7 @@ Changelog Bypass Paywalls Clean - Chrome
 Post-release
 Fix-update Haaretz/TheMarker (Bingbot)
 Fix-update Telegraph.co.uk (overlay)
+Fix Chrome-icon for dark/incognito mode (all permitted sites)
 Fix updateBadge (grouped sites)
 
 * v1.9.3.0 (2020-11-01)

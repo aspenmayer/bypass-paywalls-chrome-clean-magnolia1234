@@ -643,6 +643,25 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
       return { cancel: true };
   }
 
+  // load toggleIcon.js (icon for dark or incognito mode in Chrome))
+  if (typeof browser !== 'object') {
+    ext_api.tabs.query({
+      active: true,
+      currentWindow: true
+    }, function (tabs) {
+      if (tabs.length > 0 && tabs[0].url && tabs[0].url.indexOf("http") !== -1) {
+        ext_api.tabs.executeScript({
+          file: 'toggleIcon.js',
+          runAt: 'document_start'
+        }, function (res) {
+          if (ext_api.runtime.lastError || res[0]) {
+            return;
+          }
+        });
+      }
+    });
+  }
+
   let inkl_site = (matchUrlDomain('cdn.jsdelivr.net', details.url) && matchUrlDomain('inkl.com', header_referer) && isSiteEnabled({url: header_referer}));
   let bloomberg_site = (matchUrlDomain('assets.bwbx.io', details.url) && matchUrlDomain('bloomberg.com', header_referer) && isSiteEnabled({url: header_referer}));
   let au_nc_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain(au_news_corp_domains, header_referer) && isSiteEnabled({url: header_referer}));
@@ -926,7 +945,7 @@ ext_api.runtime.onMessage.addListener(function (message, sender) {
       }
     });
   }
-  if (message.scheme && message.scheme !== chrome_scheme) {
+  if (message.scheme && ![chrome_scheme, 'undefined'].includes(message.scheme)) {
       let icon_path = {path: {'128': 'bypass.png'}};
       if (message.scheme === 'dark')
           icon_path = {path: {'128': 'bypass-dark.png'}};
