@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Fix-update Australian Provincial Newspapers
 Fix-update Haaretz/TheMarker (Bingbot)
 Fix-update Telegraph.co.uk (overlay)
 Fix Chrome-icon for dark/incognito mode (all permitted sites)

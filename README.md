@@ -311,7 +311,8 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [The Standard](https://www.standard.net.au) -
 [Western Advocate](https://www.westernadvocate.com.au)
 
-#### > Australian Provincial Newspapers (daily, grouped in options)
+#### > Australian Provincial Newspapers (all, grouped in options)
+For example:  
 [Bundaberg News Mail](https://www.news-mail.com.au) -
 [Fraser Coast Chronicle](https://www.frasercoastchronicle.com.au) -
 [Gladstone Observer](https://www.gladstoneobserver.com.au) -
