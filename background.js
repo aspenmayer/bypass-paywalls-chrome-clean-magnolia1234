@@ -841,7 +841,7 @@ function site_switch() {
             let customSite_title = isCustomSite ? Object.keys(customSites).find(key => customSites[key].domain === isCustomSite) : '';
             let site_title = defaultSite_title || customSite_title;
             let domain = isDefaultSite || isCustomSite;
-            if (domain) {
+            if (domain && site_title) {
                 let added_site = [];
                 let removed_site = [];
                 if (enabledSites.includes(domain))
@@ -877,8 +877,7 @@ ext_api.webRequest.onCompleted.addListener(function (details) {
     domain: domainVar
   }, function (cookies) {
     for (let cookie of cookies) {
-      var cookie_domain = cookie.domain;
-      var rc_domain = cookie_domain.replace(/^(\.?www\.|\.)/, '');
+      var rc_domain = cookie.domain.replace(/^(\.?www\.|\.)/, '');
       // hold specific cookie(s) from remove_cookies domains
       if ((rc_domain in remove_cookies_select_hold) && remove_cookies_select_hold[rc_domain].includes(cookie.name)) {
         continue; // don't remove specific cookie
@@ -938,7 +937,7 @@ ext_api.runtime.onMessage.addListener(function (message, sender) {
       domain: domainVar
     }, function (cookies) {
       for (let cookie of cookies) {
-        var cookie_domain = cookie.domain;
+        cookie.domain = cookie.domain.replace(/^\./, '');
         ext_api.cookies.remove({
           url: (cookie.secure ? "https://" : "http://") + cookie.domain + cookie.path,
           name: cookie.name
