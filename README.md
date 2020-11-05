@@ -399,7 +399,7 @@ Remember to check the [previous requests](https://bitbucket.org/magnolia1234/byp
 Add your own custom site (also for testing).  
 Check 'Options'-link in popup-menu and go to custom sites.  
 * by default BPC has limited permissions, but you can opt-in to enable custom sites (and also clear cookies/block general paywall-scripts for non-listed sites).  
-Make sure the (new) site is checked under Options (or check on/off-buton). 
+Make sure the (new) site is checked under Options (or check on/off-button). 
 By default sites' cookies/local storage are removed after page loads (to bypass article limit).  
 Also you can enable Googlebot user-agent or disable Javascript for (sub)domain(s)/external sources.
 

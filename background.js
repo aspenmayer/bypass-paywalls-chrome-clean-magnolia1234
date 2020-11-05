@@ -281,7 +281,8 @@ const userAgentMobileB = "Chrome/80.0.3987.92 Mobile Safari/537.36 (compatible; 
 
 var enabledSites = [];
 var disabledSites = [];
-var defaultSites_domains = Object.values(defaultSites).concat(ad_region_domains, au_comm_media_domains, au_news_corp_domains, au_prov_news_domains, nymag_domains);
+var defaultSites_grouped_domains = Object.values(defaultSites);
+var defaultSites_domains = defaultSites_grouped_domains.concat(ad_region_domains, au_comm_media_domains, au_news_corp_domains, au_prov_news_domains, nymag_domains);
 var customSites = {};
 var customSites_domains = [];
 
@@ -835,7 +836,7 @@ function site_switch() {
     }, function (tabs) {
         if (tabs.length > 0 && tabs[0].url && tabs[0].url.indexOf("http") !== -1) {
             let currentUrl = tabs[0].url;
-            let isDefaultSite = matchUrlDomain(defaultSites_domains, currentUrl);
+            let isDefaultSite = matchUrlDomain(defaultSites_grouped_domains, currentUrl);
             let defaultSite_title = isDefaultSite ? Object.keys(defaultSites).find(key => defaultSites[key] === isDefaultSite) : '';
             let isCustomSite = matchUrlDomain(Object.values(customSites_domains), currentUrl);
             let customSite_title = isCustomSite ? Object.keys(customSites).find(key => customSites[key].domain === isCustomSite) : '';
@@ -867,6 +868,22 @@ function site_switch() {
         }
     });
 }
+
+function popup_show_toggle_tab(callback) {
+    ext_api.tabs.query({
+        active: true,
+        currentWindow: true
+    }, function (tabs) {
+        if (tabs.length > 0 && tabs[0].url && tabs[0].url.indexOf("http") !== -1) {
+            let currentUrl = tabs[0].url;
+            let isDefaultSiteGrouped = matchUrlDomain(defaultSites_grouped_domains, currentUrl);
+            let isDefaultSite = matchUrlDomain(defaultSites_domains, currentUrl);
+            let isCustomSite = matchUrlDomain(Object.values(customSites_domains), currentUrl);
+            let domain = isDefaultSiteGrouped || (!isDefaultSite && isCustomSite);
+            callback(domain);
+        }
+    });
+};
 
 // remove cookies after page load
 ext_api.webRequest.onCompleted.addListener(function (details) {
