@@ -60,6 +60,7 @@ var defaultSites =
   "Foreign Policy": "foreignpolicy.com",
   "Fortune": "fortune.com",
   "Frankfurter Allgemeine Zeitung": "faz.net",
+  "Gazet van Antwerpen": "gva.be",
   "GElocal.it": "gelocal.it",
   "Gestión": "gestion.pe",
   "Glassdoor": "glassdoor.com",

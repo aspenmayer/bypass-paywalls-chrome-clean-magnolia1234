@@ -46,6 +46,7 @@ var allow_cookies = [
   'ftm.nl',
   'gelocal.it',
   'gestion.pe',
+  'gva.be',
   'haaretz.co.il',
   'haaretz.com',
   'handelsblatt.com',

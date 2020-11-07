@@ -814,7 +814,7 @@ else if (matchDomain('faz.net')) {
                             str = str.replace(/(?:^|[\w\"\“])(\.|\?|!)(?=[A-ZÖÜ\„][A-Za-zÀ-ÿ\„]{1,})/gm, "$&\n\n");
                             str = str.replace(/([a-z\"\“])(?=[A-Z](?=[A-Za-zÀ-ÿ]+))/gm, "$&\n\n");
                             // exceptions: names with alternating lower/uppercase (no general fix)
-                            let str_rep_arr = ["BaFin", "BerlHG", "BilMoG", "EuGH", "GlaxoSmithKline", "IfSG", "iMessage", "iOS", "iPad", "iPhone", "medRxiv", "mNRA", "StVO"];
+                            let str_rep_arr = ["BaFin", "BerlHG", "BfArM", "BilMoG", "EuGH", "GlaxoSmithKline", "IfSG", "iMessage", "iOS", "iPad", "iPhone", "medRxiv", "mNRA", "StVO"];
                             let str_rep_split, str_rep_src;
                             for (let str_rep of str_rep_arr) {
                                 str_rep_split = str_rep.split(/([a-z]+)(?=[A-Z](?=[A-Za-z]+))/);
@@ -1432,6 +1432,74 @@ else if (matchDomain('gelocal.it')) {
         if (paywall)
            paywall.removeAttribute('amp-access-hide');
     }
+}
+
+else if (matchDomain("gva.be")) {
+    document.addEventListener('DOMContentLoaded', () => {
+        let paywall = document.querySelector('div[data-cj-root="subscription-wall"]');
+        removeDOMElement(paywall);
+        if (paywall) {
+            let main_content = document.querySelector('div[data-mht-block="article-detail__article-main"]');
+            let json_script = main_content.querySelector('script');
+            let json_str = json_script.text.substring(json_script.textContent.indexOf('{'));
+            let json = JSON.parse(json_str);
+            let premium = Object.values(json)[0]['premium'];
+            if (json) {
+                let json_text = Object.values(json)[0]['body']['json'];
+                let parser = new DOMParser();
+                let div_content = main_content.querySelector('div');
+                div_content.setAttribute('class', 'gva-6c6ea21_marginbottom5 gva-28c280e9_contentwrapper');
+                let par_elem, par_key, par_li, par_html;
+                for (let par of json_text) {
+                    for (let key in par) {
+                        par_elem = document.createElement('p');
+                        par_key = par[key];
+                        if (['p', 'subhead'].includes(key)) {
+                            if (par_key.includes('<')) {
+                                par_html = parser.parseFromString('<p>' + par_key + '</p>', 'text/html');
+                                par_elem = par_html.querySelector('p');
+                            } else
+                                par_elem.innerText = par_key;
+                            if (key === 'subhead')
+                                par_elem.setAttribute('style', 'font-weight: bold;');
+                        } else if (key === 'image') {
+                            par_elem = document.createElement("img");
+                            par_elem.src = par_key.url;
+                        } else if (key === 'bullet_list') {
+                            par_elem = document.createElement('ul');
+                            for (let bullet of par_key) {
+                                par_html = parser.parseFromString('<li>' + bullet + '</li>', 'text/html');
+                                par_li = par_html.querySelector('li');
+                                let bullet_link = par_li.querySelector('a');
+                                if (bullet_link && bullet_link.href && !bullet_link.innerText)
+                                    bullet_link.innerText = bullet_link.href;
+                                par_elem.appendChild(par_li);
+                            }
+                        } else if (key === 'streamone') {
+                            false;
+                        } else if (key === 'legacy-ml') {
+                            par_html = parser.parseFromString(par_key, 'text/html');
+                            par_elem = par_html.querySelector('div');
+                        } else {
+                            console.log(key + ': ' + par_key);
+                            par_html = parser.parseFromString('<p>' + par_key + '</p>', 'text/html');
+                            par_elem = par_html.querySelector('p');
+                        }
+                        if (!['streamone', 'legacy-ml'].includes(key))
+                            par_elem.setAttribute('class', 'gva-3ee037ad_root gva-3ee037ad_paragraph gva-68d24f7d_none gva-ef7ba41a_system gva-6c6ea21_marginbottom5 gva-6c6ea21_margintop0 gva-21a3e72f_inherit');
+                        div_content.appendChild(par_elem);
+                    }
+                }
+            }
+        }
+    });
+    window.setTimeout(function () {
+        let overlay = document.querySelector('div.cj-root');
+        removeDOMElement(overlay);
+        let noscroll = document.querySelector('html.is-dialog-active');
+        if (noscroll)
+            noscroll.classList.remove('is-dialog-active');
+    }, 500); // Delay (in milliseconds)
 }
 
 // General Functions
