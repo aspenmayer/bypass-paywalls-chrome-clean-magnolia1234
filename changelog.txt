@@ -4,6 +4,7 @@ Changelog Bypass Paywalls Clean - Chrome
 Post-release
 Add Gazet van Antwerpen (Belgium)
 Fix-update Australian Provincial Newspapers
+Fix-update Deutsche Wirtschafts Nachrichten
 Fix-update Haaretz/TheMarker (Bingbot)
 Fix-update Telegraph.co.uk (overlay)
 Fix Chrome-icon for dark/incognito mode (all permitted sites)

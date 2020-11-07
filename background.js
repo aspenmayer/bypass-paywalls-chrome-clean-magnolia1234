@@ -31,7 +31,6 @@ var allow_cookies = [
   'business-standard.com',
   'clarin.com',
   'chronicle.com',
-  'deutsche-wirtschafts-nachrichten.de',
   'df.cl',
   'dn.se',
   'dvhn.nl',
@@ -120,6 +119,7 @@ const pg_domains = ["parool.nl", "trouw.nl", "volkskrant.nl", "humo.be", "demorg
 var remove_cookies_select_drop = {
   'ad.nl': ['temptationTrackingId'],
   'caixinglobal.com': ['CAIXINGLB_LOGIN_UUID'],
+  'deutsche-wirtschafts-nachrichten.de': ['pwall'],
   'dn.se': ['randomSplusId'],
   'fd.nl': ['socialread'],
   'nrc.nl': ['counter'],
