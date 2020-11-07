@@ -107,7 +107,7 @@ else if (window.location.hostname.endsWith(".com.au") || window.location.hostnam
                             let url = window.location.href;
                             let url_loaded = json_pub._self;
                             if (!url.includes(url_loaded.slice(-10)))
-                                document.location.reload(true);
+                                window.location.reload(true);
                             let article = '';
                             let div_content = document.createElement('div');
                             for (let par of json_content) {
@@ -680,7 +680,7 @@ else if (matchDomain("lesechos.fr") && window.location.href.match(/-\d{6,}/)) {
             let article = data.article.data.stripes[0].mainContent[0].data.description;
             let url_loaded = data.article.data.path;
             if (!url.includes(url_loaded))
-                document.location.reload(true);
+                window.location.reload(true);
             let paywallNode = document.querySelector('.post-paywall');
             if (paywallNode) {
                 let contentNode = document.createElement('div');
@@ -1499,6 +1499,15 @@ else if (matchDomain("gva.be")) {
         let noscroll = document.querySelector('html.is-dialog-active');
         if (noscroll)
             noscroll.classList.remove('is-dialog-active');
+    }, 500); // Delay (in milliseconds)
+}
+
+else if (matchDomain('deutsche-wirtschafts-nachrichten.de')) {
+    window.setTimeout(function () {
+        let hardpay = document.querySelector('.hardpay');
+        if (hardpay) {
+            window.location.reload(true);
+        }
     }, 500); // Delay (in milliseconds)
 }
 
