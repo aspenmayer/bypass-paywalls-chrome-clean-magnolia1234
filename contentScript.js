@@ -699,8 +699,7 @@ else if (matchDomain("lesechos.fr") && window.location.href.match(/-\d{6,}/)) {
                 }
             }
         } catch (err) {
-            console.warn('unable to parse lesechos text');
-            console.warn(err);
+            window.location.reload(true);
         }
         let ad_blocks = document.querySelectorAll('.jzxvkd-1');
         for (let ad_block of ad_blocks) {
