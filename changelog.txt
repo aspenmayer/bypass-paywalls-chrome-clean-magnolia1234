@@ -2,6 +2,8 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+
+* v1.9.4.0 (2020-11-08)
 Add Gazet van Antwerpen (Belgium)
 Add MarketWatch (free articles only)
 Fix-update Australian Provincial Newspapers
