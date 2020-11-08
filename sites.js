@@ -110,6 +110,7 @@ var defaultSites =
   "London Review of Books": "lrb.co.uk",
   "Los Angeles Business Journal": "labusinessjournal.com",
   "Los Angeles Times": "latimes.com",
+  "MarketWatch (free articles only)": "marketwatch.com",
   "Medium (all sites)": "medium.com",
   "Mexico News Daily": "mexiconewsdaily.com",
   "Miami Herald": "miamiherald.com",

@@ -164,6 +164,7 @@
         "*://*.lorientlejour.com/*",
         "*://*.lrb.co.uk/*",
         "*://*.lvz.de/*",
+        "*://*.marketwatch.com/*",
         "*://*.mcall.com/*",
         "*://*.medium.com/*",
         "*://*.mercuriovalpo.cl/*",
@@ -327,5 +328,5 @@
         "webRequest",
         "webRequestBlocking"
     ],
-    "version": "1.9.3.6"
+    "version": "1.9.3.7"
 }
