@@ -21,22 +21,6 @@ function save_options() {
     // Update status to let user know options were saved.
     var status = document.getElementById('status');
     status.textContent = 'Options saved.';
-    setTimeout(function() {
-      status.textContent = '';
-      window.close();
-    }, 800);
-  });
-
-  // Refresh the current tab
-  ext_api.tabs.query({
-      active: true,
-      currentWindow: true
-  }, function (tabs) {
-      if (tabs[0].url && tabs[0].url.indexOf("http") !== -1) {
-      ext_api.tabs.update(tabs[0].id, {
-          url: tabs[0].url
-      });
-      }
   });
 }
 
@@ -109,7 +93,12 @@ function selectNone() {
   });
 }
 
+function closeButton() {
+  window.close();
+}
+
 document.addEventListener('DOMContentLoaded', renderOptions);
 document.getElementById('save').addEventListener('click', save_options);
 document.getElementById('select-all').addEventListener('click', selectAll);
 document.getElementById('select-none').addEventListener('click', selectNone);
+document.getElementById("button-close").addEventListener('click', closeButton);

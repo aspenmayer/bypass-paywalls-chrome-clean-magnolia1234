@@ -23,7 +23,7 @@ const restrictions = {
 
 // Don't remove cookies before page load
 // allow_cookies are completed with domains in sites.js (default allow/remove_cookies)
-var allow_cookies = [
+var allow_cookies_default = [
   'abc.es',
   'aftonbladet.se',
   'belfasttelegraph.co.uk',
@@ -95,7 +95,8 @@ var allow_cookies = [
   'wp.de',
   'wr.de',
   'zeit.de',
-]
+];
+var allow_cookies = allow_cookies_default.slice();
 
 // Removes cookies after page load
 // remove_cookies are completed with domains of sites.js (default allow/remove_cookies)
@@ -157,8 +158,7 @@ var use_google_bot_default = [
   'wsj.com',
   'zeit.de',
 ];
-var use_google_bot_custom = [];
-var use_google_bot = use_google_bot_default.concat(use_google_bot_custom);
+var use_google_bot = use_google_bot_default.slice();
 
 // Override User-Agent with Bingbot
 var use_bing_bot = [
@@ -332,6 +332,9 @@ ext_api.storage.local.get({
     if (sites_custom[key]['googlebot'] > 0 && !use_google_bot.includes(domainVar)) {
       use_google_bot.push(domainVar);
     }
+    if (sites_custom[key]['allow_cookies'] > 0 && !allow_cookies.includes(domainVar)) {
+      allow_cookies.push(domainVar);
+    }
     if (sites_custom[key]['block_javascript'] > 0) {
       block_js_custom.push(domainVar);
     }
@@ -399,7 +402,7 @@ ext_api.storage.local.get({
 ext_api.storage.onChanged.addListener(function (changes, namespace) {
   if (namespace === 'sync')
     return;
-  for (var key in changes) {
+  for (let key in changes) {
     var storageChange = changes[key];
     if (key === 'sites') {
       var sites = storageChange.newValue;
@@ -429,6 +432,12 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
         enabledSites = enabledSites.concat(au_prov_news_domains);
       else
         disabledSites = disabledSites.concat(au_prov_news_domains);
+      for (let domainVar of enabledSites) {
+        if (!allow_cookies.includes(domainVar) && !remove_cookies.includes(domainVar)) {
+          allow_cookies.push(domainVar);
+          remove_cookies.push(domainVar);
+        }
+      }
       // reset disableJavascriptOnListedSites eventListener
       ext_api.webRequest.onBeforeRequest.removeListener(disableJavascriptOnListedSites);
       ext_api.webRequest.handlerBehaviorChanged();
@@ -447,9 +456,9 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
         sites: {}
       }, function (items) {
         var sites = items.sites;
-        for (var key of sites_custom_added)
+        for (let key of sites_custom_added)
           sites[key] = sites_custom[key].domain;
-        for (var key of sites_custom_removed)
+        for (let key of sites_custom_removed)
           delete sites[key];
 
         ext_api.storage.local.set({
@@ -459,6 +468,17 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
         });
       });
 
+      // restore cookie-settings for removed custom (& also default) domain
+      var sites_custom_default_domain_removed = Object.values(sites_custom_old).map(function (site_old) {
+          return site_old.domain;
+        }).filter(x => !Object.values(sites_custom).map(function (site_new) {
+            return site_new.domain;
+          }).includes(x) && defaultSites_domains.includes(x));
+      for (let domain of sites_custom_default_domain_removed) {
+        if (!allow_cookies_default.includes(domain) && !remove_cookies.includes(domain))
+          remove_cookies.push(domain);
+      }
+
       use_google_bot = use_google_bot_default.slice();
       block_js_custom = [];
       block_js_custom_ext = [];
@@ -467,6 +487,14 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
         if (sites_custom[key]['googlebot'] > 0 && !use_google_bot.includes(domainVar)) {
           use_google_bot.push(domainVar);
         }
+        if (sites_custom[key]['allow_cookies'] > 0) {
+          if (allow_cookies.includes(domainVar)) {
+            if (remove_cookies.includes(domainVar))
+              remove_cookies.splice(remove_cookies.indexOf(domainVar), 1);
+          } else
+            allow_cookies.push(domainVar);
+        } else if (!allow_cookies_default.includes(domainVar) && allow_cookies.includes(domainVar) && !remove_cookies.includes(domainVar))
+            remove_cookies.push(domainVar);
         if (sites_custom[key]['block_javascript'] > 0) {
           block_js_custom.push(domainVar);
         }
@@ -601,7 +629,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   var requestHeaders = details.requestHeaders;
 
   var header_referer = '';
-  for (var n in requestHeaders) {
+  for (let n in requestHeaders) {
     if (requestHeaders[n].name.toLowerCase() == 'referer') {
       header_referer = requestHeaders[n].value;
       continue;
@@ -854,9 +882,9 @@ function site_switch() {
                     sites: {}
                 }, function (items) {
                     var sites = items.sites;
-                    for (var key of added_site)
+                    for (let key of added_site)
                         sites[key] = domain;
-                    for (var key of removed_site)
+                    for (let key of removed_site)
                         delete sites[key];
 
                     ext_api.storage.local.set({

@@ -175,6 +175,7 @@ function edit_options() {
         document.querySelector('input[data-key="title"]').value = title;
         document.querySelector('input[data-key="domain"]').value = edit_site.domain;
         document.querySelector('input[data-key="googlebot"]').checked = (edit_site.googlebot > 0);
+        document.querySelector('input[data-key="allow_cookies"]').checked = (edit_site.allow_cookies > 0);
         document.querySelector('input[data-key="block_javascript"]').checked = (edit_site.block_javascript > 0);
         document.querySelector('input[data-key="block_javascript_ext"]').checked = (edit_site.block_javascript_ext > 0);
     });
@@ -204,6 +205,7 @@ function renderOptions() {
             'title': 0,
             'domain': 0,
             'googlebot': 1,
+            'allow_cookies': 1,
             'block_javascript': 1,
             'block_javascript_ext': 1
         };
@@ -238,6 +240,7 @@ function renderOptions() {
             optionEl.text = isDefaultSite ? '*' : '';
             optionEl.text += key + ': ' + domain +
                 (sites_custom[key]['googlebot']>0 ? ' | googlebot' : '') + 
+                (sites_custom[key]['allow_cookies']>0 ? ' | allow_cookies' : '') + 
                 (sites_custom[key]['block_javascript']>0 ? ' | block javascript' : '') + 
                 (sites_custom[key]['block_javascript_ext']>0 ? ' | block javascript ext' : '');
             optionEl.value = key;

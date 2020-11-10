@@ -14,6 +14,7 @@ Fix-update Telegraph.co.uk (overlay)
 Fix Chrome-icon for dark/incognito mode (all permitted sites)
 Fix clearCookies (Chrome .domain cookies)
 Fix updateBadge (grouped sites)
+Update custom sites: allow_cookies
 Update options/popup layout (+ mobile)
 
 * v1.9.3.0 (2020-11-01)
