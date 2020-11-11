@@ -11,9 +11,9 @@ var ext_name = ext_api.runtime.getManifest().name;
 const restrictions = {
   'barrons.com': /.+barrons\.com\/(amp\/)?article(s)?\/.+/,
   'bloombergquint.com': /^((?!\.bloombergquint\.com\/bq-blue-exclusive\/).)*$/,
-  'elcomercio.pe': /.+\/elcomercio.pe\/.+((\w)+(\-)+){3,}.+/,
+  'elcomercio.pe': /.+\/elcomercio\.pe\/.+((\w)+(\-)+){3,}.+/,
   'faz.net': /^((?!\/zeitung\.faz\.net\/).)*$/,
-  'gestion.pe': /.+\/gestion.pe\/.+((\w)+(\-)+){3,}.+/,
+  'gestion.pe': /.+\/gestion\.pe\/.+((\w)+(\-)+){3,}.+/,
   'nknews.org': /^((?!\.nknews\.org\/pro\/).)*$/,
   'globo.com': /^((?!\/valor\.globo\.com\/).)*$/,
   'quora.com': /^((?!quora\.com\/search\?q=).)*$/,
@@ -109,7 +109,7 @@ const remove_cookies_select_hold = {
   'newstatesman.com': ['STYXKEY_nsversion'],
   'telegraph.co.uk': ['consentUUID'],
   'qz.com': ['gdpr'],
-  'wsj.com': ['wsjregion']
+  'wsj.com': ['wsjregion', 'ResponsiveConditional_initialBreakpoint']
 }
 
 // list of regional ad.nl sites

@@ -2,6 +2,8 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Fix-update WSJ (mobile layout)
+Update custom sites: allow_cookies
 
 * v1.9.4.0 (2020-11-08)
 Add Gazet van Antwerpen (Belgium)
@@ -14,7 +16,6 @@ Fix-update Telegraph.co.uk (overlay)
 Fix Chrome-icon for dark/incognito mode (all permitted sites)
 Fix clearCookies (Chrome .domain cookies)
 Fix updateBadge (grouped sites)
-Update custom sites: allow_cookies
 Update options/popup layout (+ mobile)
 
 * v1.9.3.0 (2020-11-01)

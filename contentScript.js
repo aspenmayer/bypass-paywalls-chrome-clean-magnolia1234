@@ -813,7 +813,7 @@ else if (matchDomain('faz.net')) {
                             str = str.replace(/(?:^|[\w\"\“])(\.|\?|!)(?=[A-ZÖÜ\„][A-Za-zÀ-ÿ\„]{1,})/gm, "$&\n\n");
                             str = str.replace(/([a-z\"\“])(?=[A-Z](?=[A-Za-zÀ-ÿ]+))/gm, "$&\n\n");
                             // exceptions: names with alternating lower/uppercase (no general fix)
-                            let str_rep_arr = ["BaFin", "BerlHG", "BfArM", "BilMoG", "EuGH", "GlaxoSmithKline", "IfSG", "iMessage", "iOS", "iPad", "iPhone", "medRxiv", "mNRA", "StVO"];
+                            let str_rep_arr = ["BaFin", "BerlHG", "BfArM", "BilMoG", "EuGH", "GlaxoSmithKline", "IfSG", "iMessage", "iOS", "iPad", "iPhone", "medRxiv", "mRNA", "StVO"];
                             let str_rep_split, str_rep_src;
                             for (let str_rep of str_rep_arr) {
                                 str_rep_split = str_rep.split(/([a-z]+)(?=[A-Z](?=[A-Za-z]+))/);
