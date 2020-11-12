@@ -196,7 +196,7 @@ var blockedRegexes = {
   'elmundo.es': /cdn\.ampproject\.org\/v\d\/amp-access-.+\.js/,
   'elpais.com': /.+\.epimg\.net\/js\/.+\/noticia\.min\.js/,
   'exame.abril.com.br': /.+\.tinypass\.com\/.+/,
-  'folha.uol.com.br': /.+\.folha\.uol\.com\.br\/paywall\/js\/.+\/publicidade\.ads\.js/,
+  'folha.uol.com.br': /(.+\.folha\.uol\.com\.br\/paywall\/js\/.+\/publicidade\.ads\.js|js\.matheranalytics\.com\/.+)/,
   'gelocal.it': /cdn\.ampproject\.org\/v\d\/amp-access-.+\.js/,
   'globo.com': /.+\.tinypass\.com\/.+/,
   'foreignaffairs.com': /.+\.foreignaffairs\.com\/sites\/default\/files\/js\/js_P9zr.+\.js/,
