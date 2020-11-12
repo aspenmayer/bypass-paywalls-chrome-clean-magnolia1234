@@ -1230,7 +1230,7 @@ else if (matchDomain("limesonline.com")) {
     }, 500); // Delay (in milliseconds)
 }
 
-else if (matchDomain("mercuriovalpo.cl")) {
+else if (matchDomain(["mercuriovalpo.cl", "estrellavalpo.cl"])) {
     let content = document.querySelector('div.content');
     if (content)
         content.setAttribute('id', 'content_new');

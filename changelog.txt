@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Add La Estrella de Valparaiso (Chile)
 Fix-update Folha de S. Paulo (MatherAnalytics)
 Fix-update WSJ (mobile layout)
 Update custom sites: allow_cookies

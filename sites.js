@@ -89,6 +89,7 @@ var defaultSites =
   "L'Opinion": "lopinion.fr",
   "L'Orient-Le Jour": "lorientlejour.com",
   "La Dépêche": "ladepeche.fr",
+  "La Estrella de Valparaíso": "estrellavalpo.cl",
   "La Nación": "lanacion.com.ar",
   "La Repubblica": "repubblica.it",
   "La Segunda": "lasegunda.com",
