@@ -1449,6 +1449,9 @@ else if (matchDomain("gva.be")) {
                 let div_content = main_content.querySelector('div');
                 div_content.setAttribute('class', 'gva-6c6ea21_marginbottom5 gva-28c280e9_contentwrapper');
                 let par_elem, par_key, par_li, par_html;
+                let head = document.querySelector('head');
+                let streamone = false;
+                let flourish = false;
                 for (let par of json_text) {
                     for (let key in par) {
                         par_elem = document.createElement('p');
@@ -1475,10 +1478,27 @@ else if (matchDomain("gva.be")) {
                                 par_elem.appendChild(par_li);
                             }
                         } else if (key === 'streamone') {
-                            false;
+							if (!streamone) {
+							    let streamone_script = document.createElement('script');
+							    streamone_script.setAttribute('src', "https://shared.mediahuis.be/videoplayers/mediahuis/video-theoplayer.js?v=20201111T131002");
+							    streamone_script.setAttribute('defer', true);
+							    streamone_script.setAttribute('crossorigin', 'anonymous');
+							    if (head)
+							        head.appendChild(streamone_script);
+							    streamone = true;
+							}
+                            par_html = parser.parseFromString('<div id="json_id"><div class="gva-6c6ea21_marginbottom5 gva-28c280e9_contentwrapper"><div class="gva-6c6ea21_marginbottom4"><div class="gva-6c6ea21_marginbottom0"><div class="gva-e5b9f66a_root" data-testid="embed-video"><svg class="gva-e5b9f66a_placeholder" viewBox="0 0 16 9" aria-hidden="true"></svg><div><div id="video-player-' + par_key.id + '" style="width:100%;" data-video-embed-id="' + par_key.id + '" data-video-target-id="video-player-' + par_key.id + '" data-video-brand="gva" class="js-theoplayer-placeholder"></div></div></div></div></div>', 'text/html');
+                            par_elem = par_html.querySelector('div');
                         } else if (key === 'legacy-ml') {
                             par_html = parser.parseFromString(par_key, 'text/html');
                             par_elem = par_html.querySelector('div');
+                            if (!flourish && par_key.includes('flourish.studio')) {
+                                let flourish_script = document.createElement('script');
+                                flourish_script.setAttribute('src', "https://public.flourish.studio/resources/embed.js");
+                                if (head)
+                                    head.appendChild(flourish_script);
+                                flourish = true;
+                            }
                         } else {
                             console.log(key + ': ' + par_key);
                             par_html = parser.parseFromString('<p>' + par_key + '</p>', 'text/html');
