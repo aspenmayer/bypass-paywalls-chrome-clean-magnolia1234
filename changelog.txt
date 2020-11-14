@@ -5,6 +5,7 @@ Post-release
 Add La Estrella de Valparaiso (Chile)
 Fix-update Folha de S. Paulo (MatherAnalytics)
 Fix-update Gazet van Antwerpen (video/maps)
+Fix-update ilMessaggero.it (+ regional sites)
 Fix-update WSJ (mobile layout)
 Update custom sites: allow_cookies
 

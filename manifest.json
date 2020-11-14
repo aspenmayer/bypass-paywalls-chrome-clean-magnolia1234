@@ -64,6 +64,7 @@
         "*://*.clarin.com/*",
         "*://*.commentarymagazine.com/*",
         "*://*.corriere.it/*",
+        "*://*.corriereadriatico.it/*",
         "*://*.courant.com/*",
         "*://*.couriermail.com.au/*",
         "*://*.csmonitor.com/*",
@@ -131,8 +132,10 @@
         "*://*.historyextra.com/*",
         "*://*.humo.be/*",
         "*://*.ilfattoquotidiano.it/*",
+        "*://*.ilgazzettino.it/*",
         "*://*.illawarramercury.com.au/*",
         "*://*.ilmanifesto.it/*",
+        "*://*.ilmattino.it/*",
         "*://*.ilmessaggero.it/*",
         "*://*.ilrestodelcarlino.it/*",
         "*://*.inc.com/*",
@@ -213,6 +216,7 @@
         "*://*.qt.com.au/*",
         "*://*.quora.com/*",
         "*://*.quotidiano.net/*",
+        "*://*.quotidianodipuglia.it/*",
         "*://*.qz.com/*",
         "*://*.repubblica.it/*",
         "*://*.republic.ru/*",
@@ -323,11 +327,10 @@
         "*://*.rcsobjects.it/*",
         "*://*.repstatic.it/*",
         "*://*.userzoom.com/*",
-        "*://*.viralize.tv/*",
         "storage",
         "tabs",
         "webRequest",
         "webRequestBlocking"
     ],
-    "version": "1.9.4.5"
+    "version": "1.9.4.6"
 }

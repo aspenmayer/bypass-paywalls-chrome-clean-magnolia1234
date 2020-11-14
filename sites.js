@@ -77,7 +77,7 @@ var defaultSites =
   "Humo.be": "humo.be",
   "Il Fatto Quotidiano": "ilfattoquotidiano.it",
   "Il Manifesto": "ilmanifesto.it",
-  "Il Messaggero": "ilmessaggero.it",
+  "Il Messaggero (+ regional)": "ilmessaggero.it",
   "Il Resto del Carlino": "ilrestodelcarlino.it",
   "Inc.com": "inc.com",
   "Inkl": "inkl.com",

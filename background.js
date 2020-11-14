@@ -209,7 +209,7 @@ var blockedRegexes = {
   'haaretz.co.il': /haaretz\.co\.il\/htz\/js\/inter\.js/,
   'haaretz.com': /haaretz\.com\/hdc\/web\/js\/minified\/header-scripts-int.js.+/,
   'historyextra.com': /.+\.evolok\.net\/.+\/authorize\/.+/,
-  'ilmessaggero.it': /(utils\.cedsdigital\.it\/js\/PaywallMeter\.js|static\.viralize\.tv\/viralize_player)/,
+  'ilmessaggero.it': /utils\.cedsdigital\.it\/js\/PaywallMeter\.js/,
   'ilrestodelcarlino.it': /.+\.tinypass\.com\/.+/,
   'independent.ie': /cdn\.flip-pay\.com\/clients\/inm\/flip-pay\.js/,
   'inquirer.com': /.+\.tinypass\.com\/.+/,
@@ -273,6 +273,7 @@ const au_comm_media_domains = ['bendigoadvertiser.com.au', 'bordermail.com.au', 
 const au_news_corp_domains = ['adelaidenow.com.au', 'cairnspost.com.au', 'couriermail.com.au', 'dailytelegraph.com.au', 'geelongadvertiser.com.au', 'goldcoastbulletin.com.au', 'heraldsun.com.au', 'ntnews.com.au', 'theaustralian.com.au', 'themercury.com.au', 'townsvillebulletin.com.au', 'weeklytimesnow.com.au'];
 const au_prov_news_domains = ['news-mail.com.au', 'frasercoastchronicle.com.au', 'gladstoneobserver.com.au', 'dailyexaminer.com.au', 'dailymercury.com.au', 'themorningbulletin.com.au', 'sunshinecoastdaily.com.au', 'gympietimes.com.au', 'northernstar.com.au', 'qt.com.au', 'thechronicle.com.au', 'warwickdailynews.com.au'];
 const nymag_domains = ['grubstreet.com', 'thecut.com', 'vulture.com'];
+const ilmessaggero_domains = ['corriereadriatico.it', 'ilgazzettino.it', 'ilmattino.it', 'quotidianodipuglia.it'];
 
 const userAgentDesktopG = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
 const userAgentMobileG = "Chrome/80.0.3987.92 Mobile Safari/537.36 (compatible ; Googlebot/2.1 ; +http://www.google.com/bot.html)"
@@ -283,7 +284,7 @@ const userAgentMobileB = "Chrome/80.0.3987.92 Mobile Safari/537.36 (compatible; 
 var enabledSites = [];
 var disabledSites = [];
 var defaultSites_grouped_domains = Object.values(defaultSites);
-var defaultSites_domains = defaultSites_grouped_domains.concat(ad_region_domains, au_comm_media_domains, au_news_corp_domains, au_prov_news_domains, nymag_domains);
+var defaultSites_domains = defaultSites_grouped_domains.concat(ad_region_domains, au_comm_media_domains, au_news_corp_domains, au_prov_news_domains, nymag_domains, ilmessaggero_domains);
 var customSites = {};
 var customSites_domains = [];
 
@@ -357,12 +358,15 @@ ext_api.storage.local.get({
     disabledSites = disabledSites.concat(ad_region_domains);
   if (enabledSites.includes('nymag.com')) {
     enabledSites = enabledSites.concat(nymag_domains);
-    for (let domain of nymag_domains) {
-      allow_cookies.push(domain);
-      remove_cookies.push(domain);
-    }
   } else
     disabledSites = disabledSites.concat(nymag_domains);
+  if (enabledSites.includes('ilmessaggero.it')) {
+    enabledSites = enabledSites.concat(ilmessaggero_domains);
+    for (let domain of ilmessaggero_domains) {
+      blockedRegexes[domain] = /utils\.cedsdigital\.it\/js\/PaywallMeter\.js/;
+    }
+  } else
+    disabledSites = disabledSites.concat(ilmessaggero_domains);
   if (enabledSites.includes('###_au_comm_media')) {
     enabledSites = enabledSites.concat(au_comm_media_domains);
     for (let domain of au_comm_media_domains) {
@@ -418,6 +422,10 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
         disabledSites = disabledSites.concat(ad_region_domains);
       if (enabledSites.includes('nymag.com'))
         enabledSites = enabledSites.concat(nymag_domains);
+      else
+        disabledSites = disabledSites.concat(nymag_domains);
+      if (enabledSites.includes('ilmessaggero.it'))
+        enabledSites = enabledSites.concat(ilmessaggero_domains);
       else
         disabledSites = disabledSites.concat(nymag_domains);
       if (enabledSites.includes('###_au_comm_media'))

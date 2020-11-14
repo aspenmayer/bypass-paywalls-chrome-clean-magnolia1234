@@ -219,8 +219,12 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [Domani](https://editorialedomani.it) -
 [GElocal.it](https://quotidiani.gelocal.it) -
 [Il Fatto Quotidiano](https://www.ilfattoquotidiano.it) -
-[Il Manifesto](https://ilmanifesto.it) -
-[Il Messaggero](https://www.ilmessaggero.it) -
+[Il Manifesto](https://ilmanifesto.it)  
+[Il Messaggero](https://www.ilmessaggero.it) and regional sites (grouped in options) like
+[Corriere Adriatico](https://www.corriereadriatico.it) -
+[Il Gazzettino](https://www.ilgazzettino.it) -
+[Il Mattino](https://www.ilmattino.it) -
+[Quotidiano di Puglia](https://www.quotidianodipuglia.it)  
 [Il Resto del Carlino](https://www.ilrestodelcarlino.it) -
 [La Repubblica](https://www.repubblica.it) -
 [La Stampa](https://www.lastampa.it) -
