@@ -186,6 +186,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [The Times](https://www.thetimes.co.uk) -
 [The Times Literary Supplement](https://www.the-tls.co.uk)
 ##### France/Wallonia
+[Alternatives Economiques](https://www.alternatives-economiques.fr) -
 [Challenges](https://www.challenges.fr) –
 [Charlie Hebdo](https://charliehebdo.fr) -
 [L'Écho](https://lecho.be) -

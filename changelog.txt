@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Add AlternativesEconomiques.fr
 Add La Estrella de Valparaiso (Chile)
 Fix-update Folha de S. Paulo (MatherAnalytics)
 Fix-update Gazet van Antwerpen (video/maps)

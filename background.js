@@ -170,6 +170,7 @@ var use_bing_bot = [
 var blockedRegexes = {
   'adweek.com': /.+\.lightboxcdn\.com\/.+/,
   'afr.com': /afr\.com\/assets\/vendorsReactRedux_client.+\.js/,
+  'alternatives-economiques.fr': /.+\.poool\.fr\/.+/,
   'americanbanker.com': /.+\.tinypass\.com\/.+/,
   'barrons.com': /cdn\.ampproject\.org\/v\d\/amp-access-.+\.js/,
   'belfasttelegraph.co.uk': /cdn\.flip-pay\.com\/clients\/inm\/flip-pay\.js/,
@@ -246,6 +247,7 @@ var blockedRegexes = {
   'science-et-vie.com': /.+\.qiota\.com\/.+/,
   'sciencesetavenir.fr': /.+\.poool\.fr\/.+/,
   'scmp.com': /.+\.tinypass\.com\/.+/,
+  'seekingalpha.com': /.+\.tinypass\.com\/.+/,
   'sfchronicle.com': /.+\.blueconic\.net\/.+/,
   'slate.com': /(cdn\.cxense\.com\/.+|.+\.tinypass\.com\/.+)/,
   'sloanreview.mit.edu': /(cdn\.tinypass\.com\/.+|.+\/sloanreview\.mit\.edu\/.+\/welcome-ad\.js)/,

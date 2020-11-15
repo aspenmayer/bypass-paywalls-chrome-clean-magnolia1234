@@ -4,6 +4,7 @@ var defaultSites =
   "Adweek": "adweek.com",
   "Aftonbladet": "aftonbladet.se",
   "Algemeen Dagblad (+ regional)": "ad.nl",
+  "Alternatives Economiques": "alternatives-economiques.fr",
   "American Affairs": "americanaffairsjournal.org",
   "American Banker": "americanbanker.com",
   "Atavist Magazine": "atavist.com",

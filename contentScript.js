@@ -1530,6 +1530,16 @@ else if (matchDomain('deutsche-wirtschafts-nachrichten.de')) {
     }, 500); // Delay (in milliseconds)
 }
 
+else if (matchDomain("alternatives-economiques.fr")) {
+    window.setTimeout(function () {
+        let paywall = document.querySelector('#temp-paywall');
+        removeDOMElement(paywall);
+        let data_ae_poool = document.querySelector('div[data-ae-poool]');
+        if (data_ae_poool)
+            data_ae_poool.removeAttribute('style');
+    }, 500); // Delay (in milliseconds)
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {
