@@ -147,6 +147,7 @@ var defaultSites =
   "Quotidiano.net": "quotidiano.net",
   "Republic.ru": "republic.ru",
   "Rolling Stone": "rollingstone.com",
+  "Sächsische Zeitung": "saechsische.de",
   "San Diego Union Tribune": "sandiegouniontribune.com",
   "San Francisco Chronicle": "sfchronicle.com",
   "Science & Vie": "science-et-vie.com",

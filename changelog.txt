@@ -5,6 +5,7 @@ Post-release
 Add AlternativesEconomiques.fr
 Add Financial Post (Canada)
 Add La Estrella de Valparaiso (Chile)
+Add Saechsische Zeitung (Germany)
 Fix-update Folha de S. Paulo (MatherAnalytics)
 Fix-update Gazet van Antwerpen (video/maps)
 Fix-update ilMessaggero.it (+ regional sites)

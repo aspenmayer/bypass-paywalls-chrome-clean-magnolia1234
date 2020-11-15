@@ -211,6 +211,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [Kurier.at](https://kurier.at) -
 [Leipziger Volkszeitung](https://www.lvz.de) -
 [Neue Ruhr Zeitung](https://www.nrz.de) -
+[Sächsische Zeitung](https://www.saechsische.de) -
 [Süddeutsche Zeitung](https://www.sueddeutsche.de) -
 [Westdeutsche Allgemeine Zeitung](https://www.waz.de) -
 [Westfalenpost](https://www.wp.de) -
