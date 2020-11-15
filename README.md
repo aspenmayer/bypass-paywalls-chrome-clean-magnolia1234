@@ -165,6 +165,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [Winston-Salem Journal](https://www.journalnow.com)
 
 #### Canada
+[Financial Post](https://www.financialpost.com) -
 [Le Devoir](https://www.ledevoir.com) -
 [National Post](https://www.nationalpost.com) -
 [The Globe and Mail](https://www.theglobeandmail.com) -

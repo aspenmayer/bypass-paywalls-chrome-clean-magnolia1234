@@ -52,6 +52,7 @@ var defaultSites =
   "Eureka Report": "eurekareport.com.au",
   "Exame": "exame.abril.com.br",
   "Financial News": "fnlondon.com",
+  "Financial Post": "financialpost.com",
   "Financial Times": "ft.com",
   "Financieele Dagblad (fd.nl)": "fd.nl",
   "First Things": "firstthings.com",
