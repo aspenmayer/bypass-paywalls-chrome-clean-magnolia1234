@@ -16,7 +16,7 @@ fetch(manifest_new)
                 if (version_new.substring(0, version_len) > manifestData.version.substring(0, version_len)) {
                     var versionString_new = document.getElementById('version_new');
                     versionString_new.setAttribute('style', 'font-weight: bold;');
-                    versionString_new.appendChild(document.createTextNode('* '));
+                    versionString_new.appendChild(document.createTextNode(' * '));
                     var anchorEl = document.createElement('a');
                     anchorEl.text = 'New release v' + version_new;
                     anchorEl.href = 'https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/downloads';

@@ -10,6 +10,7 @@ Fix-update Folha de S. Paulo (MatherAnalytics)
 Fix-update Gazet van Antwerpen (video/maps)
 Fix-update ilMessaggero.it (+ regional sites)
 Fix-update WSJ (mobile layout)
+Fix error during tabs.get (no tab with id)
 Update custom sites: allow_cookies
 
 * v1.9.4.0 (2020-11-08)

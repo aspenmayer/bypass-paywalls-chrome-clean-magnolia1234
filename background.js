@@ -327,6 +327,54 @@ ext_api.storage.sync.get({
   }
 });
 
+// add grouped sites to en/disabledSites & init rules (optional)
+function add_grouped_sites(init_rules) {
+  if (enabledSites.includes('ad.nl'))
+    enabledSites = enabledSites.concat(ad_region_domains);
+  else
+    disabledSites = disabledSites.concat(ad_region_domains);
+  if (enabledSites.includes('nymag.com'))
+    enabledSites = enabledSites.concat(nymag_domains);
+  else
+    disabledSites = disabledSites.concat(nymag_domains);
+  if (enabledSites.includes('ilmessaggero.it')) {
+    enabledSites = enabledSites.concat(ilmessaggero_domains);
+    if (init_rules)
+      for (let domain of ilmessaggero_domains) {
+        blockedRegexes[domain] = /utils\.cedsdigital\.it\/js\/PaywallMeter\.js/;
+      }
+  } else
+    disabledSites = disabledSites.concat(ilmessaggero_domains);
+  if (enabledSites.includes('###_au_comm_media')) {
+    enabledSites = enabledSites.concat(au_comm_media_domains);
+    if (init_rules)
+      for (let domain of au_comm_media_domains) {
+        allow_cookies.push(domain);
+        blockedRegexes[domain] = /.+cdn-au\.piano\.io\/api\/tinypass.+\.js/;
+      }
+  } else
+    disabledSites = disabledSites.concat(au_comm_media_domains);
+  if (enabledSites.includes('###_au_news_corp')) {
+    enabledSites = enabledSites.concat(au_news_corp_domains);
+    if (init_rules)
+      for (let domain of au_news_corp_domains) {
+        allow_cookies.push(domain);
+        use_google_bot.push(domain);
+        blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-access-.+\.js/;
+      }
+  } else
+    disabledSites = disabledSites.concat(au_news_corp_domains);
+  if (enabledSites.includes('###_au_prov_news')) {
+    enabledSites = enabledSites.concat(au_prov_news_domains);
+    if (init_rules)
+      for (let domain of au_prov_news_domains) {
+        allow_cookies.push(domain);
+        use_google_bot.push(domain);
+      }
+  } else
+    disabledSites = disabledSites.concat(au_prov_news_domains);
+}
+
 // Get the enabled sites (from local storage) & add to allow/remove_cookies (if not already in one of these arrays)
 // Add googlebot- and block_javascript-settings for custom sites
 ext_api.storage.local.get({
@@ -338,18 +386,14 @@ ext_api.storage.local.get({
 
   for (let key in sites_custom) {
     var domainVar = sites_custom[key]['domain'].toLowerCase();
-    if (sites_custom[key]['googlebot'] > 0 && !use_google_bot.includes(domainVar)) {
+    if (sites_custom[key]['googlebot'] > 0 && !use_google_bot.includes(domainVar))
       use_google_bot.push(domainVar);
-    }
-    if (sites_custom[key]['allow_cookies'] > 0 && !allow_cookies.includes(domainVar)) {
+    if (sites_custom[key]['allow_cookies'] > 0 && !allow_cookies.includes(domainVar))
       allow_cookies.push(domainVar);
-    }
-    if (sites_custom[key]['block_javascript'] > 0) {
+    if (sites_custom[key]['block_javascript'] > 0)
       block_js_custom.push(domainVar);
-    }
-    if (sites_custom[key]['block_javascript_ext'] > 0) {
+    if (sites_custom[key]['block_javascript_ext'] > 0)
       block_js_custom_ext.push(domainVar);
-    }
   }
 
   enabledSites = Object.keys(sites).filter(function (key) {
@@ -360,46 +404,7 @@ ext_api.storage.local.get({
   customSites = sites_custom;
   customSites_domains = Object.values(sites_custom).map(x => x.domain);
   disabledSites = defaultSites_domains.concat(customSites_domains).filter(x => !enabledSites.includes(x) && x !== '###');
-  if (enabledSites.includes('ad.nl'))
-    enabledSites = enabledSites.concat(ad_region_domains);
-  else
-    disabledSites = disabledSites.concat(ad_region_domains);
-  if (enabledSites.includes('nymag.com')) {
-    enabledSites = enabledSites.concat(nymag_domains);
-  } else
-    disabledSites = disabledSites.concat(nymag_domains);
-  if (enabledSites.includes('ilmessaggero.it')) {
-    enabledSites = enabledSites.concat(ilmessaggero_domains);
-    for (let domain of ilmessaggero_domains) {
-      blockedRegexes[domain] = /utils\.cedsdigital\.it\/js\/PaywallMeter\.js/;
-    }
-  } else
-    disabledSites = disabledSites.concat(ilmessaggero_domains);
-  if (enabledSites.includes('###_au_comm_media')) {
-    enabledSites = enabledSites.concat(au_comm_media_domains);
-    for (let domain of au_comm_media_domains) {
-      allow_cookies.push(domain);
-      blockedRegexes[domain] = /.+cdn-au\.piano\.io\/api\/tinypass.+\.js/;
-    }
-  } else
-    disabledSites = disabledSites.concat(au_comm_media_domains);
-  if (enabledSites.includes('###_au_news_corp')) {
-    enabledSites = enabledSites.concat(au_news_corp_domains);
-    for (let domain of au_news_corp_domains) {
-      allow_cookies.push(domain);
-      use_google_bot.push(domain);
-      blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-access-.+\.js/;
-    }
-  } else
-    disabledSites = disabledSites.concat(au_news_corp_domains);
-  if (enabledSites.includes('###_au_prov_news')) {
-    enabledSites = enabledSites.concat(au_prov_news_domains);
-    for (let domain of au_prov_news_domains) {
-      allow_cookies.push(domain);
-      use_google_bot.push(domain);
-    }
-  } else
-    disabledSites = disabledSites.concat(au_prov_news_domains);
+  add_grouped_sites(true);
 
   for (let domainVar of enabledSites) {
     if (!allow_cookies.includes(domainVar) && !remove_cookies.includes(domainVar)) {
@@ -424,30 +429,8 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
           return sites[key];
         });
       disabledSites = defaultSites_domains.concat(customSites_domains).filter(x => !enabledSites.includes(x) && x !== '###');
-      if (enabledSites.includes('ad.nl'))
-        enabledSites = enabledSites.concat(ad_region_domains);
-      else
-        disabledSites = disabledSites.concat(ad_region_domains);
-      if (enabledSites.includes('nymag.com'))
-        enabledSites = enabledSites.concat(nymag_domains);
-      else
-        disabledSites = disabledSites.concat(nymag_domains);
-      if (enabledSites.includes('ilmessaggero.it'))
-        enabledSites = enabledSites.concat(ilmessaggero_domains);
-      else
-        disabledSites = disabledSites.concat(nymag_domains);
-      if (enabledSites.includes('###_au_comm_media'))
-        enabledSites = enabledSites.concat(au_comm_media_domains);
-      else
-        disabledSites = disabledSites.concat(au_comm_media_domains);
-      if (enabledSites.includes('###_au_news_corp'))
-        enabledSites = enabledSites.concat(au_news_corp_domains);
-      else
-        disabledSites = disabledSites.concat(au_news_corp_domains);
-      if (enabledSites.includes('###_au_prov_news'))
-        enabledSites = enabledSites.concat(au_prov_news_domains);
-      else
-        disabledSites = disabledSites.concat(au_prov_news_domains);
+      add_grouped_sites(false);
+
       for (let domainVar of enabledSites) {
         if (!allow_cookies.includes(domainVar) && !remove_cookies.includes(domainVar)) {
           allow_cookies.push(domainVar);
@@ -837,7 +820,7 @@ ext_api.tabs.onUpdated.addListener(function (tabId, info, tab) { updateBadge(tab
 ext_api.tabs.onActivated.addListener(function (activeInfo) { ext_api.tabs.get(activeInfo.tabId, updateBadge); });
 
 function updateBadge(activeTab) {
-  if (!activeTab)
+  if (ext_api.runtime.lastError || !activeTab)
     return;
   let badgeText = '';
   let color = 'red';
