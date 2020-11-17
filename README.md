@@ -173,6 +173,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [The Toronto Star](https://www.thestar.com)
 
 #### Europe
+
 ##### United Kingdom/Ireland
 [Belfast Telegraph](https://www.belfasttelegraph.co.uk) -
 [Financial News](https://www.fnlondon.com) -
@@ -186,6 +187,10 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [The Telegraph](https://www.telegraph.co.uk) -
 [The Times](https://www.thetimes.co.uk) -
 [The Times Literary Supplement](https://www.the-tls.co.uk)
+
+##### Finland
+[Helsingin Sanomat](https://www.hs.fi)
+
 ##### France/Wallonia
 [Alternatives Economiques](https://www.alternatives-economiques.fr) -
 [Challenges](https://www.challenges.fr) –
@@ -202,6 +207,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [Science & Vie](https://www.science-et-vie.com) -
 [Sciences et Avenir](https://www.sciencesetavenir.fr) -
 [Valeurs Actuelles](https://www.valeursactuelles.com)
+
 ##### Germany/Austria
 [Deutsche Wirtschafts Nachrichten](https://deutsche-wirtschafts-nachrichten.de) -
 [Die Zeit](https://www.zeit.de) -
@@ -217,6 +223,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [Westfalenpost](https://www.wp.de) -
 [Westfälische Rundschau](https://www.wr.de) -
 [WirtschaftsWoche](https://www.wiwo.de)
+
 ##### Italy
 [Corriere Della Sera](https://www.corriere.it) -
 [Domani](https://editorialedomani.it) -
@@ -234,6 +241,7 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [Le Scienze](https://www.lescienze.it) -
 [LimesOnline (it/en)](https://www.limesonline.com) -
 [Quotidiano.net](https://www.quotidiano.net)
+
 ##### Netherlands/Flanders
 [Algemeen Dagblad](https://www.ad.nl) and regional ADR sites (grouped in options) like
 [BN DeStem](https://www.bndestem.nl) -
@@ -259,15 +267,19 @@ Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywall
 [Telegraaf](https://www.telegraaf.nl) -
 [Trouw](https://www.trouw.nl) -
 [Volkskrant](https://www.volkskrant.nl)
+
 ##### Russia
 [Republic.ru](https://republic.ru)
+
 ##### Spain
 [ABC](https://www.abc.es) -
 [El Mundo](https://www.elmundo.es) -
 [El País](https://elpais.com)
+
 ##### Sweden
 [Aftonbladet](https://www.aftonbladet.se) -
 [Dagens Nyheter](https://www.dn.se)
+
 ##### Switzerland
 [Neue Zürcher Zeitung](https://www.nzz.ch)
 

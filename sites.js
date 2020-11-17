@@ -76,6 +76,7 @@ var defaultSites =
   "Hartford Courant": "courant.com",
   "Harvard Business Review": "hbr.org",
   "Harvard Business Review Taiwan": "hbrtaiwan.com",
+  "Helsingin Sanomat": "hs.fi",
   "Humo.be": "humo.be",
   "Il Fatto Quotidiano": "ilfattoquotidiano.it",
   "Il Manifesto": "ilmanifesto.it",

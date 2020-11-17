@@ -132,6 +132,7 @@
         "*://*.hbrtaiwan.com/*",
         "*://*.heraldsun.com.au/*",
         "*://*.historyextra.com/*",
+        "*://*.hs.fi/*",
         "*://*.humo.be/*",
         "*://*.ilfattoquotidiano.it/*",
         "*://*.ilgazzettino.it/*",
@@ -318,7 +319,6 @@
         "*://*.epimg.net/*",
         "*://*.evolok.net/*",
         "*://*.flip-pay.com/*",
-        "*://*.googletagmanager.com/*",
         "*://*.htmedia.in/*",
         "*://*.jsdelivr.net/*",
         "*://*.lightboxcdn.com/*",
@@ -335,5 +335,5 @@
         "webRequest",
         "webRequestBlocking"
     ],
-    "version": "1.9.5.0"
+    "version": "1.9.5.1"
 }
