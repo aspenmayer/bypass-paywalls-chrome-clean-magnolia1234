@@ -670,6 +670,12 @@ else if (matchDomain("cen.acs.org")) {
 
 else if (matchDomain("lesechos.fr") && window.location.href.match(/-\d{6,}/)) {
     window.setTimeout(function () {
+        let abo_banner = document.querySelector('[class^="pgxf3b"]');
+        let ad_blocks = document.querySelectorAll('[class*="jzxvkd"');
+        for (let ad_block of ad_blocks)
+            ad_block.setAttribute('style', 'display:none');
+        if (abo_banner) {
+        removeDOMElement(abo_banner);
         let url = window.location.href;
         let html = document.documentElement.outerHTML;
         let split1 = html.split('window.__PRELOADED_STATE__')[1];
@@ -698,16 +704,13 @@ else if (matchDomain("lesechos.fr") && window.location.href.match(/-\d{6,}/)) {
                     }
                 }
             }
+            let styleElem = document.head.appendChild(document.createElement("style"));
+            styleElem.innerHTML = ".post-paywall::after {height: auto !important;}";
         } catch (err) {
             window.location.reload(true);
         }
-        let ad_blocks = document.querySelectorAll('.jzxvkd-1');
-        for (let ad_block of ad_blocks) {
-            ad_block.setAttribute('style', 'display:none');
         }
-        let abo_banner = document.querySelector('[class^="pgxf3b"]');
-        removeDOMElement(abo_banner);
-    }, 1000); // Delay (in milliseconds)
+    }, 500); // Delay (in milliseconds)
 }
 
 else if (matchDomain(["lc.nl", "dvhn.nl"])) {
@@ -1545,7 +1548,6 @@ else if (matchDomain("hs.fi")) {
     if (!url.includes('https://dynamic.hs.fi')) {
         let iframe = document.querySelector('iframe[src^="https://dynamic.hs.fi/a/"]');
         if (iframe && url.includes('.html')) {
-            console.log(iframe.src);
             window.setTimeout(function () {
                 window.location.href = iframe.src;
             }, 500); // Delay (in milliseconds)

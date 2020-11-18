@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add Helsingin Sanomat (hs.fi, not paivanlehti)
+Fix-update LesEchos.fr (timing/banners)
 Fix-update Newsweek (Pelcro)
 
 * v1.9.5.0 (2020-11-15)
