@@ -2,10 +2,13 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+
+* v1.9.6.0 (2020-11-20)
 Add Helsingin Sanomat (hs.fi, not paivanlehti)
 Fix-update La Tercera (Chile)
 Fix-update LesEchos.fr (timing/banners)
 Fix-update Newsweek (Pelcro)
+GitLab transfer 
 
 * v1.9.5.0 (2020-11-15)
 Add AlternativesEconomiques.fr

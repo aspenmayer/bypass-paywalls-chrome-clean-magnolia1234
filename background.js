@@ -308,29 +308,6 @@ function setDefaultOptions() {
   });
 }
 
-// copy storage.sync to storage.local (quota exceeded)
-ext_api.storage.sync.get({
-  sites: {},
-  sites_custom: {},
-  daily_users: {},
-  optIn: {},
-  optInShown: {},
-  customShown: {}
-}, function (items) {
-  if (Object.keys(items.sites).length > 0) {
-    ext_api.storage.local.set({
-      sites: items.sites,
-      sites_custom: items.sites_custom,
-      daily_users: items.daily_users,
-      optIn: items.optIn,
-      optInShown: items.optInShown,
-      customShown: items.customShown
-    }, function () {
-      ext_api.storage.sync.remove(['sites', 'sites_custom']);
-    });
-  }
-});
-
 // add grouped sites to en/disabledSites & init rules (optional)
 function add_grouped_sites(init_rules) {
   if (enabledSites.includes('ad.nl'))
@@ -621,6 +598,7 @@ if (ext_api.webRequest.OnBeforeSendHeadersOptions.hasOwnProperty('EXTRA_HEADERS'
   extraInfoSpec.push('extraHeaders');
 
 ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
+/**
   if (details.type === 'main_frame') {
     let current_date_str = currentDateStr();
     if (last_date_str < current_date_str) {
@@ -628,6 +606,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
       last_date_str = current_date_str;
     }
   }
+**/
 
   var requestHeaders = details.requestHeaders;
 

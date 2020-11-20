@@ -15,7 +15,7 @@ The following instructions are needed to install third-party extensions in [Chro
 In extension developer mode you can always install BPC by `Load unpacked` (no automatic updates) or by crx-file (automatic updates, but possible 'whitelisting' of extension is needed).
 
 #### Load unpacked: Chrome (Windows, MacOS, Linux), Microsoft Edge (Chromium)/Brave/Yandex (or 'whitelist' extension and install automatically updating crx-file (see next section))
-1. Download this repository as a [ZIP-file from BitBucket](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/get/master.zip).
+1. Download this repository as a [ZIP-file from GitLab](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/archive/master/bypass-paywalls-chrome-clean-master.zip).
 2. Unzip the file and you should have a folder named `magnolia1234-bypass-paywalls-chrome-clean-(commit-hash)`.
 3. Move the folder to a permanent location on your computer (do not delete the folder after installation).
 4. Go to the extensions page (`chrome://extensions` or `edge://extensions`).
@@ -28,14 +28,14 @@ In extension developer mode you can always install BPC by `Load unpacked` (no au
 If you're familiar with Git(Hub)-clients you can also clone this repo and update the extension that way (load unpacked folder used by Git(Hub)-client).
 
 #### CRX-file: other Chromium browsers (Opera/Vivaldi) (or add extension to 'whitelist' for Chrome, MS Edge, Brave or Yandex (see instructions below for Windows))
-1. Download the extension as a crx-file from the [download page](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/downloads).
+1. Download the extension as a crx-file from the [releases page](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/releases).
 2. In your browser go to the extensions page.
 3. Enable Developer Mode.
 4. Drag your crx-file anywhere on the page to import it.
 5. If dragging crx-file does not work, try Chrome procedure (above).
   
 * by default BPC has limited permissions, but you can opt-in to enable custom sites (and also clear cookies/block general paywall-scripts for non-listed sites).   
-* In Windows 'whitelist' BPC (run as administrator one of the reg-files in [whitelist-downloads](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean-whitelist/downloads)  
+* In Windows 'whitelist' BPC (run as administrator one of the reg-files in [whitelist-downloads](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/tree/master/whitelist)  
 If you already have 'whitelisted' extensions than you should change "1" to a new key (also change name of HLM-key for beta/developer versions of browsers).  
 Example Chrome-regfile:  
 Windows Registry Editor Version 5.00  
@@ -48,7 +48,7 @@ Windows Registry Editor Version 5.00
 3. For Yandex Browser follow Chrome instructions above (load unpacked; step 6: pick `manifest.json` instead of the folder).
 
 #### Firefox
-Visit the [Firefox repository](https://bitbucket.org/magnolia1234/bypass-paywalls-firefox-clean) of Bypass Paywall Clean.
+Visit the [Firefox repository](https://gitlab.com/magnolia1234/bypass-paywalls-firefox-clean) of Bypass Paywall Clean.
 
 #### Notes
 * This extension works best alongside the adblocker [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en).
@@ -407,9 +407,9 @@ For user with the limited permissions BPC-version this will only work for suppor
 If removing the cookies works you can also add the site as a custom site.
 
 ### New site requests
-You can submit a request for a new website [here](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/issues?status=new&status=open).  
+You can submit a request for a new website [here](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/issues).  
 Please read the following instructions and share your results for a quicker process.  
-Remember to check the [previous requests](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/issues) before asking for a new website.  
+Remember to check the [previous requests](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/issues) before asking for a new website.  
 1. Visit an article on the site you want to bypass the paywall for and copy the article title.  
 2. Open up a new incognito window (Ctrl+Shift+N) and paste the article title into Google.  
 3. Click on the same article from the Google search results page. Or you can:  
@@ -429,12 +429,12 @@ Also you can enable Googlebot user-agent or disable Javascript for (sub)domain(s
 * If a site doesn't work, try turning off uBlock and refreshing.
 * Make sure the (new) site is checked under Options.
 * Make sure you're running the last version of Bypass Paywalls Clean.
-* If none of these work, you can submit an issue [here](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/issues).
+* If none of these work, you can submit an issue [here](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/issues).
 
 ### Changelog-releases
-* Visit the [changelog page](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/src/master/changelog.txt).
-* Or check the [commits](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/commits).
-* [Download the latest version](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/downloads)
+* Visit the [changelog page](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/blob/master/changelog.txt).
+* Or check the [commits](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/commits/master/).
+* [Download the latest version](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/releases)
 
 ### License
-* Bypass Paywalls Clean is [MIT-licensed](https://bitbucket.org/magnolia1234/bypass-paywalls-chrome-clean/src/master/LICENSE).
+* Bypass Paywalls Clean is [MIT-licensed](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/blob/master/LICENSE).
