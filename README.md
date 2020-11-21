@@ -272,7 +272,15 @@ Visit the [Firefox repository](https://gitlab.com/magnolia1234/bypass-paywalls-f
 [Republic.ru](https://republic.ru)
 
 ##### Spain
-[ABC](https://www.abc.es) -
+[ABC](https://www.abc.es)  and regional sites from Grupo Vocento (grouped in options) like
+[Diario Vasco](https://www.diariovasco.com) -
+[El Correo](https://www.elcorreo.com) -
+[El Diario Montañés](https://www.eldiariomontanes.es) -
+[El Norte de Castilla](https://www.elnortedecastilla.es) -
+[Hoy](https://www.hoy.es) -
+[La Rioja](https://www.larioja.com) -
+[La Verdad](https://www.laverdad.es) -
+[Sur](https://www.diariosur.es)  
 [El Mundo](https://www.elmundo.es) -
 [El País](https://elpais.com)
 

@@ -4,6 +4,8 @@ var domain;
 
 // clean local storage of sites (with an exemption for hold-list)
 var arr_localstorage_hold = ['elmundo.es', 'kurier.at', 'nknews.org', 'nrz.de', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk', 'waz.de', 'wp.de', 'wr.de'];
+var es_grupo_vocento_domains = ['diariosur.es', 'diariovasco.com', 'elcorreo.com', 'eldiariomontanes.es', 'elnortedecastilla.es', 'hoy.es', 'larioja.com', 'laverdad.es'];
+arr_localstorage_hold = arr_localstorage_hold.concat(es_grupo_vocento_domains);
 if (!matchDomain(arr_localstorage_hold)){
     window.localStorage.clear();
 }
@@ -1631,6 +1633,28 @@ else if (matchDomain("hs.fi")) {
 else if (matchDomain("latercera.com")) {
     let subscr_banner = document.querySelector('.empty');
     removeDOMElement(subscr_banner);
+}
+
+else if (matchDomain(es_grupo_vocento_domains)) {
+    let url = window.location.href;
+    let content_exclusive_bg = document.querySelector('.content-exclusive-bg ');
+    let amphtml = document.querySelector('link[rel="amphtml"]');
+    if (content_exclusive_bg && amphtml) {
+        window.setTimeout(function () {
+            window.location.href = url.replace('.html', '_amp.html');
+        }, 500); // Delay (in milliseconds)
+    } else if (url.includes('_amp.html')) {
+        let voc_advers = document.querySelectorAll('.voc-adver, amp-embed');
+        removeDOMElement(...voc_advers);
+        let container_wall_exclusive = document.querySelector('.container-wall-exclusive');
+        if (container_wall_exclusive) {
+            let non_subscr_section = document.querySelector('[amp-access="result!=\'ALLOW_ACCESS\'"]');
+            removeDOMElement(container_wall_exclusive, non_subscr_section);
+            let subscr_section = document.querySelector('[amp-access="result=\'ALLOW_ACCESS\'"]');
+            if (subscr_section)
+                subscr_section.removeAttribute('amp-access-hide');
+        }
+    }
 }
 
 // General Functions

@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Add Grupo Vocento (Spain, regional daily)
 Update block general paywall script (Pelcro)
 Update grouped sites (init rules)
 

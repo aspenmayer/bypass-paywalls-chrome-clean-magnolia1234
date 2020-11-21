@@ -68,6 +68,7 @@ var defaultSites =
   "Glassdoor": "glassdoor.com",
   "Globes": "globes.co.il",
   "Groene Amsterdammer": "groene.nl",
+  "Grupo Vocento (Spain, regional daily)": "###_es_grupo_vocento",
   "Haaretz English": "haaretz.com",
   "Haaretz": "haaretz.co.il",
   "Handelsblatt": "handelsblatt.com",
