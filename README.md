@@ -44,7 +44,7 @@ Windows Registry Editor Version 5.00
 
 #### Android
 1. Install [Kiwi Browser](https://play.google.com/store/apps/details?id=com.kiwibrowser.browser&hl=nl) or [Yandex Browser](https://play.google.com/store/apps/details?id=com.yandex.browser&hl=en) from the Google PlayStore.
-2. For Kiwi Browser load the CRX-file in downloads (auto-updating, no whitelist needed, opt-in for custom sites not working (use kiwi-custom crx)).
+2. For Kiwi Browser load the CRX-file in releases (auto-updating, no whitelist needed, opt-in for custom sites not working (use kiwi-custom crx)).
 3. For Yandex Browser follow Chrome instructions above (load unpacked; step 6: pick `manifest.json` instead of the folder).
 
 #### Firefox

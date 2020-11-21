@@ -111,14 +111,11 @@ var remove_cookies = [
 const remove_cookies_select_hold = {
   'barrons.com': ['wsjregion'],
   'newstatesman.com': ['STYXKEY_nsversion'],
+  'seattletimes.com': ['st_newsletter_splash_seen'],
   'telegraph.co.uk': ['consentUUID'],
   'qz.com': ['gdpr'],
   'wsj.com': ['wsjregion', 'ResponsiveConditional_initialBreakpoint']
 }
-
-// list of regional ad.nl sites
-const ad_region_domains = ['bd.nl', 'ed.nl', 'tubantia.nl', 'bndestem.nl', 'pzc.nl', 'destentor.nl', 'gelderlander.nl'];
-const pg_domains = ["parool.nl", "trouw.nl", "volkskrant.nl", "humo.be", "demorgen.be"];
 
 // select only specific cookie(s) to drop from remove_cookies domains
 var remove_cookies_select_drop = {
@@ -129,11 +126,6 @@ var remove_cookies_select_drop = {
   'nrc.nl': ['counter'],
   'theatlantic.com': ['articleViews']
 }
-for (let domain of ad_region_domains)
-  remove_cookies_select_drop[domain] = ['temptationTrackingId'];
-
-for (let domain of pg_domains)
-  remove_cookies_select_drop[domain] = ['TID_ID'];
 
 // Override User-Agent with Googlebot
 var use_google_bot_default = [
@@ -281,11 +273,13 @@ var blockedRegexes = {
   'wsj.com': /(cdn\.ampproject\.org\/v\d\/amp-access-.+\.js|cdn\.cxense\.com\/.+)/
 };
 
+const ad_region_domains = ['bd.nl', 'ed.nl', 'tubantia.nl', 'bndestem.nl', 'pzc.nl', 'destentor.nl', 'gelderlander.nl'];
 const au_comm_media_domains = ['bendigoadvertiser.com.au', 'bordermail.com.au', 'canberratimes.com.au', 'centralwesterndaily.com.au', 'dailyadvertiser.com.au', 'dailyliberal.com.au', 'examiner.com.au', 'illawarramercury.com.au', 'newcastleherald.com.au', 'northerndailyleader.com.au', 'portnews.com.au', 'standard.net.au', 'theadvocate.com.au', 'thecourier.com.au', 'westernadvocate.com.au'];
 const au_news_corp_domains = ['adelaidenow.com.au', 'cairnspost.com.au', 'couriermail.com.au', 'dailytelegraph.com.au', 'geelongadvertiser.com.au', 'goldcoastbulletin.com.au', 'heraldsun.com.au', 'ntnews.com.au', 'theaustralian.com.au', 'themercury.com.au', 'townsvillebulletin.com.au', 'weeklytimesnow.com.au'];
 const au_prov_news_domains = ['news-mail.com.au', 'frasercoastchronicle.com.au', 'gladstoneobserver.com.au', 'dailyexaminer.com.au', 'dailymercury.com.au', 'themorningbulletin.com.au', 'sunshinecoastdaily.com.au', 'gympietimes.com.au', 'northernstar.com.au', 'qt.com.au', 'thechronicle.com.au', 'warwickdailynews.com.au'];
-const nymag_domains = ['grubstreet.com', 'thecut.com', 'vulture.com'];
 const ilmessaggero_domains = ['corriereadriatico.it', 'ilgazzettino.it', 'ilmattino.it', 'quotidianodipuglia.it'];
+const nymag_domains = ['grubstreet.com', 'thecut.com', 'vulture.com'];
+const pg_domains = ['parool.nl', 'trouw.nl', 'volkskrant.nl', 'humo.be', 'demorgen.be'];
 
 const userAgentDesktopG = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
 const userAgentMobileG = "Chrome/80.0.3987.92 Mobile Safari/537.36 (compatible ; Googlebot/2.1 ; +http://www.google.com/bot.html)"
@@ -310,50 +304,51 @@ function setDefaultOptions() {
 
 // add grouped sites to en/disabledSites & init rules (optional)
 function add_grouped_sites(init_rules) {
+  if (init_rules) {
+    for (let domain of ad_region_domains)
+      remove_cookies_select_drop[domain] = ['temptationTrackingId'];
+    for (let domain of au_comm_media_domains) {
+      allow_cookies.push(domain);
+      blockedRegexes[domain] = /.+cdn-au\.piano\.io\/api\/tinypass.+\.js/;
+    }
+    for (let domain of au_news_corp_domains) {
+      allow_cookies.push(domain);
+      use_google_bot.push(domain);
+      blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-access-.+\.js/;
+    }
+    for (let domain of au_prov_news_domains) {
+      allow_cookies.push(domain);
+      use_google_bot.push(domain);
+    }
+    for (let domain of ilmessaggero_domains)
+      blockedRegexes[domain] = /utils\.cedsdigital\.it\/js\/PaywallMeter\.js/;
+    for (let domain of pg_domains)
+      remove_cookies_select_drop[domain] = ['TID_ID'];
+  }
   if (enabledSites.includes('ad.nl'))
     enabledSites = enabledSites.concat(ad_region_domains);
   else
     disabledSites = disabledSites.concat(ad_region_domains);
+  if (enabledSites.includes('###_au_comm_media'))
+    enabledSites = enabledSites.concat(au_comm_media_domains);
+  else
+    disabledSites = disabledSites.concat(au_comm_media_domains);
+  if (enabledSites.includes('###_au_news_corp'))
+    enabledSites = enabledSites.concat(au_news_corp_domains);
+  else
+    disabledSites = disabledSites.concat(au_news_corp_domains);
+  if (enabledSites.includes('###_au_prov_news'))
+    enabledSites = enabledSites.concat(au_prov_news_domains);
+  else
+    disabledSites = disabledSites.concat(au_prov_news_domains);
+  if (enabledSites.includes('ilmessaggero.it'))
+    enabledSites = enabledSites.concat(ilmessaggero_domains);
+  else
+    disabledSites = disabledSites.concat(ilmessaggero_domains);
   if (enabledSites.includes('nymag.com'))
     enabledSites = enabledSites.concat(nymag_domains);
   else
     disabledSites = disabledSites.concat(nymag_domains);
-  if (enabledSites.includes('ilmessaggero.it')) {
-    enabledSites = enabledSites.concat(ilmessaggero_domains);
-    if (init_rules)
-      for (let domain of ilmessaggero_domains) {
-        blockedRegexes[domain] = /utils\.cedsdigital\.it\/js\/PaywallMeter\.js/;
-      }
-  } else
-    disabledSites = disabledSites.concat(ilmessaggero_domains);
-  if (enabledSites.includes('###_au_comm_media')) {
-    enabledSites = enabledSites.concat(au_comm_media_domains);
-    if (init_rules)
-      for (let domain of au_comm_media_domains) {
-        allow_cookies.push(domain);
-        blockedRegexes[domain] = /.+cdn-au\.piano\.io\/api\/tinypass.+\.js/;
-      }
-  } else
-    disabledSites = disabledSites.concat(au_comm_media_domains);
-  if (enabledSites.includes('###_au_news_corp')) {
-    enabledSites = enabledSites.concat(au_news_corp_domains);
-    if (init_rules)
-      for (let domain of au_news_corp_domains) {
-        allow_cookies.push(domain);
-        use_google_bot.push(domain);
-        blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-access-.+\.js/;
-      }
-  } else
-    disabledSites = disabledSites.concat(au_news_corp_domains);
-  if (enabledSites.includes('###_au_prov_news')) {
-    enabledSites = enabledSites.concat(au_prov_news_domains);
-    if (init_rules)
-      for (let domain of au_prov_news_domains) {
-        allow_cookies.push(domain);
-        use_google_bot.push(domain);
-      }
-  } else
-    disabledSites = disabledSites.concat(au_prov_news_domains);
 }
 
 // Get the enabled sites (from local storage) & add to allow/remove_cookies (if not already in one of these arrays)

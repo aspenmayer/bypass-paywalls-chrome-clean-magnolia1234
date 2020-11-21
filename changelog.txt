@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Update grouped sites (init rules)
 
 * v1.9.6.0 (2020-11-20)
 Add Helsingin Sanomat (hs.fi, not paivanlehti)
