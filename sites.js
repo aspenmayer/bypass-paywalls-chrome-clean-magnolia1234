@@ -230,6 +230,7 @@ var defaultSites =
   "Evolok": "evolok.net",
   "MatherAnalytics": "matheranalytics.com",
   "OneCount": "onecount.net",
+  "Pelcro": "pelcro.com",
   "Piano.io": "piano.io",
   "Poool.fr": "poool.fr",
   "Qiota": "qiota.com",

@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Update block general paywall script (Pelcro)
 Update grouped sites (init rules)
 
 * v1.9.6.0 (2020-11-20)
