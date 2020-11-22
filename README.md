@@ -14,7 +14,9 @@ Due to [Google internal policy](https://developer.chrome.com/webstore/program_po
 The following instructions are needed to install third-party extensions in [Chromium](https://en.wikipedia.org/wiki/Chromium_(web_browser))-based desktop browsers.  
 In extension developer mode you can always install BPC by `Load unpacked` (no automatic updates) or by crx-file (automatic updates, but possible 'whitelisting' of extension is needed).
 
-#### Load unpacked: Chrome (Windows, MacOS, Linux), Microsoft Edge (Chromium)/Brave/Yandex (or 'whitelist' extension and install automatically updating crx-file (see next section))
+#### Load unpacked: Chrome (desktop), Microsoft Edge (Chromium)/Brave/Yandex
+* or 'whitelist' extension and install automatically updating crx-file (see next section)
+
 1. Download this repository as a [ZIP-file from GitLab](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/archive/master/bypass-paywalls-chrome-clean-master.zip).
 2. Unzip the file and you should have a folder named `magnolia1234-bypass-paywalls-chrome-clean-(commit-hash)`.
 3. Move the folder to a permanent location on your computer (do not delete the folder after installation).
@@ -27,7 +29,9 @@ In extension developer mode you can always install BPC by `Load unpacked` (no au
   
 If you're familiar with Git(Hub)-clients you can also clone this repo and update the extension that way (load unpacked folder used by Git(Hub)-client).
 
-#### CRX-file: other Chromium browsers (Opera/Vivaldi) (or add extension to 'whitelist' for Chrome, MS Edge, Brave or Yandex (see instructions below for Windows))
+#### CRX-file: other Chromium browsers (Opera/Vivaldi)
+* or add extension to 'whitelist' for Chrome, MS Edge, Brave or Yandex (see instructions below for Windows)
+
 1. Download the extension as a crx-file from the [releases page](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/releases).
 2. In your browser go to the extensions page.
 3. Enable Developer Mode.

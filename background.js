@@ -183,7 +183,7 @@ var blockedRegexes = {
   'chicagotribune.com': /.+:\/\/.+\.tribdss\.com\/.+/,
   'chronicle.com': /(.+\.blueconic\.net\/.+|assets\.login\.chronicle\.com\/common\/che-auth0-user\.js)/,
   'clarin.com': /js\.matheranalytics\.com\/.+/,
-  'corriere.it': /(\.rcsobjects\.it\/(rcs_cpmt|rcs_tracking-service)\/|\.corriereobjects\.it\/.+\/js\/(_paywall\.sjs|tracking\/)|\.userzoom\.com\/files\/js\/|\.lp4\.io\/app\/)/,
+  'corriere.it': /(cdn\.tinypass\.com\/.+|\.rcsobjects\.it\/(rcs_cpmt|rcs_tracking-service)\/|\.corriereobjects\.it\/.+\/js\/(_paywall\.sjs|tracking\/)|\.userzoom\.com\/files\/js\/)/,
   'digiday.com': /cdn\.tinypass\.com\/.+/,
   'dvhn.nl': /.+\.evolok\.net\/.+\/authorize\/.+/,
   'economist.com': /cdn\.tinypass\.com\/.+/,

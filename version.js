@@ -20,7 +20,10 @@ fetch(proxyurl + manifest_new)
                     versionString_new.appendChild(document.createTextNode('* '));
                     var anchorEl = document.createElement('a');
                     anchorEl.text = 'New release v' + version_new;
-                    anchorEl.href = 'https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/releases';
+                    if (installType === 'development')
+                        anchorEl.href = 'https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean';
+                    else
+                        anchorEl.href = 'https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/releases';
                     anchorEl.target = '_blank';
                     versionString_new.appendChild(anchorEl);
                     versionString_new.appendChild(document.createTextNode(' *'));

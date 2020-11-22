@@ -1657,6 +1657,15 @@ else if (matchDomain(es_grupo_vocento_domains)) {
     }
 }
 
+else if (matchDomain("corriere.it")) {
+    let url = window.location.href;
+    if (url.includes('_preview.shtml')) {
+        window.setTimeout(function () {
+            window.location.href = url.replace('_preview.shtml', '.shtml').split('?')[0];
+        }, 500); // Delay (in milliseconds)
+    }
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {
