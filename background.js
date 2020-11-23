@@ -39,6 +39,7 @@ var allow_cookies_default = [
   'elmercurio.com',
   'elmundo.es',
   'elpais.com',
+  'elperiodico.com',
   'eurekareport.com.au',
   'faz.net',
   'financialpost.com',
@@ -192,6 +193,7 @@ var blockedRegexes = {
   'elmercurio.com': /(elmercurio\.com\/.+\/js\/modal\.js|merreader\.emol\.cl\/assets\/js\/(vendor\/modal|merPramV\d)\.js|staticmer(\d)?\.emol\.cl\/js\/.+\/(modal|PramModal\.min)\.js)/,
   'elmundo.es': /cdn\.ampproject\.org\/v\d\/amp-access-.+\.js/,
   'elpais.com': /.+\.epimg\.net\/js\/.+\/noticia\.min\.js/,
+  'elperiodico.com': /cdn\.ampproject\.org\/v\d\/amp-(access|consent)-.+\.js/,
   'estadao.com.br': /acesso\.estadao\.com\.br\/paywall\/.+\/pw\.js/,
   'estrellavalpo.cl': /(.+\.mercuriovalpo\.cl\/impresa\/.+\/assets\/(vendor|\d)\.js|pram\.pasedigital\.cl\/API\/User\/Status\?)/,
   'exame.abril.com.br': /cdn\.tinypass\.com\/.+/,
@@ -686,6 +688,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   let au_swm_site = (header_referer && urlHost(header_referer).endsWith('com.au') && details.url.includes('https://s.thewest.com.au/'));
   let es_grupo_vocento_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain(es_grupo_vocento_domains, header_referer) && isSiteEnabled({url: header_referer}));
   let sz_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain('sueddeutsche.de', header_referer) && isSiteEnabled({url: header_referer}));
+
   if (!isSiteEnabled(details) && !inkl_site && !bloomberg_site && !au_nc_amp_site && !au_apn_site && !au_swm_site && !es_grupo_vocento_site && !sz_amp_site) {
     return;
   }
@@ -768,7 +771,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
 
   if (tabId !== -1) {
     ext_api.tabs.get(tabId, function (currentTab) {
-      if ((currentTab && isSiteEnabled(currentTab)) || medium_custom_domain || au_apn_site || au_swm_site || es_grupo_vocento_site || sz_amp_site) {
+      if ((currentTab && isSiteEnabled(currentTab)) || medium_custom_domain || au_apn_site || au_swm_site) {
         ext_api.tabs.executeScript(tabId, {
            file: 'contentScript.js',
            runAt: 'document_start'

@@ -48,6 +48,7 @@ var defaultSites =
   "El Mercurio de Valparaíso": "mercuriovalpo.cl",
   "El Mundo": "elmundo.es",
   "El País": "elpais.com",
+  "El Periódico": "elperiodico.com",
   "Encyclopedia Britannica": "britannica.com",
   "Eureka Report": "eurekareport.com.au",
   "Exame": "exame.abril.com.br",

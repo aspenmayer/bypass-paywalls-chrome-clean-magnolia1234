@@ -286,7 +286,8 @@ Visit the [Firefox repository](https://gitlab.com/magnolia1234/bypass-paywalls-f
 [La Verdad](https://www.laverdad.es) -
 [Sur](https://www.diariosur.es)  
 [El Mundo](https://www.elmundo.es) -
-[El País](https://elpais.com)
+[El País](https://elpais.com) -
+[El Periódico](https://www.elperiodico.com)
 
 ##### Sweden
 [Aftonbladet](https://www.aftonbladet.se) -

@@ -1111,6 +1111,9 @@ else if (matchDomain("sueddeutsche.de")) {
             let paragraph_hidden = document.querySelectorAll('.paragraph--hidden');
             for (let par_hidden of paragraph_hidden)
                 par_hidden.classList.remove('paragraph--hidden');
+            let paragraph_dynamic = document.querySelector('.paragraph--dynamic');
+            if (paragraph_dynamic)
+                paragraph_dynamic.classList.remove('paragraph--dynamic');
             let amp_offerpage = document.querySelector('.amp-offerpage');
             removeDOMElement(amp_offerpage);
         }
@@ -1663,6 +1666,27 @@ else if (matchDomain("corriere.it")) {
         window.setTimeout(function () {
             window.location.href = url.replace('_preview.shtml', '.shtml').split('?')[0];
         }, 500); // Delay (in milliseconds)
+    }
+}
+
+else if (matchDomain("elperiodico.com")) {
+    let url = window.location.href;
+    if (!url.includes('amp.elperiodico.com')) {
+        let paywall = document.querySelector('.ep-masPeriodico-info-login');
+        if (paywall) {
+            window.setTimeout(function () {
+                window.location.href = url.replace('www.', 'amp.');
+            }, 500); // Delay (in milliseconds)
+        }
+    } else {
+        let not_logged = document.querySelector('.ep-masPeriodico-info-login');
+        if (not_logged) {
+            let non_subscr_section = document.querySelector('div[amp-access="NOT logged"]');
+            removeDOMElement(not_logged, non_subscr_section);
+            let subscr_section = document.querySelector('div[amp-access="logged"]');
+            if (subscr_section)
+                subscr_section.removeAttribute('amp-access-hide');
+        }
     }
 }
 
