@@ -225,7 +225,7 @@ var defaultSites =
   "Wired": "wired.com",
   "WirtschaftsWoche": "wiwo.de",
   "World Politics Review": "worldpoliticsreview.com",
-  "——— Block Paywall-scripts ———": "###",
+  "* Block Paywall-scripts (opt-in to custom sites to enable also for non-listed sites)": "###",
   "Amp-access": "cdn.ampproject.org",
   "BlueConic": "blueconic.net",
   "Cxense": "cxense.com",
@@ -238,6 +238,6 @@ var defaultSites =
   "Qiota": "qiota.com",
   "TinyPass": "tinypass.com",
   "TribDss": "tribdss.com",
-  "——— BPC settings ———": "###",
+  "* BPC settings": "###",
   "Show options on update": "#options_on_update"
 }

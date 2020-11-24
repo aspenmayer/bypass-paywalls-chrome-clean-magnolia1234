@@ -5,6 +5,7 @@ Post-release
 Add El Periodico (Spain)
 Add Grupo Vocento (Spain, regional daily)
 Fix-update Corriere Della Sera (redirect preview)
+Fix popup (update notification & close error)
 Update block general paywall script (Pelcro)
 Update grouped sites (init rules)
 

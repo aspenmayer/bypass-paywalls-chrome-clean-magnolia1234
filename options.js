@@ -26,6 +26,7 @@ function save_options() {
 
 // Restores checkbox input states using the preferences stored in ext_api.storage.
 function renderOptions() {
+  var labelEl;
   ext_api.storage.local.get({
     sites: {}, sites_custom: {}
   }, function(items) {
@@ -38,7 +39,7 @@ function renderOptions() {
       }
 
       var value = defaultSites[key];
-      var labelEl = document.createElement('label');
+      labelEl = document.createElement('label');
       var inputEl = document.createElement('input');
       inputEl.type = 'checkbox';
       inputEl.dataset.key = key;
@@ -47,13 +48,18 @@ function renderOptions() {
       inputEl.checked = Object.keys(sites).some(title => (title.replace(/\s\(.*\)/, '') === clean_key));
       if (value !== '###') {
           labelEl.appendChild(inputEl);
+      } else {
+          labelEl.appendChild(document.createElement('hr'));
+          labelEl.setAttribute('style', ' font-weight: bold;');
       }
       labelEl.appendChild(document.createTextNode(' ' + key));
       sitesEl.appendChild(labelEl);
     }
     // custom
-    var labelEl = document.createElement('label');	
-    labelEl.appendChild(document.createTextNode(' ——— Custom Sites ———'));
+    labelEl.appendChild(document.createElement('hr'));
+    labelEl = document.createElement('label');
+    labelEl.setAttribute('style', ' font-weight: bold;');
+    labelEl.appendChild(document.createTextNode('* Custom Sites'));
     sitesEl.appendChild(labelEl);
     var sites_custom = items.sites_custom;
     var defaultSites_domains = ext_api.extension.getBackgroundPage().defaultSites_domains;
@@ -63,7 +69,7 @@ function renderOptions() {
         continue;
       }
 
-      var labelEl = document.createElement('label');
+      labelEl = document.createElement('label');
       var inputEl = document.createElement('input');
       inputEl.type = 'checkbox';
       inputEl.dataset.key = key;

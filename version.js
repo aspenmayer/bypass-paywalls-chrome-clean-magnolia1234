@@ -4,9 +4,8 @@ var manifestData = ext_api.runtime.getManifest();
 var versionString = 'v' + manifestData.version;
 document.getElementById('version').innerText = versionString;
 
-const proxyurl = "https://cors-anywhere.herokuapp.com/";
 const manifest_new = 'https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/raw/master/manifest.json';
-fetch(proxyurl + manifest_new)
+fetch(manifest_new, { headers: { "Content-Type": "application/json", "X-Requested-With": "XMLHttpRequest" } })
 .then(response => {
     if (response.ok) {
         response.json().then(json => {
