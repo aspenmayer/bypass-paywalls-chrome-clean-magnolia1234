@@ -810,7 +810,10 @@ else if (matchDomain('faz.net')) {
                     var doc = parser.parseFromString(html, 'text/html');
                     let json = doc.querySelector('script[id="schemaOrgJson"]');
                     if (json) {
-                        var json_text = JSON.parse(json.text).ArticleBody;
+                        let split1 = json.text.split('"ArticleBody": "');
+                        let split2 = split1[1].split('","author":');
+                        var json_text_clean = split1[0] + '"ArticleBody": "' + split2[0].replace(/"/g, '“') + '","author":' + split2[1];
+                        var json_text = JSON.parse(json_text_clean).ArticleBody;
                         let article_text = document.querySelector('.art_txt.paywall,.atc-Text.js-atc-Text');
                         article_text.innerText = '';
 
