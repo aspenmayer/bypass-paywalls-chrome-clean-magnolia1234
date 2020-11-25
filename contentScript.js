@@ -680,9 +680,13 @@ else if (matchDomain("lesechos.fr") && window.location.href.match(/-\d{6,}/)) {
         removeDOMElement(abo_banner);
         let url = window.location.href;
         let html = document.documentElement.outerHTML;
-        let split1 = html.split('window.__PRELOADED_STATE__')[1];
+        let state;
+        let split1 = html.split('window.__PRELOADED_STATE__=')[1];
         let split2 = split1.split('</script>')[0].trim();
-        let state = split2.substr(1, split2.length - 2);
+        if (split2.includes('; window.__DATA__='))
+            state = split2.split('; window.__DATA__=')[0].trim();
+        else
+            state = split2.substr(0, split2.length - 1);
         try {
             let data = JSON.parse(state);
             let article = data.article.data.stripes[0].mainContent[0].data.description;
