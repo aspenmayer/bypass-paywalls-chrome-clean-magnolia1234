@@ -183,6 +183,7 @@ var defaultSites =
   "The Fresno Bee": "fresnobee.com",
   "The Globe and Mail": "theglobeandmail.com",
   "The Hindu": "thehindu.com",
+  "The Hindu BusinessLine": "thehindubusinessline.com",
   "The Irish Times": "irishtimes.com",
   "The Japan Times": "japantimes.co.jp",
   "The Logic": "thelogic.co",

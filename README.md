@@ -374,7 +374,8 @@ For example:
 [Bloomberg Quint](https://www.bloombergquint.com)* -
 [Business Standard](https://www.business-standard.com) -
 [LiveMint](https://www.livemint.com) -
-[The Hindu](https://www.thehindu.com)
+[The Hindu](https://www.thehindu.com) -
+[The Hindu BusinessLine](https://www.thehindubusinessline.com)
 
 #### Israel
 [Globes](https://www.globes.co.il) -

@@ -18,7 +18,7 @@ function bpc_count_daily_users(dateStr) {
             }, function () {
                 true;
             });
-            let count_json = 'https://bitbucket.org/magnolia1234/bpc-chrome-daily-users/downloads/bpc-daily-users-' + dateStr + '.json';
+            let count_json = 'https://bitbucket.org/bpc_redux/bpc-chrome-daily-users/downloads/bpc-daily-users-' + dateStr + '.json';
             fetch(count_json, {mode: 'no-cors'});
         }
     });

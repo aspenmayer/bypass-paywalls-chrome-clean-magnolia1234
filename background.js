@@ -89,6 +89,7 @@ var allow_cookies_default = [
   'techinasia.com',
   'the-american-interest.com',
   'thehindu.com',
+  'thehindubusinessline.com',
   'themarker.com',
   'thewest.com.au',
   'timeshighereducation.com',
@@ -242,7 +243,7 @@ var blockedRegexes = {
   'newyorker.com': /.+\.newyorker\.com\/verso\/static\/presenter-articles.+\.js/,
   'nknews.org': /.+\.nknews\.org\/wp-content\/plugins\/leaky-paywall-ajax\/js\/leaky-paywall-ajax\.js/,
   'nrz.de': /(cdn\.cxense\.com\/.+|cdn\.tinypass\.com\/.+)/,
-  'nytimes.com': /(.+meter-svc\.nytimes\.com\/meter\.js.+|.+mwcm\.nyt\.com\/.+\.js)/,
+  'nytimes.com': /(meter-svc\.nytimes\.com\/meter\.js|mwcm\.nyt\.com\/.+\.js)/,
   'quotidiano.net': /cdn\.tinypass\.com\/.+/,
   'repubblica.it': /scripts\.repubblica\.it\/pw\/pw\.js.+/,
   'rollingstone.com': /cdn\.cxense\.com\/.+/,
@@ -263,6 +264,7 @@ var blockedRegexes = {
   'theage.com.au': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
   'thedailybeast.com': /cdn\.tinypass\.com\/.+/,
   'thehindu.com': /(cdn\.cxense\.com\/.+|cdn\.tinypass\.com\/.+)/,
+  'thehindubusinessline.com': /(cdn\.cxense\.com\/.+|cdn\.tinypass\.com\/.+)/,
   'thenation.com': /cdn\.tinypass\.com\/.+/,
   'thestar.com': /emeter-nam\.mppglobal\.com\/probes\/JSONP\?/,
   'valeursactuelles.com': /.+\.qiota\.com\/.+/,
@@ -605,7 +607,6 @@ if (ext_api.webRequest.OnBeforeSendHeadersOptions.hasOwnProperty('EXTRA_HEADERS'
   extraInfoSpec.push('extraHeaders');
 
 ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
-/**
   if (details.type === 'main_frame') {
     let current_date_str = currentDateStr();
     if (last_date_str < current_date_str) {
@@ -613,7 +614,6 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
       last_date_str = current_date_str;
     }
   }
-**/
 
   var requestHeaders = details.requestHeaders;
 

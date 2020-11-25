@@ -387,7 +387,7 @@ else if (matchDomain('ft.com')) {
     removeDOMElement(cookie_banner, ribbon, ads);
 }
 
-else if (matchDomain("thehindu.com")) {
+else if (matchDomain(["thehindu.com", "thehindubusinessline.com"])) {
     if (!localStorage.geo) {
         localStorage.setItem("geo", '{"v":{"clientTcpRtt":20,"longitude":"'+ makeRandomNumber(2) + '.' + makeRandomNumber(5) + '","httpProtocol":"HTTP/2","tlsCipher":"AEAD-AES128-GCM-SHA256","continent":"EU","asn":1234,"clientAcceptEncoding":"gzip, deflate,br","country":"UK","isEUCountry":"1","tlsClientAuth":{"certIssuerDNLegacy":"","certIssuerDN":"","certIssuerDNRFC2253":"","certSubjectDNLegacy":"","certVerified":"NONE","certNotAfter":"","certSubjectDN":"","certFingerprintSHA1":"","certNotBefore":"","certSerial":"","certPresented":"0","certSubjectDNRFC2253":""},"tlsVersion":"TLSv1.3","colo":"DUS","timezone":"Europe/London","edgeRequestKeepAliveStatus":1,"requestPriority":"weight=220;exclusive=1","botManagement":{"staticResource":false,"verifiedBot":false,"score":99},"clientTrustScore":99,"postalCode":"' + makeRandomNumber(4) + '","regionCode":"QR","region":"County","city":"London","latitude":"' + makeRandomNumber(2) + '.' + makeRandomNumber(5) + '"},"e":' + makeRandomNumber(13) + '}');
     }
@@ -810,10 +810,17 @@ else if (matchDomain('faz.net')) {
                     var doc = parser.parseFromString(html, 'text/html');
                     let json = doc.querySelector('script[id="schemaOrgJson"]');
                     if (json) {
-                        let split1 = json.text.split('"ArticleBody": "');
+                        var json_text = json.text.replace(/(\r|\n)/g, '');
+                        let split1 = json_text.split('"ArticleBody": "');
                         let split2 = split1[1].split('","author":');
-                        var json_text_clean = split1[0] + '"ArticleBody": "' + split2[0].replace(/"/g, '“') + '","author":' + split2[1];
-                        var json_text = JSON.parse(json_text_clean).ArticleBody;
+                        if (split2[0].includes('"'))
+                            json_text = split1[0] + '"ArticleBody": "' + split2[0].replace(/"/g, '“') + '","author":' + split2[1];
+                        try {
+                            json_text = JSON.parse(json_text).ArticleBody;
+                        } catch (err) {
+                            console.log(err);
+                            return;
+                        }
                         let article_text = document.querySelector('.art_txt.paywall,.atc-Text.js-atc-Text');
                         article_text.innerText = '';
 
