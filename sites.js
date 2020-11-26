@@ -93,6 +93,7 @@ var defaultSites =
   "L'Écho": "lecho.be",
   "L'Opinion": "lopinion.fr",
   "L'Orient-Le Jour": "lorientlejour.com",
+  "La Croix": "la-croix.com",
   "La Dépêche": "ladepeche.fr",
   "La Estrella de Valparaíso": "estrellavalpo.cl",
   "La Nación": "lanacion.com.ar",

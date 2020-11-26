@@ -163,6 +163,7 @@
         "*://*.journalnow.com/*",
         "*://*.knack.be/*",
         "*://*.kurier.at/*",
+        "*://*.la-croix.com/*",
         "*://*.labusinessjournal.com/*",
         "*://*.ladepeche.fr/*",
         "*://*.lanacion.com.ar/*",
@@ -344,5 +345,5 @@
         "*://*.repstatic.it/*",
         "*://*.userzoom.com/*"
     ],
-    "version": "1.9.6.6"
+    "version": "1.9.6.7"
 }

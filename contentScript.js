@@ -1704,6 +1704,17 @@ else if (matchDomain("elperiodico.com")) {
     }
 }
 
+else if (matchDomain('la-croix.com')) {
+    let url = window.location.href;
+    if (!url.includes('la-croix.com/amp/')) {
+        let paywall_host_param = document.querySelector('#paywall-host-param');
+        removeDOMElement(paywall_host_param);
+    } else {
+        let paywall_block = document.querySelector('#paywall_block');
+        removeDOMElement(paywall_block);
+    }
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {

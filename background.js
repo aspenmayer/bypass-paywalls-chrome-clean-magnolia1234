@@ -58,6 +58,7 @@ var allow_cookies_default = [
   'intelligentinvestor.com.au',
   'knack.be',
   'kurier.at',
+  'la-croix.com',
   'lc.nl',
   'lesechos.fr',
   'lesoir.be',
@@ -219,6 +220,7 @@ var blockedRegexes = {
   'irishtimes.com': /cdn\.ampproject\.org\/v\d\/amp-access-.+\.js/,
   'knack.be': /.+\.knack\.be\/js\/responsive\/rmgModal\.js/,
   'kurier.at': /cdn\.tinypass\.com\/.+/,
+  'la-croix.com': /cdn\.ampproject\.org\/v\d\/amp-access-.+\.js/,
   'ladepeche.fr': /.+\.poool\.fr\/.+/,
   'lasegunda.com': /segreader\.emol\.cl\/assets\/js\/(vendor\/modal\.js|merPramV\d\.js)/,
   'lastampa.it': /.+\.repstatic\.it\/minify\/sites\/lastampa\/.+\/config\.cache\.php\?name=social_js/,
@@ -687,9 +689,10 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   let au_apn_site = (header_referer && (urlHost(header_referer).endsWith('com.au') || urlHost(header_referer).endsWith('net.au')) && details.url.includes('https://media.apnarm.net.au/'));
   let au_swm_site = (header_referer && urlHost(header_referer).endsWith('com.au') && details.url.includes('https://s.thewest.com.au/'));
   let es_grupo_vocento_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain(es_grupo_vocento_domains, header_referer) && isSiteEnabled({url: header_referer}));
+  let fr_lacroix_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain('la-croix.com', header_referer) && isSiteEnabled({url: header_referer}));
   let sz_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain('sueddeutsche.de', header_referer) && isSiteEnabled({url: header_referer}));
 
-  if (!isSiteEnabled(details) && !inkl_site && !bloomberg_site && !au_nc_amp_site && !au_apn_site && !au_swm_site && !es_grupo_vocento_site && !sz_amp_site) {
+  if (!isSiteEnabled(details) && !inkl_site && !bloomberg_site && !au_nc_amp_site && !au_apn_site && !au_swm_site && !es_grupo_vocento_site && !fr_lacroix_amp_site && !sz_amp_site) {
     return;
   }
 

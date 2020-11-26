@@ -18,7 +18,7 @@ In extension developer mode you can always install BPC by `Load unpacked` (no au
 * or 'whitelist' extension and install automatically updating crx-file (see next section)
 
 1. Download this repository as a [ZIP-file from GitLab](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/archive/master/bypass-paywalls-chrome-clean-master.zip).
-2. Unzip the file and you should have a folder named `magnolia1234-bypass-paywalls-chrome-clean-(commit-hash)`.
+2. Unzip the file and you should have a folder named `bypass-paywalls-chrome-clean-master`.
 3. Move the folder to a permanent location on your computer (do not delete the folder after installation).
 4. Go to the extensions page (`chrome://extensions` or `edge://extensions`).
 5. Enable Developer Mode.
@@ -201,6 +201,7 @@ Visit the [Firefox repository](https://gitlab.com/magnolia1234/bypass-paywalls-f
 [Charlie Hebdo](https://charliehebdo.fr) -
 [L'Écho](https://lecho.be) -
 [L'Opinion](https://www.lopinion.fr) –
+[La Croix](https://www.la-croix.com) -
 [La Dépêche](https://www.ladepeche.fr) –
 [Le Journal du Dimanche](https://lejdd.fr) –
 [Le Journal du Net](https://www.journaldunet.com) -
