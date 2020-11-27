@@ -2,6 +2,8 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+
+* v1.9.7.0 (2020-11-27)
 Add Alma Talent sites (Finland)
 Add El Periodico (Spain)
 Add Grupo Vocento (Spain, regional daily)
