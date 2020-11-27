@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Add Alma Talent sites (Finland)
 Add El Periodico (Spain)
 Add Grupo Vocento (Spain, regional daily)
 Add La Croix (France)

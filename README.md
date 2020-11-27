@@ -193,6 +193,16 @@ Visit the [Firefox repository](https://gitlab.com/magnolia1234/bypass-paywalls-f
 [The Times Literary Supplement](https://www.the-tls.co.uk)
 
 ##### Finland
+Alma Talent sites (grouped in options) like
+[Arvopaperi](https://www.arvopaperi.fi) -
+[Kauppalehti](https://www.kauppalehti.fi) -
+[Markkinointi & Mainonta](https://www.marmai.fi) -
+[Mediuutiset](https://www.mediuutiset.fi) -
+[Mikrobitti](https://www.mikrobitti.fi) -
+[Talouselämä](https://www.talouselama.fi) -
+[Tekniikka & Talous](https://www.tekniikkatalous.fi) -
+[Tivi](https://www.tivi.fi) -
+[Uusi Suomi](https://www.uusisuomi.fi)\
 [Helsingin Sanomat](https://www.hs.fi)
 
 ##### France/Wallonia

@@ -113,6 +113,7 @@ var remove_cookies = [
 // select specific cookie(s) to hold from remove_cookies domains
 const remove_cookies_select_hold = {
   'barrons.com': ['wsjregion'],
+  'groene.nl': ['accept-cookies', 'popunder-hidden'],
   'newstatesman.com': ['STYXKEY_nsversion'],
   'seattletimes.com': ['st_newsletter_splash_seen'],
   'telegraph.co.uk': ['consentUUID'],
@@ -284,6 +285,7 @@ const au_comm_media_domains = ['bendigoadvertiser.com.au', 'bordermail.com.au', 
 const au_news_corp_domains = ['adelaidenow.com.au', 'cairnspost.com.au', 'couriermail.com.au', 'dailytelegraph.com.au', 'geelongadvertiser.com.au', 'goldcoastbulletin.com.au', 'heraldsun.com.au', 'ntnews.com.au', 'theaustralian.com.au', 'themercury.com.au', 'townsvillebulletin.com.au', 'weeklytimesnow.com.au'];
 const au_prov_news_domains = ['news-mail.com.au', 'frasercoastchronicle.com.au', 'gladstoneobserver.com.au', 'dailyexaminer.com.au', 'dailymercury.com.au', 'themorningbulletin.com.au', 'sunshinecoastdaily.com.au', 'gympietimes.com.au', 'northernstar.com.au', 'qt.com.au', 'thechronicle.com.au', 'warwickdailynews.com.au'];
 const es_grupo_vocento_domains = ['diariosur.es', 'diariovasco.com', 'elcorreo.com', 'eldiariomontanes.es', 'elnortedecastilla.es', 'hoy.es', 'larioja.com', 'laverdad.es'];
+const fi_alma_talent_domains = ['arvopaperi.fi', 'kauppalehti.fi', 'marmai.fi', 'mediuutiset.fi', 'mikrobitti.fi', 'talouselama.fi', 'tekniikkatalous.fi', 'tivi.fi', 'uusisuomi.fi'];
 const ilmessaggero_domains = ['corriereadriatico.it', 'ilgazzettino.it', 'ilmattino.it', 'quotidianodipuglia.it'];
 const nymag_domains = ['grubstreet.com', 'thecut.com', 'vulture.com'];
 // pg_domains has only grouped remove_cookies_select_drop rules
@@ -298,7 +300,7 @@ const userAgentMobileB = "Chrome/80.0.3987.92 Mobile Safari/537.36 (compatible; 
 var enabledSites = [];
 var disabledSites = [];
 var defaultSites_grouped_domains = Object.values(defaultSites);
-var defaultSites_domains = defaultSites_grouped_domains.concat(ad_region_domains, au_comm_media_domains, au_news_corp_domains, au_prov_news_domains, es_grupo_vocento_domains, ilmessaggero_domains, nymag_domains);
+var defaultSites_domains = defaultSites_grouped_domains.concat(ad_region_domains, au_comm_media_domains, au_news_corp_domains, au_prov_news_domains, es_grupo_vocento_domains, fi_alma_talent_domains, ilmessaggero_domains, nymag_domains);
 var customSites = {};
 var customSites_domains = [];
 
@@ -309,6 +311,29 @@ function setDefaultOptions() {
     ext_api.runtime.openOptionsPage();
   });
 }
+
+// copy storage.sync to storage.local (quota exceeded)
+ext_api.storage.sync.get({
+  sites: {},
+  sites_custom: {},
+  daily_users: {},
+  optIn: {},
+  optInShown: {},
+  customShown: {}
+}, function (items) {
+  if (Object.keys(items.sites).length > 0) {
+    ext_api.storage.local.set({
+      sites: items.sites,
+      sites_custom: items.sites_custom,
+      daily_users: items.daily_users,
+      optIn: items.optIn,
+      optInShown: items.optInShown,
+      customShown: items.customShown
+    }, function () {
+      ext_api.storage.sync.remove(['sites', 'sites_custom']);
+    });
+  }
+});
 
 // add grouped sites to en/disabledSites & init rules (optional)
 function add_grouped_sites(init_rules) {
@@ -331,6 +356,9 @@ function add_grouped_sites(init_rules) {
     for (let domain of es_grupo_vocento_domains) {
       allow_cookies.push(domain);
       blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-access-.+\.js/;
+    }
+    for (let domain of fi_alma_talent_domains) {
+      use_google_bot.push(domain);
     }
     for (let domain of ilmessaggero_domains)
       blockedRegexes[domain] = /utils\.cedsdigital\.it\/js\/PaywallMeter\.js/;
@@ -357,6 +385,10 @@ function add_grouped_sites(init_rules) {
     enabledSites = enabledSites.concat(es_grupo_vocento_domains);
   else
     disabledSites = disabledSites.concat(es_grupo_vocento_domains);
+  if (enabledSites.includes('###_fi_alma_talent'))
+    enabledSites = enabledSites.concat(fi_alma_talent_domains);
+  else
+    disabledSites = disabledSites.concat(fi_alma_talent_domains);
   if (enabledSites.includes('ilmessaggero.it'))
     enabledSites = enabledSites.concat(ilmessaggero_domains);
   else
