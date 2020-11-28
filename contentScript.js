@@ -1715,6 +1715,17 @@ else if (matchDomain('la-croix.com')) {
     }
 }
 
+else if (matchDomain('lasegunda.com')) {
+    let url = window.location.href;
+    if (url.includes('digital.lasegunda.com/mobile')) {
+        let lessreadmore = document.querySelectorAll('article.lessreadmore');
+        for (let article of lessreadmore)
+            article.classList.remove('lessreadmore');
+        let bt_readmore = document.querySelectorAll('div[id*="bt_readmore_"]');
+        removeDOMElement(...bt_readmore);
+    }
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {
