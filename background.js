@@ -262,6 +262,7 @@ var blockedRegexes = {
   'smh.com.au': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
   'spectator.co.uk': /cdn\.tinypass\.com\/.+/,
   'spectator.com.au': /cdn\.tinypass\.com\/.+/,
+  'spectator.us': /(cdn\.cxense\.com\/.+|cdn\.tinypass\.com\/.+)/,
   'technologyreview.com': /.+\.blueconic\.net\/.+/,
   'telegraph.co.uk': /(cdn\.tinypass\.com\/.+|.+\.telegraph\.co\.uk\/.+\/piano.+\.js|assets\.adobedtm\.com\/.+\.js)/,
   'theage.com.au': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,

@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add El Comercio, Ideal & La Voz de Cadiz (Spain)
+Add The Spectator USA
 Fix-update El Mercurio & La Segunda (mobile)
 
 * v1.9.7.0 (2020-11-27)
