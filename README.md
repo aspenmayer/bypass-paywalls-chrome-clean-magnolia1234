@@ -289,12 +289,15 @@ Alma Talent sites (grouped in options) like
 ##### Spain
 [ABC](https://www.abc.es)  and regional sites from Grupo Vocento (grouped in options) like
 [Diario Vasco](https://www.diariovasco.com) -
+[El Comercio](https://www.elcomercio.es) -
 [El Correo](https://www.elcorreo.com) -
 [El Diario Montañés](https://www.eldiariomontanes.es) -
 [El Norte de Castilla](https://www.elnortedecastilla.es) -
 [Hoy](https://www.hoy.es) -
+[Ideal](https://www.ideal.es) -
 [La Rioja](https://www.larioja.com) -
 [La Verdad](https://www.laverdad.es) -
+[La Voz de Cádiz](https://www.lavozdigital.es) -
 [Sur](https://www.diariosur.es)  
 [El Mundo](https://www.elmundo.es) -
 [El País](https://elpais.com) -

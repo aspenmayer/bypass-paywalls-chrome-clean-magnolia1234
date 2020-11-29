@@ -95,6 +95,7 @@
         "*://*.economist.com/*",
         "*://*.ed.nl/*",
         "*://*.editorialedomani.it/*",
+        "*://*.elcomercio.es/*",
         "*://*.elcomercio.pe/*",
         "*://*.elcorreo.com/*",
         "*://*.eldiariomontanes.es/*",
@@ -146,6 +147,7 @@
         "*://*.hoy.es/*",
         "*://*.hs.fi/*",
         "*://*.humo.be/*",
+        "*://*.ideal.es/*",
         "*://*.ilfattoquotidiano.it/*",
         "*://*.ilgazzettino.it/*",
         "*://*.illawarramercury.com.au/*",
@@ -175,6 +177,7 @@
         "*://*.latercera.com/*",
         "*://*.latimes.com/*",
         "*://*.laverdad.es/*",
+        "*://*.lavozdigital.es/*",
         "*://*.lc.nl/*",
         "*://*.lecho.be/*",
         "*://*.ledevoir.com/*",
@@ -354,5 +357,5 @@
         "*://*.repstatic.it/*",
         "*://*.userzoom.com/*"
     ],
-    "version": "1.9.7.1"
+    "version": "1.9.7.2"
 }

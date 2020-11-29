@@ -4,7 +4,7 @@ var domain;
 
 // clean local storage of sites (with an exemption for hold-list)
 var arr_localstorage_hold = ['elmundo.es', 'kurier.at', 'nknews.org', 'nrz.de', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk', 'waz.de', 'wp.de', 'wr.de'];
-var es_grupo_vocento_domains = ['diariosur.es', 'diariovasco.com', 'elcorreo.com', 'eldiariomontanes.es', 'elnortedecastilla.es', 'hoy.es', 'larioja.com', 'laverdad.es'];
+var es_grupo_vocento_domains = ['diariosur.es', 'diariovasco.com', 'elcomercio.es', 'elcorreo.com', 'eldiariomontanes.es', 'elnortedecastilla.es', 'hoy.es', 'ideal.es', 'larioja.com', 'laverdad.es', 'lavozdigital.es'];
 arr_localstorage_hold = arr_localstorage_hold.concat(es_grupo_vocento_domains);
 if (!matchDomain(arr_localstorage_hold)){
     window.localStorage.clear();
@@ -1654,7 +1654,7 @@ else if (matchDomain("latercera.com")) {
 
 else if (matchDomain(es_grupo_vocento_domains)) {
     let url = window.location.href;
-    let content_exclusive_bg = document.querySelector('.content-exclusive-bg ');
+    let content_exclusive_bg = document.querySelector('.content-exclusive-bg, #cierre_suscripcion');
     let amphtml = document.querySelector('link[rel="amphtml"]');
     if (content_exclusive_bg && amphtml) {
         window.setTimeout(function () {
@@ -1670,6 +1670,12 @@ else if (matchDomain(es_grupo_vocento_domains)) {
             let subscr_section = document.querySelector('[amp-access="result=\'ALLOW_ACCESS\'"]');
             if (subscr_section)
                 subscr_section.removeAttribute('amp-access-hide');
+        }
+        //lavozdigital.es
+        let paywall = document.querySelector('span[subscriptions-section="content"]');
+        if (paywall) {
+            paywall.classList.remove('paywall');
+            paywall.removeAttribute('subscriptions-section');
         }
     }
 }
