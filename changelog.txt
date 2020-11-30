@@ -5,6 +5,7 @@ Post-release
 Add El Comercio, Ideal & La Voz de Cadiz (Spain)
 Add The Spectator USA
 Fix-update El Mercurio & La Segunda (mobile)
+Fix-update Telegraph.co.uk (amp pages)
 
 * v1.9.7.0 (2020-11-27)
 Add Alma Talent sites (Finland)

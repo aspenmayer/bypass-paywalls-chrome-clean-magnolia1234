@@ -187,7 +187,7 @@ var blockedRegexes = {
   'chicagotribune.com': /.+:\/\/.+\.tribdss\.com\/.+/,
   'chronicle.com': /(.+\.blueconic\.net\/.+|assets\.login\.chronicle\.com\/common\/che-auth0-user\.js)/,
   'clarin.com': /js\.matheranalytics\.com\/.+/,
-  'corriere.it': /(cdn\.tinypass\.com\/.+|\.rcsobjects\.it\/(rcs_cpmt|rcs_tracking-service)\/|\.corriereobjects\.it\/.+\/js\/(_paywall\.sjs|tracking\/)|\.userzoom\.com\/files\/js\/)/,
+  'corriere.it': /(cdn\.tinypass\.com\/|\.rcsobjects\.it\/rcs_(cpmt|tracking-service)\/|\.corriereobjects\.it\/.+\/js\/(_paywall\.sjs|tracking\/)|\.userzoom\.com\/files\/js\/)/,
   'digiday.com': /cdn\.tinypass\.com\/.+/,
   'dvhn.nl': /.+\.evolok\.net\/.+\/authorize\/.+/,
   'economist.com': /cdn\.tinypass\.com\/.+/,
@@ -264,7 +264,7 @@ var blockedRegexes = {
   'spectator.com.au': /cdn\.tinypass\.com\/.+/,
   'spectator.us': /(cdn\.cxense\.com\/.+|cdn\.tinypass\.com\/.+)/,
   'technologyreview.com': /.+\.blueconic\.net\/.+/,
-  'telegraph.co.uk': /(cdn\.tinypass\.com\/.+|.+\.telegraph\.co\.uk\/.+\/piano.+\.js|assets\.adobedtm\.com\/.+\.js)/,
+  'telegraph.co.uk': /(cdn\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|consent)-.+\.js|\.telegraph\.co\.uk\/.+\/piano.+\.js|assets\.adobedtm\.com\/.+\.js)/,
   'theage.com.au': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
   'thedailybeast.com': /cdn\.tinypass\.com\/.+/,
   'thehindu.com': /(cdn\.cxense\.com\/.+|cdn\.tinypass\.com\/.+)/,
@@ -724,8 +724,9 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   let es_grupo_vocento_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain(es_grupo_vocento_domains, header_referer) && isSiteEnabled({url: header_referer}));
   let fr_lacroix_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain('la-croix.com', header_referer) && isSiteEnabled({url: header_referer}));
   let sz_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain('sueddeutsche.de', header_referer) && isSiteEnabled({url: header_referer}));
+  let uk_telegraph_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain('telegraph.co.uk', header_referer) && isSiteEnabled({url: header_referer}));
 
-  if (!isSiteEnabled(details) && !inkl_site && !bloomberg_site && !au_nc_amp_site && !au_apn_site && !au_swm_site && !es_grupo_vocento_site && !fr_lacroix_amp_site && !sz_amp_site) {
+  if (!isSiteEnabled(details) && !inkl_site && !bloomberg_site && !au_nc_amp_site && !au_apn_site && !au_swm_site && !es_grupo_vocento_site && !fr_lacroix_amp_site && !sz_amp_site && !uk_telegraph_amp_site) {
     return;
   }
 

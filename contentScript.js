@@ -1732,6 +1732,20 @@ else if (matchDomain('lasegunda.com')) {
     }
 }
 
+else if (matchDomain("telegraph.co.uk")) {
+    let url = window.location.href;
+    if (new URL(url).pathname.endsWith('/amp/')) {
+        let paywall = document.querySelector('.premium-paywall');
+        if (paywall) {
+            let truncated_content = document.querySelector('.truncated-content');
+            removeDOMElement(paywall, truncated_content);
+            let subscr_section = document.querySelector('.notAccessibleForFree');
+            if (subscr_section)
+                subscr_section.removeAttribute('amp-access-hide');
+        }
+    }
+}
+
 // General Functions
 function removeDOMElement(...elements) {
     for (let element of elements) {
