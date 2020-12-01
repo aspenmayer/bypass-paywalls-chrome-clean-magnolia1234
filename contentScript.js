@@ -730,8 +730,23 @@ else if (matchDomain(["lc.nl", "dvhn.nl"])) {
 }
 
 else if (matchDomain("newyorker.com")) {
-    const paywall_bar = document.querySelector('.paywall-bar');
+    let paywall_bar = document.querySelector('.paywall-bar');
     removeDOMElement(paywall_bar);
+    let invisible_assets = document.querySelectorAll('.responsive-asset--invisible');
+    for (let asset_invisible of invisible_assets)
+        asset_invisible.classList.remove('responsive-asset--invisible');
+    let overlays = document.querySelectorAll('.aspect-ratio--overlay-container');
+    let noscript, html;
+    let parser = new DOMParser();
+    for (let overlay of overlays) {
+        overlay.classList.remove('aspect-ratio--overlay-container');
+        noscript = overlay.querySelector('noscript');
+        if (noscript) {
+            html = parser.parseFromString(noscript.innerHTML, 'text/html');
+            overlay.appendChild(html.querySelector('img'));
+            removeDOMElement(noscript);
+        }
+    }
 }
 
 else if (matchDomain("americanaffairsjournal.org")) {
