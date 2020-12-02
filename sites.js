@@ -2,7 +2,6 @@ var defaultSites =
 {
   "ABC.es": "abc.es",
   "Adweek": "adweek.com",
-  "Aftonbladet": "aftonbladet.se",
   "Algemeen Dagblad (+ regional)": "ad.nl",
   "Alma Talent (Finland)": "###_fi_alma_talent",
   "Alternatives Economiques": "alternatives-economiques.fr",

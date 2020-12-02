@@ -305,7 +305,6 @@ Alma Talent sites (grouped in options) like
 [El Periódico](https://www.elperiodico.com)
 
 ##### Sweden
-[Aftonbladet](https://www.aftonbladet.se) -
 [Dagens Nyheter](https://www.dn.se)
 
 ##### Switzerland

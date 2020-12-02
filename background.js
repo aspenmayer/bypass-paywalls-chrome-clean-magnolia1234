@@ -26,7 +26,6 @@ const restrictions = {
 // allow_cookies are completed with domains in sites.js (default allow/remove_cookies)
 var allow_cookies_default = [
   'abc.es',
-  'aftonbladet.se',
   'belfasttelegraph.co.uk',
   'bostonglobe.com',
   'business-standard.com',
@@ -134,7 +133,6 @@ var remove_cookies_select_drop = {
 // Override User-Agent with Googlebot
 var use_google_bot_default = [
   'abc.es',
-  'aftonbladet.se',
   'barrons.com',
   'deutsche-wirtschafts-nachrichten.de',
   'df.cl',
