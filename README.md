@@ -210,6 +210,7 @@ Alma Talent sites (grouped in options) like
 [Alternatives Economiques](https://www.alternatives-economiques.fr) -
 [Challenges](https://www.challenges.fr) –
 [Charlie Hebdo](https://charliehebdo.fr) -
+[Esprit](https://esprit.presse.fr) -
 [L'Écho](https://lecho.be) -
 [L'Opinion](https://www.lopinion.fr) –
 [La Croix](https://www.la-croix.com) -

@@ -285,13 +285,8 @@ else if (matchDomain("sloanreview.mit.edu")) {
 }
 
 else if (matchDomain("mexiconewsdaily.com")) {
-    document.addEventListener('DOMContentLoaded', () => {
-        const sideNotification = document.querySelector('.pigeon-widget-prompt');
-        const subMessage = document.querySelector('.sub_message_container');
-        const popup = document.querySelector('.popupally-pro-outer-full-width-7-fluid_qemskqa');
-        const bgFocusRemoverId = document.getElementById('popup-box-pro-gfcr-7');
-        removeDOMElement(sideNotification, subMessage, popup, bgFocusRemoverId);
-    });
+    let cpro_overlay = document.querySelector('.cpro-overlay');
+    removeDOMElement(cpro_overlay);
 }
 
 else if (matchDomain("the-american-interest.com")) {
@@ -1759,6 +1754,11 @@ else if (matchDomain("telegraph.co.uk")) {
                 subscr_section.removeAttribute('amp-access-hide');
         }
     }
+}
+
+else if (matchDomain('esprit.presse.fr')) {
+    let paywall = document.querySelector('.panel-popup-paywall');
+    removeDOMElement(paywall);
 }
 
 // General Functions

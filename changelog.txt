@@ -3,9 +3,11 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add El Comercio, Ideal & La Voz de Cadiz (Spain)
+Add Esprit (France)
 Add The Spectator USA
 Remove Aftonbladet.se (obsolete)
 Fix-update El Mercurio & La Segunda (mobile)
+Fix-update Mexico News Daily
 Fix-update Telegraph.co.uk (amp pages)
 Fix-update The New Yorker (embed)
 Update popup (Twitter)

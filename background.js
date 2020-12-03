@@ -39,11 +39,13 @@ var allow_cookies_default = [
   'elmundo.es',
   'elpais.com',
   'elperiodico.com',
+  'esprit.presse.fr',
   'eurekareport.com.au',
   'faz.net',
   'financialpost.com',
   'folha.uol.com.br',
   'ftm.nl',
+  'fortune.com',				
   'gelocal.it',
   'gestion.pe',
   'gva.be',
@@ -63,7 +65,6 @@ var allow_cookies_default = [
   'lesoir.be',
   'limesonline.com',
   'lrb.co.uk',
-  'mexiconewsdaily.com',
   'modernhealthcare.com',
   'nationalgeographic.com',
   'nationalpost.com',
@@ -794,6 +795,14 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
     })
   }
 
+  // random IP for esprit.presse.fr
+  if (matchUrlDomain('esprit.presse.fr', details.url)) {
+    requestHeaders.push({
+      "name": "X-Forwarded-For",
+      "value": randomIP()
+    })
+  }
+
   // remove cookies before page load
   if (!matchUrlDomain(allow_cookies, details.url)) {
     requestHeaders = requestHeaders.map(function(requestHeader) {
@@ -1086,4 +1095,15 @@ function getParameterByName(name, url) {
 
 function stripQueryStringAndHashFromPath(url) {
   return url.split("?")[0].split("#")[0];
+}
+
+function randomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
+function randomIP() {
+  let rndmIP = [];
+  for (let n = 0; n < 4; n++)
+    rndmIP.push(randomInt(254) + 1);
+  return rndmIP.join('.');
 }

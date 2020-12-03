@@ -326,6 +326,7 @@
         "*://*.wr.de/*",
         "*://*.wsj.com/*",
         "*://*.zeit.de/*",
+        "*://esprit.presse.fr/*",
         "*://*.apnarm.net.au/*",
         "*://*.blueconic.net/*",
         "*://*.matheranalytics.com/*",
@@ -357,5 +358,5 @@
         "*://*.repstatic.it/*",
         "*://*.userzoom.com/*"
     ],
-    "version": "1.9.7.4"
+    "version": "1.9.7.5"
 }
