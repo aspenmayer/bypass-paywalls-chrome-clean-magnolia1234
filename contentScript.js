@@ -1296,8 +1296,13 @@ else if (matchDomain(["mercuriovalpo.cl", "estrellavalpo.cl"])) {
 }
 
 else if (matchDomain("discovermagazine.com")) {
-    let banner = document.querySelector('div.hWOjDZ, div.qa7yll-1');
-    removeDOMElement(banner);
+    window.setTimeout(function () {
+        let mammoth = document.querySelector('.iXVGnF');
+        if (mammoth)
+            window.location.reload();
+        let banner = document.querySelector('div.hWOjDZ, div.qa7yll-1');
+        removeDOMElement(banner);
+    }, 1000); // Delay (in milliseconds)
 }
 
 else if (domain = matchDomain(["fresnobee.com", "sacbee.com"])) {

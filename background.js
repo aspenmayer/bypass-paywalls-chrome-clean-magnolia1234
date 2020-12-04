@@ -678,16 +678,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
       }
     });
   }
-  
-  // remove cookies Discover Magazine
-  if (matchUrlDomain('ctfassets.net', details.url) && matchUrlDomain('discovermagazine.com', header_referer) && isSiteEnabled({url: 'https://www.discovermagazine.com'})) {
-    ext_api.cookies.getAll({domain: 'discovermagazine.com'}, function(cookies) {
-      for (let cookie of cookies) {
-        ext_api.cookies.remove({url: (cookie.secure ? "https://" : "http://") + cookie.domain + cookie.path, name: cookie.name});
-      }
-    });
-  }  
-  
+
   // block external javascript for custom sites (optional)
   var domain_blockjs_ext = matchUrlDomain(block_js_custom_ext, header_referer);
   if (domain_blockjs_ext && !matchUrlDomain(domain_blockjs_ext, details.url) && details.url.match(/(\.js$|\.js\?|\/json\?)/) && isSiteEnabled({url: header_referer})) {
