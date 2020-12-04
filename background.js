@@ -4,6 +4,10 @@
 var ext_api = (typeof browser === 'object') ? browser : chrome;
 var ext_name = ext_api.runtime.getManifest().name;
 
+const cs_limit_except = ['la-croix.com', 'lescienze.it'];
+var currentTabUrl = '';
+var csDone = false;
+
 // Cookies from this list are blocked by default (obsolete)
 // defaultSites are loaded from sites.js at installation extension
 // var defaultSites = {};
@@ -13,6 +17,7 @@ const restrictions = {
   'bloombergquint.com': /^((?!\.bloombergquint\.com\/bq-blue-exclusive\/).)*$/,
   'elcomercio.pe': /.+\/elcomercio\.pe\/.+((\w)+(\-)+){3,}.+/,
   'faz.net': /^((?!\/zeitung\.faz\.net\/).)*$/,
+  'ft.com': /.+\.ft.com\/content\//,
   'gestion.pe': /.+\/gestion\.pe\/.+((\w)+(\-)+){3,}.+/,
   'hs.fi': /^((?!\/.+\.hs\.fi\/paivanlehti\/).)*$/,
   'nknews.org': /^((?!\.nknews\.org\/pro\/).)*$/,
@@ -45,7 +50,7 @@ var allow_cookies_default = [
   'financialpost.com',
   'folha.uol.com.br',
   'ftm.nl',
-  'fortune.com',				
+  'fortune.com',
   'gelocal.it',
   'gestion.pe',
   'gva.be',
@@ -61,6 +66,7 @@ var allow_cookies_default = [
   'kurier.at',
   'la-croix.com',
   'lc.nl',
+  'lejdd.fr',
   'lesechos.fr',
   'lesoir.be',
   'limesonline.com',
@@ -816,15 +822,21 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   if (tabId !== -1) {
     ext_api.tabs.get(tabId, function (currentTab) {
       if ((currentTab && isSiteEnabled(currentTab)) || medium_custom_domain || au_apn_site || au_swm_site) {
-        ext_api.tabs.executeScript(tabId, {
-           file: 'contentScript.js',
-           runAt: 'document_start'
-        }, function (res) {
-           if (ext_api.runtime.lastError || res[0]) {
-             return;
-           }
-         });
-       }
+        if (currentTab.url !== currentTabUrl) {
+          csDone = false;
+          currentTabUrl = currentTab.url;
+        }
+        if ((['main_frame', 'script', 'other', 'xmlhttprequest'].includes(details.type) || matchUrlDomain(cs_limit_except, currentTabUrl)) && !csDone) {
+          ext_api.tabs.executeScript(tabId, {
+            file: 'contentScript.js',
+            runAt: 'document_start'
+          }, function (res) {
+            if (ext_api.runtime.lastError || res[0]) {
+              return;
+            }
+          });
+        }
+      }
     });
   } else {//mercuriovalpo.cl
     ext_api.tabs.query({
@@ -1032,6 +1044,10 @@ ext_api.runtime.onMessage.addListener(function (message, sender) {
           icon_path = {path: {'128': 'bypass-dark.png'}};
       ext_api.browserAction.setIcon(icon_path);
       chrome_scheme = message.scheme;
+  }
+  if (message.csDone) {
+    csDone = true;
+    //console.log('msg.csDone: ' + csDone);
   }
 });
 

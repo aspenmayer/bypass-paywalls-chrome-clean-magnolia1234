@@ -10,6 +10,7 @@ Fix-update El Mercurio & La Segunda (mobile)
 Fix-update Mexico News Daily
 Fix-update Telegraph.co.uk (amp pages)
 Fix-update The New Yorker (embed)
+Limit contentScript (to html, xhr & script)
 Update popup (Twitter)
 
 * v1.9.7.0 (2020-11-27)
