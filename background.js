@@ -791,7 +791,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   }
 
   // random IP for esprit.presse.fr
-  if (matchUrlDomain('esprit.presse.fr', details.url)) {
+  if (matchUrlDomain(['esprit.presse.fr', 'slader.com'], details.url)) {
     requestHeaders.push({
       "name": "X-Forwarded-For",
       "value": randomIP()
