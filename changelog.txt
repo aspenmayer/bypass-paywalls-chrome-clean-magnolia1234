@@ -7,6 +7,7 @@ Add Esprit (France)
 Add The Spectator USA
 Remove Aftonbladet.se (obsolete)
 Fix-update El Mercurio & La Segunda (mobile)
+Fix-update Harper's Magazine
 Fix-update Mexico News Daily
 Fix-update Telegraph.co.uk (amp pages)
 Fix-update The New Yorker (embed)
