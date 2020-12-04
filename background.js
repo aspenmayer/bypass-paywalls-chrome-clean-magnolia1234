@@ -34,6 +34,7 @@ var allow_cookies_default = [
   'belfasttelegraph.co.uk',
   'bostonglobe.com',
   'business-standard.com',
+  'charliehebdo.fr',
   'clarin.com',
   'chronicle.com',
   'df.cl',

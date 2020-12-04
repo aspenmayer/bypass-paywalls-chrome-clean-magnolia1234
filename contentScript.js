@@ -4,7 +4,7 @@ var domain;
 var csDone = false;
 
 // clean local storage of sites (with an exemption for hold-list)
-var arr_localstorage_hold = ['elmundo.es', 'kurier.at', 'nknews.org', 'nrz.de', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk', 'waz.de', 'wp.de', 'wr.de'];
+var arr_localstorage_hold = ['charliehebdo.fr', 'elmundo.es', 'kurier.at', 'nknews.org', 'nrz.de', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk', 'waz.de', 'wp.de', 'wr.de'];
 var es_grupo_vocento_domains = ['diariosur.es', 'diariovasco.com', 'elcomercio.es', 'elcorreo.com', 'eldiariomontanes.es', 'elnortedecastilla.es', 'hoy.es', 'ideal.es', 'larioja.com', 'laverdad.es', 'lavozdigital.es'];
 arr_localstorage_hold = arr_localstorage_hold.concat(es_grupo_vocento_domains);
 if (!matchDomain(arr_localstorage_hold)){
