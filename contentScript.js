@@ -79,10 +79,24 @@ else if (window.location.hostname.endsWith(".com.au") || window.location.hostnam
     } else if (window.location.hostname.endsWith(".com.au")) {
         // Australia News Corp
         let au_nc_sites = ['adelaidenow.com.au', 'cairnspost.com.au', 'couriermail.com.au', 'dailytelegraph.com.au', 'geelongadvertiser.com.au', 'goldcoastbulletin.com.au', 'heraldsun.com.au', 'ntnews.com.au', 'theaustralian.com.au', 'themercury.com.au', 'townsvillebulletin.com.au', 'weeklytimesnow.com.au'];
-        if (matchDomain(au_nc_sites) && window.location.hostname.startsWith('amp.')) {
-            let div_hidden_all = document.querySelectorAll('div[amp-access="access AND subscriber"]');
-            for (let div_hidden of div_hidden_all)
-                div_hidden.removeAttribute('amp-access-hide');
+        if (matchDomain(au_nc_sites)) {
+            if (window.location.hostname.startsWith('amp.')) {
+                let div_hidden_all = document.querySelectorAll('div[amp-access="access AND subscriber"]');
+                for (let div_hidden of div_hidden_all)
+                    div_hidden.removeAttribute('amp-access-hide');
+            } else if (window.location.href.includes('?amp')) {
+                window.setTimeout(function () {
+                    let div_hidden = document.querySelector('div[amp-access="subscriber AND status=\'logged-in\'"]');
+                    if (div_hidden)
+                        div_hidden.removeAttribute('amp-access-hide');
+                    let placeholders = document.querySelectorAll('amp-img.amp-hidden');
+                    for (let placeholder of placeholders) {
+                        placeholder.classList.remove('amp-hidden');
+                        if (placeholder.src && placeholder.src.includes('blank-square.svg'))
+                            removeDOMElement(placeholder);
+                    }
+                }, 500); // Delay (in milliseconds)
+            }
         } else {
             // Australian Seven West Media
             let swm_script = document.querySelector('script[src^="https://s.thewest.com.au"]');
@@ -851,6 +865,8 @@ else if (matchDomain('faz.net')) {
                             console.log(err);
                             return;
                         }
+                        if (!json_text)
+                            return;
                         let article_text = document.querySelector('.art_txt.paywall,.atc-Text.js-atc-Text');
                         article_text.innerText = '';
 
