@@ -136,7 +136,6 @@ var defaultSites =
   "New Zealand Herald": "nzherald.co.nz",
   "Newsweek": "newsweek.com",
   "Nikkei Asian Review": "asia.nikkei.com",
-  "NK News (free articles only)": "nknews.org",
   "Noordhollands Dagblad": "noordhollandsdagblad.nl",
   "NRC Handelsblad": "nrc.nl",
   "O Estado de S. Paulo": "estadao.com.br",

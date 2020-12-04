@@ -1329,15 +1329,6 @@ else if (domain = matchDomain(["fresnobee.com", "sacbee.com"])) {
     }
 }
 
-else if (matchDomain("nknews.org")) {
-    let full_content = document.querySelector('div#fullContent');
-    if (full_content)
-        full_content.removeAttribute('style');
-    let excerpt = document.querySelector('div#excerptContent');
-    let mobile_widget = document.querySelector('div.mobile-widget');
-    removeDOMElement(excerpt, mobile_widget);
-}
-
 else if (matchDomain("startribune.com")) {
     document.addEventListener('DOMContentLoaded', () => {
         let react_modal_portal = document.querySelectorAll('div.ReactModalPortal');

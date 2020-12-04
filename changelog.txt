@@ -6,6 +6,7 @@ Add El Comercio, Ideal & La Voz de Cadiz (Spain)
 Add Esprit (France)
 Add The Spectator USA
 Remove Aftonbladet.se (obsolete)
+Remove NK News (obsolete)
 Fix-update CharlieHebdo.fr (captcha)
 Fix-update Discover Magazine
 Fix-update El Mercurio & La Segunda (mobile)
