@@ -102,6 +102,7 @@ var defaultSites =
   "La Segunda": "lasegunda.com",
   "La Stampa": "lastampa.it",
   "La Tercera": "latercera.com",
+  'La Voix du Nord': 'lavoixdunord.fr',
   "Le Devoir": "ledevoir.com",
   "Le Journal du Dimanche": "lejdd.fr",
   "Le Journal du Net": "journaldunet.com",

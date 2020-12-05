@@ -177,6 +177,7 @@
         "*://*.latercera.com/*",
         "*://*.latimes.com/*",
         "*://*.laverdad.es/*",
+        "*://*.lavoixdunord.fr/*",
         "*://*.lavozdigital.es/*",
         "*://*.lc.nl/*",
         "*://*.lecho.be/*",
@@ -357,5 +358,5 @@
         "*://*.repstatic.it/*",
         "*://*.userzoom.com/*"
     ],
-    "version": "1.9.7.6"
+    "version": "1.9.7.7"
 }

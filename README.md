@@ -215,6 +215,7 @@ Alma Talent sites (grouped in options) like
 [L'Opinion](https://www.lopinion.fr) –
 [La Croix](https://www.la-croix.com) -
 [La Dépêche](https://www.ladepeche.fr) –
+[La Voix du Nord](https://www.lavoixdunord.fr) -
 [Le Journal du Dimanche](https://lejdd.fr) –
 [Le Journal du Net](https://www.journaldunet.com) -
 [Le Parisien](https://www.leparisien.fr) -

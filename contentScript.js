@@ -758,11 +758,10 @@ else if (matchDomain("newyorker.com")) {
     let invisible_assets = document.querySelectorAll('.responsive-asset--invisible');
     for (let asset_invisible of invisible_assets)
         asset_invisible.classList.remove('responsive-asset--invisible');
-    let overlays = document.querySelectorAll('.aspect-ratio--overlay-container');
+    let overlays = document.querySelectorAll('.aspect-ratio--overlay-container, .asset-embed__asset-container');
     let noscript, html;
     let parser = new DOMParser();
     for (let overlay of overlays) {
-        overlay.classList.remove('aspect-ratio--overlay-container');
         noscript = overlay.querySelector('noscript');
         if (noscript) {
             html = parser.parseFromString(noscript.innerHTML, 'text/html');

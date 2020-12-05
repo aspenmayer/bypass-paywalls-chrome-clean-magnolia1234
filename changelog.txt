@@ -4,6 +4,7 @@ Changelog Bypass Paywalls Clean - Chrome
 Post-release
 Add El Comercio, Ideal & La Voz de Cadiz (Spain)
 Add Esprit (France)
+Add La Voix du Nord (France)
 Add The Spectator USA
 Remove Aftonbladet.se (obsolete)
 Remove NK News (obsolete)
