@@ -276,6 +276,7 @@ var blockedRegexes = {
   'thehindubusinessline.com': /(cdn\.cxense\.com\/.+|cdn\.tinypass\.com\/.+)/,
   'thenation.com': /cdn\.tinypass\.com\/.+/,
   'thestar.com': /emeter-nam\.mppglobal\.com\/probes\/JSONP\?/,
+  'timeshighereducation.com': /\.timeshighereducation\.com\/sites\/default\/files\/js\/js_bbCGL.+\.js/,
   'valeursactuelles.com': /.+\.qiota\.com\/.+/,
   'variety.com': /cdn\.cxense\.com\/.+/,
   'washingtonpost.com': /.+\.washingtonpost\.com\/.+\/pwapi-proxy\.min\.js/,
@@ -353,7 +354,7 @@ function add_grouped_sites(init_rules) {
     for (let domain of au_news_corp_domains) {
       allow_cookies.push(domain);
       use_google_bot.push(domain);
-      blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-access-.+\.js/;
+      blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-(access|iframe)-.+\.js/;
     }
     for (let domain of au_prov_news_domains) {
       allow_cookies.push(domain);

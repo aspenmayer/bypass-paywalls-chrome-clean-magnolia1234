@@ -8,7 +8,7 @@ Add La Voix du Nord (France)
 Add The Spectator USA
 Remove Aftonbladet.se (obsolete)
 Remove NK News (obsolete)
-Fix-update Australia News Corp (amp/no video)
+Fix-update Australia News Corp (amp/video-link)
 Fix-update CharlieHebdo.fr (captcha)
 Fix-update Discover Magazine
 Fix-update El Mercurio & La Segunda (mobile)

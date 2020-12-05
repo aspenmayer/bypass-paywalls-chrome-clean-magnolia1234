@@ -85,17 +85,21 @@ else if (window.location.hostname.endsWith(".com.au") || window.location.hostnam
                 for (let div_hidden of div_hidden_all)
                     div_hidden.removeAttribute('amp-access-hide');
             } else if (window.location.href.includes('?amp')) {
-                window.setTimeout(function () {
-                    let div_hidden = document.querySelector('div[amp-access="subscriber AND status=\'logged-in\'"]');
-                    if (div_hidden)
-                        div_hidden.removeAttribute('amp-access-hide');
-                    let placeholders = document.querySelectorAll('amp-img.amp-hidden');
-                    for (let placeholder of placeholders) {
-                        placeholder.classList.remove('amp-hidden');
-                        if (placeholder.src && placeholder.src.includes('blank-square.svg'))
-                            removeDOMElement(placeholder);
-                    }
-                }, 500); // Delay (in milliseconds)
+                //window.setTimeout(function () {
+                let div_hidden = document.querySelector('div[amp-access="subscriber AND status=\'logged-in\'"]');
+                if (div_hidden)
+                    div_hidden.removeAttribute('amp-access-hide');
+                //}, 500); // Delay (in milliseconds)
+            }
+            let amp_iframes = document.querySelectorAll('amp-iframe');
+            let elem;
+            for (let amp_iframe of amp_iframes) {
+                elem = document.createElement('a');
+                elem.innerText = 'Video-link';
+                elem.setAttribute('href', amp_iframe.getAttribute('src'));
+                elem.setAttribute('target', '_blank');
+                amp_iframe.parentElement.insertBefore(elem, amp_iframe);
+                removeDOMElement(amp_iframe);
             }
         } else {
             // Australian Seven West Media
