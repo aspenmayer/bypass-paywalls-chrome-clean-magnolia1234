@@ -337,8 +337,10 @@
         "*://*.wsj.com/*",
         "*://*.zeit.de/*",
         "*://esprit.presse.fr/*",
-        "*://*.apnarm.net.au/*",
+        "*://*.ampproject.org/*",
         "*://*.blueconic.net/*",
+        "*://*.cxense.com/*",
+        "*://*.evolok.net/*",
         "*://*.matheranalytics.com/*",
         "*://*.onecount.net/*",
         "*://*.pelcro.com/*",
@@ -348,13 +350,11 @@
         "*://*.tinypass.com/*",
         "*://*.tribdss.com/*",
         "*://*.adobedtm.com/*",
-        "*://*.ampproject.org/*",
+        "*://*.apnarm.net.au/*",
         "*://*.cedsdigital.it/*",
         "*://*.corriereobjects.it/*",
-        "*://*.cxense.com/*",
         "*://*.emol.cl/*",
         "*://*.epimg.net/*",
-        "*://*.evolok.net/*",
         "*://*.flip-pay.com/*",
         "*://*.htmedia.in/*",
         "*://*.jsdelivr.net/*",
@@ -366,5 +366,5 @@
         "*://*.repstatic.it/*",
         "*://*.userzoom.com/*"
     ],
-    "version": "1.9.7.7"
+    "version": "1.9.8.0"
 }

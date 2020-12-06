@@ -211,7 +211,7 @@ Alma Talent sites (grouped in options) like
 [Challenges](https://www.challenges.fr) –
 [Charlie Hebdo](https://charliehebdo.fr) -
 [Esprit](https://esprit.presse.fr)  
-Groupe Rossel sites like
+Groupe Rossel sites (grouped in options) like
 [L'Aisne nouvelle](https://www.aisnenouvelle.fr) -
 [L'Ardennais](https://www.lardennais.fr) -
 [L'Est-Éclair](https://www.lest-eclair.fr) -
