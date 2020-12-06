@@ -6,6 +6,7 @@ var csDone = false;
 // clean local storage of sites (with an exemption for hold-list)
 var arr_localstorage_hold = ['charliehebdo.fr', 'elmundo.es', 'kurier.at', 'nknews.org', 'nrz.de', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk', 'waz.de', 'wp.de', 'wr.de'];
 var es_grupo_vocento_domains = ['diariosur.es', 'diariovasco.com', 'elcomercio.es', 'elcorreo.com', 'eldiariomontanes.es', 'elnortedecastilla.es', 'hoy.es', 'ideal.es', 'larioja.com', 'laverdad.es', 'lavozdigital.es'];
+var fr_groupe_ebra_domains = ['bienpublic.com', 'dna.fr', 'estrepublicain.fr', 'lalsace.fr', 'ledauphine.com', 'lejsl.com', 'leprogres.fr', 'republicain-lorrain.fr', 'vosgesmatin.fr'];
 arr_localstorage_hold = arr_localstorage_hold.concat(es_grupo_vocento_domains);
 if (!matchDomain(arr_localstorage_hold)){
     window.localStorage.clear();
@@ -1803,6 +1804,26 @@ else if (matchDomain("telegraph.co.uk")) {
 else if (matchDomain('esprit.presse.fr')) {
     let paywall = document.querySelector('.panel-popup-paywall');
     removeDOMElement(paywall);
+}
+
+else if ((domain = matchDomain(fr_groupe_ebra_domains)) && window.location.href.match(/\/\d{4}\/\d{2}\/\d{2}\//)) {
+    let url = window.location.href;
+    let url_new = url.replace(domain + '/', domain + '/amp/');
+    if (!url.includes(domain + '/amp/')) {
+        let free = document.querySelector('[class^="paywall"]');
+        if (!free) {
+            window.setTimeout(function () {
+                window.location.href = url_new;
+            }, 500); // Delay (in milliseconds)
+        }
+    } else {
+        let amp_access_hide = document.querySelector('[amp-access-hide]');
+        if (amp_access_hide) {
+            let not_access_section = document.querySelector('section[amp-access="NOT access"]');
+            removeDOMElement(not_access_section);
+            amp_access_hide.removeAttribute('amp-access-hide');
+        }
+    }
 }
 
 else

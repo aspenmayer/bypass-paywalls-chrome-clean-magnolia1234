@@ -70,6 +70,7 @@ var defaultSites =
   "Glassdoor": "glassdoor.com",
   "Globes": "globes.co.il",
   "Groene Amsterdammer": "groene.nl",
+  "Groupe EBRA (France)": "###_fr_groupe_ebra",
   "Groupe Rossel (France/Belgium)": "###_fr_be_groupe_rossel",
   "Grupo Vocento (Spain, regional daily)": "###_es_grupo_vocento",
   "Haaretz English": "haaretz.com",

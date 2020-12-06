@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Add Groupe EBRA (France)
 
 * v1.9.8.0 (2020-12-06)
 Add El Comercio, Ideal & La Voz de Cadiz (Spain)

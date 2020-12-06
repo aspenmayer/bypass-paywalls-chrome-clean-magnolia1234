@@ -211,6 +211,16 @@ Alma Talent sites (grouped in options) like
 [Challenges](https://www.challenges.fr) –
 [Charlie Hebdo](https://charliehebdo.fr) -
 [Esprit](https://esprit.presse.fr)  
+Groupe EBRA sites (grouped in options) like
+[Dernières Nouvelles d'Alsace](https://www.dna.fr) -
+[L'Alsace](https://www.lalsace.fr) -
+[L'Est Républicain](https://www.estrepublicain.fr) -
+[Le Bien Public](https://www.bienpublic.com) -
+[Le Dauphiné Libéré](https://www.ledauphine.com) -
+[Le Journal de Saône-et-Loire](https://www.lejsl.com) -
+[Le Progrès](https://www.leprogres.fr) -
+[Le Républicain Lorrain](https://www.republicain-lorrain.fr) -
+[Vosges Matin](https://www.vosgesmatin.fr)  
 Groupe Rossel sites (grouped in options) like
 [L'Aisne nouvelle](https://www.aisnenouvelle.fr) -
 [L'Ardennais](https://www.lardennais.fr) -

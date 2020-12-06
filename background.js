@@ -291,6 +291,7 @@ const au_prov_news_domains = ['news-mail.com.au', 'frasercoastchronicle.com.au',
 const es_grupo_vocento_domains = ['diariosur.es', 'diariovasco.com', 'elcomercio.es', 'elcorreo.com', 'eldiariomontanes.es', 'elnortedecastilla.es', 'hoy.es', 'ideal.es', 'larioja.com', 'laverdad.es', 'lavozdigital.es'];
 const fi_alma_talent_domains = ['arvopaperi.fi', 'kauppalehti.fi', 'marmai.fi', 'mediuutiset.fi', 'mikrobitti.fi', 'talouselama.fi', 'tekniikkatalous.fi', 'tivi.fi', 'uusisuomi.fi'];
 const fr_be_groupe_rossel_domains = ['aisnenouvelle.fr', 'courrier-picard.fr', 'lardennais.fr', 'lavoixdunord.fr', 'lecho.be', 'lesoir.be', 'lest-eclair.fr', 'liberation-champagne.fr', 'lunion.fr', 'nordeclair.fr', 'paris-normandie.fr', 'sudinfo.be'];
+const fr_groupe_ebra_domains = ['bienpublic.com', 'dna.fr', 'estrepublicain.fr', 'lalsace.fr', 'ledauphine.com', 'lejsl.com', 'leprogres.fr', 'republicain-lorrain.fr', 'vosgesmatin.fr'];
 const ilmessaggero_domains = ['corriereadriatico.it', 'ilgazzettino.it', 'ilmattino.it', 'quotidianodipuglia.it'];
 const nymag_domains = ['grubstreet.com', 'thecut.com', 'vulture.com'];
 // pg_domains has only grouped remove_cookies_select_drop rules
@@ -305,7 +306,7 @@ const userAgentMobileB = "Chrome/80.0.3987.92 Mobile Safari/537.36 (compatible; 
 var enabledSites = [];
 var disabledSites = [];
 var defaultSites_grouped_domains = Object.values(defaultSites);
-var defaultSites_domains = defaultSites_grouped_domains.concat(ad_region_domains, au_comm_media_domains, au_news_corp_domains, au_prov_news_domains, es_grupo_vocento_domains, fi_alma_talent_domains, fr_be_groupe_rossel_domains, ilmessaggero_domains, nymag_domains);
+var defaultSites_domains = defaultSites_grouped_domains.concat(ad_region_domains, au_comm_media_domains, au_news_corp_domains, au_prov_news_domains, es_grupo_vocento_domains, fi_alma_talent_domains, fr_be_groupe_rossel_domains, fr_groupe_ebra_domains, ilmessaggero_domains, nymag_domains);
 var customSites = {};
 var customSites_domains = [];
 
@@ -373,6 +374,10 @@ function add_grouped_sites(init_rules) {
         use_google_bot.push(domain);
       }
     }
+    for (let domain of fr_groupe_ebra_domains) {
+      allow_cookies.push(domain);
+      blockedRegexes[domain] = /(.+\.poool\.fr\/.+|cdn\.ampproject\.org\/v\d\/amp-(access|iframe)-.+\.js)/;
+    }
     for (let domain of ilmessaggero_domains)
       blockedRegexes[domain] = /utils\.cedsdigital\.it\/js\/PaywallMeter\.js/;
     for (let domain of pg_domains)
@@ -406,6 +411,10 @@ function add_grouped_sites(init_rules) {
     enabledSites = enabledSites.concat(fr_be_groupe_rossel_domains);
   else
     disabledSites = disabledSites.concat(fr_be_groupe_rossel_domains);
+  if (enabledSites.includes('###_fr_groupe_ebra'))
+    enabledSites = enabledSites.concat(fr_groupe_ebra_domains);
+  else
+    disabledSites = disabledSites.concat(fr_groupe_ebra_domains);
   if (enabledSites.includes('ilmessaggero.it'))
     enabledSites = enabledSites.concat(ilmessaggero_domains);
   else
@@ -728,11 +737,12 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   let au_apn_site = (header_referer && (urlHost(header_referer).endsWith('com.au') || urlHost(header_referer).endsWith('net.au')) && details.url.includes('https://media.apnarm.net.au/'));
   let au_swm_site = (header_referer && urlHost(header_referer).endsWith('com.au') && details.url.includes('https://s.thewest.com.au/'));
   let es_grupo_vocento_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain(es_grupo_vocento_domains, header_referer) && isSiteEnabled({url: header_referer}));
+  let fr_groupe_ebra_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain(fr_groupe_ebra_domains, header_referer) && isSiteEnabled({url: header_referer}));
   let fr_lacroix_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain('la-croix.com', header_referer) && isSiteEnabled({url: header_referer}));
   let sz_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain('sueddeutsche.de', header_referer) && isSiteEnabled({url: header_referer}));
   let uk_telegraph_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain('telegraph.co.uk', header_referer) && isSiteEnabled({url: header_referer}));
 
-  if (!isSiteEnabled(details) && !inkl_site && !au_nc_amp_site && !au_apn_site && !au_swm_site && !es_grupo_vocento_site && !fr_lacroix_amp_site && !sz_amp_site && !uk_telegraph_amp_site) {
+  if (!isSiteEnabled(details) && !inkl_site && !au_nc_amp_site && !au_apn_site && !au_swm_site && !es_grupo_vocento_site && !fr_groupe_ebra_site && !fr_lacroix_amp_site && !sz_amp_site && !uk_telegraph_amp_site) {
     return;
   }
 
