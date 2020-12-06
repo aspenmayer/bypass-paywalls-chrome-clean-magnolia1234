@@ -604,9 +604,9 @@ else if (matchDomain("thestar.com")) {
                         let endnote_html;
                         if (elem.author) {
                             endnote_html = parser.parseFromString('<div class="author-endnote-container" data-lpos="article|author|bottom">' +
-                                    '<a class="author-endnote-container__author-img-link" href="' + elem.authorPageUrl + '">' +
-                                    '<div class="c-author-badge author-endnote-container__author-img">' +
-                                    '<img class="c-author-badge__img" src="' + elem.author.photo.sizes['1:1'].small + '" alt="' + elem.author.author + '"/></div></a>' +
+                                    (elem.authorPageUrl ? '<a class="author-endnote-container__author-img-link" href="' + elem.authorPageUrl + '">' +
+                                    '<div class="c-author-badge author-endnote-container__author-img">' : '') +
+                                    ((elem.author.photo === undefined) ? '<img class="c-author-badge__img" src="' + elem.author.photo.sizes['1:1'].small + '" alt="' + elem.author.author + '"/></div></a>' : '') +
                                     '<div>' + elem.text + '</div></div>', 'text/html');
                         } else
                             endnote_html = parser.parseFromString('<div><p>' + elem.text + '</p></div>', 'text/html');

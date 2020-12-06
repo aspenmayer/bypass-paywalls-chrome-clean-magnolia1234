@@ -210,16 +210,26 @@ Alma Talent sites (grouped in options) like
 [Alternatives Economiques](https://www.alternatives-economiques.fr) -
 [Challenges](https://www.challenges.fr) –
 [Charlie Hebdo](https://charliehebdo.fr) -
-[Esprit](https://esprit.presse.fr) -
+[Esprit](https://esprit.presse.fr)  
+Groupe Rossel sites like
+[L'Aisne nouvelle](https://www.aisnenouvelle.fr) -
+[L'Ardennais](https://www.lardennais.fr) -
+[L'Est-Éclair](https://www.lest-eclair.fr) -
+[L'Union - L'Ardennais](https://www.lunion.fr) -
 [L'Écho](https://lecho.be) -
+[La Voix du Nord](https://www.lavoixdunord.fr) -
+[Le Courrier picard](https://www.courrier-picard.fr) -
+[Le Soir](https://www.lesoir.be) -
+[Libération Champagne](https://www.liberation-champagne.fr) -
+[Nord Éclair](https://www.nordeclair.fr) -
+[Paris Normandie](https://www.paris-normandie.fr) -
+[SudInfo](https://www.sudinfo.be)  
 [L'Opinion](https://www.lopinion.fr) –
 [La Croix](https://www.la-croix.com) -
 [La Dépêche](https://www.ladepeche.fr) –
-[La Voix du Nord](https://www.lavoixdunord.fr) -
 [Le Journal du Dimanche](https://lejdd.fr) –
 [Le Journal du Net](https://www.journaldunet.com) -
 [Le Parisien](https://www.leparisien.fr) -
-[Le Soir](https://plus.lesoir.be) -
 [Les Échos](https://www.lesechos.fr) -
 [Libération](https://www.liberation.fr)* –
 [Science & Vie](https://www.science-et-vie.com) -
