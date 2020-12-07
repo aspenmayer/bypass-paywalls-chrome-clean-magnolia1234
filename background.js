@@ -225,7 +225,6 @@ var blockedRegexes = {
   'knack.be': /.+\.knack\.be\/js\/responsive\/rmgModal\.js/,
   'kurier.at': /cdn\.tinypass\.com\/.+/,
   'la-croix.com': /cdn\.ampproject\.org\/v\d\/amp-access-.+\.js/,
-  'ladepeche.fr': /.+\.poool\.fr\/.+/,
   'lasegunda.com': /\.(lasegunda\.com|emol\.cl)\/.+\/js\/((vendor\/)?modal|merPramV\d|PramModal\.min)\.js/,
   'lastampa.it': /.+\.repstatic\.it\/minify\/sites\/lastampa\/.+\/config\.cache\.php\?name=social_js/,
   'latercera.com': /(.+\.latercera\.com\/arc\/subs\/p\.js|cdn\.cxense\.com\/.+)/,
@@ -292,6 +291,7 @@ const es_grupo_vocento_domains = ['diariosur.es', 'diariovasco.com', 'elcomercio
 const fi_alma_talent_domains = ['arvopaperi.fi', 'kauppalehti.fi', 'marmai.fi', 'mediuutiset.fi', 'mikrobitti.fi', 'talouselama.fi', 'tekniikkatalous.fi', 'tivi.fi', 'uusisuomi.fi'];
 const fr_be_groupe_rossel_domains = ['aisnenouvelle.fr', 'courrier-picard.fr', 'lardennais.fr', 'lavoixdunord.fr', 'lecho.be', 'lesoir.be', 'lest-eclair.fr', 'liberation-champagne.fr', 'lunion.fr', 'nordeclair.fr', 'paris-normandie.fr', 'sudinfo.be'];
 const fr_groupe_ebra_domains = ['bienpublic.com', 'dna.fr', 'estrepublicain.fr', 'lalsace.fr', 'ledauphine.com', 'lejsl.com', 'leprogres.fr', 'republicain-lorrain.fr', 'vosgesmatin.fr'];
+const fr_groupe_la_depeche_domains = ['centrepresseaveyron.fr', 'ladepeche.fr', 'lindependant.fr', 'midi-olympique.fr', 'midilibre.fr', 'nrpyrenees.fr', 'petitbleu.fr'];
 const ilmessaggero_domains = ['corriereadriatico.it', 'ilgazzettino.it', 'ilmattino.it', 'quotidianodipuglia.it'];
 const nymag_domains = ['grubstreet.com', 'thecut.com', 'vulture.com'];
 // pg_domains has only grouped remove_cookies_select_drop rules
@@ -306,7 +306,7 @@ const userAgentMobileB = "Chrome/80.0.3987.92 Mobile Safari/537.36 (compatible; 
 var enabledSites = [];
 var disabledSites = [];
 var defaultSites_grouped_domains = Object.values(defaultSites);
-var defaultSites_domains = defaultSites_grouped_domains.concat(ad_region_domains, au_comm_media_domains, au_news_corp_domains, au_prov_news_domains, es_grupo_vocento_domains, fi_alma_talent_domains, fr_be_groupe_rossel_domains, fr_groupe_ebra_domains, ilmessaggero_domains, nymag_domains);
+var defaultSites_domains = defaultSites_grouped_domains.concat(ad_region_domains, au_comm_media_domains, au_news_corp_domains, au_prov_news_domains, es_grupo_vocento_domains, fi_alma_talent_domains, fr_be_groupe_rossel_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, ilmessaggero_domains, nymag_domains);
 var customSites = {};
 var customSites_domains = [];
 
@@ -341,8 +341,32 @@ ext_api.storage.sync.get({
   }
 });
 
+var grouped_sites = {
+'ad.nl': ad_region_domains,
+'###_au_comm_media': au_comm_media_domains,
+'###_au_news_corp': au_news_corp_domains,
+'###_au_prov_news': au_prov_news_domains,
+'###_es_grupo_vocento': es_grupo_vocento_domains,
+'###_fi_alma_talent': fi_alma_talent_domains,
+'###_fr_be_groupe_rossel': fr_be_groupe_rossel_domains,
+'###_fr_groupe_ebra': fr_groupe_ebra_domains,
+'###_fr_groupe_la_depeche': fr_groupe_la_depeche_domains,
+'ilmessaggero.it': ilmessaggero_domains,
+'nymag.com': nymag_domains
+};
+
+function add_grouped__enabled_domains(groups) {
+  for (let key in groups) {
+    if (enabledSites.includes(key))
+      enabledSites = enabledSites.concat(groups[key]);
+    else
+      disabledSites = disabledSites.concat(groups[key]);
+  }
+}
+
 // add grouped sites to en/disabledSites & init rules (optional)
 function add_grouped_sites(init_rules) {
+  add_grouped__enabled_domains(grouped_sites);
   if (init_rules) {
     for (let domain of ad_region_domains)
       remove_cookies_select_drop[domain] = ['temptationTrackingId'];
@@ -367,62 +391,27 @@ function add_grouped_sites(init_rules) {
       use_google_bot.push(domain);
     }
     for (let domain of fr_be_groupe_rossel_domains) {
-      if (['paris-normandie.fr'].includes(domain))
+      if (['paris-normandie.fr'].includes(domain)) {
+        allow_cookies.push(domain);
         blockedRegexes[domain] = /.+\.poool\.fr\/.+/;
-      else if (!['lecho.be'].includes(domain)) {
+      } else if (!['lecho.be'].includes(domain)) {
         allow_cookies.push(domain);
         use_google_bot.push(domain);
       }
     }
     for (let domain of fr_groupe_ebra_domains) {
       allow_cookies.push(domain);
-      blockedRegexes[domain] = /(.+\.poool\.fr\/.+|cdn\.ampproject\.org\/v\d\/amp-(access|iframe)-.+\.js)/;
+      blockedRegexes[domain] = /(.+\.poool\.fr\/.+|cdn\.ampproject\.org\/v\d\/amp-(access|consent|iframe)-.+\.js)/;
+    }
+    for (let domain of fr_groupe_la_depeche_domains) {
+        allow_cookies.push(domain);
+        blockedRegexes[domain] = /(.+\.poool\.fr\/.+|cdn\.ampproject\.org\/v\d\/amp-(access|consent)-.+\.js)/;//|iframe
     }
     for (let domain of ilmessaggero_domains)
       blockedRegexes[domain] = /utils\.cedsdigital\.it\/js\/PaywallMeter\.js/;
     for (let domain of pg_domains)
       remove_cookies_select_drop[domain] = ['TID_ID'];
   }
-  if (enabledSites.includes('ad.nl'))
-    enabledSites = enabledSites.concat(ad_region_domains);
-  else
-    disabledSites = disabledSites.concat(ad_region_domains);
-  if (enabledSites.includes('###_au_comm_media'))
-    enabledSites = enabledSites.concat(au_comm_media_domains);
-  else
-    disabledSites = disabledSites.concat(au_comm_media_domains);
-  if (enabledSites.includes('###_au_news_corp'))
-    enabledSites = enabledSites.concat(au_news_corp_domains);
-  else
-    disabledSites = disabledSites.concat(au_news_corp_domains);
-  if (enabledSites.includes('###_au_prov_news'))
-    enabledSites = enabledSites.concat(au_prov_news_domains);
-  else
-    disabledSites = disabledSites.concat(au_prov_news_domains);
-  if (enabledSites.includes('###_es_grupo_vocento'))
-    enabledSites = enabledSites.concat(es_grupo_vocento_domains);
-  else
-    disabledSites = disabledSites.concat(es_grupo_vocento_domains);
-  if (enabledSites.includes('###_fi_alma_talent'))
-    enabledSites = enabledSites.concat(fi_alma_talent_domains);
-  else
-    disabledSites = disabledSites.concat(fi_alma_talent_domains);
-  if (enabledSites.includes('###_fr_be_groupe_rossel'))
-    enabledSites = enabledSites.concat(fr_be_groupe_rossel_domains);
-  else
-    disabledSites = disabledSites.concat(fr_be_groupe_rossel_domains);
-  if (enabledSites.includes('###_fr_groupe_ebra'))
-    enabledSites = enabledSites.concat(fr_groupe_ebra_domains);
-  else
-    disabledSites = disabledSites.concat(fr_groupe_ebra_domains);
-  if (enabledSites.includes('ilmessaggero.it'))
-    enabledSites = enabledSites.concat(ilmessaggero_domains);
-  else
-    disabledSites = disabledSites.concat(ilmessaggero_domains);
-  if (enabledSites.includes('nymag.com'))
-    enabledSites = enabledSites.concat(nymag_domains);
-  else
-    disabledSites = disabledSites.concat(nymag_domains);
 }
 
 // Get the enabled sites (from local storage) & add to allow/remove_cookies (if not already in one of these arrays)
@@ -738,11 +727,12 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   let au_swm_site = (header_referer && urlHost(header_referer).endsWith('com.au') && details.url.includes('https://s.thewest.com.au/'));
   let es_grupo_vocento_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain(es_grupo_vocento_domains, header_referer) && isSiteEnabled({url: header_referer}));
   let fr_groupe_ebra_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain(fr_groupe_ebra_domains, header_referer) && isSiteEnabled({url: header_referer}));
+  let fr_groupe_la_depeche_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain(fr_groupe_la_depeche_domains, header_referer) && isSiteEnabled({url: header_referer}));
   let fr_lacroix_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain('la-croix.com', header_referer) && isSiteEnabled({url: header_referer}));
   let sz_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain('sueddeutsche.de', header_referer) && isSiteEnabled({url: header_referer}));
   let uk_telegraph_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain('telegraph.co.uk', header_referer) && isSiteEnabled({url: header_referer}));
 
-  if (!isSiteEnabled(details) && !inkl_site && !au_nc_amp_site && !au_apn_site && !au_swm_site && !es_grupo_vocento_site && !fr_groupe_ebra_site && !fr_lacroix_amp_site && !sz_amp_site && !uk_telegraph_amp_site) {
+  if (!isSiteEnabled(details) && !inkl_site && !au_nc_amp_site && !au_apn_site && !au_swm_site && !es_grupo_vocento_site && !fr_groupe_ebra_site && !fr_groupe_la_depeche_site && !fr_lacroix_amp_site && !sz_amp_site && !uk_telegraph_amp_site) {
     return;
   }
 

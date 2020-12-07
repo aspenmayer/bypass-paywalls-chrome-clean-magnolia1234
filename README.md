@@ -220,7 +220,15 @@ Groupe EBRA sites (grouped in options) like
 [Le Journal de Saône-et-Loire](https://www.lejsl.com) -
 [Le Progrès](https://www.leprogres.fr) -
 [Le Républicain Lorrain](https://www.republicain-lorrain.fr) -
-[Vosges Matin](https://www.vosgesmatin.fr)  
+[Vosges Matin](https://www.vosgesmatin.fr)
+Groupe La Dépêche sites (grouped in options) like
+[Centre Presse](https://www.centrepresseaveyron.fr) –
+[L'Indépendant](https://www.lindependant.fr) -
+[La Dépêche du Midi](https://www.ladepeche.fr) –
+[La Nouvelle République des Pyrénées](https://www.nrpyrenees.fr) -
+[Le Petit Bleu d'Agen](https://www.petitbleu.fr) -
+[Midi Libre](https://www.midilibre.fr) -
+[Midi Olympique](https://www.midi-olympique.fr)  
 Groupe Rossel sites (grouped in options) like
 [L'Aisne nouvelle](https://www.aisnenouvelle.fr) -
 [L'Ardennais](https://www.lardennais.fr) -
@@ -236,7 +244,6 @@ Groupe Rossel sites (grouped in options) like
 [SudInfo](https://www.sudinfo.be)  
 [L'Opinion](https://www.lopinion.fr) –
 [La Croix](https://www.la-croix.com) -
-[La Dépêche](https://www.ladepeche.fr) –
 [Le Journal du Dimanche](https://lejdd.fr) –
 [Le Journal du Net](https://www.journaldunet.com) -
 [Le Parisien](https://www.leparisien.fr) -

@@ -3,12 +3,12 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add Groupe EBRA (France)
+Add Groupe La Dépêche (France)
 
 * v1.9.8.0 (2020-12-06)
 Add El Comercio, Ideal & La Voz de Cadiz (Spain)
 Add Esprit (France)
 Add Groupe Rossel (France/Belgium)
-Add La Voix du Nord (France)
 Add The Spectator USA
 Remove Aftonbladet.se (obsolete)
 Remove NK News (obsolete)

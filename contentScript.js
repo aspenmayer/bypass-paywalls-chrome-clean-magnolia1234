@@ -7,6 +7,7 @@ var csDone = false;
 var arr_localstorage_hold = ['charliehebdo.fr', 'elmundo.es', 'kurier.at', 'nknews.org', 'nrz.de', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk', 'waz.de', 'wp.de', 'wr.de'];
 var es_grupo_vocento_domains = ['diariosur.es', 'diariovasco.com', 'elcomercio.es', 'elcorreo.com', 'eldiariomontanes.es', 'elnortedecastilla.es', 'hoy.es', 'ideal.es', 'larioja.com', 'laverdad.es', 'lavozdigital.es'];
 var fr_groupe_ebra_domains = ['bienpublic.com', 'dna.fr', 'estrepublicain.fr', 'lalsace.fr', 'ledauphine.com', 'lejsl.com', 'leprogres.fr', 'republicain-lorrain.fr', 'vosgesmatin.fr'];
+var fr_groupe_la_depeche_domains = ['centrepresseaveyron.fr', 'ladepeche.fr', 'lindependant.fr', 'midi-olympique.fr', 'midilibre.fr', 'nrpyrenees.fr', 'petitbleu.fr'];
 arr_localstorage_hold = arr_localstorage_hold.concat(es_grupo_vocento_domains);
 if (!matchDomain(arr_localstorage_hold)){
     window.localStorage.clear();
@@ -81,6 +82,8 @@ else if (window.location.hostname.endsWith(".com.au") || window.location.hostnam
         // Australia News Corp
         let au_nc_sites = ['adelaidenow.com.au', 'cairnspost.com.au', 'couriermail.com.au', 'dailytelegraph.com.au', 'geelongadvertiser.com.au', 'goldcoastbulletin.com.au', 'heraldsun.com.au', 'ntnews.com.au', 'theaustralian.com.au', 'themercury.com.au', 'townsvillebulletin.com.au', 'weeklytimesnow.com.au'];
         if (matchDomain(au_nc_sites)) {
+            let header_ads = document.querySelector('.header_ads-container');
+            removeDOMElement(header_ads);
             if (window.location.hostname.startsWith('amp.')) {
                 let div_hidden_all = document.querySelectorAll('div[amp-access="access AND subscriber"]');
                 for (let div_hidden of div_hidden_all)
@@ -781,19 +784,37 @@ else if (matchDomain("americanaffairsjournal.org")) {
     removeDOMElement(paywall_bar);
 }
 
-else if (matchDomain('ladepeche.fr')) {
-    window.setTimeout(function () {
-        const hidden_section = document.querySelector('.article-full__body-content');
-        if (hidden_section) {
-            hidden_section.classList.remove('article-full__body-content');
-            let pars = hidden_section.querySelectorAll("p, h2, div");
-            for (let par of pars) {
-                par.removeAttribute('style');
+else if (domain = matchDomain(fr_groupe_la_depeche_domains)) {
+    let url = window.location.href;
+    let url_new = url.replace(domain + '/', domain + '/amp/');
+    if (url.includes(domain + '/amp/')) {
+        let amp_access_hide = document.querySelector('[amp-access-hide]');
+        if (amp_access_hide) {
+            amp_access_hide.removeAttribute('amp-access-hide');
+        }
+    } else {
+        if (!['nrpyrenees.fr', 'petitbleu.fr'].includes(domain)) {
+            window.setTimeout(function () {
+                const hidden_section = document.querySelector('.article-full__body-content');
+                if (hidden_section) {
+                    hidden_section.classList.remove('article-full__body-content');
+                    let pars = hidden_section.querySelectorAll("p, h2, div");
+                    for (let par of pars) {
+                        par.removeAttribute('style');
+                    }
+                }
+                const abon = document.querySelector('#noscript-paywall-content, #noscript-paywall');
+                removeDOMElement(abon);
+            }, 500); // Delay (in milliseconds)
+        } else {
+            let paywall = document.querySelector('#noscript-paywall-content');
+            if (paywall) {
+                window.setTimeout(function () {
+                    window.location.href = url_new;
+                }, 500); // Delay (in milliseconds)
             }
         }
-        const abon = document.querySelector('#noscript-paywall-content, #noscript-paywall');
-        removeDOMElement(abon);
-    }, 500); // Delay (in milliseconds)
+    }
 }
 
 else if (matchDomain('challenges.fr')) {

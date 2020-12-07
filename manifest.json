@@ -63,6 +63,7 @@
         "*://*.canberratimes.com.au/*",
         "*://*.cen.acs.org/*",
         "*://*.centralwesterndaily.com.au/*",
+        "*://*.centrepresseaveyron.fr/*",
         "*://*.challenges.fr/*",
         "*://*.charliehebdo.fr/*",
         "*://*.chicagobusiness.com/*",
@@ -175,6 +176,7 @@
         "*://*.la-croix.com/*",
         "*://*.labusinessjournal.com/*",
         "*://*.ladepeche.fr/*",
+        "*://*.ladepeche.fr/*",
         "*://*.lalsace.fr/*",
         "*://*.lanacion.com.ar/*",
         "*://*.lardennais.fr/*",
@@ -202,6 +204,7 @@
         "*://*.liberation-champagne.fr/*",
         "*://*.liberation.fr/*",
         "*://*.limesonline.com/*",
+        "*://*.lindependant.fr/*",
         "*://*.livemint.com/*",
         "*://*.loebclassics.com/*",
         "*://*.lopinion.fr/*",
@@ -218,6 +221,8 @@
         "*://*.mercurynews.com/*",
         "*://*.mexiconewsdaily.com/*",
         "*://*.miamiherald.com/*",
+        "*://*.midi-olympique.fr/*",
+        "*://*.midilibre.fr/*",
         "*://*.mikrobitti.fi/*",
         "*://*.modernhealthcare.com/*",
         "*://*.mv-voice.com/*",
@@ -237,6 +242,7 @@
         "*://*.northerndailyleader.com.au/*",
         "*://*.northernstar.com.au/*",
         "*://*.nrc.nl/*",
+        "*://*.nrpyrenees.fr/*",
         "*://*.nrz.de/*",
         "*://*.ntnews.com.au/*",
         "*://*.nybooks.com/*",
@@ -249,6 +255,7 @@
         "*://*.paloaltoonline.com/*",
         "*://*.paris-normandie.fr/*",
         "*://*.parool.nl/*",
+        "*://*.petitbleu.fr/*",
         "*://*.philosophynow.org/*",
         "*://*.portnews.com.au/*",
         "*://*.post-gazette.com/*",
@@ -375,5 +382,5 @@
         "*://*.repstatic.it/*",
         "*://*.userzoom.com/*"
     ],
-    "version": "1.9.8.1"
+    "version": "1.9.8.2"
 }
