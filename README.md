@@ -23,10 +23,10 @@ In extension developer mode you can always install BPC by `Load unpacked` (no au
 4. Go to the extensions page (`chrome://extensions` or `edge://extensions`).
 5. Enable Developer Mode.
 6. Click `Load unpacked` and select the extension folder.
-  
+
 * by default BPC has limited permissions, but you can opt-in to enable custom sites (and also clear cookies/block general paywall-scripts for non-listed sites).   
-* in Chrome/Opera/Brave disable the developer mode extensions popup by enabling the extensions toolbar menu under (experimental) chrome flags: chrome://flags/#extensions-toolbar-menu  
-  
+* in Chrome/Opera/Brave disable the developer mode extensions popup by enabling the extensions toolbar menu under (experimental) chrome flags: chrome://flags/#extensions-toolbar-menu
+
 If you're familiar with Git(Hub)-clients you can also clone this repo and update the extension that way (load unpacked folder used by Git(Hub)-client).
 
 #### CRX-file: other Chromium browsers (Opera/Vivaldi)
@@ -44,7 +44,7 @@ If you already have 'whitelisted' extensions than you should change "1" to a new
 Example Chrome-regfile:  
 Windows Registry Editor Version 5.00  
 [HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\ExtensionInstallWhitelist]  
-"1"="lkbebcjgcmobigpeffafkodonchffocl" 
+"1"="lkbebcjgcmobigpeffafkodonchffocl"
 
 #### Android
 1. Install [Kiwi Browser](https://play.google.com/store/apps/details?id=com.kiwibrowser.browser&hl=nl) or [Yandex Browser](https://play.google.com/store/apps/details?id=com.yandex.browser&hl=en) from the Google PlayStore.
@@ -457,7 +457,7 @@ _*free articles only._
 The free article limit can normally be bypassed by removing cookies for the site.  
 Click on the BPC-icon and then 'clear cookies'-button in the popup.  
 For user with the limited permissions BPC-version this will only work for supported sites; for other sites use:
-1. Install the extension [Cookie Remover](https://chrome.google.com/webstore/detail/cookie-remover/kcgpggonjhmeaejebeoeomdlohicfhce) or [Disable Cookies](https://chrome.google.com/webstore/detail/disable-cookies/lkmjmficaoifggpfapbffkggecbleang?hl=en).  
+1. Install the extension [Cookie Remover](https://chrome.google.com/webstore/detail/cookie-remover/kcgpggonjhmeaejebeoeomdlohicfhce) or [Disable Cookies](https://chrome.google.com/webstore/detail/disable-cookies/lkmjmficaoifggpfapbffkggecbleang?hl=en).
 2. When coming across a paywall, click the cookie icon in your extension toolbar then refresh the page.
 
 If removing the cookies works you can also add the site as a custom site.
@@ -465,18 +465,19 @@ If removing the cookies works you can also add the site as a custom site.
 ### New site requests
 You can submit a request for a new website [here](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/issues).  
 Please read the following instructions and share your results for a quicker process.  
-Remember to check the [previous requests](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/issues) before asking for a new website.  
-1. Visit an article on the site you want to bypass the paywall for and copy the article title.  
-2. Open up a new incognito window (Ctrl+Shift+N) and paste the article title into Google.  
-3. Click on the same article from the Google search results page. Or you can:  
-4. Disable javascript on the website by clicking the button right icon </> on the uBlock Origin panel.  
+Remember to check the [previous requests](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/issues) before asking for a new website.
+1. Visit an article on the site you want to bypass the paywall for and copy the article title.
+2. Open up a new incognito window (Ctrl+Shift+N) and paste the article title into Google.
+3. Click on the same article from the Google search results page. Or you can:
+4. Disable javascript on the website by clicking the button right icon </> on the uBlock Origin panel.
 5. Refresh the page.
 
 ### Add custom site
 Add your own custom site (also for testing).  
 Check 'Options'-link in popup-menu and go to custom sites.  
-* by default BPC has limited permissions, but you can opt-in to enable custom sites (and also clear cookies/block general paywall-scripts for non-listed sites).  
-Make sure the (new) site is checked under Options (or check on/off-button). 
+* by default BPC has limited permissions, but you can opt-in to enable custom sites (and also clear cookies/block general paywall-scripts for non-listed sites).
+
+Make sure the (new) site is checked under Options (or check on/off-button).  
 By default sites' cookies/local storage are removed after page loads (to bypass article limit).  
 Also you can enable Googlebot user-agent or disable Javascript for (sub)domain(s)/external sources.
 

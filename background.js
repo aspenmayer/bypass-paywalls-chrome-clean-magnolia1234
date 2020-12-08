@@ -31,7 +31,6 @@ const restrictions = {
 var allow_cookies_default = [
   'abc.es',
   'belfasttelegraph.co.uk',
-  'bloomberg.com',
   'bostonglobe.com',
   'business-standard.com',
   'charliehebdo.fr',
@@ -118,6 +117,7 @@ var remove_cookies = [
 // select specific cookie(s) to hold from remove_cookies domains
 const remove_cookies_select_hold = {
   'barrons.com': ['wsjregion'],
+  'bloomberg.com': ['consentUUID'],
   'groene.nl': ['accept-cookies', 'popunder-hidden'],
   'newstatesman.com': ['STYXKEY_nsversion'],
   'seattletimes.com': ['st_newsletter_splash_seen'],
