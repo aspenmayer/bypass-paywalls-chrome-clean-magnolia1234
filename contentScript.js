@@ -5,6 +5,7 @@ var csDone = false;
 
 // clean local storage of sites (with an exemption for hold-list)
 var arr_localstorage_hold = ['charliehebdo.fr', 'elmundo.es', 'kurier.at', 'nknews.org', 'nrz.de', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk', 'waz.de', 'wp.de', 'wr.de'];
+var de_madsack_domains = ['haz.de', 'kn-online.de', 'ln-online.de', 'lvz.de', 'maz-online.de', 'neuepresse.de', 'ostsee-zeitung.de'];
 var es_grupo_vocento_domains = ['diariosur.es', 'diariovasco.com', 'elcomercio.es', 'elcorreo.com', 'eldiariomontanes.es', 'elnortedecastilla.es', 'hoy.es', 'ideal.es', 'larioja.com', 'laverdad.es', 'lavozdigital.es'];
 var fr_groupe_ebra_domains = ['bienpublic.com', 'dna.fr', 'estrepublicain.fr', 'lalsace.fr', 'ledauphine.com', 'lejsl.com', 'leprogres.fr', 'republicain-lorrain.fr', 'vosgesmatin.fr'];
 var fr_groupe_la_depeche_domains = ['centrepresseaveyron.fr', 'ladepeche.fr', 'lindependant.fr', 'midi-olympique.fr', 'midilibre.fr', 'nrpyrenees.fr', 'petitbleu.fr'];
@@ -390,6 +391,18 @@ else if (matchDomain("bloombergquint.com")) {
     const articlesLeftModal = document.querySelector('.paywall-meter-module__story-paywall-container__1UgCE');
     const paywall = document.getElementById('paywallDmp');
     removeDOMElement(articlesLeftModal, paywall);
+}
+
+else if (matchDomain(["nrz.de", "waz.de", "wp.de", "wr.de"])) {
+    let obfuscated_elems = document.querySelectorAll('.obfuscated');
+    let parser = new DOMParser();
+    for (let obfuscated_elem of obfuscated_elems) {
+        let html = parser.parseFromString('<div>' + deobfuscateFUNKE(obfuscated_elem.innerText) + '</div>', 'text/html');
+        let par = html.querySelector('div');
+        obfuscated_elem.classList.remove('obfuscated');
+        obfuscated_elem.innerHTML = '';
+        obfuscated_elem.appendChild(par);
+    }
 }
 
 else if (matchDomain(["medium.com", "towardsdatascience.com"])) {
@@ -1414,7 +1427,7 @@ else if (matchDomain("stocknews.com")) {
         blurmes[i].setAttribute('id', 'blurmenot' + i);
 }
 
-else if (matchDomain(["haz.de", "lvz.de"])) {
+else if (domain = matchDomain(de_madsack_domains)) {
     let paidcontent_intro = document.querySelector('div.pdb-article-body-paidcontentintro');
     if (paidcontent_intro) {
         paidcontent_intro.classList.remove('pdb-article-body-paidcontentintro');
