@@ -172,6 +172,7 @@
         "*://*.journalnow.com/*",
         "*://*.kauppalehti.fi/*",
         "*://*.knack.be/*",
+        "*://*.kn-online.de/*",
         "*://*.kurier.at/*",
         "*://*.la-croix.com/*",
         "*://*.labusinessjournal.com/*",
@@ -206,6 +207,7 @@
         "*://*.limesonline.com/*",
         "*://*.lindependant.fr/*",
         "*://*.livemint.com/*",
+        "*://*.ln-online.de/*",
         "*://*.loebclassics.com/*",
         "*://*.lopinion.fr/*",
         "*://*.lorientlejour.com/*",
@@ -214,6 +216,7 @@
         "*://*.lvz.de/*",
         "*://*.marketwatch.com/*",
         "*://*.marmai.fi/*",
+        "*://*.maz-online.de/*",
         "*://*.mcall.com/*",
         "*://*.medium.com/*",
         "*://*.mediuutiset.fi/*",
@@ -230,6 +233,7 @@
         "*://*.nationalpost.com/*",
         "*://*.nationalreview.com/*",
         "*://*.nautil.us/*",
+        "*://*.neuepresse.de/*",
         "*://*.newcastleherald.com.au/*",
         "*://*.newrepublic.com/*",
         "*://*.news-gazette.com/*",
@@ -252,6 +256,7 @@
         "*://*.nzz.ch/*",
         "*://*.ocregister.com/*",
         "*://*.orlandosentinel.com/*",
+        "*://*.ostsee-zeitung.de/*",
         "*://*.paloaltoonline.com/*",
         "*://*.paris-normandie.fr/*",
         "*://*.parool.nl/*",
@@ -382,5 +387,5 @@
         "*://*.repstatic.it/*",
         "*://*.userzoom.com/*"
     ],
-    "version": "1.9.8.2"
+    "version": "1.9.8.3"
 }

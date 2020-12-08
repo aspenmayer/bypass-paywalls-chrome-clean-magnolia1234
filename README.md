@@ -37,7 +37,7 @@ If you're familiar with Git(Hub)-clients you can also clone this repo and update
 3. Enable Developer Mode.
 4. Drag your crx-file anywhere on the page to import it.
 5. If dragging crx-file does not work, try Chrome procedure (above).
-  
+
 * by default BPC has limited permissions, but you can opt-in to enable custom sites (and also clear cookies/block general paywall-scripts for non-listed sites).   
 * In Windows 'whitelist' BPC (run as administrator one of the reg-files in [whitelist-downloads](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/tree/master/whitelist)  
 If you already have 'whitelisted' extensions than you should change "1" to a new key (also change name of HLM-key for beta/developer versions of browsers).  
@@ -258,9 +258,15 @@ Groupe Rossel sites (grouped in options) like
 [Die Zeit](https://www.zeit.de) -
 [Frankfurter Allgemeine Zeitung](https://www.faz.net) -
 [Handelsblatt](https://www.handelsblatt.com) -
+[Kurier.at](https://kurier.at)  
+Madsack Mediengruppe sites (grouped in options) like
 [Hannoversche Allgemeine Zeitung](https://www.haz.de) -
-[Kurier.at](https://kurier.at) -
+[Kieler Nachrichten](https://www.kn-online.de) -
 [Leipziger Volkszeitung](https://www.lvz.de) -
+[Lübecker Nachrichten](https://www.ln-online.de) -
+[Märkische Allgemeine](https://www.maz-online.de) -
+[Neue Presse (Hannover)](https://www.neuepresse.de) -
+[Ostsee-Zeitung](https://www.ostsee-zeitung.de)  
 [Neue Ruhr Zeitung](https://www.nrz.de) -
 [Sächsische Zeitung](https://www.saechsische.de) -
 [Süddeutsche Zeitung](https://www.sueddeutsche.de) -

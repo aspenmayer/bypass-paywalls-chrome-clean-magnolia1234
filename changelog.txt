@@ -4,6 +4,7 @@ Changelog Bypass Paywalls Clean - Chrome
 Post-release
 Add Groupe EBRA (France)
 Add Groupe La Dépêche (France)
+Add Madsack Mediengruppe (Germany)
 Fix-update Funke Medien (obfuscated)
 
 * v1.9.8.0 (2020-12-06)
