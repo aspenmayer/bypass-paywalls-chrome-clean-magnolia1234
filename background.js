@@ -4,7 +4,7 @@
 var ext_api = (typeof browser === 'object') ? browser : chrome;
 var ext_name = ext_api.runtime.getManifest().name;
 
-const cs_limit_except = ['harpers.org', 'la-croix.com', 'lescienze.it'];
+const cs_limit_except = ['afr.com', 'harpers.org', 'la-croix.com', 'lescienze.it'];
 var currentTabUrl = '';
 var csDone = false;
 

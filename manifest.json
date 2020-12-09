@@ -378,6 +378,7 @@
         "*://*.emol.cl/*",
         "*://*.epimg.net/*",
         "*://*.flip-pay.com/*",
+        "*://*.ffx.io/*",
         "*://*.htmedia.in/*",
         "*://*.jsdelivr.net/*",
         "*://*.lightboxcdn.com/*",
@@ -388,5 +389,5 @@
         "*://*.repstatic.it/*",
         "*://*.userzoom.com/*"
     ],
-    "version": "1.9.8.3"
+    "version": "1.9.8.4"
 }
