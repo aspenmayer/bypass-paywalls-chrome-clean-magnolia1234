@@ -645,8 +645,6 @@ else if (matchDomain("afr.com")) {
         if (data_src)
             hidden_image.setAttribute('src', data_src);
     }
-    if (hidden_images)
-        csDone = true;
     let plista = document.querySelector('div[data-plista-placement="underArticle_Group"]');
     removeDOMElement(plista);
 }

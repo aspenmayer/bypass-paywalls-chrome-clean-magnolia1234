@@ -907,7 +907,6 @@ function updateBadge(activeTab) {
   }
 }
 
-
 function site_switch() {
     ext_api.tabs.query({
         active: true,
@@ -916,6 +915,11 @@ function site_switch() {
         if (tabs.length > 0 && tabs[0].url && tabs[0].url.indexOf("http") !== -1) {
             let currentUrl = tabs[0].url;
             let isDefaultSite = matchUrlDomain(defaultSites_grouped_domains, currentUrl);
+            if (!isDefaultSite) {
+                let isDefaultSiteGroup = matchUrlDomain(defaultSites_domains, currentUrl);
+                if (isDefaultSiteGroup)
+                    isDefaultSite = Object.keys(grouped_sites).find(key => grouped_sites[key].includes(isDefaultSiteGroup));
+            }
             let defaultSite_title = isDefaultSite ? Object.keys(defaultSites).find(key => defaultSites[key] === isDefaultSite) : '';
             let isCustomSite = matchUrlDomain(Object.values(customSites_domains), currentUrl);
             let customSite_title = isCustomSite ? Object.keys(customSites).find(key => customSites[key].domain === isCustomSite) : '';
@@ -955,7 +959,7 @@ function popup_show_toggle_tab(callback) {
     }, function (tabs) {
         if (tabs.length > 0 && tabs[0].url && tabs[0].url.indexOf("http") !== -1) {
             let currentUrl = tabs[0].url;
-            let isDefaultSiteGrouped = matchUrlDomain(defaultSites_grouped_domains, currentUrl);
+            let isDefaultSiteGrouped = matchUrlDomain(defaultSites_domains, currentUrl);
             let isDefaultSite = matchUrlDomain(defaultSites_domains, currentUrl);
             let isCustomSite = matchUrlDomain(Object.values(customSites_domains), currentUrl);
             let domain = isDefaultSiteGrouped || (!isDefaultSite && isCustomSite);
