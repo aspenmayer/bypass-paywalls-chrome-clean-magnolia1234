@@ -5,6 +5,7 @@ Post-release
 Add Groupe EBRA (France)
 Add Groupe La Dépêche (France)
 Add Madsack Mediengruppe (Germany)
+Fix-update Bloomberg (inline articles/adblocker)
 Fix-update Funke Medien (obfuscated)
 
 * v1.9.8.0 (2020-12-06)

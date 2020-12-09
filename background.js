@@ -180,7 +180,7 @@ var blockedRegexes = {
   'barrons.com': /cdn\.ampproject\.org\/v\d\/amp-access-.+\.js/,
   'belfasttelegraph.co.uk': /cdn\.flip-pay\.com\/clients\/inm\/flip-pay\.js/,
   'bizjournals.com': /(assets\.bizjournals\.com\/static\/js\/app\/cxense\.js|cdn\.cxense\.com\/.+)/,
-  'bloomberg.com': /cdn\.tinypass\.com\/.+/,
+  'bloomberg.com': /(cdn\.tinypass\.com\/|assets\.bwbx\.io\/s3\/fence\/)/,
   'bostonglobe.com': /meter\.bostonglobe\.com\/js\/.+/,
   'brisbanetimes.com.au': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
   'businessinsider.com': /cdn\.tinypass\.com\/.+/,
