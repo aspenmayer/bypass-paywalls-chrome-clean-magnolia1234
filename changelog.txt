@@ -8,6 +8,7 @@ Add Groupe La Dépêche (France)
 Add Madsack Mediengruppe (Germany)
 Fix-update Australian Financial Review (images)
 Fix-update Bloomberg (inline articles/adblocker)
+Fix-update El Pais (Spain)
 Fix-update Funke Medien (obfuscated)
 Update grouped sites (popup-toggle)
 

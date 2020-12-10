@@ -194,7 +194,7 @@ var blockedRegexes = {
   'elcomercio.pe': /elcomercio\.pe\/pf\/dist\/template\/elcomercio-noticia.+\.js/,
   'elmercurio.com': /\.(elmercurio\.com|emol\.cl)\/.+\/js\/((vendor\/)?modal|merPramV\d|PramModal\.min)\.js/,
   'elmundo.es': /cdn\.ampproject\.org\/v\d\/amp-access-.+\.js/,
-  'elpais.com': /.+\.epimg\.net\/js\/.+\/noticia\.min\.js/,
+  'elpais.com': /\.cdn\.arcpublishing\.com\/arc\/subs\/p\.min\.js/,
   'elperiodico.com': /cdn\.ampproject\.org\/v\d\/amp-(access|consent)-.+\.js/,
   'estadao.com.br': /acesso\.estadao\.com\.br\/paywall\/.+\/pw\.js/,
   'estrellavalpo.cl': /(.+\.mercuriovalpo\.cl\/impresa\/.+\/assets\/(vendor|\d)\.js|pram\.pasedigital\.cl\/API\/User\/Status\?)/,
