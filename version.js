@@ -18,16 +18,14 @@ fetch(proxyurl + manifest_new, { headers: { "Content-Type": "application/json", 
                 var version_len = (installType === 'development') ? 7 : 5;
                 var version_new = json['version'];
                 if (version_new.substring(0, version_len) > manifestData.version.substring(0, version_len)) {
-                    versionString_new.appendChild(document.createTextNode('* '));
                     anchorEl = document.createElement('a');
-                    anchorEl.text = 'New release v' + version_new;
+                    anchorEl.innerText = 'New release v' + version_new;
                     if (installType === 'development')
                         anchorEl.href = 'https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean';
                     else
                         anchorEl.href = 'https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/releases';
                     anchorEl.target = '_blank';
                     versionString_new.appendChild(anchorEl);
-                    versionString_new.appendChild(document.createTextNode(' *'));
                     if (!manifestData.name.includes('Clean')) {
                         let par = document.createElement('p');
                         par.innerHTML = "You've installed a fake version of BPC (check GitLab)";

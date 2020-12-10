@@ -3,13 +3,15 @@ var ext_api = (typeof browser === 'object') ? browser : chrome;
 var domain;
 var csDone = false;
 
-// clean local storage of sites (with an exemption for hold-list)
-var arr_localstorage_hold = ['charliehebdo.fr', 'elmundo.es', 'kurier.at', 'nknews.org', 'nrz.de', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk', 'waz.de', 'wp.de', 'wr.de'];
+var de_funke_media_domains = ['abendblatt.de', 'braunschweiger-zeitung.de', 'morgenpost.de', 'nrz.de', 'waz.de', 'wp.de', 'wr.de'];
 var de_madsack_domains = ['haz.de', 'kn-online.de', 'ln-online.de', 'lvz.de', 'maz-online.de', 'neuepresse.de', 'ostsee-zeitung.de'];
 var es_grupo_vocento_domains = ['diariosur.es', 'diariovasco.com', 'elcomercio.es', 'elcorreo.com', 'eldiariomontanes.es', 'elnortedecastilla.es', 'hoy.es', 'ideal.es', 'larioja.com', 'laverdad.es', 'lavozdigital.es'];
 var fr_groupe_ebra_domains = ['bienpublic.com', 'dna.fr', 'estrepublicain.fr', 'lalsace.fr', 'ledauphine.com', 'lejsl.com', 'leprogres.fr', 'republicain-lorrain.fr', 'vosgesmatin.fr'];
 var fr_groupe_la_depeche_domains = ['centrepresseaveyron.fr', 'ladepeche.fr', 'lindependant.fr', 'midi-olympique.fr', 'midilibre.fr', 'nrpyrenees.fr', 'petitbleu.fr'];
-arr_localstorage_hold = arr_localstorage_hold.concat(es_grupo_vocento_domains);
+
+// clean local storage of sites (with an exemption for hold-list)
+var arr_localstorage_hold = ['charliehebdo.fr', 'elmundo.es', 'kurier.at', 'nknews.org', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk'];
+arr_localstorage_hold = arr_localstorage_hold.concat(de_funke_media_domains, es_grupo_vocento_domains);
 if (!matchDomain(arr_localstorage_hold)){
     window.localStorage.clear();
 }
@@ -1844,7 +1846,7 @@ else if ((domain = matchDomain(fr_groupe_ebra_domains)) && window.location.href.
     }
 }
 
-else if (matchDomain(["nrz.de", "waz.de", "wp.de", "wr.de"])) {
+else if (matchDomain(de_funke_media_domains)) {
     let obfuscated_elems = document.querySelectorAll('.obfuscated');
     let parser = new DOMParser();
     for (let obfuscated_elem of obfuscated_elems) {

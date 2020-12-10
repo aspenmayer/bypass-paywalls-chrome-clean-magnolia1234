@@ -76,7 +76,6 @@ var allow_cookies_default = [
   'nationalreview.com',
   'newrepublic.com',
   'noordhollandsdagblad.nl',
-  'nrz.de',
   'nybooks.com',
   'nytimes.com',
   'nzz.ch',
@@ -100,11 +99,8 @@ var allow_cookies_default = [
   'timeshighereducation.com',
   'variety.com',
   'washingtonpost.com',
-  'waz.de',
   'wiwo.de',
   'worldpoliticsreview.com',
-  'wp.de',
-  'wr.de',
   'zeit.de',
 ];
 var allow_cookies = allow_cookies_default.slice();
@@ -246,7 +242,6 @@ var blockedRegexes = {
   'newrepublic.com': /.+\.onecount\.net\/js\/.+/,
   'newsweek.com': /js\.pelcro\.com\/.+/,
   'newyorker.com': /.+\.newyorker\.com\/verso\/static\/presenter-articles.+\.js/,
-  'nrz.de': /(cdn\.cxense\.com\/.+|cdn\.tinypass\.com\/.+)/,
   'nytimes.com': /(meter-svc\.nytimes\.com\/meter\.js|mwcm\.nyt\.com\/.+\.js)/,
   'quotidiano.net': /cdn\.tinypass\.com\/.+/,
   'repubblica.it': /scripts\.repubblica\.it\/pw\/pw\.js.+/,
@@ -277,9 +272,6 @@ var blockedRegexes = {
   'variety.com': /cdn\.cxense\.com\/.+/,
   'washingtonpost.com': /.+\.washingtonpost\.com\/.+\/pwapi-proxy\.min\.js/,
   'watoday.com.au': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
-  'waz.de': /(cdn\.cxense\.com\/.+|cdn\.tinypass\.com\/.+)/,
-  'wp.de': /(cdn\.cxense\.com\/.+|cdn\.tinypass\.com\/.+)/,
-  'wr.de': /(cdn\.cxense\.com\/.+|cdn\.tinypass\.com\/.+)/,
   'wsj.com': /(cdn\.ampproject\.org\/v\d\/amp-access-.+\.js|cdn\.cxense\.com\/.+)/
 };
 
@@ -287,6 +279,7 @@ const ad_region_domains = ['bd.nl', 'ed.nl', 'tubantia.nl', 'bndestem.nl', 'pzc.
 const au_comm_media_domains = ['bendigoadvertiser.com.au', 'bordermail.com.au', 'canberratimes.com.au', 'centralwesterndaily.com.au', 'dailyadvertiser.com.au', 'dailyliberal.com.au', 'examiner.com.au', 'illawarramercury.com.au', 'newcastleherald.com.au', 'northerndailyleader.com.au', 'portnews.com.au', 'standard.net.au', 'theadvocate.com.au', 'thecourier.com.au', 'westernadvocate.com.au'];
 const au_news_corp_domains = ['adelaidenow.com.au', 'cairnspost.com.au', 'couriermail.com.au', 'dailytelegraph.com.au', 'geelongadvertiser.com.au', 'goldcoastbulletin.com.au', 'heraldsun.com.au', 'ntnews.com.au', 'theaustralian.com.au', 'themercury.com.au', 'townsvillebulletin.com.au', 'weeklytimesnow.com.au'];
 const au_prov_news_domains = ['news-mail.com.au', 'frasercoastchronicle.com.au', 'gladstoneobserver.com.au', 'dailyexaminer.com.au', 'dailymercury.com.au', 'themorningbulletin.com.au', 'sunshinecoastdaily.com.au', 'gympietimes.com.au', 'northernstar.com.au', 'qt.com.au', 'thechronicle.com.au', 'warwickdailynews.com.au'];
+const de_funke_media_domains = ['abendblatt.de', 'braunschweiger-zeitung.de', 'morgenpost.de', 'nrz.de', 'otz.de', 'thueringer-allgemeine.de', 'waz.de', 'wp.de', 'wr.de'];
 const de_madsack_domains = ['haz.de', 'kn-online.de', 'ln-online.de', 'lvz.de', 'maz-online.de', 'neuepresse.de', 'ostsee-zeitung.de'];
 const es_grupo_vocento_domains = ['diariosur.es', 'diariovasco.com', 'elcomercio.es', 'elcorreo.com', 'eldiariomontanes.es', 'elnortedecastilla.es', 'hoy.es', 'ideal.es', 'larioja.com', 'laverdad.es', 'lavozdigital.es'];
 const fi_alma_talent_domains = ['arvopaperi.fi', 'kauppalehti.fi', 'marmai.fi', 'mediuutiset.fi', 'mikrobitti.fi', 'talouselama.fi', 'tekniikkatalous.fi', 'tivi.fi', 'uusisuomi.fi'];
@@ -307,7 +300,7 @@ const userAgentMobileB = "Chrome/80.0.3987.92 Mobile Safari/537.36 (compatible; 
 var enabledSites = [];
 var disabledSites = [];
 var defaultSites_grouped_domains = Object.values(defaultSites);
-var defaultSites_domains = defaultSites_grouped_domains.concat(ad_region_domains, au_comm_media_domains, au_news_corp_domains, au_prov_news_domains, de_madsack_domains, es_grupo_vocento_domains, fi_alma_talent_domains, fr_be_groupe_rossel_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, ilmessaggero_domains, nymag_domains);
+var defaultSites_domains = defaultSites_grouped_domains.concat(ad_region_domains, au_comm_media_domains, au_news_corp_domains, au_prov_news_domains, de_funke_media_domains, de_madsack_domains, es_grupo_vocento_domains, fi_alma_talent_domains, fr_be_groupe_rossel_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, ilmessaggero_domains, nymag_domains);
 var customSites = {};
 var customSites_domains = [];
 
@@ -347,6 +340,7 @@ var grouped_sites = {
 '###_au_comm_media': au_comm_media_domains,
 '###_au_news_corp': au_news_corp_domains,
 '###_au_prov_news': au_prov_news_domains,
+'###_de_funke_medien': de_funke_media_domains,
 '###_de_madsack': de_madsack_domains,
 '###_es_grupo_vocento': es_grupo_vocento_domains,
 '###_fi_alma_talent': fi_alma_talent_domains,
@@ -384,6 +378,10 @@ function add_grouped_sites(init_rules) {
     for (let domain of au_prov_news_domains) {
       allow_cookies.push(domain);
       use_google_bot.push(domain);
+    }
+    for (let domain of de_funke_media_domains) {
+      allow_cookies.push(domain);
+      blockedRegexes[domain] = /(cdn\.cxense\.com\/.+|cdn\.tinypass\.com\/.+)/;
     }
     for (let domain of es_grupo_vocento_domains) {
       allow_cookies.push(domain);

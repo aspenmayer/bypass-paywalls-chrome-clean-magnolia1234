@@ -256,7 +256,17 @@ Groupe Rossel sites (grouped in options) like
 ##### Germany/Austria
 [Deutsche Wirtschafts Nachrichten](https://deutsche-wirtschafts-nachrichten.de) -
 [Die Zeit](https://www.zeit.de) -
-[Frankfurter Allgemeine Zeitung](https://www.faz.net) -
+[Frankfurter Allgemeine Zeitung](https://www.faz.net)  
+Funke Mediengruppe sites (grouped in options) like
+[Berliner Morgenpost](https://www.morgenpost.de) -
+[Braunschweiger Zeitung](https://www.braunschweiger-zeitung.de) -
+[Hamburger Abendblatt](https://www.abendblatt.de) -
+[Neue Ruhr Zeitung](https://www.nrz.de) -
+[Ostthüringer Zeitung](https://www.otz.de) -
+[Thüringer Allgemeine](https://www.thueringer-allgemeine.de) -
+[Westdeutsche Allgemeine Zeitung](https://www.waz.de) -
+[Westfalenpost](https://www.wp.de) -
+[Westfälische Rundschau](https://www.wr.de)  
 [Handelsblatt](https://www.handelsblatt.com) -
 [Kurier.at](https://kurier.at)  
 Madsack Mediengruppe sites (grouped in options) like
@@ -267,12 +277,8 @@ Madsack Mediengruppe sites (grouped in options) like
 [Märkische Allgemeine](https://www.maz-online.de) -
 [Neue Presse (Hannover)](https://www.neuepresse.de) -
 [Ostsee-Zeitung](https://www.ostsee-zeitung.de)  
-[Neue Ruhr Zeitung](https://www.nrz.de) -
 [Sächsische Zeitung](https://www.saechsische.de) -
 [Süddeutsche Zeitung](https://www.sueddeutsche.de) -
-[Westdeutsche Allgemeine Zeitung](https://www.waz.de) -
-[Westfalenpost](https://www.wp.de) -
-[Westfälische Rundschau](https://www.wr.de) -
 [WirtschaftsWoche](https://www.wiwo.de)
 
 ##### Italy
