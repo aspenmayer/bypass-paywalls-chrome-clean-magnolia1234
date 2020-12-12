@@ -52,6 +52,7 @@ var defaultSites =
   "El Periódico": "elperiodico.com",
   "Encyclopedia Britannica": "britannica.com",
   "Esprit": "esprit.presse.fr",
+  "EUobserver": "euobserver.com",
   "Eureka Report": "eurekareport.com.au",
   "Exame": "exame.abril.com.br",
   "Financial News": "fnlondon.com",

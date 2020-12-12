@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add Berlingske (Denmark)
+Add EUobserver
 Add Funke Mediengruppe (Germany)
 Add Groupe EBRA (France)
 Add Groupe La Dépêche (France)

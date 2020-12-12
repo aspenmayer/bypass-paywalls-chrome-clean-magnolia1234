@@ -179,6 +179,8 @@ Visit the [Firefox repository](https://gitlab.com/magnolia1234/bypass-paywalls-f
 
 #### Europe
 
+[EUobserver](https://euobserver.com)
+
 ##### United Kingdom/Ireland
 [Belfast Telegraph](https://www.belfasttelegraph.co.uk) -
 [Financial News](https://www.fnlondon.com) -
