@@ -193,6 +193,10 @@ Visit the [Firefox repository](https://gitlab.com/magnolia1234/bypass-paywalls-f
 [The Times](https://www.thetimes.co.uk) -
 [The Times Literary Supplement](https://www.the-tls.co.uk)
 
+##### Denmark
+
+[Berlingske](https://www.berlingske.dk)
+
 ##### Finland
 Alma Talent sites (grouped in options) like
 [Arvopaperi](https://www.arvopaperi.fi) -

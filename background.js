@@ -31,6 +31,7 @@ const restrictions = {
 var allow_cookies_default = [
   'abc.es',
   'belfasttelegraph.co.uk',
+  'berlingske.dk',
   'bostonglobe.com',
   'business-standard.com',
   'charliehebdo.fr',
@@ -136,6 +137,7 @@ var remove_cookies_select_drop = {
 var use_google_bot_default = [
   'abc.es',
   'barrons.com',
+  'berlingske.dk',
   'deutsche-wirtschafts-nachrichten.de',
   'df.cl',
   'dn.se',

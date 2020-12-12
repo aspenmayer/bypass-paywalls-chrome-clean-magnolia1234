@@ -15,6 +15,7 @@ var defaultSites =
   "Barron's": "barrons.com",
   "BBC History Extra": "historyextra.com",
   "Belfast Telegraph (opt-in)": "belfasttelegraph.co.uk",
+  "Berlingske": "berlingske.dk",
   "Bloomberg": "bloomberg.com",
   "Bloomberg Quint (free articles only)": "bloombergquint.com",
   "Brisbane Times": "brisbanetimes.com.au",
