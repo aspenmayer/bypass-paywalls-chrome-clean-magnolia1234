@@ -200,6 +200,7 @@ Visit the [Firefox repository](https://gitlab.com/magnolia1234/bypass-paywalls-f
 [Berlingske](https://www.berlingske.dk)
 
 ##### Finland
+[Helsingin Sanomat](https://www.hs.fi)\
 Alma Talent sites (grouped in options) like
 [Arvopaperi](https://www.arvopaperi.fi) -
 [Kauppalehti](https://www.kauppalehti.fi) -
@@ -209,15 +210,25 @@ Alma Talent sites (grouped in options) like
 [Talouselämä](https://www.talouselama.fi) -
 [Tekniikka & Talous](https://www.tekniikkatalous.fi) -
 [Tivi](https://www.tivi.fi) -
-[Uusi Suomi](https://www.uusisuomi.fi)\
-[Helsingin Sanomat](https://www.hs.fi)
+[Uusi Suomi](https://www.uusisuomi.fi)
 
 ##### France/Wallonia
 [Alternatives Economiques](https://www.alternatives-economiques.fr) -
 [Challenges](https://www.challenges.fr) –
 [Charlie Hebdo](https://charliehebdo.fr) -
-[Esprit](https://esprit.presse.fr)  
-Groupe EBRA sites (grouped in options) like
+[Esprit](https://esprit.presse.fr) -
+[L'Opinion](https://www.lopinion.fr) –
+[La Croix](https://www.la-croix.com) -
+[Le Journal du Dimanche](https://lejdd.fr) –
+[Le Journal du Net](https://www.journaldunet.com) -
+[Le Parisien](https://www.leparisien.fr) -
+[Les Échos](https://www.lesechos.fr) -
+[Libération](https://www.liberation.fr)* –
+[Science & Vie](https://www.science-et-vie.com) -
+[Sciences et Avenir](https://www.sciencesetavenir.fr) -
+[Valeurs Actuelles](https://www.valeursactuelles.com)\
+Grouped in options:\
+Groupe EBRA sites like
 [Dernières Nouvelles d'Alsace](https://www.dna.fr) -
 [L'Alsace](https://www.lalsace.fr) -
 [L'Est Républicain](https://www.estrepublicain.fr) -
@@ -226,8 +237,8 @@ Groupe EBRA sites (grouped in options) like
 [Le Journal de Saône-et-Loire](https://www.lejsl.com) -
 [Le Progrès](https://www.leprogres.fr) -
 [Le Républicain Lorrain](https://www.republicain-lorrain.fr) -
-[Vosges Matin](https://www.vosgesmatin.fr)
-Groupe La Dépêche sites (grouped in options) like
+[Vosges Matin](https://www.vosgesmatin.fr)\
+Groupe La Dépêche sites like
 [Centre Presse](https://www.centrepresseaveyron.fr) –
 [L'Indépendant](https://www.lindependant.fr) -
 [La Dépêche du Midi](https://www.ladepeche.fr) –
@@ -247,23 +258,19 @@ Groupe Rossel sites (grouped in options) like
 [Libération Champagne](https://www.liberation-champagne.fr) -
 [Nord Éclair](https://www.nordeclair.fr) -
 [Paris Normandie](https://www.paris-normandie.fr) -
-[SudInfo](https://www.sudinfo.be)  
-[L'Opinion](https://www.lopinion.fr) –
-[La Croix](https://www.la-croix.com) -
-[Le Journal du Dimanche](https://lejdd.fr) –
-[Le Journal du Net](https://www.journaldunet.com) -
-[Le Parisien](https://www.leparisien.fr) -
-[Les Échos](https://www.lesechos.fr) -
-[Libération](https://www.liberation.fr)* –
-[Science & Vie](https://www.science-et-vie.com) -
-[Sciences et Avenir](https://www.sciencesetavenir.fr) -
-[Valeurs Actuelles](https://www.valeursactuelles.com)
+[SudInfo](https://www.sudinfo.be)
 
 ##### Germany/Austria
 [Deutsche Wirtschafts Nachrichten](https://deutsche-wirtschafts-nachrichten.de) -
 [Die Zeit](https://www.zeit.de) -
-[Frankfurter Allgemeine Zeitung](https://www.faz.net)  
-Funke Mediengruppe sites (grouped in options) like
+[Frankfurter Allgemeine Zeitung](https://www.faz.net) -
+[Handelsblatt](https://www.handelsblatt.com) -
+[Kurier.at](https://kurier.at) -
+[Sächsische Zeitung](https://www.saechsische.de) -
+[Süddeutsche Zeitung](https://www.sueddeutsche.de) -
+[WirtschaftsWoche](https://www.wiwo.de)\
+Grouped in options:\
+Funke Mediengruppe sites like
 [Berliner Morgenpost](https://www.morgenpost.de) -
 [Braunschweiger Zeitung](https://www.braunschweiger-zeitung.de) -
 [Hamburger Abendblatt](https://www.abendblatt.de) -
@@ -272,38 +279,34 @@ Funke Mediengruppe sites (grouped in options) like
 [Thüringer Allgemeine](https://www.thueringer-allgemeine.de) -
 [Westdeutsche Allgemeine Zeitung](https://www.waz.de) -
 [Westfalenpost](https://www.wp.de) -
-[Westfälische Rundschau](https://www.wr.de)  
-[Handelsblatt](https://www.handelsblatt.com) -
-[Kurier.at](https://kurier.at)  
-Madsack Mediengruppe sites (grouped in options) like
+[Westfälische Rundschau](https://www.wr.de)\
+Madsack Mediengruppe sites like
 [Hannoversche Allgemeine Zeitung](https://www.haz.de) -
 [Kieler Nachrichten](https://www.kn-online.de) -
 [Leipziger Volkszeitung](https://www.lvz.de) -
 [Lübecker Nachrichten](https://www.ln-online.de) -
 [Märkische Allgemeine](https://www.maz-online.de) -
 [Neue Presse (Hannover)](https://www.neuepresse.de) -
-[Ostsee-Zeitung](https://www.ostsee-zeitung.de)  
-[Sächsische Zeitung](https://www.saechsische.de) -
-[Süddeutsche Zeitung](https://www.sueddeutsche.de) -
-[WirtschaftsWoche](https://www.wiwo.de)
+[Ostsee-Zeitung](https://www.ostsee-zeitung.de)
 
 ##### Italy
 [Corriere Della Sera](https://www.corriere.it) -
 [Domani](https://editorialedomani.it) -
 [GElocal.it](https://quotidiani.gelocal.it) -
 [Il Fatto Quotidiano](https://www.ilfattoquotidiano.it) -
-[Il Manifesto](https://ilmanifesto.it)  
-[Il Messaggero](https://www.ilmessaggero.it) and regional sites (grouped in options) like
-[Corriere Adriatico](https://www.corriereadriatico.it) -
-[Il Gazzettino](https://www.ilgazzettino.it) -
-[Il Mattino](https://www.ilmattino.it) -
-[Quotidiano di Puglia](https://www.quotidianodipuglia.it)  
+[Il Manifesto](https://ilmanifesto.it) -
 [Il Resto del Carlino](https://www.ilrestodelcarlino.it) -
 [La Repubblica](https://www.repubblica.it) -
 [La Stampa](https://www.lastampa.it) -
 [Le Scienze](https://www.lescienze.it) -
 [LimesOnline (it/en)](https://www.limesonline.com) -
-[Quotidiano.net](https://www.quotidiano.net)
+[Quotidiano.net](https://www.quotidiano.net)\
+Grouped in options:\
+[Il Messaggero](https://www.ilmessaggero.it) and regional sites like
+[Corriere Adriatico](https://www.corriereadriatico.it) -
+[Il Gazzettino](https://www.ilgazzettino.it) -
+[Il Mattino](https://www.ilmattino.it) -
+[Quotidiano di Puglia](https://www.quotidianodipuglia.it)
 
 ##### Netherlands/Flanders
 [Algemeen Dagblad](https://www.ad.nl) and regional ADR sites (grouped in options) like
@@ -335,7 +338,12 @@ Madsack Mediengruppe sites (grouped in options) like
 [Republic.ru](https://republic.ru)
 
 ##### Spain
-[ABC](https://www.abc.es)  and regional sites from Grupo Vocento (grouped in options) like
+[ABC](https://www.abc.es) -
+[El Mundo](https://www.elmundo.es) -
+[El País](https://elpais.com) -
+[El Periódico](https://www.elperiodico.com)\
+Grouped in options:\
+Grupo Vocento (ABC) regional sites like
 [Diario Vasco](https://www.diariovasco.com) -
 [El Comercio](https://www.elcomercio.es) -
 [El Correo](https://www.elcorreo.com) -
@@ -346,10 +354,7 @@ Madsack Mediengruppe sites (grouped in options) like
 [La Rioja](https://www.larioja.com) -
 [La Verdad](https://www.laverdad.es) -
 [La Voz de Cádiz](https://www.lavozdigital.es) -
-[Sur](https://www.diariosur.es)  
-[El Mundo](https://www.elmundo.es) -
-[El País](https://elpais.com) -
-[El Periódico](https://www.elperiodico.com)
+[Sur](https://www.diariosur.es)
 
 ##### Sweden
 [Dagens Nyheter](https://www.dn.se)
@@ -405,7 +410,7 @@ Madsack Mediengruppe sites (grouped in options) like
 [The Standard](https://www.standard.net.au) -
 [Western Advocate](https://www.westernadvocate.com.au)
 
-#### > Australian Provincial Newspapers (all, grouped in options)
+##### > Australian Provincial Newspapers (all, grouped in options)
 For example:  
 [Bundaberg News Mail](https://www.news-mail.com.au) -
 [Fraser Coast Chronicle](https://www.frasercoastchronicle.com.au) -
