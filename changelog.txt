@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Fix-update Tech in Asia (homepage)
 
 * v1.9.9.0 (2020-12-13)
 Add Berlingske (Denmark)

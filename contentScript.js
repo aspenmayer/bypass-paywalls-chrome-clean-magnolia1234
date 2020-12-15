@@ -555,13 +555,11 @@ else if (matchDomain("hbr.org")) {
 }
 
 else if (matchDomain("techinasia.com")) {
-    const paywall = document.querySelector('.paywall-content');
-    if (paywall){
+    let paywall = document.querySelector('.paywall-content');
+    if (paywall)
         paywall.classList.remove('paywall-content');
-        csDone = true;
-    }
-    const splash_subscribe = document.querySelector('.splash-subscribe');
-    const paywall_hard = document.querySelector('.paywall-hard');
+    let splash_subscribe = document.querySelector('.splash-subscribe');
+    let paywall_hard = document.querySelector('.paywall-hard');
     removeDOMElement(splash_subscribe, paywall_hard);
 }
 

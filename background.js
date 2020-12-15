@@ -4,7 +4,7 @@
 var ext_api = (typeof browser === 'object') ? browser : chrome;
 var ext_name = ext_api.runtime.getManifest().name;
 
-const cs_limit_except = ['afr.com', 'harpers.org', 'la-croix.com', 'lescienze.it'];
+const cs_limit_except = ['afr.com', 'harpers.org', 'la-croix.com', 'lescienze.it', 'techinasia.com'];
 var currentTabUrl = '';
 var csDone = false;
 
@@ -13,7 +13,7 @@ var csDone = false;
 // var defaultSites = {};
 
 const restrictions = {
-  'barrons.com': /.+barrons\.com\/(amp\/)?article(s)?\/.+/,
+  'barrons.com': /.+\.barrons\.com\/(amp\/)?article(s)?\/.+/,
   'bloombergquint.com': /^((?!\.bloombergquint\.com\/bq-blue-exclusive\/).)*$/,
   'elcomercio.pe': /.+\/elcomercio\.pe\/.+((\w)+(\-)+){3,}.+/,
   'faz.net': /^((?!\/zeitung\.faz\.net\/).)*$/,
@@ -22,7 +22,8 @@ const restrictions = {
   'hs.fi': /^((?!\/.+\.hs\.fi\/paivanlehti\/).)*$/,
   'globo.com': /^((?!\/valor\.globo\.com\/).)*$/,
   'quora.com': /^((?!quora\.com\/search\?q=).)*$/,
-  'seekingalpha.com': /.+seekingalpha\.com\/article\/.+/,
+  'seekingalpha.com': /.+\/seekingalpha\.com\/article\/.+/,
+  'techinasia.com': /.+\.techinasia\.com\/.+((\w)+(\-)+){3,}.+/,
   'wsj.com': /^((?!\/cn\.wsj\.com\/).)*$/
 }
 
@@ -119,6 +120,7 @@ const remove_cookies_select_hold = {
   'groene.nl': ['accept-cookies', 'popunder-hidden'],
   'newstatesman.com': ['STYXKEY_nsversion'],
   'seattletimes.com': ['st_newsletter_splash_seen'],
+  'telegraaf.nl': 'euconsent-v2',
   'telegraph.co.uk': ['consentUUID'],
   'qz.com': ['gdpr'],
   'wsj.com': ['wsjregion', 'ResponsiveConditional_initialBreakpoint']
@@ -973,7 +975,7 @@ function popup_show_toggle_tab(callback) {
 // remove cookies after page load
 ext_api.webRequest.onCompleted.addListener(function (details) {
   var domainVar = matchUrlDomain(remove_cookies, details.url);
-  if (!domainVar || !enabledSites.includes(domainVar))
+  if ((!['main_frame', 'xmlhttprequest', 'other'].includes(details.type)) || !domainVar || !enabledSites.includes(domainVar))
     return;
   ext_api.cookies.getAll({
     domain: domainVar
