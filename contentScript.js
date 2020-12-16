@@ -1462,6 +1462,23 @@ else if (matchDomain("foreignaffairs.com")) {
     let article_dropcap = document.querySelectorAll('.article-dropcap');
     for (let elem of article_dropcap)
         elem.classList.add('loaded');
+    let hidden_images = document.querySelectorAll('img[src^="data:image/"]');
+    for (let hidden_image of hidden_images) {
+        var data_src = hidden_image.getAttribute("data-src");
+        if (data_src) {
+            hidden_image.setAttribute('src', data_src);
+            hidden_image.removeAttribute('class');
+        }
+    }
+    if (window.location.href.includes('/interviews/')) {
+        let img_header = document.querySelector('.interview-header > div');
+        if (img_header) {
+            let img_src = img_header.getAttribute("data-src");
+            let img_elem = document.createElement('img');
+            img_elem.src = img_src;
+            img_header.appendChild(img_elem);
+        }
+    }
 }
 
 else if (matchDomain("kurier.at")) {
