@@ -398,10 +398,7 @@ function add_grouped_sites(init_rules) {
       use_google_bot.push(domain);
     }
     for (let domain of fr_be_groupe_rossel_domains) {
-      if (['paris-normandie.fr'].includes(domain)) {
-        allow_cookies.push(domain);
-        blockedRegexes[domain] = /.+\.poool\.fr\/.+/;
-      } else if (!['lecho.be'].includes(domain)) {
+      if (!['lecho.be'].includes(domain)) {
         allow_cookies.push(domain);
         use_google_bot.push(domain);
       }

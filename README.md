@@ -250,7 +250,7 @@ Groupe Rossel sites (grouped in options) like
 [L'Aisne nouvelle](https://www.aisnenouvelle.fr) -
 [L'Ardennais](https://www.lardennais.fr) -
 [L'Est-Éclair](https://www.lest-eclair.fr) -
-[L'Union - L'Ardennais](https://www.lunion.fr) -
+[L'Union](https://www.lunion.fr) -
 [L'Écho](https://lecho.be) -
 [La Voix du Nord](https://www.lavoixdunord.fr) -
 [Le Courrier picard](https://www.courrier-picard.fr) -
