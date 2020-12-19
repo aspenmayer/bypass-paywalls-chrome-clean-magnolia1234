@@ -265,6 +265,7 @@ Groupe Rossel sites (grouped in options) like
 [Die Zeit](https://www.zeit.de) -
 [Frankfurter Allgemeine Zeitung](https://www.faz.net) -
 [Handelsblatt](https://www.handelsblatt.com) -
+[Krautreporter.de](https://krautreporter.de) -
 [Kurier.at](https://kurier.at) -
 [Piqd.de](https://www.piqd.de) -
 [Sächsische Zeitung](https://www.saechsische.de) -

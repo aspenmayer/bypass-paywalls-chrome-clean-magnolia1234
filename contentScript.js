@@ -1844,6 +1844,18 @@ else if (matchDomain(de_funke_media_domains)) {
     }
 }
 
+else if (matchDomain('krautreporter.de')) {
+    let paywall = document.querySelector('.article-paywall');
+    if (paywall) {
+        let paywall_divider = document.querySelector('.js-paywall-divider');
+        let steady_checkout = document.querySelector('#steady-checkout');
+        removeDOMElement(paywall, paywall_divider, steady_checkout);
+        let blurred = document.querySelectorAll('.blurred');
+        for (let elem of blurred)
+            elem.classList.remove('blurred', 'json-ld-paywall-marker', 'hidden@print');
+    }
+}
+
 else
     csDone = true;
 

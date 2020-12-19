@@ -177,6 +177,7 @@
         "*://*.kauppalehti.fi/*",
         "*://*.kn-online.de/*",
         "*://*.knack.be/*",
+        "*://*.krautreporter.de/*",
         "*://*.kurier.at/*",
         "*://*.la-croix.com/*",
         "*://*.labusinessjournal.com/*",
@@ -396,5 +397,5 @@
         "*://*.repstatic.it/*",
         "*://*.userzoom.com/*"
     ],
-    "version": "1.9.9.3"
+    "version": "1.9.9.4"
 }

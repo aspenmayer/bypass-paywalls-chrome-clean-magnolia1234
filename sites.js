@@ -95,6 +95,7 @@ var defaultSites =
   "Intelligent Investor": "intelligentinvestor.com.au",
   "Irish Independent (opt-in)": "independent.ie",
   "Knack.be": "knack.be",
+  "Krautreporter.de": "krautreporter.de",
   "Kurier.at": "kurier.at",
   "L'Opinion": "lopinion.fr",
   "L'Orient-Le Jour": "lorientlejour.com",
