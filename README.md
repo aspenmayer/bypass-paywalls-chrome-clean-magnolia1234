@@ -266,6 +266,7 @@ Groupe Rossel sites (grouped in options) like
 [Frankfurter Allgemeine Zeitung](https://www.faz.net) -
 [Handelsblatt](https://www.handelsblatt.com) -
 [Kurier.at](https://kurier.at) -
+[Piqd.de](https://www.piqd.de) -
 [Sächsische Zeitung](https://www.saechsische.de) -
 [Süddeutsche Zeitung](https://www.sueddeutsche.de) -
 [WirtschaftsWoche](https://www.wiwo.de)\

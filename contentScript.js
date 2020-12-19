@@ -896,7 +896,7 @@ else if (matchDomain('faz.net')) {
                             str = str.replace(/(?:^|[\w\"\“])(\.|\?|!)(?=[A-ZÖÜ\„][A-Za-zÀ-ÿ\„]{1,})/gm, "$&\n\n");
                             str = str.replace(/([a-z\"\“])(?=[A-Z](?=[A-Za-zÀ-ÿ]+))/gm, "$&\n\n");
                             // exceptions: names with alternating lower/uppercase (no general fix)
-                            let str_rep_arr = ["BaFin", "BerlHG", "BfArM", "BilMoG", "DiGA", "EuGH", "GlaxoSmithKline", "IfSG", "iMessage", "iOS", "iPad", "iPhone", "medRxiv", "mRNA", "PlosOne", "StVO"];
+                            let str_rep_arr = ["BaFin", "BerlHG", "BfArM", "BilMoG", "DiGA", "EuGH", "eWpG", "GlaxoSmithKline", "IfSG", "iMessage", "iOS", "iPad", "iPhone", "medRxiv", "mRNA", "PlosOne", "StVO"];
                             let str_rep_split, str_rep_src;
                             for (let str_rep of str_rep_arr) {
                                 str_rep_split = str_rep.split(/([a-z]+)(?=[A-Z](?=[A-Za-z]+))/);
@@ -1470,6 +1470,9 @@ else if (matchDomain("foreignaffairs.com")) {
             hidden_image.removeAttribute('class');
         }
     }
+    let img_list = document.querySelectorAll('.magazine-list-article img');
+    for (let img_elem of img_list)
+        img_elem.setAttribute('class', 'mb-4');
     if (window.location.href.includes('/interviews/')) {
         let img_header = document.querySelector('.interview-header > div');
         if (img_header) {

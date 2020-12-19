@@ -2,8 +2,9 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
-Fix-update Paris-Normandie.fr (Groupe Rossel)
+Add Piqd (Germany)
 Fix-update Foreign Affairs
+Fix-update Paris-Normandie.fr (Groupe Rossel)
 Fix-update Tech in Asia (homepage)
 
 * v1.9.9.0 (2020-12-13)

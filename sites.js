@@ -146,6 +146,7 @@ var defaultSites =
   "Palo Alto Online": "paloaltoonline.com",
   "Parool": "parool.nl",
   "Philosophy Now": "philosophynow.org",
+  "Piqd.de": "piqd.de",
   "Pittsburgh Post Gazette": "post-gazette.com",
   "Quartz (free articles only)": "qz.com",
   "Quora": "quora.com",
