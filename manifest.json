@@ -397,5 +397,5 @@
         "*://*.repstatic.it/*",
         "*://*.userzoom.com/*"
     ],
-    "version": "1.9.9.4"
+    "version": "2.0.0.0"
 }
