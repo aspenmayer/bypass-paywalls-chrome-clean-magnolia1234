@@ -1856,6 +1856,11 @@ else if (matchDomain('krautreporter.de')) {
     }
 }
 
+else if (matchDomain('nouvelobs.com')) {
+    let paywall = document.querySelector('.paywall');
+    removeDOMElement(paywall);
+}
+
 else
     csDone = true;
 

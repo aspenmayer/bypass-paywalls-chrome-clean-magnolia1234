@@ -97,6 +97,7 @@ var defaultSites =
   "Knack.be": "knack.be",
   "Krautreporter.de": "krautreporter.de",
   "Kurier.at": "kurier.at",
+  "L'Obs": "nouvelobs.com",
   "L'Opinion": "lopinion.fr",
   "L'Orient-Le Jour": "lorientlejour.com",
   "La Croix": "la-croix.com",
