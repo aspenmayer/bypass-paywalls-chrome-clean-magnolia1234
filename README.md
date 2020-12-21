@@ -225,6 +225,7 @@ Alma Talent sites (grouped in options) like
 [Le Parisien](https://www.leparisien.fr) -
 [Les Échos](https://www.lesechos.fr) -
 [Libération](https://www.liberation.fr)* –
+[Paris Match](https://www.parismatch.com) -
 [Science & Vie](https://www.science-et-vie.com) -
 [Sciences et Avenir](https://www.sciencesetavenir.fr) -
 [Valeurs Actuelles](https://www.valeursactuelles.com)\

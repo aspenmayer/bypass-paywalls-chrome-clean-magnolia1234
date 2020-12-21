@@ -958,9 +958,10 @@ else if (matchDomain('nzz.ch')) {
     removeDOMElement(regwall);
 }
 
-else if (matchDomain('lejdd.fr')) {
+else if (matchDomain(['lejdd.fr', 'parismatch.com'])) {
     let poool_banner = document.querySelector('#poool-container');
-    removeDOMElement(poool_banner);
+    let forbidden = document.querySelector('.forbidden');
+    removeDOMElement(poool_banner, forbidden);
     let bottom_hide = document.querySelector('.cnt[data-poool-mode="hide"]');
     if (bottom_hide) {
         bottom_hide.removeAttribute('data-poool-mode');

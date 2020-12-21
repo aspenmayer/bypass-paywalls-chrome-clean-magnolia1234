@@ -146,6 +146,7 @@ var defaultSites =
   "Orange County Register": "ocregister.com",
   "Orlando Sentinel": "orlandosentinel.com",
   "Palo Alto Online": "paloaltoonline.com",
+  "Paris Match": "parismatch.com",
   "Parool": "parool.nl",
   "Philosophy Now": "philosophynow.org",
   "Piqd.de": "piqd.de",

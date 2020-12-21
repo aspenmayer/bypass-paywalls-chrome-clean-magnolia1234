@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add L'Obs (France)
+Add Paris Match (France)
 
 * v2.0.0.0 (2020-12-20)
 Add Krautreporter (Germany)

@@ -266,6 +266,7 @@
         "*://*.otz.de/*",
         "*://*.paloaltoonline.com/*",
         "*://*.paris-normandie.fr/*",
+        "*://*.parismatch.com/*",
         "*://*.parool.nl/*",
         "*://*.petitbleu.fr/*",
         "*://*.philosophynow.org/*",
@@ -398,5 +399,5 @@
         "*://*.repstatic.it/*",
         "*://*.userzoom.com/*"
     ],
-    "version": "2.0.0.1"
+    "version": "2.0.0.2"
 }
