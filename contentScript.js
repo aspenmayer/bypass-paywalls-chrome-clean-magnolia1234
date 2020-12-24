@@ -1862,6 +1862,20 @@ else if (matchDomain('nouvelobs.com')) {
     removeDOMElement(paywall);
 }
 
+else if (matchDomain('freiepresse.de')) {
+    let url = window.location.href;
+    let article_teaser = document.querySelector('div.article-teaser');
+    if (article_teaser && url.match(/(\-artikel)(\d){6,}/)) {
+        window.setTimeout(function () {
+            window.location.href = url.replace('-artikel', '-amp');
+        }, 500); // Delay (in milliseconds)
+    } else if (url.match(/(\-amp)(\d){6,}/)) {
+        let amp_ads = document.querySelectorAll('amp-fx-flying-carpet, amp-ad, amp-embed');
+        let pw_layer = document.querySelector('.pw-layer');
+        removeDOMElement(...amp_ads, pw_layer);
+    }
+}
+
 else
     csDone = true;
 

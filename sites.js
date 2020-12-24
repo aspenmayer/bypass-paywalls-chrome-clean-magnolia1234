@@ -66,6 +66,7 @@ var defaultSites =
   "Foreign Policy": "foreignpolicy.com",
   "Fortune": "fortune.com",
   "Frankfurter Allgemeine Zeitung": "faz.net",
+  "Freie Presse": "freiepresse.de",
   "Funke Mediengruppe": "###_de_funke_medien",
   "Gazet van Antwerpen": "gva.be",
   "GElocal.it": "gelocal.it",

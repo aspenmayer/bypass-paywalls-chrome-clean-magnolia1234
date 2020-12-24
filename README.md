@@ -266,6 +266,7 @@ Groupe Rossel sites (grouped in options) like
 [Deutsche Wirtschafts Nachrichten](https://deutsche-wirtschafts-nachrichten.de) -
 [Die Zeit](https://www.zeit.de) -
 [Frankfurter Allgemeine Zeitung](https://www.faz.net) -
+[Freie Presse](https://www.freiepresse.de) -
 [Handelsblatt](https://www.handelsblatt.com) -
 [Krautreporter.de](https://krautreporter.de) -
 [Kurier.at](https://kurier.at) -
