@@ -6,6 +6,7 @@ Add FreiePresse.de
 Add L'Obs (France)
 Add Paris Match (France)
 Fix-update El Mercurio (Chile)
+Fix-update/restore El Pais (Spain)
 
 * v2.0.0.0 (2020-12-20)
 Add Krautreporter (Germany)
