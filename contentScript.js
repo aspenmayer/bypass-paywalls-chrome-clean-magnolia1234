@@ -10,7 +10,7 @@ var fr_groupe_ebra_domains = ['bienpublic.com', 'dna.fr', 'estrepublicain.fr', '
 var fr_groupe_la_depeche_domains = ['centrepresseaveyron.fr', 'ladepeche.fr', 'lindependant.fr', 'midi-olympique.fr', 'midilibre.fr', 'nrpyrenees.fr', 'petitbleu.fr'];
 
 // clean local storage of sites (with an exemption for hold-list)
-var arr_localstorage_hold = ['charliehebdo.fr', 'elmundo.es', 'kurier.at', 'nknews.org', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk'];
+var arr_localstorage_hold = ['charliehebdo.fr', 'elmundo.es', 'expansion.com', 'kurier.at', 'nknews.org', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk'];
 arr_localstorage_hold = arr_localstorage_hold.concat(de_funke_media_domains, es_grupo_vocento_domains);
 if (!matchDomain(arr_localstorage_hold)){
     window.localStorage.clear();
@@ -969,14 +969,13 @@ else if (matchDomain(['lejdd.fr', 'parismatch.com'])) {
     }
 }
 
-else if (matchDomain('elmundo.es')) {
+else if (domain = matchDomain(['elmundo.es', 'expansion.com'])) {
     let premium = document.querySelector('.ue-c-article__premium');
-    window.setTimeout(function () {
-        if (premium && window.location.href.includes('/www.elmundo.es/')) {
+    if (premium && window.location.href.includes('/www.' + domain + '/')) {
+        window.setTimeout(function () {
             window.location.href = window.location.href.replace('/www.', '/amp.');
-        }
-    }, 500); // Delay (in milliseconds)
-    if (window.location.href.includes('/amp.elmundo.es/')) {
+        }, 500); // Delay (in milliseconds)
+    } else if (window.location.href.includes('/amp.' + domain + '/')) {
         let paywall = document.querySelector('div[amp-access="authorized!=true"]');
         if (paywall) {
             removeDOMElement(paywall);
@@ -985,6 +984,8 @@ else if (matchDomain('elmundo.es')) {
                 div_hidden.removeAttribute('amp-access-hide');
             }
         }
+        let adverts = document.querySelectorAll('.advertising, amp-embed');
+        removeDOMElement(...adverts);
     }
 }
 

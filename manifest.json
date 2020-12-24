@@ -119,6 +119,7 @@
         "*://*.eurekareport.com.au/*",
         "*://*.exame.abril.com.br/*",
         "*://*.examiner.com.au/*",
+        "*://*.expansion.com/*",
         "*://*.faz.net/*",
         "*://*.fd.nl/*",
         "*://*.financialpost.com/*",
@@ -400,5 +401,5 @@
         "*://*.repstatic.it/*",
         "*://*.userzoom.com/*"
     ],
-    "version": "2.0.0.3"
+    "version": "2.0.0.4"
 }

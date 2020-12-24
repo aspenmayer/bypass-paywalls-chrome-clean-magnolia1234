@@ -55,6 +55,7 @@ var defaultSites =
   "EUobserver": "euobserver.com",
   "Eureka Report": "eurekareport.com.au",
   "Exame": "exame.abril.com.br",
+  "Expansión": "expansion.com",
   "Financial News": "fnlondon.com",
   "Financial Post": "financialpost.com",
   "Financial Times": "ft.com",

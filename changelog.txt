@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Add Expansion (Spain)
 Add FreiePresse.de
 Add L'Obs (France)
 Add Paris Match (France)
