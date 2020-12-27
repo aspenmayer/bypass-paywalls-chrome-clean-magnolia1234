@@ -2,6 +2,8 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+
+* v2.0.1.0 (2020-12-27)
 Add Expansion (Spain)
 Add FreiePresse.de
 Add L'Obs (France)
