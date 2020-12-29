@@ -1909,6 +1909,22 @@ else if (matchDomain('freiepresse.de')) {
     }
 }
 
+else if (matchDomain('seekingalpha.com')) {
+    let url = window.location.href;
+    let locked = document.querySelector('div[data-test-id="post-locked-banner"]');
+    if (locked && !url.includes('/amp/')) {
+        window.setTimeout(function () {
+            window.location.href = url.replace('seekingalpha.com/', 'seekingalpha.com/amp/');
+        }, 500); // Delay (in milliseconds)
+    } else if (url.includes('/amp/')) {
+        let div_hidden_all = document.querySelectorAll('div[amp-access="premium OR proplus"]');
+        for (let div_hidden of div_hidden_all)
+            div_hidden.removeAttribute('amp-access-hide');
+        let adverts = document.querySelectorAll('.ad-wrap');
+        removeDOMElement(...adverts);
+    }
+}
+
 else
     csDone = true;
 
