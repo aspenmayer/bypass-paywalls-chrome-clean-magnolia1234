@@ -491,6 +491,8 @@ else if (matchDomain("caixinglobal.com")) {
             for (let hidden_par of hidden_pars)
                 hidden_par.setAttribute('style', 'display:block;');
         }
+        let app_exclusive_tip = document.querySelector('.app-exclusive-tip');
+        removeDOMElement(app_exclusive_tip);
     }, 500); // Delay (in milliseconds)
 }
 

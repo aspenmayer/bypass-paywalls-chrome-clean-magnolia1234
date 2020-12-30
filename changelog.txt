@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Fix-update Gestion & El Comercio (Peru)
 Fix-update SeekingAlpha (amp)
 
 * v2.0.1.0 (2020-12-27)
@@ -313,7 +314,7 @@ Add block general paywall scripts: BlueConic, OneCount, Qiota & TribDss. Remove 
 
 * v1.7.3.0 (2020-05-24)
 Add ilManifesto.it
-Fix-update Gestion.pe/ElComercio.pe
+Fix-update Gestion & El Comercio (Peru)
 Fix-update Haaretz.com (anti-adblocker)
 Fix-update LeJdD.fr
 Limit contentScript on external content
@@ -346,7 +347,7 @@ BitBucket transfer
 Add Eureka Report, Intelligent Investor & Switzer Report (Australia)
 Add Frankfurter Allgemeine (Faz.net)
 Add Philosophy Now
-Fix-update Gestion.pe/ElComercio.pe
+Fix-update Gestion & El Comercio (Peru)
 Remove LeMonde.fr (obsolete)
 Fix-update ilMessaggero.it
 Fix-update WSJ (lift restrictions)
