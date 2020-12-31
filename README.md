@@ -347,7 +347,8 @@ Grouped in options:\
 [El Mundo](https://www.elmundo.es) -
 [El País](https://elpais.com) -
 [El Periódico](https://www.elperiodico.com) -
-[Expansión}(https://www.expansion.com)\
+[Expansión](https://www.expansion.com) -
+[La Vanguardia](https://www.lavanguardia.com)\
 Grouped in options:\
 Grupo Vocento (ABC) regional sites like
 [Diario Vasco](https://www.diariovasco.com) -

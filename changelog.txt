@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Add La Vanguardia (Spain)
 Fix-update Gestion & El Comercio (Peru)
 Fix-update SeekingAlpha (amp)
 

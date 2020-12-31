@@ -1927,6 +1927,12 @@ else if (matchDomain('seekingalpha.com')) {
     }
 }
 
+else if (matchDomain('lavanguardia.com')) {
+    let paywall = document.querySelector('[class*="ev-open-modal-paywall"]');
+    let infinite_loading = document.querySelector('#infinite-loading');
+    removeDOMElement(paywall, infinite_loading);
+}
+
 else
     csDone = true;
 

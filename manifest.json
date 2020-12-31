@@ -192,6 +192,7 @@
         "*://*.lastampa.it/*",
         "*://*.latercera.com/*",
         "*://*.latimes.com/*",
+        "*://*.lavanguardia.com/*",
         "*://*.laverdad.es/*",
         "*://*.lavoixdunord.fr/*",
         "*://*.lavozdigital.es/*",
@@ -401,5 +402,5 @@
         "*://*.repstatic.it/*",
         "*://*.userzoom.com/*"
     ],
-    "version": "2.0.1.2"
+    "version": "2.0.1.3"
 }
