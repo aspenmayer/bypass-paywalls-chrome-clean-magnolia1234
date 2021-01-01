@@ -4,7 +4,7 @@
 var ext_api = (typeof browser === 'object') ? browser : chrome;
 var ext_name = ext_api.runtime.getManifest().name;
 
-const cs_limit_except = ['afr.com', 'elcomercio.pe', 'elpais.com', 'gestion.pe', 'harpers.org', 'inkl.com', 'la-croix.com', 'lescienze.it', 'techinasia.com'];
+const cs_limit_except = ['afr.com', 'elcomercio.pe', 'elpais.com', 'faz.net', 'gestion.pe', 'harpers.org', 'inkl.com', 'la-croix.com', 'lescienze.it', 'techinasia.com'];
 var currentTabUrl = '';
 var csDone = false;
 
@@ -16,7 +16,7 @@ const restrictions = {
   'barrons.com': /.+\.barrons\.com\/(amp\/)?article(s)?\/.+/,
   'bloombergquint.com': /^((?!\.bloombergquint\.com\/bq-blue-exclusive\/).)*$/,
   'elcomercio.pe': /.+\/elcomercio\.pe\/.+((\w)+(\-)+){3,}.+/,
-  'faz.net': /^((?!\/zeitung\.faz\.net\/).)*$/,
+  'faz.net': /(www|m)\.faz\.net\/.+\.html/,
   'foreignaffairs.com': /.+\.foreignaffairs\.com\/(articles|fa-caching|interviews|reviews|sites)\/.+/,
   'ft.com': /.+\.ft.com\/content\//,
   'gestion.pe': /.+\/gestion\.pe\/.+((\w)+(\-)+){3,}.+/,
@@ -188,8 +188,8 @@ var blockedRegexes = {
   'afr.com': /afr\.com\/assets\/vendorsReactRedux_client.+\.js/,
   'alternatives-economiques.fr': /.+\.poool\.fr\/.+/,
   'americanbanker.com': /cdn\.tinypass\.com\/.+/,
-  'barrons.com': /cdn\.ampproject\.org\/v\d\/amp-access-.+\.js/,
-  'belfasttelegraph.co.uk': /cdn\.flip-pay\.com\/clients\/inm\/flip-pay\.js/,
+  'barrons.com': /cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js/,
+  'belfasttelegraph.co.uk': /(cdn\.flip-pay\.com\/clients\/inm\/flip-pay\.js|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js)/,
   'bizjournals.com': /(assets\.bizjournals\.com\/static\/js\/app\/cxense\.js|cdn\.cxense\.com\/.+)/,
   'bloomberg.com': /(cdn\.tinypass\.com\/|assets\.bwbx\.io\/s3\/fence\/)/,
   'bostonglobe.com': /meter\.bostonglobe\.com\/js\/.+/,
@@ -233,7 +233,7 @@ var blockedRegexes = {
   'historyextra.com': /.+\.evolok\.net\/.+\/authorize\/.+/,
   'ilmessaggero.it': /utils\.cedsdigital\.it\/js\/PaywallMeter\.js/,
   'ilrestodelcarlino.it': /cdn\.tinypass\.com\/.+/,
-  'independent.ie': /cdn\.flip-pay\.com\/clients\/inm\/flip-pay\.js/,
+  'independent.ie': /(cdn\.flip-pay\.com\/clients\/inm\/flip-pay\.js|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js)/,
   'inquirer.com': /cdn\.tinypass\.com\/.+/,
   'irishtimes.com': /cdn\.ampproject\.org\/v\d\/amp-access-.+\.js/,
   'knack.be': /.+\.knack\.be\/js\/responsive\/rmgModal\.js/,
@@ -257,7 +257,7 @@ var blockedRegexes = {
   'modernhealthcare.com': /cdn\.tinypass\.com\/.+/,
   'nationalgeographic.com': /.+\.blueconic\.net\/.+/,
   'nationalpost.com': /cdn\.tinypass\.com\/.+/,
-  'nationalreview.com': /(.+\.blueconic\.net\/.+|cdn\.ampproject\.org\/v\d\/amp-access-.+\.js)/,
+  'nationalreview.com': /(.+\.blueconic\.net\/.+|cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js)/,
   'newrepublic.com': /.+\.onecount\.net\/js\/.+/,
   'newsweek.com': /js\.pelcro\.com\/.+/,
   'newyorker.com': /.+\.newyorker\.com\/verso\/static\/presenter-articles.+\.js/,
@@ -613,34 +613,38 @@ ext_api.webRequest.onBeforeRequest.addListener(function (details) {
 );
 
 const faz_uaMobile = "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Mobile Safari/537.36";
-ext_api.webRequest.onBeforeSendHeaders.addListener(
-    function (details) {
-    let headers = details.requestHeaders;
-    headers.forEach(function (header, i) {
-        if (header.name.toLowerCase() == 'user-agent')
-            header.value = faz_uaMobile;
+ext_api.webRequest.onBeforeSendHeaders.addListener(function (details) {
+  if (!isSiteEnabled(details)) {
+    return;
+  }
+  let reqHeaders = details.requestHeaders;
+  reqHeaders = reqHeaders.map(function (reqHeader) {
+      if (reqHeader.name.toLowerCase() === 'user-agent')
+        reqHeader.value = faz_uaMobile;
+      return reqHeader;
     });
-    if (!details.originUrl && details.type == "xmlhttprequest" ||
-        details.initiator == "https://www.faz.net" && details.type == "xmlhttprequest")
-        return { requestHeaders: headers };
+  return {
+    requestHeaders: reqHeaders
+  };
 }, {
-    urls: ["*://m.faz.net/*"]
+  urls: ["*://m.faz.net/*"],
+  types: ["xmlhttprequest"]
 },
-    ["blocking", "requestHeaders"]);
+  ["blocking", "requestHeaders"]);
 
 // fix nytimes x-frame-options (hidden iframe content)
 ext_api.webRequest.onHeadersReceived.addListener(function (details) {
   if (!isSiteEnabled(details)) {
     return;
   }
-  var responseHeaders = details.responseHeaders;
-  responseHeaders = responseHeaders.map(function (responseHeader) {
-      if (responseHeader.name === 'x-frame-options')
-        responseHeader.value = 'SAMEORIGIN';
-      return responseHeader;
+  var respHeaders = details.responseHeaders;
+  respHeaders = respHeaders.map(function (respHeader) {
+      if (respHeader.name.toLowerCase() === 'x-frame-options')
+        respHeader.value = 'SAMEORIGIN';
+      return respHeader;
     });
   return {
-    responseHeaders: responseHeaders
+    responseHeaders: respHeaders
   };
 }, {
   urls: ["*://*.nytimes.com/*"]
@@ -742,15 +746,11 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   let au_nc_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain(au_news_corp_domains, header_referer) && isSiteEnabled({url: header_referer}));
   let au_apn_site = (header_referer && (urlHost(header_referer).endsWith('com.au') || urlHost(header_referer).endsWith('net.au')) && details.url.includes('https://media.apnarm.net.au/'));
   let au_swm_site = (header_referer && urlHost(header_referer).endsWith('com.au') && details.url.includes('https://s.thewest.com.au/'));
-  let es_grupo_vocento_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain(es_grupo_vocento_domains, header_referer) && isSiteEnabled({url: header_referer}));
-  let fr_groupe_ebra_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain(fr_groupe_ebra_domains, header_referer) && isSiteEnabled({url: header_referer}));
-  let fr_groupe_la_depeche_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain(fr_groupe_la_depeche_domains, header_referer) && isSiteEnabled({url: header_referer}));
-  let fr_lacroix_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain('la-croix.com', header_referer) && isSiteEnabled({url: header_referer}));
-  let seekingalpha_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain('seekingalpha', header_referer) && isSiteEnabled({url: header_referer}));
-  let sz_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain('sueddeutsche.de', header_referer) && isSiteEnabled({url: header_referer}));
-  let uk_telegraph_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain('telegraph.co.uk', header_referer) && isSiteEnabled({url: header_referer}));
 
-  if (!isSiteEnabled(details) && !inkl_site && !au_nc_amp_site && !au_apn_site && !au_swm_site && !es_grupo_vocento_site && !fr_groupe_ebra_site && !fr_groupe_la_depeche_site && !fr_lacroix_amp_site && !seekingalpha_amp_site && !sz_amp_site && !uk_telegraph_amp_site) {
+  let bpc_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && isSiteEnabled({url: header_referer}) &&
+    matchUrlDomain(['barrons.com', 'belfasttelegraph.co.uk', 'brisbanetimes.com.au', 'elmundo.es', 'elperiodico.com', 'expansion.com', 'freiepresse.de', 'fresnobee.com', 'gelocal.it', 'independent.ie', 'irishtimes.com', 'la-croix.com', 'nationalreview.com', 'sacbee.com', 'seekingalpha', 'smh.com.au', 'sueddeutsche.de', 'telegraph.co.uk', 'theage.com.au', 'watoday.com.au'].concat(es_grupo_vocento_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains), header_referer));
+
+  if (!isSiteEnabled(details) && !inkl_site && !au_nc_amp_site && !au_apn_site && !au_swm_site && !bpc_amp_site) {
     return;
   }
 

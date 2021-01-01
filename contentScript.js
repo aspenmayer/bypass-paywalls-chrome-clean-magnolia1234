@@ -17,11 +17,12 @@ if (!matchDomain(arr_localstorage_hold)){
 }
 
 // listen to responses from background script
+if (ext_api.runtime && (matchDomain(['belfasttelegraph.co.uk', 'bostonglobe.com', 'independent.ie']) || window.location.hostname.match(/\.(com|net)\.au$/))) {
 ext_api.runtime.onMessage.addListener(function (message, sender) {
     // setCookie opt-in
     if (message.optIn) {
         let hostname = window.location.hostname;
-        if (hostname.endsWith(".com.au") || hostname.endsWith(".net.au")) {
+        if (hostname.match(/\.(com|net)\.au$/)) {
             // Australian Provincial Newspapers
             domain = window.location.hostname.replace('www.', '');
             let au_apn_script = document.querySelector('script[src^="https://media.apnarm.net.au/"]');
@@ -34,9 +35,17 @@ ext_api.runtime.onMessage.addListener(function (message, sender) {
                     let s_fid = genHexString(16) + '-' + genHexString(16);
                     setCookie('s_fid', s_fid, 'bostonglobe.com', '/', 14);
                 }
-            } else if (domain = matchDomain(['independent.ie', 'belfasttelegraph.co.uk'])) {
+            } else if (domain = matchDomain(['belfasttelegraph.co.uk', 'independent.ie'])) {
                 if (!cookieExists('subscriber'))
                     setCookie('subscriber', '{"subscriptionStatus": true}', domain, '/', 14);
+                if (hostname.includes('amp.')) {
+                    let subscriber = document.querySelector('section[amp-access="subscriber"]');
+                    if (subscriber)
+                        subscriber.removeAttribute('amp-access-hide');
+                    let not_subscriber = document.querySelector('section[amp-access="NOT subscriber"]');
+                    let amp_ads = document.querySelectorAll('amp-ad, amp-embed');
+                    removeDOMElement(not_subscriber, ...amp_ads);
+                }
             }
         }
     }
@@ -44,6 +53,7 @@ ext_api.runtime.onMessage.addListener(function (message, sender) {
 
 // ask for opt-in confirmation
 ext_api.runtime.sendMessage({request: 'optin'});
+}
 
 // Content workarounds/domain
 
@@ -848,6 +858,10 @@ else if (matchDomain('barrons.com')) {
             }
         }
     }
+    else {
+        let wsj_ads = document.querySelectorAll('.wsj-ad');
+        removeDOMElement(...wsj_ads);
+    }
 }
 
 else if (matchDomain('lescienze.it')) {
@@ -930,7 +944,6 @@ else if (matchDomain('faz.net')) {
                             elem.innerText = p_text;
                             article_text.appendChild(elem);
                         });
-                        ext_api.runtime.sendMessage({csDone: true});
                     }
                 })
             }
@@ -1393,6 +1406,8 @@ else if (matchDomain("nationalreview.com")) {
                     window.location.href = url + 'amp';
             }
         }, 500); // Delay (in milliseconds)
+        let adverts = document.querySelectorAll('.ad-unit--center');
+        removeDOMElement(...adverts);
     });
 }
 
@@ -1933,7 +1948,7 @@ else if (matchDomain('lavanguardia.com')) {
     removeDOMElement(paywall, infinite_loading);
 }
 
-else
+else if (!matchDomain(['belfasttelegraph.co.uk', 'independent.ie']))
     csDone = true;
 
 if (csDone)
