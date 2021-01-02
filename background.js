@@ -190,7 +190,6 @@ var blockedRegexes = {
   'bizjournals.com': /(assets\.bizjournals\.com\/static\/js\/app\/cxense\.js|cdn\.cxense\.com\/.+)/,
   'bloomberg.com': /(cdn\.tinypass\.com\/|assets\.bwbx\.io\/s3\/fence\/)/,
   'bostonglobe.com': /meter\.bostonglobe\.com\/js\/.+/,
-  'brisbanetimes.com.au': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
   'businessinsider.com': /cdn\.tinypass\.com\/.+/,
   'challenges.fr': /.+\.poool\.fr\/.+/,
   'charliehebdo.fr': /.+\.poool\.fr\/.+/,
@@ -272,13 +271,11 @@ var blockedRegexes = {
   'sfchronicle.com': /.+\.blueconic\.net\/.+/,
   'slate.com': /(cdn\.cxense\.com\/.+|cdn\.tinypass\.com\/.+)/,
   'sloanreview.mit.edu': /(cdn\.tinypass\.com\/.+|.+\/sloanreview\.mit\.edu\/.+\/welcome-ad\.js)/,
-  'smh.com.au': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
   'spectator.co.uk': /cdn\.tinypass\.com\/.+/,
   'spectator.com.au': /cdn\.tinypass\.com\/.+/,
   'spectator.us': /(cdn\.cxense\.com\/.+|cdn\.tinypass\.com\/.+)/,
   'technologyreview.com': /.+\.blueconic\.net\/.+/,
   'telegraph.co.uk': /(cdn\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js|\.telegraph\.co\.uk\/.+\/piano.+\.js|assets\.adobedtm\.com\/.+\.js)/,
-  'theage.com.au': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
   'thedailybeast.com': /cdn\.tinypass\.com\/.+/,
   'thehindu.com': /(cdn\.cxense\.com\/.+|cdn\.tinypass\.com\/.+)/,
   'thehindubusinessline.com': /(cdn\.cxense\.com\/.+|cdn\.tinypass\.com\/.+)/,
@@ -288,11 +285,9 @@ var blockedRegexes = {
   'valeursactuelles.com': /.+\.qiota\.com\/.+/,
   'variety.com': /cdn\.cxense\.com\/.+/,
   'washingtonpost.com': /.+\.washingtonpost\.com\/.+\/pwapi-proxy\.min\.js/,
-  'watoday.com.au': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
   'wsj.com': /(cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js|cdn\.cxense\.com\/.+)/
 };
 
-const ad_region_domains = ['bd.nl', 'ed.nl', 'tubantia.nl', 'bndestem.nl', 'pzc.nl', 'destentor.nl', 'gelderlander.nl'];
 const au_comm_media_domains = ['bendigoadvertiser.com.au', 'bordermail.com.au', 'canberratimes.com.au', 'centralwesterndaily.com.au', 'dailyadvertiser.com.au', 'dailyliberal.com.au', 'examiner.com.au', 'illawarramercury.com.au', 'newcastleherald.com.au', 'northerndailyleader.com.au', 'portnews.com.au', 'standard.net.au', 'theadvocate.com.au', 'thecourier.com.au', 'westernadvocate.com.au'];
 const au_news_corp_domains = ['adelaidenow.com.au', 'cairnspost.com.au', 'couriermail.com.au', 'dailytelegraph.com.au', 'geelongadvertiser.com.au', 'goldcoastbulletin.com.au', 'heraldsun.com.au', 'ntnews.com.au', 'theaustralian.com.au', 'themercury.com.au', 'townsvillebulletin.com.au', 'weeklytimesnow.com.au'];
 const au_prov_news_domains = ['news-mail.com.au', 'frasercoastchronicle.com.au', 'gladstoneobserver.com.au', 'dailyexaminer.com.au', 'dailymercury.com.au', 'themorningbulletin.com.au', 'sunshinecoastdaily.com.au', 'gympietimes.com.au', 'northernstar.com.au', 'qt.com.au', 'thechronicle.com.au', 'warwickdailynews.com.au'];
@@ -303,10 +298,13 @@ const fi_alma_talent_domains = ['arvopaperi.fi', 'kauppalehti.fi', 'marmai.fi', 
 const fr_be_groupe_rossel_domains = ['aisnenouvelle.fr', 'courrier-picard.fr', 'lardennais.fr', 'lavoixdunord.fr', 'lecho.be', 'lesoir.be', 'lest-eclair.fr', 'liberation-champagne.fr', 'lunion.fr', 'nordeclair.fr', 'paris-normandie.fr', 'sudinfo.be'];
 const fr_groupe_ebra_domains = ['bienpublic.com', 'dna.fr', 'estrepublicain.fr', 'lalsace.fr', 'ledauphine.com', 'lejsl.com', 'leprogres.fr', 'republicain-lorrain.fr', 'vosgesmatin.fr'];
 const fr_groupe_la_depeche_domains = ['centrepresseaveyron.fr', 'ladepeche.fr', 'lindependant.fr', 'midi-olympique.fr', 'midilibre.fr', 'nrpyrenees.fr', 'petitbleu.fr'];
-const ilmessaggero_domains = ['corriereadriatico.it', 'ilgazzettino.it', 'ilmattino.it', 'quotidianodipuglia.it'];
+const it_ilmessaggero_domains = ['corriereadriatico.it', 'ilgazzettino.it', 'ilmattino.it', 'quotidianodipuglia.it'];
+const nl_ad_region_domains = ['bd.nl', 'ed.nl', 'tubantia.nl', 'bndestem.nl', 'pzc.nl', 'destentor.nl', 'gelderlander.nl'];
 const nymag_domains = ['grubstreet.com', 'thecut.com', 'vulture.com'];
-// pg_domains has only grouped remove_cookies_select_drop rules
-const pg_domains = ['parool.nl', 'trouw.nl', 'volkskrant.nl', 'humo.be', 'demorgen.be'];
+
+// grouped domains (rules only)
+const au_nine_domains = ['brisbanetimes.com.au', 'smh.com.au', 'theage.com.au', 'watoday.com.au'];
+const nl_pg_domains = ['parool.nl', 'trouw.nl', 'volkskrant.nl', 'humo.be', 'demorgen.be'];
 
 const userAgentDesktopG = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
 const userAgentMobileG = "Chrome/80.0.3987.92 Mobile Safari/537.36 (compatible ; Googlebot/2.1 ; +http://www.google.com/bot.html)"
@@ -317,7 +315,7 @@ const userAgentMobileB = "Chrome/80.0.3987.92 Mobile Safari/537.36 (compatible; 
 var enabledSites = [];
 var disabledSites = [];
 var defaultSites_grouped_domains = Object.values(defaultSites);
-var defaultSites_domains = defaultSites_grouped_domains.concat(ad_region_domains, au_comm_media_domains, au_news_corp_domains, au_prov_news_domains, de_funke_media_domains, de_madsack_domains, es_grupo_vocento_domains, fi_alma_talent_domains, fr_be_groupe_rossel_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, ilmessaggero_domains, nymag_domains);
+var defaultSites_domains = defaultSites_grouped_domains.concat(au_comm_media_domains, au_news_corp_domains, au_prov_news_domains, de_funke_media_domains, de_madsack_domains, es_grupo_vocento_domains, fi_alma_talent_domains, fr_be_groupe_rossel_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, it_ilmessaggero_domains, nl_ad_region_domains, nymag_domains);
 var customSites = {};
 var customSites_domains = [];
 
@@ -353,7 +351,6 @@ ext_api.storage.sync.get({
 });
 
 var grouped_sites = {
-'ad.nl': ad_region_domains,
 '###_au_comm_media': au_comm_media_domains,
 '###_au_news_corp': au_news_corp_domains,
 '###_au_prov_news': au_prov_news_domains,
@@ -364,7 +361,8 @@ var grouped_sites = {
 '###_fr_be_groupe_rossel': fr_be_groupe_rossel_domains,
 '###_fr_groupe_ebra': fr_groupe_ebra_domains,
 '###_fr_groupe_la_depeche': fr_groupe_la_depeche_domains,
-'ilmessaggero.it': ilmessaggero_domains,
+'ad.nl': nl_ad_region_domains,
+'ilmessaggero.it': it_ilmessaggero_domains,
 'nymag.com': nymag_domains
 };
 
@@ -381,8 +379,6 @@ function add_grouped__enabled_domains(groups) {
 function add_grouped_sites(init_rules) {
   add_grouped__enabled_domains(grouped_sites);
   if (init_rules) {
-    for (let domain of ad_region_domains)
-      remove_cookies_select_drop[domain] = ['temptationTrackingId'];
     for (let domain of au_comm_media_domains) {
       allow_cookies.push(domain);
       blockedRegexes[domain] = /.+cdn-au\.piano\.io\/api\/tinypass.+\.js/;
@@ -421,9 +417,14 @@ function add_grouped_sites(init_rules) {
         allow_cookies.push(domain);
         blockedRegexes[domain] = /(.+\.poool\.fr\/.+|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js)/;//|iframe
     }
-    for (let domain of ilmessaggero_domains)
+    for (let domain of it_ilmessaggero_domains)
       blockedRegexes[domain] = /utils\.cedsdigital\.it\/js\/PaywallMeter\.js/;
-    for (let domain of pg_domains)
+    for (let domain of nl_ad_region_domains)
+      remove_cookies_select_drop[domain] = ['temptationTrackingId'];
+    // rules only
+    for (let domain of au_nine_domains)
+      blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/;
+    for (let domain of nl_pg_domains)
       remove_cookies_select_drop[domain] = ['TID_ID'];
   }
 }
@@ -614,14 +615,14 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function (details) {
   if (!isSiteEnabled(details)) {
     return;
   }
-  let reqHeaders = details.requestHeaders;
-  reqHeaders = reqHeaders.map(function (reqHeader) {
-      if (reqHeader.name.toLowerCase() === 'user-agent')
-        reqHeader.value = faz_uaMobile;
-      return reqHeader;
+  let headers = details.requestHeaders;
+  headers = headers.map(function (header) {
+      if (header.name.toLowerCase() === 'user-agent')
+        header.value = faz_uaMobile;
+      return header;
     });
   return {
-    requestHeaders: reqHeaders
+    requestHeaders: headers
   };
 }, {
   urls: ["*://m.faz.net/*"],
@@ -634,14 +635,14 @@ ext_api.webRequest.onHeadersReceived.addListener(function (details) {
   if (!isSiteEnabled(details)) {
     return;
   }
-  var respHeaders = details.responseHeaders;
-  respHeaders = respHeaders.map(function (respHeader) {
-      if (respHeader.name.toLowerCase() === 'x-frame-options')
-        respHeader.value = 'SAMEORIGIN';
-      return respHeader;
+  var headers = details.responseHeaders;
+  headers = responseHeaders.map(function (header) {
+      if (header.name === 'x-frame-options')
+        header.value = 'SAMEORIGIN';
+      return header;
     });
   return {
-    responseHeaders: respHeaders
+    responseHeaders: headers
   };
 }, {
   urls: ["*://*.nytimes.com/*"]
@@ -745,7 +746,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   let au_swm_site = (header_referer && urlHost(header_referer).endsWith('com.au') && details.url.includes('https://s.thewest.com.au/'));
 
   let bpc_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && isSiteEnabled({url: header_referer}) &&
-    matchUrlDomain(['barrons.com', 'belfasttelegraph.co.uk', 'brisbanetimes.com.au', 'elmundo.es', 'elperiodico.com', 'expansion.com', 'freiepresse.de', 'fresnobee.com', 'gelocal.it', 'independent.ie', 'irishtimes.com', 'la-croix.com', 'nationalreview.com', 'sacbee.com', 'seekingalpha', 'smh.com.au', 'sueddeutsche.de', 'telegraph.co.uk', 'theage.com.au', 'watoday.com.au'].concat(es_grupo_vocento_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains), header_referer));
+    matchUrlDomain(['barrons.com', 'belfasttelegraph.co.uk', 'elmundo.es', 'elperiodico.com', 'expansion.com', 'freiepresse.de', 'fresnobee.com', 'gelocal.it', 'independent.ie', 'irishtimes.com', 'la-croix.com', 'nationalreview.com', 'sacbee.com', 'seekingalpha', 'sueddeutsche.de', 'telegraph.co.uk'].concat(au_nine_domains, es_grupo_vocento_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains), header_referer));
 
   if (!isSiteEnabled(details) && !inkl_site && !au_nc_amp_site && !au_apn_site && !au_swm_site && !bpc_amp_site) {
     return;
