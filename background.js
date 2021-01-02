@@ -123,12 +123,9 @@ var remove_cookies = [
 // select specific cookie(s) to hold from remove_cookies domains
 const remove_cookies_select_hold = {
   'barrons.com': ['wsjregion'],
-  'bloomberg.com': ['consentUUID'],
   'groene.nl': ['accept-cookies', 'popunder-hidden'],
   'newstatesman.com': ['STYXKEY_nsversion'],
   'seattletimes.com': ['st_newsletter_splash_seen'],
-  'telegraaf.nl': 'euconsent-v2',
-  'telegraph.co.uk': ['consentUUID'],
   'qz.com': ['gdpr'],
   'wsj.com': ['wsjregion', 'ResponsiveConditional_initialBreakpoint']
 }
@@ -208,22 +205,22 @@ var blockedRegexes = {
   'editorialedomani.it': /(.+\.editorialedomani\.it\/pelcro\.js|js\.pelcro\.com\/.+)/,
   'elcomercio.pe': /elcomercio\.pe\/pf\/dist\/template\/elcomercio-noticia.+\.js/,
   'elmercurio.com': /\.(elmercurio\.com|emol\.cl)\/(.+\/)?js\/(.+\/)?(modal|merPramV\d|PramModal\.min)\.js/,
-  'elmundo.es': /cdn\.ampproject\.org\/v\d\/amp-(access|consent)-.+\.js/,
+  'elmundo.es': /cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js/,
   'elpais.com': /\.cdn\.arcpublishing\.com\/arc\/subs\/p\.min\.js/,
-  'elperiodico.com': /cdn\.ampproject\.org\/v\d\/amp-(access|consent)-.+\.js/,
+  'elperiodico.com': /cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js/,
   'estadao.com.br': /acesso\.estadao\.com\.br\/paywall\/.+\/pw\.js/,
   'estrellavalpo.cl': /(.+\.mercuriovalpo\.cl\/impresa\/.+\/assets\/(vendor|\d)\.js|pram\.pasedigital\.cl\/API\/User\/Status\?)/,
   'exame.abril.com.br': /cdn\.tinypass\.com\/.+/,
-  'expansion.com': /cdn\.ampproject\.org\/v\d\/amp-(access|consent)-.+\.js/,
+  'expansion.com': /cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js/,
   'financialpost.com': /cdn\.tinypass\.com\/.+/,
   'folha.uol.com.br': /(.+\.folha\.uol\.com\.br\/paywall\/js\/.+\/publicidade\.ads\.js|paywall\.folha\.uol\.com\.br\/.+|js\.matheranalytics\.com\/.+)/,
   'foreignaffairs.com': /.+\.foreignaffairs\.com\/sites\/default\/files\/js\/js_[^y].+\.js/,
   'foreignpolicy.com': /cdn\.tinypass\.com\/.+/,
   'fortune.com': /cdn\.tinypass\.com\/.+/,
-  'freiepresse.de': /cdn\.ampproject\.org\/v\d\/amp-(access|consent)-.+\.js/,
+  'freiepresse.de': /cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js/,
   'fresnobee.com': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
   'ftm.nl': /.+\.ftm\.nl\/js\/routing\?/,
-  'gelocal.it': /cdn\.ampproject\.org\/v\d\/amp-access-.+\.js/,
+  'gelocal.it': /cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js/,
   'gestion.pe': /gestion\.pe\/pf\/dist\/template\/gestion-noticia.+\.js/,
   'globes.co.il': /cdn\.tinypass\.com\/.+/,
   'globo.com': /cdn\.tinypass\.com\/.+/,
@@ -235,10 +232,10 @@ var blockedRegexes = {
   'ilrestodelcarlino.it': /cdn\.tinypass\.com\/.+/,
   'independent.ie': /(cdn\.flip-pay\.com\/clients\/inm\/flip-pay\.js|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js)/,
   'inquirer.com': /cdn\.tinypass\.com\/.+/,
-  'irishtimes.com': /cdn\.ampproject\.org\/v\d\/amp-access-.+\.js/,
+  'irishtimes.com': /cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js/,
   'knack.be': /.+\.knack\.be\/js\/responsive\/rmgModal\.js/,
   'kurier.at': /cdn\.tinypass\.com\/.+/,
-  'la-croix.com': /cdn\.ampproject\.org\/v\d\/amp-access-.+\.js/,
+  'la-croix.com': /cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js/,
   'lasegunda.com': /\.(lasegunda\.com|emol\.cl)\/(.+\/)?js\/(.+\/)?(modal|merPramV\d|PramModal\.min)\.js/,
   'lastampa.it': /.+\.repstatic\.it\/minify\/sites\/lastampa\/.+\/config\.cache\.php\?name=social_js/,
   'latercera.com': /(.+\.latercera\.com\/arc\/subs\/p\.js|cdn\.cxense\.com\/.+)/,
@@ -280,7 +277,7 @@ var blockedRegexes = {
   'spectator.com.au': /cdn\.tinypass\.com\/.+/,
   'spectator.us': /(cdn\.cxense\.com\/.+|cdn\.tinypass\.com\/.+)/,
   'technologyreview.com': /.+\.blueconic\.net\/.+/,
-  'telegraph.co.uk': /(cdn\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|consent)-.+\.js|\.telegraph\.co\.uk\/.+\/piano.+\.js|assets\.adobedtm\.com\/.+\.js)/,
+  'telegraph.co.uk': /(cdn\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js|\.telegraph\.co\.uk\/.+\/piano.+\.js|assets\.adobedtm\.com\/.+\.js)/,
   'theage.com.au': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
   'thedailybeast.com': /cdn\.tinypass\.com\/.+/,
   'thehindu.com': /(cdn\.cxense\.com\/.+|cdn\.tinypass\.com\/.+)/,
@@ -292,7 +289,7 @@ var blockedRegexes = {
   'variety.com': /cdn\.cxense\.com\/.+/,
   'washingtonpost.com': /.+\.washingtonpost\.com\/.+\/pwapi-proxy\.min\.js/,
   'watoday.com.au': /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/,
-  'wsj.com': /(cdn\.ampproject\.org\/v\d\/amp-access-.+\.js|cdn\.cxense\.com\/.+)/
+  'wsj.com': /(cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js|cdn\.cxense\.com\/.+)/
 };
 
 const ad_region_domains = ['bd.nl', 'ed.nl', 'tubantia.nl', 'bndestem.nl', 'pzc.nl', 'destentor.nl', 'gelderlander.nl'];
@@ -393,7 +390,7 @@ function add_grouped_sites(init_rules) {
     for (let domain of au_news_corp_domains) {
       allow_cookies.push(domain);
       use_google_bot.push(domain);
-      blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-(access|iframe)-.+\.js/;
+      blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-(access|ad|iframe)-.+\.js/;
     }
     for (let domain of au_prov_news_domains) {
       allow_cookies.push(domain);
@@ -405,7 +402,7 @@ function add_grouped_sites(init_rules) {
     }
     for (let domain of es_grupo_vocento_domains) {
       allow_cookies.push(domain);
-      blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-(access|subscriptions)-.+\.js/;
+      blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent|subscriptions)-.+\.js/;
     }
     for (let domain of fi_alma_talent_domains) {
       use_google_bot.push(domain);
@@ -418,11 +415,11 @@ function add_grouped_sites(init_rules) {
     }
     for (let domain of fr_groupe_ebra_domains) {
       allow_cookies.push(domain);
-      blockedRegexes[domain] = /(.+\.poool\.fr\/.+|cdn\.ampproject\.org\/v\d\/amp-(access|consent|iframe)-.+\.js)/;
+      blockedRegexes[domain] = /(.+\.poool\.fr\/.+|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js)/;
     }
     for (let domain of fr_groupe_la_depeche_domains) {
         allow_cookies.push(domain);
-        blockedRegexes[domain] = /(.+\.poool\.fr\/.+|cdn\.ampproject\.org\/v\d\/amp-(access|consent)-.+\.js)/;//|iframe
+        blockedRegexes[domain] = /(.+\.poool\.fr\/.+|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js)/;//|iframe
     }
     for (let domain of ilmessaggero_domains)
       blockedRegexes[domain] = /utils\.cedsdigital\.it\/js\/PaywallMeter\.js/;
@@ -1001,6 +998,10 @@ ext_api.webRequest.onCompleted.addListener(function (details) {
       // drop only specific cookie(s) from remove_cookies domains
       if ((rc_domain in remove_cookies_select_drop) && !(remove_cookies_select_drop[rc_domain].includes(cookie.name))) {
         continue; // only remove specific cookie
+      }
+      // hold on to consent-cookie
+      if (cookie.name.match(/(consent|^optanon)/i)) {
+        continue;
       }
       cookie.domain = cookie.domain.replace(/^\./, '');
       ext_api.cookies.remove({

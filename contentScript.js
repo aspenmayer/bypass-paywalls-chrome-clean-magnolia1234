@@ -74,6 +74,8 @@ else if (domain = matchDomain(["brisbanetimes.com.au", "smh.com.au", "theage.com
         for (let subscr_section of subscr_sections) {
             subscr_section.removeAttribute('subscriptions-section');
         }
+        let amp_ads = document.querySelectorAll('amp-ad');
+        removeDOMElement(...amp_ads);
     }
 }
 
@@ -801,6 +803,8 @@ else if (domain = matchDomain(fr_groupe_la_depeche_domains)) {
         if (amp_access_hide) {
             amp_access_hide.removeAttribute('amp-access-hide');
         }
+        let amp_ads = document.querySelectorAll('amp-ad, amp-embed');
+        removeDOMElement(...amp_ads);
     } else {
         if (!['nrpyrenees.fr', 'petitbleu.fr'].includes(domain)) {
             window.setTimeout(function () {
@@ -1559,6 +1563,8 @@ else if (matchDomain('gelocal.it')) {
         if (paywall)
            paywall.removeAttribute('amp-access-hide');
     }
+    let amp_ads = document.querySelectorAll('amp-ad');
+    removeDOMElement(...amp_ads);
 }
 
 else if (matchDomain("gva.be")) {
@@ -1829,7 +1835,8 @@ else if (matchDomain('la-croix.com')) {
             csDone = true;
     } else {
         let paywall_block = document.querySelector('#paywall_block');
-        removeDOMElement(paywall_block);
+        let amp_ads = document.querySelectorAll('amp-ad, amp-embed');
+        removeDOMElement(paywall_block, ...amp_ads);
     }
 }
 
@@ -1880,6 +1887,8 @@ else if ((domain = matchDomain(fr_groupe_ebra_domains)) && window.location.href.
             removeDOMElement(not_access_section);
             amp_access_hide.removeAttribute('amp-access-hide');
         }
+        let amp_ads = document.querySelectorAll('amp-ad');
+        removeDOMElement(...amp_ads);
     }
 }
 
