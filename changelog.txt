@@ -6,6 +6,7 @@ Add La Vanguardia (Spain)
 Fix-update Belfast Telegraph/Independent.ie (amp)
 Fix-update Gestion & El Comercio (Peru)
 Fix-update SeekingAlpha (amp)
+Fix-update Toronto Star (author)
 Update hold on to consent-cookie
 
 * v2.0.1.0 (2020-12-27)
