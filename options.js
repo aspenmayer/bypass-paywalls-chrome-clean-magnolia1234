@@ -21,6 +21,9 @@ function save_options() {
     // Update status to let user know options were saved.
     var status = document.getElementById('status');
     status.textContent = 'Options saved.';
+    setTimeout(function () {
+      status.textContent = '';
+    }, 800);
   });
 }
 
@@ -28,16 +31,16 @@ function save_options() {
 function renderOptions() {
   var labelEl;
   ext_api.storage.local.get({
-    sites: {}, sites_custom: {}
+    sites: {}, sites_custom: {}, sites_excluded: []
   }, function(items) {
     var sites = items.sites;
+    var sites_excluded = items.sites_excluded;
     var sitesEl = document.getElementById('bypass_sites');
     var clean_key;
     for (var key in defaultSites) {
       if (!defaultSites.hasOwnProperty(key)) {
         continue;
       }
-
       var value = defaultSites[key];
       labelEl = document.createElement('label');
       var inputEl = document.createElement('input');
@@ -45,7 +48,7 @@ function renderOptions() {
       inputEl.dataset.key = key;
       inputEl.dataset.value = value;
       clean_key = key.replace(/\s\(.*\)/, '');
-      inputEl.checked = Object.keys(sites).some(title => (title.replace(/\s\(.*\)/, '') === clean_key));
+      inputEl.checked = Object.keys(sites).some(title => (title.replace(/\s\(.*\)/, '') === clean_key)) && !sites_excluded.includes(value);
       if (value !== '###') {
           labelEl.appendChild(inputEl);
       } else {
@@ -68,28 +71,43 @@ function renderOptions() {
       if (defaultSites.hasOwnProperty(key) || defaultSites_domains.includes(domain)) {
         continue;
       }
-
       labelEl = document.createElement('label');
       var inputEl = document.createElement('input');
       inputEl.type = 'checkbox';
       inputEl.dataset.key = key;
       inputEl.dataset.value = domain;
       clean_key = key.replace(/\s\(.*\)/, '');
-      inputEl.checked = Object.keys(sites).some(title => (title.replace(/\s\(.*\)/, '') === clean_key));
+      inputEl.checked = Object.keys(sites).some(title => (title.replace(/\s\(.*\)/, '') === clean_key)) && !sites_excluded.includes(domain);
       if (value !== '' && value !== '###') {
         labelEl.appendChild(inputEl);
       }
       labelEl.appendChild(document.createTextNode(' '+key));
       sitesEl.appendChild(labelEl);
     }
+    // excluded
+    labelEl.appendChild(document.createElement('hr'));
+    labelEl = document.createElement('label');
+    labelEl.setAttribute('style', ' font-weight: bold;');
+    labelEl.appendChild(document.createTextNode('* Excluded Sites (ignored when checked in list)'));
+    sitesEl.appendChild(labelEl);	
+    labelEl = document.createElement('label');
+    labelEl.appendChild(document.createTextNode(sites_excluded.join()));
+    sitesEl.appendChild(labelEl);
+    save_options();
   });
 }
 
 function selectAll() {
   var inputEls = Array.from(document.querySelectorAll('input'));
-  inputEls.forEach(function(inputEl) {
+  inputEls.forEach(function (inputEl) {
     inputEl.checked = true;
   });
+  // Update status to let user know all sites are selected.
+  var status = document.getElementById('status');
+  status.textContent = 'All sites selected.';
+  setTimeout(function () {
+    status.textContent = '';
+  }, 800);
 }
 
 function selectNone() {

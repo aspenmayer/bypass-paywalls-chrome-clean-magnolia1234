@@ -132,7 +132,6 @@ const remove_cookies_select_hold = {
 
 // select only specific cookie(s) to drop from remove_cookies domains
 var remove_cookies_select_drop = {
-  'ad.nl': ['temptationTrackingId'],
   'caixinglobal.com': ['CAIXINGLB_LOGIN_UUID'],
   'dn.se': ['randomSplusId'],
   'fd.nl': ['socialread'],
@@ -227,7 +226,6 @@ var blockedRegexes = {
   'haaretz.com': /haaretz\.com\/hdc\/web\/js\/minified\/header-scripts-int.js.+/,
   'hbr.org': /cdn\.tinypass\.com\/.+/,
   'historyextra.com': /.+\.evolok\.net\/.+\/authorize\/.+/,
-  'ilmessaggero.it': /utils\.cedsdigital\.it\/js\/PaywallMeter\.js/,
   'ilrestodelcarlino.it': /cdn\.tinypass\.com\/.+/,
   'independent.ie': /(cdn\.flip-pay\.com\/clients\/inm\/flip-pay\.js|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js)/,
   'inquirer.com': /cdn\.tinypass\.com\/.+/,
@@ -298,9 +296,9 @@ const fi_alma_talent_domains = ['arvopaperi.fi', 'kauppalehti.fi', 'marmai.fi', 
 const fr_be_groupe_rossel_domains = ['aisnenouvelle.fr', 'courrier-picard.fr', 'lardennais.fr', 'lavoixdunord.fr', 'lecho.be', 'lesoir.be', 'lest-eclair.fr', 'liberation-champagne.fr', 'lunion.fr', 'nordeclair.fr', 'paris-normandie.fr', 'sudinfo.be'];
 const fr_groupe_ebra_domains = ['bienpublic.com', 'dna.fr', 'estrepublicain.fr', 'lalsace.fr', 'ledauphine.com', 'lejsl.com', 'leprogres.fr', 'republicain-lorrain.fr', 'vosgesmatin.fr'];
 const fr_groupe_la_depeche_domains = ['centrepresseaveyron.fr', 'ladepeche.fr', 'lindependant.fr', 'midi-olympique.fr', 'midilibre.fr', 'nrpyrenees.fr', 'petitbleu.fr'];
-const it_ilmessaggero_domains = ['corriereadriatico.it', 'ilgazzettino.it', 'ilmattino.it', 'quotidianodipuglia.it'];
-const nl_ad_region_domains = ['bd.nl', 'ed.nl', 'tubantia.nl', 'bndestem.nl', 'pzc.nl', 'destentor.nl', 'gelderlander.nl'];
-const nymag_domains = ['grubstreet.com', 'thecut.com', 'vulture.com'];
+const it_ilmessaggero_domains = ['corriereadriatico.it', 'ilgazzettino.it', 'ilmattino.it', 'ilmessaggero.it', 'quotidianodipuglia.it'];
+const nl_ad_region_domains = ['ad.nl', 'bd.nl', 'ed.nl', 'tubantia.nl', 'bndestem.nl', 'pzc.nl', 'destentor.nl', 'gelderlander.nl'];
+const usa_nymag_domains = ['grubstreet.com', 'nymag.com', 'thecut.com', 'vulture.com'];
 
 // grouped domains (rules only)
 const au_nine_domains = ['brisbanetimes.com.au', 'smh.com.au', 'theage.com.au', 'watoday.com.au'];
@@ -315,9 +313,10 @@ const userAgentMobileB = "Chrome/80.0.3987.92 Mobile Safari/537.36 (compatible; 
 var enabledSites = [];
 var disabledSites = [];
 var defaultSites_grouped_domains = Object.values(defaultSites);
-var defaultSites_domains = defaultSites_grouped_domains.concat(au_comm_media_domains, au_news_corp_domains, au_prov_news_domains, de_funke_media_domains, de_madsack_domains, es_grupo_vocento_domains, fi_alma_talent_domains, fr_be_groupe_rossel_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, it_ilmessaggero_domains, nl_ad_region_domains, nymag_domains);
+var defaultSites_domains = defaultSites_grouped_domains.concat(au_comm_media_domains, au_news_corp_domains, au_prov_news_domains, de_funke_media_domains, de_madsack_domains, es_grupo_vocento_domains, fi_alma_talent_domains, fr_be_groupe_rossel_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, it_ilmessaggero_domains, nl_ad_region_domains, usa_nymag_domains);
 var customSites = {};
 var customSites_domains = [];
+var excludedSites = [];
 
 function setDefaultOptions() {
   ext_api.storage.local.set({
@@ -361,9 +360,9 @@ var grouped_sites = {
 '###_fr_be_groupe_rossel': fr_be_groupe_rossel_domains,
 '###_fr_groupe_ebra': fr_groupe_ebra_domains,
 '###_fr_groupe_la_depeche': fr_groupe_la_depeche_domains,
-'ad.nl': nl_ad_region_domains,
-'ilmessaggero.it': it_ilmessaggero_domains,
-'nymag.com': nymag_domains
+'###_it_ilmessaggero': it_ilmessaggero_domains,
+'###_nl_ad_region': nl_ad_region_domains,
+'###_usa_nymag': usa_nymag_domains
 };
 
 function add_grouped__enabled_domains(groups) {
@@ -372,6 +371,12 @@ function add_grouped__enabled_domains(groups) {
       enabledSites = enabledSites.concat(groups[key]);
     else
       disabledSites = disabledSites.concat(groups[key]);
+    for (let site of excludedSites) {
+      if (enabledSites.includes(site)) {
+        enabledSites.splice(enabledSites.indexOf(site), 1);
+        disabledSites.push(site);
+      }
+    }
   }
 }
 
@@ -433,10 +438,12 @@ function add_grouped_sites(init_rules) {
 // Add googlebot- and block_javascript-settings for custom sites
 ext_api.storage.local.get({
   sites: {},
-  sites_custom: {}
+  sites_custom: {},
+  sites_excluded: []
 }, function (items) {
   var sites = items.sites;
   var sites_custom = items.sites_custom;
+  excludedSites = items.sites_excluded;
 
   for (let key in sites_custom) {
     var domainVar = sites_custom[key]['domain'].toLowerCase();
@@ -458,7 +465,7 @@ ext_api.storage.local.get({
   customSites = sites_custom;
   customSites_domains = Object.values(sites_custom).map(x => x.domain);
   disabledSites = defaultSites_domains.concat(customSites_domains).filter(x => !enabledSites.includes(x) && x !== '###');
-  add_grouped_sites(true);
+  add_grouped_sites(true);  //and exclude sites
 
   for (let domainVar of enabledSites) {
     if (!allow_cookies.includes(domainVar) && !remove_cookies.includes(domainVar)) {
@@ -491,9 +498,6 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
           remove_cookies.push(domainVar);
         }
       }
-      // reset disableJavascriptOnListedSites eventListener
-      ext_api.webRequest.onBeforeRequest.removeListener(disableJavascriptOnListedSites);
-      ext_api.webRequest.handlerBehaviorChanged();
     }
     if (key === 'sites_custom') {
       var sites_custom = storageChange.newValue ? storageChange.newValue : {};
@@ -555,11 +559,33 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
           block_js_custom_ext.push(domainVar);
         }
       }
-
-      // reset disableJavascriptOnListedSites eventListener
-      ext_api.webRequest.onBeforeRequest.removeListener(disableJavascriptOnListedSites);
-      ext_api.webRequest.handlerBehaviorChanged();
     }
+    if (key === 'sites_excluded') {
+      var sites_excluded = storageChange.newValue ? storageChange.newValue : [];
+      var sites_excluded_old = storageChange.oldValue ? storageChange.oldValue : [];
+      excludedSites = sites_excluded;
+
+      // add/remove excluded sites in en/disabledSites
+      var sites_excluded_added = sites_excluded.filter(x => !sites_excluded_old.includes(x));
+      var sites_excluded_removed = sites_excluded_old.filter(x => !sites_excluded.includes(x));
+
+      for (let site of sites_excluded_added) {
+        if (enabledSites.includes(site)) {
+          enabledSites.splice(enabledSites.indexOf(site), 1);
+          disabledSites.push(site);
+        }
+      }
+      for (let site of sites_excluded_removed) {
+        if (disabledSites.includes(site)) {
+          disabledSites.splice(disabledSites.indexOf(site), 1);
+          enabledSites.push(site);
+        }
+      }
+    }
+    // reset disableJavascriptOnListedSites eventListener
+    ext_api.webRequest.onBeforeRequest.removeListener(disableJavascriptOnListedSites);
+    ext_api.webRequest.handlerBehaviorChanged();
+
     // Refresh the current tab
     ext_api.tabs.query({
       active: true,
@@ -967,19 +993,23 @@ function site_switch() {
 }
 
 function popup_show_toggle_tab(callback) {
-    ext_api.tabs.query({
-        active: true,
-        currentWindow: true
-    }, function (tabs) {
-        if (tabs.length > 0 && tabs[0].url && tabs[0].url.indexOf("http") !== -1) {
-            let currentUrl = tabs[0].url;
-            let isDefaultSiteGrouped = matchUrlDomain(defaultSites_domains, currentUrl);
-            let isDefaultSite = matchUrlDomain(defaultSites_domains, currentUrl);
-            let isCustomSite = matchUrlDomain(Object.values(customSites_domains), currentUrl);
-            let domain = isDefaultSiteGrouped || (!isDefaultSite && isCustomSite);
-            callback(domain);
-        }
-    });
+  ext_api.tabs.query({
+    active: true,
+    currentWindow: true
+  }, function (tabs) {
+    if (tabs.length > 0 && tabs[0].url && tabs[0].url.indexOf("http") !== -1) {
+      let currentUrl = tabs[0].url;
+      let domain;
+      let isExcludedSite = matchUrlDomain(excludedSites, currentUrl);
+      if (!isExcludedSite) {
+        let isDefaultSiteGrouped = matchUrlDomain(defaultSites_domains, currentUrl);
+        let isDefaultSite = matchUrlDomain(defaultSites_domains, currentUrl);
+        let isCustomSite = matchUrlDomain(Object.values(customSites_domains), currentUrl);
+        domain = isDefaultSiteGrouped || (!isDefaultSite && isCustomSite);
+      }
+      callback(domain);
+    }
+  });
 };
 
 // remove cookies after page load

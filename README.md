@@ -5,6 +5,7 @@
 * [Sites with limited number of free articles](#sites-with-limited-number-of-free-articles)
 * [New site requests](#new-site-requests)
 * [Add custom site](#add-custom-site)
+* [Add excluded site](#add-excluded-site)
 * [Troubleshooting](#troubleshooting)
 * [Changelog-releases](#changelog-releases)
 * [License](#license)
@@ -510,6 +511,10 @@ Check 'Options'-link in popup-menu and go to custom sites.
 Make sure the (new) site is checked under Options (or check on/off-button).  
 By default sites' cookies/local storage are removed after page loads (to bypass article limit).  
 Also you can enable Googlebot user-agent or disable Javascript for (sub)domain(s)/external sources.
+
+### Add excluded site
+Add excluded sites/domains (for your subscriptions).\
+You can also exclude a specific domain which is grouped in options.
 
 ### Troubleshooting
 * This extension works best alongside [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm).
