@@ -580,75 +580,14 @@ else if (matchDomain("techinasia.com")) {
 else if (matchDomain("thestar.com")) {
     window.setTimeout(function () {
     let meter_banner = document.querySelector('.c-article-meter-banner');
-    removeDOMElement(meter_banner);
+    let ads = document.querySelectorAll('.seo-media-query, .c-googleadslot');
+    removeDOMElement(meter_banner, ...ads);
+    let end_of_article = document.querySelector('#end-of-article');
+    if (end_of_article)
+        end_of_article.setAttribute('style', 'display:none;');
     let rightrail = document.querySelector('.c-article-body__rightrail');
     if (rightrail)
         rightrail.setAttribute('style', 'display:none;');
-    let paywall = document.querySelector('.basic-paywall-new');
-    if (paywall) {
-        removeDOMElement(paywall);
-        let tbcs = document.querySelectorAll('.text-block-container');
-        for (let tbc of tbcs) {
-            tbc.removeAttribute('style');
-        }
-        if (document.head.innerText.includes('window.__PRELOADED_STATE__')) {
-            let html = document.head.outerHTML;
-            let split1 = html.split('window.__PRELOADED_STATE__ =')[1];
-            let state = split1.split('//--><!]]></script>')[0].trim();
-            let json = JSON.parse(state);
-            if (json) {
-                let body = json.body;
-                let content = document.querySelector('div.c-article-body__content');
-                let par_append_text, par_append, related_text;
-                let parser = new DOMParser();
-                let related_stories = [];
-                for (let elem of body) {
-                    if (elem.isParagraph) {
-                        par_append_text = parseHtmlEntities(elem.text);
-                    } else if (elem.snippet) {
-                        let article_html = parser.parseFromString('<div>' + elem.snippet + '</div>', 'text/html');
-                        let article_snippet = article_html.querySelector('div');
-                        let pars = document.querySelectorAll('div.c-article-body__content > p');
-                        for (let par of pars) {
-                            if (par.innerText.includes(par_append_text)) {
-                                par_append = par;
-                                continue;
-                            }
-                        }
-                        if (article_snippet && par_append)
-                            par_append.appendChild(article_snippet);
-                    } else if (elem.text && elem.type === 'endnote') {
-                        let endnote_html;
-                        if (elem.author) {
-                            endnote_html = parser.parseFromString('<div class="author-endnote-container" data-lpos="article|author|bottom">' +
-                                    (elem.authorPageUrl ? '<a class="author-endnote-container__author-img-link" href="' + elem.authorPageUrl + '">' +
-                                    '<div class="c-author-badge author-endnote-container__author-img">' : '') +
-                                    ((elem.author.photo !== undefined) ? '<img class="c-author-badge__img" src="' + elem.author.photo.sizes['1:1'].small + '" alt="' + elem.author.author + '"/></div></a>' : '') +
-                                    '<div>' + elem.text + '</div></div>', 'text/html');
-                        } else
-                            endnote_html = parser.parseFromString('<div><p>' + elem.text + '</p></div>', 'text/html');
-                        let endnote_par = endnote_html.querySelector('div');
-                        content.appendChild(endnote_par);
-                    } else if (elem.type === 'relatedStories') {
-                        related_text = '<div class="article-related-inline">' +
-                            '<div class="c-related-articles" data-lpos="article|related-stories"><h2 class="article-list-heading">' +
-                            '<div class="article-list-heading-text article-list-heading-text--small">RELATED STORIES</div></h2>' +
-                            '<div class="c-related-articles-inline__content">';
-                        for (let story of elem.relatedStories) {
-                            related_text = related_text + '<a href="' + story.url + '" class="c-mediacard c-related-articles__article c-mediacard--row c-mediacard--small-only-row c-mediacard--medium-only-row c-mediacard--large-only-row" data-test-id="mediacard"><div class="c-mediacard__content">' +
-                                '<h3 class="c-mediacard__heading mediacard-headline__long"><span data-test-id="mediacard-headline">' + story.headline + '</span></h3>' +
-                                '<div class="c-mediacard-footer"><div class="c-mediacard-footer__items-left">' +
-                                '<span class="article__published-date">' + story.abstract + '</span></div></div></div></a>';
-                        }
-                        related_text = related_text + '</div></div></div>';
-                    }
-                }
-                let related_html = parser.parseFromString(related_text, 'text/html');
-                let related_par = related_html.querySelector('div');
-                content.appendChild(related_par);
-            }
-        }
-    }
     }, 500);
 }
 

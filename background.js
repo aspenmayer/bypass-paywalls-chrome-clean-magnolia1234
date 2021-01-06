@@ -125,8 +125,9 @@ const remove_cookies_select_hold = {
   'barrons.com': ['wsjregion'],
   'groene.nl': ['accept-cookies', 'popunder-hidden'],
   'newstatesman.com': ['STYXKEY_nsversion'],
-  'seattletimes.com': ['st_newsletter_splash_seen'],
   'qz.com': ['gdpr'],
+  'seattletimes.com': ['st_newsletter_splash_seen'],
+  'thestar.com': ['selectedCity'],
   'wsj.com': ['wsjregion', 'ResponsiveConditional_initialBreakpoint']
 }
 
@@ -278,7 +279,7 @@ var blockedRegexes = {
   'thehindu.com': /(cdn\.cxense\.com\/.+|cdn\.tinypass\.com\/.+)/,
   'thehindubusinessline.com': /(cdn\.cxense\.com\/.+|cdn\.tinypass\.com\/.+)/,
   'thenation.com': /cdn\.tinypass\.com\/.+/,
-  'thestar.com': /emeter-nam\.mppglobal\.com\/probes\/JSONP\?/,
+  'thestar.com': /(\.thestar\.com\/api\/overlaydata|emeter-nam\.mppglobal\.com\/probes\/JSONP\?)/,
   'timeshighereducation.com': /\.timeshighereducation\.com\/sites\/default\/files\/js\/js_bbCGL.+\.js/,
   'valeursactuelles.com': /.+\.qiota\.com\/.+/,
   'variety.com': /cdn\.cxense\.com\/.+/,
@@ -662,7 +663,7 @@ ext_api.webRequest.onHeadersReceived.addListener(function (details) {
     return;
   }
   var headers = details.responseHeaders;
-  headers = responseHeaders.map(function (header) {
+  headers = headers.map(function (header) {
       if (header.name === 'x-frame-options')
         header.value = 'SAMEORIGIN';
       return header;
