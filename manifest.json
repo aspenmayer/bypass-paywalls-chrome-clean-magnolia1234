@@ -249,6 +249,7 @@
         "*://*.newstatesman.com/*",
         "*://*.newsweek.com/*",
         "*://*.newyorker.com/*",
+        "*://*.niagarafallsreview.ca/*",
         "*://*.noordhollandsdagblad.nl/*",
         "*://*.nordeclair.fr/*",
         "*://*.northerndailyleader.com.au/*",
@@ -308,6 +309,7 @@
         "*://*.standard.net.au/*",
         "*://*.startribune.com/*",
         "*://*.statista.com/*",
+        "*://*.stcatharinesstandard.ca/*",
         "*://*.stocknews.com/*",
         "*://*.sudinfo.be/*",
         "*://*.sueddeutsche.de/*",
@@ -338,7 +340,10 @@
         "*://*.themercury.com.au/*",
         "*://*.themorningbulletin.com.au/*",
         "*://*.thenation.com/*",
+        "*://*.thepeterboroughexaminer.com/*",
+        "*://*.therecord.com/*",
         "*://*.thesaturdaypaper.com.au/*",
+        "*://*.thespec.com/*",
         "*://*.thestar.com/*",
         "*://*.thetimes.co.uk/*",
         "*://*.thewest.com.au/*",
@@ -362,6 +367,7 @@
         "*://*.watoday.com.au/*",
         "*://*.waz.de/*",
         "*://*.weeklytimesnow.com.au/*",
+        "*://*.wellandtribune.ca/*",
         "*://*.westernadvocate.com.au/*",
         "*://*.wired.com/*",
         "*://*.wiwo.de/*",
@@ -395,12 +401,11 @@
         "*://*.htmedia.in/*",
         "*://*.jsdelivr.net/*",
         "*://*.lightboxcdn.com/*",
-        "*://*.mppglobal.com/*",
         "*://*.nyt.com/*",
         "*://*.pasedigital.cl/*",
         "*://*.rcsobjects.it/*",
         "*://*.repstatic.it/*",
         "*://*.userzoom.com/*"
     ],
-    "version": "2.0.2.2"
+    "version": "2.0.2.3"
 }

@@ -3,6 +3,7 @@ var ext_api = (typeof browser === 'object') ? browser : chrome;
 var domain;
 var csDone = false;
 
+var ca_torstar_domains = ['niagarafallsreview.ca', 'stcatharinesstandard.ca', 'thepeterboroughexaminer.com', 'therecord.com', 'thespec.com', 'thestar.com', 'wellandtribune.ca'];
 var de_funke_media_domains = ['abendblatt.de', 'braunschweiger-zeitung.de', 'morgenpost.de', 'nrz.de', 'waz.de', 'wp.de', 'wr.de'];
 var de_madsack_domains = ['haz.de', 'kn-online.de', 'ln-online.de', 'lvz.de', 'maz-online.de', 'neuepresse.de', 'ostsee-zeitung.de'];
 var es_grupo_vocento_domains = ['diariosur.es', 'diariovasco.com', 'elcomercio.es', 'elcorreo.com', 'eldiariomontanes.es', 'elnortedecastilla.es', 'hoy.es', 'ideal.es', 'larioja.com', 'laverdad.es', 'lavozdigital.es'];
@@ -577,7 +578,7 @@ else if (matchDomain("techinasia.com")) {
     removeDOMElement(splash_subscribe, paywall_hard);
 }
 
-else if (matchDomain("thestar.com")) {
+else if (matchDomain(ca_torstar_domains)) {
     window.setTimeout(function () {
     let meter_banner = document.querySelector('.c-article-meter-banner');
     let ads = document.querySelectorAll('.seo-media-query, .c-googleadslot');
@@ -855,7 +856,7 @@ else if (matchDomain('faz.net')) {
                             str = str.replace(/(?:^|[\w\"\“])(\.|\?|!)(?=[A-ZÖÜ\„][A-Za-zÀ-ÿ\„]{1,})/gm, "$&\n\n");
                             str = str.replace(/([a-z\"\“])(?=[A-Z](?=[A-Za-zÀ-ÿ]+))/gm, "$&\n\n");
                             // exceptions: names with alternating lower/uppercase (no general fix)
-                            let str_rep_arr = ["BaFin", "BerlHG", "BfArM", "BilMoG", "DiGA", "EuGH", "eWpG", "GlaxoSmithKline", "IfSG", "iMessage", "iOS", "iPad", "iPhone", "medRxiv", "mRNA", "PlosOne", "StVO"];
+                            let str_rep_arr = ["BaFin", "BerlHG", "BfArM", "BilMoG", "DiGA", "EuGH", "eWpG", "GlaxoSmithKline", "gGmbH", "IfSG", "iMessage", "iOS", "iPad", "iPhone", "medRxiv", "mRNA", "PlosOne", "StVO"];
                             let str_rep_split, str_rep_src;
                             for (let str_rep of str_rep_arr) {
                                 str_rep_split = str_rep.split(/([a-z]+)(?=[A-Z](?=[A-Za-z]+))/);

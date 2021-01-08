@@ -1,6 +1,7 @@
 # Bypass Paywalls Clean for Chrome
 
 * [Installation instructions](#installation-instructions)
+* [Update](#update)
 * [List of supported websites](#list-of-supported-websites)
 * [Sites with limited number of free articles](#sites-with-limited-number-of-free-articles)
 * [New site requests](#new-site-requests)
@@ -62,6 +63,10 @@ Visit the [Firefox repository](https://gitlab.com/magnolia1234/bypass-paywalls-f
 * Do not delete extension's folder from your computer/smartphone or Bypass Paywalls Clean (in developer mode) will disappear at restart.
 * Every time you open Chrome it may warn you about running extensions in developer mode, just close the popup to keep the extension enabled.
 * You will be logged out for most of the sites you have checked.
+
+### Update
+For crx-installation: check for updates (in chrome://extensions).\
+For zip-installation (load unpacked): unzip files to installation folder or use a Git(Hub)-client to clone the extension (locally).
 
 ### List of supported websites
 
@@ -175,8 +180,14 @@ Visit the [Firefox repository](https://gitlab.com/magnolia1234/bypass-paywalls-f
 [Le Devoir](https://www.ledevoir.com) -
 [National Post](https://www.nationalpost.com) -
 [The Globe and Mail](https://www.theglobeandmail.com) -
-[The Logic](https://thelogic.co) -
-[The Toronto Star](https://www.thestar.com)
+[The Logic](https://thelogic.co)\
+[The Toronto Star](https://www.thestar.com) and regional TorStar sites (grouped in options) like
+[Niagara Falls Review](https://www.niagarafallsreview.ca) -
+[Peterborough Examiner](https://www.thepeterboroughexaminer.com) -
+[St. Catharines Standard](https://www.stcatharinesstandard.ca) -
+[The Hamilton Spectator](https://www.thespec.com) -
+[Waterloo Region Record](https://www.therecord.com) -
+[Welland Tribune](https://www.wellandtribune.ca)
 
 #### Europe
 
