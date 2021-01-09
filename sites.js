@@ -139,7 +139,7 @@ var defaultSites =
   "Nautilus": "nautil.us",
   "Neue Zürcher Zeitung": "nzz.ch",
   "New Left Review": "newleftreview.org",
-  "New York Magazine (+ Grub Street, The Cut & Vulture)": "###_usa_nymag",
+  "New York Magazine (+ Curbed, Grub Street, The Cut & Vulture)": "###_usa_nymag",
   "New Zealand Herald": "nzherald.co.nz",
   "Newsweek": "newsweek.com",
   "Nikkei Asian Review": "asia.nikkei.com",

@@ -80,6 +80,7 @@
         "*://*.couriermail.com.au/*",
         "*://*.courrier-picard.fr/*",
         "*://*.csmonitor.com/*",
+        "*://*.curbed.com/*",
         "*://*.cw.com.tw/*",
         "*://*.dailyadvertiser.com.au/*",
         "*://*.dailyexaminer.com.au/*",
@@ -406,7 +407,8 @@
         "*://*.pasedigital.cl/*",
         "*://*.rcsobjects.it/*",
         "*://*.repstatic.it/*",
+        "*://*.stripe.com/*",
         "*://*.userzoom.com/*"
     ],
-    "version": "2.0.2.4"
+    "version": "2.0.2.5"
 }
