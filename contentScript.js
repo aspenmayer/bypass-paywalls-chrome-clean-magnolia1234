@@ -1891,6 +1891,37 @@ else if (matchDomain('seekingalpha.com')) {
     }
 }
 
+else if (matchDomain('newleftreview.org')) {
+    let url = window.location.href;
+    let paywall = document.querySelector('div.promo-wrapper');
+    if (paywall) {
+        let proxyurl = 'https://cors-anywhere.herokuapp.com/';
+        let nlr_cache = 'https://webcache.googleusercontent.com/search?q=cache:' + url.split('//')[1];
+        fetch(proxyurl + nlr_cache, { headers: {"Content-Type": "text/plain", "X-Requested-With": "XMLHttpRequest" } })
+        .then(response => {
+            let article_old = document.querySelector('div.article-page');
+            let footer = document.querySelector('div.article-footer');
+            if (response.ok) {
+                response.text().then(html => {
+                    let parser = new DOMParser();
+                    let doc = parser.parseFromString(html, 'text/html');
+                    let json = doc.querySelector('div.article-page');
+                    if (json) {
+                        if (article_old && footer) {
+                            removeDOMElement(article_old);
+                            footer.parentElement.insertBefore(json, footer);
+                        }
+                    }
+                });
+            } else {
+                if (article_old && footer)
+                    article_old.appendChild(document.createTextNode('Article not yet in Google webcache ...'));
+            }
+        });
+        removeDOMElement(paywall);
+    }
+}
+
 else if (matchDomain('lavanguardia.com')) {
     let paywall = document.querySelector('[class*="ev-open-modal-paywall"]');
     let infinite_loading = document.querySelector('#infinite-loading');

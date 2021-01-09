@@ -138,6 +138,7 @@ var defaultSites =
   "National Review": "nationalreview.com",
   "Nautilus": "nautil.us",
   "Neue Zürcher Zeitung": "nzz.ch",
+  "New Left Review": "newleftreview.org",
   "New York Magazine (+ Grub Street, The Cut & Vulture)": "###_usa_nymag",
   "New Zealand Herald": "nzherald.co.nz",
   "Newsweek": "newsweek.com",

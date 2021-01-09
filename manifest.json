@@ -243,6 +243,7 @@
         "*://*.nautil.us/*",
         "*://*.neuepresse.de/*",
         "*://*.newcastleherald.com.au/*",
+        "*://*.newleftreview.org/*",
         "*://*.newrepublic.com/*",
         "*://*.news-gazette.com/*",
         "*://*.news-mail.com.au/*",
@@ -407,5 +408,5 @@
         "*://*.repstatic.it/*",
         "*://*.userzoom.com/*"
     ],
-    "version": "2.0.2.3"
+    "version": "2.0.2.4"
 }

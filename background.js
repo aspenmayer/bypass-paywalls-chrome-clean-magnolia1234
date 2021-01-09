@@ -4,7 +4,7 @@
 var ext_api = (typeof browser === 'object') ? browser : chrome;
 var ext_name = ext_api.runtime.getManifest().name;
 
-const cs_limit_except = ['afr.com', 'elcomercio.pe', 'elpais.com', 'faz.net', 'gestion.pe', 'harpers.org', 'inkl.com', 'la-croix.com', 'lescienze.it', 'techinasia.com'];
+const cs_limit_except = ['afr.com', 'elcomercio.pe', 'elpais.com', 'faz.net', 'gestion.pe', 'harpers.org', 'inkl.com', 'la-croix.com', 'lescienze.it', 'newleftreview.org', 'techinasia.com'];
 var currentTabUrl = '';
 var csDone = false;
 
@@ -81,6 +81,7 @@ var allow_cookies_default = [
   'nationalgeographic.com',
   'nationalpost.com',
   'nationalreview.com',
+  'newleftreview.org',
   'newrepublic.com',
   'noordhollandsdagblad.nl',
   'nouvelobs.com',

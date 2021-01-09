@@ -199,6 +199,7 @@ For zip-installation (load unpacked): unzip files to installation folder or use 
 [Financial Times](https://www.ft.com) -
 [Irish Independent](https://www.independent.ie) -
 [London Review of Books](https://www.lrb.co.uk) -
+[New Left Review](https://newleftreview.org) -
 [The Economist](https://www.economist.com) -
 [The Irish Times](https://www.irishtimes.com) -
 [The New Statesman](https://www.newstatesman.com) -

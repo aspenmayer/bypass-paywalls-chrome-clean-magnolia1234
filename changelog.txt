@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add group TorStar (Canada)
+Add New Left Review (United Kingdom)
 Fix-update Toronto Star (overlay)
 Update options (excluded sites)
 
