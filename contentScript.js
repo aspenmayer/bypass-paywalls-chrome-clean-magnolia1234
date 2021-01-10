@@ -1883,9 +1883,12 @@ else if (matchDomain('seekingalpha.com')) {
             window.location.href = url.replace('seekingalpha.com/', 'seekingalpha.com/amp/');
         }, 500); // Delay (in milliseconds)
     } else if (url.includes('/amp/')) {
-        let div_hidden_all = document.querySelectorAll('div[amp-access="premium OR proplus"]');
+        let div_hidden_all = document.querySelectorAll('[amp-access*="premium_access OR"]');
         for (let div_hidden of div_hidden_all)
             div_hidden.removeAttribute('amp-access-hide');
+        let paywall = document.querySelector('[class*="paywall-container"]');
+        if (paywall)
+            paywall.setAttribute('style', 'display:none;');
         let adverts = document.querySelectorAll('.ad-wrap');
         removeDOMElement(...adverts);
     }

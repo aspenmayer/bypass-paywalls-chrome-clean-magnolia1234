@@ -23,7 +23,7 @@ const restrictions = {
   'hs.fi': /^((?!\/.+\.hs\.fi\/paivanlehti\/).)*$/,
   'globo.com': /^((?!\/valor\.globo\.com\/).)*$/,
   'quora.com': /^((?!quora\.com\/search\?q=).)*$/,
-  'seekingalpha.com': /.+\/seekingalpha\.com\/($|(amp\/)?article\/|samw\/)/,
+  'seekingalpha.com': /.+\/seekingalpha\.com\/($|(amp\/)?(article|news)\/|samw\/)/,
   'techinasia.com': /.+\.techinasia\.com\/.+((\w)+(\-)+){3,}.+/,
   'wsj.com': /^((?!\/cn\.wsj\.com\/).)*$/
 }
@@ -779,7 +779,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   let uk_nlr_site = (matchUrlDomain('stripe.com', details.url) && matchUrlDomain('newleftreview.org', header_referer) && isSiteEnabled({url: header_referer}));
 
   let bpc_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && isSiteEnabled({url: header_referer}) &&
-    matchUrlDomain(['barrons.com', 'belfasttelegraph.co.uk', 'elmundo.es', 'elperiodico.com', 'expansion.com', 'freiepresse.de', 'fresnobee.com', 'gelocal.it', 'independent.ie', 'irishtimes.com', 'la-croix.com', 'nationalreview.com', 'sacbee.com', 'seekingalpha', 'sueddeutsche.de', 'telegraph.co.uk'].concat(au_nine_domains, es_grupo_vocento_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains), header_referer));
+    matchUrlDomain(['barrons.com', 'belfasttelegraph.co.uk', 'elmundo.es', 'elperiodico.com', 'expansion.com', 'freiepresse.de', 'fresnobee.com', 'gelocal.it', 'independent.ie', 'irishtimes.com', 'la-croix.com', 'nationalreview.com', 'sacbee.com', 'seekingalpha.com', 'sueddeutsche.de', 'telegraph.co.uk'].concat(au_nine_domains, es_grupo_vocento_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains), header_referer));
 
   if (!isSiteEnabled(details) && !inkl_site && !au_nc_amp_site && !au_apn_site && !au_swm_site && !uk_nlr_site && !bpc_amp_site) {
     return;

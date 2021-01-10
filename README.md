@@ -66,7 +66,7 @@ Visit the [Firefox repository](https://gitlab.com/magnolia1234/bypass-paywalls-f
 
 ### Update
 For crx-installation: check for updates (in chrome://extensions).\
-For zip-installation (load unpacked): unzip files to installation folder or use a Git(Hub)-client to clone the extension (locally).
+For zip-installation (load unpacked/developer mode): unzip files to installation folder or use a Git(Hub)-client to clone the extension (locally).
 
 ### List of supported websites
 
@@ -518,8 +518,7 @@ Remember to check the [previous requests](https://gitlab.com/magnolia1234/bypass
 ### Add custom site
 Add your own custom site (also for testing).  
 Check 'Options'-link in popup-menu and go to custom sites.  
-* by default BPC has limited permissions, but you can opt-in to enable custom sites (and also clear cookies/block general paywall-scripts for non-listed sites).
-
+\* by default BPC has limited permissions, but you can opt-in to enable custom sites (and also clear cookies/block general paywall-scripts for non-listed sites).\
 Make sure the (new) site is checked under Options (or check on/off-button).  
 By default sites' cookies/local storage are removed after page loads (to bypass article limit).  
 Also you can enable Googlebot user-agent or disable Javascript for (sub)domain(s)/external sources.

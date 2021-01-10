@@ -5,6 +5,7 @@ Post-release
 Add Curbed (New York Magazine)
 Add group TorStar (Canada)
 Add New Left Review (United Kingdom)
+Fix-update SeekingAlpha (amp)
 Fix-update Toronto Star (overlay)
 Update options (excluded sites)
 
