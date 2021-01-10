@@ -2,6 +2,8 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+
+* v2.0.3.0 (2021-01-10)
 Add Curbed (New York Magazine)
 Add group TorStar (Canada)
 Add New Left Review (United Kingdom)
