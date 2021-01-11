@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Fix-update Faz.net (Zeitung subdomain)
 
 * v2.0.3.0 (2021-01-10)
 Add Curbed (New York Magazine)

@@ -823,7 +823,19 @@ else if (matchDomain('lescienze.it')) {
 }
 
 else if (matchDomain('faz.net')) {
-    let paywall = document.querySelector('#paywall-form-container-outer,.atc-ContainerPaywall');
+    if (matchDomain('zeitung.faz.net')) {
+        let paywall_z = document.querySelector('.c-red-carpet');
+        if (paywall_z) {
+            let og_url = document.querySelector('meta[property="og:url"]');
+            if (og_url)
+                window.setTimeout(function () {
+                    window.location.href = og_url.content;
+                }, 500); // Delay (in milliseconds)
+        }
+        let sticky_advt = document.querySelector('.sticky-advt');
+        removeDOMElement(sticky_advt);
+    } else {
+    let paywall = document.querySelector('#paywall-form-container-outer, .atc-ContainerPaywall');
     if (paywall) {
         removeDOMElement(paywall);
         let url = new URL(window.location.href);
@@ -892,6 +904,7 @@ else if (matchDomain('faz.net')) {
                 })
             }
         });
+    }
     }
 }
 
