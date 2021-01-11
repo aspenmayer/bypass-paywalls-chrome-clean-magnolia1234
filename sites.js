@@ -27,6 +27,7 @@ var defaultSites =
   "Chemical & Engineering News": "cen.acs.org",
   "Chicago Tribune": "chicagotribune.com",
   "Chronicle of Higher Education": "chronicle.com",
+  "Cicero.de": "cicero.de",
   "Clarín": "clarin.com",
   "Commentary Magazine": "commentarymagazine.com",
   "CommonWealth Magazine Taiwan": "cw.com.tw",

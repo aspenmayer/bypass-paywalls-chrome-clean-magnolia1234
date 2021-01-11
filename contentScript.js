@@ -1907,33 +1907,34 @@ else if (matchDomain('seekingalpha.com')) {
     }
 }
 
+else if (matchDomain('cicero.de')) {
+    let url = window.location.href;
+    if (!url.includes('?amp')) {
+        let paywall = document.querySelector('.plenigo-paywall');
+        if (paywall) {
+            let url_amp = url + '?amp';
+            replaceDomElementExt(url_amp, false, '.field-name-field-cc-body');
+            removeDOMElement(paywall);
+        }
+    } else {
+        let teasered_content = document.querySelector('.teasered-content');
+        if (teasered_content)
+            teasered_content.classList.remove('teasered-content');
+        let teasered_content_fader = document.querySelector('.teasered-content-fader');
+        let btn_read_more = document.querySelector('.btn--read-more');
+        let amp_ads = document.querySelectorAll('amp-ad');
+        removeDOMElement(teasered_content_fader, btn_read_more, ...amp_ads);
+    }
+    let urban_ad_sign = document.querySelectorAll('.urban-ad-sign');
+    removeDOMElement(...urban_ad_sign);
+}
+
 else if (matchDomain('newleftreview.org')) {
     let url = window.location.href;
     let paywall = document.querySelector('div.promo-wrapper');
     if (paywall) {
-        let proxyurl = 'https://cors-anywhere.herokuapp.com/';
-        let nlr_cache = 'https://webcache.googleusercontent.com/search?q=cache:' + url.split('//')[1];
-        fetch(proxyurl + nlr_cache, { headers: {"Content-Type": "text/plain", "X-Requested-With": "XMLHttpRequest" } })
-        .then(response => {
-            let article_old = document.querySelector('div.article-page');
-            let footer = document.querySelector('div.article-footer');
-            if (response.ok) {
-                response.text().then(html => {
-                    let parser = new DOMParser();
-                    let doc = parser.parseFromString(html, 'text/html');
-                    let json = doc.querySelector('div.article-page');
-                    if (json) {
-                        if (article_old && footer) {
-                            removeDOMElement(article_old);
-                            footer.parentElement.insertBefore(json, footer);
-                        }
-                    }
-                });
-            } else {
-                if (article_old && footer)
-                    article_old.appendChild(document.createTextNode('Article not yet in Google webcache ...'));
-            }
-        });
+        let url_cache = 'https://webcache.googleusercontent.com/search?q=cache:' + url.split('//')[1];
+        replaceDomElementExt(url_cache, true, 'div.article-page', 'Article not yet in Google webcache ...');
         removeDOMElement(paywall);
     }
 }
@@ -1966,6 +1967,28 @@ function matchDomain(domains, hostname) {
         domains = [domains];
     domains.some(domain => (hostname === domain || hostname.endsWith('.' + domain)) && (matched_domain = domain));
     return matched_domain;
+}
+
+function replaceDomElementExt(url, proxy, selector, text_fail) {
+    let proxyurl = proxy ? 'https://cors-anywhere.herokuapp.com/' : '';
+    fetch(proxyurl + url, { headers: {"Content-Type": "text/plain", "X-Requested-With": "XMLHttpRequest" } })
+    .then(response => {
+        let article = document.querySelector(selector);
+        if (response.ok) {
+            response.text().then(html => {
+                let parser = new DOMParser();
+                let doc = parser.parseFromString(html, 'text/html');
+                let article_new = doc.querySelector(selector);
+                if (article_new) {
+                    if (article)
+                        article.parentNode.replaceChild(article_new, article);
+                }
+            });
+        } else {
+            if (article)
+                article.appendChild(document.createTextNode(text_fail));
+        }
+    });
 }
 
 function removeClassesByPrefix(el, prefix) {

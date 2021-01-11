@@ -276,6 +276,7 @@ Groupe Rossel sites (grouped in options) like
 [SudInfo](https://www.sudinfo.be)
 
 ##### Germany/Austria
+[Cicero](https://www.cicero.de) -
 [Deutsche Wirtschafts Nachrichten](https://deutsche-wirtschafts-nachrichten.de) -
 [Die Zeit](https://www.zeit.de) -
 [Frankfurter Allgemeine Zeitung](https://www.faz.net) -
