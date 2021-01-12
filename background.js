@@ -4,7 +4,7 @@
 var ext_api = (typeof browser === 'object') ? browser : chrome;
 var ext_name = ext_api.runtime.getManifest().name;
 
-const cs_limit_except = ['afr.com', 'elcomercio.pe', 'elpais.com', 'faz.net', 'gestion.pe', 'harpers.org', 'inkl.com', 'la-croix.com', 'lescienze.it', 'newleftreview.org', 'techinasia.com'];
+const cs_limit_except = ['afr.com', 'discovermagazine.com', 'elcomercio.pe', 'elpais.com', 'faz.net', 'gestion.pe', 'harpers.org', 'inkl.com', 'la-croix.com', 'lescienze.it', 'newleftreview.org', 'techinasia.com'];
 var currentTabUrl = '';
 var csDone = false;
 
@@ -180,13 +180,17 @@ var use_bing_bot = [
   'themarker.com',
 ];
 
+var use_facebook_referer = ['clarin.com', 'fd.nl'];
+var use_random_ip = ['esprit.presse.fr', 'slader.com'];
+var change_headers = use_google_bot.concat(use_bing_bot, use_facebook_referer, use_random_ip);
+
 // block paywall-scripts individually
 var blockedRegexes = {
   'adweek.com': /.+\.lightboxcdn\.com\/.+/,
   'afr.com': /afr\.com\/assets\/vendorsReactRedux_client.+\.js/,
   'alternatives-economiques.fr': /.+\.poool\.fr\/.+/,
   'americanbanker.com': /cdn\.tinypass\.com\/.+/,
-  'barrons.com': /cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js/,
+  'barrons.com': /(cdn\.cxense\.com\/.+|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js)/,
   'belfasttelegraph.co.uk': /(cdn\.flip-pay\.com\/clients\/inm\/flip-pay\.js|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js)/,
   'bizjournals.com': /(assets\.bizjournals\.com\/static\/js\/app\/cxense\.js|cdn\.cxense\.com\/.+)/,
   'bloomberg.com': /(cdn\.tinypass\.com\/|assets\.bwbx\.io\/s3\/fence\/)/,
@@ -438,6 +442,8 @@ function add_grouped_sites(init_rules) {
       blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/;
     for (let domain of nl_pg_domains)
       remove_cookies_select_drop[domain] = ['TID_ID'];
+    use_google_bot_default = use_google_bot.slice();
+    change_headers = use_google_bot.concat(use_bing_bot, use_facebook_referer, use_random_ip);
   }
 }
 
@@ -566,6 +572,7 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
           block_js_custom_ext.push(domainVar);
         }
       }
+      change_headers = use_google_bot.concat(use_bing_bot, use_facebook_referer, use_random_ip);
     }
     if (key === 'sites_excluded') {
       var sites_excluded = storageChange.newValue ? storageChange.newValue : [];
@@ -739,6 +746,15 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
     });
   }
 
+  // remove cookies Discover Magazine
+  if (matchUrlDomain('ctfassets.net', details.url) && matchUrlDomain('discovermagazine.com', header_referer) && isSiteEnabled({url: 'https://www.discovermagazine.com'})) {
+    ext_api.cookies.getAll({domain: 'discovermagazine.com'}, function(cookies) {
+      for (let cookie of cookies) {
+        ext_api.cookies.remove({url: (cookie.secure ? "https://" : "http://") + cookie.domain + cookie.path, name: cookie.name});
+      }
+    });
+  }
+
   // block external javascript for custom sites (optional)
   var domain_blockjs_ext = matchUrlDomain(block_js_custom_ext, header_referer);
   if (domain_blockjs_ext && !matchUrlDomain(domain_blockjs_ext, details.url) && details.url.match(/(\.js$|\.js\?|\/json\?)/) && isSiteEnabled({url: header_referer})) {
@@ -778,11 +794,12 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   let au_apn_site = (header_referer && (urlHost(header_referer).endsWith('com.au') || urlHost(header_referer).endsWith('net.au')) && details.url.includes('https://media.apnarm.net.au/'));
   let au_swm_site = (header_referer && urlHost(header_referer).endsWith('com.au') && details.url.includes('https://s.thewest.com.au/'));
   let uk_nlr_site = (matchUrlDomain('stripe.com', details.url) && matchUrlDomain('newleftreview.org', header_referer) && isSiteEnabled({url: header_referer}));
+  let usa_discmag_site = (matchUrlDomain('ctfassets.net', details.url) && matchUrlDomain('discovermagazine.com', header_referer) && isSiteEnabled({url: header_referer}));
 
   let bpc_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && isSiteEnabled({url: header_referer}) &&
     matchUrlDomain(['barrons.com', 'belfasttelegraph.co.uk', 'cicero.de', 'elmundo.es', 'elperiodico.com', 'expansion.com', 'freiepresse.de', 'fresnobee.com', 'gelocal.it', 'independent.ie', 'irishtimes.com', 'la-croix.com', 'nationalreview.com', 'sacbee.com', 'seekingalpha.com', 'sueddeutsche.de', 'telegraph.co.uk'].concat(au_nine_domains, es_grupo_vocento_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains), header_referer));
 
-  if (!isSiteEnabled(details) && !inkl_site && !au_nc_amp_site && !au_apn_site && !au_swm_site && !uk_nlr_site && !bpc_amp_site) {
+  if (!isSiteEnabled(details) && !inkl_site && !au_nc_amp_site && !au_apn_site && !au_swm_site && !uk_nlr_site && !usa_discmag_site && !bpc_amp_site) {
     return;
   }
 
@@ -797,16 +814,13 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   var useUserAgentMobile = false;
   var setReferer = false;
 
+if (['main_frame', 'xmlhttprequest'].includes(details.type) && matchUrlDomain(change_headers, details.url)){
   // if referer exists, set it to google
   requestHeaders = requestHeaders.map(function (requestHeader) {
     if (requestHeader.name === 'Referer') {
-      if (details.url.includes("cooking.nytimes.com/api/v1/users/bootstrap")) {
-        // this fixes images not being loaded on cooking.nytimes.com main page
-        // referrer has to be *nytimes.com otherwise returns 403
-        requestHeader.value = 'https://cooking.nytimes.com';
-      } else if (matchUrlDomain(['clarin.com', 'fd.nl'], details.url)) {
+      if (matchUrlDomain(use_facebook_referer, details.url)) {
         requestHeader.value = 'https://www.facebook.com/';
-      } else {
+      } else if (matchUrlDomain(use_google_bot, details.url)) {
         requestHeader.value = 'https://www.google.com/';
       }
       setReferer = true;
@@ -819,7 +833,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
 
   // otherwise add it
   if (!setReferer) {
-      if (matchUrlDomain(['clarin.com', 'fd.nl'], details.url)) {
+      if (matchUrlDomain(use_facebook_referer, details.url)) {
       requestHeaders.push({
         name: 'Referer',
         value: 'https://www.facebook.com/'
@@ -852,13 +866,14 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
     })
   }
 
-  // random IP for esprit.presse.fr
-  if (matchUrlDomain(['esprit.presse.fr', 'slader.com'], details.url)) {
+  // random IP for sites in use_random_ip
+  if (matchUrlDomain(use_random_ip, details.url)) {
     requestHeaders.push({
       "name": "X-Forwarded-For",
       "value": randomIP()
     })
   }
+}
 
   // remove cookies before page load
   if (!matchUrlDomain(allow_cookies, details.url)) {

@@ -1313,7 +1313,8 @@ else if (matchDomain("discovermagazine.com")) {
         if (mammoth)
             window.location.reload();
         let banner = document.querySelector('div.hWOjDZ, div.qa7yll-1');
-        removeDOMElement(banner);
+        if (banner)
+            banner.setAttribute('style', 'display:none;');
     }, 1000); // Delay (in milliseconds)
 }
 

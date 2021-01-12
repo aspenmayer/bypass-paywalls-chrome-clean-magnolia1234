@@ -398,6 +398,7 @@
         "*://*.cdn.arcpublishing.com/*",
         "*://*.cedsdigital.it/*",
         "*://*.corriereobjects.it/*",
+        "*://*.ctfassets.net/*",
         "*://*.emol.cl/*",
         "*://*.flip-pay.com/*",
         "*://*.ffx.io/*",
@@ -411,5 +412,5 @@
         "*://*.stripe.com/*",
         "*://*.userzoom.com/*"
     ],
-    "version": "2.0.3.2"
+    "version": "2.0.3.3"
 }

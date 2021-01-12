@@ -3,7 +3,9 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add Cicero (Germany)
+Fix-update Discover Magazine
 Fix-update Faz.net (Zeitung subdomain)
+Update set user-agent/referer (limit)
 
 * v2.0.3.0 (2021-01-10)
 Add Curbed (New York Magazine)
