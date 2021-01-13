@@ -104,6 +104,7 @@ var defaultSites =
   "L'Obs": "nouvelobs.com",
   "L'Opinion": "lopinion.fr",
   "L'Orient-Le Jour": "lorientlejour.com",
+  "L'Usine Nouvelle": "usinenouvelle.com",
   "La Croix": "la-croix.com",
   "La Estrella de Valparaíso": "estrellavalpo.cl",
   "La Nación": "lanacion.com.ar",

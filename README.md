@@ -232,6 +232,7 @@ Alma Talent sites (grouped in options) like
 [Esprit](https://esprit.presse.fr) -
 [L'Obs](https://www.nouvelobs.com) -
 [L'Opinion](https://www.lopinion.fr) –
+[L'Usine Nouvelle](https://www.usinenouvelle.com) -
 [La Croix](https://www.la-croix.com) -
 [Le Journal du Dimanche](https://lejdd.fr) –
 [Le Journal du Net](https://www.journaldunet.com) -
