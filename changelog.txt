@@ -3,6 +3,8 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add Cicero (Germany)
+Add Il Secolo XIX (Italy)
+Add La Nuova Sardegna (Italy)
 Fix-update Discover Magazine
 Fix-update Faz.net (Zeitung subdomain)
 Update set user-agent/referer (limit)

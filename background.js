@@ -233,6 +233,7 @@ var blockedRegexes = {
   'hbr.org': /cdn\.tinypass\.com\/.+/,
   'historyextra.com': /.+\.evolok\.net\/.+\/authorize\/.+/,
   'ilrestodelcarlino.it': /cdn\.tinypass\.com\/.+/,
+  'ilsecoloxix.it': /\.repstatic\.it\/minify\/sites\/gelocal\/.+\/config\.cache\.php\?name=ilsecoloxix_pw_js/,
   'independent.ie': /(cdn\.flip-pay\.com\/clients\/inm\/flip-pay\.js|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js)/,
   'inquirer.com': /cdn\.tinypass\.com\/.+/,
   'irishtimes.com': /cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js/,
@@ -240,6 +241,7 @@ var blockedRegexes = {
   'kurier.at': /cdn\.tinypass\.com\/.+/,
   'la-croix.com': /cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js/,
   'lasegunda.com': /\.(lasegunda\.com|emol\.cl)\/(.+\/)?js\/(.+\/)?(modal|merPramV\d|PramModal\.min)\.js/,
+  'lanuovasardegna.it': /\.repstatic\.it\/minify\/sites\/lanuovasardegna\/.+\/config\.cache\.php\?name=social_js/,
   'lastampa.it': /.+\.repstatic\.it\/minify\/sites\/lastampa\/.+\/config\.cache\.php\?name=social_js/,
   'latercera.com': /(.+\.latercera\.com\/arc\/subs\/p\.js|cdn\.cxense\.com\/.+)/,
   'latimes.com': /js\.matheranalytics\.com\/.+/,
@@ -746,15 +748,6 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
     });
   }
 
-  // remove cookies Discover Magazine
-  if (matchUrlDomain('ctfassets.net', details.url) && matchUrlDomain('discovermagazine.com', header_referer) && isSiteEnabled({url: 'https://www.discovermagazine.com'})) {
-    ext_api.cookies.getAll({domain: 'discovermagazine.com'}, function(cookies) {
-      for (let cookie of cookies) {
-        ext_api.cookies.remove({url: (cookie.secure ? "https://" : "http://") + cookie.domain + cookie.path, name: cookie.name});
-      }
-    });
-  }
-
   // block external javascript for custom sites (optional)
   var domain_blockjs_ext = matchUrlDomain(block_js_custom_ext, header_referer);
   if (domain_blockjs_ext && !matchUrlDomain(domain_blockjs_ext, details.url) && details.url.match(/(\.js$|\.js\?|\/json\?)/) && isSiteEnabled({url: header_referer})) {
@@ -801,6 +794,15 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
 
   if (!isSiteEnabled(details) && !inkl_site && !au_nc_amp_site && !au_apn_site && !au_swm_site && !uk_nlr_site && !usa_discmag_site && !bpc_amp_site) {
     return;
+  }
+
+  // remove cookies Discover Magazine
+  if (details.type === 'image' && matchUrlDomain('ctfassets.net', details.url) && matchUrlDomain('discovermagazine.com', header_referer) && isSiteEnabled({url: 'https://www.discovermagazine.com'})) {
+    ext_api.cookies.getAll({domain: 'discovermagazine.com'}, function(cookies) {
+      for (let cookie of cookies) {
+        ext_api.cookies.remove({url: (cookie.secure ? "https://" : "http://") + cookie.domain + cookie.path, name: cookie.name});
+      }
+    });
   }
 
   // block javascript of (sub)domain for custom sites (optional)
