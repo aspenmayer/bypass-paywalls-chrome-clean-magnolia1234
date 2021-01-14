@@ -320,6 +320,7 @@
         "*://*.sueddeutsche.de/*",
         "*://*.sun-sentinel.com/*",
         "*://*.sunshinecoastdaily.com.au/*",
+        "*://*.svz.de/*",
         "*://*.talouselama.fi/*",
         "*://*.techinasia.com/*",
         "*://*.technologyreview.com/*",
@@ -415,5 +416,5 @@
         "*://*.stripe.com/*",
         "*://*.userzoom.com/*"
     ],
-    "version": "2.0.3.4"
+    "version": "2.0.3.5"
 }

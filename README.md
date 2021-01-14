@@ -287,6 +287,7 @@ Groupe Rossel sites (grouped in options) like
 [Kurier.at](https://kurier.at) -
 [Piqd.de](https://www.piqd.de) -
 [Sächsische Zeitung](https://www.saechsische.de) -
+[Schweriner Volkszeitung](https://www.svz.de) -
 [Süddeutsche Zeitung](https://www.sueddeutsche.de) -
 [WirtschaftsWoche](https://www.wiwo.de)\
 Grouped in options:\

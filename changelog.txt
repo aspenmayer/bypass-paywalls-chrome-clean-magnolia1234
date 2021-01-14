@@ -6,6 +6,7 @@ Add Cicero (Germany)
 Add Il Secolo XIX (Italy)
 Add L'Usine Nouvelle (France)
 Add La Nuova Sardegna (Italy)
+Add Schweriner Volkszeitung (Germany)
 Fix-update Discover Magazine
 Fix-update Faz.net (Zeitung subdomain)
 Update set user-agent/referer (limit)

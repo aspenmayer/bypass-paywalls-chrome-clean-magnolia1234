@@ -102,6 +102,7 @@ var allow_cookies_default = [
   'startribune.com',
   'stocknews.com',
   'sueddeutsche.de',
+  'svz.de',
   'techinasia.com',
   'the-american-interest.com',
   'thehindu.com',
@@ -282,6 +283,7 @@ var blockedRegexes = {
   'spectator.co.uk': /cdn\.tinypass\.com\/.+/,
   'spectator.com.au': /cdn\.tinypass\.com\/.+/,
   'spectator.us': /(cdn\.cxense\.com\/.+|cdn\.tinypass\.com\/.+)/,
+  'svz.de': /cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad|consent|fx-flying-carpet)-.+\.js/,
   'technologyreview.com': /.+\.blueconic\.net\/.+/,
   'telegraph.co.uk': /(cdn\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js|\.telegraph\.co\.uk\/.+\/piano.+\.js|assets\.adobedtm\.com\/.+\.js)/,
   'thedailybeast.com': /cdn\.tinypass\.com\/.+/,
@@ -792,7 +794,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   let usa_discmag_site = (matchUrlDomain('ctfassets.net', details.url) && matchUrlDomain('discovermagazine.com', header_referer) && isSiteEnabled({url: header_referer}));
 
   let bpc_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && isSiteEnabled({url: header_referer}) &&
-    matchUrlDomain(['barrons.com', 'belfasttelegraph.co.uk', 'cicero.de', 'elmundo.es', 'elperiodico.com', 'expansion.com', 'freiepresse.de', 'fresnobee.com', 'gelocal.it', 'independent.ie', 'irishtimes.com', 'la-croix.com', 'nationalreview.com', 'sacbee.com', 'seekingalpha.com', 'sueddeutsche.de', 'telegraph.co.uk'].concat(au_nine_domains, es_grupo_vocento_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains), header_referer));
+    matchUrlDomain(['barrons.com', 'belfasttelegraph.co.uk', 'cicero.de', 'elmundo.es', 'elperiodico.com', 'expansion.com', 'freiepresse.de', 'fresnobee.com', 'gelocal.it', 'independent.ie', 'irishtimes.com', 'la-croix.com', 'nationalreview.com', 'sacbee.com', 'seekingalpha.com', 'sueddeutsche.de', 'svz.de', 'telegraph.co.uk'].concat(au_nine_domains, es_grupo_vocento_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains), header_referer));
 
   if (!isSiteEnabled(details) && !inkl_site && !au_nc_amp_site && !au_apn_site && !au_swm_site && !uk_nlr_site && !usa_discmag_site && !bpc_amp_site) {
     return;

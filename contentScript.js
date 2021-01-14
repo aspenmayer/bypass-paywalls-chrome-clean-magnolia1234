@@ -370,13 +370,9 @@ else if (matchDomain("nzherald.co.nz")) {
 }
 
 else if (matchDomain(["parool.nl", "trouw.nl", "volkskrant.nl", "humo.be", "demorgen.be"])) {
-    window.setTimeout(function () {
-        let top_banner = document.querySelector('div[data-temptation-position="PAGE_TOP"]');
-        let paywall = document.querySelector('[data-temptation-position="ARTICLE_BOTTOM"]');
-        let hidden_section = document.querySelector('[data-temptation-position="ARTICLE_INLINE"]');
-        let overlay = document.querySelector('div[data-temptation-position="PAGE_BOTTOM"]');
-        removeDOMElement(top_banner, paywall, hidden_section, overlay);
-    }, 500); // Delay (in milliseconds)
+    let banners = document.querySelectorAll('div[data-temptation-position^="PAGE_"], div[class^="ad--"]');
+    let paywall = document.querySelectorAll('[data-temptation-position^="ARTICLE_"]');
+    removeDOMElement(...banners, ...paywall);
 }
 
 else if (matchDomain("firstthings.com")) {
@@ -1946,6 +1942,23 @@ else if (matchDomain('lavanguardia.com')) {
     removeDOMElement(paywall, infinite_loading);
 }
 
+else if (matchDomain('svz.de')) {
+    let paywall = document.querySelector('.paywall');
+    let url = window.location.href;
+    window.setTimeout(function () {
+        if (paywall && !url.includes('-amp.html')) {
+            window.location.href = url.replace('.html', '-amp.html');
+        }
+    }, 500); // Delay (in milliseconds)
+    if (url.includes('-amp.html')) {
+        let div_hidden = document.querySelector('div[amp-access="NOT data.reduced"]');
+        if (div_hidden)
+           div_hidden.removeAttribute('amp-access-hide');
+    }
+    let amp_ads = document.querySelectorAll('amp-ad, amp-embed, #flying-carpet-wrapper');
+    removeDOMElement(...amp_ads);
+}
+
 else if (!matchDomain(['belfasttelegraph.co.uk', 'independent.ie']))
     csDone = true;
 
@@ -1985,7 +1998,7 @@ function replaceDomElementExt(url, proxy, selector, text_fail) {
                         article.parentNode.replaceChild(article_new, article);
                 }
             });
-        } else {
+        } else if (text_fail) {
             if (article)
                 article.appendChild(document.createTextNode(text_fail));
         }
