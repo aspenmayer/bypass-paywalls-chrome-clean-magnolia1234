@@ -1463,7 +1463,8 @@ else if (matchDomain("thelogic.co")) {
 else if (matchDomain("foreignaffairs.com")) {
     let paywall = document.querySelector('.paywall');
     let loading_indicator = document.querySelector('.loading-indicator');
-    removeDOMElement(paywall, loading_indicator);
+    let msg_bottom = document.querySelector('.messages--container--bottom');
+    removeDOMElement(paywall, loading_indicator, msg_bottom);
     let article_dropcap = document.querySelectorAll('.article-dropcap');
     for (let elem of article_dropcap)
         elem.classList.add('loaded');
@@ -1910,7 +1911,7 @@ else if (matchDomain('cicero.de')) {
         let paywall = document.querySelector('.plenigo-paywall');
         if (paywall) {
             let url_amp = url + '?amp';
-            replaceDomElementExt(url_amp, false, '.field-name-field-cc-body');
+            replaceDomElementExt(url_amp, false, false, '.field-name-field-cc-body');
             removeDOMElement(paywall);
         }
     } else {
@@ -1931,7 +1932,7 @@ else if (matchDomain('newleftreview.org')) {
     let paywall = document.querySelector('div.promo-wrapper');
     if (paywall) {
         let url_cache = 'https://webcache.googleusercontent.com/search?q=cache:' + url.split('//')[1];
-        replaceDomElementExt(url_cache, true, 'div.article-page', 'Article not yet in Google webcache ...');
+        replaceDomElementExt(url_cache, true, false, 'div.article-page', 'Article not yet in Google webcache ...');
         removeDOMElement(paywall);
     }
 }
@@ -1959,6 +1960,21 @@ else if (matchDomain('svz.de')) {
     removeDOMElement(...amp_ads);
 }
 
+else if (matchDomain('sudouest.fr')) {
+    let url = window.location.href;
+    let paywall = document.querySelector('.article-premium-footer');
+    if (paywall) {
+        let premium = document.querySelector('meta[name="gsoi:premium-content"]');
+        if (premium) {
+            if (premium.content) {
+                let url_premium = window.location.origin + premium.content;
+                replaceDomElementExt(url_premium, false, true, 'div.full-content');
+            }
+        }
+        removeDOMElement(paywall);
+    }
+}
+
 else if (!matchDomain(['belfasttelegraph.co.uk', 'independent.ie']))
     csDone = true;
 
@@ -1983,13 +1999,17 @@ function matchDomain(domains, hostname) {
     return matched_domain;
 }
 
-function replaceDomElementExt(url, proxy, selector, text_fail) {
+function replaceDomElementExt(url, proxy, base64, selector, text_fail = '') {
     let proxyurl = proxy ? 'https://cors-anywhere.herokuapp.com/' : '';
     fetch(proxyurl + url, { headers: {"Content-Type": "text/plain", "X-Requested-With": "XMLHttpRequest" } })
     .then(response => {
         let article = document.querySelector(selector);
         if (response.ok) {
             response.text().then(html => {
+                if (base64) {
+                    html = atob(html);
+                    selector = 'body';
+                }
                 let parser = new DOMParser();
                 let doc = parser.parseFromString(html, 'text/html');
                 let article_new = doc.querySelector(selector);

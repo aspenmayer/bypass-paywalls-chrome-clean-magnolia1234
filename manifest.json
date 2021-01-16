@@ -317,6 +317,7 @@
         "*://*.stcatharinesstandard.ca/*",
         "*://*.stocknews.com/*",
         "*://*.sudinfo.be/*",
+        "*://*.sudouest.fr/*",
         "*://*.sueddeutsche.de/*",
         "*://*.sun-sentinel.com/*",
         "*://*.sunshinecoastdaily.com.au/*",
@@ -416,5 +417,5 @@
         "*://*.stripe.com/*",
         "*://*.userzoom.com/*"
     ],
-    "version": "2.0.3.5"
+    "version": "2.0.3.6"
 }

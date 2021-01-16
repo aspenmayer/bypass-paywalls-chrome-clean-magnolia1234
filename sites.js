@@ -180,6 +180,7 @@ var defaultSites =
   "Star Tribune": "startribune.com",
   "Statista": "statista.com",
   "Stock News": "stocknews.com",
+  "Sud Ouest": "sudouest.fr",
   "Süddeutsche Zeitung": "sueddeutsche.de",
   "SunSentinel": "sun-sentinel.com",
   "Tech in Asia": "techinasia.com",

@@ -242,6 +242,7 @@ Alma Talent sites (grouped in options) like
 [Paris Match](https://www.parismatch.com) -
 [Science & Vie](https://www.science-et-vie.com) -
 [Sciences et Avenir](https://www.sciencesetavenir.fr) -
+[Sud Ouest](https://www.sudouest.fr) -
 [Valeurs Actuelles](https://www.valeursactuelles.com)\
 Grouped in options:\
 Groupe EBRA sites like
