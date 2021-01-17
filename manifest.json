@@ -418,5 +418,5 @@
         "*://*.stripe.com/*",
         "*://*.userzoom.com/*"
     ],
-    "version": "2.0.3.7"
+    "version": "2.0.4.0"
 }

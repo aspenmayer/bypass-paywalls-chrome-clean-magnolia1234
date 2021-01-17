@@ -2,6 +2,8 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+
+* v2.0.4.0 (2021-01-17)
 Add Cicero (Germany)
 Add Il Secolo XIX (Italy)
 Add L'Usine Nouvelle (France)
