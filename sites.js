@@ -246,6 +246,7 @@ var defaultSites =
   "Cxense": "cxense.com",
   "Evolok": "evolok.net",
   "MatherAnalytics": "matheranalytics.com",
+  "NewsMemory": "newsmemory.com",
   "OneCount": "onecount.net",
   "Pelcro": "pelcro.com",
   "Piano.io": "piano.io",

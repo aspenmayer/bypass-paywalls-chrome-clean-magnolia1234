@@ -390,6 +390,7 @@
         "*://*.cxense.com/*",
         "*://*.evolok.net/*",
         "*://*.matheranalytics.com/*",
+        "*://*.newsmemory.com/*",
         "*://*.onecount.net/*",
         "*://*.pelcro.com/*",
         "*://*.piano.io/*",
@@ -417,5 +418,5 @@
         "*://*.stripe.com/*",
         "*://*.userzoom.com/*"
     ],
-    "version": "2.0.3.6"
+    "version": "2.0.3.7"
 }

@@ -11,6 +11,7 @@ Add Sud Ouest (France)
 Fix-update Discover Magazine
 Fix-update Faz.net (Zeitung subdomain)
 Fix-update Funke Medien (Germany)
+Update block general paywall script (NewsMemory)
 Update set user-agent/referer (limit)
 
 * v2.0.3.0 (2021-01-10)
