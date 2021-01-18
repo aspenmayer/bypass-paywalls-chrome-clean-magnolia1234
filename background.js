@@ -215,7 +215,7 @@ var blockedRegexes = {
   'elcomercio.pe': /elcomercio\.pe\/pf\/dist\/template\/elcomercio-noticia.+\.js/,
   'elmercurio.com': /\.(elmercurio\.com|emol\.cl)\/(.+\/)?js\/(.+\/)?(modal|merPramV\d|PramModal\.min)\.js/,
   'elmundo.es': /cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js/,
-  'elpais.com': /\.cdn\.arcpublishing\.com\/arc\/subs\/p\.min\.js/,
+  'elpais.com': /(\.epimg\.net\/js\/.+\/noticia\.min\.js|\.cdn\.arcpublishing\.com\/arc\/subs\/p\.min\.js|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad|consent)-.+\.js)/,
   'elperiodico.com': /cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js/,
   'estadao.com.br': /acesso\.estadao\.com\.br\/paywall\/.+\/pw\.js/,
   'estrellavalpo.cl': /(.+\.mercuriovalpo\.cl\/impresa\/.+\/assets\/(vendor|\d)\.js|pram\.pasedigital\.cl\/API\/User\/Status\?)/,
@@ -697,6 +697,25 @@ ext_api.webRequest.onHeadersReceived.addListener(function (details) {
 },
   ['blocking', 'responseHeaders']);
 
+// verne.elpais.com block inline script
+ext_api.webRequest.onHeadersReceived.addListener(function (details) {
+  if (!isSiteEnabled(details)) {
+    return;
+  }
+  var headers = details.responseHeaders;
+  headers.push({
+    'name': 'Content-Security-Policy',
+    'value': "script-src *;"
+  });
+  return {
+    responseHeaders: headers
+  };
+}, {
+  'types': ['main_frame', 'sub_frame'],
+  'urls': ["*://verne.elpais.com/*"]
+},
+  ['blocking', 'responseHeaders']);
+
 var block_js_default = ["*://cdn.tinypass.com/*", "*://*.piano.io/*", "*://*.poool.fr/*",  "*://cdn.ampproject.org/v*/amp-access-*.js", "*://*.blueconic.net/*", "*://*.cxense.com/*", "*://*.evolok.net/*", "*://js.matheranalytics.com/*", "*://*.newsmemory.com/*", "*://*.onecount.net/*", "*://js.pelcro.com/*", "*://*.qiota.com/*", "*://*.tribdss.com/*"];
 var block_js_custom = [];
 var block_js_custom_ext = [];
@@ -796,7 +815,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   let usa_discmag_site = (matchUrlDomain('ctfassets.net', details.url) && matchUrlDomain('discovermagazine.com', header_referer) && isSiteEnabled({url: header_referer}));
 
   let bpc_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && isSiteEnabled({url: header_referer}) &&
-    matchUrlDomain(['barrons.com', 'belfasttelegraph.co.uk', 'cicero.de', 'elmundo.es', 'elperiodico.com', 'expansion.com', 'freiepresse.de', 'fresnobee.com', 'gelocal.it', 'independent.ie', 'irishtimes.com', 'la-croix.com', 'nationalreview.com', 'sacbee.com', 'seekingalpha.com', 'sueddeutsche.de', 'svz.de', 'telegraph.co.uk'].concat(au_nine_domains, es_grupo_vocento_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains), header_referer));
+    matchUrlDomain(['barrons.com', 'belfasttelegraph.co.uk', 'cicero.de', 'elmundo.es', 'elpais.com', 'elperiodico.com', 'expansion.com', 'freiepresse.de', 'fresnobee.com', 'gelocal.it', 'independent.ie', 'irishtimes.com', 'la-croix.com', 'nationalreview.com', 'sacbee.com', 'seekingalpha.com', 'sueddeutsche.de', 'svz.de', 'telegraph.co.uk'].concat(au_nine_domains, es_grupo_vocento_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains), header_referer));
 
   if (!isSiteEnabled(details) && !inkl_site && !au_nc_amp_site && !au_apn_site && !au_swm_site && !uk_nlr_site && !usa_discmag_site && !bpc_amp_site) {
     return;

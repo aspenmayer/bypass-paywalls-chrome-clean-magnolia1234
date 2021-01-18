@@ -451,7 +451,18 @@ else if (matchDomain("nytimes.com")) {
     let preview_button = document.querySelector('.css-3s1ce0');
     if (preview_button)
         preview_button.click();
-    csDone = true;
+    if (window.location.hostname === 'cooking.nytimes.com') {
+        let no_scroll = document.querySelectorAll('.nytc---modal-window---noScroll');
+        for (let elem of no_scroll)
+            elem.classList.remove('nytc---modal-window---noScroll');
+        let login = document.querySelector('.nytc---modal-window---isShown');
+        if (login) {
+            let close_button = login.querySelector('span[aria-label="close"]');
+            if (!close_button)
+                login.classList.remove('nytc---modal-window---isShown');
+        }
+    } else
+        csDone = true;
 }
 
 else if (matchDomain("economist.com")) {
@@ -1403,6 +1414,14 @@ else if (matchDomain(de_madsack_domains)) {
 }
 
 else if (matchDomain("elpais.com")) {
+    let url = window.location.href;
+    if (url.includes('.amp.html') || url.includes('?outputType=amp')) {
+        let paywall = document.querySelectorAll('div[amp-access="success"]');
+        for (let elem of paywall)
+            elem.removeAttribute('amp-access-hide');
+        let amp_ads = document.querySelectorAll('amp-ad');
+        removeDOMElement(...amp_ads);
+    }
     let login_register = document.querySelector('.login_register');
     if (login_register) {
         let scripts = document.querySelectorAll('script');

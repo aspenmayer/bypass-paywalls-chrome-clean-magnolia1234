@@ -406,6 +406,7 @@
         "*://*.corriereobjects.it/*",
         "*://*.ctfassets.net/*",
         "*://*.emol.cl/*",
+        "*://*.epimg.net/*",
         "*://*.flip-pay.com/*",
         "*://*.ffx.io/*",
         "*://*.htmedia.in/*",
@@ -418,5 +419,5 @@
         "*://*.stripe.com/*",
         "*://*.userzoom.com/*"
     ],
-    "version": "2.0.4.0"
+    "version": "2.0.4.1"
 }
