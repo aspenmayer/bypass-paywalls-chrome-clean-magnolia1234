@@ -292,6 +292,7 @@
         "*://*.republic.ru/*",
         "*://*.republicain-lorrain.fr/*",
         "*://*.rollingstone.com/*",
+        "*://*.ruhrnachrichten.de/*",
         "*://*.sacbee.com/*",
         "*://*.saechsische.de/*",
         "*://*.sandiegouniontribune.com/*",
@@ -419,5 +420,5 @@
         "*://*.stripe.com/*",
         "*://*.userzoom.com/*"
     ],
-    "version": "2.0.4.1"
+    "version": "2.0.4.2"
 }

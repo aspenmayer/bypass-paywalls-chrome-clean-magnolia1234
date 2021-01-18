@@ -287,6 +287,7 @@ Groupe Rossel sites (grouped in options) like
 [Krautreporter.de](https://krautreporter.de) -
 [Kurier.at](https://kurier.at) -
 [Piqd.de](https://www.piqd.de) -
+[Ruhr Nachrichten](https://www.ruhrnachrichten.de) -
 [Sächsische Zeitung](https://www.saechsische.de) -
 [Schweriner Volkszeitung](https://www.svz.de) -
 [Süddeutsche Zeitung](https://www.sueddeutsche.de) -

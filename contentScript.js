@@ -1986,6 +1986,12 @@ else if (matchDomain('sudouest.fr')) {
     }
 }
 
+else if (matchDomain('ruhrnachrichten.de')) {
+    let paywall = document.querySelector('.PianoContent');
+    if (paywall)
+        paywall.classList.remove('PianoContent');
+}
+
 else if (!matchDomain(['belfasttelegraph.co.uk', 'independent.ie']))
     csDone = true;
 
