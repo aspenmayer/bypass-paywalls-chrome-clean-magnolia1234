@@ -151,6 +151,7 @@ var defaultSites =
   "NRC Handelsblad": "nrc.nl",
   "O Estado de S. Paulo": "estadao.com.br",
   "O Globo": "globo.com",
+  "Observador.pt": "observador.pt",
   "Orange County Register": "ocregister.com",
   "Orlando Sentinel": "orlandosentinel.com",
   "Palo Alto Online": "paloaltoonline.com",

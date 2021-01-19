@@ -359,6 +359,9 @@ Grouped in options:\
 [Trouw](https://www.trouw.nl) -
 [Volkskrant](https://www.volkskrant.nl)
 
+##### Portugal
+[Observador](https://observador.pt)
+
 ##### Russia
 [Republic.ru](https://republic.ru)
 

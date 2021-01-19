@@ -269,6 +269,7 @@
         "*://*.nytimes.com/*",
         "*://*.nzherald.co.nz/*",
         "*://*.nzz.ch/*",
+        "*://*.observador.pt/*",
         "*://*.ocregister.com/*",
         "*://*.orlandosentinel.com/*",
         "*://*.ostsee-zeitung.de/*",
@@ -420,5 +421,5 @@
         "*://*.stripe.com/*",
         "*://*.userzoom.com/*"
     ],
-    "version": "2.0.4.2"
+    "version": "2.0.4.3"
 }

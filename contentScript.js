@@ -1992,6 +1992,12 @@ else if (matchDomain('ruhrnachrichten.de')) {
         paywall.classList.remove('PianoContent');
 }
 
+else if (matchDomain('observador.pt')) {
+    let paywall = document.querySelector('.premium-article');
+    if (paywall)
+        paywall.classList.remove('premium-article');
+}
+
 else if (!matchDomain(['belfasttelegraph.co.uk', 'independent.ie']))
     csDone = true;
 
