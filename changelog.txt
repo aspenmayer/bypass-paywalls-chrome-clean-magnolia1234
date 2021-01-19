@@ -7,6 +7,7 @@ Add Ruhr Nachrichten (Germany)
 Fix-update El Pais (Spain)
 Fix-update MIT Sloan Management Review
 Update block TinyPass (all subdomains)
+Update excluded sites (no general block paywall scripts)
 
 * v2.0.4.0 (2021-01-17)
 Add Cicero (Germany)

@@ -730,7 +730,8 @@ var block_js = block_js_default.concat(block_js_custom);
 // Disable javascript for these sites/general paywall-scripts
 function disableJavascriptOnListedSites() {
   ext_api.webRequest.onBeforeRequest.addListener(function (details) {
-    if (!isSiteEnabled(details)) {
+    let header_referer = details.originUrl ? details.originUrl : details.initiator;
+    if (!isSiteEnabled(details) || matchUrlDomain(excludedSites, header_referer)) {
       return;
     }
     return {
