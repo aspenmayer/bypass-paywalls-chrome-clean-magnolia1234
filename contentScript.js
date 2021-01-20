@@ -11,7 +11,7 @@ var fr_groupe_ebra_domains = ['bienpublic.com', 'dna.fr', 'estrepublicain.fr', '
 var fr_groupe_la_depeche_domains = ['centrepresseaveyron.fr', 'ladepeche.fr', 'lindependant.fr', 'midi-olympique.fr', 'midilibre.fr', 'nrpyrenees.fr', 'petitbleu.fr'];
 
 // clean local storage of sites (with an exemption for hold-list)
-var arr_localstorage_hold = ['charliehebdo.fr', 'elmundo.es', 'expansion.com', 'kurier.at', 'nknews.org', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk'];
+var arr_localstorage_hold = ['charliehebdo.fr', 'cmjornal.pt', 'elmundo.es', 'expansion.com', 'kurier.at', 'nknews.org', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk'];
 arr_localstorage_hold = arr_localstorage_hold.concat(de_funke_media_domains, es_grupo_vocento_domains);
 if (!matchDomain(arr_localstorage_hold)){
     window.localStorage.clear();
@@ -1996,6 +1996,29 @@ else if (matchDomain('observador.pt')) {
     let paywall = document.querySelector('.premium-article');
     if (paywall)
         paywall.classList.remove('premium-article');
+}
+
+else if (matchDomain('cmjornal.pt')) {
+    let paywall = document.querySelector('.bloqueio_exclusivos');
+    let amphtml = document.querySelector('link[rel="amphtml"]');
+    let url = window.location.href;
+    window.setTimeout(function () {
+        if (paywall && amphtml && !url.includes('/amp/')) {
+            window.location.href = amphtml.href;
+        }
+    }, 500); // Delay (in milliseconds)
+    if (url.includes('/amp/')) {
+        let section_hidden = document.querySelector('section[amp-access="subscriber"]');
+        if (section_hidden)
+            section_hidden.removeAttribute('amp-access-hide');
+        let not_subscriber = document.querySelector('section[amp-access="NOT subscriber"]');
+        removeDOMElement(not_subscriber);
+        let amp_ads = document.querySelectorAll('amp-ad, amp-embed, .detalheAds');
+        removeDOMElement(...amp_ads);
+        let amp_links = document.querySelectorAll('a[href^="https://www-cmjornal-pt.cdn.ampproject.org/c/s/"]');
+        for (let amp_link of amp_links)
+            amp_link.href = amp_link.href.replace('www-cmjornal-pt.cdn.ampproject.org/c/s/', '');
+    }
 }
 
 else if (!matchDomain(['belfasttelegraph.co.uk', 'independent.ie']))

@@ -31,6 +31,7 @@ var defaultSites =
   "Clarín": "clarin.com",
   "Commentary Magazine": "commentarymagazine.com",
   "CommonWealth Magazine Taiwan": "cw.com.tw",
+  "Correio da Manhã": "cmjornal.pt",
   "Corriere Della Sera": "corriere.it",
   "Crain's Chicago Business": "chicagobusiness.com",
   "Dagblad van het Noorden": "dvhn.nl",
