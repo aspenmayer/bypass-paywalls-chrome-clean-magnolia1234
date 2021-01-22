@@ -4,7 +4,7 @@
 var ext_api = (typeof browser === 'object') ? browser : chrome;
 var ext_name = ext_api.runtime.getManifest().name;
 
-const cs_limit_except = ['afr.com', 'discovermagazine.com', 'elcomercio.pe', 'elpais.com', 'faz.net', 'gestion.pe', 'harpers.org', 'inkl.com', 'la-croix.com', 'lescienze.it', 'newleftreview.org', 'techinasia.com'];
+const cs_limit_except = ['afr.com', 'discovermagazine.com', 'elcomercio.pe', 'elpais.com', 'faz.net', 'gestion.pe', 'harpers.org', 'inkl.com', 'la-croix.com', 'lescienze.it', 'newleftreview.org', 'prospectmagazine.co.uk', 'techinasia.com'];
 var currentTabUrl = '';
 var csDone = false;
 
@@ -94,6 +94,7 @@ var allow_cookies_default = [
   'observador.pt',
   'parismatch.com',
   'piqd.de',
+  'prospectmagazine.co.uk',
   'quotidiano.net',
   'quora.com',
   'repubblica.it',

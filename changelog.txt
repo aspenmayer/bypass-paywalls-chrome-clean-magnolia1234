@@ -4,6 +4,7 @@ Changelog Bypass Paywalls Clean - Chrome
 Post-release
 Add Correio da Manha (Portugal)
 Add Observador (Portugal)
+Add Prospect Magazine (United Kingdom)
 Add Ruhr Nachrichten (Germany)
 Fix-update El Pais (Spain)
 Fix-update MIT Sloan Management Review

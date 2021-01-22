@@ -161,6 +161,7 @@ var defaultSites =
   "Philosophy Now": "philosophynow.org",
   "Piqd.de": "piqd.de",
   "Pittsburgh Post Gazette": "post-gazette.com",
+  "Prospect Magazine": "prospectmagazine.co.uk",
   "Quartz (free articles only)": "qz.com",
   "Quora": "quora.com",
   "Quotidiano.net": "quotidiano.net",

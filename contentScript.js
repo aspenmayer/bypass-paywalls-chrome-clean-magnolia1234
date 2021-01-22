@@ -1921,9 +1921,9 @@ else if (matchDomain('cicero.de')) {
     if (!url.includes('?amp')) {
         let paywall = document.querySelector('.plenigo-paywall');
         if (paywall) {
+            removeDOMElement(paywall);
             let url_amp = url + '?amp';
             replaceDomElementExt(url_amp, false, false, '.field-name-field-cc-body');
-            removeDOMElement(paywall);
         }
     } else {
         let teasered_content = document.querySelector('.teasered-content');
@@ -1942,9 +1942,9 @@ else if (matchDomain('newleftreview.org')) {
     let url = window.location.href;
     let paywall = document.querySelector('div.promo-wrapper');
     if (paywall) {
-        let url_cache = 'https://webcache.googleusercontent.com/search?q=cache:' + url.split('//')[1];
-        replaceDomElementExt(url_cache, true, false, 'div.article-page', 'Article not yet in Google webcache ...');
         removeDOMElement(paywall);
+        let url_cache = 'https://webcache.googleusercontent.com/search?q=cache:' + url.split('//')[1];
+        replaceDomElementExt(url_cache, true, false, 'div.article-page', 'Failed to load from Google webcache: ');
     }
 }
 
@@ -2021,6 +2021,18 @@ else if (matchDomain('cmjornal.pt')) {
     }
 }
 
+else if (matchDomain('prospectmagazine.co.uk')) {
+    let url = window.location.href;
+    document.addEventListener('DOMContentLoaded', () => {
+        let paywall = document.querySelector('div.paywall_overlay_blend, div.paywall');
+        if (paywall) {
+            removeDOMElement(paywall);
+            let url_cache = 'https://webcache.googleusercontent.com/search?q=cache:' + url.split('//')[1];
+            replaceDomElementExt(url_cache, true, false, 'main', 'Failed to load from Google webcache: ');
+        }
+    });
+}
+
 else if (!matchDomain(['belfasttelegraph.co.uk', 'independent.ie']))
     csDone = true;
 
@@ -2064,9 +2076,20 @@ function replaceDomElementExt(url, proxy, base64, selector, text_fail = '') {
                         article.parentNode.replaceChild(article_new, article);
                 }
             });
-        } else if (text_fail) {
-            if (article)
-                article.appendChild(document.createTextNode(text_fail));
+        }
+        else if (text_fail) {
+            if (article) {
+                let text_fail_div = document.createElement('div');
+                text_fail_div.appendChild(document.createTextNode(text_fail));
+                if (proxy) {
+                    let a_link = document.createElement('a');
+                    a_link.innerText = url;
+                    a_link.href = url;
+                    a_link.target = '_blank';
+                    text_fail_div.appendChild(a_link);
+                }
+                article.insertBefore(text_fail_div, article.firstChild);
+            }
         }
     });
 }
