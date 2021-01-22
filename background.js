@@ -21,7 +21,6 @@ const restrictions = {
   'foreignaffairs.com': /.+\.foreignaffairs\.com\/(articles|fa-caching|interviews|reviews|sites)\/.+/,
   'ft.com': /.+\.ft.com\/content\//,
   'gestion.pe': /.+\/gestion\.pe\/.+((\w)+(\-)+){3,}.+/,
-  'hs.fi': /^((?!\/.+\.hs\.fi\/paivanlehti\/).)*$/,
   'globo.com': /^((?!\/valor\.globo\.com\/).)*$/,
   'quora.com': /^((?!quora\.com\/search\?q=).)*$/,
   'seekingalpha.com': /.+\/seekingalpha\.com\/($|(amp\/)?(article|news)\/|samw\/)/,

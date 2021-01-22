@@ -9,6 +9,7 @@ Add Prospect Magazine (United Kingdom)
 Add Ruhr Nachrichten (Germany)
 Add The Point Magazine
 Fix-update El Pais (Spain)
+Fix-update Helsingin Sanomat (Finland)
 Fix-update MIT Sloan Management Review
 Update block TinyPass (all subdomains)
 Update excluded sites (no general block paywall scripts)
