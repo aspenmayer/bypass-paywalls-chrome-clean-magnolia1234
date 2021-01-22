@@ -38,6 +38,7 @@
         "*://*.afr.com/*",
         "*://*.aisnenouvelle.fr/*",
         "*://*.alternatives-economiques.fr/*",
+        "*://*.ambito.com/*",
         "*://*.americanaffairsjournal.org/*",
         "*://*.americanbanker.com/*",
         "*://*.arvopaperi.fi/*",
@@ -424,5 +425,5 @@
         "*://*.stripe.com/*",
         "*://*.userzoom.com/*"
     ],
-    "version": "2.0.4.5"
+    "version": "2.0.4.6"
 }

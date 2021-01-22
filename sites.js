@@ -5,6 +5,7 @@ var defaultSites =
   "Algemeen Dagblad (+ regional)": "###_nl_ad_region",
   "Alma Talent (Finland)": "###_fi_alma_talent",
   "Alternatives Economiques": "alternatives-economiques.fr",
+  "Ámbito": "ambito.com",
   "American Affairs": "americanaffairsjournal.org",
   "American Banker": "americanbanker.com",
   "Atavist Magazine": "atavist.com",

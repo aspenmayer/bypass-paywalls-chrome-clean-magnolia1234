@@ -142,6 +142,7 @@ const remove_cookies_select_hold = {
 
 // select only specific cookie(s) to drop from remove_cookies domains
 var remove_cookies_select_drop = {
+  'ambito.com': ['TDNotesRead'],
   'caixinglobal.com': ['CAIXINGLB_LOGIN_UUID'],
   'dn.se': ['randomSplusId'],
   'fd.nl': ['socialread'],
