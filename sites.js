@@ -218,6 +218,7 @@ var defaultSites =
   "The New Yorker": "newyorker.com",
   "The News-Gazette": "news-gazette.com",
   "The Philadelphia Inquirer": "inquirer.com",
+  "The Point Magazine": "thepointmag.com",
   "The Sacramento Bee": "sacbee.com",
   "The Saturday Paper": "thesaturdaypaper.com.au",
   "The Seattle Times": "seattletimes.com",

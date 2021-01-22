@@ -142,6 +142,7 @@ For zip-installation (load unpacked/developer mode): unzip files to installation
 [Slate](https://slate.com) -
 [SofRep](https://sofrep.com) -
 [The Daily Beast](https://www.thedailybeast.com)* -
+[The Point Magazine](https://thepointmag.com) -
 [Vanity Fair](https://www.vanityfair.com) -
 [Variety](https://variety.com)
 

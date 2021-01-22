@@ -2033,6 +2033,12 @@ else if (matchDomain('prospectmagazine.co.uk')) {
     });
 }
 
+else if (matchDomain('thepointmag.com')) {
+    let overlay = document.querySelectorAll('div.overlay, div#tpopup-');
+    for (let elem of overlay)
+        removeDOMElement(elem);
+}
+
 else if (!matchDomain(['belfasttelegraph.co.uk', 'independent.ie']))
     csDone = true;
 

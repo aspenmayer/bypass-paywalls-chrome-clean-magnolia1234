@@ -6,6 +6,7 @@ Add Correio da Manha (Portugal)
 Add Observador (Portugal)
 Add Prospect Magazine (United Kingdom)
 Add Ruhr Nachrichten (Germany)
+Add The Point Magazine
 Fix-update El Pais (Spain)
 Fix-update MIT Sloan Management Review
 Update block TinyPass (all subdomains)

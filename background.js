@@ -4,7 +4,7 @@
 var ext_api = (typeof browser === 'object') ? browser : chrome;
 var ext_name = ext_api.runtime.getManifest().name;
 
-const cs_limit_except = ['afr.com', 'discovermagazine.com', 'elcomercio.pe', 'elpais.com', 'faz.net', 'gestion.pe', 'harpers.org', 'inkl.com', 'la-croix.com', 'lescienze.it', 'newleftreview.org', 'prospectmagazine.co.uk', 'techinasia.com'];
+const cs_limit_except = ['afr.com', 'discovermagazine.com', 'elcomercio.pe', 'elpais.com', 'faz.net', 'gestion.pe', 'harpers.org', 'inkl.com', 'la-croix.com', 'lescienze.it', 'newleftreview.org', 'prospectmagazine.co.uk', 'techinasia.com', 'thepointmag.com'];
 var currentTabUrl = '';
 var csDone = false;
 
@@ -146,7 +146,8 @@ var remove_cookies_select_drop = {
   'dn.se': ['randomSplusId'],
   'fd.nl': ['socialread'],
   'nrc.nl': ['counter'],
-  'theatlantic.com': ['articleViews']
+  'theatlantic.com': ['articleViews'],
+  'thepointmag.com': ['monthly_history']
 }
 
 // Override User-Agent with Googlebot
