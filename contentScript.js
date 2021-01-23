@@ -1952,6 +1952,23 @@ else if (matchDomain('thepointmag.com')) {
         removeDOMElement(elem);
 }
 
+else if (matchDomain('lne.es')) {
+    let premium = document.querySelector('body.premium');
+    let url = window.location.href;
+    window.setTimeout(function () {
+        if (premium && !url.includes('.amp.html')) {
+            window.location.href = url.replace('.html', '.amp.html');
+        }
+    }, 500); // Delay (in milliseconds)
+    if (url.includes('.amp.html')) {
+        let section_hidden = document.querySelector('div[amp-access="access"]');
+        if (section_hidden)
+            section_hidden.removeAttribute('amp-access-hide');
+        let not_subscriber = document.querySelector('div[amp-access="NOT access"]');
+        removeDOMElement(not_subscriber);
+    }
+}
+
 else if (!matchDomain(['belfasttelegraph.co.uk', 'independent.ie']))
     csDone = true;
 

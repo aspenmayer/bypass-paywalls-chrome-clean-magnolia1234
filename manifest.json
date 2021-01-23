@@ -110,6 +110,7 @@
         "*://*.elcomercio.es/*",
         "*://*.elcomercio.pe/*",
         "*://*.elcorreo.com/*",
+        "*://*.eldiario.es/*",
         "*://*.eldiariomontanes.es/*",
         "*://*.elmercurio.com/*",
         "*://*.elmundo.es/*",
@@ -221,6 +222,7 @@
         "*://*.lindependant.fr/*",
         "*://*.livemint.com/*",
         "*://*.ln-online.de/*",
+        "*://*.lne.es/*",
         "*://*.loebclassics.com/*",
         "*://*.lopinion.fr/*",
         "*://*.lorientlejour.com/*",
@@ -425,5 +427,5 @@
         "*://*.stripe.com/*",
         "*://*.userzoom.com/*"
     ],
-    "version": "2.0.4.6"
+    "version": "2.0.4.7"
 }

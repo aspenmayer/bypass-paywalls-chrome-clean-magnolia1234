@@ -4,6 +4,8 @@ Changelog Bypass Paywalls Clean - Chrome
 Post-release
 Add Ambito (Argentina)
 Add Correio da Manha (Portugal)
+Add elDiario.es (Spain)
+Add La Nueva Espana (Spain)
 Add Observador (Portugal)
 Add Prospect Magazine (United Kingdom)
 Add Ruhr Nachrichten (Germany)

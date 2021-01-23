@@ -370,10 +370,12 @@ Grouped in options:\
 
 ##### Spain
 [ABC](https://www.abc.es) -
+[El Diario.es](https://www.eldiario.es) -
 [El Mundo](https://www.elmundo.es) -
 [El País](https://elpais.com) -
-[El Periódico](https://www.elperiodico.com) -
+[El Periódico de Catalunya](https://www.elperiodico.com) -
 [Expansión](https://www.expansion.com) -
+[La Nueva España](https://www.lne.es) -
 [La Vanguardia](https://www.lavanguardia.com)\
 Grouped in options:\
 Grupo Vocento (ABC) regional sites like
