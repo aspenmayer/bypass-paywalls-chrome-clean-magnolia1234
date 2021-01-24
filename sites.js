@@ -133,7 +133,7 @@ var defaultSites =
   "Los Angeles Business Journal": "labusinessjournal.com",
   "Los Angeles Times": "latimes.com",
   "Madsack Mediengruppe (Germany)": "###_de_madsack",
-  "MarketWatch (free articles only)": "marketwatch.com",
+  "MarketWatch": "marketwatch.com",
   "Medium (all sites)": "medium.com",
   "Mexico News Daily": "mexiconewsdaily.com",
   "Miami Herald": "miamiherald.com",

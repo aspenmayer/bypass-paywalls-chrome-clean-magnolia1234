@@ -425,7 +425,8 @@
         "*://*.rcsobjects.it/*",
         "*://*.repstatic.it/*",
         "*://*.stripe.com/*",
-        "*://*.userzoom.com/*"
+        "*://*.userzoom.com/*",
+        "*://*.wsj.net/*"
     ],
-    "version": "2.0.4.7"
+    "version": "2.0.4.8"
 }

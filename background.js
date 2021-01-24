@@ -4,7 +4,7 @@
 var ext_api = (typeof browser === 'object') ? browser : chrome;
 var ext_name = ext_api.runtime.getManifest().name;
 
-const cs_limit_except = ['afr.com', 'discovermagazine.com', 'elcomercio.pe', 'elpais.com', 'faz.net', 'gestion.pe', 'harpers.org', 'inkl.com', 'la-croix.com', 'lescienze.it', 'lne.es', 'newleftreview.org', 'prospectmagazine.co.uk', 'techinasia.com', 'thepointmag.com'];
+const cs_limit_except = ['afr.com', 'discovermagazine.com', 'elcomercio.pe', 'elpais.com', 'faz.net', 'gestion.pe', 'harpers.org', 'inkl.com', 'la-croix.com', 'lescienze.it', 'lne.es', 'marketwatch.com', 'newleftreview.org', 'prospectmagazine.co.uk', 'techinasia.com', 'thepointmag.com'];
 var currentTabUrl = '';
 var csDone = false;
 
@@ -80,6 +80,7 @@ var allow_cookies_default = [
   'limesonline.com',
   'lne.es',
   'lrb.co.uk',
+  'marketwatch.com',
   'modernhealthcare.com',
   'nationalgeographic.com',
   'nationalpost.com',
@@ -269,7 +270,7 @@ var blockedRegexes = {
   'lne.es': /cdn\.ampproject\.org\/v\d\/amp-(access|consent)-.+\.js/,
   'lopinion.fr': /.+\.poool\.fr\/.+/,
   'lrb.co.uk': /\.tinypass\.com\/.+/,
-  'marketwatch.com': /cdn\.cxense\.com\/.+/,
+  'marketwatch.com': /(cdn\.cxense\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js)/,
   'mercuriovalpo.cl': /(.+\.mercuriovalpo\.cl\/impresa\/.+\/assets\/(vendor|\d)\.js|pram\.pasedigital\.cl\/API\/User\/Status\?)/,
   'modernhealthcare.com': /\.tinypass\.com\/.+/,
   'nationalgeographic.com': /.+\.blueconic\.net\/.+/,
@@ -826,11 +827,12 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   let au_swm_site = (header_referer && urlHost(header_referer).endsWith('com.au') && details.url.includes('https://s.thewest.com.au/'));
   let uk_nlr_site = (matchUrlDomain('stripe.com', details.url) && matchUrlDomain('newleftreview.org', header_referer) && isSiteEnabled({url: header_referer}));
   let usa_discmag_site = (matchUrlDomain('ctfassets.net', details.url) && matchUrlDomain('discovermagazine.com', header_referer) && isSiteEnabled({url: header_referer}));
+  let usa_mw_site = (matchUrlDomain('wsj.net', details.url) && matchUrlDomain('marketwatch.com', header_referer) && isSiteEnabled({url: header_referer}));
 
   let bpc_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && isSiteEnabled({url: header_referer}) &&
-    matchUrlDomain(['barrons.com', 'belfasttelegraph.co.uk', 'cicero.de', 'cmjornal.pt', 'elmundo.es', 'elpais.com', 'elperiodico.com', 'expansion.com', 'freiepresse.de', 'fresnobee.com', 'gelocal.it', 'independent.ie', 'irishtimes.com', 'la-croix.com', 'lne.es', 'nationalreview.com', 'sacbee.com', 'seekingalpha.com', 'sueddeutsche.de', 'svz.de', 'telegraph.co.uk'].concat(au_nine_domains, es_grupo_vocento_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains), header_referer));
+    matchUrlDomain(['barrons.com', 'belfasttelegraph.co.uk', 'cicero.de', 'cmjornal.pt', 'elmundo.es', 'elpais.com', 'elperiodico.com', 'expansion.com', 'freiepresse.de', 'fresnobee.com', 'gelocal.it', 'independent.ie', 'irishtimes.com', 'la-croix.com', 'lne.es', 'marketwatch.com', 'nationalreview.com', 'sacbee.com', 'seekingalpha.com', 'sueddeutsche.de', 'svz.de', 'telegraph.co.uk'].concat(au_nine_domains, es_grupo_vocento_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains), header_referer));
 
-  if (!isSiteEnabled(details) && !inkl_site && !au_nc_amp_site && !au_apn_site && !au_swm_site && !uk_nlr_site && !usa_discmag_site && !bpc_amp_site) {
+  if (!isSiteEnabled(details) && !inkl_site && !au_nc_amp_site && !au_apn_site && !au_swm_site && !uk_nlr_site && !usa_discmag_site && !usa_mw_site && !bpc_amp_site) {
     return;
   }
 

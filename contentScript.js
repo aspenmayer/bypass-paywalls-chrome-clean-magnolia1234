@@ -1969,6 +1969,24 @@ else if (matchDomain('lne.es')) {
     }
 }
 
+else if (matchDomain('marketwatch.com')) {
+    let premium = document.querySelector('div.article__exclusive');
+    let url = window.location.href;
+    window.setTimeout(function () {
+        if (premium && !url.includes('/amp/')) {
+            window.location.href = url.replace('.marketwatch.com/', '.marketwatch.com/amp/');
+        }
+    }, 500); // Delay (in milliseconds)
+    if (url.includes('/amp/')) {
+        let meter = document.querySelector('div.meter');
+        let container_sponsored = document.querySelector('div.container--sponsored');
+        let amp_ads = document.querySelectorAll('.display-ad');
+        removeDOMElement(meter, container_sponsored, ...amp_ads);
+    }
+    let ads = document.querySelectorAll('div.element--ad, div.j-ad');
+    removeDOMElement(...ads);
+}
+
 else if (!matchDomain(['belfasttelegraph.co.uk', 'independent.ie']))
     csDone = true;
 
