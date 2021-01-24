@@ -4,6 +4,7 @@ Changelog Bypass Paywalls Clean - Chrome
 Post-release
 Add Ambito (Argentina)
 Add Correio da Manha (Portugal)
+Add El Confidencial (Spain)
 Add elDiario.es (Spain)
 Add La Nueva Espana (Spain)
 Add Observador (Portugal)

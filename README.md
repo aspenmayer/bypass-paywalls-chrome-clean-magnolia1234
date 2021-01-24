@@ -372,6 +372,7 @@ Grouped in options:\
 
 ##### Spain
 [ABC](https://www.abc.es) -
+[El Confidencial](https://www.elconfidencial.com) -
 [El Diario.es](https://www.eldiario.es) -
 [El Mundo](https://www.elmundo.es) -
 [El País](https://elpais.com) -

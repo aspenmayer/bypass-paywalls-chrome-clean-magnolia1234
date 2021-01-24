@@ -1987,6 +1987,12 @@ else if (matchDomain('marketwatch.com')) {
     removeDOMElement(...ads);
 }
 
+else if (matchDomain('elconfidencial.com')) {
+    let premium = document.querySelector('div.newsType__content--closed');
+    if (premium)
+        premium.classList.remove('newsType__content--closed');
+}
+
 else if (!matchDomain(['belfasttelegraph.co.uk', 'independent.ie']))
     csDone = true;
 

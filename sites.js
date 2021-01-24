@@ -48,6 +48,7 @@ var defaultSites =
   "Discover Magazine": "discovermagazine.com",
   "Domani": "editorialedomani.it",
   "El Comercio": "elcomercio.pe",
+  "El Confidencial": "elconfidencial.com",
   "El Diario.es": "eldiario.es",
   "El Mercurio": "elmercurio.com",
   "El Mercurio de Valparaíso": "mercuriovalpo.cl",
