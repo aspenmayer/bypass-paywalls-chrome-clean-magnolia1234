@@ -808,8 +808,7 @@ else if (matchDomain('barrons.com')) {
                 signin_link.text = 'Click';
             }
         }
-    }
-    else {
+    } else {
         let wsj_ads = document.querySelectorAll('.wsj-ad');
         removeDOMElement(...wsj_ads);
     }
@@ -950,11 +949,13 @@ else if (matchDomain(['lejdd.fr', 'parismatch.com'])) {
 
 else if (domain = matchDomain(['elmundo.es', 'expansion.com'])) {
     let premium = document.querySelector('.ue-c-article__premium');
-    if (premium && window.location.href.includes('/www.' + domain + '/')) {
-        window.setTimeout(function () {
+    let url = window.location.href;
+    if (!url.includes('/amp.' + domain + '/')) {
+        if (premium) {
+            removeDOMElement(premium);
             window.location.href = window.location.href.replace('/www.', '/amp.');
-        }, 500); // Delay (in milliseconds)
-    } else if (window.location.href.includes('/amp.' + domain + '/')) {
+        }
+    } else {
         let paywall = document.querySelector('div[amp-access="authorized!=true"]');
         if (paywall) {
             removeDOMElement(paywall);
@@ -970,6 +971,7 @@ else if (domain = matchDomain(['elmundo.es', 'expansion.com'])) {
 
 else if (matchDomain('spectator.co.uk')) {
     let premium = document.querySelector('.HardPayWallContainer-module__overlay');
+    removeDOMElement(premium);
     window.setTimeout(function () {
         if (premium && window.location.href.includes('/www.spectator.co.uk/')) {
             window.location.href = window.location.href + '/amp';
@@ -1061,9 +1063,9 @@ else if (matchDomain('knack.be')) {
 
 else if (matchDomain('ilfattoquotidiano.it')) {
     window.setTimeout(function () {
-        let subscribe = document.querySelector('.article-ifq-bottom-pro-sostenitore');
-        removeDOMElement(subscribe);
         let paywall = document.querySelector('.read-more');
+        let subscribe = document.querySelector('.article-ifq-bottom-pro-sostenitore');
+        removeDOMElement(paywall, subscribe);
         if (paywall) {
             if (window.location.href.includes('?'))
                 window.location.href = window.location.href.replace('?', 'amp/?');
@@ -1363,14 +1365,13 @@ else if (matchDomain("nationalreview.com")) {
     document.addEventListener('DOMContentLoaded', () => {
         let url = window.location.href;
         let article_truncated = document.querySelector('div#article-content-truncate-wrap');
-        window.setTimeout(function () {
-            if (article_truncated && !url.includes('/amp/')) {
-                if (url.includes('?'))
-                    window.location.href = url.replace('?', 'amp/?')
-                else
-                    window.location.href = url + 'amp';
-            }
-        }, 500); // Delay (in milliseconds)
+        if (article_truncated && !url.includes('/amp/')) {
+            article_truncated.removeAttribute('id');
+            if (url.includes('?'))
+                window.location.href = url.replace('?', 'amp/?');
+            else
+                window.location.href = url + 'amp';
+        }
         let adverts = document.querySelectorAll('.ad-unit--center');
         removeDOMElement(...adverts);
     });
@@ -1520,18 +1521,18 @@ else if (matchDomain("kurier.at")) {
 else if (matchDomain('gelocal.it')) {
     let premium = document.querySelector('.paywall-adagio');
     let url = window.location.href;
-    window.setTimeout(function () {
-        if (premium && !url.includes('/amp/')) {
+    if (!url.includes('/amp/')) {
+        if (premium) {
+            removeDOMElement(premium);
             if (url.includes('?'))
                 window.location.href = url.replace('?', '/amp/?');
             else
                 window.location.href = url + '/amp/';
         }
-    }, 500); // Delay (in milliseconds)
-    if (url.includes('/amp/')) {
+    } else {
         let paywall = document.querySelector('div[amp-access="showContent"]');
         if (paywall)
-           paywall.removeAttribute('amp-access-hide');
+            paywall.removeAttribute('amp-access-hide');
     }
     let amp_ads = document.querySelectorAll('amp-ad');
     removeDOMElement(...amp_ads);
@@ -1655,9 +1656,8 @@ else if (matchDomain(es_grupo_vocento_domains)) {
     let content_exclusive_bg = document.querySelector('.content-exclusive-bg, #cierre_suscripcion');
     let amphtml = document.querySelector('link[rel="amphtml"]');
     if (content_exclusive_bg && amphtml) {
-        window.setTimeout(function () {
-            window.location.href = url.replace('.html', '_amp.html');
-        }, 500); // Delay (in milliseconds)
+        removeDOMElement(content_exclusive_bg);
+        window.location.href = url.replace('.html', '_amp.html');
     } else if (url.includes('_amp.html')) {
         let voc_advers = document.querySelectorAll('.voc-adver, amp-embed');
         removeDOMElement(...voc_advers);
@@ -1691,11 +1691,9 @@ else if (matchDomain("elperiodico.com")) {
     let url = window.location.href;
     if (!url.includes('amp.elperiodico.com')) {
         let paywall = document.querySelector('.ep-masPeriodico-info-login');
-        if (paywall) {
-            window.setTimeout(function () {
-                window.location.href = url.replace('www.', 'amp.');
-            }, 500); // Delay (in milliseconds)
-        }
+        removeDOMElement(paywall);
+        if (paywall)
+            window.location.href = url.replace('www.', 'amp.');
     } else {
         let not_logged = document.querySelector('.ep-masPeriodico-info-login');
         if (not_logged) {
@@ -1704,8 +1702,14 @@ else if (matchDomain("elperiodico.com")) {
             let subscr_section = document.querySelector('div[amp-access="logged"]');
             if (subscr_section)
                 subscr_section.removeAttribute('amp-access-hide');
-            csDone = true;
         }
+        window.setTimeout(function () {
+            let amp_img = document.querySelectorAll('amp-img > img');
+            for (let elem of amp_img) {
+                if (elem.src)
+                    elem.src = elem.src.replace('amp.elperiodico.com/clip/', 'estaticos-cdn.elperiodico.com/clip/');
+            }
+        }, 3000); // Delay (in milliseconds)
     }
 }
 
@@ -1869,16 +1873,15 @@ else if (matchDomain('lavanguardia.com')) {
 
 else if (matchDomain('svz.de')) {
     let paywall = document.querySelector('.paywall');
+    removeDOMElement(paywall);
     let url = window.location.href;
-    window.setTimeout(function () {
-        if (paywall && !url.includes('-amp.html')) {
+    if (!url.includes('-amp.html')) {
+        if (paywall)
             window.location.href = url.replace('.html', '-amp.html');
-        }
-    }, 500); // Delay (in milliseconds)
-    if (url.includes('-amp.html')) {
+    } else {
         let div_hidden = document.querySelector('div[amp-access="NOT data.reduced"]');
         if (div_hidden)
-           div_hidden.removeAttribute('amp-access-hide');
+            div_hidden.removeAttribute('amp-access-hide');
     }
     let amp_ads = document.querySelectorAll('amp-ad, amp-embed, #flying-carpet-wrapper');
     removeDOMElement(...amp_ads);
@@ -1915,15 +1918,15 @@ else if (matchDomain('cmjornal.pt')) {
     let paywall = document.querySelector('.bloqueio_exclusivos');
     let amphtml = document.querySelector('link[rel="amphtml"]');
     let url = window.location.href;
-    window.setTimeout(function () {
-        if (paywall && amphtml && !url.includes('/amp/')) {
+    if (!url.includes('/amp/')) {
+        if (paywall && amphtml) {
+            removeDOMElement(paywall);
             window.location.href = amphtml.href;
         }
-    }, 500); // Delay (in milliseconds)
-    if (url.includes('/amp/')) {
-        let section_hidden = document.querySelector('section[amp-access="subscriber"]');
-        if (section_hidden)
-            section_hidden.removeAttribute('amp-access-hide');
+    } else {
+        let section_hidden = document.querySelectorAll('section[amp-access="subscriber"]');
+        for (let elem of section_hidden)
+            elem.removeAttribute('amp-access-hide');
         let not_subscriber = document.querySelector('section[amp-access="NOT subscriber"]');
         removeDOMElement(not_subscriber);
         let amp_ads = document.querySelectorAll('amp-ad, amp-embed, .detalheAds');
@@ -1955,29 +1958,29 @@ else if (matchDomain('thepointmag.com')) {
 else if (matchDomain('lne.es')) {
     let premium = document.querySelector('body.premium');
     let url = window.location.href;
-    window.setTimeout(function () {
-        if (premium && !url.includes('.amp.html')) {
+    if (!url.includes('.amp.html')) {
+        if (premium) {
             window.location.href = url.replace('.html', '.amp.html');
+            premium.classList.remove('premium');
         }
-    }, 500); // Delay (in milliseconds)
-    if (url.includes('.amp.html')) {
-        let section_hidden = document.querySelector('div[amp-access="access"]');
-        if (section_hidden)
-            section_hidden.removeAttribute('amp-access-hide');
+    } else {
+        let section_hidden = document.querySelectorAll('div[amp-access="access"]');
+        for (let elem of section_hidden)
+            elem.removeAttribute('amp-access-hide');
         let not_subscriber = document.querySelector('div[amp-access="NOT access"]');
         removeDOMElement(not_subscriber);
     }
 }
 
 else if (matchDomain('marketwatch.com')) {
-    let premium = document.querySelector('div.article__exclusive');
+    let premium = document.querySelector('html.is-paywall');
     let url = window.location.href;
-    window.setTimeout(function () {
-        if (premium && !url.includes('/amp/')) {
+    if (!url.includes('/amp/')) {
+        if (premium) {
+            premium.classList.remove('is-paywall');
             window.location.href = url.replace('.marketwatch.com/', '.marketwatch.com/amp/');
         }
-    }, 500); // Delay (in milliseconds)
-    if (url.includes('/amp/')) {
+    } else {
         let meter = document.querySelector('div.meter');
         let container_sponsored = document.querySelector('div.container--sponsored');
         let amp_ads = document.querySelectorAll('.display-ad');

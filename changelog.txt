@@ -2,6 +2,8 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+
+* v2.0.5.0 (2021-01-24)
 Add Ambito (Argentina)
 Add Correio da Manha (Portugal)
 Add El Confidencial (Spain)
