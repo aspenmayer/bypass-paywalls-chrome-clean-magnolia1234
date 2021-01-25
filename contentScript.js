@@ -128,12 +128,13 @@ else if (window.location.hostname.endsWith(".com.au") || window.location.hostnam
                 window.setTimeout(function () {
                     let breach_screen = document.querySelector('div[data-testid*="BreachScreen"]');
                     if (breach_screen) {
-                        let scripts = document.querySelectorAll('script');
+                        let scripts = document.querySelectorAll('script:not([src], [type])');
                         let json_script;
                         for (let script of scripts) {
-                            if (script.innerText.includes('window.PAGE_DATA ='))
+                            if (script.innerText.includes('window.PAGE_DATA =')) {
                                 json_script = script;
-                            continue;
+                                break;
+                            }
                         }
                         if (json_script) {
                             let json_text = json_script.innerHTML.split('window.PAGE_DATA =')[1].split('</script')[0];
@@ -143,17 +144,18 @@ else if (window.location.hostname.endsWith(".com.au") || window.location.hostnam
                             for (let key in json_article)
                                 if (json_article[key].data.result.resolution && json_article[key].data.result.resolution.publication) {
                                     json_pub = json_article[key].data.result.resolution.publication;
-                                    continue;
+                                    break;
                                 }
-                            let json_content
-                            if (json_pub)
+                            let json_content = [];
+                            let url_loaded;
+                            if (json_pub) {
                                 json_content = json_pub.content.blocks;
-                            else
+                                url_loaded = json_pub._self;
+                            } else
                                 window.location.reload(true);
                             //let json_video = json_pub.mainVideo;
                             let url = window.location.href;
-                            let url_loaded = json_pub._self;
-                            if (!url.includes(url_loaded.slice(-10)))
+                            if (!url_loaded || !url.includes(url_loaded.slice(-10)))
                                 window.location.reload(true);
                             let article = '';
                             let div_content = document.createElement('div');
@@ -206,7 +208,7 @@ else if (window.location.hostname.endsWith(".com.au") || window.location.hostnam
                         }
                         removeDOMElement(breach_screen);
                     }
-                }, 1000); // Delay (in milliseconds)
+                }, 1500); // Delay (in milliseconds)
                 let header_advert = document.querySelector('.headerAdvertisement');
                 if (header_advert)
                     header_advert.setAttribute('style', 'display: none;');
@@ -344,6 +346,7 @@ else if (matchDomain("nzherald.co.nz")) {
     if (article_content) {
         let article_offer = document.querySelector('.article-offer');
         if (article_offer) {
+            removeDOMElement(article_offer);
             let css_selector = article_content.querySelectorAll('p')[5].getAttribute('class');
             let hidden_not_pars = article_content.querySelectorAll('.' + css_selector + ':not(p)');
             for (let hidden_not_par of hidden_not_pars) {
@@ -361,8 +364,6 @@ else if (matchDomain("nzherald.co.nz")) {
             let first_span = document.querySelector('p > span');
             if (first_span)
                 first_span.removeAttribute('class');
-            removeDOMElement(article_offer);
-            csDone = true;
         }
     }
     let premium_toaster = document.querySelector('#premium-toaster');
@@ -1416,39 +1417,19 @@ else if (matchDomain(de_madsack_domains)) {
 
 else if (matchDomain("elpais.com")) {
     let url = window.location.href;
+    let login_register = document.querySelector('.login_register');
     if (url.includes('.amp.html') || url.includes('?outputType=amp')) {
         let paywall = document.querySelectorAll('div[amp-access="success"]');
         for (let elem of paywall)
             elem.removeAttribute('amp-access-hide');
         let amp_ads = document.querySelectorAll('amp-ad');
-        removeDOMElement(...amp_ads);
-    }
-    let login_register = document.querySelector('.login_register');
-    if (login_register) {
-        let scripts = document.querySelectorAll('script');
-        let json_script;
-        for (let script of scripts) {
-            if (script.innerText.includes('Fusion.globalContent'))
-                json_script = script;
-            continue;
+        removeDOMElement(login_register, ...amp_ads);
+    } else {
+        let amphtml = document.querySelector('link[rel="amphtml"]');
+        if (login_register && amphtml) {
+            removeDOMElement(login_register);
+            window.location.href = amphtml.href;
         }
-        if (json_script) {
-            let json_text = json_script.innerHTML.split('Fusion.globalContent=')[1].split(';Fusion.globalContentConfig')[0];
-            let json_article = JSON.parse(json_text).content_elements;
-            let article_body_par = document.querySelector('div.article_body > p');
-            if (article_body_par) {
-                article_body_par.innerText = '';
-                let parser = new DOMParser();
-                let par_text, par_html;
-                for (let par of json_article) {
-                    par_html = parser.parseFromString('<div><p>' + par.content + '</p></br></div>', 'text/html');
-                    par_text = par_html.querySelector('div');
-                    if (par_text)
-                        article_body_par.appendChild(par_text);
-                }
-            }
-        }
-        removeDOMElement(login_register);
     }
     let paywall_offer = document.querySelector('.paywallOffer');
     removeDOMElement(paywall_offer);
