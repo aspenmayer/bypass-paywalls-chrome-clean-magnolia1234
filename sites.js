@@ -206,6 +206,7 @@ var defaultSites =
   "The Economist": "economist.com",
   "The Fresno Bee": "fresnobee.com",
   "The Globe and Mail": "theglobeandmail.com",
+  "The Hill Times": "hilltimes.com",
   "The Hindu": "thehindu.com",
   "The Hindu BusinessLine": "thehindubusinessline.com",
   "The Irish Times": "irishtimes.com",

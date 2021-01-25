@@ -183,6 +183,7 @@ _* free articles only._
 [Le Devoir](https://www.ledevoir.com) -
 [National Post](https://www.nationalpost.com) -
 [The Globe and Mail](https://www.theglobeandmail.com) -
+[The Hill Times](https://www.hilltimes.com) -
 [The Logic](https://thelogic.co)\
 [The Toronto Star](https://www.thestar.com) and regional TorStar sites (grouped in options) like
 [Niagara Falls Review](https://www.niagarafallsreview.ca) -
