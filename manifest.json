@@ -184,6 +184,7 @@
         "*://*.japantimes.co.jp/*",
         "*://*.journaldunet.com/*",
         "*://*.journalnow.com/*",
+        "*://*.jpost.com/*",
         "*://*.kauppalehti.fi/*",
         "*://*.kn-online.de/*",
         "*://*.knack.be/*",
@@ -430,5 +431,5 @@
         "*://*.userzoom.com/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.0.5.1"
+    "version": "2.0.5.2"
 }

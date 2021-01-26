@@ -3,7 +3,9 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add The Hill Times (Canada)
+Add The Jerusalem Post (Israel)
 Fix-update El Pais (premium/images)
+Update custom sites (block Javascript)
 
 * v2.0.5.0 (2021-01-24)
 Add Ambito (Argentina)

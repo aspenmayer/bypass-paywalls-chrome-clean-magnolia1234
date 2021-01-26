@@ -1977,6 +1977,11 @@ else if (matchDomain('elconfidencial.com')) {
         premium.classList.remove('newsType__content--closed');
 }
 
+else if (matchDomain('jpost.com')) {
+    let premium_banners = document.querySelectorAll('.hide-for-premium, #hiddenPremiumForm, #hiddenLink');
+    removeDOMElement(...premium_banners);
+}
+
 else if (!matchDomain(['belfasttelegraph.co.uk', 'independent.ie']))
     csDone = true;
 

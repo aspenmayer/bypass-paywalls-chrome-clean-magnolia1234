@@ -4,7 +4,7 @@
 var ext_api = (typeof browser === 'object') ? browser : chrome;
 var ext_name = ext_api.runtime.getManifest().name;
 
-const cs_limit_except = ['afr.com', 'discovermagazine.com', 'elcomercio.pe', 'elpais.com', 'faz.net', 'gestion.pe', 'harpers.org', 'inkl.com', 'la-croix.com', 'lescienze.it', 'lne.es', 'marketwatch.com', 'newleftreview.org', 'prospectmagazine.co.uk', 'techinasia.com', 'thepointmag.com'];
+const cs_limit_except = ['afr.com', 'discovermagazine.com', 'elcomercio.pe', 'elpais.com', 'faz.net', 'gestion.pe', 'harpers.org', 'inkl.com', 'jpost.com', 'la-croix.com', 'lescienze.it', 'lne.es', 'marketwatch.com', 'newleftreview.org', 'prospectmagazine.co.uk', 'techinasia.com', 'thepointmag.com'];
 var currentTabUrl = '';
 var csDone = false;
 
@@ -72,6 +72,7 @@ var allow_cookies_default = [
   'ilrestodelcarlino.it',
   'independent.ie',
   'intelligentinvestor.com.au',
+  'jpost.com',
   'knack.be',
   'kurier.at',
   'la-croix.com',
@@ -256,6 +257,7 @@ var blockedRegexes = {
   'independent.ie': /(cdn\.flip-pay\.com\/clients\/inm\/flip-pay\.js|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js)/,
   'inquirer.com': /\.tinypass\.com\/.+/,
   'irishtimes.com': /cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js/,
+  'jpost.com': /\.jpost\.com\/bundles\/js_article\?/,
   'knack.be': /.+\.knack\.be\/js\/responsive\/rmgModal\.js/,
   'kurier.at': /\.tinypass\.com\/.+/,
   'la-croix.com': /cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js/,
@@ -794,7 +796,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
 
   // block external javascript for custom sites (optional)
   var domain_blockjs_ext = matchUrlDomain(block_js_custom_ext, header_referer);
-  if (domain_blockjs_ext && !matchUrlDomain(domain_blockjs_ext, details.url) && details.url.match(/(\.js$|\.js\?|\/json\?)/) && isSiteEnabled({url: header_referer})) {
+  if (domain_blockjs_ext && !matchUrlDomain(domain_blockjs_ext, details.url) && details.type === 'script' && isSiteEnabled({url: header_referer})) {
     return { cancel: true };
   }
 
@@ -852,7 +854,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
 
   // block javascript of (sub)domain for custom sites (optional)
   var domain_blockjs = matchUrlDomain(block_js_custom, details.url);
-  if (domain_blockjs && matchUrlDomain(domain_blockjs, details.url) && details.url.match(/(\.js$|\.js\?|\/json\?)/)) {
+  if (domain_blockjs && matchUrlDomain(domain_blockjs, details.url) && details.type === 'script') {
     return { cancel: true };
   }
 
