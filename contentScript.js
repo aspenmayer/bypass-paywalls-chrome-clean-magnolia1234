@@ -347,7 +347,7 @@ else if (matchDomain("nzherald.co.nz")) {
         let article_offer = document.querySelector('.article-offer');
         if (article_offer) {
             removeDOMElement(article_offer);
-            let css_selector = article_content.querySelectorAll('p')[5].getAttribute('class');
+            let css_selector = article_content.querySelectorAll('p[style]')[1].getAttribute('class');
             let hidden_not_pars = article_content.querySelectorAll('.' + css_selector + ':not(p)');
             for (let hidden_not_par of hidden_not_pars) {
                 hidden_not_par.classList.remove(css_selector);
@@ -1980,6 +1980,16 @@ else if (matchDomain('elconfidencial.com')) {
 else if (matchDomain('jpost.com')) {
     let premium_banners = document.querySelectorAll('.hide-for-premium, #hiddenPremiumForm, #hiddenLink');
     removeDOMElement(...premium_banners);
+}
+
+else if (matchDomain('adweek.com')) {
+    let url = window.location.href;
+    let body_single = document.querySelector('body.single');
+    let amphtml = document.querySelector('link[rel="amphtml"]');
+    if (body_single && amphtml) {
+        body_single.classList.remove('single');
+        window.location.href = amphtml.href;
+    }
 }
 
 else if (!matchDomain(['belfasttelegraph.co.uk', 'independent.ie']))

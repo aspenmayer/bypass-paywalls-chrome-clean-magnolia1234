@@ -4,6 +4,7 @@ Changelog Bypass Paywalls Clean - Chrome
 Post-release
 Add The Hill Times (Canada)
 Add The Jerusalem Post (Israel)
+Fix-update Adweek (amp for premium)
 Fix-update El Pais (premium/images)
 Update custom sites (block Javascript)
 

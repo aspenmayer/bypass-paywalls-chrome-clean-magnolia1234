@@ -13,6 +13,7 @@ var csDone = false;
 // var defaultSites = {};
 
 const restrictions = {
+  'adweek.com': /^((?!\.adweek\.com\/(.+\/)?(amp|agencyspy|tvnewser|tvspy)\/).)*$/,
   'barrons.com': /.+\.barrons\.com\/(amp\/)?article(s)?\/.+/,
   'bloombergquint.com': /^((?!\.bloombergquint\.com\/bq-blue-exclusive\/).)*$/,
   'elcomercio.pe': /.+\/elcomercio\.pe\/.+((\w)+(\-)+){3,}.+/,
