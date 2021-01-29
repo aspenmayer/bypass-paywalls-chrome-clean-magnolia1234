@@ -6,6 +6,7 @@ Add The Hill Times (Canada)
 Add The Jerusalem Post (Israel)
 Fix-update Adweek (amp for premium)
 Fix-update El Pais (premium/images)
+Fix-update Funke Mediengruppe (OTZ & TA)
 Update custom sites (block Javascript)
 
 * v2.0.5.0 (2021-01-24)
