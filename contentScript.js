@@ -1992,6 +1992,14 @@ else if (matchDomain('adweek.com')) {
     }
 }
 
+else if (matchDomain('griffithreview.com')) {
+    let body_single = document.querySelector('body.single');
+    if (body_single)
+        body_single.classList.remove('single');
+    let subscribe = document.querySelector('div.call-to-action');
+    removeDOMElement(subscribe);
+}
+
 else if (!matchDomain(['belfasttelegraph.co.uk', 'independent.ie']))
     csDone = true;
 

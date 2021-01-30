@@ -79,6 +79,7 @@ var defaultSites =
   "Gestión": "gestion.pe",
   "Glassdoor": "glassdoor.com",
   "Globes": "globes.co.il",
+  "Griffith Review": "griffithreview.com",
   "Groene Amsterdammer": "groene.nl",
   "Groupe EBRA (France)": "###_fr_groupe_ebra",
   "Groupe La Dépêche (France)": "###_fr_groupe_la_depeche",

@@ -149,6 +149,7 @@
         "*://*.globes.co.il/*",
         "*://*.globo.com/*",
         "*://*.goldcoastbulletin.com.au/*",
+        "*://*.griffithreview.com/*",
         "*://*.groene.nl/*",
         "*://*.grubstreet.com/*",
         "*://*.gva.be/*",
@@ -431,5 +432,5 @@
         "*://*.userzoom.com/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.0.5.3"
+    "version": "2.0.5.4"
 }

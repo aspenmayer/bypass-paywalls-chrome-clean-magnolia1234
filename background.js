@@ -151,6 +151,7 @@ var remove_cookies_select_drop = {
   'caixinglobal.com': ['CAIXINGLB_LOGIN_UUID'],
   'dn.se': ['randomSplusId'],
   'fd.nl': ['socialread'],
+  'griffithreview.com': ['issuem_lp'],
   'nrc.nl': ['counter'],
   'theatlantic.com': ['articleViews'],
   'thepointmag.com': ['monthly_history']
@@ -249,6 +250,7 @@ var blockedRegexes = {
   'gestion.pe': /gestion\.pe\/pf\/dist\/template\/gestion-noticia.+\.js/,
   'globes.co.il': /\.tinypass\.com\/.+/,
   'globo.com': /\.tinypass\.com\/.+/,
+  'griffithreview.com': /\.griffithreview\.com\/.+\/leaky-paywall\//,
   'haaretz.co.il': /haaretz\.co\.il\/htz\/js\/inter\.js/,
   'haaretz.com': /haaretz\.com\/hdc\/web\/js\/minified\/header-scripts-int.js.+/,
   'hbr.org': /\.tinypass\.com\/.+/,
