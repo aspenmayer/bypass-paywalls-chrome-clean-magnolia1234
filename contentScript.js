@@ -2000,6 +2000,14 @@ else if (matchDomain('griffithreview.com')) {
     removeDOMElement(subscribe);
 }
 
+else if (matchDomain('elmercurio.com')) {
+    window.setTimeout(function () {
+        let elem_hidden = document.querySelectorAll('[style="visibility:hidden"]');
+        for (let elem of elem_hidden)
+            elem.removeAttribute('style');
+    }, 1000); // Delay (in milliseconds)
+}
+
 else if (!matchDomain(['belfasttelegraph.co.uk', 'independent.ie']))
     csDone = true;
 
