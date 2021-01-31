@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add Griffith Review (Australia)
+Add Stratfor
 Add The Hill Times (Canada)
 Add The Jerusalem Post (Israel)
 Fix-update Adweek (amp for premium)

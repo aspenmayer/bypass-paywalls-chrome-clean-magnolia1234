@@ -80,6 +80,7 @@ _* free articles only._
 [Inkl](https://www.inkl.com) -
 [National Review](https://www.nationalreview.com) -
 [Newsweek](https://www.newsweek.com) -
+[Stratfor](https://stratfor.com) -
 [The American Interest](https://www.the-american-interest.com) -
 [The Atlantic](https://www.theatlantic.com) -
 [The Christian Science Monitor](https://www.csmonitor.com) -

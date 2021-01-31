@@ -681,7 +681,7 @@ else if (matchDomain("lesechos.fr") && window.location.href.match(/-\d{6,}/)) {
             let data = JSON.parse(state);
             let article = data.article.data.stripes[0].mainContent[0].data.description;
             let url_loaded = data.article.data.path;
-            if (!url.includes(url_loaded))
+            if (!url.replace(/%20/g, '').includes(url_loaded))
                 window.location.reload(true);
             let paywallNode = document.querySelector('.post-paywall');
             if (paywallNode) {
@@ -2006,6 +2006,14 @@ else if (matchDomain('elmercurio.com')) {
         for (let elem of elem_hidden)
             elem.removeAttribute('style');
     }, 1000); // Delay (in milliseconds)
+}
+
+else if (matchDomain('stratfor.com')) {
+    let banner = document.querySelector('.free-cta-container');
+    removeDOMElement(banner);
+    let css_link = document.querySelector('link[rel="stylesheet"][href="/assets/worldview.586bbca0b199b8ce5042.css"]');
+    if (css_link)
+        css_link.href = '/assets/worldview.d6b47e5305e05acb0c45.css';
 }
 
 else if (!matchDomain(['belfasttelegraph.co.uk', 'independent.ie']))
