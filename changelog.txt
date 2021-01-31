@@ -2,6 +2,8 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+
+* v2.0.6.0 (2021-01-31)
 Add Griffith Review (Australia)
 Add Stratfor
 Add The Hill Times (Canada)

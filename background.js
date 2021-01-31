@@ -722,7 +722,7 @@ ext_api.webRequest.onHeadersReceived.addListener(function (details) {
 },
   ['blocking', 'responseHeaders']);
 
-// verne.elpais.com block inline script
+// elviajero|retina|verne.elpais.com block inline script
 ext_api.webRequest.onHeadersReceived.addListener(function (details) {
   if (!isSiteEnabled(details)) {
     return;
@@ -737,7 +737,7 @@ ext_api.webRequest.onHeadersReceived.addListener(function (details) {
   };
 }, {
   'types': ['main_frame', 'sub_frame'],
-  'urls': ["*://verne.elpais.com/*"]
+  'urls': ["*://elviajero.elpais.com/*", "*://retina.elpais.com/*", "*://verne.elpais.com/*"]
 },
   ['blocking', 'responseHeaders']);
 
