@@ -2011,7 +2011,7 @@ else if (matchDomain('elmercurio.com')) {
 else if (matchDomain('stratfor.com')) {
     let banner = document.querySelector('.free-cta-container');
     removeDOMElement(banner);
-    let css_link = document.querySelector('link[rel="stylesheet"][href="/assets/worldview.586bbca0b199b8ce5042.css"]');
+    let css_link = document.querySelector('link[rel="stylesheet"]:not([href="/assets/worldview.d6b47e5305e05acb0c45.css"])');
     if (css_link)
         css_link.href = '/assets/worldview.d6b47e5305e05acb0c45.css';
 }

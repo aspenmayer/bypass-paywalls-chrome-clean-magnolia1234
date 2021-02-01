@@ -125,6 +125,7 @@ var defaultSites =
   "Le Journal du Net": "journaldunet.com",
   "Le Parisien": "leparisien.fr",
   "Le Scienze": "lescienze.it",
+  "Le Un": "le1hebdo.fr",
   "Leeuwarder Courant": "lc.nl",
   "Les Échos": "lesechos.fr",
   "Libération (free articles only)": "liberation.fr",

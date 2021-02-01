@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Add Le Un (France)
 
 * v2.0.6.0 (2021-01-31)
 Add Griffith Review (Australia)
@@ -394,7 +395,7 @@ Fix-update LaDepeche.fr
 Fix-update LesEchos.fr (premium)
 Fix-update Miami Herald
 Add changelog & update json links (raw)
-Fix mismatch domain with url query string (usse matchDomain also in background.js)
+Fix mismatch domain with url query string (use matchDomain also in background.js)
 Resynch Chrome/Firefox code
 
 * v1.7.0.5 (2020-04-28)
