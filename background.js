@@ -343,6 +343,7 @@ const usa_nymag_domains = ['curbed.com', 'grubstreet.com', 'nymag.com', 'thecut.
 
 // grouped domains (rules only)
 const au_nine_domains = ['brisbanetimes.com.au', 'smh.com.au', 'theage.com.au', 'watoday.com.au'];
+const es_epiberica_domains = ['diariodeibiza.es', 'diariodemallorca.es', 'farodevigo.es', 'laprovincia.es'];
 const nl_pg_domains = ['parool.nl', 'trouw.nl', 'volkskrant.nl', 'humo.be', 'demorgen.be'];
 
 const userAgentDesktopG = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
@@ -465,8 +466,8 @@ function add_grouped_sites(init_rules) {
       blockedRegexes[domain] = /(.+\.poool\.fr\/.+|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js)/;
     }
     for (let domain of fr_groupe_la_depeche_domains) {
-        allow_cookies.push(domain);
-        blockedRegexes[domain] = /(.+\.poool\.fr\/.+|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js)/;//|iframe
+      allow_cookies.push(domain);
+      blockedRegexes[domain] = /(.+\.poool\.fr\/.+|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js)/;//|iframe
     }
     for (let domain of it_ilmessaggero_domains)
       blockedRegexes[domain] = /utils\.cedsdigital\.it\/js\/PaywallMeter\.js/;
@@ -475,6 +476,8 @@ function add_grouped_sites(init_rules) {
     // rules only
     for (let domain of au_nine_domains)
       blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/;
+    for (let domain of es_epiberica_domains)
+      allow_cookies.push(domain);
     for (let domain of nl_pg_domains)
       remove_cookies_select_drop[domain] = ['TID_ID'];
     use_google_bot_default = use_google_bot.slice();

@@ -50,7 +50,7 @@ Windows Registry Editor Version 5.00
 
 #### Android
 1. Install [Kiwi Browser](https://play.google.com/store/apps/details?id=com.kiwibrowser.browser&hl=nl) or [Yandex Browser](https://play.google.com/store/apps/details?id=com.yandex.browser&hl=en) from the Google PlayStore.
-2. For Kiwi Browser load the CRX-file in releases (auto-updating, no whitelist needed, opt-in for custom sites not working (use kiwi-custom crx)).
+2. For Kiwi Browser load the CRX-file in releases (auto-updating, no whitelist needed, opt-in for custom sites not working (use kiwi-custom crx; updates to latest regular version)).
 3. For Yandex Browser follow Chrome instructions above (load unpacked; step 6: pick `manifest.json` instead of the folder).
 
 #### Firefox
@@ -375,13 +375,17 @@ Grouped in options:\
 
 ##### Spain
 [ABC](https://www.abc.es) -
+[Diario de Ibiza](https://www.diariodeibiza.es) -
+[Diario de Mallorca](https://www.diariodemallorca.es) -
 [El Confidencial](https://www.elconfidencial.com) -
 [El Diario.es](https://www.eldiario.es) -
 [El Mundo](https://www.elmundo.es) -
 [El País](https://elpais.com) -
 [El Periódico de Catalunya](https://www.elperiodico.com) -
 [Expansión](https://www.expansion.com) -
+[Faro de Vigo](https://www.farodevigo.es) -
 [La Nueva España](https://www.lne.es) -
+[La Provincia](https://www.laprovincia.es) -
 [La Vanguardia](https://www.lavanguardia.com)\
 Grouped in options:\
 Grupo Vocento (ABC) regional sites like

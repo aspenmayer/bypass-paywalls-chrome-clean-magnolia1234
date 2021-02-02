@@ -6,6 +6,7 @@ var csDone = false;
 var ca_torstar_domains = ['niagarafallsreview.ca', 'stcatharinesstandard.ca', 'thepeterboroughexaminer.com', 'therecord.com', 'thespec.com', 'thestar.com', 'wellandtribune.ca'];
 var de_funke_media_domains = ['abendblatt.de', 'braunschweiger-zeitung.de', 'morgenpost.de', 'nrz.de', 'otz.de', 'thueringer-allgemeine.de', 'waz.de', 'wp.de', 'wr.de'];
 var de_madsack_domains = ['haz.de', 'kn-online.de', 'ln-online.de', 'lvz.de', 'maz-online.de', 'neuepresse.de', 'ostsee-zeitung.de'];
+var es_epiberica_domains = ['diariodeibiza.es', 'diariodemallorca.es', 'farodevigo.es', 'laprovincia.es'];
 var es_grupo_vocento_domains = ['diariosur.es', 'diariovasco.com', 'elcomercio.es', 'elcorreo.com', 'eldiariomontanes.es', 'elnortedecastilla.es', 'hoy.es', 'ideal.es', 'larioja.com', 'laverdad.es', 'lavozdigital.es'];
 var fr_groupe_ebra_domains = ['bienpublic.com', 'dna.fr', 'estrepublicain.fr', 'lalsace.fr', 'ledauphine.com', 'lejsl.com', 'leprogres.fr', 'republicain-lorrain.fr', 'vosgesmatin.fr'];
 var fr_groupe_la_depeche_domains = ['centrepresseaveyron.fr', 'ladepeche.fr', 'lindependant.fr', 'midi-olympique.fr', 'midilibre.fr', 'nrpyrenees.fr', 'petitbleu.fr'];
@@ -2014,6 +2015,17 @@ else if (matchDomain('stratfor.com')) {
     let css_link = document.querySelector('link[rel="stylesheet"]:not([href="/assets/worldview.d6b47e5305e05acb0c45.css"])');
     if (css_link)
         css_link.href = '/assets/worldview.d6b47e5305e05acb0c45.css';
+    let hidden_images = document.querySelectorAll('img[src^="data:image/gif"][data-src]');
+    for (let hidden_image of hidden_images)
+        hidden_image.setAttribute('src', hidden_image.getAttribute("data-src"));
+}
+
+else if (matchDomain(es_epiberica_domains)) {
+    document.querySelector('div.article-body--truncated')?.classList.remove('article-body--truncated');
+    document.querySelector('div.baldomero')?.classList.remove('baldomero');
+    window.setTimeout(function () {
+        document.querySelector('div.paywall')?.remove();
+    }, 500); // Delay (in milliseconds)
 }
 
 else if (!matchDomain(['belfasttelegraph.co.uk', 'independent.ie']))

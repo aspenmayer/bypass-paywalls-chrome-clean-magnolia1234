@@ -97,6 +97,8 @@
         "*://*.destentor.nl/*",
         "*://*.deutsche-wirtschafts-nachrichten.de/*",
         "*://*.df.cl/*",
+        "*://*.diariodeibiza.es/*",
+        "*://*.diariodemallorca.es/*",
         "*://*.diariosur.es/*",
         "*://*.diariovasco.com/*",
         "*://*.digiday.com/*",
@@ -126,6 +128,7 @@
         "*://*.exame.abril.com.br/*",
         "*://*.examiner.com.au/*",
         "*://*.expansion.com/*",
+        "*://*.farodevigo.es/*",
         "*://*.faz.net/*",
         "*://*.fd.nl/*",
         "*://*.financialpost.com/*",
@@ -197,6 +200,7 @@
         "*://*.lalsace.fr/*",
         "*://*.lanacion.com.ar/*",
         "*://*.lanuovasardegna.it/*",
+        "*://*.laprovincia.es/*",
         "*://*.lardennais.fr/*",
         "*://*.larioja.com/*",
         "*://*.lasegunda.com/*",
@@ -434,5 +438,5 @@
         "*://*.userzoom.com/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.0.6.1"
+    "version": "2.0.6.2"
 }
