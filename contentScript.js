@@ -2009,12 +2009,27 @@ else if (matchDomain('elmercurio.com')) {
     }, 1000); // Delay (in milliseconds)
 }
 
-else if (matchDomain('stratfor.com')) {
+else if (matchDomain('stratfor.com') && window.location.href.match(/((\w)+(\-)+){3,}/)) {
     let banner = document.querySelector('.free-cta-container');
     removeDOMElement(banner);
-    let css_link = document.querySelector('link[rel="stylesheet"]:not([href="/assets/worldview.d6b47e5305e05acb0c45.css"])');
-    if (css_link)
-        css_link.href = '/assets/worldview.d6b47e5305e05acb0c45.css';
+    let css_link = document.querySelector('link[rel="stylesheet"]');
+    if (css_link && !css_link.getAttribute('style')) {
+        css_link.setAttribute('style', 'done');
+        url = 'https://' + new URL(window.location.href).hostname;
+        fetch(url)
+        .then(response => {
+            if (response.ok) {
+                response.text().then(html => {
+                    var parser = new DOMParser();
+                    var doc = parser.parseFromString(html, 'text/html');
+                    let css_home = doc.querySelector('link[rel="stylesheet"]');
+                    if (css_home) {
+                        css_link.href = css_home.href;
+                    }
+                });
+            }
+        });
+    }
     let hidden_images = document.querySelectorAll('img[src^="data:image/gif"][data-src]');
     for (let hidden_image of hidden_images)
         hidden_image.setAttribute('src', hidden_image.getAttribute("data-src"));
