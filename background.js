@@ -85,6 +85,7 @@ var allow_cookies_default = [
   'lne.es',
   'lrb.co.uk',
   'marketwatch.com',
+  'medium.com',
   'modernhealthcare.com',
   'nationalgeographic.com',
   'nationalpost.com',
@@ -122,6 +123,7 @@ var allow_cookies_default = [
   'themarker.com',
   'thewest.com.au',
   'timeshighereducation.com',
+  'towardsdatascience.com',
   'usinenouvelle.com',
   'variety.com',
   'washingtonpost.com',
@@ -203,8 +205,9 @@ var use_bing_bot = [
 ];
 
 var use_facebook_referer = ['clarin.com', 'fd.nl', 'sloanreview.mit.edu'];
+var use_twitter_referer = ['medium.com', 'towardsdatascience.com'];
 var use_random_ip = ['esprit.presse.fr', 'slader.com'];
-var change_headers = use_google_bot.concat(use_bing_bot, use_facebook_referer, use_random_ip);
+var change_headers = use_google_bot.concat(use_bing_bot, use_facebook_referer, use_twitter_referer, use_random_ip);
 
 // block paywall-scripts individually
 var blockedRegexes = {
@@ -481,7 +484,7 @@ function add_grouped_sites(init_rules) {
     for (let domain of nl_pg_domains)
       remove_cookies_select_drop[domain] = ['TID_ID'];
     use_google_bot_default = use_google_bot.slice();
-    change_headers = use_google_bot.concat(use_bing_bot, use_facebook_referer, use_random_ip);
+    change_headers = use_google_bot.concat(use_bing_bot, use_facebook_referer, use_twitter_referer, use_random_ip);
   }
 }
 
@@ -610,7 +613,7 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
           block_js_custom_ext.push(domainVar);
         }
       }
-      change_headers = use_google_bot.concat(use_bing_bot, use_facebook_referer, use_random_ip);
+      change_headers = use_google_bot.concat(use_bing_bot, use_facebook_referer, use_twitter_referer, use_random_ip);
     }
     if (key === 'sites_excluded') {
       var sites_excluded = storageChange.newValue ? storageChange.newValue : [];
@@ -795,7 +798,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
       header_referer = details.initiator;
 
   // remove cookies for sites medium platform (custom domains)
-  var medium_custom_domain = (matchUrlDomain('cdn-client.medium.com', details.url) && !matchUrlDomain('medium.com', header_referer) && isSiteEnabled({url: 'https://medium.com'}));
+  var medium_custom_domain = (matchUrlDomain('cdn-client.medium.com', details.url) && !matchUrlDomain(['medium.com', 'towardsdatascience.com'], header_referer) && enabledSites.includes('###_medium_custom'));
   if (medium_custom_domain) {
     ext_api.cookies.getAll({domain: urlHost(header_referer)}, function(cookies) {
       for (let cookie of cookies) {
@@ -850,7 +853,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   let bpc_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && isSiteEnabled({url: header_referer}) &&
     matchUrlDomain(['barrons.com', 'belfasttelegraph.co.uk', 'cicero.de', 'cmjornal.pt', 'elmundo.es', 'elpais.com', 'elperiodico.com', 'expansion.com', 'freiepresse.de', 'fresnobee.com', 'gelocal.it', 'independent.ie', 'irishtimes.com', 'la-croix.com', 'lne.es', 'marketwatch.com', 'nationalreview.com', 'sacbee.com', 'seekingalpha.com', 'sueddeutsche.de', 'svz.de', 'telegraph.co.uk'].concat(au_nine_domains, es_grupo_vocento_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains), header_referer));
 
-  if (!isSiteEnabled(details) && !inkl_site && !au_nc_amp_site && !au_apn_site && !au_swm_site && !cl_elmerc_site && !uk_nlr_site && !usa_discmag_site && !usa_mw_site && !bpc_amp_site) {
+  if (!isSiteEnabled(details) && !inkl_site && !au_nc_amp_site && !au_apn_site && !au_swm_site && !cl_elmerc_site && !medium_custom_domain && !uk_nlr_site && !usa_discmag_site && !usa_mw_site && !bpc_amp_site) {
     return;
   }
 
@@ -880,6 +883,8 @@ if (['main_frame', 'xmlhttprequest'].includes(details.type) && matchUrlDomain(ch
     if (requestHeader.name === 'Referer') {
       if (matchUrlDomain(use_facebook_referer, details.url)) {
         requestHeader.value = 'https://www.facebook.com/';
+      } else if (matchUrlDomain(use_twitter_referer, details.url)) {
+        requestHeader.value = 'https://t.co/';
       } else if (matchUrlDomain(use_google_bot, details.url)) {
         requestHeader.value = 'https://www.google.com/';
       }
@@ -897,6 +902,11 @@ if (['main_frame', 'xmlhttprequest'].includes(details.type) && matchUrlDomain(ch
       requestHeaders.push({
         name: 'Referer',
         value: 'https://www.facebook.com/'
+      });
+    } else if (matchUrlDomain(use_twitter_referer, details.url)) {
+      requestHeaders.push({
+        name: 'Referer',
+        value: 'https://t.co/'
       });
     } else {
       requestHeaders.push({

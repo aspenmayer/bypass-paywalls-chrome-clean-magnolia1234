@@ -407,8 +407,12 @@ else if (matchDomain("bloombergquint.com")) {
 }
 
 else if (matchDomain(["medium.com", "towardsdatascience.com"])) {
+    let paywall = document.querySelector('div#paywall-background-color');
+    removeDOMElement(paywall);
+    if (paywall)
+        window.location.reload(true);
     window.setTimeout(function () {
-        let meter = document.querySelector('[id^="lo-highlight-meter-"]');
+        let meter = document.querySelector('[id*="highlight-meter-"]');
         if (meter)
             meter.hidden = true;
     }, 500); // Delay (in milliseconds)

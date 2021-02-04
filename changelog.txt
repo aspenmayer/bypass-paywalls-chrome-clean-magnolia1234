@@ -4,6 +4,7 @@ Changelog Bypass Paywalls Clean - Chrome
 Post-release
 Add Diario de Ibiza/Mallorca, Faro de Vigo & La Provincia (Spain)
 Add Le Un (France)
+Fix-update Medium/Towards Data Science (login) & add custom domains in options
 Fix-update Stratfor (style; not menu)
 
 * v2.0.6.0 (2021-01-31)
