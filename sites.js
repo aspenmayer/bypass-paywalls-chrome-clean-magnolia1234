@@ -173,6 +173,7 @@ var defaultSites =
   "Piqd.de": "piqd.de",
   "Pittsburgh Post Gazette": "post-gazette.com",
   "Prospect Magazine": "prospectmagazine.co.uk",
+  "Rheinische Post Mediengruppe (only plus if amp)": "###_de_rp_medien",
   "Quartz (free articles only)": "qz.com",
   "Quora": "quora.com",
   "Quotidiano.net": "quotidiano.net",

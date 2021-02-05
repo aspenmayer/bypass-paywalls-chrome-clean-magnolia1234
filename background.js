@@ -335,6 +335,7 @@ const au_prov_news_domains = ['news-mail.com.au', 'frasercoastchronicle.com.au',
 const ca_torstar_domains = ['niagarafallsreview.ca', 'stcatharinesstandard.ca', 'thepeterboroughexaminer.com', 'therecord.com', 'thespec.com', 'thestar.com', 'wellandtribune.ca'];
 const de_funke_media_domains = ['abendblatt.de', 'braunschweiger-zeitung.de', 'morgenpost.de', 'nrz.de', 'otz.de', 'thueringer-allgemeine.de', 'waz.de', 'wp.de', 'wr.de'];
 const de_madsack_domains = ['haz.de', 'kn-online.de', 'ln-online.de', 'lvz.de', 'maz-online.de', 'neuepresse.de', 'ostsee-zeitung.de'];
+const de_rp_medien_domains = ['aachener-nachrichten.de', 'ga.de', 'rp-online.de', 'saarbruecker-zeitung.de', 'volksfreund.de'];
 const es_grupo_vocento_domains = ['diariosur.es', 'diariovasco.com', 'elcomercio.es', 'elcorreo.com', 'eldiariomontanes.es', 'elnortedecastilla.es', 'hoy.es', 'ideal.es', 'larioja.com', 'laverdad.es', 'lavozdigital.es'];
 const fi_alma_talent_domains = ['arvopaperi.fi', 'kauppalehti.fi', 'marmai.fi', 'mediuutiset.fi', 'mikrobitti.fi', 'talouselama.fi', 'tekniikkatalous.fi', 'tivi.fi', 'uusisuomi.fi'];
 const fr_be_groupe_rossel_domains = ['aisnenouvelle.fr', 'courrier-picard.fr', 'lardennais.fr', 'lavoixdunord.fr', 'lecho.be', 'lesoir.be', 'lest-eclair.fr', 'liberation-champagne.fr', 'lunion.fr', 'nordeclair.fr', 'paris-normandie.fr', 'sudinfo.be'];
@@ -358,7 +359,7 @@ const userAgentMobileB = "Chrome/80.0.3987.92 Mobile Safari/537.36 (compatible; 
 var enabledSites = [];
 var disabledSites = [];
 var defaultSites_grouped_domains = Object.values(defaultSites);
-var defaultSites_domains = defaultSites_grouped_domains.concat(au_comm_media_domains, au_news_corp_domains, au_prov_news_domains, ca_torstar_domains, de_funke_media_domains, de_madsack_domains, es_grupo_vocento_domains, fi_alma_talent_domains, fr_be_groupe_rossel_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, it_ilmessaggero_domains, nl_ad_region_domains, usa_nymag_domains);
+var defaultSites_domains = defaultSites_grouped_domains.concat(au_comm_media_domains, au_news_corp_domains, au_prov_news_domains, ca_torstar_domains, de_funke_media_domains, de_madsack_domains, de_rp_medien_domains, es_grupo_vocento_domains, fi_alma_talent_domains, fr_be_groupe_rossel_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, it_ilmessaggero_domains, nl_ad_region_domains, usa_nymag_domains);
 var customSites = {};
 var customSites_domains = [];
 var excludedSites = [];
@@ -401,6 +402,7 @@ var grouped_sites = {
 '###_ca_torstar': ca_torstar_domains,
 '###_de_funke_medien': de_funke_media_domains,
 '###_de_madsack': de_madsack_domains,
+'###_de_rp_medien': de_rp_medien_domains,
 '###_es_grupo_vocento': es_grupo_vocento_domains,
 '###_fi_alma_talent': fi_alma_talent_domains,
 '###_fr_be_groupe_rossel': fr_be_groupe_rossel_domains,
@@ -450,6 +452,14 @@ function add_grouped_sites(init_rules) {
     for (let domain of de_funke_media_domains) {
       allow_cookies.push(domain);
       blockedRegexes[domain] = /(cdn\.cxense\.com\/.+|\.tinypass\.com\/.+)/;
+    }
+    for (let domain of de_madsack_domains) {
+      allow_cookies.push(domain);
+      blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-(ad|subscriptions)-.+\.js/;
+    }
+    for (let domain of de_rp_medien_domains) {
+      allow_cookies.push(domain);
+      blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad|fx-flying-carpet|subscriptions)-.+\.js/;
     }
     for (let domain of es_grupo_vocento_domains) {
       allow_cookies.push(domain);
@@ -851,7 +861,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   let usa_mw_site = (matchUrlDomain('wsj.net', details.url) && matchUrlDomain('marketwatch.com', header_referer) && isSiteEnabled({url: header_referer}));
 
   let bpc_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && isSiteEnabled({url: header_referer}) &&
-    matchUrlDomain(['barrons.com', 'belfasttelegraph.co.uk', 'cicero.de', 'cmjornal.pt', 'elmundo.es', 'elpais.com', 'elperiodico.com', 'expansion.com', 'freiepresse.de', 'fresnobee.com', 'gelocal.it', 'independent.ie', 'irishtimes.com', 'la-croix.com', 'lne.es', 'marketwatch.com', 'nationalreview.com', 'sacbee.com', 'seekingalpha.com', 'sueddeutsche.de', 'svz.de', 'telegraph.co.uk'].concat(au_nine_domains, es_grupo_vocento_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains), header_referer));
+    matchUrlDomain(['barrons.com', 'belfasttelegraph.co.uk', 'cicero.de', 'cmjornal.pt', 'elmundo.es', 'elpais.com', 'elperiodico.com', 'expansion.com', 'freiepresse.de', 'fresnobee.com', 'gelocal.it', 'independent.ie', 'irishtimes.com', 'la-croix.com', 'lne.es', 'marketwatch.com', 'nationalreview.com', 'sacbee.com', 'seekingalpha.com', 'sueddeutsche.de', 'svz.de', 'telegraph.co.uk'].concat(au_nine_domains, de_madsack_domains, de_rp_medien_domains, es_grupo_vocento_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains), header_referer));
 
   if (!isSiteEnabled(details) && !inkl_site && !au_nc_amp_site && !au_apn_site && !au_swm_site && !cl_elmerc_site && !medium_custom_domain && !uk_nlr_site && !usa_discmag_site && !usa_mw_site && !bpc_amp_site) {
     return;
