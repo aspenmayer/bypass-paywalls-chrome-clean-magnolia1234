@@ -1896,9 +1896,13 @@ else if (matchDomain('sudouest.fr')) {
         }
         removeDOMElement(paywall);
     }
+    window.setTimeout(function () {
+        let footer_premium = document.querySelector('.footer-premium');
+        removeDOMElement(footer_premium);
+    }, 500); // Delay (in milliseconds)
 }
 
-else if (matchDomain('ruhrnachrichten.de')) {
+else if (matchDomain(['ruhrnachrichten.de', 'hellwegeranzeiger.de'])) {
     let paywall = document.querySelector('.PianoContent');
     if (paywall)
         paywall.classList.remove('PianoContent');
@@ -2118,7 +2122,7 @@ function replaceDomElementExt(url, proxy, base64, selector, text_fail = '') {
         if (response.ok) {
             response.text().then(html => {
                 if (base64) {
-                    html = atob(html);
+                    html = decode_utf8(atob(html));
                     selector = 'body';
                 }
                 let parser = new DOMParser();
@@ -2211,4 +2215,12 @@ function parseHtmlEntities(encodedString) {
         var num = parseInt(numStr, 10);
         return String.fromCharCode(num);
     });
+}
+
+function encode_utf8(str) {
+    return unescape(encodeURIComponent(str));
+}
+
+function decode_utf8(str) {
+    return decodeURIComponent(escape(str));
 }
