@@ -213,6 +213,7 @@
         "*://*.laverdad.es/*",
         "*://*.lavoixdunord.fr/*",
         "*://*.lavozdigital.es/*",
+        "*://*.law.com/*",
         "*://*.lc.nl/*",
         "*://*.le1hebdo.fr/*",
         "*://*.lecho.be/*",
@@ -443,5 +444,5 @@
         "*://*.userzoom.com/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.0.6.6"
+    "version": "2.0.6.7"
 }

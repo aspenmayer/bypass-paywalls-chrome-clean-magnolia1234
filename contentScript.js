@@ -2063,7 +2063,7 @@ else if (matchDomain(es_epiberica_domains)) {
 
 else if (matchDomain(de_rp_medien_domains)) {
     let url = window.location.href;
-    let paywall_article = document.querySelector('article.park-article--reduced .park-icon-paid');
+    let paywall_article = document.querySelector('article.park-article--reduced [class^="park-icon-"]');
     if (url.includes('?output=amp')) {
         let subscr_sections = document.querySelectorAll('section[subscriptions-section="content"]');
         for (let subscr_section of subscr_sections)

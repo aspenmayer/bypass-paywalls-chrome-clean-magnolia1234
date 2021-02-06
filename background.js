@@ -204,7 +204,7 @@ var use_bing_bot = [
   'themarker.com',
 ];
 
-var use_facebook_referer = ['clarin.com', 'fd.nl', 'sloanreview.mit.edu'];
+var use_facebook_referer = ['clarin.com', 'fd.nl', 'law.com', 'sloanreview.mit.edu'];
 var use_twitter_referer = ['medium.com', 'towardsdatascience.com'];
 var use_random_ip = ['esprit.presse.fr', 'slader.com'];
 var change_headers = use_google_bot.concat(use_bing_bot, use_facebook_referer, use_twitter_referer, use_random_ip);

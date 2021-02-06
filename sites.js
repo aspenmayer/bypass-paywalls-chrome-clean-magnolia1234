@@ -124,6 +124,7 @@ var defaultSites =
   "La Stampa": "lastampa.it",
   "La Tercera": "latercera.com",
   "La Vanguardia": "lavanguardia.com",
+  "Law.com (free articles only)": "law.com",
   "Le Devoir": "ledevoir.com",
   "Le Journal du Dimanche": "lejdd.fr",
   "Le Journal du Net": "journaldunet.com",

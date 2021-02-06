@@ -104,7 +104,8 @@ _* free articles only._
 [Fortune](https://fortune.com) -
 [Harvard Business Review](https://www.hbr.org) -
 [Inc.com](https://www.inc.com) -
-[MarketWatch](https://www.marketwatch.com)\ -
+[Law.com](https://www.law.com)* -
+[MarketWatch](https://www.marketwatch.com) -
 [MIT Sloan Management Review](https://sloanreview.mit.edu) -
 [Modern Healthcare](https://www.modernhealthcare.com) -
 [Quartz](https://qz.com)* -
