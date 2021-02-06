@@ -204,10 +204,14 @@ var use_bing_bot = [
   'themarker.com',
 ];
 
-var use_facebook_referer = ['clarin.com', 'fd.nl', 'law.com', 'sloanreview.mit.edu'];
-var use_twitter_referer = ['medium.com', 'towardsdatascience.com'];
+var use_facebook_referer_default = ['clarin.com', 'fd.nl', 'law.com', 'sloanreview.mit.edu'];
+var use_facebook_referer = use_facebook_referer_default.slice();
+var use_google_referer_default = [];
+var use_google_referer = use_google_referer_default.slice();
+var use_twitter_referer_default = ['medium.com', 'towardsdatascience.com'];
+var use_twitter_referer = use_twitter_referer_default.slice();
 var use_random_ip = ['esprit.presse.fr', 'slader.com'];
-var change_headers = use_google_bot.concat(use_bing_bot, use_facebook_referer, use_twitter_referer, use_random_ip);
+var change_headers = use_google_bot.concat(use_bing_bot, use_facebook_referer, use_google_referer, use_twitter_referer, use_random_ip);
 
 // block paywall-scripts individually
 var blockedRegexes = {
@@ -494,7 +498,10 @@ function add_grouped_sites(init_rules) {
     for (let domain of nl_pg_domains)
       remove_cookies_select_drop[domain] = ['TID_ID'];
     use_google_bot_default = use_google_bot.slice();
-    change_headers = use_google_bot.concat(use_bing_bot, use_facebook_referer, use_twitter_referer, use_random_ip);
+    use_facebook_referer_default = use_facebook_referer.slice();
+    use_google_referer_default = use_google_referer.slice();
+    use_twitter_referer_default = use_twitter_referer.slice();
+    change_headers = use_google_bot.concat(use_bing_bot, use_facebook_referer, use_google_referer, use_twitter_referer, use_random_ip);
   }
 }
 
@@ -519,6 +526,16 @@ ext_api.storage.local.get({
       block_js_custom.push(domainVar);
     if (sites_custom[key]['block_javascript_ext'] > 0)
       block_js_custom_ext.push(domainVar);
+    switch (sites_custom[key]['referer']) {
+    case 'facebook':
+      use_facebook_referer.push(domainVar);
+      break;
+    case 'google':
+      use_google_referer.push(domainVar);
+      break;
+    case 'twitter':
+      use_twitter_referer.push(domainVar);
+    }
   }
 
   enabledSites = Object.keys(sites).filter(function (key) {
@@ -601,6 +618,9 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
       }
 
       use_google_bot = use_google_bot_default.slice();
+      use_facebook_referer = use_facebook_referer_default.slice();
+      use_google_referer = use_google_referer_default.slice();
+      use_twitter_referer = use_twitter_referer_default.slice();
       block_js_custom = [];
       block_js_custom_ext = [];
       for (let key in sites_custom) {
@@ -622,8 +642,18 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
         if (sites_custom[key]['block_javascript_ext'] > 0) {
           block_js_custom_ext.push(domainVar);
         }
+        switch (sites_custom[key]['referer']) {
+        case 'facebook':
+          use_facebook_referer.push(domainVar);
+          break;
+        case 'google':
+          use_google_referer.push(domainVar);
+          break;
+        case 'twitter':
+          use_twitter_referer.push(domainVar);
+        }
       }
-      change_headers = use_google_bot.concat(use_bing_bot, use_facebook_referer, use_twitter_referer, use_random_ip);
+      change_headers = use_google_bot.concat(use_bing_bot, use_facebook_referer, use_google_referer, use_twitter_referer, use_random_ip);
     }
     if (key === 'sites_excluded') {
       var sites_excluded = storageChange.newValue ? storageChange.newValue : [];
@@ -891,12 +921,12 @@ if (['main_frame', 'xmlhttprequest'].includes(details.type) && matchUrlDomain(ch
   // if referer exists, set it to google
   requestHeaders = requestHeaders.map(function (requestHeader) {
     if (requestHeader.name === 'Referer') {
-      if (matchUrlDomain(use_facebook_referer, details.url)) {
+      if (matchUrlDomain(use_google_bot, details.url) || matchUrlDomain(use_google_referer, details.url)) {
+        requestHeader.value = 'https://www.google.com/';
+      } else if (matchUrlDomain(use_facebook_referer, details.url)) {
         requestHeader.value = 'https://www.facebook.com/';
       } else if (matchUrlDomain(use_twitter_referer, details.url)) {
         requestHeader.value = 'https://t.co/';
-      } else if (matchUrlDomain(use_google_bot, details.url)) {
-        requestHeader.value = 'https://www.google.com/';
       }
       setReferer = true;
     }
@@ -908,7 +938,12 @@ if (['main_frame', 'xmlhttprequest'].includes(details.type) && matchUrlDomain(ch
 
   // otherwise add it
   if (!setReferer) {
-      if (matchUrlDomain(use_facebook_referer, details.url)) {
+    if (matchUrlDomain(use_google_bot, details.url) || matchUrlDomain(use_google_referer, details.url)) {
+      requestHeaders.push({
+        name: 'Referer',
+        value: 'https://www.google.com/'
+      });
+    } else if (matchUrlDomain(use_facebook_referer, details.url)) {
       requestHeaders.push({
         name: 'Referer',
         value: 'https://www.facebook.com/'
@@ -917,11 +952,6 @@ if (['main_frame', 'xmlhttprequest'].includes(details.type) && matchUrlDomain(ch
       requestHeaders.push({
         name: 'Referer',
         value: 'https://t.co/'
-      });
-    } else {
-      requestHeaders.push({
-        name: 'Referer',
-        value: 'https://www.google.com/'
       });
     }
   }

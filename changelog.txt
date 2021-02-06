@@ -10,6 +10,7 @@ Fix-update Madsack Mediengruppe (amp)
 Fix-update Medium/Towards Data Science (login) & add custom domains in options
 Fix-update Stratfor (style; not menu)
 Fix-update Sud Ouest (decode text)
+Update custom sites (set referer)
 
 * v2.0.6.0 (2021-01-31)
 Add Griffith Review (Australia)

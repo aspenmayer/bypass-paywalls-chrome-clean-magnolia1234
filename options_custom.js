@@ -1,5 +1,7 @@
 var ext_api = chrome || browser;
 
+var referer_options = ['', 'facebook', 'google', 'twitter'];
+
 function capitalize(str) {
   if (typeof str !== 'string') return '';
   return str.charAt(0).toUpperCase() + str.slice(1);
@@ -87,7 +89,7 @@ function _imp() {
 
 // Add custom site to ext_api.storage
 function add_options() {
-    var inputEls = document.querySelectorAll('#add_site input');
+    var inputEls = document.querySelectorAll('#add_site input, #add_site select');
     var sites_custom = {};
 
     for (let i = 0; i < inputEls.length; i++) {
@@ -178,6 +180,7 @@ function edit_options() {
         document.querySelector('input[data-key="allow_cookies"]').checked = (edit_site.allow_cookies > 0);
         document.querySelector('input[data-key="block_javascript"]').checked = (edit_site.block_javascript > 0);
         document.querySelector('input[data-key="block_javascript_ext"]').checked = (edit_site.block_javascript_ext > 0);
+        document.querySelector('select[data-key="referer"]').selectedIndex = referer_options.indexOf(edit_site.referer);
     });
 }
 
@@ -225,6 +228,20 @@ function renderOptions() {
             add_sitesEl.appendChild(labelEl);
         }
 
+        labelEl = document.createElement('label');
+        labelEl.appendChild(document.createTextNode('referer '));
+        inputEl = document.createElement('select');
+        inputEl.dataset.key = 'referer';
+        labelEl.appendChild(inputEl);
+
+        for (var i = 0; i < referer_options.length; i++) {
+            var option = document.createElement("option");
+            option.value = referer_options[i];
+            option.text = referer_options[i];
+            inputEl.appendChild(option);
+        }
+        add_sitesEl.appendChild(labelEl);
+
         // list of custom sites
         var custom_sitesEl = document.getElementById('custom_sites');
         custom_sitesEl.innerHTML = '';
@@ -242,7 +259,8 @@ function renderOptions() {
                 (sites_custom[key]['googlebot']>0 ? ' | googlebot' : '') + 
                 (sites_custom[key]['allow_cookies']>0 ? ' | allow_cookies' : '') + 
                 (sites_custom[key]['block_javascript']>0 ? ' | block javascript' : '') + 
-                (sites_custom[key]['block_javascript_ext']>0 ? ' | block javascript ext' : '');
+                (sites_custom[key]['block_javascript_ext']>0 ? ' | block javascript ext' : '') +
+                (sites_custom[key]['referer'] ? ' | referer: ' +  sites_custom[key]['referer'] : '');
             optionEl.value = key;
             selectEl.add(optionEl);
         }
