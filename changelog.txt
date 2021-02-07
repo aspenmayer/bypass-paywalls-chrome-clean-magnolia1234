@@ -8,7 +8,8 @@ Add Le Un (France)
 Add Rheinische Post Mediengruppe (only plus if amp)
 Fix-update ilManifesto.it
 Fix-update Madsack Mediengruppe (amp)
-Fix-update Medium/Towards Data Science (login) & add custom domains in options
+Fix-update Medium/Towards Data Science (login)
+Fix-update Medium custom domains (login & in options)
 Fix-update Stratfor (style; not menu)
 Fix-update Sud Ouest (decode text)
 Update custom sites (set referer)

@@ -840,11 +840,13 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   // remove cookies for sites medium platform (custom domains)
   var medium_custom_domain = (matchUrlDomain('cdn-client.medium.com', details.url) && !matchUrlDomain(['medium.com', 'towardsdatascience.com'], header_referer) && enabledSites.includes('###_medium_custom'));
   if (medium_custom_domain) {
-    ext_api.cookies.getAll({domain: urlHost(header_referer)}, function(cookies) {
-      for (let cookie of cookies) {
-        ext_api.cookies.remove({url: (cookie.secure ? "https://" : "http://") + cookie.domain + cookie.path, name: cookie.name});
-      }
-    });
+    let mc_domain = urlHost(header_referer);
+    if (!use_twitter_referer.includes(mc_domain)) {
+      use_twitter_referer.push(mc_domain);
+      change_headers.push(mc_domain);
+    }
+    if (!enabledSites.includes(mc_domain))
+      enabledSites.push(mc_domain);
   }
 
   // block external javascript for custom sites (optional)
