@@ -7,7 +7,7 @@ var versionString_new = document.getElementById('version_new');
 versionString_new.setAttribute('style', 'font-weight: bold;');
 var anchorEl;
 
-const proxyurl = "https://cors-anywhere.herokuapp.com/";
+const proxyurl = ''; //"https://cors-anywhere.herokuapp.com/";
 const manifest_new = 'https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/raw/master/manifest.json';
 fetch(proxyurl + manifest_new, { headers: { "Content-Type": "application/json", "X-Requested-With": "XMLHttpRequest" } })
 .then(response => {

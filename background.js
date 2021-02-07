@@ -204,7 +204,7 @@ var use_bing_bot = [
   'themarker.com',
 ];
 
-var use_facebook_referer_default = ['clarin.com', 'fd.nl', 'law.com', 'sloanreview.mit.edu'];
+var use_facebook_referer_default = ['clarin.com', 'fd.nl', 'ilmanifesto.it', 'law.com', 'sloanreview.mit.edu'];
 var use_facebook_referer = use_facebook_referer_default.slice();
 var use_google_referer_default = [];
 var use_google_referer = use_google_referer_default.slice();
