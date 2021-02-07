@@ -64,6 +64,7 @@ var defaultSites =
   "Exame": "exame.abril.com.br",
   "Expansión": "expansion.com",
   "Faro de Vigo": "farodevigo.es",
+  "Finance.si": "finance.si",
   "Financial News": "fnlondon.com",
   "Financial Post": "financialpost.com",
   "Financial Times": "ft.com",
