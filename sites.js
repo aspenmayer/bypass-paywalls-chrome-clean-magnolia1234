@@ -205,6 +205,7 @@ var defaultSites =
   "Telegraaf": "telegraaf.nl",
   "The Age": "theage.com.au",
   "The American Interest": "the-american-interest.com",
+  "The Art Newspaper": "theartnewspaper.com",
   "The Atlantic": "theatlantic.com",
   "The Australian Financial Review": "afr.com",
   "The Boston Globe (opt-in)": "bostonglobe.com",
