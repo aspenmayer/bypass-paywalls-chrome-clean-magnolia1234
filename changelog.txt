@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Fix-update Cors Anywhere (link to allow access)
 
 * v2.0.7.0 (2021-02-07)
 Add Diario de Ibiza/Mallorca, Faro de Vigo & La Provincia (Spain)

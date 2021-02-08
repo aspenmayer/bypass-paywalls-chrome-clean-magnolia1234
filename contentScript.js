@@ -2144,6 +2144,13 @@ function replaceDomElementExt(url, proxy, base64, selector, text_fail = '') {
                     a_link.href = url;
                     a_link.target = '_blank';
                     text_fail_div.appendChild(a_link);
+                    text_fail_div.appendChild(document.createElement('br'));
+                    let cors_link = document.createElement('a');
+                    cors_link.innerText = '-> bpc: allow temporary access to cors-anywhere';
+                    cors_link.href = 'https://cors-anywhere.herokuapp.com/corsdemo';
+                    cors_link.target = '_blank';
+                    cors_link.setAttribute('style', 'font-weight: bold;');
+                    text_fail_div.appendChild(cors_link);
                 }
                 article.insertBefore(text_fail_div, article.firstChild);
             }
