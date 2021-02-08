@@ -407,7 +407,7 @@ else if (matchDomain("bloombergquint.com")) {
     removeDOMElement(articlesLeftModal, paywall);
 }
 
-else if (matchDomain(["medium.com", "towardsdatascience.com"])) {
+else if (matchDomain(["medium.com", "towardsdatascience.com"]) || document.querySelector('script[src^="https://cdn-client.medium.com/"]')) {
     let paywall = document.querySelector('div#paywall-background-color');
     removeDOMElement(paywall);
     if (paywall)
