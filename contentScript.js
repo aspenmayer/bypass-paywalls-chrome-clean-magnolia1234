@@ -2090,6 +2090,10 @@ else if (matchDomain(de_rp_medien_domains)) {
     }
 }
 
+else if (matchDomain('time.com')) {
+  document.querySelector('body')?.setAttribute('style', 'position:relative !important;')
+}
+
 else if (!matchDomain(['belfasttelegraph.co.uk', 'independent.ie']))
     csDone = true;
 

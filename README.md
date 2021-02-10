@@ -91,6 +91,7 @@ _* free articles only._
 [The New Yorker](https://www.newyorker.com) -
 [The Spectator USA](https://spectator.us) -
 [The Washington Post](https://www.washingtonpost.com) -
+[Time Magazine](https://time.com) -
 [World Politics Review](https://www.worldpoliticsreview.com)
 
 ##### Business
