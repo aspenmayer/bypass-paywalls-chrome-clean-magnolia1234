@@ -1514,24 +1514,16 @@ else if (matchDomain("kurier.at")) {
         plus_content.classList.remove('plusContent');
 }
 
-else if (matchDomain('gelocal.it')) {
+else if (matchDomain(['gelocal.it', 'ilsecoloxix.it'])) {
     let premium = document.querySelector('.paywall-adagio');
     let url = window.location.href;
     if (!url.includes('/amp/')) {
-        if (premium) {
-            removeDOMElement(premium);
-            if (url.includes('?'))
-                window.location.href = url.replace('?', '/amp/?');
-            else
-                window.location.href = url + '/amp/';
-        }
+        removeDOMElement(premium);
     } else {
-        let paywall = document.querySelector('div[amp-access="showContent"]');
-        if (paywall)
-            paywall.removeAttribute('amp-access-hide');
+        document.querySelector('div[amp-access="showContent"]')?.removeAttribute('amp-access-hide'); ;
+        let amp_ads = document.querySelectorAll('amp-ad');
+        removeDOMElement(...amp_ads);
     }
-    let amp_ads = document.querySelectorAll('amp-ad');
-    removeDOMElement(...amp_ads);
 }
 
 else if (matchDomain("gva.be")) {
