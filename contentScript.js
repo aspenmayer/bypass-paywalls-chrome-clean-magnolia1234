@@ -11,6 +11,7 @@ var es_epiberica_domains = ['diariodeibiza.es', 'diariodemallorca.es', 'farodevi
 var es_grupo_vocento_domains = ['diariosur.es', 'diariovasco.com', 'elcomercio.es', 'elcorreo.com', 'eldiariomontanes.es', 'elnortedecastilla.es', 'hoy.es', 'ideal.es', 'larioja.com', 'laverdad.es', 'lavozdigital.es'];
 var fr_groupe_ebra_domains = ['bienpublic.com', 'dna.fr', 'estrepublicain.fr', 'lalsace.fr', 'ledauphine.com', 'lejsl.com', 'leprogres.fr', 'republicain-lorrain.fr', 'vosgesmatin.fr'];
 var fr_groupe_la_depeche_domains = ['centrepresseaveyron.fr', 'ladepeche.fr', 'lindependant.fr', 'midi-olympique.fr', 'midilibre.fr', 'nrpyrenees.fr', 'petitbleu.fr'];
+var usa_mcc_domains = ['bnd.com', 'charlotteobserver.com', 'fresnobee.com', 'kansas.com', 'kansascity.com', 'kentucky.com', 'newsobserver.com', 'sacbee.com', 'star-telegram.com', 'thestate.com', 'tri-cityherald.com'];
 
 // clean local storage of sites (with an exemption for hold-list)
 var arr_localstorage_hold = ['charliehebdo.fr', 'cmjornal.pt', 'elmundo.es', 'expansion.com', 'kurier.at', 'nknews.org', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk'];
@@ -1334,7 +1335,7 @@ else if (matchDomain("discovermagazine.com")) {
     }, 1000); // Delay (in milliseconds)
 }
 
-else if (domain = matchDomain(["fresnobee.com", "sacbee.com"])) {
+else if (domain = matchDomain(usa_mcc_domains)) {
     let url = window.location.href;
     if (url.includes('account.' + domain + '/paywall/')) {
         window.setTimeout(function () {

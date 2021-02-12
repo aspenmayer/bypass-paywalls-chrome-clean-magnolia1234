@@ -173,14 +173,25 @@ _* free articles only._
 [SunSentinel](https://www.sun-sentinel.com) -
 [The Boston Globe](https://www.bostonglobe.com) -
 [The Denver Post](https://www.denverpost.com) -
-[The Fresno Bee](https://www.fresnobee.com) -
 [The Mercury News](https://www.mercurynews.com) -
 [The Morning Call](https://www.mcall.com) -
 [The Seattle Times](https://www.seattletimes.com) -
 [The News-Gazette](https://www.news-gazette.com) -
 [The Philadelphia Inquirer](https://www.inquirer.com) -
+[Winston-Salem Journal](https://www.journalnow.com)\
+Grouped in options:\
+McClatchy Group sites like
+[Belleville News-Democrat](https://www.bnd.com) -
+[Fort Worth Star-Telegram](https://www.star-telegram.com) -
+[Lexington Herald-Leader](https://www.kentucky.com) -
+[The Charlotte Observer](https://www.charlotteobserver.com) -
+[The Fresno Bee](https://www.fresnobee.com) -
+[The Kansas City Star](https://www.kansascity.com) -
+[The News & Observer](https://www.newsobserver.com) -
 [The Sacramento Bee](https://www.sacbee.com) -
-[Winston-Salem Journal](https://www.journalnow.com)
+[The State](https://www.thestate.com) -
+[The Wichita Eagle](https://www.kansas.com) -
+[Tri-City Herald](https://www.tri-cityherald.com)
 
 #### Canada
 [Financial Post](https://www.financialpost.com) -
