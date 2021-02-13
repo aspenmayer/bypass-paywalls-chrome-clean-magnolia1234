@@ -33,6 +33,7 @@ const restrictions = {
 // allow_cookies are completed with domains in sites.js (default allow/remove_cookies)
 var allow_cookies_default = [
   'abc.es',
+  'augsburger-allgemeine.de',
   'belfasttelegraph.co.uk',
   'berlingske.dk',
   'bostonglobe.com',
@@ -222,6 +223,7 @@ var change_headers = use_google_bot.concat(use_bing_bot, use_facebook_referer, u
 // block paywall-scripts individually
 var blockedRegexes = {
   'adweek.com': /.+\.lightboxcdn\.com\/.+/,
+  'augsburger-allgemeine.de':/(\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-(ad|subscriptions)-.+\.js)/,
   'afr.com': /afr\.com\/assets\/vendorsReactRedux_client.+\.js/,
   'alternatives-economiques.fr': /.+\.poool\.fr\/.+/,
   'americanbanker.com': /\.tinypass\.com\/.+/,
@@ -904,7 +906,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   let usa_mw_site = (matchUrlDomain('wsj.net', details.url) && matchUrlDomain('marketwatch.com', header_referer) && isSiteEnabled({url: header_referer}));
 
   let bpc_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && isSiteEnabled({url: header_referer}) &&
-    matchUrlDomain(['barrons.com', 'belfasttelegraph.co.uk', 'cicero.de', 'cmjornal.pt', 'elmundo.es', 'elpais.com', 'elperiodico.com', 'expansion.com', 'freiepresse.de', 'gelocal.it', 'ilsecoloxix.it', 'independent.ie', 'irishtimes.com', 'la-croix.com', 'lne.es', 'marketwatch.com', 'nationalreview.com', 'noz.de', 'seekingalpha.com', 'sueddeutsche.de', 'svz.de', 'telegraph.co.uk'].concat(au_nine_domains, de_madsack_domains, de_rp_medien_domains, es_grupo_vocento_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, usa_mcc_domains), header_referer));
+    matchUrlDomain(['augsburger-allgemeine.de', 'barrons.com', 'belfasttelegraph.co.uk', 'cicero.de', 'cmjornal.pt', 'elmundo.es', 'elpais.com', 'elperiodico.com', 'expansion.com', 'freiepresse.de', 'gelocal.it', 'ilsecoloxix.it', 'independent.ie', 'irishtimes.com', 'la-croix.com', 'lne.es', 'marketwatch.com', 'nationalreview.com', 'noz.de', 'seekingalpha.com', 'sueddeutsche.de', 'svz.de', 'telegraph.co.uk'].concat(au_nine_domains, de_madsack_domains, de_rp_medien_domains, es_grupo_vocento_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, usa_mcc_domains), header_referer));
 
   if (!isSiteEnabled(details) && !inkl_site && !au_nc_amp_site && !au_apn_site && !au_swm_site && !cl_elmerc_site && !medium_custom_domain && !uk_nlr_site && !usa_discmag_site && !usa_mw_site && !bpc_amp_site) {
     return;

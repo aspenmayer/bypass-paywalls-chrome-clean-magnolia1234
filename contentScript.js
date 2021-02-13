@@ -14,7 +14,7 @@ var fr_groupe_la_depeche_domains = ['centrepresseaveyron.fr', 'ladepeche.fr', 'l
 var usa_mcc_domains = ['bnd.com', 'charlotteobserver.com', 'fresnobee.com', 'kansas.com', 'kansascity.com', 'kentucky.com', 'newsobserver.com', 'sacbee.com', 'star-telegram.com', 'thestate.com', 'tri-cityherald.com'];
 
 // clean local storage of sites (with an exemption for hold-list)
-var arr_localstorage_hold = ['charliehebdo.fr', 'cmjornal.pt', 'elmundo.es', 'expansion.com', 'kurier.at', 'nknews.org', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk'];
+var arr_localstorage_hold = ['augsburger-allgemeine.de', 'charliehebdo.fr', 'cmjornal.pt', 'elmundo.es', 'expansion.com', 'kurier.at', 'nknews.org', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk'];
 arr_localstorage_hold = arr_localstorage_hold.concat(de_funke_media_domains, es_grupo_vocento_domains);
 if (!matchDomain(arr_localstorage_hold)){
     window.localStorage.clear();
@@ -2102,6 +2102,17 @@ else if (matchDomain('noz.de')) {
             removeDOMElement(paywall);
             window.location.href = amphtml.href;
         }
+    }
+}
+
+else if (matchDomain('augsburger-allgemeine.de')) {
+    let url = window.location.href;
+    if (url.includes('-amp.html')) {
+        let subscr_sections = document.querySelectorAll('div[subscriptions-section="content"]');
+        for (let subscr_section of subscr_sections)
+            subscr_section.removeAttribute('subscriptions-section');
+        let amp_ads = document.querySelectorAll('amp-ad');
+        removeDOMElement(...amp_ads);
     }
 }
 

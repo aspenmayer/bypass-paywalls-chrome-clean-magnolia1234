@@ -299,6 +299,7 @@ Groupe Rossel sites (grouped in options) like
 [SudInfo](https://www.sudinfo.be)
 
 ##### Germany/Austria
+[Augsburger Allgemeine](https://www.augsburger-allgemeine.de) -
 [Cicero](https://www.cicero.de) -
 [Deutsche Wirtschafts Nachrichten](https://deutsche-wirtschafts-nachrichten.de) -
 [Die Zeit](https://www.zeit.de) -
