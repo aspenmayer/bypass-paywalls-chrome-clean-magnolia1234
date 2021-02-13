@@ -283,6 +283,7 @@
         "*://*.northerndailyleader.com.au/*",
         "*://*.northernstar.com.au/*",
         "*://*.nouvelobs.com/*",
+        "*://*.noz.de/*",
         "*://*.nrc.nl/*",
         "*://*.nrpyrenees.fr/*",
         "*://*.nrz.de/*",
@@ -457,5 +458,5 @@
         "*://*.userzoom.com/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.0.7.4"
+    "version": "2.0.7.5"
 }

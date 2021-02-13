@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add group McClatchy (USA)
+Add Neue Osnabruecker Zeitung (Germany)
 Add Time Magazine
 Fix-update Cors Anywhere (link to allow access)
 Fix-update Il Secolo XIX (amp)

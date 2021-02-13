@@ -307,6 +307,7 @@ Groupe Rossel sites (grouped in options) like
 [Handelsblatt](https://www.handelsblatt.com) -
 [Krautreporter.de](https://krautreporter.de) -
 [Kurier.at](https://kurier.at) -
+[Neue Osnabrücker Zeitung](https://www.noz.de]) -
 [Piqd.de](https://www.piqd.de) -
 [Ruhr Nachrichten](https://www.ruhrnachrichten.de) -
 [Sächsische Zeitung](https://www.saechsische.de) -

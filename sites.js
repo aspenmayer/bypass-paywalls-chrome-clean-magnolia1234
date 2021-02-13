@@ -156,6 +156,7 @@ var defaultSites =
   "National Post": "nationalpost.com",
   "National Review": "nationalreview.com",
   "Nautilus": "nautil.us",
+  "Neue Osnabrücker Zeitung": "noz.de",
   "Neue Zürcher Zeitung": "nzz.ch",
   "New Left Review": "newleftreview.org",
   "New York Magazine (+ Curbed, Grub Street, The Cut & Vulture)": "###_usa_nymag",

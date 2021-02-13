@@ -2087,6 +2087,24 @@ else if (matchDomain('time.com')) {
   document.querySelector('body')?.setAttribute('style', 'position:relative !important;')
 }
 
+else if (matchDomain('noz.de')) {
+    let url = window.location.href;
+    let paywall = document.querySelector('.paywall');
+    if (url.includes('?amp')) {
+        let subscriber = document.querySelector('div[amp-access="NOT data.reduced"]');
+        if (subscriber)
+            subscriber.removeAttribute('amp-access-hide');
+        let amp_ads = document.querySelectorAll('amp-ad, amp-embed');
+        removeDOMElement(...amp_ads);
+    } else {
+        let amphtml = document.querySelector('link[rel="amphtml"]');
+        if (paywall && amphtml) {
+            removeDOMElement(paywall);
+            window.location.href = amphtml.href;
+        }
+    }
+}
+
 else if (!matchDomain(['belfasttelegraph.co.uk', 'independent.ie']))
     csDone = true;
 
