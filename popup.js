@@ -18,7 +18,7 @@ function popup_show_toggle(domain) {
         site_switch_span.appendChild(labelEl);
         document.getElementById("site_switch").addEventListener('click', function () {
             ext_api.extension.getBackgroundPage().site_switch();
-            open(location).close();
+            //open(location).close();
         });
     }
 };
@@ -26,5 +26,5 @@ ext_api.extension.getBackgroundPage().popup_show_toggle_tab(popup_show_toggle);
 
 document.getElementById("clear_cookies").addEventListener('click', function () {
     ext_api.extension.getBackgroundPage().clear_cookies();
-    open(location).close();
+    //open(location).close();
 });
