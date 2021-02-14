@@ -10,6 +10,7 @@ Fix-update Cors Anywhere (link to allow access)
 Fix-update Il Secolo XIX (amp)
 Fix-update Medium custom domains (meter)
 Fix-update Statista (premium)
+Fix-update The Times (puzzles)
 
 * v2.0.7.0 (2021-02-07)
 Add Diario de Ibiza/Mallorca, Faro de Vigo & La Provincia (Spain)

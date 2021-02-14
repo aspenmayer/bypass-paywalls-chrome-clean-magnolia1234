@@ -587,7 +587,7 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
       add_grouped_sites(false);
 
       for (let domainVar of enabledSites) {
-        if (!allow_cookies.includes(domainVar) && !remove_cookies.includes(domainVar)) {
+        if (!allow_cookies.includes(domainVar) && !remove_cookies.includes(domainVar) && !['thetimes.co.uk'].includes(domainVar)) {
           allow_cookies.push(domainVar);
           remove_cookies.push(domainVar);
         }
