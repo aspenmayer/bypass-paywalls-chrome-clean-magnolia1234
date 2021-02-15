@@ -1707,8 +1707,6 @@ else if (matchDomain('la-croix.com')) {
     if (!url.includes('la-croix.com/amp/')) {
         let paywall_host_param = document.querySelector('#paywall-host-param');
         removeDOMElement(paywall_host_param);
-        if (paywall_host_param)
-            csDone = true;
     } else {
         let paywall_block = document.querySelector('#paywall_block');
         let amp_ads = document.querySelectorAll('amp-ad, amp-embed');

@@ -4,7 +4,7 @@
 var ext_api = (typeof browser === 'object') ? browser : chrome;
 var ext_name = ext_api.runtime.getManifest().name;
 
-const cs_limit_except = ['afr.com', 'discovermagazine.com', 'elcomercio.pe', 'elmercurio.com', 'elpais.com', 'faz.net', 'gestion.pe', 'harpers.org', 'inkl.com', 'jpost.com', 'la-croix.com', 'lescienze.it', 'lne.es', 'marketwatch.com', 'newleftreview.org', 'prospectmagazine.co.uk', 'techinasia.com', 'thepointmag.com'];
+const cs_limit_except = ['inkl.com', 'la-croix.com'];
 var currentTabUrl = '';
 var csDone = false;
 
@@ -25,7 +25,7 @@ const restrictions = {
   'globo.com': /^((?!\/valor\.globo\.com\/).)*$/,
   'quora.com': /^((?!quora\.com\/search\?q=).)*$/,
   'seekingalpha.com': /.+\/seekingalpha\.com\/($|(amp\/)?(article|news)\/|samw\/)/,
-  'techinasia.com': /.+\.techinasia\.com\/.+((\w)+(\-)+){3,}.+/,
+  'techinasia.com': /\.techinasia\.com\/.+/,
   'wsj.com': /^((?!\/cn\.wsj\.com\/).)*$/
 }
 
@@ -1017,7 +1017,7 @@ if (['main_frame', 'xmlhttprequest'].includes(details.type) && matchUrlDomain(ch
           csDone = false;
           currentTabUrl = currentTab.url;
         }
-        if ((['main_frame', 'script', 'other', 'xmlhttprequest'].includes(details.type) || matchUrlDomain(cs_limit_except, currentTabUrl)) && !csDone) {
+        if ((['main_frame', 'script', 'image', 'sub_frame', 'xmlhttprequest'].includes(details.type) || matchUrlDomain(cs_limit_except, currentTabUrl)) && !csDone) {
           ext_api.tabs.executeScript(tabId, {
             file: 'contentScript.js',
             runAt: 'document_start'
