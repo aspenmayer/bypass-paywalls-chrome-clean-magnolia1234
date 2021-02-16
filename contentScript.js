@@ -1521,7 +1521,9 @@ else if (matchDomain(['gelocal.it', 'ilsecoloxix.it'])) {
     if (!url.includes('/amp/')) {
         removeDOMElement(premium);
     } else {
-        document.querySelector('div[amp-access="showContent"]')?.removeAttribute('amp-access-hide'); ;
+        let paywall = document.querySelector('div[amp-access="showContent"]');
+        if (paywall)
+            paywall.removeAttribute('amp-access-hide');
         let amp_ads = document.querySelectorAll('amp-ad');
         removeDOMElement(...amp_ads);
     }
@@ -2045,10 +2047,15 @@ else if (matchDomain('stratfor.com') && window.location.href.match(/((\w)+(\-)+)
 }
 
 else if (matchDomain(es_epiberica_domains)) {
-    document.querySelector('div.article-body--truncated')?.classList.remove('article-body--truncated');
-    document.querySelector('div.baldomero')?.classList.remove('baldomero');
+    let truncated = document.querySelector('div.article-body--truncated');
+    if (truncated)
+        truncated.classList.remove('article-body--truncated');
+    let div_hidden = document.querySelector('div.baldomero');
+    if (div_hidden)
+        div_hidden.classList.remove('baldomero');
     window.setTimeout(function () {
-        document.querySelector('div.paywall')?.remove();
+        let paywall = document.querySelector('div.paywall');
+        removeDOMElement(paywall);
     }, 500); // Delay (in milliseconds)
 }
 
@@ -2082,7 +2089,9 @@ else if (matchDomain(de_rp_medien_domains)) {
 }
 
 else if (matchDomain('time.com')) {
-  document.querySelector('body')?.setAttribute('style', 'position:relative !important;')
+    let body = document.querySelector('body');
+    if (body)
+        body.setAttribute('style', 'position:relative !important;');
 }
 
 else if (matchDomain('noz.de')) {
@@ -2139,7 +2148,7 @@ function matchDomain(domains, hostname) {
 }
 
 function replaceDomElementExt(url, proxy, base64, selector, text_fail = '') {
-    let proxyurl = proxy ? 'https://cors-anywhere.herokuapp.com/' : '';
+    let proxyurl = proxy ? 'https://bpc-cors-anywhere.herokuapp.com/' : '';
     fetch(proxyurl + url, { headers: {"Content-Type": "text/plain", "X-Requested-With": "XMLHttpRequest" } })
     .then(response => {
         let article = document.querySelector(selector);
@@ -2168,13 +2177,6 @@ function replaceDomElementExt(url, proxy, base64, selector, text_fail = '') {
                     a_link.href = url;
                     a_link.target = '_blank';
                     text_fail_div.appendChild(a_link);
-                    text_fail_div.appendChild(document.createElement('br'));
-                    let cors_link = document.createElement('a');
-                    cors_link.innerText = '-> bpc: allow temporary access to cors-anywhere';
-                    cors_link.href = 'https://cors-anywhere.herokuapp.com/corsdemo';
-                    cors_link.target = '_blank';
-                    cors_link.setAttribute('style', 'font-weight: bold;');
-                    text_fail_div.appendChild(cors_link);
                 }
                 article.insertBefore(text_fail_div, article.firstChild);
             }

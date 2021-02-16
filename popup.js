@@ -28,3 +28,9 @@ document.getElementById("clear_cookies").addEventListener('click', function () {
     ext_api.extension.getBackgroundPage().clear_cookies();
     //open(location).close();
 });
+
+function closeButton() {
+  window.close();
+}
+
+document.getElementById("button-close").addEventListener('click', closeButton);

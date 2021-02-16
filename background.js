@@ -878,7 +878,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   }
 
   // load toggleIcon.js (icon for dark or incognito mode in Chrome))
-  if (typeof browser !== 'object') {
+  if (typeof browser !== 'object' && ['main_frame', 'xmlhttprequest'].includes(details.type)) {
     ext_api.tabs.query({
       active: true,
       currentWindow: true
