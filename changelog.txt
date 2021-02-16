@@ -2,6 +2,9 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+
+* v2.0.8.2 (2021-02-16)
+Fix contentScript (Kiwi browser)
 Fix popup (update notification; GitLab CORS issue)
 Update limit contentScript (add image/sub_frame)
 
