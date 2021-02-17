@@ -40,7 +40,7 @@ window.addEventListener("load", function () {
             "optInShown": true,
             "customShown": true
         });
-        window.close();
+        open(location).close();
     });
 
     var custom_enabled = document.getElementById('custom-enabled');

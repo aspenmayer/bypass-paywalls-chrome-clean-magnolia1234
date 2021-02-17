@@ -1,6 +1,6 @@
 var ext_api = chrome || browser;
 
-function popup_show_toggle(domain) {
+function popup_show_toggle(domain, enabled) {
     if (domain) {
         var site_switch_span = document.getElementById('site_switch_span');
         let labelEl = document.createElement('label');
@@ -8,7 +8,7 @@ function popup_show_toggle(domain) {
         let inputEl = document.createElement('input');
         inputEl.setAttribute('id', 'site_switch');
         inputEl.setAttribute('type', 'checkbox');
-        if (ext_api.extension.getBackgroundPage().enabledSites.includes(domain))
+        if (enabled)
             inputEl.setAttribute('checked', true);
         labelEl.appendChild(inputEl);
         let spanEl = document.createElement('span');
@@ -17,15 +17,21 @@ function popup_show_toggle(domain) {
         labelEl.appendChild(spanEl);
         site_switch_span.appendChild(labelEl);
         document.getElementById("site_switch").addEventListener('click', function () {
-            ext_api.extension.getBackgroundPage().site_switch();
+            ext_api.runtime.sendMessage({request: 'site_switch'});
             //open(location).close();
         });
     }
 };
-ext_api.extension.getBackgroundPage().popup_show_toggle_tab(popup_show_toggle);
+
+ext_api.runtime.sendMessage({request: 'popup_show_toggle'});
+ext_api.runtime.onMessage.addListener(function (message, sender) {
+    if (message.msg === 'popup_show_toggle' && message.data) {
+        popup_show_toggle(message.data.domain, message.data.enabled)
+    }
+});
 
 document.getElementById("clear_cookies").addEventListener('click', function () {
-    ext_api.extension.getBackgroundPage().clear_cookies();
+    ext_api.runtime.sendMessage({request: 'clear_cookies'});
     //open(location).close();
 });
 

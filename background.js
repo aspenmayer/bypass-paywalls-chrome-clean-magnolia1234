@@ -386,29 +386,6 @@ function setDefaultOptions() {
   });
 }
 
-// copy storage.sync to storage.local (quota exceeded)
-ext_api.storage.sync.get({
-  sites: {},
-  sites_custom: {},
-  daily_users: {},
-  optIn: {},
-  optInShown: {},
-  customShown: {}
-}, function (items) {
-  if (Object.keys(items.sites).length > 0) {
-    ext_api.storage.local.set({
-      sites: items.sites,
-      sites_custom: items.sites_custom,
-      daily_users: items.daily_users,
-      optIn: items.optIn,
-      optInShown: items.optInShown,
-      customShown: items.customShown
-    }, function () {
-      ext_api.storage.sync.remove(['sites', 'sites_custom']);
-    });
-  }
-});
-
 var grouped_sites = {
 '###_au_comm_media': au_comm_media_domains,
 '###_au_news_corp': au_news_corp_domains,
@@ -1140,55 +1117,52 @@ function site_switch() {
     });
 }
 
-function popup_show_toggle_tab(callback) {
-  ext_api.tabs.query({
-    active: true,
-    currentWindow: true
-  }, function (tabs) {
-    if (tabs.length > 0 && tabs[0].url && tabs[0].url.indexOf("http") !== -1) {
-      let currentUrl = tabs[0].url;
-      let domain;
-      let isExcludedSite = matchUrlDomain(excludedSites, currentUrl);
-      if (!isExcludedSite) {
-        let isDefaultSiteGrouped = matchUrlDomain(defaultSites_domains, currentUrl);
-        let isDefaultSite = matchUrlDomain(defaultSites_domains, currentUrl);
-        let isCustomSite = matchUrlDomain(Object.values(customSites_domains), currentUrl);
-        domain = isDefaultSiteGrouped || (!isDefaultSite && isCustomSite);
-      }
-      callback(domain);
-    }
-  });
-};
-
 // remove cookies after page load
 ext_api.webRequest.onCompleted.addListener(function (details) {
-  var domainVar = matchUrlDomain(remove_cookies, details.url);
-  if ((!['main_frame', 'xmlhttprequest', 'other'].includes(details.type)) || !domainVar || !enabledSites.includes(domainVar))
-    return;
-  ext_api.cookies.getAll({
-    domain: domainVar
-  }, function (cookies) {
-    for (let cookie of cookies) {
-      var rc_domain = cookie.domain.replace(/^(\.?www\.|\.)/, '');
-      // hold specific cookie(s) from remove_cookies domains
-      if ((rc_domain in remove_cookies_select_hold) && remove_cookies_select_hold[rc_domain].includes(cookie.name)) {
-        continue; // don't remove specific cookie
+  ext_api.cookies.getAllCookieStores(function (cookieStores) {
+    ext_api.tabs.query({
+      active: true,
+      currentWindow: true
+    }, function (tabs) {
+      if (tabs.length > 0 && tabs[0].url && tabs[0].url.indexOf("http") !== -1) {
+        let tabId = tabs[0].id;
+        let storeId = 0;
+        for (let store of cookieStores) {
+          if (store.tabIds.includes(tabId))
+            storeId = store.id;
+        }
+        var domainVar = matchUrlDomain(remove_cookies, details.url);
+        if ((!['main_frame', 'xmlhttprequest', 'other'].includes(details.type)) || !domainVar || !enabledSites.includes(domainVar))
+          return;
+        ext_api.cookies.getAll({
+          domain: domainVar,
+          storeId: storeId
+        }, function (cookies) {
+          for (let cookie of cookies) {
+            var rc_domain = cookie.domain.replace(/^(\.?www\.|\.)/, '');
+            // hold specific cookie(s) from remove_cookies domains
+            if ((rc_domain in remove_cookies_select_hold) && remove_cookies_select_hold[rc_domain].includes(cookie.name)) {
+              continue; // don't remove specific cookie
+            }
+            // drop only specific cookie(s) from remove_cookies domains
+            if ((rc_domain in remove_cookies_select_drop) && !(remove_cookies_select_drop[rc_domain].includes(cookie.name))) {
+              continue; // only remove specific cookie
+            }
+            // hold on to consent-cookie
+            if (cookie.name.match(/(consent|^optanon)/i)) {
+              continue;
+            }
+            cookie.domain = cookie.domain.replace(/^\./, '');
+            ext_api.cookies.remove({
+              url: (cookie.secure ? "https://" : "http://") + cookie.domain + cookie.path,
+              name: cookie.name,
+              storeId: storeId
+            });
+          }
+        });
       }
-      // drop only specific cookie(s) from remove_cookies domains
-      if ((rc_domain in remove_cookies_select_drop) && !(remove_cookies_select_drop[rc_domain].includes(cookie.name))) {
-        continue; // only remove specific cookie
-      }
-      // hold on to consent-cookie
-      if (cookie.name.match(/(consent|^optanon)/i)) {
-        continue;
-      }
-      cookie.domain = cookie.domain.replace(/^\./, '');
-      ext_api.cookies.remove({
-        url: (cookie.secure ? "https://" : "http://") + cookie.domain + cookie.path,
-        name: cookie.name
-      });
-    }
-  });
+    });
+  })
 }, {
   urls: ["<all_urls>"]
 });
@@ -1226,17 +1200,71 @@ ext_api.runtime.onMessage.addListener(function (message, sender) {
       });
     });
   }
+  if (message.request === 'clear_cookies') {
+    clear_cookies();
+  }
   // clear cookies for domain
   if (message.domain) {
-    var domainVar = message.domain.replace('www.', '');
-    ext_api.cookies.getAll({
-      domain: domainVar
-    }, function (cookies) {
-      for (let cookie of cookies) {
-        cookie.domain = cookie.domain.replace(/^\./, '');
-        ext_api.cookies.remove({
-          url: (cookie.secure ? "https://" : "http://") + cookie.domain + cookie.path,
-          name: cookie.name
+    ext_api.cookies.getAllCookieStores(function (cookieStores) {
+      ext_api.tabs.query({
+        active: true,
+        currentWindow: true
+      }, function (tabs) {
+        if (tabs.length > 0 && tabs[0].url && tabs[0].url.indexOf("http") !== -1) {
+          let tabId = tabs[0].id;
+          let storeId = 0;
+          for (let store of cookieStores) {
+            if (store.tabIds.includes(tabId))
+              storeId = store.id;
+          }
+          var domainVar = message.domain.replace('www.', '');
+          ext_api.cookies.getAll({
+            domain: domainVar,
+            storeId: storeId
+          }, function (cookies) {
+            for (let cookie of cookies) {
+              cookie.domain = cookie.domain.replace(/^\./, '');
+              ext_api.cookies.remove({
+                url: (cookie.secure ? "https://" : "http://") + cookie.domain + cookie.path,
+                name: cookie.name,
+                storeId: storeId
+              });
+            }
+          });
+        }
+      });
+    })
+  }
+  if (message.request === 'defaultSites_domains') {
+    ext_api.tabs.sendMessage(
+      sender.tab.id, {
+      "defaultSites_domains": defaultSites_domains
+    });
+  }
+  if (message.request === 'site_switch') {
+    site_switch();
+  }
+  if (message.request === 'popup_show_toggle') {
+    ext_api.tabs.query({
+      active: true,
+      currentWindow: true
+    }, function (tabs) {
+      if (tabs.length > 0 && tabs[0].url && tabs[0].url.indexOf("http") !== -1) {
+        let currentUrl = tabs[0].url;
+        let domain;
+        let isExcludedSite = matchUrlDomain(excludedSites, currentUrl);
+        if (!isExcludedSite) {
+          let isDefaultSiteGrouped = matchUrlDomain(defaultSites_domains, currentUrl);
+          let isDefaultSite = matchUrlDomain(defaultSites_domains, currentUrl);
+          let isCustomSite = matchUrlDomain(Object.values(customSites_domains), currentUrl);
+          domain = isDefaultSiteGrouped || (!isDefaultSite && isCustomSite);
+        }
+        ext_api.runtime.sendMessage({
+          msg: "popup_show_toggle",
+          data: {
+            domain: domain,
+            enabled: enabledSites.includes(domain)
+          }
         });
       }
     });
