@@ -434,6 +434,12 @@ Grupo Vocento (ABC) regional sites like
 ##### Switzerland
 [Neue Zürcher Zeitung](https://www.nzz.ch)
 
+#### Africa
+
+###### Kenya
+
+[Daily Nation](https://nation.africa)
+
 #### Australia/New Zealand
 
 [Brisbane Times](https://www.brisbanetimes.com.au) -
@@ -526,6 +532,7 @@ For example:
 [L'Orient-Le Jour](https://www.lorientlejour.com)
 
 #### Latin America
+
 ##### Argentina
 [Ámbito](https://www.ambito.com) -
 [Clarín](https://www.clarin.com) -

@@ -4,7 +4,7 @@
 var ext_api = (typeof browser === 'object') ? browser : chrome;
 var ext_name = ext_api.runtime.getManifest().name;
 
-const cs_limit_except = ['inkl.com', 'la-croix.com'];
+const cs_limit_except = ['inkl.com', 'la-croix.com', 'nation.africa'];
 var currentTabUrl = '';
 var csDone = false;
 
@@ -89,6 +89,7 @@ var allow_cookies_default = [
   'marketwatch.com',
   'medium.com',
   'modernhealthcare.com',
+  'nation.africa',
   'nationalgeographic.com',
   'nationalpost.com',
   'nationalreview.com',
@@ -302,6 +303,7 @@ var blockedRegexes = {
   'marketwatch.com': /(cdn\.cxense\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js)/,
   'mercuriovalpo.cl': /(.+\.mercuriovalpo\.cl\/impresa\/.+\/assets\/(vendor|\d)\.js|pram\.pasedigital\.cl\/API\/User\/Status\?)/,
   'modernhealthcare.com': /\.tinypass\.com\/.+/,
+  'nation.africa': /(\.evolok\.net\/|nation\.africa\/resource\/themes\/nation-.+\/js\/.+\.js)/,
   'nationalgeographic.com': /.+\.blueconic\.net\/.+/,
   'nationalpost.com': /\.tinypass\.com\/.+/,
   'nationalreview.com': /(.+\.blueconic\.net\/.+|cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js)/,

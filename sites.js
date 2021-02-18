@@ -38,6 +38,7 @@ var defaultSites =
   "Crain's Chicago Business": "chicagobusiness.com",
   "Dagblad van het Noorden": "dvhn.nl",
   "Dagens Nyheter": "dn.se",
+  "Daily Nation": "nation.africa",
   "Daily Press": "dailypress.com",
   "Dark Reading": "darkreading.com",
   "De Tijd": "tijd.be",
