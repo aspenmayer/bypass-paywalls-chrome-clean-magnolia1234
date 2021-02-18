@@ -188,6 +188,7 @@ var defaultSites =
   "Sächsische Zeitung": "saechsische.de",
   "San Diego Union Tribune": "sandiegouniontribune.com",
   "San Francisco Chronicle": "sfchronicle.com",
+  "Schleswig-Holsteinischer Zeitungsverlag": "shz.de",
   "Schweriner Volkszeitung": "svz.de",
   "Science & Vie": "science-et-vie.com",
   "Sciences et Avenir": "sciencesetavenir.fr",

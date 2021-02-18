@@ -312,6 +312,7 @@ Groupe Rossel sites (grouped in options) like
 [Piqd.de](https://www.piqd.de) -
 [Ruhr Nachrichten](https://www.ruhrnachrichten.de) -
 [Sächsische Zeitung](https://www.saechsische.de) -
+[Schleswig-Holsteinischer Zeitungsverlag](https://www.shz.de) -
 [Schweriner Volkszeitung](https://www.svz.de) -
 [Süddeutsche Zeitung](https://www.sueddeutsche.de) -
 [WirtschaftsWoche](https://www.wiwo.de)\

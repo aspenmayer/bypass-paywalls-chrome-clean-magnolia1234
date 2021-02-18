@@ -124,6 +124,8 @@ else if (window.location.hostname.endsWith(".com.au") || window.location.hostnam
                 amp_iframe.parentElement.insertBefore(elem, amp_iframe);
                 removeDOMElement(amp_iframe);
             }
+            let amp_ads = document.querySelectorAll('[id^="ad-mrec-"], amp-ad, amp-embed');
+            removeDOMElement(...amp_ads);
         } else {
             // Australian Seven West Media
             let swm_script = document.querySelector('script[src^="https://s.thewest.com.au"]');
@@ -1860,7 +1862,7 @@ else if (matchDomain('lavanguardia.com')) {
     removeDOMElement(paywall, infinite_loading);
 }
 
-else if (matchDomain('svz.de')) {
+else if (matchDomain(['shz.de', 'svz.de'])) {
     let paywall = document.querySelector('.paywall');
     removeDOMElement(paywall);
     let url = window.location.href;
