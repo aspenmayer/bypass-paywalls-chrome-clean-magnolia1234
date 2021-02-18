@@ -199,6 +199,7 @@ var defaultSites =
   "Slate": "slate.com",
   "SOFREP": "sofrep.com",
   "South China Morning Post": "scmp.com",
+  "Sports Illustrated": "si.com",
   "Star Tribune": "startribune.com",
   "Statista": "statista.com",
   "Stock News": "stocknews.com",

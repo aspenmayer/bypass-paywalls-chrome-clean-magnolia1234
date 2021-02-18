@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add Schleswig-Holsteinischer Zeitungsverlag (Germany)
+Add Sports Illustrated
 Fix incognito window (cookies)
 
 * v2.0.8.2 (2021-02-16)

@@ -334,6 +334,7 @@
         "*://*.seekingalpha.com/*",
         "*://*.sfchronicle.com/*",
         "*://*.shz.de/*",
+        "*://*.si.com/*",
         "*://*.slader.com/*",
         "*://*.slate.com/*",
         "*://*.sloanreview.mit.edu/*",
@@ -460,5 +461,5 @@
         "*://*.userzoom.com/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.0.8.3"
+    "version": "2.0.8.4"
 }
