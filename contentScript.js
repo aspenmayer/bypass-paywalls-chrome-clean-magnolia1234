@@ -11,6 +11,7 @@ var es_epiberica_domains = ['diariodeibiza.es', 'diariodemallorca.es', 'farodevi
 var es_grupo_vocento_domains = ['diariosur.es', 'diariovasco.com', 'elcomercio.es', 'elcorreo.com', 'eldiariomontanes.es', 'elnortedecastilla.es', 'hoy.es', 'ideal.es', 'larioja.com', 'laverdad.es', 'lavozdigital.es'];
 var fr_groupe_ebra_domains = ['bienpublic.com', 'dna.fr', 'estrepublicain.fr', 'lalsace.fr', 'ledauphine.com', 'lejsl.com', 'leprogres.fr', 'republicain-lorrain.fr', 'vosgesmatin.fr'];
 var fr_groupe_la_depeche_domains = ['centrepresseaveyron.fr', 'ladepeche.fr', 'lindependant.fr', 'midi-olympique.fr', 'midilibre.fr', 'nrpyrenees.fr', 'petitbleu.fr'];
+var it_repubblica_domains = ['gelocal.it', 'ilsecoloxix.it', 'lanuovasardegna.it', 'lastampa.it', 'limesonline.com', 'repubblica.it'];
 var usa_mcc_domains = ['bnd.com', 'charlotteobserver.com', 'fresnobee.com', 'kansas.com', 'kansascity.com', 'kentucky.com', 'newsobserver.com', 'sacbee.com', 'star-telegram.com', 'thestate.com', 'tri-cityherald.com'];
 
 // clean local storage of sites (with an exemption for hold-list)
@@ -236,6 +237,45 @@ else if (matchDomain('rep.repubblica.it')) {
             removeDOMElement(preview);
             csDone = true;
         }
+    }
+}
+
+else if (matchDomain("limesonline.com")) {
+    window.setTimeout(function () {
+        let url = window.location.href;
+        if (url.includes('prv=true'))
+            window.location.href = new URL(url).pathname;
+    }, 500); // Delay (in milliseconds)
+}
+
+else if (domain = matchDomain(it_repubblica_domains)) {
+    let url = window.location.href;
+    if (!url.includes('/amp/')) {
+        let premium = document.querySelector('.paywall-adagio');
+        removeDOMElement(premium);
+        window.setTimeout(function () {
+            let article_body = document.querySelector('div#article-body[style]');
+            if (article_body)
+                article_body.removeAttribute('style');
+        }, 500); // Delay (in milliseconds)
+    } else {
+        let paywall;
+        if (['lastampa.it', 'repubblica.it'].includes(domain)) {
+            paywall = document.querySelector('div[id^="paywall-banner"]');
+            removeDOMElement(paywall);
+            let subscr_section = document.querySelector('[subscriptions-section="content"]');
+            if (subscr_section) {
+                subscr_section.removeAttribute('subscriptions-section');
+                let preview = document.querySelector('div[subscriptions-section="content-not-granted"]');
+                removeDOMElement(preview);
+            }
+        } else {
+            paywall = document.querySelector('div[amp-access="showContent"]');
+            if (paywall)
+                paywall.removeAttribute('amp-access-hide');
+        }
+        let amp_ads = document.querySelectorAll('amp-ad, amp-embed');
+        removeDOMElement(...amp_ads);
     }
 }
 
@@ -1307,14 +1347,6 @@ else if (matchDomain("noordhollandsdagblad.nl")) {
     }, 500); // Delay (in milliseconds)
 }
 
-else if (matchDomain("limesonline.com")) {
-    window.setTimeout(function () {
-        let url = window.location.href;
-        if (url.includes('prv=true'))
-            window.location.href = new URL(url).pathname;
-    }, 500); // Delay (in milliseconds)
-}
-
 else if (matchDomain(["mercuriovalpo.cl", "estrellavalpo.cl"])) {
     let content = document.querySelector('div.content');
     if (content)
@@ -1515,20 +1547,6 @@ else if (matchDomain("kurier.at")) {
     let plus_content = document.querySelector('.plusContent');
     if (plus_content)
         plus_content.classList.remove('plusContent');
-}
-
-else if (matchDomain(['gelocal.it', 'ilsecoloxix.it'])) {
-    let premium = document.querySelector('.paywall-adagio');
-    let url = window.location.href;
-    if (!url.includes('/amp/')) {
-        removeDOMElement(premium);
-    } else {
-        let paywall = document.querySelector('div[amp-access="showContent"]');
-        if (paywall)
-            paywall.removeAttribute('amp-access-hide');
-        let amp_ads = document.querySelectorAll('amp-ad');
-        removeDOMElement(...amp_ads);
-    }
 }
 
 else if (matchDomain("gva.be")) {

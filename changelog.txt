@@ -5,6 +5,7 @@ Post-release
 Add Daily Nation (Kenya)
 Add Schleswig-Holsteinischer Zeitungsverlag (Germany)
 Add Sports Illustrated
+Grouping Repubblica.it sites (rules only)
 Fix incognito window (cookies)
 
 * v2.0.8.2 (2021-02-16)
