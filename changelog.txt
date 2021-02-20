@@ -5,6 +5,7 @@ Post-release
 Add Daily Nation (Kenya)
 Add Schleswig-Holsteinischer Zeitungsverlag (Germany)
 Add Sports Illustrated
+Fix-update La Croix (timing)
 Grouping Repubblica.it sites (rules only)
 Fix incognito window (cookies)
 

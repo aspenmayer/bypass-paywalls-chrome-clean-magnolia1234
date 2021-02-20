@@ -223,6 +223,23 @@ else if (window.location.hostname.endsWith(".com.au") || window.location.hostnam
     }
 }
 
+else if (matchDomain('la-croix.com')) {
+    let url = window.location.href;
+    if (!url.includes('la-croix.com/amp/')) {
+        let paywall_host_param = document.querySelector('#paywall-host-param');
+        removeDOMElement(paywall_host_param);
+        let show_paywall = document.querySelector('#showPayWall');
+        if (show_paywall)
+            window.setTimeout(function () {
+                window.location.reload(true);
+            }, 500);
+    } else {
+        let paywall_block = document.querySelector('#paywall_block');
+        let amp_ads = document.querySelectorAll('amp-ad, amp-embed');
+        removeDOMElement(paywall_block, ...amp_ads);
+    }
+}
+
 else if (matchDomain('rep.repubblica.it')) {
     window.setTimeout(function () {
         if (window.location.href.includes('/pwa/')) {
@@ -1721,18 +1738,6 @@ else if (matchDomain("elperiodico.com")) {
                     elem.src = elem.src.replace('amp.elperiodico.com/clip/', 'estaticos-cdn.elperiodico.com/clip/');
             }
         }, 3000); // Delay (in milliseconds)
-    }
-}
-
-else if (matchDomain('la-croix.com')) {
-    let url = window.location.href;
-    if (!url.includes('la-croix.com/amp/')) {
-        let paywall_host_param = document.querySelector('#paywall-host-param');
-        removeDOMElement(paywall_host_param);
-    } else {
-        let paywall_block = document.querySelector('#paywall_block');
-        let amp_ads = document.querySelectorAll('amp-ad, amp-embed');
-        removeDOMElement(paywall_block, ...amp_ads);
     }
 }
 
