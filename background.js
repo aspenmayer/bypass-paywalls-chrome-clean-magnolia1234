@@ -566,7 +566,7 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
       add_grouped_sites(false);
 
       for (let domainVar of enabledSites) {
-        if (!allow_cookies.includes(domainVar) && !remove_cookies.includes(domainVar) && !['thetimes.co.uk'].includes(domainVar)) {
+        if (!allow_cookies.includes(domainVar) && !remove_cookies.includes(domainVar)) {
           allow_cookies.push(domainVar);
           remove_cookies.push(domainVar);
         }
@@ -803,6 +803,12 @@ function disableJavascriptOnListedSites() {
     ["blocking"]);
 }
 
+var focus_changed = false;
+ext_api.windows.onFocusChanged.addListener((windowId) => {
+  if (windowId > 0)
+    focus_changed = true;
+});
+
 var extraInfoSpec = ['blocking', 'requestHeaders'];
 if (ext_api.webRequest.OnBeforeSendHeadersOptions.hasOwnProperty('EXTRA_HEADERS'))
   extraInfoSpec.push('extraHeaders');
@@ -913,7 +919,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   var useUserAgentMobile = false;
   var setReferer = false;
 
-if (['main_frame', 'xmlhttprequest'].includes(details.type) && matchUrlDomain(change_headers, details.url)){
+if (['main_frame', 'sub_frame', 'xmlhttprequest'].includes(details.type) && matchUrlDomain(change_headers, details.url)){
   // if referer exists, set it to google
   requestHeaders = requestHeaders.map(function (requestHeader) {
     if (requestHeader.name === 'Referer') {
@@ -1273,12 +1279,13 @@ ext_api.runtime.onMessage.addListener(function (message, sender) {
       }
     });
   }
-  if (message.scheme && ![chrome_scheme, 'undefined'].includes(message.scheme)) {
+  if (message.scheme && (![chrome_scheme, 'undefined'].includes(message.scheme) || focus_changed)) {
       let icon_path = {path: {'128': 'bypass.png'}};
       if (message.scheme === 'dark')
           icon_path = {path: {'128': 'bypass-dark.png'}};
       ext_api.browserAction.setIcon(icon_path);
       chrome_scheme = message.scheme;
+      focus_changed = false;
   }
   if (message.csDone) {
     csDone = true;

@@ -8,6 +8,7 @@ Add Sports Illustrated
 Fix-update La Croix (timing)
 Grouping Repubblica.it sites (rules only)
 Fix incognito window (cookies)
+Update incognito window (Chrome-only split mode)
 
 * v2.0.8.2 (2021-02-16)
 Fix contentScript (Kiwi browser)

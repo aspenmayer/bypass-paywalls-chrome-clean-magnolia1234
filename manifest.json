@@ -21,6 +21,7 @@
         "open_in_tab": true,
         "page": "options.html"
     },
+    "incognito": "split",
     "optional_permissions": [
         "<all_urls>"
     ],
@@ -462,5 +463,5 @@
         "*://*.userzoom.com/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.0.8.6"
+    "version": "2.0.8.7"
 }
