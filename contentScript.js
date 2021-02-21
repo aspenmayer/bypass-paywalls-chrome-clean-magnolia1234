@@ -813,33 +813,16 @@ else if (domain = matchDomain(fr_groupe_la_depeche_domains)) {
     let url = window.location.href;
     let url_new = url.replace(domain + '/', domain + '/amp/');
     if (url.includes(domain + '/amp/')) {
-        let amp_access_hide = document.querySelector('[amp-access-hide]');
-        if (amp_access_hide) {
-            amp_access_hide.removeAttribute('amp-access-hide');
-        }
+        let subscr_section = document.querySelectorAll('[subscriptions-section="content"]');
+        for (let elem of subscr_section)
+            elem.removeAttribute('subscriptions-section');
         let amp_ads = document.querySelectorAll('amp-ad, amp-embed');
         removeDOMElement(...amp_ads);
     } else {
-        if (!['nrpyrenees.fr', 'petitbleu.fr'].includes(domain)) {
-            window.setTimeout(function () {
-                const hidden_section = document.querySelector('.article-full__body-content');
-                if (hidden_section) {
-                    hidden_section.classList.remove('article-full__body-content');
-                    let pars = hidden_section.querySelectorAll("p, h2, div");
-                    for (let par of pars) {
-                        par.removeAttribute('style');
-                    }
-                }
-                const abon = document.querySelector('#noscript-paywall-content, #noscript-paywall');
-                removeDOMElement(abon);
-            }, 500); // Delay (in milliseconds)
-        } else {
-            let paywall = document.querySelector('#noscript-paywall-content');
-            if (paywall) {
-                window.setTimeout(function () {
-                    window.location.href = url_new;
-                }, 500); // Delay (in milliseconds)
-            }
+        let paywall = document.querySelector('div.paywall');
+        if (paywall) {
+            removeDOMElement(paywall);
+            window.location.href = url_new;
         }
     }
 }

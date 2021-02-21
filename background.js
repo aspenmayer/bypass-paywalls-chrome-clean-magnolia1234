@@ -471,7 +471,7 @@ function add_grouped_sites(init_rules) {
     }
     for (let domain of fr_groupe_la_depeche_domains) {
       allow_cookies.push(domain);
-      blockedRegexes[domain] = /(.+\.poool\.fr\/.+|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js)/;//|iframe
+      blockedRegexes[domain] = /(.+\.poool\.fr\/.+|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent|subscriptions)-.+\.js)/;//|iframe
     }
     for (let domain of it_ilmessaggero_domains)
       blockedRegexes[domain] = /utils\.cedsdigital\.it\/js\/PaywallMeter\.js/;
