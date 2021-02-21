@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add Daily Nation (Kenya)
+Add Houston Chronicle (USA)
 Add Schleswig-Holsteinischer Zeitungsverlag (Germany)
 Add Sports Illustrated
 Fix-update La Croix (timing)

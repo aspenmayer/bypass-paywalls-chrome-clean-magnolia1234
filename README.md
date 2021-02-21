@@ -159,6 +159,7 @@ _* free articles only._
 [Chicago Tribune](https://www.chicagotribune.com) -
 [Daily Press](https://www.dailypress.com) -
 [Hartford Courant](https://www.courant.com) -
+[Houston Chronicle](https://www.houstonchronicle.com) -
 [Los Angeles Business Journal](https://labusinessjournal.com) -
 [Los Angeles Times](https://www.latimes.com) -
 [Miami Herald](https://www.miamiherald.com) -
