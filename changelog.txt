@@ -2,6 +2,8 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+
+* v2.0.9.0 (2021-02-21)
 Add Daily Nation (Kenya)
 Add Houston Chronicle (USA)
 Add Schleswig-Holsteinischer Zeitungsverlag (Germany)
