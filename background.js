@@ -1142,6 +1142,7 @@ ext_api.webRequest.onCompleted.addListener(function (details) {
           if (store.tabIds.includes(tabId))
             storeId = store.id;
         }
+        storeId = storeId.toString();
         var domainVar = matchUrlDomain(remove_cookies, details.url);
         if ((!['main_frame', 'xmlhttprequest', 'other'].includes(details.type)) || !domainVar || !enabledSites.includes(domainVar))
           return;
@@ -1228,6 +1229,7 @@ ext_api.runtime.onMessage.addListener(function (message, sender) {
             if (store.tabIds.includes(tabId))
               storeId = store.id;
           }
+          storeId = storeId.toString();
           var domainVar = message.domain.replace('www.', '');
           ext_api.cookies.getAll({
             domain: domainVar,
