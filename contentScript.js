@@ -1701,10 +1701,15 @@ else if (matchDomain("corriere.it")) {
 else if (matchDomain("elperiodico.com")) {
     let url = window.location.href;
     if (!url.includes('amp.elperiodico.com')) {
-        let paywall = document.querySelector('.ep-masPeriodico-info-login');
-        removeDOMElement(paywall);
-        if (paywall)
-            window.location.href = url.replace('www.', 'amp.');
+        let div_hidden = document.querySelector('div.closed');
+        if (div_hidden)
+            div_hidden.classList.remove('closed');
+        else {
+            let paywall = document.querySelector('.ep-masPeriodico-info-login');
+            removeDOMElement(paywall);
+            if (paywall)
+                window.location.href = url.replace('www.', 'amp.');
+        }
     } else {
         let not_logged = document.querySelector('.ep-masPeriodico-info-login');
         if (not_logged) {

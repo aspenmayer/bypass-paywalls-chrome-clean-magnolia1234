@@ -804,11 +804,13 @@ function disableJavascriptOnListedSites() {
     ["blocking"]);
 }
 
+if (typeof browser !== 'object') {
 var focus_changed = false;
 ext_api.windows.onFocusChanged.addListener((windowId) => {
   if (windowId > 0)
     focus_changed = true;
 });
+}
 
 var extraInfoSpec = ['blocking', 'requestHeaders'];
 if (ext_api.webRequest.OnBeforeSendHeadersOptions.hasOwnProperty('EXTRA_HEADERS'))
@@ -882,21 +884,24 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
     });
   }
 
-  let inkl_site = (matchUrlDomain('cdn.jsdelivr.net', details.url) && matchUrlDomain('inkl.com', header_referer) && isSiteEnabled({url: header_referer}));
-  let au_nc_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain(au_news_corp_domains, header_referer) && isSiteEnabled({url: header_referer}));
+  let allow_ext_source = medium_custom_domain;
+  let bpc_amp_site = false;
   let au_apn_site = (header_referer && (urlHost(header_referer).endsWith('com.au') || urlHost(header_referer).endsWith('net.au')) && details.url.includes('https://media.apnarm.net.au/'));
   let au_swm_site = (header_referer && urlHost(header_referer).endsWith('com.au') && details.url.includes('https://s.thewest.com.au/'));
-  let cl_elmerc_site = (matchUrlDomain('emol.cl', details.url) && matchUrlDomain('elmercurio.com', header_referer) && isSiteEnabled({url: header_referer}));
-  let it_repubblica_site = (matchUrlDomain(['repstatic.it'], details.url) && matchUrlDomain(it_repubblica_domains, header_referer) && isSiteEnabled({url: header_referer}));
-  let uk_nlr_site = (matchUrlDomain('stripe.com', details.url) && matchUrlDomain('newleftreview.org', header_referer) && isSiteEnabled({url: header_referer}));
-  let usa_discmag_site = (matchUrlDomain('ctfassets.net', details.url) && matchUrlDomain('discovermagazine.com', header_referer) && isSiteEnabled({url: header_referer}));
-  let usa_mw_site = (matchUrlDomain('wsj.net', details.url) && matchUrlDomain('marketwatch.com', header_referer) && isSiteEnabled({url: header_referer}));
-  let allow_ext_source = inkl_site || au_nc_amp_site || au_apn_site || au_swm_site || cl_elmerc_site || it_repubblica_site || medium_custom_domain || uk_nlr_site || usa_discmag_site || usa_mw_site;
 
-  let bpc_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && isSiteEnabled({url: header_referer}) &&
-    matchUrlDomain(['augsburger-allgemeine.de', 'barrons.com', 'belfasttelegraph.co.uk', 'cicero.de', 'cmjornal.pt', 'elmundo.es', 'elpais.com', 'elperiodico.com', 'expansion.com', 'freiepresse.de', 'independent.ie', 'irishtimes.com', 'la-croix.com', 'lne.es', 'marketwatch.com', 'nationalreview.com', 'noz.de', 'seekingalpha.com', 'shz.de', 'sueddeutsche.de', 'svz.de', 'telegraph.co.uk'].concat(au_nine_domains, de_madsack_domains, de_rp_medien_domains, es_grupo_vocento_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, it_repubblica_domains, usa_mcc_domains), header_referer));
+  if (isSiteEnabled({url: header_referer})) {
+    let inkl_site = (matchUrlDomain('cdn.jsdelivr.net', details.url) && matchUrlDomain('inkl.com', header_referer));
+    let cl_elmerc_site = (matchUrlDomain('emol.cl', details.url) && matchUrlDomain('elmercurio.com', header_referer));
+    let it_repubblica_site = (matchUrlDomain(['repstatic.it'], details.url) && matchUrlDomain(it_repubblica_domains, header_referer));
+    let uk_nlr_site = (matchUrlDomain('stripe.com', details.url) && matchUrlDomain('newleftreview.org', header_referer));
+    let usa_discmag_site = (matchUrlDomain('ctfassets.net', details.url) && matchUrlDomain('discovermagazine.com', header_referer));
+    let usa_mw_site = (matchUrlDomain('wsj.net', details.url) && matchUrlDomain('marketwatch.com', header_referer));
+    allow_ext_source = allow_ext_source || inkl_site || cl_elmerc_site || it_repubblica_site || uk_nlr_site || usa_discmag_site || usa_mw_site;
 
-  if (!isSiteEnabled(details) &&  !allow_ext_source && !bpc_amp_site) {
+    bpc_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain(['augsburger-allgemeine.de', 'barrons.com', 'belfasttelegraph.co.uk', 'cicero.de', 'cmjornal.pt', 'elmundo.es', 'elpais.com', 'elperiodico.com', 'expansion.com', 'freiepresse.de', 'independent.ie', 'irishtimes.com', 'la-croix.com', 'lne.es', 'marketwatch.com', 'nationalreview.com', 'noz.de', 'seekingalpha.com', 'shz.de', 'sueddeutsche.de', 'svz.de', 'telegraph.co.uk'].concat(au_news_corp_domains, au_nine_domains, de_madsack_domains, de_rp_medien_domains, es_grupo_vocento_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, it_repubblica_domains, usa_mcc_domains), header_referer));
+  }
+
+  if (!isSiteEnabled(details) &&  !allow_ext_source && !bpc_amp_site && !au_apn_site && !au_swm_site) {
     return;
   }
 
@@ -920,7 +925,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   var useUserAgentMobile = false;
   var setReferer = false;
 
-if (['main_frame', 'sub_frame', 'xmlhttprequest'].includes(details.type) && matchUrlDomain(change_headers, details.url)){
+if ((['main_frame', 'sub_frame', 'xmlhttprequest'].includes(details.type) || matchUrlDomain(['thetimes.co.uk'], details.url)) && matchUrlDomain(change_headers, details.url)){
   // if referer exists, set it to google
   requestHeaders = requestHeaders.map(function (requestHeader) {
     if (requestHeader.name === 'Referer') {
@@ -1146,10 +1151,13 @@ ext_api.webRequest.onCompleted.addListener(function (details) {
         var domainVar = matchUrlDomain(remove_cookies, details.url);
         if ((!['main_frame', 'xmlhttprequest', 'other'].includes(details.type)) || !domainVar || !enabledSites.includes(domainVar))
           return;
-        ext_api.cookies.getAll({
-          domain: domainVar,
-          storeId: storeId
-        }, function (cookies) {
+        var cookie_get_options = {
+          domain: domainVar
+        };
+        if (storeId !== 'null')
+          cookie_get_options.storeId = storeId;
+        var cookie_remove_options = {};
+        ext_api.cookies.getAll(cookie_get_options, function (cookies) {
           for (let cookie of cookies) {
             var rc_domain = cookie.domain.replace(/^(\.?www\.|\.)/, '');
             // hold specific cookie(s) from remove_cookies domains
@@ -1165,11 +1173,13 @@ ext_api.webRequest.onCompleted.addListener(function (details) {
               continue;
             }
             cookie.domain = cookie.domain.replace(/^\./, '');
-            ext_api.cookies.remove({
+            cookie_remove_options = {
               url: (cookie.secure ? "https://" : "http://") + cookie.domain + cookie.path,
-              name: cookie.name,
-              storeId: storeId
-            });
+              name: cookie.name
+            };
+            if (storeId !== 'null')
+              cookie_remove_options.storeId = storeId;
+            ext_api.cookies.remove(cookie_remove_options);
           }
         });
       }
@@ -1231,17 +1241,22 @@ ext_api.runtime.onMessage.addListener(function (message, sender) {
           }
           storeId = storeId.toString();
           var domainVar = message.domain.replace('www.', '');
-          ext_api.cookies.getAll({
-            domain: domainVar,
-            storeId: storeId
-          }, function (cookies) {
+          var cookie_get_options = {
+            domain: domainVar
+          };
+          if (storeId !== 'null')
+            cookie_get_options.storeId = storeId;
+          var cookie_remove_options = {};
+          ext_api.cookies.getAll(cookie_get_options, function (cookies) {
             for (let cookie of cookies) {
               cookie.domain = cookie.domain.replace(/^\./, '');
-              ext_api.cookies.remove({
+              cookie_remove_options = {
                 url: (cookie.secure ? "https://" : "http://") + cookie.domain + cookie.path,
-                name: cookie.name,
-                storeId: storeId
-              });
+                name: cookie.name
+              };
+              if (storeId !== 'null')
+                cookie_remove_options.storeId = storeId;
+              ext_api.cookies.remove(cookie_remove_options);
             }
           });
         }

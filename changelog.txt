@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Fix-update El Periodico de Catalunya
 
 * v2.0.9.1 (2021-02-22)
 Fix cookie storeId (Kiwi browser)
@@ -156,7 +157,7 @@ Update popup (Twitter)
 
 * v1.9.7.0 (2020-11-27)
 Add Alma Talent sites (Finland)
-Add El Periodico (Spain)
+Add El Periodico de Catalunya (Spain)
 Add Grupo Vocento (Spain, regional daily)
 Add La Croix (France)
 Add The Hindu BusinessLine (India)
