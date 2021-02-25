@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Fix-update El Periodico de Catalunya
+Update options (grouped domains to sites.js)
 
 * v2.0.9.1 (2021-02-22)
 Fix cookie storeId (Kiwi browser)

@@ -29,9 +29,6 @@ function save_options() {
 
 // Restores checkbox input states using the preferences stored in ext_api.storage.
 function renderOptions() {
-ext_api.runtime.sendMessage({request: 'defaultSites_domains'});
-ext_api.runtime.onMessage.addListener(function (message, sender) {
-if (message.defaultSites_domains) {
   var labelEl;
   ext_api.storage.local.get({
     sites: {}, sites_custom: {}, sites_excluded: []
@@ -68,7 +65,6 @@ if (message.defaultSites_domains) {
     labelEl.appendChild(document.createTextNode('* Custom Sites'));
     sitesEl.appendChild(labelEl);
     var sites_custom = items.sites_custom;
-    var defaultSites_domains = message.defaultSites_domains;
     for (var key in sites_custom) {
       var domain = sites_custom[key]['domain'];
       if (defaultSites.hasOwnProperty(key) || defaultSites_domains.includes(domain)) {
@@ -98,8 +94,6 @@ if (message.defaultSites_domains) {
     sitesEl.appendChild(labelEl);
     save_options();
   });
-}
-});
 }
 
 function selectAll() {
