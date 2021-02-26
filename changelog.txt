@@ -2,7 +2,10 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Add New York Daily News & The Virginian-Pilot (local USA)
 Fix-update El Periodico de Catalunya
+Grouping Tribune Publishing Company
+Remove The News-Gazette (local USA)
 Update options (grouped domains to sites.js)
 
 * v2.0.9.1 (2021-02-22)

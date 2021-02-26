@@ -13,7 +13,6 @@ var defaultSites =
   "Australia News Corp": "###_au_news_corp",
   "Australian Community Media (daily)": "###_au_comm_media",
   "Australian Provincial Newspapers (daily) (opt-in)": "###_au_prov_news",
-  "Baltimore Sun": "baltimoresun.com",
   "Barron's": "barrons.com",
   "BBC History Extra": "historyextra.com",
   "Belfast Telegraph (opt-in)": "belfasttelegraph.co.uk",
@@ -27,7 +26,6 @@ var defaultSites =
   "Challenges": "challenges.fr",
   "Charlie Hebdo": "charliehebdo.fr",
   "Chemical & Engineering News": "cen.acs.org",
-  "Chicago Tribune": "chicagotribune.com",
   "Chronicle of Higher Education": "chronicle.com",
   "Cicero.de": "cicero.de",
   "Clarín": "clarin.com",
@@ -39,7 +37,6 @@ var defaultSites =
   "Dagblad van het Noorden": "dvhn.nl",
   "Dagens Nyheter": "dn.se",
   "Daily Nation": "nation.africa",
-  "Daily Press": "dailypress.com",
   "Dark Reading": "darkreading.com",
   "De Tijd": "tijd.be",
   "DeMorgen": "demorgen.be",
@@ -95,7 +92,6 @@ var defaultSites =
   "Haaretz": "haaretz.co.il",
   "Handelsblatt": "handelsblatt.com",
   "Harper's Magazine": "harpers.org",
-  "Hartford Courant": "courant.com",
   "Harvard Business Review": "hbr.org",
   "Harvard Business Review Taiwan": "hbrtaiwan.com",
   "Helsingin Sanomat": "hs.fi",
@@ -172,7 +168,6 @@ var defaultSites =
   "O Globo": "globo.com",
   "Observador.pt": "observador.pt",
   "Orange County Register": "ocregister.com",
-  "Orlando Sentinel": "orlandosentinel.com",
   "Palo Alto Online": "paloaltoonline.com",
   "Paris Match": "parismatch.com",
   "Parool": "parool.nl",
@@ -208,7 +203,6 @@ var defaultSites =
   "Stratfor": "stratfor.com",
   "Sud Ouest": "sudouest.fr",
   "Süddeutsche Zeitung": "sueddeutsche.de",
-  "SunSentinel": "sun-sentinel.com",
   "Tech in Asia": "techinasia.com",
   "Telegraaf": "telegraaf.nl",
   "The Age": "theage.com.au",
@@ -233,14 +227,12 @@ var defaultSites =
   "The Logic": "thelogic.co",
   "The Marker": "themarker.com",
   "The Mercury News": "mercurynews.com",
-  "The Morning Call": "mcall.com",
   "The Nation": "thenation.com",
   "The New Republic": "newrepublic.com",
   "The New Statesman": "newstatesman.com",
   "The New York Review of Books": "nybooks.com",
   "The New York Times": "nytimes.com",
   "The New Yorker": "newyorker.com",
-  "The News-Gazette": "news-gazette.com",
   "The Philadelphia Inquirer": "inquirer.com",
   "The Point Magazine": "thepointmag.com",
   "The Saturday Paper": "thesaturdaypaper.com.au",
@@ -259,6 +251,7 @@ var defaultSites =
   "Time Magazine": "time.com",
   "Times Higher Education": "timeshighereducation.com",
   "Towards Data Science": "towardsdatascience.com",
+  "Tribune Publishing Company": "###_usa_tribune",
   "Trouw": "trouw.nl",
   "Valeurs Actuelles": "valeursactuelles.com",
   "Vanity Fair": "vanityfair.com",
@@ -303,6 +296,7 @@ const it_ilmessaggero_domains = ['corriereadriatico.it', 'ilgazzettino.it', 'ilm
 const nl_ad_region_domains = ['ad.nl', 'bd.nl', 'ed.nl', 'tubantia.nl', 'bndestem.nl', 'pzc.nl', 'destentor.nl', 'gelderlander.nl'];
 const usa_mcc_domains = ['bnd.com', 'charlotteobserver.com', 'fresnobee.com', 'kansas.com', 'kansascity.com', 'kentucky.com', 'newsobserver.com', 'sacbee.com', 'star-telegram.com', 'thestate.com', 'tri-cityherald.com'];
 const usa_nymag_domains = ['curbed.com', 'grubstreet.com', 'nymag.com', 'thecut.com', 'vulture.com'];
+const usa_tribune_domains = ['baltimoresun.com', 'chicagotribune.com', 'courant.com', 'dailypress.com', 'mcall.com', 'nydailynews.com', 'orlandosentinel.com', 'pilotonline.com', 'sun-sentinel.com'];
 
 var defaultSites_grouped_domains = Object.values(defaultSites);
-var defaultSites_domains = defaultSites_grouped_domains.concat(au_comm_media_domains, au_news_corp_domains, au_prov_news_domains, ca_torstar_domains, de_funke_media_domains, de_madsack_domains, de_rp_medien_domains, es_grupo_vocento_domains, fi_alma_talent_domains, fr_be_groupe_rossel_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, it_ilmessaggero_domains, nl_ad_region_domains, usa_mcc_domains, usa_nymag_domains);
+var defaultSites_domains = defaultSites_grouped_domains.concat(au_comm_media_domains, au_news_corp_domains, au_prov_news_domains, ca_torstar_domains, de_funke_media_domains, de_madsack_domains, de_rp_medien_domains, es_grupo_vocento_domains, fi_alma_talent_domains, fr_be_groupe_rossel_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, it_ilmessaggero_domains, nl_ad_region_domains, usa_mcc_domains, usa_nymag_domains, usa_tribune_domains);

@@ -18,5 +18,5 @@ function showMessage(msg, duration) {
     setTimeout(function () {
         el.parentNode.removeChild(el);
     }, duration);
-    document.body.appendChild(el);
+    (document.body || document.head || document.documentElement).appendChild(el);
 }

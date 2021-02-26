@@ -236,7 +236,6 @@ var blockedRegexes = {
   'challenges.fr': /.+\.poool\.fr\/.+/,
   'charliehebdo.fr': /.+\.poool\.fr\/.+/,
   'chicagobusiness.com': /\.tinypass\.com\/.+/,
-  'chicagotribune.com': /.+:\/\/.+\.tribdss\.com\/.+/,
   'chronicle.com': /(.+\.blueconic\.net\/.+|assets\.login\.chronicle\.com\/common\/che-auth0-user\.js)/,
   'clarin.com': /js\.matheranalytics\.com\/.+/,
   'cmjornal.pt': /cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad)-.+\.js/,
@@ -384,7 +383,8 @@ var grouped_sites = {
 '###_it_ilmessaggero': it_ilmessaggero_domains,
 '###_nl_ad_region': nl_ad_region_domains,
 '###_usa_mcc': usa_mcc_domains,
-'###_usa_nymag': usa_nymag_domains
+'###_usa_nymag': usa_nymag_domains,
+'###_usa_tribune': usa_tribune_domains
 };
 
 function add_grouped__enabled_domains(groups) {
@@ -462,6 +462,11 @@ function add_grouped_sites(init_rules) {
       remove_cookies_select_drop[domain] = ['temptationTrackingId'];
     for (let domain of usa_mcc_domains)
       blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/;
+    for (let domain of usa_tribune_domains) {
+      allow_cookies.push(domain);
+      blockedRegexes[domain] = /\.tribdss\.com\//;
+    }
+
     // rules only
     for (let domain of au_nine_domains)
       blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/;

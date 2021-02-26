@@ -154,11 +154,7 @@ _* free articles only._
 [Variety](https://variety.com)
 
 ##### Local USA news
-[Baltimore Sun](https://www.baltimoresun.com) -
 [Crain's Chicago Business](https://www.chicagobusiness.com) -
-[Chicago Tribune](https://www.chicagotribune.com) -
-[Daily Press](https://www.dailypress.com) -
-[Hartford Courant](https://www.courant.com) -
 [Houston Chronicle](https://www.houstonchronicle.com) -
 [Los Angeles Business Journal](https://labusinessjournal.com) -
 [Los Angeles Times](https://www.latimes.com) -
@@ -166,19 +162,15 @@ _* free articles only._
 [Mountain View Voice](https://www.mv-voice.com) -
 [New York Magazine](https://www.nymag.com) (+ [Curbed](https://www.curbed.com/), [Grub Street](https://www.grubstreet.com), [The Cut](https://www.thecut.com) & [Vulture](https://www.vulture.com)) -
 [Orange County Register](https://www.ocregister.com) -
-[Orlando Sentinel](https://www.orlandosentinel.com) -
 [Palo Alto Online](https://www.paloaltoonline.com) -
 [Pittsburgh Post Gazette](https://post-gazette.com) -
 [San Diego Union Tribune](https://sandiegouniontribune.com) -
 [San Francisco Chronicle](https://www.sfchronicle.com) -
 [Star Tribune](https://www.startribune.com) -
-[SunSentinel](https://www.sun-sentinel.com) -
 [The Boston Globe](https://www.bostonglobe.com) -
 [The Denver Post](https://www.denverpost.com) -
 [The Mercury News](https://www.mercurynews.com) -
-[The Morning Call](https://www.mcall.com) -
 [The Seattle Times](https://www.seattletimes.com) -
-[The News-Gazette](https://www.news-gazette.com) -
 [The Philadelphia Inquirer](https://www.inquirer.com) -
 [Winston-Salem Journal](https://www.journalnow.com)\
 Grouped in options:\
@@ -193,7 +185,17 @@ McClatchy Group sites like
 [The Sacramento Bee](https://www.sacbee.com) -
 [The State](https://www.thestate.com) -
 [The Wichita Eagle](https://www.kansas.com) -
-[Tri-City Herald](https://www.tri-cityherald.com)
+[Tri-City Herald](https://www.tri-cityherald.com)\
+Tribune Publishing Company sites like
+[Baltimore Sun](https://www.baltimoresun.com) -
+[Chicago Tribune](https://www.chicagotribune.com) -
+[Daily Press](https://www.dailypress.com) -
+[Hartford Courant](https://www.courant.com) -
+[New York Daily News](https://www.nydailynews.com) -
+[Orlando Sentinel](https://www.orlandosentinel.com) -
+[SunSentinel](https://www.sun-sentinel.com) -
+[The Morning Call](https://www.mcall.com) -
+[The Virginian-Pilot](https://www.pilotonline.com)
 
 #### Canada
 [Financial Post](https://www.financialpost.com) -
