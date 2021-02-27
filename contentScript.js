@@ -2153,6 +2153,14 @@ else if (matchDomain('nation.africa')) {
     }
 }
 
+else if (matchDomain('venturebeat.com')) {
+    window.setTimeout(function () {
+        let paywall = document.querySelector('div.paywall');
+        if (paywall)
+            paywall.classList.remove('paywall');
+    }, 500); // Delay (in milliseconds)
+}
+
 else if (!matchDomain(['belfasttelegraph.co.uk', 'independent.ie']))
     csDone = true;
 

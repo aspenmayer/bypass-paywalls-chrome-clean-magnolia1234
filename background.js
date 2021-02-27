@@ -26,6 +26,7 @@ const restrictions = {
   'quora.com': /^((?!quora\.com\/search\?q=).)*$/,
   'seekingalpha.com': /.+\/seekingalpha\.com\/($|(amp\/)?(article|news)\/|samw\/)/,
   'techinasia.com': /\.techinasia\.com\/.+/,
+  'telegraaf.nl': /\.telegraaf\.nl\/(cdn|statics|error\?|.+\/(\d){8,})\//,
   'wsj.com': /^((?!\/cn\.wsj\.com\/).)*$/
 }
 
@@ -131,6 +132,7 @@ var allow_cookies_default = [
   'towardsdatascience.com',
   'usinenouvelle.com',
   'variety.com',
+  'venturebeat.com',
   'washingtonpost.com',
   'wiwo.de',
   'worldpoliticsreview.com',
@@ -335,6 +337,7 @@ var blockedRegexes = {
   'timeshighereducation.com': /\.timeshighereducation\.com\/sites\/default\/files\/js\/js_bbCGL.+\.js/,
   'valeursactuelles.com': /.+\.qiota\.com\/.+/,
   'variety.com': /cdn\.cxense\.com\/.+/,
+  'venturebeat.com': /\.wallkit\.net\/js\//,
   'washingtonpost.com': /.+\.washingtonpost\.com\/.+\/pwapi-proxy\.min\.js/,
   'wsj.com': /(cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js|cdn\.cxense\.com\/.+)/
 };

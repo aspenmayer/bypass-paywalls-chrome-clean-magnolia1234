@@ -126,6 +126,7 @@ _* free articles only._
 [Scientific American](https://www.scientificamerican.com)* -
 [Times Higher Education](https://www.timeshighereducation.com) -
 [Towards Data Science](https://www.towardsdatascience.com) -
+[VentureBeat](https://venturebeat.com) -
 [Wired](https://www.wired.com)
 
 #### Encyclopedia/Book library/Knowledge base

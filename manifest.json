@@ -411,6 +411,7 @@
         "*://*.valeursactuelles.com/*",
         "*://*.vanityfair.com/*",
         "*://*.variety.com/*",
+        "*://*.venturebeat.com/*",
         "*://*.volksfreund.de/*",
         "*://*.volkskrant.nl/*",
         "*://*.vosgesmatin.fr/*",
@@ -463,7 +464,8 @@
         "*://*.repstatic.it/*",
         "*://*.stripe.com/*",
         "*://*.userzoom.com/*",
+        "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.0.9.5"
+    "version": "2.0.9.6"
 }
