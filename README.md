@@ -27,7 +27,7 @@ In extension developer mode you can always install BPC by `Load unpacked` (no au
 6. Click `Load unpacked` and select the extension folder.
 
 * by default BPC has limited permissions, but you can opt-in to enable custom sites (and also clear cookies/block general paywall-scripts for non-listed sites).   
-* in Chrome/Opera/Brave disable the developer mode extensions popup by enabling the extensions toolbar menu under (experimental) chrome flags: chrome://flags/#extensions-toolbar-menu
+* in Chrome/Opera/Brave to disable the developer mode extensions popup use the extensions toolbar menu (by default enabled in Chrome 87+ or (if available) enable (experimental) chrome flag: chrome://flags/#extensions-toolbar-menu)
 
 If you're familiar with Git(Hub)-clients you can also clone this repo and update the extension that way (load unpacked folder used by Git(Hub)-client).
 

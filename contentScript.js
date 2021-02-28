@@ -304,7 +304,9 @@ else if (matchDomain("americanbanker.com")) {
 
 else if (matchDomain('telegraaf.nl')) {
     if (window.location.href.startsWith('https://www.telegraaf.nl/error?ref=/')) {
-        window.location.href = window.location.href.split('&')[0].replace('error?ref=/', '');
+        window.setTimeout(function () {
+            window.location.href = window.location.href.split('&')[0].replace('error?ref=/', '');
+        }, 500);
     }
     let refresh = document.querySelector('div[id="content"] > meta[http-equiv="refresh"]');
     if (refresh) {
