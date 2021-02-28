@@ -841,6 +841,18 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
       enabledSites.push(mc_domain);
   }
 
+  // set googlebot-useragent for Gannett sites
+  var usa_gannett_domain = (matchUrlDomain('gannett-cdn.com', details.url) && !matchUrlDomain(['usatoday.com'], header_referer) && enabledSites.includes('###_usa_gannett'));
+  if (usa_gannett_domain) {
+    let gn_domain = urlHost(header_referer);
+    if (!use_google_bot.includes(gn_domain)) {
+      use_google_bot.push(gn_domain);
+      change_headers.push(gn_domain);
+    }
+    if (!enabledSites.includes(gn_domain))
+      enabledSites.push(gn_domain);
+  }
+
   // block external javascript for custom sites (optional)
   var domain_blockjs_ext = matchUrlDomain(block_js_custom_ext, header_referer);
   if (domain_blockjs_ext && !matchUrlDomain(domain_blockjs_ext, details.url) && details.type === 'script' && isSiteEnabled({url: header_referer})) {
@@ -1124,8 +1136,7 @@ function site_switch() {
     });
 }
 
-// remove cookies after page load
-ext_api.webRequest.onCompleted.addListener(function (details) {
+function remove_cookies_fn(domainVar, exclusions = false) {
   ext_api.cookies.getAllCookieStores(function (cookieStores) {
     ext_api.tabs.query({
       active: true,
@@ -1133,15 +1144,12 @@ ext_api.webRequest.onCompleted.addListener(function (details) {
     }, function (tabs) {
       if (tabs.length > 0 && tabs[0].url && tabs[0].url.indexOf("http") !== -1) {
         let tabId = tabs[0].id;
-        let storeId = 0;
+        let storeId = '0';
         for (let store of cookieStores) {
           if (store.tabIds.includes(tabId))
             storeId = store.id;
         }
         storeId = storeId.toString();
-        var domainVar = matchUrlDomain(remove_cookies, details.url);
-        if ((!['main_frame', 'xmlhttprequest', 'other'].includes(details.type)) || !domainVar || !enabledSites.includes(domainVar))
-          return;
         var cookie_get_options = {
           domain: domainVar
         };
@@ -1150,18 +1158,20 @@ ext_api.webRequest.onCompleted.addListener(function (details) {
         var cookie_remove_options = {};
         ext_api.cookies.getAll(cookie_get_options, function (cookies) {
           for (let cookie of cookies) {
-            var rc_domain = cookie.domain.replace(/^(\.?www\.|\.)/, '');
-            // hold specific cookie(s) from remove_cookies domains
-            if ((rc_domain in remove_cookies_select_hold) && remove_cookies_select_hold[rc_domain].includes(cookie.name)) {
-              continue; // don't remove specific cookie
-            }
-            // drop only specific cookie(s) from remove_cookies domains
-            if ((rc_domain in remove_cookies_select_drop) && !(remove_cookies_select_drop[rc_domain].includes(cookie.name))) {
-              continue; // only remove specific cookie
-            }
-            // hold on to consent-cookie
-            if (cookie.name.match(/(consent|^optanon)/i)) {
-              continue;
+            if (exclusions) {
+              var rc_domain = cookie.domain.replace(/^(\.?www\.|\.)/, '');
+              // hold specific cookie(s) from remove_cookies domains
+              if ((rc_domain in remove_cookies_select_hold) && remove_cookies_select_hold[rc_domain].includes(cookie.name)) {
+                continue; // don't remove specific cookie
+              }
+              // drop only specific cookie(s) from remove_cookies domains
+              if ((rc_domain in remove_cookies_select_drop) && !(remove_cookies_select_drop[rc_domain].includes(cookie.name))) {
+                continue; // only remove specific cookie
+              }
+              // hold on to consent-cookie
+              if (cookie.name.match(/(consent|^optanon)/i)) {
+                continue;
+              }
             }
             cookie.domain = cookie.domain.replace(/^\./, '');
             cookie_remove_options = {
@@ -1176,6 +1186,13 @@ ext_api.webRequest.onCompleted.addListener(function (details) {
       }
     });
   })
+}
+
+// remove cookies after page load
+ext_api.webRequest.onCompleted.addListener(function (details) {
+  let domainVar = matchUrlDomain(remove_cookies, details.url);
+  if (domainVar && ['main_frame', 'xmlhttprequest', 'other'].includes(details.type) && enabledSites.includes(domainVar))
+    remove_cookies_fn(domainVar, true);
 }, {
   urls: ["<all_urls>"]
 });
@@ -1218,47 +1235,7 @@ ext_api.runtime.onMessage.addListener(function (message, sender) {
   }
   // clear cookies for domain
   if (message.domain) {
-    ext_api.cookies.getAllCookieStores(function (cookieStores) {
-      ext_api.tabs.query({
-        active: true,
-        currentWindow: true
-      }, function (tabs) {
-        if (tabs.length > 0 && tabs[0].url && tabs[0].url.indexOf("http") !== -1) {
-          let tabId = tabs[0].id;
-          let storeId = 0;
-          for (let store of cookieStores) {
-            if (store.tabIds.includes(tabId))
-              storeId = store.id;
-          }
-          storeId = storeId.toString();
-          var domainVar = message.domain.replace('www.', '');
-          var cookie_get_options = {
-            domain: domainVar
-          };
-          if (storeId !== 'null')
-            cookie_get_options.storeId = storeId;
-          var cookie_remove_options = {};
-          ext_api.cookies.getAll(cookie_get_options, function (cookies) {
-            for (let cookie of cookies) {
-              cookie.domain = cookie.domain.replace(/^\./, '');
-              cookie_remove_options = {
-                url: (cookie.secure ? "https://" : "http://") + cookie.domain + cookie.path,
-                name: cookie.name
-              };
-              if (storeId !== 'null')
-                cookie_remove_options.storeId = storeId;
-              ext_api.cookies.remove(cookie_remove_options);
-            }
-          });
-        }
-      });
-    })
-  }
-  if (message.request === 'defaultSites_domains') {
-    ext_api.tabs.sendMessage(
-      sender.tab.id, {
-      "defaultSites_domains": defaultSites_domains
-    });
+    remove_cookies_fn(message.domain);
   }
   if (message.request === 'site_switch') {
     site_switch();

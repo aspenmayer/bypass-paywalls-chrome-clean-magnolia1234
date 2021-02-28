@@ -175,6 +175,11 @@ _* free articles only._
 [The Philadelphia Inquirer](https://www.inquirer.com) -
 [Winston-Salem Journal](https://www.journalnow.com)\
 Grouped in options:\
+Gannett Group (local USA Today) sites like (opt-in to custom sites)
+[Detroit Free Press](https://www.freep.com) -
+[Milwaukee Journal Sentinel](https://www.jsonline.com) -
+[The Indianapolis Star](https://www.indystar.com) -
+[The Record (North Jersey)](https://www.northjersey.com)\
 McClatchy Group sites like
 [Belleville News-Democrat](https://www.bnd.com) -
 [Fort Worth Star-Telegram](https://www.star-telegram.com) -

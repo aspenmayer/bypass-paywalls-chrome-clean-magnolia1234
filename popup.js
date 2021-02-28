@@ -1,4 +1,4 @@
-var ext_api = chrome || browser;
+var ext_api = (typeof browser === 'object') ? browser : chrome;
 
 function popup_show_toggle(domain, enabled) {
     if (domain) {

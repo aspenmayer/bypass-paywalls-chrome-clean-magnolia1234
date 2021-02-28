@@ -77,6 +77,7 @@ var defaultSites =
   "Frankfurter Allgemeine Zeitung": "faz.net",
   "Freie Presse": "freiepresse.de",
   "Funke Mediengruppe": "###_de_funke_medien",
+  "Gannett Group (local USA Today) (opt-in to custom sites)": "###_usa_gannett",
   "Gazet van Antwerpen": "gva.be",
   "GElocal.it": "gelocal.it",
   "Gestión": "gestion.pe",
