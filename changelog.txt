@@ -2,8 +2,11 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Add Die Rheinpfalz (Germany)
 Add Gannett Group (local USA Today; opt-in to custom sites)
-Add New York Daily News & The Virginian-Pilot (local USA)
+Add New York Daily News (local USA)
+Add Rhein-Zeitung (Germany)
+Add The Virginian-Pilot (local USA)
 Add VentureBeat
 Fix-update El Periodico de Catalunya
 Fix-update Irish Times (no amp)

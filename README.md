@@ -312,6 +312,7 @@ Groupe Rossel sites (grouped in options) like
 [Augsburger Allgemeine](https://www.augsburger-allgemeine.de) -
 [Cicero](https://www.cicero.de) -
 [Deutsche Wirtschafts Nachrichten](https://deutsche-wirtschafts-nachrichten.de) -
+[Die Rheinpfalz](https://www.rheinpfalz.de) -
 [Die Zeit](https://www.zeit.de) -
 [Frankfurter Allgemeine Zeitung](https://www.faz.net) -
 [Freie Presse](https://www.freiepresse.de) -
@@ -320,6 +321,7 @@ Groupe Rossel sites (grouped in options) like
 [Kurier.at](https://kurier.at) -
 [Neue Osnabrücker Zeitung](https://www.noz.de]) -
 [Piqd.de](https://www.piqd.de) -
+[Rhein-Zeitung](https://www.rhein-zeitung.de) -
 [Ruhr Nachrichten](https://www.ruhrnachrichten.de) -
 [Sächsische Zeitung](https://www.saechsische.de) -
 [Schleswig-Holsteinischer Zeitungsverlag](https://www.shz.de) -

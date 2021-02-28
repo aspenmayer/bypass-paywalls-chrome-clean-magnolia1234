@@ -323,6 +323,8 @@
         "*://*.repubblica.it/*",
         "*://*.republic.ru/*",
         "*://*.republicain-lorrain.fr/*",
+        "*://*.rhein-zeitung.de/*",
+        "*://*.rheinpfalz.de/*",
         "*://*.rollingstone.com/*",
         "*://*.rp-online.de/*",
         "*://*.ruhrnachrichten.de/*",
@@ -467,5 +469,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.0.9.7"
+    "version": "2.0.9.8"
 }
