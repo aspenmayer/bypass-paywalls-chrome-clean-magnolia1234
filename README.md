@@ -257,6 +257,7 @@ Alma Talent sites (grouped in options) like
 
 ##### France/Wallonia
 [Alternatives Economiques](https://www.alternatives-economiques.fr) -
+[Atlantico](https://atlantico.fr) -
 [Challenges](https://www.challenges.fr) –
 [Charlie Hebdo](https://charliehebdo.fr) -
 [Esprit](https://esprit.presse.fr) -

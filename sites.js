@@ -9,6 +9,7 @@ var defaultSites =
   "American Affairs": "americanaffairsjournal.org",
   "American Banker": "americanbanker.com",
   "Atavist Magazine": "atavist.com",
+  "Atlantico.fr": "atlantico.fr",
   "Augsburger Allgemeine": "augsburger-allgemeine.de",
   "Australia News Corp": "###_au_news_corp",
   "Australian Community Media (daily)": "###_au_comm_media",

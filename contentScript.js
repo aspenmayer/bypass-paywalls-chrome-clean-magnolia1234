@@ -2163,6 +2163,12 @@ else if (matchDomain('venturebeat.com')) {
     }, 500); // Delay (in milliseconds)
 }
 
+else if (matchDomain('atlantico.fr')) {
+    let paywall = document.querySelector('div.dpslvp');
+    if (paywall)
+        paywall.classList.remove('dpslvp');
+}
+
 else if (!matchDomain(['belfasttelegraph.co.uk', 'independent.ie']))
     csDone = true;
 
