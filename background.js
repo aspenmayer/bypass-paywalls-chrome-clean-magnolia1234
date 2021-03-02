@@ -244,7 +244,7 @@ var blockedRegexes = {
   'challenges.fr': /\.poool\.fr\//,
   'charliehebdo.fr': /\.poool\.fr\//,
   'chicagobusiness.com': /\.tinypass\.com\//,
-  'chronicle.com': /(\.blueconic\.net\/|assets\.login\.chronicle\.com\/common\/che-auth0-user\.js)/,
+  'chronicle.com': /(\.blueconic\.net\/|\.chronicle\.com\/(common\/)?(che-auth0-user|script)\.js)/,
   'clarin.com': /js\.matheranalytics\.com\//,
   'cmjornal.pt': /cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad)-.+\.js/,
   'corriere.it': /(\.tinypass\.com\/|\.rcsobjects\.it\/rcs_(cpmt|tracking-service)\/|\.corriereobjects\.it\/.+\/js\/(_paywall\.sjs|tracking\/)|\.userzoom\.com\/files\/js\/)/,
