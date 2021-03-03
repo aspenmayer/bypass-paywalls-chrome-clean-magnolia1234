@@ -926,7 +926,7 @@ else if (matchDomain('faz.net')) {
                             str = str.replace(/(?:^|[\w\"\“])(\.|\?|!)(?=[A-ZÖÜ\„][A-Za-zÀ-ÿ\„]{1,})/gm, "$&\n\n");
                             str = str.replace(/([a-z\"\“])(?=[A-Z](?=[A-Za-zÀ-ÿ]+))/gm, "$&\n\n");
                             // exceptions: names with alternating lower/uppercase (no general fix)
-                            let str_rep_arr = ["BaFin", "BerlHG", "BfArM", "BilMoG", "DiGA", "EuGH", "eWpG", "GlaxoSmithKline", "gGmbH", "IfSG", "iMessage", "iOS", "iPad", "iPhone", "medRxiv", "mRNA", "PlosOne", "StVO"];
+                            let str_rep_arr = ["BaFin", "BerlHG", "BfArM", "BilMoG", "DiGA", "EuGH", "eWpG", "FinTechRat", "GlaxoSmithKline", "gGmbH", "IfSG", "iMessage", "iOS", "iPad", "iPhone", "medRxiv", "mRNA", "PlosOne", "StVO"];
                             let str_rep_split, str_rep_src;
                             for (let str_rep of str_rep_arr) {
                                 str_rep_split = str_rep.split(/([a-z]+)(?=[A-Z](?=[A-Za-z]+))/);
@@ -963,6 +963,8 @@ else if (matchDomain('faz.net')) {
             }
         });
     }
+    let lay_paysocial = document.querySelector('div.lay-PaySocial');
+    removeDOMElement(lay_paysocial);
     }
 }
 

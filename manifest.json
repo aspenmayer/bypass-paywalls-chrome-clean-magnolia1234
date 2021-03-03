@@ -465,10 +465,9 @@
         "*://*.pasedigital.cl/*",
         "*://*.rcsobjects.it/*",
         "*://*.repstatic.it/*",
-        "*://*.stripe.com/*",
         "*://*.userzoom.com/*",
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.1.0.2"
+    "version": "2.1.0.3"
 }

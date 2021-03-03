@@ -5,12 +5,7 @@ function bpc_count_daily_users(dateStr) {
     ext_api.storage.local.get({
         daily_users: {},
     }, function (items_local) {
-    daily_users = items_local.daily_users;
-    ext_api.storage.sync.get({
-        daily_users: {},
-    }, function (items) {
-        if (!items_local.daily_users.date)
-            daily_users = items.daily_users;
+        daily_users = items_local.daily_users;
         if (daily_users.date !== dateStr) {
             daily_users.date = dateStr;
             ext_api.storage.local.set({
@@ -21,7 +16,6 @@ function bpc_count_daily_users(dateStr) {
             let count_json = 'https://bitbucket.org/bpc_redux/bpc-chrome-daily-users/downloads/bpc-daily-users-' + dateStr + '.json';
             fetch(count_json, {mode: 'no-cors'});
         }
-    });
     });
 }
 

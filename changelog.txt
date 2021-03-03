@@ -4,6 +4,7 @@ Changelog Bypass Paywalls Clean - Chrome
 Post-release
 Add Atlantico (France)
 Fix-update Chronicle of Higher Education (scroll)
+Fix-update New Left Review
 
 * v2.1.0.0 (2021-02-28)
 Add Die Rheinpfalz (Germany)
