@@ -445,7 +445,7 @@ function add_grouped_sites(init_rules) {
     }
     for (let domain of es_grupo_vocento_domains) {
       allow_cookies.push(domain);
-      blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent|subscriptions)-.+\.js/;
+      blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-(access|ad|subscriptions)-.+\.js/;
     }
     for (let domain of fi_alma_talent_domains) {
       use_google_bot.push(domain);

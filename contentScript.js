@@ -1683,9 +1683,9 @@ else if (matchDomain(es_grupo_vocento_domains)) {
         if (container_wall_exclusive) {
             let non_subscr_section = document.querySelector('[amp-access="result!=\'ALLOW_ACCESS\'"]');
             removeDOMElement(container_wall_exclusive, non_subscr_section);
-            let subscr_section = document.querySelector('[amp-access="result=\'ALLOW_ACCESS\'"]');
-            if (subscr_section)
-                subscr_section.removeAttribute('amp-access-hide');
+            let subscr_section = document.querySelectorAll('[amp-access="result=\'ALLOW_ACCESS\'"][amp-access-hide]');
+            for (let elem of subscr_section)
+                elem.removeAttribute('amp-access-hide');
         }
         //lavozdigital.es
         let paywall = document.querySelector('span[subscriptions-section="content"]');
