@@ -15,9 +15,6 @@ window.addEventListener("load", function () {
             "optInShown": true
         });
         opt_in_enabled.innerText = 'YES';
-        setTimeout(function () {
-            //window.close();
-        }, 800);
     });
 
     document.getElementById("optin-disable").addEventListener(
@@ -28,9 +25,6 @@ window.addEventListener("load", function () {
             "optInShown": true
         });
         opt_in_enabled.innerText = 'NO';
-        setTimeout(function () {
-            //window.close();
-        }, 800);
     });
 
     document.getElementById("button-close").addEventListener(

@@ -177,6 +177,7 @@ var defaultSites =
   "Philosophy Now": "philosophynow.org",
   "Piqd.de": "piqd.de",
   "Pittsburgh Post Gazette": "post-gazette.com",
+  "Política Exterior": "politicaexterior.com",
   "Prospect Magazine": "prospectmagazine.co.uk",
   "Rhein-Zeitung": "rhein-zeitung.de",
   "Rheinische Post Mediengruppe (only plus if amp)": "###_de_rp_medien",

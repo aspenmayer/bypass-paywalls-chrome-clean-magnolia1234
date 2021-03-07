@@ -103,6 +103,7 @@ var allow_cookies_default = [
   'observador.pt',
   'parismatch.com',
   'piqd.de',
+  'politicaexterior.com',
   'prospectmagazine.co.uk',
   'quotidiano.net',
   'quora.com',
@@ -165,6 +166,7 @@ var remove_cookies_select_drop = {
   'fd.nl': ['socialread'],
   'griffithreview.com': ['issuem_lp'],
   'nrc.nl': ['counter'],
+  'telegraaf.nl': ['page_count'],
   'theatlantic.com': ['articleViews'],
   'thepointmag.com': ['monthly_history']
 }
@@ -1283,7 +1285,7 @@ ext_api.runtime.onMessage.addListener(function (message, sender) {
   }
 });
 
-// show the tab if we haven't registered the user reacting to the prompt.
+// show the opt-in tab on installation
 ext_api.storage.local.get(["optInShown", "customShown"], function (result) {
   if (!result.optInShown || !result.customShown) {
     ext_api.tabs.create({
@@ -1298,7 +1300,7 @@ ext_api.storage.local.get(["optInShown", "customShown"], function (result) {
 
 function isSiteEnabled(details) {
   var enabledSite = matchUrlDomain(enabledSites, details.url);
-  if (!ext_name.includes('Clean'))
+  if (!ext_name.startsWith('Bypass Paywalls Clean'))
     enabledSite = '';
   if (enabledSite in restrictions) {
     return restrictions[enabledSite].test(details.url);

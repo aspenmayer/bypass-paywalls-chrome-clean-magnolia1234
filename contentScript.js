@@ -342,7 +342,6 @@ else if (matchDomain('telegraaf.nl')) {
                 });
                 div_main.appendChild(div_elem);
                 article_body.appendChild(div_main);
-                csDone = true;
             }
         }
     }
@@ -2169,6 +2168,22 @@ else if (matchDomain('atlantico.fr')) {
     let paywall = document.querySelector('div.dpslvp');
     if (paywall)
         paywall.classList.remove('dpslvp');
+}
+
+else if (matchDomain('politicaexterior.com')) {
+    let paywall = document.querySelector('div[class^="paywall-"]');
+    if (paywall) {
+        let article = document.querySelector('div.entry-content-text');
+        let json = document.querySelector('script[type="application/ld+json"]:not([class]');
+        if (json) {
+            var json_text = JSON.parse(json.text).description.replace(/&amp;nbsp;/g, '');
+            let article_new = document.createElement('div');
+            article_new.setAttribute('class', 'entry-content-text');
+            article_new.innerText = '\r\n' + json_text;
+            article.parentNode.replaceChild(article_new, article);
+        }
+        removeDOMElement(paywall);
+    }
 }
 
 else if (!matchDomain(['belfasttelegraph.co.uk', 'independent.ie']))

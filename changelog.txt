@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add Atlantico (France)
+Add Politica Exterior (Spain)
 Fix-update Chronicle of Higher Education (scroll)
 Fix-update Grupo Vocento (amp)
 Fix-update New Left Review
