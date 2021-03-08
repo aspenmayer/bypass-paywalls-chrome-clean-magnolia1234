@@ -278,6 +278,7 @@
         "*://*.newleftreview.org/*",
         "*://*.newrepublic.com/*",
         "*://*.news-mail.com.au/*",
+        "*://*.newsday.com/*",
         "*://*.newsobserver.com/*",
         "*://*.newstatesman.com/*",
         "*://*.newsweek.com/*",
@@ -462,13 +463,15 @@
         "*://*.htmedia.in/*",
         "*://*.jsdelivr.net/*",
         "*://*.lightboxcdn.com/*",
+        "*://*.loader-cdn.azureedge.net/*",
         "*://*.nyt.com/*",
         "*://*.pasedigital.cl/*",
         "*://*.rcsobjects.it/*",
         "*://*.repstatic.it/*",
+        "*://*.stripe.com/*",
         "*://*.userzoom.com/*",
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.1.1.0"
+    "version": "2.1.1.1"
 }

@@ -162,6 +162,7 @@ _* free articles only._
 [Miami Herald](https://www.miamiherald.com) -
 [Mountain View Voice](https://www.mv-voice.com) -
 [New York Magazine](https://www.nymag.com) (+ [Curbed](https://www.curbed.com/), [Grub Street](https://www.grubstreet.com), [The Cut](https://www.thecut.com) & [Vulture](https://www.vulture.com)) -
+[Newsday](https://www.newsday.com) -
 [Orange County Register](https://www.ocregister.com) -
 [Palo Alto Online](https://www.paloaltoonline.com) -
 [Pittsburgh Post Gazette](https://post-gazette.com) -

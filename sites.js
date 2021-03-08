@@ -163,6 +163,7 @@ var defaultSites =
   "New Left Review": "newleftreview.org",
   "New York Magazine (+ Curbed, Grub Street, The Cut & Vulture)": "###_usa_nymag",
   "New Zealand Herald": "nzherald.co.nz",
+  "Newsday": "newsday.com",
   "Newsweek": "newsweek.com",
   "Nikkei Asian Review": "asia.nikkei.com",
   "Noordhollands Dagblad": "noordhollandsdagblad.nl",
