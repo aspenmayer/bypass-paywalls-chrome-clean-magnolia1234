@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add Newsday (local USA)
+Fix-update Gazet van Antwerpen
 
 * v2.1.1.0 (2021-03-07)
 Add Atlantico (France)

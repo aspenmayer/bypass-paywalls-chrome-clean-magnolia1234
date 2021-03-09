@@ -1566,7 +1566,7 @@ else if (matchDomain("gva.be")) {
             let json = JSON.parse(json_str);
             let premium = Object.values(json)[0]['premium'];
             if (json) {
-                let json_text = Object.values(json)[0]['body']['json'];
+                let json_text = Object.values(json)[0]['data']['article']['body'];
                 let parser = new DOMParser();
                 let div_content = main_content.querySelector('div');
                 div_content.setAttribute('class', 'gva-6c6ea21_marginbottom5 gva-28c280e9_contentwrapper');
@@ -1599,8 +1599,7 @@ else if (matchDomain("gva.be")) {
                                     bullet_link.innerText = bullet_link.href;
                                 par_elem.appendChild(par_li);
                             }
-                        }
-                        else if (key === 'streamone') {
+                        } else if (key === 'streamone') {
                             if (!streamone) {
                                 let streamone_script = document.createElement('script');
                                 streamone_script.setAttribute('src', "https://shared.mediahuis.be/videoplayers/mediahuis/video-theoplayer.js?v=20201111T131002");
