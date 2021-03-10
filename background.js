@@ -839,7 +839,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
       header_referer = details.initiator;
 
   // remove cookies for sites medium platform (custom domains)
-  var medium_custom_domain = (matchUrlDomain('cdn-client.medium.com', details.url) && !matchUrlDomain(['medium.com', 'towardsdatascience.com'], header_referer) && enabledSites.includes('###_medium_custom'));
+  var medium_custom_domain = (matchUrlDomain('cdn-client.medium.com', details.url) && ['script'].includes(details.type) && !matchUrlDomain(['medium.com', 'towardsdatascience.com'], header_referer) && enabledSites.includes('###_medium_custom'));
   if (medium_custom_domain) {
     let mc_domain = urlHost(header_referer);
     if (!use_twitter_referer.includes(mc_domain)) {
@@ -851,7 +851,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   }
 
   // set googlebot-useragent for Gannett sites
-  var usa_gannett_domain = (matchUrlDomain('gannett-cdn.com', details.url) && !matchUrlDomain(['usatoday.com'], header_referer) && enabledSites.includes('###_usa_gannett'));
+  var usa_gannett_domain = (matchUrlDomain('gannett-cdn.com', details.url) && ['xmlhttprequest'].includes(details.type) && !matchUrlDomain(['usatoday.com'], header_referer) && enabledSites.includes('###_usa_gannett'));
   if (usa_gannett_domain) {
     let gn_domain = urlHost(header_referer);
     if (!use_google_bot.includes(gn_domain)) {
