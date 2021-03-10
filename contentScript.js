@@ -271,6 +271,8 @@ else if (domain = matchDomain(it_repubblica_domains)) {
         let premium = document.querySelector('.paywall-adagio');
         removeDOMElement(premium);
         window.setTimeout(function () {
+            if (premium && (domain === 'lastampa.it'))
+                window.location.href = url.split('?')[0] + '/amp/';
             let article_body = document.querySelector('div#article-body[style]');
             if (article_body)
                 article_body.removeAttribute('style');

@@ -5,6 +5,7 @@ Post-release
 Add Newsday (local USA)
 Fix-update Gannett Group (identify on xhr only)
 Fix-update Gazet van Antwerpen
+Fix-update La Stampa
 
 * v2.1.1.0 (2021-03-07)
 Add Atlantico (France)
