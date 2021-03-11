@@ -89,15 +89,18 @@ else if (window.location.hostname.endsWith(".com.au") || window.location.hostnam
     let au_cm_sites = ['bendigoadvertiser.com.au', 'bordermail.com.au', 'canberratimes.com.au', 'centralwesterndaily.com.au', 'dailyadvertiser.com.au', 'dailyliberal.com.au', 'examiner.com.au', 'illawarramercury.com.au', 'newcastleherald.com.au', 'northerndailyleader.com.au', 'portnews.com.au', 'standard.net.au', 'theadvocate.com.au', 'thecourier.com.au', 'westernadvocate.com.au'];
     let au_piano_script = document.querySelector('script[src="https://cdn-au.piano.io/api/tinypass.min.js"]');
     if (matchDomain(au_cm_sites) || au_piano_script) {
-        const subscribe_truncate = document.querySelector('.subscribe-truncate');
+        let subscribe_truncate = document.querySelector('.subscribe-truncate');
         if (subscribe_truncate)
             subscribe_truncate.classList.remove('subscribe-truncate');
-        const subscriber_hiders = document.querySelectorAll('.subscriber-hider');
-        for (let subscriber_hider of subscriber_hiders) {
+        let subscriber_hiders = document.querySelectorAll('.subscriber-hider');
+        for (let subscriber_hider of subscriber_hiders)
             subscriber_hider.classList.remove('subscriber-hider');
-        }
+        let blocker = document.querySelector('div.blocker');
+        let noscroll = document.querySelector('body[style]');
+        if (noscroll)
+            noscroll.removeAttribute('style');
         let story_generic_iframe = document.querySelector('.story-generic__iframe');
-        removeDOMElement(story_generic_iframe);
+        removeDOMElement(story_generic_iframe, blocker);
     } else if (window.location.hostname.endsWith(".com.au")) {
         // Australia News Corp
         let au_nc_sites = ['adelaidenow.com.au', 'cairnspost.com.au', 'couriermail.com.au', 'dailytelegraph.com.au', 'geelongadvertiser.com.au', 'goldcoastbulletin.com.au', 'heraldsun.com.au', 'ntnews.com.au', 'theaustralian.com.au', 'themercury.com.au', 'townsvillebulletin.com.au', 'weeklytimesnow.com.au'];
