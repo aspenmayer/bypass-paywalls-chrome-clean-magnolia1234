@@ -438,6 +438,7 @@ function add_grouped_sites(init_rules) {
     for (let domain of de_funke_media_domains) {
       allow_cookies.push(domain);
       blockedRegexes[domain] = /(cdn\.cxense\.com\/|\.tinypass\.com\/)/;
+      use_google_bot.push(domain);
     }
     for (let domain of de_madsack_domains) {
       allow_cookies.push(domain);

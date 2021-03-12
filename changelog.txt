@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add Newsday (local USA)
+Add Thueringische Landeszeitung (Germany)
 Fix-update Australian Community Media (anti-adblock)
 Fix-update Gannett Group (identify on xhr only)
 Fix-update Gazet van Antwerpen
