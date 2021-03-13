@@ -88,6 +88,7 @@ var allow_cookies_default = [
   'marketwatch.com',
   'medium.com',
   'modernhealthcare.com',
+  'mz-web.de',
   'nation.africa',
   'nationalgeographic.com',
   'nationalpost.com',

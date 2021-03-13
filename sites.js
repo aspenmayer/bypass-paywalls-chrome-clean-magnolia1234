@@ -152,6 +152,7 @@ var defaultSites =
   "Miami Herald": "miamiherald.com",
   "MIT Sloan Management Review": "sloanreview.mit.edu",
   "MIT Technology Review": "technologyreview.com",
+  "Mitteldeutsche Zeitung": "mz-web.de",
   "Modern Healthcare": "modernhealthcare.com",
   "National Geographic USA": "nationalgeographic.com",
   "Mountain View Voice": "mv-voice.com",

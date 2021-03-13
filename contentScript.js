@@ -2190,6 +2190,14 @@ else if (matchDomain('politicaexterior.com')) {
     }
 }
 
+else if (matchDomain('mz-web.de')) {
+    let platzhalter = document.querySelector('#c1-template-platzhalter');
+    removeDOMElement(platzhalter);
+    let paid_content = document.querySelector('.hide-paid-content');
+    if (paid_content)
+        paid_content.classList.remove('hide-paid-content');
+}
+
 else if (!matchDomain(['belfasttelegraph.co.uk', 'independent.ie']))
     csDone = true;
 
