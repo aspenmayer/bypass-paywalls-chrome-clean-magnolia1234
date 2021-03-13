@@ -2198,6 +2198,11 @@ else if (matchDomain('mz-web.de')) {
         paid_content.classList.remove('hide-paid-content');
 }
 
+else if (matchDomain('elespanol.com')) {
+    let adverts = document.querySelectorAll('[id*="superior"], [class*="adv"]');
+    removeDOMElement(...adverts);
+}
+
 else if (!matchDomain(['belfasttelegraph.co.uk', 'independent.ie']))
     csDone = true;
 

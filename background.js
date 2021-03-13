@@ -4,7 +4,7 @@
 var ext_api = (typeof browser === 'object') ? browser : chrome;
 var ext_name = ext_api.runtime.getManifest().name;
 
-const cs_limit_except = ['faz.net', 'inkl.com', 'la-croix.com', 'nation.africa', 'newleftreview.org'];
+const cs_limit_except = ['elespanol.com', 'faz.net', 'inkl.com', 'la-croix.com', 'nation.africa', 'newleftreview.org'];
 var currentTabUrl = '';
 var csDone = false;
 
@@ -17,6 +17,7 @@ const restrictions = {
   'barrons.com': /.+\.barrons\.com\/(amp\/)?article(s)?\/.+/,
   'bloombergquint.com': /^((?!\.bloombergquint\.com\/bq-blue-exclusive\/).)*$/,
   'elcomercio.pe': /.+\/elcomercio\.pe\/.+((\w)+(\-)+){3,}.+/,
+  'elespanol.com': /^((?!\/cronicaglobal\.elespanol\.com\/).)*$/,
   'elpais.com': /(\/elpais\.com\/$|\/(.+\.)?elpais\.com\/.+\.html)/,
   'faz.net': /^((?!\/.+\.faz\.net\/aktuell\/(\?switchfaznet)?$).)*$/,
   'foreignaffairs.com': /.+\.foreignaffairs\.com\/(articles|fa-caching|interviews|reviews|sites)\/.+/,
@@ -49,6 +50,7 @@ var allow_cookies_default = [
   'dvhn.nl',
   'editorialedomani.it',
   'elconfidencial.com',
+  'elespanol.com',
   'elmercurio.com',
   'elmundo.es',
   'elpais.com',
@@ -257,6 +259,7 @@ var blockedRegexes = {
   'editorialedomani.it': /(\.editorialedomani\.it\/pelcro\.js|js\.pelcro\.com\/)/,
   'elcomercio.pe': /elcomercio\.pe\/pf\/dist\/template\/elcomercio-noticia.+\.js/,
   'elconfidencial.com': /\.tinypass\.com\//,
+  'elespanol.com': /\.eestatic\.com\/assets_js\/web\/v\d\/historia.*\.min\.js/,
   'elmercurio.com': /\.(elmercurio\.com|emol\.cl)\/(.+\/)?js\/(.+\/)?(modal|merPramV\d|PramModal\.min)\.js/,
   'elmundo.es': /cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js/,
   'elpais.com': /(\.epimg\.net\/js\/.+\/noticia\.min\.js|\.cdn\.arcpublishing\.com\/arc\/subs\/p\.min\.js|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad|consent)-.+\.js)/,
@@ -906,11 +909,12 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   if (isSiteEnabled({url: header_referer})) {
     let inkl_site = (matchUrlDomain('cdn.jsdelivr.net', details.url) && matchUrlDomain('inkl.com', header_referer));
     let cl_elmerc_site = (matchUrlDomain('emol.cl', details.url) && matchUrlDomain('elmercurio.com', header_referer));
+    let es_elesp_site = (matchUrlDomain('eestatic.com', details.url) && matchUrlDomain('elespanol.com', header_referer));
     let it_repubblica_site = (matchUrlDomain(['repstatic.it'], details.url) && matchUrlDomain(it_repubblica_domains, header_referer));
     let uk_nlr_site = (matchUrlDomain('stripe.com', details.url) && matchUrlDomain('newleftreview.org', header_referer));
     let usa_discmag_site = (matchUrlDomain('ctfassets.net', details.url) && matchUrlDomain('discovermagazine.com', header_referer));
     let usa_mw_site = (matchUrlDomain('wsj.net', details.url) && matchUrlDomain('marketwatch.com', header_referer));
-    allow_ext_source = allow_ext_source || inkl_site || cl_elmerc_site || it_repubblica_site || uk_nlr_site || usa_discmag_site || usa_mw_site;
+    allow_ext_source = allow_ext_source || inkl_site || cl_elmerc_site || es_elesp_site || it_repubblica_site || uk_nlr_site || usa_discmag_site || usa_mw_site;
 
     bpc_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain(['augsburger-allgemeine.de', 'barrons.com', 'belfasttelegraph.co.uk', 'cicero.de', 'cmjornal.pt', 'elmundo.es', 'elpais.com', 'elperiodico.com', 'expansion.com', 'freiepresse.de', 'independent.ie', 'irishtimes.com', 'la-croix.com', 'lne.es', 'marketwatch.com', 'nationalreview.com', 'noz.de', 'seekingalpha.com', 'shz.de', 'sueddeutsche.de', 'svz.de', 'telegraph.co.uk'].concat(au_news_corp_domains, au_nine_domains, de_madsack_domains, de_rp_medien_domains, es_grupo_vocento_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, it_repubblica_domains, usa_mcc_domains), header_referer));
   }

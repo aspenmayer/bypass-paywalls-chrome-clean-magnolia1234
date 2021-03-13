@@ -53,6 +53,7 @@ var defaultSites =
   "El Comercio": "elcomercio.pe",
   "El Confidencial": "elconfidencial.com",
   "El Diario.es": "eldiario.es",
+  "El Español": "elespanol.com",
   "El Mercurio": "elmercurio.com",
   "El Mercurio de Valparaíso": "mercuriovalpo.cl",
   "El Mundo": "elmundo.es",
