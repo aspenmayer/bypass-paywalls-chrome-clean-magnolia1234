@@ -60,6 +60,7 @@ var defaultSites =
   "El País": "elpais.com",
   "El Periódico (de Catalunya)": "elperiodico.com",
   "Encyclopedia Britannica": "britannica.com",
+  "Entrepreneur": "entrepreneur.com",
   "Esprit": "esprit.presse.fr",
   "EUobserver": "euobserver.com",
   "Eureka Report": "eurekareport.com.au",

@@ -55,6 +55,7 @@ var allow_cookies_default = [
   'elmundo.es',
   'elpais.com',
   'elperiodico.com',
+  'entrepreneur.com',
   'esprit.presse.fr',
   'euobserver.com',
   'eurekareport.com.au',

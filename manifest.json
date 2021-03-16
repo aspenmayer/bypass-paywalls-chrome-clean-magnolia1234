@@ -127,6 +127,7 @@
         "*://*.elnortedecastilla.es/*",
         "*://*.elpais.com/*",
         "*://*.elperiodico.com/*",
+        "*://*.entrepreneur.com/*",
         "*://*.esprit.presse.fr/*",
         "*://*.estadao.com.br/*",
         "*://*.estrellavalpo.cl/*",
@@ -477,5 +478,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.1.2.0"
+    "version": "2.1.2.1"
 }

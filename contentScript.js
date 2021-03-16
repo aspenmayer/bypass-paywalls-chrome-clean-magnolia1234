@@ -1225,7 +1225,7 @@ else if (matchDomain("sueddeutsche.de")) {
     document.addEventListener('DOMContentLoaded', () => {
         let offer_page = document.querySelector('div.offer-page');
         if (url.startsWith('https://www.sueddeutsche.de') && (url.includes('reduced=true') || offer_page))
-            window.location.href = url.split('?')[0].replace('www.', 'amphtml.');
+            window.location.href = url.split('?')[0].split('!')[0].replace('www.', 'amphtml.');
         else if (url.startsWith('https://sz-magazin.sueddeutsche.de')) {
             if (url.includes('reduced=true') || offer_page)
                 window.location.href = new URL(url).pathname + '!amp';
@@ -2201,6 +2201,28 @@ else if (matchDomain('mz-web.de')) {
 else if (matchDomain('elespanol.com')) {
     let adverts = document.querySelectorAll('[id*="superior"], [class*="adv"]');
     removeDOMElement(...adverts);
+}
+
+else if (matchDomain('entrepreneur.com')) {
+    let promo = document.querySelector('.paywall-promo');
+    if (promo) {
+        removeDOMElement(promo);
+        let gate_check = document.querySelector('.gate-check');
+        if (gate_check)
+            gate_check.removeAttribute('class');
+        let hidden_images = document.querySelectorAll('img.lazy[src*="blur"][data-src]');
+        for (let hidden_image of hidden_images)
+            hidden_image.setAttribute('src', hidden_image.getAttribute("data-src"));
+    }
+}
+
+else if (matchDomain('rheinpfalz.de')) {
+    let url = window.location.href;
+    if (url.includes('reduced=true')) {
+        window.setTimeout(function () {
+            window.location.href = url.split('?')[0];
+        }, 500); // Delay (in milliseconds)
+    }
 }
 
 else if (!matchDomain(['belfasttelegraph.co.uk', 'independent.ie']))
