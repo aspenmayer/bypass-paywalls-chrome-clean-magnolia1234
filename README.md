@@ -313,6 +313,7 @@ Groupe Rossel sites (grouped in options) like
 
 ##### Germany/Austria
 [Augsburger Allgemeine](https://www.augsburger-allgemeine.de) -
+[Berliner Zeitung](https://www.berliner-zeitung.de) -
 [Cicero](https://www.cicero.de) -
 [Deutsche Wirtschafts Nachrichten](https://deutsche-wirtschafts-nachrichten.de) -
 [Die Rheinpfalz](https://www.rheinpfalz.de) -

@@ -2225,6 +2225,28 @@ else if (matchDomain('rheinpfalz.de')) {
     }
 }
 
+else if (matchDomain('berliner-zeitung.de')) {
+    let url = window.location.href;
+    let paywall = document.querySelector('.paywall-dialog-box');
+    if (url.split('?')[0].includes('.amp')) {
+        if (paywall) {
+            let preview = document.querySelector('section[subscriptions-section="content-not-granted"]');
+            removeDOMElement(paywall, preview);
+            let subscr_section = document.querySelector('section[subscriptions-section="content"]');
+            if (subscr_section) {
+                subscr_section.removeAttribute('subscriptions-section');
+                let amp_ads = document.querySelectorAll('amp-ad');
+                removeDOMElement(...amp_ads);
+            }
+        }
+    } else {
+        if (paywall) {
+            removeDOMElement(paywall);
+            window.location.href = url.split('?')[0] + '.amp';
+        }
+    }
+}
+
 else if (!matchDomain(['belfasttelegraph.co.uk', 'independent.ie']))
     csDone = true;
 

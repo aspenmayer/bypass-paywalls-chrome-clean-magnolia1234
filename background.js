@@ -37,6 +37,7 @@ var allow_cookies_default = [
   'atlantico.fr',
   'augsburger-allgemeine.de',
   'belfasttelegraph.co.uk',
+  'berliner-zeitung.de',
   'berlingske.dk',
   'bostonglobe.com',
   'business-standard.com',
