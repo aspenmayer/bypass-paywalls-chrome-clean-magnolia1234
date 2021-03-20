@@ -326,6 +326,7 @@ var blockedRegexes = {
   'rollingstone.com': /cdn\.cxense\.com\//,
   'ruhrnachrichten.de': /\.tinypass\.com\//,
   'saechsische.de': /\.tinypass\.com\//,
+  'thesaturdaypaper.com.au': /\.thesaturdaypaper\.com\.au\/sites\/all\/modules\/custom\/node_meter\/pw\.js/,
   'science-et-vie.com': /\.qiota\.com\//,
   'sciencesetavenir.fr': /\.poool\.fr\//,
   'scmp.com': /\.tinypass\.com\//,

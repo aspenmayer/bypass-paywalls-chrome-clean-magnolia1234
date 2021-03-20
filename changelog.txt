@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add Entrepreneur
+Fix-update The Saturday Paper
 
 * v2.1.2.0 (2021-03-14)
 Add El Espanol (Spain)
