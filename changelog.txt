@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add Berliner Zeitung (Germany)
+Add The Dallas Morning News (local USA)
 Add Entrepreneur
 Fix-update The Saturday Paper
 

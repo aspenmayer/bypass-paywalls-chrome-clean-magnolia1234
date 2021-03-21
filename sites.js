@@ -224,6 +224,7 @@ var defaultSites =
   "The Business Journals": "bizjournals.com",
   "The Christian Science Monitor": "csmonitor.com",
   "The Daily Beast (free articles only)": "thedailybeast.com",
+  "The Dallas Morning News": "dallasnews.com",
   "The Denver Post": "denverpost.com",
   "The Diplomat": "thediplomat.com",
   "The Economist": "economist.com",

@@ -171,6 +171,7 @@ _* free articles only._
 [San Francisco Chronicle](https://www.sfchronicle.com) -
 [Star Tribune](https://www.startribune.com) -
 [The Boston Globe](https://www.bostonglobe.com) -
+[The Dallas Morning News](https://www.dallasnews.com) -
 [The Denver Post](https://www.denverpost.com) -
 [The Mercury News](https://www.mercurynews.com) -
 [The Seattle Times](https://www.seattletimes.com) -

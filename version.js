@@ -8,8 +8,10 @@ versionString_new.setAttribute('style', 'font-weight: bold;');
 var anchorEl;
 
 const proxyurl = "https://bpc-cors-anywhere.herokuapp.com/";
-const manifest_new = 'https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/raw/master/manifest.json';
-fetch(proxyurl + manifest_new, { headers: { "Content-Type": "application/json", "X-Requested-With": "XMLHttpRequest" } })
+//const manifest_new = 'https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/raw/master/manifest.json';
+const manifest_new = 'https://bitbucket.org/magnolia1234/bypass-paywalls-firefox-clean/raw/master/manifest.json';
+//fetch(proxyurl + manifest_new, { headers: { "Content-Type": "application/json", "X-Requested-With": "XMLHttpRequest" } })
+fetch(manifest_new)
 .then(response => {
     if (response.ok) {
         response.json().then(json => {

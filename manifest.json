@@ -98,6 +98,7 @@
         "*://*.dailymercury.com.au/*",
         "*://*.dailypress.com/*",
         "*://*.dailytelegraph.com.au/*",
+        "*://*.dallasnews.com/*",
         "*://*.darkreading.com/*",
         "*://*.demorgen.be/*",
         "*://*.denverpost.com/*",
@@ -479,5 +480,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.1.2.3"
+    "version": "2.1.2.4"
 }
