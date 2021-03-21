@@ -2,6 +2,8 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+
+* v2.1.3.0 (2021-03-21)
 Add Berliner Zeitung (Germany)
 Add The Dallas Morning News (local USA)
 Add Entrepreneur
