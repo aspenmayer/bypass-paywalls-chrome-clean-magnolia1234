@@ -212,6 +212,7 @@ var use_google_bot_default = [
   'thetimes.co.uk',
   'usinenouvelle.com',
   'washingtonpost.com',
+  'wired.com',
   'wiwo.de',
   'worldpoliticsreview.com',
   'wsj.com',

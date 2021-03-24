@@ -611,6 +611,7 @@ You can also exclude a specific domain which is grouped in options.
 
 ### Troubleshooting
 * This extension works best alongside [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm).
+* Add usefull custom filter [Fanboy's Enhanced Tracking List](https://www.fanboy.co.nz/enhancedstats.txt)
 * If a site doesn't work, try turning off uBlock and refreshing.
 * Make sure the (new) site is checked under Options.
 * Make sure you're running the last version of Bypass Paywalls Clean.
