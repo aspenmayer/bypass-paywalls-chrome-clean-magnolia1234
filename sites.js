@@ -289,7 +289,8 @@ var defaultSites =
   "TinyPass": "tinypass.com",
   "TribDss": "tribdss.com",
   "* BPC settings": "###",
-  "Show options on update": "#options_on_update"
+  "Show options on update": "#options_on_update",
+  "The Wall Street Journal - no Googlebot (http error 500)": "#options_disable_gb_wsj"
 }
 
 const au_comm_media_domains = ['bendigoadvertiser.com.au', 'bordermail.com.au', 'canberratimes.com.au', 'centralwesterndaily.com.au', 'dailyadvertiser.com.au', 'dailyliberal.com.au', 'examiner.com.au', 'illawarramercury.com.au', 'newcastleherald.com.au', 'northerndailyleader.com.au', 'portnews.com.au', 'standard.net.au', 'theadvocate.com.au', 'thecourier.com.au', 'westernadvocate.com.au'];

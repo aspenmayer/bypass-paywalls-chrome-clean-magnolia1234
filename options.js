@@ -98,6 +98,9 @@ function renderOptions() {
 
 function selectAll() {
   var inputEls = Array.from(document.querySelectorAll('input'));
+  inputEls = inputEls.filter(function (input) {
+      return (!input.dataset.value.includes('#options_disable_'));
+    });
   inputEls.forEach(function (inputEl) {
     inputEl.checked = true;
   });

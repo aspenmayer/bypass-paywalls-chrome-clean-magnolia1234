@@ -392,7 +392,7 @@ else if (matchDomain("wsj.com") && !matchDomain("cn.wsj.com")) {
         let snippet = document.querySelector('.snippet-promotion');
         let wsj_pro = document.querySelector('meta[name="page.site"][content="wsjpro"]');
         if (snippet || wsj_pro) {
-            window.location.href = window.location.href.replace('wsj.com', 'wsj.com/amp');
+            window.location.href = url.replace('wsj.com', 'wsj.com/amp');
         }
     });
 }

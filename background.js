@@ -383,7 +383,9 @@ var excludedSites = [];
 
 function setDefaultOptions() {
   ext_api.storage.local.set({
-    sites: defaultSites
+    sites: filterObject(defaultSites, function (val, key) {
+      return !val.includes('#options_disable_')
+    })
   }, function () {
     ext_api.runtime.openOptionsPage();
   });
@@ -949,7 +951,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   var useUserAgentMobile = false;
   var setReferer = false;
 
-if ((['main_frame', 'sub_frame', 'xmlhttprequest'].includes(details.type) || matchUrlDomain(['thetimes.co.uk'], details.url)) && matchUrlDomain(change_headers, details.url)){
+if (matchUrlDomain(change_headers, details.url) && (['main_frame', 'sub_frame', 'xmlhttprequest'].includes(details.type) || matchUrlDomain(['thetimes.co.uk'], details.url)) && !(matchUrlDomain(['wsj.com'], details.url) && enabledSites.includes('#options_disable_gb_wsj'))){
   // if referer exists, set it to google
   requestHeaders = requestHeaders.map(function (requestHeader) {
     if (requestHeader.name === 'Referer') {
@@ -1312,6 +1314,11 @@ ext_api.storage.local.get(["optInShown", "customShown"], function (result) {
     });
   }
 });
+
+function filterObject(obj, callback) {
+  return Object.fromEntries(Object.entries(obj).
+    filter(([key, val]) => callback(val, key)));
+}
 
 function isSiteEnabled(details) {
   var enabledSite = matchUrlDomain(enabledSites, details.url);
