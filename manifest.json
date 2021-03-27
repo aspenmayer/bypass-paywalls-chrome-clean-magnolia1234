@@ -4,7 +4,7 @@
     },
     "content_security_policy": "script-src 'self'; object-src 'self'",
     "browser_action": {
-        "default_popup": "popup.html"
+        "default_popup": "options/popup.html"
     },
     "description": "Bypass Paywalls of news sites",
     "homepage_url": "https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/blob/master/README.md",
@@ -19,7 +19,7 @@
     "options_ui": {
         "chrome_style": true,
         "open_in_tab": true,
-        "page": "options.html"
+        "page": "options/options.html"
     },
     "incognito": "split",
     "optional_permissions": [

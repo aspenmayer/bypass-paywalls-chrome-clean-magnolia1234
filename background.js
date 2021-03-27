@@ -898,7 +898,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
     }, function (tabs) {
       if (tabs.length > 0 && tabs[0].url && tabs[0].url.indexOf("http") !== -1) {
         ext_api.tabs.executeScript({
-          file: 'toggleIcon.js',
+          file: 'options/toggleIcon.js',
           runAt: 'document_start'
         }, function (res) {
           if (ext_api.runtime.lastError || res[0]) {
@@ -1227,7 +1227,7 @@ function clear_cookies() {
   }, function (tabs) {
     if (tabs.length > 0 && tabs[0].url && tabs[0].url.indexOf("http") !== -1) {
       ext_api.tabs.executeScript({
-        file: 'clearCookies.js',
+        file: 'options/clearCookies.js',
         runAt: 'document_start'
       }, function (res) {
         if (ext_api.runtime.lastError || res[0]) {
