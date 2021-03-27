@@ -1380,30 +1380,6 @@ else if (matchDomain("discovermagazine.com")) {
     }, 1000); // Delay (in milliseconds)
 }
 
-else if (domain = matchDomain(usa_mcc_domains)) {
-    let url = window.location.href;
-    if (url.includes('account.' + domain + '/paywall/')) {
-        window.setTimeout(function () {
-            window.location.href = 'https://amp.' + domain + '/article' + url.split('resume=')[1].split('#')[0] + '.html';
-        }, 500); // Delay (in milliseconds)
-    } else if (url.includes('amp.' + domain)) {
-        let subscr_sections = document.querySelectorAll('div[subscriptions-section="content"]');
-        for (let subscr_section of subscr_sections) {
-            subscr_section.removeAttribute('subscriptions-section');
-        }
-        let subscr_tag = document.querySelector('div#subscriber-exclusive-tag');
-        let amp_players = document.querySelectorAll('amp-connatix-player');
-        removeDOMElement(subscr_tag, ...amp_players);
-    }
-    let premium_svgs = document.querySelectorAll('h3 > a > svg');
-    let premium_link;
-    for (let premium_svg of premium_svgs) {
-        premium_link = premium_svg.parentElement;
-        if (premium_link.href.includes('www.'))
-            premium_link.href = premium_link.href.replace('www.', 'amp.');
-    }
-}
-
 else if (matchDomain("startribune.com")) {
     document.addEventListener('DOMContentLoaded', () => {
         let react_modal_portal = document.querySelectorAll('div.ReactModalPortal');
@@ -2244,6 +2220,32 @@ else if (matchDomain('berliner-zeitung.de')) {
             removeDOMElement(paywall);
             window.location.href = url.split('?')[0] + '.amp';
         }
+    }
+}
+
+else if ((domain = matchDomain(usa_mcc_domains)) || document.querySelector('script[src^="https://media.mcclatchyinteractive.com/"]') || window.location.href.match(/\/\/amp\..+\.com\/(.+\/)?article(\d){8,}\.html/)) {
+    if (!domain)
+		domain = document.domain.replace(/(account|amp)\./, '');
+    let url = window.location.href;
+    if (url.includes('account.' + domain + '/paywall/')) {
+        window.setTimeout(function () {
+            window.location.href = 'https://amp.' + domain + '/article' + url.split('resume=')[1].split('#')[0] + '.html';
+        }, 500); // Delay (in milliseconds)
+    } else if (url.includes('amp.' + domain + '/')) {
+        let subscr_sections = document.querySelectorAll('div[subscriptions-section="content"]');
+        for (let subscr_section of subscr_sections) {
+            subscr_section.removeAttribute('subscriptions-section');
+        }
+        let subscr_tag = document.querySelector('div#subscriber-exclusive-tag');
+        let amp_players = document.querySelectorAll('amp-connatix-player');
+        removeDOMElement(subscr_tag, ...amp_players);
+    }
+    let premium_svgs = document.querySelectorAll('h3 > a > svg');
+    let premium_link;
+    for (let premium_svg of premium_svgs) {
+        premium_link = premium_svg.parentElement;
+        if (premium_link.href.includes('www.'))
+            premium_link.href = premium_link.href.replace('www.', 'amp.');
     }
 }
 

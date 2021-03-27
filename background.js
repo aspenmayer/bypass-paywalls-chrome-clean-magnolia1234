@@ -877,6 +877,18 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
       enabledSites.push(gn_domain);
   }
 
+  // block script for additional McClatchy sites (opt-in to custom sites)
+  var usa_mcc_domain = (matchUrlDomain('mcclatchyinteractive.com', details.url) && ['script'].includes(details.type) && !matchUrlDomain(usa_mcc_domains, header_referer) && enabledSites.includes('###_usa_mcc'));
+  if (usa_mcc_domain) {
+    let mcc_domain = urlHost(header_referer).replace('account.', '');
+    if (!usa_mcc_domains.includes(mcc_domain)) {
+      blockedRegexes[mcc_domain] = /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/;
+      usa_mcc_domains.push(mcc_domain);
+      if (!enabledSites.includes(mcc_domain))
+        enabledSites.push(mcc_domain);
+    }
+  }
+
   // block external javascript for custom sites (optional)
   var domain_blockjs_ext = matchUrlDomain(block_js_custom_ext, header_referer);
   if (domain_blockjs_ext && !matchUrlDomain(domain_blockjs_ext, details.url) && details.type === 'script' && isSiteEnabled({url: header_referer})) {
@@ -1038,7 +1050,7 @@ if (matchUrlDomain(change_headers, details.url) && (['main_frame', 'sub_frame', 
           csDone = false;
           currentTabUrl = currentTab.url;
         }
-        if ((['main_frame', 'script', 'image', 'sub_frame', 'xmlhttprequest'].includes(details.type) || matchUrlDomain(cs_limit_except, currentTabUrl)) && !csDone) {
+        if ((!['font', 'stylesheet'].includes(details.type) || matchUrlDomain(cs_limit_except, currentTabUrl)) && !csDone) {
           ext_api.tabs.executeScript(tabId, {
             file: 'contentScript.js',
             runAt: 'document_start'

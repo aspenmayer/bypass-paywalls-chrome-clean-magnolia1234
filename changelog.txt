@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add Apollo Magazine
+Fix-update group McClatchy (opt-in to custom sites for unlisted)
 Fix-update Wired (Googlebot)
 Fix-update WSJ (option to disable Googlebot; http error 500)
 

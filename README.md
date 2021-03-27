@@ -184,7 +184,7 @@ Gannett Group (local USA Today) sites like (opt-in to custom sites)
 [Milwaukee Journal Sentinel](https://www.jsonline.com) -
 [The Indianapolis Star](https://www.indystar.com) -
 [The Record (North Jersey)](https://www.northjersey.com)\
-McClatchy Group sites like
+McClatchy Group sites like (opt-in to custom sites for unlisted)
 [Belleville News-Democrat](https://www.bnd.com) -
 [Fort Worth Star-Telegram](https://www.star-telegram.com) -
 [Lexington Herald-Leader](https://www.kentucky.com) -
