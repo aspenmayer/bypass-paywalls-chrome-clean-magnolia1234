@@ -34,6 +34,7 @@ const restrictions = {
 // allow_cookies are completed with domains in sites.js (default allow/remove_cookies)
 var allow_cookies_default = [
   'abc.es',
+  'apollo-magazine.com',
   'atlantico.fr',
   'augsburger-allgemeine.de',
   'belfasttelegraph.co.uk',
@@ -239,6 +240,7 @@ var change_headers = use_google_bot.concat(use_bing_bot, use_facebook_referer, u
 // block paywall-scripts individually
 var blockedRegexes = {
   'adweek.com': /\.lightboxcdn\.com\//,
+  'apollo-magazine.com': /\.tinypass\.com\//,
   'augsburger-allgemeine.de':/(\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-(ad|subscriptions)-.+\.js)/,
   'afr.com': /afr\.com\/assets\/vendorsReactRedux_client.+\.js/,
   'alternatives-economiques.fr': /\.poool\.fr\//,

@@ -8,6 +8,7 @@ var defaultSites =
   "Ámbito": "ambito.com",
   "American Affairs": "americanaffairsjournal.org",
   "American Banker": "americanbanker.com",
+  "Apollo Magazine": "apollo-magazine.com",
   "Atavist Magazine": "atavist.com",
   "Atlantico.fr": "atlantico.fr",
   "Augsburger Allgemeine": "augsburger-allgemeine.de",

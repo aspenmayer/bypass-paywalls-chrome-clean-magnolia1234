@@ -142,6 +142,7 @@ _* free articles only._
 [Statista](https://www.statista.com)
 
 ##### Magazines/Blogs
+[Apollo Magazine](https://www.apollo-magazine.com) -
 [Atavist Magazine](https://magazine.atavist.com) -
 [Commentary Magazine](https://www.commentarymagazine.com) -
 [Medium](https://www.medium.com/topics) (for custom domains enable custom sites) -

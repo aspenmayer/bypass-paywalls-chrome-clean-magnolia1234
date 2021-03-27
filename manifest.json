@@ -43,6 +43,7 @@
         "*://*.ambito.com/*",
         "*://*.americanaffairsjournal.org/*",
         "*://*.americanbanker.com/*",
+        "*://*.apollo-magazine.com/*",
         "*://*.arvopaperi.fi/*",
         "*://*.asia.nikkei.com/*",
         "*://*.atavist.com/*",
@@ -480,5 +481,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.1.3.2"
+    "version": "2.1.3.3"
 }
