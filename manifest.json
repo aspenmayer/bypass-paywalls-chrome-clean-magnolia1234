@@ -32,6 +32,7 @@
         "webRequest",
         "webRequestBlocking",
         "*://*.aachener-nachrichten.de/*",
+        "*://*.aachener-zeitung.de/*",
         "*://*.abc.es/*",
         "*://*.abendblatt.de/*",
         "*://*.ad.nl/*",
@@ -481,5 +482,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.1.3.4"
+    "version": "2.1.3.5"
 }

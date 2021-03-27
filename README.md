@@ -357,6 +357,7 @@ Madsack Mediengruppe sites like
 [Ostsee-Zeitung](https://www.ostsee-zeitung.de)\
 Rheinische Post Mediengruppe like
 [Aachener Nachrichten](https://www.aachener-nachrichten.de) -
+[Aachener Zeitung](https://www.aachener-zeitung.de) -
 [General-Anzeiger Bonn](https://ga.de) -
 [Rheinische Post](https://rp-online.de) -
 [Saarbrücker Zeitung](http://www.saarbruecker-zeitung.de) -
