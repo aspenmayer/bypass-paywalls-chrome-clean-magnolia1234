@@ -1859,22 +1859,6 @@ else if (matchDomain('lavanguardia.com')) {
     removeDOMElement(paywall, infinite_loading);
 }
 
-else if (matchDomain(['shz.de', 'svz.de'])) {
-    let paywall = document.querySelector('.paywall');
-    removeDOMElement(paywall);
-    let url = window.location.href;
-    if (!url.includes('-amp.html')) {
-        if (paywall)
-            window.location.href = url.replace('.html', '-amp.html');
-    } else {
-        let div_hidden = document.querySelector('div[amp-access="NOT data.reduced"]');
-        if (div_hidden)
-            div_hidden.removeAttribute('amp-access-hide');
-    }
-    let amp_ads = document.querySelectorAll('amp-ad, amp-embed, #flying-carpet-wrapper');
-    removeDOMElement(...amp_ads);
-}
-
 else if (matchDomain('sudouest.fr')) {
     let url = window.location.href;
     let paywall = document.querySelector('.article-premium-footer');
@@ -2093,15 +2077,16 @@ else if (matchDomain('time.com')) {
         body.setAttribute('style', 'position:relative !important;');
 }
 
-else if (matchDomain('noz.de')) {
+else if (matchDomain(['noz.de', 'nwzonline.de', 'shz.de', 'svz.de'])) {
     let url = window.location.href;
-    let paywall = document.querySelector('.paywall');
-    if (url.includes('?amp')) {
+    let paywall = document.querySelector('.paywall, .story--premium__container');
+    if (url.includes('?amp') || url.includes('-amp.html')) {
         let subscriber = document.querySelector('div[amp-access="NOT data.reduced"]');
         if (subscriber)
             subscriber.removeAttribute('amp-access-hide');
-        let amp_ads = document.querySelectorAll('amp-ad, amp-embed');
-        removeDOMElement(...amp_ads);
+        let non_subscriber = document.querySelector('div[amp-access="data.reduced"]');
+        let amp_ads = document.querySelectorAll('amp-ad, amp-embed, #flying-carpet-wrapper');
+        removeDOMElement(non_subscriber, ...amp_ads);
     } else {
         let amphtml = document.querySelector('link[rel="amphtml"]');
         if (paywall && amphtml) {

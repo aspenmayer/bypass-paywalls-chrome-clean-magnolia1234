@@ -327,6 +327,7 @@ Groupe Rossel sites (grouped in options) like
 [Kurier.at](https://kurier.at) -
 [Mitteldeutsche Zeitung](https://www.mz-web.de) -
 [Neue Osnabrücker Zeitung](https://www.noz.de]) -
+[Nordwest Zeitung](https://www.nwzonline.de) -
 [Piqd.de](https://www.piqd.de) -
 [Rhein-Zeitung](https://www.rhein-zeitung.de) -
 [Ruhr Nachrichten](https://www.ruhrnachrichten.de) -

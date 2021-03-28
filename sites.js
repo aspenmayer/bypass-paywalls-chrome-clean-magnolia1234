@@ -172,6 +172,7 @@ var defaultSites =
   "Newsweek": "newsweek.com",
   "Nikkei Asian Review": "asia.nikkei.com",
   "Noordhollands Dagblad": "noordhollandsdagblad.nl",
+  "Nordwest Zeitung": "nwzonline.de",
   "NRC Handelsblad": "nrc.nl",
   "O Estado de S. Paulo": "estadao.com.br",
   "O Globo": "globo.com",
