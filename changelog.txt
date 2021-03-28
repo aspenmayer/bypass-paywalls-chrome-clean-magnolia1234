@@ -2,6 +2,8 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+
+* v2.1.4.0 (2021-03-28)
 Add Aachener Zeitung (Germany)
 Add Apollo Magazine
 Add NK News (not pro)
