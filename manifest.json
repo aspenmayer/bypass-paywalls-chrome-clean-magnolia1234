@@ -291,6 +291,7 @@
         "*://*.newsweek.com/*",
         "*://*.newyorker.com/*",
         "*://*.niagarafallsreview.ca/*",
+        "*://*.nknews.org/*",
         "*://*.noordhollandsdagblad.nl/*",
         "*://*.nordeclair.fr/*",
         "*://*.northerndailyleader.com.au/*",
@@ -483,5 +484,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.1.3.6"
+    "version": "2.1.3.7"
 }

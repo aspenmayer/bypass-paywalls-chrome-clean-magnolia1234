@@ -171,6 +171,7 @@ var defaultSites =
   "Newsday": "newsday.com",
   "Newsweek": "newsweek.com",
   "Nikkei Asian Review": "asia.nikkei.com",
+  "NK News (free articles only)": "nknews.org",
   "Noordhollands Dagblad": "noordhollandsdagblad.nl",
   "Nordwest Zeitung": "nwzonline.de",
   "NRC Handelsblad": "nrc.nl",
