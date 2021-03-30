@@ -101,7 +101,7 @@ _* free articles only._
 [Barron's](https://www.barrons.com) -
 [Bloomberg](https://www.bloomberg.com) -
 [Business Insider](https://www.businessinsider.com) -
-[Digiday](https://digiday.com) –
+[Digiday](https://digiday.com) -
 [Entrepreneur](https://www.entrepreneur.com) -
 [Fortune](https://fortune.com) -
 [Harvard Business Review](https://www.hbr.org) -
@@ -262,19 +262,19 @@ Alma Talent sites (grouped in options) like
 ##### France/Wallonia
 [Alternatives Economiques](https://www.alternatives-economiques.fr) -
 [Atlantico](https://atlantico.fr) -
-[Challenges](https://www.challenges.fr) –
+[Challenges](https://www.challenges.fr) -
 [Charlie Hebdo](https://charliehebdo.fr) -
 [Esprit](https://esprit.presse.fr) -
 [L'Obs](https://www.nouvelobs.com) -
-[L'Opinion](https://www.lopinion.fr) –
+[L'Opinion](https://www.lopinion.fr) -
 [L'Usine Nouvelle](https://www.usinenouvelle.com) -
 [La Croix](https://www.la-croix.com) -
-[Le Journal du Dimanche](https://lejdd.fr) –
+[Le Journal du Dimanche](https://lejdd.fr) -
 [Le Journal du Net](https://www.journaldunet.com) -
 [Le Parisien](https://www.leparisien.fr) -
 [Le Un](https://le1hebdo.fr) -
 [Les Échos](https://www.lesechos.fr) -
-[Libération](https://www.liberation.fr)* –
+[Libération](https://www.liberation.fr)* -
 [Paris Match](https://www.parismatch.com) -
 [Science & Vie](https://www.science-et-vie.com) -
 [Sciences et Avenir](https://www.sciencesetavenir.fr) -
@@ -292,9 +292,9 @@ Groupe EBRA sites like
 [Le Républicain Lorrain](https://www.republicain-lorrain.fr) -
 [Vosges Matin](https://www.vosgesmatin.fr)\
 Groupe La Dépêche sites like
-[Centre Presse](https://www.centrepresseaveyron.fr) –
+[Centre Presse](https://www.centrepresseaveyron.fr) -
 [L'Indépendant](https://www.lindependant.fr) -
-[La Dépêche du Midi](https://www.ladepeche.fr) –
+[La Dépêche du Midi](https://www.ladepeche.fr) -
 [La Nouvelle République des Pyrénées](https://www.nrpyrenees.fr) -
 [Le Petit Bleu d'Agen](https://www.petitbleu.fr) -
 [Midi Libre](https://www.midilibre.fr) -
@@ -472,22 +472,22 @@ Grupo Vocento (ABC) regional sites like
 [The Australian Financial Review](https://www.afr.com) -
 [The Saturday Paper](https://www.thesaturdaypaper.com.au) -
 [The Spectator Australia](https://www.spectator.com.au) -
-[The Sydney Morning Herald](https://www.smh.com.au) –
+[The Sydney Morning Herald](https://www.smh.com.au) -
 [The West Australian (+ regional)](https://thewest.com.au) -
 [WAtoday](https://www.watoday.com.au)
 
 ##### > News Corp Australia (grouped in options)
-[Cairns Post](https://www.cairnspost.com.au) –
+[Cairns Post](https://www.cairnspost.com.au) -
 [Geelong Advertiser](https://www.geelongadvertiser.com.au) -
-[Gold Coast Bulletin](https://www.goldcoastbulletin.com.au) –
-[Herald Sun](https://www.heraldsun.com.au) –
-[Northern Territory News](https://www.ntnews.com.au) –
-[The Advertiser/AdelaideNow](https://www.adelaidenow.com.au) –
+[Gold Coast Bulletin](https://www.goldcoastbulletin.com.au) -
+[Herald Sun](https://www.heraldsun.com.au) -
+[Northern Territory News](https://www.ntnews.com.au) -
+[The Advertiser/AdelaideNow](https://www.adelaidenow.com.au) -
 [The Australian](https://www.theaustralian.com.au) -
-[The Courier-Mail](https://www.couriermail.com.au) –
-[The Daily Telegraph](https://www.dailytelegraph.com.au) –
+[The Courier-Mail](https://www.couriermail.com.au) -
+[The Daily Telegraph](https://www.dailytelegraph.com.au) -
 [The Mercury Tasmania](https://www.themercury.com.au) -
-[The Weekly Times](https://www.weeklytimesnow.com.au) –
+[The Weekly Times](https://www.weeklytimesnow.com.au) -
 [Townsville Bulletin](https://www.townsvillebulletin.com.au)
 
 ##### > Financial
@@ -511,9 +511,9 @@ Grupo Vocento (ABC) regional sites like
 [The Port Macquarie News](https://www.portnews.com.au) -
 [The Standard](https://www.standard.net.au) -
 [Western Advocate](https://www.westernadvocate.com.au)
+* add to custom sites for unlisted & block general paywall-script Piano
 
 ##### > Australian Provincial Newspapers (all, grouped in options)
-For example:  
 [Bundaberg News Mail](https://www.news-mail.com.au) -
 [Fraser Coast Chronicle](https://www.frasercoastchronicle.com.au) -
 [Gladstone Observer](https://www.gladstoneobserver.com.au) -
@@ -526,6 +526,7 @@ For example:
 [The Queensland Times](https://www.qt.com.au) -
 [Toowoomba Chronicle](https://www.thechronicle.com.au) -
 [Warwick Daily News](https://www.warwickdailynews.com.au)
+* opt-in to custom sites for unlisted
 
 #### East Asia
 [Caixin Global](https://www.caixinglobal.com) -
@@ -562,10 +563,10 @@ For example:
 [Clarín](https://www.clarin.com) -
 [La Nación](https://www.lanacion.com.ar)
 ##### Brazil
-[Exame](https://exame.abril.com.br) –
+[Exame](https://exame.abril.com.br) -
 [Folha de S. Paulo](https://www.folha.uol.com.br) -
-[O Estado de S. Paulo](https://estadao.com.br) –
-[O Globo](https://oglobo.globo.com) –
+[O Estado de S. Paulo](https://estadao.com.br) -
+[O Globo](https://oglobo.globo.com) -
 [Valor Econômico](https://valor.globo.com)*
 ##### Chile
 [Diario Financiero](https://www.df.cl) -

@@ -399,8 +399,9 @@ else if (matchDomain("wsj.com") && !matchDomain("cn.wsj.com")) {
 
 else if (matchDomain("mexiconewsdaily.com")) {
     window.setTimeout(function () {
+        let popup = document.querySelector('div.pigeon-widget-prompt');
         let cpro_overlay = document.querySelector('.cpro-overlay');
-        removeDOMElement(cpro_overlay);
+        removeDOMElement(popup, cpro_overlay);
     }, 500); // Delay (in milliseconds)
 }
 
@@ -2210,7 +2211,7 @@ else if (matchDomain('berliner-zeitung.de')) {
 
 else if ((domain = matchDomain(usa_mcc_domains)) || document.querySelector('script[src^="https://media.mcclatchyinteractive.com/"]') || window.location.href.match(/\/\/amp\..+\.com\/(.+\/)?article(\d){8,}\.html/)) {
     if (!domain)
-		domain = document.domain.replace(/(account|amp)\./, '');
+        domain = document.domain.replace(/(account|amp)\./, '');
     let url = window.location.href;
     if (url.includes('account.' + domain + '/paywall/')) {
         window.setTimeout(function () {

@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Fix-update Mexico News Daily
 
 * v2.1.4.0 (2021-03-28)
 Add Aachener Zeitung (Germany)

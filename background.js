@@ -198,7 +198,6 @@ var use_google_bot_default = [
   'hilltimes.com',
   'hs.fi',
   'intelligentinvestor.com.au',
-  'mexiconewsdaily.com',
   'miamiherald.com',
   'newleftreview.org',
   'nknews.org',
@@ -318,6 +317,7 @@ var blockedRegexes = {
   'lrb.co.uk': /\.tinypass\.com\//,
   'marketwatch.com': /(cdn\.cxense\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js)/,
   'mercuriovalpo.cl': /(.+\.mercuriovalpo\.cl\/impresa\/.+\/assets\/(vendor|\d)\.js|pram\.pasedigital\.cl\/API\/User\/Status\?)/,
+  'mexiconewsdaily.com': /\.mexiconewsdaily\.com\/c\/assets\/pigeon\.js/,
   'modernhealthcare.com': /\.tinypass\.com\//,
   'nation.africa': /(\.evolok\.net\/|nation\.africa\/resource\/themes\/nation-.+\/js\/.+\.js)/,
   'nationalgeographic.com': /\.blueconic\.net\//,
@@ -1325,7 +1325,7 @@ ext_api.runtime.onMessage.addListener(function (message, sender) {
 ext_api.storage.local.get(["optInShown", "customShown"], function (result) {
   if (!result.optInShown || !result.customShown) {
     ext_api.tabs.create({
-      url: "optin/opt-in.html"
+      url: "options/optin/opt-in.html"
     });
     ext_api.storage.local.set({
       "optInShown": true,
