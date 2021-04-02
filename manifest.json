@@ -226,6 +226,7 @@
         "*://*.lastampa.it/*",
         "*://*.latercera.com/*",
         "*://*.latimes.com/*",
+        "*://*.latribune.fr/*",
         "*://*.lavanguardia.com/*",
         "*://*.laverdad.es/*",
         "*://*.lavoixdunord.fr/*",
@@ -484,5 +485,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.1.4.1"
+    "version": "2.1.4.2"
 }

@@ -130,6 +130,7 @@ var defaultSites =
   "La Segunda": "lasegunda.com",
   "La Stampa": "lastampa.it",
   "La Tercera": "latercera.com",
+  "La Tribune": "latribune.fr",
   "La Vanguardia": "lavanguardia.com",
   "Law.com (free articles only)": "law.com",
   "Le Devoir": "ledevoir.com",
