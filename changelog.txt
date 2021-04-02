@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add La Tribune (France)
+Add Le Telegramme (France)
 Fix-update Mexico News Daily
 
 * v2.1.4.0 (2021-03-28)

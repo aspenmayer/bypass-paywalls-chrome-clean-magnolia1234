@@ -246,6 +246,7 @@
         "*://*.lesechos.fr/*",
         "*://*.lesoir.be/*",
         "*://*.lest-eclair.fr/*",
+        "*://*.letelegramme.fr/*",
         "*://*.liberation-champagne.fr/*",
         "*://*.liberation.fr/*",
         "*://*.limesonline.com/*",
@@ -485,5 +486,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.1.4.2"
+    "version": "2.1.4.3"
 }
