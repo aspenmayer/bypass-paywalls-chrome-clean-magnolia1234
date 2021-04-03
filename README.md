@@ -144,6 +144,7 @@ _* free articles only._
 ##### Magazines/Blogs
 [Apollo Magazine](https://www.apollo-magazine.com) -
 [Atavist Magazine](https://magazine.atavist.com) -
+[Billboard](https://www.billboard.com) -
 [Commentary Magazine](https://www.commentarymagazine.com) -
 [Medium](https://www.medium.com/topics) (for custom domains enable custom sites) -
 [Rolling Stone](https://www.rollingstone.com) -

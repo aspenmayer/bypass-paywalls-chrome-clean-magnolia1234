@@ -20,6 +20,7 @@ var defaultSites =
   "Belfast Telegraph (opt-in)": "belfasttelegraph.co.uk",
   "Berliner Zeitung": "berliner-zeitung.de",
   "Berlingske": "berlingske.dk",
+  "Billboard": "billboard.com",
   "Bloomberg": "bloomberg.com",
   "Bloomberg Quint (free articles only)": "bloombergquint.com",
   "Brisbane Times": "brisbanetimes.com.au",

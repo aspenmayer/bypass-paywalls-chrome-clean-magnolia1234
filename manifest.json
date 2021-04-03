@@ -58,6 +58,7 @@
         "*://*.berliner-zeitung.de/*",
         "*://*.berlingske.dk/*",
         "*://*.bienpublic.com/*",
+        "*://*.billboard.com/*",
         "*://*.bizjournals.com/*",
         "*://*.bloomberg.com/*",
         "*://*.bloombergquint.com/*",
@@ -486,5 +487,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.1.4.3"
+    "version": "2.1.4.4"
 }

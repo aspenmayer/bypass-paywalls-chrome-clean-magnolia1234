@@ -102,7 +102,7 @@ function add_options() {
             if (inputEls[i].dataset.value) {
                 if (inputEls[i].checked)
                     sites_custom[title][inputEls[i].dataset.key] = inputEls[i].dataset.value;
-            } else
+            } else if (inputEls[i].value)
                 sites_custom[title][inputEls[i].dataset.key] = inputEls[i].value;
         }
     }
