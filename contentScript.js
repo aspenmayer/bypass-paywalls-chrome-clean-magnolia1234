@@ -701,8 +701,8 @@ else if (matchDomain("theglobeandmail.com")) {
 }
 
 else if (matchDomain("sofrep.com")) {
-    const banner = document.getElementById('scrollerCTA');
-    removeDOMElement(banner);
+    let banners = document.querySelectorAll('#scrollerCTA, #botCta');
+    removeDOMElement(...banners);
 }
 
 else if (matchDomain("newstatesman.com")) {

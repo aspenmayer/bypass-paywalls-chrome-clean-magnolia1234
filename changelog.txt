@@ -6,6 +6,7 @@ Add Billboard
 Add La Tribune (France)
 Add Le Telegramme (France)
 Fix-update Mexico News Daily
+Update options: restore opt-in for custom sites (on reload; Chrome-only)
 
 * v2.1.4.0 (2021-03-28)
 Add Aachener Zeitung (Germany)

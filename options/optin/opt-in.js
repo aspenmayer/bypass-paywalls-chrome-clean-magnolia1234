@@ -7,9 +7,7 @@ window.addEventListener("load", function () {
         opt_in_enabled.innerText = result.optIn ? 'YES' : 'NO';
     });
 
-    document.getElementById("optin-enable").addEventListener(
-        "click",
-        function () {
+    document.getElementById("optin-enable").addEventListener("click", function () {
         ext_api.storage.local.set({
             "optIn": true,
             "optInShown": true
@@ -17,9 +15,7 @@ window.addEventListener("load", function () {
         opt_in_enabled.innerText = 'YES';
     });
 
-    document.getElementById("optin-disable").addEventListener(
-        "click",
-        function () {
+    document.getElementById("optin-disable").addEventListener("click", function () {
         ext_api.storage.local.set({
             "optIn": false,
             "optInShown": true
@@ -27,9 +23,7 @@ window.addEventListener("load", function () {
         opt_in_enabled.innerText = 'NO';
     });
 
-    document.getElementById("button-close").addEventListener(
-        "click",
-        function () {
+    document.getElementById("button-close").addEventListener("click", function () {
         ext_api.storage.local.set({
             "optInShown": true,
             "customShown": true
@@ -54,6 +48,9 @@ window.addEventListener("load", function () {
         }, function (granted) {
             if (granted) {
                 custom_enabled.innerText = 'YES';
+                ext_api.storage.local.set({
+                    "customOptIn": true
+                });
             } else {
                 custom_enabled.innerText = 'NO';
             }
@@ -69,7 +66,10 @@ window.addEventListener("load", function () {
         }, function (removed) {
             if (removed) {
                 custom_enabled.innerText = 'NO';
-            } else {}
+                ext_api.storage.local.set({
+                    "customOptIn": false
+                });
+            }
             ext_api.storage.local.set({
                 "customShown": true
             });

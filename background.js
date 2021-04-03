@@ -1340,6 +1340,27 @@ ext_api.storage.local.get(["optInShown", "customShown"], function (result) {
   }
 });
 
+// restore custom sites opt-in on reload (chrome-only, load upacked)
+if (typeof browser !== 'object') {
+  ext_api.storage.local.get({
+    sites: {},
+    customOptIn: false
+  }, function (result) {
+    let options_restore_custom = Object.values(result.sites).includes('#options_restore_custom');
+    if (result.customOptIn && options_restore_custom) {
+      ext_api.permissions.contains({
+        origins: ["<all_urls>"]
+      }, function (result_perm) {
+        if (!result_perm) {
+          ext_api.tabs.create({
+            url: "options/optin/opt-in.html"
+          });
+        }
+      });
+    }
+  });
+}
+
 function filterObject(obj, callback) {
   return Object.fromEntries(Object.entries(obj).
     filter(([key, val]) => callback(val, key)));
