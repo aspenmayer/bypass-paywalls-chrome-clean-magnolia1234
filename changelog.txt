@@ -2,6 +2,8 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+
+* v2.1.5.0 (2021-04-04)
 Add Billboard
 Add La Tribune (France)
 Add Le Telegramme (France)
