@@ -214,7 +214,6 @@ var use_google_bot_default = [
   'ruhrnachrichten.de',
   'seekingalpha.com',
   'statista.com',
-  'stratfor.com',
   'thetimes.co.uk',
   'usinenouvelle.com',
   'washingtonpost.com',
@@ -230,6 +229,7 @@ var use_google_bot = use_google_bot_default.slice();
 var use_bing_bot = [
   'haaretz.co.il',
   'haaretz.com',
+  'stratfor.com',
   'themarker.com',
 ];
 

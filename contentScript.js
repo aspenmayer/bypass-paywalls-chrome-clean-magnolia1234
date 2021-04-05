@@ -353,9 +353,9 @@ else if (matchDomain('telegraaf.nl')) {
 }
 
 else if (matchDomain(['ad.nl', 'bd.nl', 'ed.nl', 'tubantia.nl', 'bndestem.nl', 'pzc.nl', 'destentor.nl', 'gelderlander.nl'])) {
-    let paywall = document.querySelector('.article__component.article__component--paywall-module-notification');
+    let paywall = document.querySelectorAll('.article__component--paywall-module-notification, .fjs-paywall-notification');
     let modal_login = document.querySelector('.modal--login');
-    removeDOMElement(paywall, modal_login);
+    removeDOMElement(...paywall, modal_login);
 }
 
 else if (matchDomain("washingtonpost.com")) {
@@ -1492,6 +1492,8 @@ else if (matchDomain("nybooks.com")) {
     let paywall_article = document.querySelector('.paywall-article');
     if (paywall_article)
         paywall_article.classList.remove('paywall-article');
+    let banner = document.querySelector('div.toast-cta');
+    removeDOMElement(banner);
 }
 
 else if (matchDomain("thelogic.co")) {
@@ -2004,27 +2006,9 @@ else if (matchDomain('elmercurio.com')) {
     }, 1000); // Delay (in milliseconds)
 }
 
-else if (matchDomain('stratfor.com') && window.location.href.match(/((\w)+(\-)+){3,}/)) {
+else if (matchDomain('stratfor.com')) {
     let banner = document.querySelector('.free-cta-container');
     removeDOMElement(banner);
-    let css_link = document.querySelector('link[rel="stylesheet"]');
-    if (css_link && !css_link.getAttribute('style')) {
-        css_link.setAttribute('style', 'done');
-        url = 'https://' + new URL(window.location.href).hostname;
-        fetch(url)
-        .then(response => {
-            if (response.ok) {
-                response.text().then(html => {
-                    var parser = new DOMParser();
-                    var doc = parser.parseFromString(html, 'text/html');
-                    let css_home = doc.querySelector('link[rel="stylesheet"]');
-                    if (css_home) {
-                        css_link.href = css_home.href;
-                    }
-                });
-            }
-        });
-    }
     let hidden_images = document.querySelectorAll('img[src^="data:image/gif"][data-src]');
     for (let hidden_image of hidden_images)
         hidden_image.setAttribute('src', hidden_image.getAttribute("data-src"));
@@ -2207,6 +2191,14 @@ else if (matchDomain('berliner-zeitung.de')) {
             window.location.href = url.split('?')[0] + '.amp';
         }
     }
+}
+
+else if (matchDomain('foreignpolicy.com')) {
+    let placeholder = document.querySelector('div.loading-placeholder-smaller');
+    removeDOMElement(placeholder);
+    let sub_content = document.querySelector('div.sub_content:not(style)');
+    if (sub_content)
+        sub_content.setAttribute('style', 'display:block !important;');
 }
 
 else if ((domain = matchDomain(usa_mcc_domains)) || document.querySelector('script[src^="https://media.mcclatchyinteractive.com/"]') || window.location.href.match(/\/\/amp\..+\.com\/(.+\/)?article(\d){8,}\.html/)) {
