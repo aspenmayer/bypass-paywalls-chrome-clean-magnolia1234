@@ -465,7 +465,6 @@
         "*://*.amazonaws.com/*",
         "*://*.apnarm.net.au/*",
         "*://*.bwbx.io/*",
-        "*://*.cdn.arcpublishing.com/*",
         "*://*.cedsdigital.it/*",
         "*://*.corriereobjects.it/*",
         "*://*.ctfassets.net/*",
@@ -487,5 +486,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.1.5.1"
+    "version": "2.1.5.2"
 }
