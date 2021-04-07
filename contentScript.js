@@ -2,6 +2,9 @@
 var ext_api = (typeof browser === 'object') ? browser : chrome;
 var domain;
 var csDone = false;
+var div_bpc_done = document.querySelector('div#bpc_done');
+
+if (!div_bpc_done) {
 
 var ca_torstar_domains = ['niagarafallsreview.ca', 'stcatharinesstandard.ca', 'thepeterboroughexaminer.com', 'therecord.com', 'thespec.com', 'thestar.com', 'wellandtribune.ca'];
 var de_funke_media_domains = ['abendblatt.de', 'braunschweiger-zeitung.de', 'morgenpost.de', 'nrz.de', 'otz.de', 'thueringer-allgemeine.de', 'tlz.de', 'waz.de', 'wp.de', 'wr.de'];
@@ -2201,6 +2204,22 @@ else if (matchDomain('foreignpolicy.com')) {
         sub_content.setAttribute('style', 'display:block !important;');
 }
 
+else if (matchDomain('nationalgeographic.com')) {
+    function natgeo_func(node) {
+        removeDOMElement(node);
+        let body = document.querySelector('body[class]');
+        if (body) {
+            body.removeAttribute('class');
+            body.removeAttribute('style');
+        }
+    }
+    if (!div_bpc_done) {
+        let selector = 'div[id^="fittPortal"]';
+        waitDOMElement(selector, 'DIV', natgeo_func, false);
+        addDivBpcDone();
+    }
+}
+
 else if ((domain = matchDomain(usa_mcc_domains)) || document.querySelector('script[src^="https://media.mcclatchyinteractive.com/"]') || window.location.href.match(/\/\/amp\..+\.com\/(.+\/)?article(\d){8,}\.html/)) {
     if (!domain)
         domain = document.domain.replace(/(account|amp)\./, '');
@@ -2227,11 +2246,14 @@ else if ((domain = matchDomain(usa_mcc_domains)) || document.querySelector('scri
     }
 }
 
-else if (!matchDomain(['belfasttelegraph.co.uk', 'independent.ie']))
+else if (!matchDomain(['belfasttelegraph.co.uk', 'independent.ie'])) {
     csDone = true;
-
+    addDivBpcDone();
+}
 if (csDone)
     ext_api.runtime.sendMessage({csDone: true});
+
+} // end div_bpc_done
 
 // General Functions
 function removeDOMElement(...elements) {
@@ -2239,6 +2261,31 @@ function removeDOMElement(...elements) {
         if (element)
             element.remove();
     }
+}
+
+function waitDOMElement(selector, tagName = '', callback, multiple = false) {
+    new window.MutationObserver(function (mutations) {
+        for (let mutation of mutations) {
+            for (let node of mutation.addedNodes) {
+                if (!tagName || (node.tagName === tagName)) {
+                    if (node.matches(selector)) {
+                        callback(node);
+                        if (!multiple) {
+                            this.disconnect();
+                        }
+                    }
+                }
+            }
+        }
+    }).observe(document, { subtree: true, childList: true });
+}
+
+function addDivBpcDone() {
+    let div_bpc_new = document.createElement('div');
+    div_bpc_new.setAttribute('id', 'bpc_done');
+    div_bpc_new.setAttribute('style', 'display: none;');
+    let insertAfter = (document.body || document.head || document.documentElement);
+    insertAfter.appendChild(div_bpc_new);
 }
 
 function matchDomain(domains, hostname) {

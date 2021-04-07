@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Fix-update El Pais
+Fix-update National Geographic USA
 Fix-update Stratfor
 
 * v2.1.5.0 (2021-04-04)
