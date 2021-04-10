@@ -155,7 +155,8 @@ _* free articles only._
 [The Daily Beast](https://www.thedailybeast.com)* -
 [The Point Magazine](https://thepointmag.com) -
 [Vanity Fair](https://www.vanityfair.com) -
-[Variety](https://variety.com)
+[Variety](https://variety.com) -
+[VeloNews](https://www.velonews.com)
 
 ##### Local USA news
 [Crain's Chicago Business](https://www.chicagobusiness.com) -

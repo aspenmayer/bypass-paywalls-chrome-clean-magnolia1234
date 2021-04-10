@@ -274,6 +274,7 @@ var defaultSites =
   "Valeurs Actuelles": "valeursactuelles.com",
   "Vanity Fair": "vanityfair.com",
   "Variety": "variety.com",
+  "VeloNews": "velonews.com",
   "VentureBeat": "venturebeat.com",
   "Volkskrant": "volkskrant.nl",
   "WAtoday": "watoday.com.au",

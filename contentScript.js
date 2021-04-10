@@ -2222,6 +2222,16 @@ else if (matchDomain('timeshighereducation.com')) {
   }
 }
 
+else if (matchDomain('velonews.com')) {
+  let paywall = document.querySelector('div.o-membership-overlay');
+  if (paywall) {
+    let js_gated = document.querySelector('div.js-gated');
+    if (js_gated)
+      js_gated.classList.remove('js-gated');
+    removeDOMElement(paywall);
+  }
+}
+
 else if (matchDomain('venturebeat.com')) {
   window.setTimeout(function () {
     let paywall = document.querySelector('div.paywall');

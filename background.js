@@ -149,6 +149,7 @@ var allow_cookies_default = [
   'towardsdatascience.com',
   'usinenouvelle.com',
   'variety.com',
+  'velonews.com',
   'venturebeat.com',
   'washingtonpost.com',
   'wiwo.de',
@@ -371,6 +372,7 @@ var blockedRegexes = {
   'timeshighereducation.com': /\.timeshighereducation\.com\/sites\/default\/files\/js\/js_bbCGL.+\.js/,
   'valeursactuelles.com': /\.qiota\.com\//,
   'variety.com': /cdn\.cxense\.com\//,
+  'velonews.com': /\.velonews\.com\/.+\/scripts\/contentGate.+\.js/,
   'venturebeat.com': /\.wallkit\.net\/js\//,
   'washingtonpost.com': /\.washingtonpost\.com\/.+\/pwapi-proxy\.min\.js/,
   'wsj.com': /(cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js|cdn\.cxense\.com\/)/

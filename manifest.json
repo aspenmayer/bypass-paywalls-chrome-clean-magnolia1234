@@ -430,6 +430,7 @@
         "*://*.valeursactuelles.com/*",
         "*://*.vanityfair.com/*",
         "*://*.variety.com/*",
+        "*://*.velonews.com/*",
         "*://*.venturebeat.com/*",
         "*://*.volksfreund.de/*",
         "*://*.volkskrant.nl/*",
@@ -487,5 +488,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.1.5.4"
+    "version": "2.1.5.5"
 }
