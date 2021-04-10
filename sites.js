@@ -39,6 +39,7 @@ var defaultSites =
   "Corriere Della Sera": "corriere.it",
   "Crain's Chicago Business": "chicagobusiness.com",
   "Dagblad van het Noorden": "dvhn.nl",
+  "Dagens Industri": "di.se",
   "Dagens Nyheter": "dn.se",
   "Daily Nation": "nation.africa",
   "Dark Reading": "darkreading.com",

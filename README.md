@@ -455,6 +455,7 @@ Grupo Vocento (ABC) regional sites like
 [Sur](https://www.diariosur.es)
 
 ##### Sweden
+[Dagens Industri](https://www.di.se) -
 [Dagens Nyheter](https://www.dn.se)
 
 ##### Switzerland

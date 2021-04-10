@@ -108,6 +108,7 @@
         "*://*.destentor.nl/*",
         "*://*.deutsche-wirtschafts-nachrichten.de/*",
         "*://*.df.cl/*",
+        "*://*.di.se/*",
         "*://*.diariodeibiza.es/*",
         "*://*.diariodemallorca.es/*",
         "*://*.diariosur.es/*",
@@ -486,5 +487,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.1.5.3"
+    "version": "2.1.5.4"
 }
