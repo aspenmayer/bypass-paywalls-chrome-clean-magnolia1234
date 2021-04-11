@@ -5,6 +5,7 @@ Post-release
 Add Dagens Industri (Sweden)
 Add La Nouvelle Republique du Centre-Ouest (France)
 Add VeloNews
+Fix-update Business Standard (mobile to desktop)
 Fix-update El Pais
 Fix-update National Geographic USA
 Fix-update Stratfor

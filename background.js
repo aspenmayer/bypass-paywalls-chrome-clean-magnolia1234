@@ -756,6 +756,7 @@ ext_api.webRequest.onBeforeRequest.addListener(function (details) {
 ["blocking"]
 );
 
+// m.faz.net set user-agent to mobile
 const faz_uaMobile = "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Mobile Safari/537.36";
 ext_api.webRequest.onBeforeSendHeaders.addListener(function (details) {
   if (!isSiteEnabled(details)) {
@@ -773,6 +774,39 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function (details) {
 }, {
   urls: ["*://m.faz.net/*"],
   types: ["xmlhttprequest"]
+},
+  ["blocking", "requestHeaders"]);
+
+// wap.business-standard.com (mobile) redirect to www (desktop)
+ext_api.webRequest.onBeforeRequest.addListener(function (details) {
+  if (!isSiteEnabled(details)) {
+    return;
+  }
+  var updatedUrl = details.url.replace('/wap.', '/www.');
+  return { redirectUrl: updatedUrl };
+},
+{urls:["*://wap.business-standard.com/*"], types:["main_frame"]},
+["blocking"]
+);
+
+// www.business-standard.com set user-agent to desktop
+const business_standard_uaDesktop = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.122 Safari/537.36";
+ext_api.webRequest.onBeforeSendHeaders.addListener(function (details) {
+  if (!isSiteEnabled(details)) {
+    return;
+  }
+  let headers = details.requestHeaders;
+  headers = headers.map(function (header) {
+      if (header.name.toLowerCase() === 'user-agent')
+        header.value = business_standard_uaDesktop;
+      return header;
+    });
+  return {
+    requestHeaders: headers
+  };
+}, {
+  urls: ["*://www.business-standard.com/*"],
+  types: ["main_frame"]
 },
   ["blocking", "requestHeaders"]);
 
