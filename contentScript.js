@@ -3,9 +3,6 @@ var ext_api = (typeof browser === 'object') ? browser : chrome;
 var domain;
 var csDone = false;
 var noMatch = false;
-var div_bpc_done = document.querySelector('div#bpc_done');
-
-if (!div_bpc_done) {
 
 var ca_torstar_domains = ['niagarafallsreview.ca', 'stcatharinesstandard.ca', 'thepeterboroughexaminer.com', 'therecord.com', 'thespec.com', 'thestar.com', 'wellandtribune.ca'];
 var de_funke_media_domains = ['abendblatt.de', 'braunschweiger-zeitung.de', 'morgenpost.de', 'nrz.de', 'otz.de', 'thueringer-allgemeine.de', 'tlz.de', 'waz.de', 'wp.de', 'wr.de'];
@@ -24,6 +21,9 @@ arr_localstorage_hold = arr_localstorage_hold.concat(de_funke_media_domains, es_
 if (!matchDomain(arr_localstorage_hold)) {
   window.localStorage.clear();
 }
+
+var div_bpc_done = document.querySelector('div#bpc_done');
+if (!div_bpc_done) {
 
 // listen to responses from background script
 if (ext_api.runtime && (matchDomain(['belfasttelegraph.co.uk', 'bostonglobe.com', 'independent.ie']) || window.location.hostname.match(/\.(com|net)\.au$/))) {
@@ -901,6 +901,12 @@ else if (matchDomain('challenges.fr')) {
     content.setAttribute('style', 'display: block !important');
   let paywall = document.querySelector('.temp-paywall');
   removeDOMElement(paywall);
+}
+
+else if (matchDomain('lanouvellerepublique.fr')) {
+  let alert_didacticiel = document.querySelector('div.alert-didacticiel');
+  let loading = document.querySelectorAll('span.loading');
+  removeDOMElement(alert_didacticiel, ...loading);
 }
 
 else if (matchDomain('lesechos.fr') && window.location.href.match(/-\d{6,}/)) {

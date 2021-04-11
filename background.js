@@ -88,6 +88,7 @@ var allow_cookies_default = [
   'knack.be',
   'kurier.at',
   'la-croix.com',
+  'lanouvellerepublique.fr',
   'latribune.fr',
   'lavanguardia.com',
   'lc.nl',
@@ -138,6 +139,7 @@ var allow_cookies_default = [
   'sueddeutsche.de',
   'svz.de',
   'techinasia.com',
+  'telegraaf.nl',
   'the-american-interest.com',
   'theartnewspaper.com',
   'thehindu.com',
@@ -181,7 +183,6 @@ var remove_cookies_select_drop = {
   'fd.nl': ['socialread'],
   'griffithreview.com': ['issuem_lp'],
   'nrc.nl': ['counter'],
-  'telegraaf.nl': ['page_count'],
   'theatlantic.com': ['articleViews'],
   'thepointmag.com': ['monthly_history']
 }
@@ -204,6 +205,7 @@ var use_google_bot_default = [
   'hilltimes.com',
   'hs.fi',
   'intelligentinvestor.com.au',
+  'lanouvellerepublique.fr',
   'miamiherald.com',
   'newleftreview.org',
   'nknews.org',

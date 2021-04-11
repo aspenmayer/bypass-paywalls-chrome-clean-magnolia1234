@@ -125,6 +125,7 @@ var defaultSites =
   "La Croix": "la-croix.com",
   "La Estrella de Valparaíso": "estrellavalpo.cl",
   "La Nación": "lanacion.com.ar",
+  "La Nouvelle République du Centre-Ouest": "lanouvellerepublique.fr",
   "La Nueva España": "lne.es",
   "La Nuova Sardegna": "lanuovasardegna.it",
   "La Provincia": "laprovincia.es",
