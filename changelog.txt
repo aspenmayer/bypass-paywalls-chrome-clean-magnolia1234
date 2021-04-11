@@ -2,6 +2,8 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+
+* v2.1.6.0 (2021-04-11)
 Add Dagens Industri (Sweden)
 Add La Nouvelle Republique du Centre-Ouest (France)
 Add VeloNews
