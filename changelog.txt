@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Bugfix Le Dauphine (plus some French sites)
 
 * v2.1.6.0 (2021-04-11)
 Add Dagens Industri (Sweden)

@@ -805,7 +805,9 @@ else if (matchDomain('charliehebdo.fr')) {
     let poool_widget = document.querySelector('div#poool-widget');
     removeDOMElement(poool_widget);
   }, 500); // Delay (in milliseconds)
-} else if (matchDomain('esprit.presse.fr')) {
+}
+
+else if (matchDomain('esprit.presse.fr')) {
   let paywall = document.querySelector('.panel-popup-paywall');
   removeDOMElement(paywall);
 }
@@ -852,7 +854,7 @@ else if (matchDomain(['lejdd.fr', 'parismatch.com'])) {
   }
 }
 
-if (matchDomain('la-croix.com')) {
+else if (matchDomain('la-croix.com')) {
   let url = window.location.href;
   if (!url.includes('la-croix.com/amp/')) {
     let paywall_host_param = document.querySelector('#paywall-host-param');
