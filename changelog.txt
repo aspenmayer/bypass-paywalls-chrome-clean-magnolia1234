@@ -2,6 +2,8 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+
+* v2.1.6.1 (2021-04-12)
 Bugfix Le Dauphine (plus some French sites)
 
 * v2.1.6.0 (2021-04-11)
