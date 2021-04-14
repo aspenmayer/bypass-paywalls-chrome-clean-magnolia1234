@@ -2166,6 +2166,12 @@ else if (matchDomain('theatlantic.com')) {
   removeDOMElement(banner);
 }
 
+else if (matchDomain('thediplomat.com')) {
+  let preview = document.querySelector('.dpl-preview');
+  if (preview)
+    preview.classList.remove('dpl-preview');
+}
+
 else if (matchDomain('theglobeandmail.com')) {
   let article_body_subscribed = document.querySelector('.c-article-body--subscribed');
   if (article_body_subscribed) {
