@@ -198,6 +198,7 @@ var defaultSites =
   "Quora": "quora.com",
   "Quotidiano.net": "quotidiano.net",
   "Republic.ru": "republic.ru",
+  "Reuters": "reuters.com",
   "Rolling Stone": "rollingstone.com",
   "Ruhr Nachrichten": "ruhrnachrichten.de",
   "Sächsische Zeitung": "saechsische.de",
