@@ -459,7 +459,8 @@ Grupo Vocento (ABC) regional sites like
 
 ##### Sweden
 [Dagens Industri](https://www.di.se) -
-[Dagens Nyheter](https://www.dn.se)
+[Dagens Nyheter](https://www.dn.se) -
+[NyTeknik](https://www.nyteknik.se)
 
 ##### Switzerland
 [Neue Zürcher Zeitung](https://www.nzz.ch)

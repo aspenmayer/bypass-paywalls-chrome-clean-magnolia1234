@@ -311,6 +311,7 @@
         "*://*.nybooks.com/*",
         "*://*.nydailynews.com/*",
         "*://*.nymag.com/*",
+        "*://*.nyteknik.se/*",
         "*://*.nytimes.com/*",
         "*://*.nzherald.co.nz/*",
         "*://*.nzz.ch/*",
@@ -490,5 +491,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.1.6.4"
+    "version": "2.1.6.5"
 }

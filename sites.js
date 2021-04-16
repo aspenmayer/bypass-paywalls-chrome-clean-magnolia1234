@@ -180,6 +180,7 @@ var defaultSites =
   "Noordhollands Dagblad": "noordhollandsdagblad.nl",
   "Nordwest Zeitung": "nwzonline.de",
   "NRC Handelsblad": "nrc.nl",
+  "NyTeknik": "nyteknik.se",
   "O Estado de S. Paulo": "estadao.com.br",
   "O Globo": "globo.com",
   "Observador.pt": "observador.pt",

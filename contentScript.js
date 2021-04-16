@@ -2015,6 +2015,12 @@ else if (matchDomain('nybooks.com')) {
   removeDOMElement(banner);
 }
 
+else if (matchDomain('nyteknik.se')) {
+  let locked_article = document.querySelector('div.locked-article');
+  if (locked_article)
+    locked_article.classList.remove('locked-article');
+}
+
 else if (matchDomain('nytimes.com')) {
   function nyt_main() {
     navigator.storage.estimate = undefined;
