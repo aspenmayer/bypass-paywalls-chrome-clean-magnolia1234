@@ -1077,11 +1077,12 @@ else if (matchDomain('rep.repubblica.it')) {
 else if (domain = matchDomain(it_repubblica_domains)) {
   let url = window.location.href;
   if (!url.includes('/amp/')) {
-    let premium = document.querySelector('.paywall-adagio');
+    let premium = document.querySelector('.paywall-adagio, #paywall');
     removeDOMElement(premium);
     window.setTimeout(function () {
-      if (premium && (domain === 'lastampa.it'))
-        window.location.href = url.split('?')[0] + '/amp/';
+      let amphtml = document.querySelector('link[rel="amphtml"]');
+      if (premium && amphtml && (['lastampa.it', 'repubblica.it'].includes(domain)))
+        window.location.href = amphtml.href;
       let article_body = document.querySelector('div#article-body[style]');
       if (article_body)
         article_body.removeAttribute('style');
