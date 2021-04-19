@@ -268,6 +268,7 @@ Alma Talent sites (grouped in options) like
 [Challenges](https://www.challenges.fr) -
 [Charlie Hebdo](https://charliehebdo.fr) -
 [Esprit](https://esprit.presse.fr) -
+[L'Express](https://www.lexpress.fr) -
 [L'Obs](https://www.nouvelobs.com) -
 [L'Opinion](https://www.lopinion.fr) -
 [L'Usine Nouvelle](https://www.usinenouvelle.com) -
