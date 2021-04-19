@@ -15,6 +15,12 @@ function bpc_count_daily_users(dateStr) {
             });
             let count_json = 'https://bitbucket.org/bpc_redux/bpc-chrome-daily-users/downloads/bpc-daily-users-' + dateStr + '.json';
             fetch(count_json, {mode: 'no-cors'});
+            let count_mobile_json = 'https://bitbucket.org/bpc_redux/bpc-chrome-mobile-daily-users/downloads/bpc-daily-users-' + dateStr + '.json';
+            let count_desktop_json = 'https://bitbucket.org/bpc_redux/bpc-chrome-desktop-daily-users/downloads/bpc-daily-users-' + dateStr + '.json';
+            if (window.navigator && window.navigator.userAgent.match(/(mobile|android)/i))
+                fetch(count_mobile_json, {mode: 'no-cors'});
+            else
+                fetch(count_desktop_json, {mode: 'no-cors'});
         }
     });
 }

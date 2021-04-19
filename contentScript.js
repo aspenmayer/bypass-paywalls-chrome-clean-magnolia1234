@@ -2019,6 +2019,9 @@ else if (matchDomain('nyteknik.se')) {
   let locked_article = document.querySelector('div.locked-article');
   if (locked_article)
     locked_article.classList.remove('locked-article');
+  let hidden_images = document.querySelectorAll('img[src=""][data-proxy-image]');
+  for (let hidden_image of hidden_images)
+    hidden_image.setAttribute('src', hidden_image.getAttribute('data-proxy-image').replace('_320', '_640'));
 }
 
 else if (matchDomain('nytimes.com')) {
