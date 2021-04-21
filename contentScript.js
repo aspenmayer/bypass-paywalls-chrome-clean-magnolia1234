@@ -7,7 +7,6 @@ var noMatch = false;
 var ca_torstar_domains = ['niagarafallsreview.ca', 'stcatharinesstandard.ca', 'thepeterboroughexaminer.com', 'therecord.com', 'thespec.com', 'thestar.com', 'wellandtribune.ca'];
 var de_funke_media_domains = ['abendblatt.de', 'braunschweiger-zeitung.de', 'morgenpost.de', 'nrz.de', 'otz.de', 'thueringer-allgemeine.de', 'tlz.de', 'waz.de', 'wp.de', 'wr.de'];
 var de_madsack_domains = ['haz.de', 'kn-online.de', 'ln-online.de', 'lvz.de', 'maz-online.de', 'neuepresse.de', 'ostsee-zeitung.de'];
-var de_rp_medien_domains = ['aachener-nachrichten.de', 'aachener-zeitung.de', 'ga.de', 'rp-online.de', 'saarbruecker-zeitung.de', 'volksfreund.de'];
 var es_epiberica_domains = ['diariodeibiza.es', 'diariodemallorca.es', 'farodevigo.es', 'laprovincia.es'];
 var es_grupo_vocento_domains = ['diariosur.es', 'diariovasco.com', 'elcomercio.es', 'elcorreo.com', 'eldiariomontanes.es', 'elnortedecastilla.es', 'hoy.es', 'ideal.es', 'larioja.com', 'laverdad.es', 'lavozdigital.es'];
 var fr_groupe_ebra_domains = ['bienpublic.com', 'dna.fr', 'estrepublicain.fr', 'lalsace.fr', 'ledauphine.com', 'lejsl.com', 'leprogres.fr', 'republicain-lorrain.fr', 'vosgesmatin.fr'];
@@ -340,35 +339,6 @@ else if (domain = matchDomain(de_madsack_domains)) {
       subscr_section.removeAttribute('subscriptions-section');
     let amp_ads = document.querySelectorAll('.pdb-ad-container');
     removeDOMElement(...amp_ads);
-  }
-}
-
-else if (matchDomain(de_rp_medien_domains)) {
-  let url = window.location.href;
-  let paywall_article = document.querySelector('article.park-article--reduced [class^="park-icon-"]');
-  if (url.includes('?output=amp')) {
-    let subscr_sections = document.querySelectorAll('section[subscriptions-section="content"]');
-    for (let subscr_section of subscr_sections)
-      subscr_section.removeAttribute('subscriptions-section');
-    let amp_ads = document.querySelectorAll('amp-ad, amp-embed, amp-fx-flying-carpet');
-    removeDOMElement(...amp_ads);
-  } else {
-    let amphtml = document.querySelector('link[rel="amphtml"]');
-    if (paywall_article) {
-      if (amphtml) {
-        removeDOMElement(paywall_article);
-        window.location.href = amphtml.href;
-      } else {
-        let headline = document.querySelector('span.park-article__headline');
-        let bpc_amp_div = headline.querySelector('#bpc_amp');
-        if (!bpc_amp_div) {
-          let bpc_amp = document.createElement('div');
-          bpc_amp.id = 'bpc_amp';
-          bpc_amp.appendChild(document.createTextNode('-> bpc: no amp-bypass ...'));
-          headline.appendChild(bpc_amp);
-        }
-      }
-    }
   }
 }
 

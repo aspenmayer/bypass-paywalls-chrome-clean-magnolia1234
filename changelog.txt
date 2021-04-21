@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add L'Express (France)
+Remove Rheinische Post Mediengruppe (obsolete)
 Fix-update NyTeknik (images)
 Fix-update Repubblica.it
 

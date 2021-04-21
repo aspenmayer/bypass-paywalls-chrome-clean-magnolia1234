@@ -31,8 +31,6 @@
         "tabs",
         "webRequest",
         "webRequestBlocking",
-        "*://*.aachener-nachrichten.de/*",
-        "*://*.aachener-zeitung.de/*",
         "*://*.abc.es/*",
         "*://*.abendblatt.de/*",
         "*://*.ad.nl/*",
@@ -159,7 +157,6 @@
         "*://*.fresnobee.com/*",
         "*://*.ft.com/*",
         "*://*.ftm.nl/*",
-        "*://*.ga.de/*",
         "*://*.geelongadvertiser.com.au/*",
         "*://*.gelderlander.nl/*",
         "*://*.gelocal.it/*",
@@ -346,9 +343,7 @@
         "*://*.rhein-zeitung.de/*",
         "*://*.rheinpfalz.de/*",
         "*://*.rollingstone.com/*",
-        "*://*.rp-online.de/*",
         "*://*.ruhrnachrichten.de/*",
-        "*://*.saarbruecker-zeitung.de/*",
         "*://*.sacbee.com/*",
         "*://*.saechsische.de/*",
         "*://*.sandiegouniontribune.com/*",
@@ -436,7 +431,6 @@
         "*://*.variety.com/*",
         "*://*.velonews.com/*",
         "*://*.venturebeat.com/*",
-        "*://*.volksfreund.de/*",
         "*://*.volkskrant.nl/*",
         "*://*.vosgesmatin.fr/*",
         "*://*.vulture.com/*",
@@ -492,5 +486,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.1.7.3"
+    "version": "2.1.7.4"
 }

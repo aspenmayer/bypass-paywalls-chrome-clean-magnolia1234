@@ -362,14 +362,7 @@ Madsack Mediengruppe sites like
 [Lübecker Nachrichten](https://www.ln-online.de) -
 [Märkische Allgemeine](https://www.maz-online.de) -
 [Neue Presse (Hannover)](https://www.neuepresse.de) -
-[Ostsee-Zeitung](https://www.ostsee-zeitung.de)\
-Rheinische Post Mediengruppe like
-[Aachener Nachrichten](https://www.aachener-nachrichten.de) -
-[Aachener Zeitung](https://www.aachener-zeitung.de) -
-[General-Anzeiger Bonn](https://ga.de) -
-[Rheinische Post](https://rp-online.de) -
-[Saarbrücker Zeitung](http://www.saarbruecker-zeitung.de) -
-[Trierischer Volksfreund](http://www.volksfreund.de)
+[Ostsee-Zeitung](https://www.ostsee-zeitung.de)
 
 ##### Italy
 [Corriere Della Sera](https://www.corriere.it) -
