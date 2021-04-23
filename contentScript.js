@@ -996,7 +996,7 @@ else if (matchDomain('ilfattoquotidiano.it')) {
   }, 500); // Delay (in milliseconds)
 }
 
-else if (matchDomain(['ilrestodelcarlino.it', 'lanazione.it', 'quotidiano.net'])) {
+else if (matchDomain(['ilgiorno.it', 'ilrestodelcarlino.it', 'lanazione.it', 'quotidiano.net'])) {
   let detail_text_truncated = document.querySelector('div.detail-text--truncated');
   let detail_page_paywall = document.querySelector('body.detail-page--paywall');
   if (detail_page_paywall) {

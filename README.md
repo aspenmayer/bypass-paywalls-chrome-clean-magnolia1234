@@ -369,6 +369,7 @@ Madsack Mediengruppe sites like
 [Domani](https://editorialedomani.it) -
 [GElocal.it](https://quotidiani.gelocal.it) -
 [Il Fatto Quotidiano](https://www.ilfattoquotidiano.it) -
+[Il Giorno](https://www.ilgiorno.it) -
 [Il Manifesto](https://ilmanifesto.it) -
 [Il Resto del Carlino](https://www.ilrestodelcarlino.it) -
 [Il Secolo XIX](https://www.ilsecoloxix.it) -

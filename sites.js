@@ -107,6 +107,7 @@ var defaultSites =
   "Houston Chronicle": "houstonchronicle.com",
   "Humo.be": "humo.be",
   "Il Fatto Quotidiano": "ilfattoquotidiano.it",
+  "Il Giorno": "ilgiorno.it",
   "Il Manifesto": "ilmanifesto.it",
   "Il Messaggero (+ regional)": "###_it_ilmessaggero",
   "Il Resto del Carlino": "ilrestodelcarlino.it",

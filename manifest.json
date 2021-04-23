@@ -188,6 +188,7 @@
         "*://*.ideal.es/*",
         "*://*.ilfattoquotidiano.it/*",
         "*://*.ilgazzettino.it/*",
+        "*://*.ilgiorno.it/*",
         "*://*.illawarramercury.com.au/*",
         "*://*.ilmanifesto.it/*",
         "*://*.ilmattino.it/*",
@@ -487,5 +488,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.1.7.5"
+    "version": "2.1.7.6"
 }
