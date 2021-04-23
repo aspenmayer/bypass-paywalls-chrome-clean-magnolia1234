@@ -217,6 +217,7 @@
         "*://*.ladepeche.fr/*",
         "*://*.lalsace.fr/*",
         "*://*.lanacion.com.ar/*",
+        "*://*.lanazione.it/*",
         "*://*.lanouvellerepublique.fr/*",
         "*://*.lanuovasardegna.it/*",
         "*://*.laprovincia.es/*",
@@ -486,5 +487,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.1.7.4"
+    "version": "2.1.7.5"
 }

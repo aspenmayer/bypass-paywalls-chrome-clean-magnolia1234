@@ -996,7 +996,7 @@ else if (matchDomain('ilfattoquotidiano.it')) {
   }, 500); // Delay (in milliseconds)
 }
 
-else if (matchDomain(["ilrestodelcarlino.it", "quotidiano.net"])) {
+else if (matchDomain(['ilrestodelcarlino.it', 'lanazione.it', 'quotidiano.net'])) {
   let detail_text_truncated = document.querySelector('div.detail-text--truncated');
   let detail_page_paywall = document.querySelector('body.detail-page--paywall');
   if (detail_page_paywall) {
@@ -2358,7 +2358,7 @@ function matchDomain(domains, hostname) {
 }
 
 function replaceDomElementExt(url, proxy, base64, selector, text_fail = '') {
-  let proxyurl = proxy ? 'https://bpc-cors-anywhere.herokuapp.com/' : '';
+  let proxyurl = proxy ? 'https://bpc2-cors-anywhere.herokuapp.com/' : '';
   fetch(proxyurl + url, {headers: {"Content-Type": "text/plain", "X-Requested-With": "XMLHttpRequest"} })
   .then(response => {
     let article = document.querySelector(selector);

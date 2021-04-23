@@ -372,6 +372,7 @@ Madsack Mediengruppe sites like
 [Il Manifesto](https://ilmanifesto.it) -
 [Il Resto del Carlino](https://www.ilrestodelcarlino.it) -
 [Il Secolo XIX](https://www.ilsecoloxix.it) -
+[La Nazione](https://www.lanazione.it) -
 [La Nuova Sardegna](https://www.lanuovasardegna.it) -
 [La Repubblica](https://www.repubblica.it) -
 [La Stampa](https://www.lastampa.it) -

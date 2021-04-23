@@ -3,9 +3,11 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add L'Express (France)
+Add La Nazione (Italy)
 Remove Rheinische Post Mediengruppe (obsolete)
 Fix-update NyTeknik (images)
 Fix-update Repubblica.it
+Update block TinyPass (cdn only)
 
 * v2.1.7.0 (2021-04-18)
 Add NyTeknik (Sweden)
