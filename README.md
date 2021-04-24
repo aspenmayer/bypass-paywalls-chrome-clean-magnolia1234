@@ -355,7 +355,7 @@ Funke Mediengruppe sites like
 [Westdeutsche Allgemeine Zeitung](https://www.waz.de) -
 [Westfalenpost](https://www.wp.de) -
 [Westfälische Rundschau](https://www.wr.de)\
-Madsack Mediengruppe sites like
+Madsack Mediengruppe sites like (opt-in to custom sites for unlisted)
 [Hannoversche Allgemeine Zeitung](https://www.haz.de) -
 [Kieler Nachrichten](https://www.kn-online.de) -
 [Leipziger Volkszeitung](https://www.lvz.de) -

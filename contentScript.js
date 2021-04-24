@@ -317,31 +317,6 @@ else if (matchDomain(de_funke_media_domains)) {
   sessionStorage.setItem('deobfuscate', 'true');
 }
 
-else if (domain = matchDomain(de_madsack_domains)) {
-  let url = window.location.href;
-  if (!url.includes(domain + '/amp/')) {
-    let paidcontent_intro = document.querySelector('div.pdb-article-body-paidcontentintro');
-    if (paidcontent_intro) {
-      paidcontent_intro.classList.remove('pdb-article-body-paidcontentintro');
-      let json_script = document.querySelector('div.pdb-article > script[type="application/ld+json"]');
-      let json_text = JSON.parse(json_script.text).articleBody;
-      if (json_text) {
-        let pdb_richtext_field = document.querySelectorAll('div.pdb-richtext-field');
-        if (pdb_richtext_field[1])
-          pdb_richtext_field[1].innerText = json_text;
-      }
-      let paidcontent_reg = document.querySelector('div.pdb-article-paidcontent-registration');
-      removeDOMElement(paidcontent_reg);
-    }
-  } else {
-    let subscr_sections = document.querySelectorAll('section[subscriptions-section="content"]');
-    for (let subscr_section of subscr_sections)
-      subscr_section.removeAttribute('subscriptions-section');
-    let amp_ads = document.querySelectorAll('.pdb-ad-container');
-    removeDOMElement(...amp_ads);
-  }
-}
-
 else if (matchDomain('deutsche-wirtschafts-nachrichten.de')) {
   window.setTimeout(function () {
     let hardpay = document.querySelector('.hardpay');
@@ -547,6 +522,31 @@ else if (matchDomain('sueddeutsche.de')) {
       removeDOMElement(amp_offerpage);
     }
   }, 500); // Delay (in milliseconds)
+}
+
+else if ((domain = matchDomain(de_madsack_domains)) || document.querySelector('link[rel="preload"][href="https://static.rndtech.de/cmp/1.x.x.js"]')) {
+  let url = window.location.href;
+  if (!url.includes(domain + '/amp/')) {
+    let paidcontent_intro = document.querySelector('div.pdb-article-body-paidcontentintro');
+    if (paidcontent_intro) {
+      paidcontent_intro.classList.remove('pdb-article-body-paidcontentintro');
+      let json_script = document.querySelector('div.pdb-article > script[type="application/ld+json"]');
+      let json_text = JSON.parse(json_script.text).articleBody;
+      if (json_text) {
+        let pdb_richtext_field = document.querySelectorAll('div.pdb-richtext-field');
+        if (pdb_richtext_field[1])
+          pdb_richtext_field[1].innerText = json_text;
+      }
+      let paidcontent_reg = document.querySelector('div.pdb-article-paidcontent-registration');
+      removeDOMElement(paidcontent_reg);
+    }
+  } else {
+    let subscr_sections = document.querySelectorAll('section[subscriptions-section="content"]');
+    for (let subscr_section of subscr_sections)
+      subscr_section.removeAttribute('subscriptions-section');
+    let amp_ads = document.querySelectorAll('.pdb-ad-container');
+    removeDOMElement(...amp_ads);
+  }
 }
 
 else

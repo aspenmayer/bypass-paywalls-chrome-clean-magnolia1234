@@ -945,6 +945,19 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
     }
   }
 
+  // block script for additional Madsack/RND sites (opt-in to custom sites)
+  var de_rnd_domain = (matchUrlDomain('rndtech.de', details.url) && ['script'].includes(details.type) && !matchUrlDomain(de_madsack_domains.concat(['madsack.de', 'madsack-medien-campus.de', 'rnd.de']), header_referer) && enabledSites.includes('###_de_madsack'));
+  if (de_rnd_domain) {
+    let rnd_domain = urlHost(header_referer).replace(/^(www|m)\./, '');
+    if (!de_madsack_domains.includes(rnd_domain)) {
+      allow_cookies.push(rnd_domain);
+      blockedRegexes[rnd_domain] = /(cdn\.cxense\.com\/|\.tinypass\.com\/)/;
+      de_madsack_domains.push(rnd_domain);
+      if (!enabledSites.includes(rnd_domain))
+        enabledSites.push(rnd_domain);
+    }
+  }
+
   // block external javascript for custom sites (optional)
   var domain_blockjs_ext = matchUrlDomain(block_js_custom_ext, header_referer);
   if (domain_blockjs_ext && !matchUrlDomain(domain_blockjs_ext, details.url) && details.type === 'script' && isSiteEnabled({url: header_referer})) {
