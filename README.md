@@ -14,7 +14,7 @@
 ### Installation instructions
 Due to [Google internal policy](https://developer.chrome.com/webstore/program_policies), the extension is not available on the Chrome Web Store.  
 The following instructions are needed to install third-party extensions in [Chromium](https://en.wikipedia.org/wiki/Chromium_(web_browser))-based desktop browsers.  
-In extension developer mode you can always install BPC by `Load unpacked` (no automatic updates) or by crx-file (automatic updates, but possible 'whitelisting' of extension is needed).
+In extension developer mode you can always install BPC by `Load unpacked` (latest master, but no automatic updates) or by crx-file (latest release & automatic updates, but possible 'whitelisting' of extension is needed).
 
 #### Load unpacked: Chrome (desktop), Microsoft Edge (Chromium)/Brave/Yandex
 * or 'whitelist' extension and install automatically updating crx-file (see next section)
