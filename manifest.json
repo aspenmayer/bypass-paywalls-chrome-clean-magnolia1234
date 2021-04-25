@@ -391,6 +391,8 @@
         "*://*.theadvocate.com.au/*",
         "*://*.theage.com.au/*",
         "*://*.theartnewspaper.com/*",
+        "*://*.theathletic.co.uk/*",
+        "*://*.theathletic.com/*",
         "*://*.theatlantic.com/*",
         "*://*.theaustralian.com.au/*",
         "*://*.thechronicle.com.au/*",
@@ -488,5 +490,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.1.7.7"
+    "version": "2.1.7.8"
 }

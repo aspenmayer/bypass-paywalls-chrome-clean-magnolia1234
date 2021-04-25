@@ -2,7 +2,6 @@
 var ext_api = (typeof browser === 'object') ? browser : chrome;
 var domain;
 var csDone = false;
-var noMatch = false;
 
 var ca_torstar_domains = ['niagarafallsreview.ca', 'stcatharinesstandard.ca', 'thepeterboroughexaminer.com', 'therecord.com', 'thespec.com', 'thestar.com', 'wellandtribune.ca'];
 var de_funke_media_domains = ['abendblatt.de', 'braunschweiger-zeitung.de', 'morgenpost.de', 'nrz.de', 'otz.de', 'thueringer-allgemeine.de', 'tlz.de', 'waz.de', 'wp.de', 'wr.de'];
@@ -253,7 +252,7 @@ else {
     }
   }
   else
-    noMatch = true;
+    csDone = true;
 }
 
 } else if (window.location.hostname.match(/\.(de|at|ch)$/) || matchDomain(['faz.net'])) {//germany/austria/switzerland - ch
@@ -550,7 +549,7 @@ else if ((domain = matchDomain(de_madsack_domains)) || document.querySelector('l
 }
 
 else
-  noMatch = true;
+  csDone = true;
 
 } else if (window.location.hostname.match(/\.(es|pt)$/) || matchDomain(['diariovasco.com', 'elconfidencial.com', 'elcorreo.com', 'elespanol.com', 'elpais.com', 'elperiodico.com', 'expansion.com', 'larioja.com', 'lavanguardia.com', 'politicaexterior.com'])) {//spain/portugal
 
@@ -747,7 +746,7 @@ else if (matchDomain('politicaexterior.com')) {
 }
 
 else
-  noMatch = true;
+  csDone = true;
 
 } else if (window.location.hostname.endsWith('.fr') || matchDomain(['bienpublic.com', 'journaldunet.com', 'la-croix.com', 'ledauphine.com', 'ledevoir.com', 'lejsl.com', 'nouvelobs.com', 'parismatch.com'])) {//france
 
@@ -961,7 +960,7 @@ else if (matchDomain('sudouest.fr')) {
 }
 
 else
-  noMatch = true;
+  csDone = true;
 
 } else if (window.location.hostname.endsWith('.it') || matchDomain(['limesonline.com', 'quotidiano.net'])) {//italy
 
@@ -1079,7 +1078,7 @@ else if (domain = matchDomain(it_repubblica_domains)) {
 }
 
 else
-  noMatch = true;
+  csDone = true;
 
 } else if (window.location.hostname.match(/\.(be|nl)$/)) {//belgium/netherlands
 
@@ -1379,9 +1378,9 @@ else if (matchDomain('telegraaf.nl')) {
 }
 
 else
-  noMatch = true;
+  csDone = true;
 
-} else if (window.location.hostname.match(/\.(ie|uk)$/) || matchDomain(['irishtimes.com'])) {//united kingdom/ireland
+} else if (window.location.hostname.match(/\.(ie|uk)$/) || matchDomain(['irishtimes.com', 'theathletic.com'])) {//united kingdom/ireland
 
 if (matchDomain('irishtimes.com')) {
   document.addEventListener('DOMContentLoaded', () => {
@@ -1436,6 +1435,24 @@ else if (matchDomain('the-tls.co.uk')) {
   removeDOMElement(paywall);
 }
 
+else if (matchDomain(['theathletic.com', 'theathletic.co.uk'])) {
+  if (!window.location.href.includes('/?amp')) {
+    let paywall = document.querySelector('div#paywall-container');
+    let amphtml = document.querySelector('link[rel="amphtml"]');
+    if (paywall && amphtml) {
+      removeDOMElement(paywall);
+      window.location.href = amphtml.href;
+    }
+  } else {
+    let subscr_sections = document.querySelectorAll('[subscriptions-section="content"]');
+    for (let subscr_section of subscr_sections)
+      subscr_section.removeAttribute('subscriptions-section');
+    let subscr_actions = document.querySelectorAll('[subscriptions-actions]');
+    removeDOMElement(...subscr_actions);
+  }
+}
+
+
 else if (matchDomain('thetimes.co.uk')) {
   let block = document.querySelector('.subscription-block');
   let ad_block = document.getElementById('ad-article-inline')
@@ -1444,7 +1461,7 @@ else if (matchDomain('thetimes.co.uk')) {
 }
 
 else if (!matchDomain(['belfasttelegraph.co.uk', 'independent.ie']))
-  noMatch = true;
+  csDone = true;
 
 } else if (window.location.hostname.match(/\.(br|cl|pe)$/) || matchDomain(['elmercurio.com', 'latercera.com', 'lasegunda.com'])) {//south america
 
@@ -1502,7 +1519,7 @@ else if (matchDomain(["mercuriovalpo.cl", "estrellavalpo.cl"])) {
 }
 
 else
-  noMatch = true;
+  csDone = true;
 
 } else {//other (like com/org & not at/be/br/ch/cl/de/fr/es/ie/nl/pe/pt/uk))
 
@@ -1789,8 +1806,6 @@ else if (matchDomain('historyextra.com')) {
   }
   let ad_banner = document.querySelector('.ad-banner-container');
   removeDOMElement(ad_banner);
-  if (ad_banner)
-    csDone = true;
 }
 
 else if (matchDomain('inkl.com')) {
@@ -2014,8 +2029,11 @@ else if (matchDomain('nytimes.com')) {
       if (!close_button)
         login.classList.remove('nytc---modal-window---isShown');
     }
-  } else
+  } else {
+    waitDOMElement('div[data-testid="inline-message"]', 'DIV', removeDOMElement, false);
+    waitDOMElement('div.expanded-dock', 'DIV', removeDOMElement, false);
     csDone = true;
+  }
 }
 
 else if (matchDomain('qz.com')) {
@@ -2299,16 +2317,13 @@ else if ((domain = matchDomain(usa_mcc_domains)) || document.querySelector('scri
 }
 
 else
-  noMatch = true;
-}
-
-if (noMatch) {
   csDone = true;
-  addDivBpcDone();
 }
 
-if (csDone)
+if (csDone) {
+  addDivBpcDone();
   ext_api.runtime.sendMessage({csDone: true});
+}
 
 } // end div_bpc_done
 

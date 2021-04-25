@@ -5,6 +5,7 @@ Post-release
 Add Il Giorno (Italy)
 Add L'Express (France)
 Add La Nazione (Italy)
+Add The Athletic
 Remove Rheinische Post Mediengruppe (obsolete)
 Fix-update Madsack Mediengruppe (opt-in to custom sites for unlisted)
 Fix-update NyTeknik (images)

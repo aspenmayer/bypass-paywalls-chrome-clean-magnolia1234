@@ -305,6 +305,7 @@ var blockedRegexes = {
   'haaretz.co.il': /haaretz\.co\.il\/htz\/js\/inter\.js/,
   'haaretz.com': /haaretz\.com\/hdc\/web\/js\/minified\/header-scripts-int.js/,
   'hbr.org': /\.tinypass\.com\//,
+  'hilltimes.com': /\.hilltimes\.com\/.+\/js\/loadingoverlay\/loadingoverlay\.min\.js/,
   'historyextra.com': /\.evolok\.net\/.+\/authorize\//,
   'houstonchronicle.com': /\.blueconic\.net\//,
   'ilgiorno.it': /\.tinypass\.com\//,
@@ -376,7 +377,6 @@ var blockedRegexes = {
   'telegraph.co.uk': /(\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js|\.telegraph\.co\.uk\/.+\/piano.+\.js|assets\.adobedtm\.com\/.+\.js)/,
   'theartnewspaper.com': /\.amazonaws.com\/production-website-scripts\/bouncer\.js/,
   'thedailybeast.com': /\.tinypass\.com\//,
-  'hilltimes.com': /\.hilltimes\.com\/.+\/js\/loadingoverlay\/loadingoverlay\.min\.js/,
   'thehindu.com': /(cdn\.cxense\.com\/|\.tinypass\.com\/)/,
   'thehindubusinessline.com': /(cdn\.cxense\.com\/|\.tinypass\.com\/)/,
   'thenation.com': /\.tinypass\.com\//,
@@ -436,7 +436,8 @@ var grouped_sites = {
 '###_nl_ad_region': nl_ad_region_domains,
 '###_usa_mcc': usa_mcc_domains,
 '###_usa_nymag': usa_nymag_domains,
-'###_usa_tribune': usa_tribune_domains
+'###_usa_tribune': usa_tribune_domains,
+'###_usa_theathletic': usa_theathletic_domains
 };
 
 function add_grouped__enabled_domains(groups) {
@@ -514,6 +515,10 @@ function add_grouped_sites(init_rules) {
     for (let domain of usa_tribune_domains) {
       allow_cookies.push(domain);
       blockedRegexes[domain] = /\.tribdss\.com\//;
+    }
+    for (let domain of usa_theathletic_domains) {
+      allow_cookies.push(domain);
+      blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/;
     }
 
     // rules only
@@ -1007,7 +1012,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
     let usa_mw_site = (matchUrlDomain('wsj.net', details.url) && matchUrlDomain('marketwatch.com', header_referer));
     allow_ext_source = allow_ext_source || inkl_site || cl_elmerc_site || es_elesp_site || it_repubblica_site || uk_nlr_site || usa_discmag_site || usa_mw_site;
 
-    bpc_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain(['augsburger-allgemeine.de', 'barrons.com', 'belfasttelegraph.co.uk', 'cicero.de', 'cmjornal.pt', 'elmundo.es', 'elpais.com', 'elperiodico.com', 'expansion.com', 'freiepresse.de', 'independent.ie', 'irishtimes.com', 'la-croix.com', 'lne.es', 'marketwatch.com', 'nationalreview.com', 'noz.de', 'nwzonline.de', 'seekingalpha.com', 'shz.de', 'sueddeutsche.de', 'svz.de', 'telegraph.co.uk'].concat(au_news_corp_domains, au_nine_domains, de_madsack_domains, es_grupo_vocento_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, it_repubblica_domains, usa_mcc_domains), header_referer));
+    bpc_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain(['augsburger-allgemeine.de', 'barrons.com', 'belfasttelegraph.co.uk', 'cicero.de', 'cmjornal.pt', 'elmundo.es', 'elpais.com', 'elperiodico.com', 'expansion.com', 'freiepresse.de', 'independent.ie', 'irishtimes.com', 'la-croix.com', 'lne.es', 'marketwatch.com', 'nationalreview.com', 'noz.de', 'nwzonline.de', 'seekingalpha.com', 'shz.de', 'sueddeutsche.de', 'svz.de', 'telegraph.co.uk'].concat(au_news_corp_domains, au_nine_domains, de_madsack_domains, es_grupo_vocento_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, it_repubblica_domains, usa_mcc_domains, usa_theathletic_domains), header_referer));
   }
 
   if (!isSiteEnabled(details) &&  !allow_ext_source && !bpc_amp_site && !au_apn_site && !au_swm_site) {
