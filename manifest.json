@@ -249,6 +249,7 @@
         "*://*.lesoir.be/*",
         "*://*.lest-eclair.fr/*",
         "*://*.letelegramme.fr/*",
+        "*://*.levante-emv.com/*",
         "*://*.lexpress.fr/*",
         "*://*.liberation-champagne.fr/*",
         "*://*.liberation.fr/*",
@@ -491,5 +492,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.1.8.1"
+    "version": "2.1.8.2"
 }

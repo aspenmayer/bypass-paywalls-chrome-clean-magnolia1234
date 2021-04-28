@@ -148,6 +148,7 @@ var defaultSites =
   "Le Un": "le1hebdo.fr",
   "Leeuwarder Courant": "lc.nl",
   "Les Échos": "lesechos.fr",
+  "Levante-EMV": "levante-emv.com",
   "Libération (free articles only)": "liberation.fr",
   "LimesOnline": "limesonline.com",
   "LiveMint": "livemint.com",

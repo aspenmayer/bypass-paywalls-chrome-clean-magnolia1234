@@ -441,6 +441,7 @@ Grouped in options:\
 [La Nueva España](https://www.lne.es) -
 [La Provincia](https://www.laprovincia.es) -
 [La Vanguardia](https://www.lavanguardia.com) -
+[Levante-EMV](https://www.levante-emv.com) -
 [Política Exterior](https://www.politicaexterior.com)\
 Grouped in options:\
 Grupo Vocento (ABC) regional sites like

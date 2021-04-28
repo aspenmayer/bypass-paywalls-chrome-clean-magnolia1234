@@ -6,7 +6,7 @@ var csDone = false;
 var ca_torstar_domains = ['niagarafallsreview.ca', 'stcatharinesstandard.ca', 'thepeterboroughexaminer.com', 'therecord.com', 'thespec.com', 'thestar.com', 'wellandtribune.ca'];
 var de_funke_media_domains = ['abendblatt.de', 'braunschweiger-zeitung.de', 'morgenpost.de', 'nrz.de', 'otz.de', 'thueringer-allgemeine.de', 'tlz.de', 'waz.de', 'wp.de', 'wr.de'];
 var de_madsack_domains = ['haz.de', 'kn-online.de', 'ln-online.de', 'lvz.de', 'maz-online.de', 'neuepresse.de', 'ostsee-zeitung.de'];
-var es_epiberica_domains = ['diariodeibiza.es', 'diariodemallorca.es', 'farodevigo.es', 'laprovincia.es'];
+var es_epiberica_domains = ['diariodeibiza.es', 'diariodemallorca.es', 'farodevigo.es', 'laprovincia.es', 'levante-emv.com'];
 var es_grupo_vocento_domains = ['diariosur.es', 'diariovasco.com', 'elcomercio.es', 'elcorreo.com', 'eldiariomontanes.es', 'elnortedecastilla.es', 'hoy.es', 'ideal.es', 'larioja.com', 'laverdad.es', 'lavozdigital.es'];
 var fr_groupe_ebra_domains = ['bienpublic.com', 'dna.fr', 'estrepublicain.fr', 'lalsace.fr', 'ledauphine.com', 'lejsl.com', 'leprogres.fr', 'republicain-lorrain.fr', 'vosgesmatin.fr'];
 var fr_groupe_la_depeche_domains = ['centrepresseaveyron.fr', 'ladepeche.fr', 'lindependant.fr', 'midi-olympique.fr', 'midilibre.fr', 'nrpyrenees.fr', 'petitbleu.fr'];
@@ -551,7 +551,7 @@ else if ((domain = matchDomain(de_madsack_domains)) || document.querySelector('l
 else
   csDone = true;
 
-} else if (window.location.hostname.match(/\.(es|pt)$/) || matchDomain(['diariovasco.com', 'elconfidencial.com', 'elcorreo.com', 'elespanol.com', 'elpais.com', 'elperiodico.com', 'expansion.com', 'larioja.com', 'lavanguardia.com', 'politicaexterior.com'])) {//spain/portugal
+} else if (window.location.hostname.match(/\.(es|pt)$/) || matchDomain(['diariovasco.com', 'elconfidencial.com', 'elcorreo.com', 'elespanol.com', 'elpais.com', 'elperiodico.com', 'expansion.com', 'larioja.com', 'lavanguardia.com', 'levante-emv.com', 'politicaexterior.com'])) {//spain/portugal
 
 if (matchDomain('cmjornal.pt')) {
   let paywall = document.querySelector('.bloqueio_exclusivos');
@@ -688,16 +688,22 @@ else if (matchDomain(es_grupo_vocento_domains)) {
 }
 
 else if (matchDomain(es_epiberica_domains)) {
-  let truncated = document.querySelector('div.article-body--truncated');
-  if (truncated)
-    truncated.classList.remove('article-body--truncated');
-  let div_hidden = document.querySelector('div.baldomero');
-  if (div_hidden)
-    div_hidden.classList.remove('baldomero');
-  window.setTimeout(function () {
-    let paywall = document.querySelector('div.paywall');
-    removeDOMElement(paywall);
-  }, 500); // Delay (in milliseconds)
+  if (window.location.href.includes('.amp.html')) {
+    let div_hidden = document.querySelectorAll('div[amp-access="access"]');
+    for (let elem of div_hidden)
+      elem.removeAttribute('amp-access-hide');
+  } else {
+    let truncated = document.querySelector('div.article-body--truncated');
+    if (truncated)
+      truncated.classList.remove('article-body--truncated');
+    let div_hidden = document.querySelector('div.baldomero');
+    if (div_hidden)
+      div_hidden.classList.remove('baldomero');
+    window.setTimeout(function () {
+      let paywall = document.querySelector('div.paywall');
+      removeDOMElement(paywall);
+    }, 500); // Delay (in milliseconds)
+  }
 }
 
 else if (matchDomain('lavanguardia.com')) {
