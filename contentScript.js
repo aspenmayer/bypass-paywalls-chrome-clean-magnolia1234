@@ -2209,6 +2209,12 @@ else if (matchDomain('thelogic.co')) {
   removeDOMElement(article_subscribe);
 }
 
+else if (matchDomain('thenewatlantis.com')) {
+  let article_gated = document.querySelector('.article-gated');
+  if (article_gated)
+    article_gated.classList.remove('article-gated');
+}
+
 else if (matchDomain('thepointmag.com')) {
   let overlay = document.querySelectorAll('div.overlay, div#tpopup-');
   for (let elem of overlay)

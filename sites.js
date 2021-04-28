@@ -252,6 +252,7 @@ var defaultSites =
   "The Marker": "themarker.com",
   "The Mercury News": "mercurynews.com",
   "The Nation": "thenation.com",
+  "The New Atlantis": "thenewatlantis.com",
   "The New Republic": "newrepublic.com",
   "The New Statesman": "newstatesman.com",
   "The New York Review of Books": "nybooks.com",

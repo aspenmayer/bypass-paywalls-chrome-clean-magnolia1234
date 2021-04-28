@@ -408,6 +408,7 @@
         "*://*.themercury.com.au/*",
         "*://*.themorningbulletin.com.au/*",
         "*://*.thenation.com/*",
+        "*://*.thenewatlantis.com/*",
         "*://*.thepeterboroughexaminer.com/*",
         "*://*.thepointmag.com/*",
         "*://*.therecord.com/*",
@@ -490,5 +491,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.1.8.0"
+    "version": "2.1.8.1"
 }

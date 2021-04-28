@@ -26,8 +26,8 @@ In extension developer mode you can always install BPC by `Load unpacked` (lates
 5. Enable Developer Mode.
 6. Click `Load unpacked` and select the extension folder.
 
-* by default BPC has limited permissions, but you can opt-in to enable custom sites (and also clear cookies/block general paywall-scripts for non-listed sites).   
-* in Chrome/Opera/Brave to disable the developer mode extensions popup use the extensions toolbar menu (by default enabled in Chrome 87+ or (if available) enable (experimental) chrome flag: chrome://flags/#extensions-toolbar-menu)
+* By default BPC has limited permissions, but you can opt-in to enable custom sites (and also clear cookies/block general paywall-scripts for non-listed sites).   
+* In Chrome/Opera/Brave to disable the developer mode extensions popup use the extensions toolbar menu (by default enabled in Chrome 87+ or (if available) enable (experimental) chrome flag: chrome://flags/#extensions-toolbar-menu)
 
 If you're familiar with Git(Hub)-clients you can also clone this repo and update the extension that way (load unpacked folder used by Git(Hub)-client).
 
@@ -37,10 +37,10 @@ If you're familiar with Git(Hub)-clients you can also clone this repo and update
 1. Download the extension as a crx-file from the [releases page](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/releases).
 2. In your browser go to the extensions page.
 3. Enable Developer Mode.
-4. Drag your crx-file anywhere on the page to import it.
-5. If dragging crx-file does not work, try Chrome procedure (above).
+4. Drag your crx-file anywhere on the page to import it (when old 'load unpacked' installation, first remove it and backup your custom sites).
+5. If dragging crx-file does not work, try 'load unpacked' installation (above).
 
-* by default BPC has limited permissions, but you can opt-in to enable custom sites (and also clear cookies/block general paywall-scripts for non-listed sites).   
+* By default BPC has limited permissions, but you can opt-in to enable custom sites (and also clear cookies/block general paywall-scripts for non-listed sites).
 * In Windows 'whitelist' BPC (run as administrator one of the reg-files in [whitelist-downloads](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/tree/master/whitelist)  
 If you already have 'whitelisted' extensions than you should change "1" to a new key (also change name of HLM-key for beta/developer versions of browsers).  
 Example Chrome-regfile:  
@@ -155,6 +155,7 @@ _* free articles only._
 [The Art Newspaper](https://www.theartnewspaper.com) -
 [The Athletic](https://theathletic.com) -
 [The Daily Beast](https://www.thedailybeast.com)* -
+[The New Atlantis](https://www.thenewatlantis.com) -
 [The Point Magazine](https://thepointmag.com) -
 [Vanity Fair](https://www.vanityfair.com) -
 [Variety](https://variety.com) -
@@ -238,7 +239,7 @@ Tribune Publishing Company sites like
 [London Review of Books](https://www.lrb.co.uk) -
 [New Left Review](https://newleftreview.org) -
 [Prospect Magazine](https://www.prospectmagazine.co.uk) -
-[The Athletic UK](https://theathletic.com) -
+[The Athletic UK](https://theathletic.co.uk) -
 [The Economist](https://www.economist.com) -
 [The Irish Times](https://www.irishtimes.com) -
 [The New Statesman](https://www.newstatesman.com) -
