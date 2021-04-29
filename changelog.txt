@@ -4,6 +4,7 @@ Changelog Bypass Paywalls Clean - Chrome
 Post-release
 Add Levante-EMV (Spain)
 Add The New Atlantis
+Update custom sites (optional: only permissions for added sites)
 
 * v2.1.8.0 (2021-04-25)
 Add Il Giorno (Italy)

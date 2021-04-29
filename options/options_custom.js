@@ -184,6 +184,38 @@ function edit_options() {
     });
 }
 
+// request permissions for custom sites (in list only)
+function request_permissions() {
+    var perm_custom = document.getElementById('perm-custom');
+    ext_api.permissions.request({
+        origins: perm_origins
+    }, function (granted) {
+        if (granted) {
+            perm_custom.innerText = 'YES';
+        } else {
+            perm_custom.innerText = 'NO';
+        }
+    });
+}
+
+// remove permissions for custom sites
+function remove_permissions() {
+    var perm_custom = document.getElementById('perm-custom');
+    var custom_enabled = document.getElementById('custom-enabled');
+    ext_api.permissions.remove({
+        origins: ["<all_urls>"]
+    }, function (removed) {
+        if (removed) {
+            perm_custom.innerText = 'NO';
+            custom_enabled.innerText = 'NO';
+            ext_api.storage.local.set({
+                "customOptIn": false
+            });
+        }
+    });
+}
+
+var perm_origins;
 // Restores checkbox input states using the preferences stored in ext_api.storage.
 function renderOptions() {
     ext_api.storage.local.get({
@@ -250,9 +282,11 @@ function renderOptions() {
         selectEl.id = 'sites';
         selectEl.size = 6;
         var optionEl;
+        perm_origins = [];
         for (var key in sites_custom) {
             optionEl = document.createElement('option');
             let domain = sites_custom[key]['domain'];
+            perm_origins.push('*://*.' + domain + '/*');
             let isDefaultSite = defaultSites_domains.includes(domain);
             optionEl.text = isDefaultSite ? '*' : '';
             optionEl.text += key + ': ' + domain +
@@ -266,6 +300,17 @@ function renderOptions() {
         }
         labelEl.appendChild(selectEl);
         custom_sitesEl.appendChild(labelEl);
+
+        var perm_custom = document.getElementById('perm-custom');
+        ext_api.permissions.contains({
+            origins: perm_origins
+        }, function (result) {
+            if (result) {
+                perm_custom.innerText = 'YES';
+            } else {
+                perm_custom.innerText = 'NO';
+            }
+        });
     });
 
     var custom_enabled = document.getElementById('custom-enabled');
@@ -289,3 +334,5 @@ document.getElementById('importInput').addEventListener("change", import_options
 document.getElementById('add').addEventListener('click', add_options);
 document.getElementById('delete').addEventListener('click', delete_options);
 document.getElementById('edit').addEventListener('click', edit_options);
+document.getElementById('perm_request').addEventListener('click', request_permissions);
+document.getElementById('perm_remove').addEventListener('click', remove_permissions);

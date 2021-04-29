@@ -21,8 +21,9 @@
   <div style="width:90%;">
     To add a new site, enter an unique title/domain (without www.), select options for Googlebot/block Javascript (block on (sub)domain(s) of site and/or external domains) and/or set referer (ignored when Googlebot is set).<br>
     Custom sites are enabled automatically in <small><button><a href="options.html" style="text-decoration:none;color:inherit">Options</a></button></small> (cookies will be removed by default unless you enable allow_cookies).<br>
-    If you want to use custom sites (for non-listed sites) enable it in <small><button><a href="optin/opt-in.html" style="text-decoration:none;color:inherit">Opt-in</a></button></small><br>
-    <strong>Custom sites enabled: <span id="custom-enabled"></span></strong>
+    If you want to use custom sites (for non-listed sites) enable it in <small><button><a href="optin/opt-in.html" style="text-decoration:none;color:inherit">Opt-in</a></button></small>
+    <strong>Custom sites enabled: <span id="custom-enabled"></span></strong><br>
+    You can also just request permissions for the custom sites you added yourself (below).
     <br><br>
   </div>
   <div id='add_site'></div>
@@ -43,6 +44,9 @@
   <span style='float:left;padding-bottom:5px'>
     <button id="delete">Delete</button>
     <button id="edit">Edit (re-Add)</button>
+    <button id="perm_request">Request<br>permissions</button>
+    <button id="perm_remove">Remove<br>permissions</button>
+    permissions granted (for all in custom list): <strong><span id="perm-custom"></span></strong>
   </span>
   <div style="clear:both;"></div>
   <div style="width:90%;">

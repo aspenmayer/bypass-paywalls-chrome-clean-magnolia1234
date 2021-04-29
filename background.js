@@ -295,7 +295,7 @@ var blockedRegexes = {
   'financialpost.com': /\.tinypass\.com\//,
   'folha.uol.com.br': /(\.folha\.uol\.com\.br\/paywall\/js\/.+\/publicidade\.ads\.js|paywall\.folha\.uol\.com\.br\/|js\.matheranalytics\.com\/)/,
   'foreignaffairs.com': /\.foreignaffairs\.com\/sites\/default\/files\/js\/js_[^y].+\.js/,
-  'foreignpolicy.com': /\.tinypass\.com\//,
+  'foreignpolicy.com': /(cdn\.cxense\.com\/|\.tinypass\.com\/)/,
   'fortune.com': /\.tinypass\.com\//,
   'freiepresse.de': /cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js/,
   'ftm.nl': /\.ftm\.nl\/js\/routing\?/,
@@ -1190,7 +1190,7 @@ function updateBadge(activeTab) {
     let isCustomSite = matchUrlDomain(customSites_domains, currentUrl);
     if (!isDefaultSite && isCustomSite) {
       ext_api.permissions.contains({
-        origins: ["<all_urls>"]
+        origins: ['*://*.' + isCustomSite + '/*']
       }, function (result) {
         if (!result)
           badgeText = '';
