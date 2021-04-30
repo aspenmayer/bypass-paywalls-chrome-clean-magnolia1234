@@ -275,6 +275,7 @@ Alma Talent sites (grouped in options) like
 [Esprit](https://esprit.presse.fr) -
 [L'Express](https://www.lexpress.fr) -
 [L'Obs](https://www.nouvelobs.com) -
+[L'Oeil de la Photographie (fr/en)](https://loeildelaphotographie.com) -
 [L'Opinion](https://www.lopinion.fr) -
 [L'Usine Nouvelle](https://www.usinenouvelle.com) -
 [La Croix](https://www.la-croix.com) -

@@ -121,6 +121,7 @@ var defaultSites =
   "Kurier.at": "kurier.at",
   "L'Express": "lexpress.fr",
   "L'Obs": "nouvelobs.com",
+  "L'Oeil de la Photographie": "loeildelaphotographie.com",
   "L'Opinion": "lopinion.fr",
   "L'Orient-Le Jour": "lorientlejour.com",
   "L'Usine Nouvelle": "usinenouvelle.com",

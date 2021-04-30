@@ -754,7 +754,7 @@ else if (matchDomain('politicaexterior.com')) {
 else
   csDone = true;
 
-} else if (window.location.hostname.endsWith('.fr') || matchDomain(['bienpublic.com', 'journaldunet.com', 'la-croix.com', 'ledauphine.com', 'ledevoir.com', 'lejsl.com', 'nouvelobs.com', 'parismatch.com'])) {//france
+} else if (window.location.hostname.endsWith('.fr') || matchDomain(['bienpublic.com', 'journaldunet.com', 'la-croix.com', 'ledauphine.com', 'ledevoir.com', 'lejsl.com', 'loeildelaphotographie.com', 'nouvelobs.com', 'parismatch.com'])) {//france
 
 if (matchDomain('alternatives-economiques.fr')) {
   window.setTimeout(function () {
@@ -770,6 +770,17 @@ else if (matchDomain('atlantico.fr')) {
   let paywall = document.querySelector('div.dpslvp');
   if (paywall)
     paywall.classList.remove('dpslvp');
+}
+
+else if (matchDomain('challenges.fr')) {
+  let amorce = document.querySelector('.user-paying-amorce');
+  if (amorce)
+    amorce.setAttribute('style', 'display:none !important');
+  let content = document.querySelector('.user-paying-content');
+  if (content)
+    content.setAttribute('style', 'display: block !important');
+  let paywall = document.querySelector('.temp-paywall');
+  removeDOMElement(paywall);
 }
 
 else if (matchDomain('charliehebdo.fr')) {
@@ -809,23 +820,30 @@ else if ((domain = matchDomain(fr_groupe_ebra_domains)) && window.location.href.
   }
 }
 
+else if (domain = matchDomain(fr_groupe_la_depeche_domains)) {
+  let url = window.location.href;
+  let url_new = url.replace(domain + '/', domain + '/amp/');
+  if (url.includes(domain + '/amp/')) {
+    let subscr_section = document.querySelectorAll('[subscriptions-section="content"]');
+    for (let elem of subscr_section)
+      elem.removeAttribute('subscriptions-section');
+    let amp_ads = document.querySelectorAll('amp-ad, amp-embed');
+    removeDOMElement(...amp_ads);
+  } else {
+    let paywall = document.querySelector('div.paywall');
+    if (paywall) {
+      removeDOMElement(paywall);
+      window.location.href = url_new;
+    }
+  }
+}
+
 else if (matchDomain('journaldunet.com')) {
   let reg_wall = document.querySelector('.reg_wall');
   removeDOMElement(reg_wall);
   let entry_reg_wall = document.querySelector('.entry_reg_wall');
   if (entry_reg_wall) {
     entry_reg_wall.removeAttribute('style');
-  }
-}
-
-else if (matchDomain(['lejdd.fr', 'parismatch.com'])) {
-  let poool_banner = document.querySelector('#poool-container');
-  let forbidden = document.querySelector('.forbidden');
-  removeDOMElement(poool_banner, forbidden);
-  let bottom_hide = document.querySelector('.cnt[data-poool-mode="hide"]');
-  if (bottom_hide) {
-    bottom_hide.removeAttribute('data-poool-mode');
-    bottom_hide.removeAttribute('style');
   }
 }
 
@@ -846,44 +864,26 @@ else if (matchDomain('la-croix.com')) {
   }
 }
 
+else if (matchDomain('lanouvellerepublique.fr')) {
+  let alert_didacticiel = document.querySelector('div.alert-didacticiel');
+  let loading = document.querySelectorAll('span.loading');
+  removeDOMElement(alert_didacticiel, ...loading);
+}
+
 else if (matchDomain('ledevoir.com')) {
   let counter = document.querySelector('.popup-msg');
   removeDOMElement(counter);
 }
 
-else if (domain = matchDomain(fr_groupe_la_depeche_domains)) {
-  let url = window.location.href;
-  let url_new = url.replace(domain + '/', domain + '/amp/');
-  if (url.includes(domain + '/amp/')) {
-    let subscr_section = document.querySelectorAll('[subscriptions-section="content"]');
-    for (let elem of subscr_section)
-      elem.removeAttribute('subscriptions-section');
-    let amp_ads = document.querySelectorAll('amp-ad, amp-embed');
-    removeDOMElement(...amp_ads);
-  } else {
-    let paywall = document.querySelector('div.paywall');
-    if (paywall) {
-      removeDOMElement(paywall);
-      window.location.href = url_new;
-    }
+else if (matchDomain(['lejdd.fr', 'parismatch.com'])) {
+  let poool_banner = document.querySelector('#poool-container');
+  let forbidden = document.querySelector('.forbidden');
+  removeDOMElement(poool_banner, forbidden);
+  let bottom_hide = document.querySelector('.cnt[data-poool-mode="hide"]');
+  if (bottom_hide) {
+    bottom_hide.removeAttribute('data-poool-mode');
+    bottom_hide.removeAttribute('style');
   }
-}
-
-else if (matchDomain('challenges.fr')) {
-  let amorce = document.querySelector('.user-paying-amorce');
-  if (amorce)
-    amorce.setAttribute('style', 'display:none !important');
-  let content = document.querySelector('.user-paying-content');
-  if (content)
-    content.setAttribute('style', 'display: block !important');
-  let paywall = document.querySelector('.temp-paywall');
-  removeDOMElement(paywall);
-}
-
-else if (matchDomain('lanouvellerepublique.fr')) {
-  let alert_didacticiel = document.querySelector('div.alert-didacticiel');
-  let loading = document.querySelectorAll('span.loading');
-  removeDOMElement(alert_didacticiel, ...loading);
 }
 
 else if (matchDomain('lesechos.fr') && window.location.href.match(/-\d{6,}/)) {
@@ -939,6 +939,19 @@ else if (matchDomain('liberation.fr')) {
   let close_button = document.querySelector('.pw-action-close');
   if (close_button)
     close_button.click();
+}
+
+else if (matchDomain('loeildelaphotographie.com')) {
+  let paywall = document.querySelector('.paywall');
+  if (paywall) {
+    paywall.removeAttribute('class');
+  }
+  let premium_pic_boxes = document.querySelectorAll('.premium-pic-box');
+  let banners = document.querySelectorAll('.membership-promo-container, .login_form_litle');
+  removeDOMElement(...premium_pic_boxes, ...banners);
+  let blurred_images = document.querySelectorAll('img[style*="blur"]');
+  for (let blurred_image of blurred_images)
+    blurred_image.removeAttribute('style');
 }
 
 else if (matchDomain('nouvelobs.com')) {

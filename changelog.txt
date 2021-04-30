@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add Levante-EMV (Spain)
+Add L'Oeil de la Photographie (fr/en)
 Add The New Atlantis
 Update custom sites (optional: only permissions for added sites)
 
