@@ -120,20 +120,23 @@ _* free articles only._
 [The Wall Street Journal](https://www.wsj.com)
 
 ##### Tech/Science
+[360Dx](https://www.360dx.com) -
 [Chemical & Engineering News](https://cen.acs.org) -
 [Chronicle of Higher Education](https://www.chronicle.com) -
 [Dark Reading](https://www.darkreading.com) -
 [Discover Magazine](https://www.discovermagazine.com) -
+[GenomeWeb](https://www.genomeweb.com) -
 [MIT Technology Review](https://www.technologyreview.com) -
 [National Geographic USA](https://www.nationalgeographic.com) -
 [Nautilus](https://nautil.us) -
+[Precision Oncology News](https://www.precisiononcologynews.com) -
 [Scientific American](https://www.scientificamerican.com)* -
 [Times Higher Education](https://www.timeshighereducation.com) -
 [Towards Data Science](https://www.towardsdatascience.com) -
 [VentureBeat](https://venturebeat.com) -
 [Wired](https://www.wired.com)
 
-#### Encyclopedia/Book library/Knowledge base
+##### Encyclopedia/Book library/Knowledge base
 [BBC History Extra](https://www.historyextra.com) -
 [Encyclopedia Britannica](https://www.britannica.com) -
 [Glassdoor](https://www.glassdoor.com) -

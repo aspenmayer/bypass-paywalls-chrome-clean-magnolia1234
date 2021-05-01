@@ -1,5 +1,6 @@
 var defaultSites =
 {
+  "360Dx": "360dx.com",
   "ABC.es": "abc.es",
   "Adweek": "adweek.com",
   "Algemeen Dagblad (+ regional)": "###_nl_ad_region",
@@ -88,6 +89,7 @@ var defaultSites =
   "Gannett Group (local USA Today) (opt-in to custom sites)": "###_usa_gannett",
   "Gazet van Antwerpen": "gva.be",
   "GElocal.it": "gelocal.it",
+  "GenomeWeb": "genomeweb.com",
   "Gestión": "gestion.pe",
   "Glassdoor": "glassdoor.com",
   "Globes": "globes.co.il",
@@ -197,6 +199,7 @@ var defaultSites =
   "Piqd.de": "piqd.de",
   "Pittsburgh Post Gazette": "post-gazette.com",
   "Política Exterior": "politicaexterior.com",
+  "Precision Oncology News": "precisiononcologynews.com",
   "Prospect Magazine": "prospectmagazine.co.uk",
   "Rhein-Zeitung": "rhein-zeitung.de",
   "Quartz (free articles only)": "qz.com",

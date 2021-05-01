@@ -31,6 +31,7 @@
         "tabs",
         "webRequest",
         "webRequestBlocking",
+        "*://*.360dx.com/*",
         "*://*.abc.es/*",
         "*://*.abendblatt.de/*",
         "*://*.ad.nl/*",
@@ -160,6 +161,7 @@
         "*://*.geelongadvertiser.com.au/*",
         "*://*.gelderlander.nl/*",
         "*://*.gelocal.it/*",
+        "*://*.genomeweb.com/*",
         "*://*.gestion.pe/*",
         "*://*.gladstoneobserver.com.au/*",
         "*://*.glassdoor.com/*",
@@ -333,6 +335,7 @@
         "*://*.politicaexterior.com/*",
         "*://*.portnews.com.au/*",
         "*://*.post-gazette.com/*",
+        "*://*.precisiononcologynews.com/*",
         "*://*.prospectmagazine.co.uk/*",
         "*://*.pzc.nl/*",
         "*://*.qt.com.au/*",
@@ -493,5 +496,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.1.8.4"
+    "version": "2.1.8.5"
 }

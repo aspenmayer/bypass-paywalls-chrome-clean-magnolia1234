@@ -401,6 +401,7 @@ const au_nine_domains = ['brisbanetimes.com.au', 'smh.com.au', 'theage.com.au', 
 const es_epiberica_domains = ['diariodeibiza.es', 'diariodemallorca.es', 'farodevigo.es', 'laprovincia.es', 'levante-emv.com'];
 const it_repubblica_domains = ['gelocal.it', 'ilsecoloxix.it', 'lanuovasardegna.it', 'lastampa.it', 'limesonline.com', 'repubblica.it'];
 const nl_pg_domains = ['parool.nl', 'trouw.nl', 'volkskrant.nl', 'humo.be', 'demorgen.be'];
+const usa_genomeweb_domains = ['genomeweb.com', '360dx.com', 'precisiononcologynews.com'];
 
 const userAgentDesktopG = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
 const userAgentMobileG = "Chrome/80.0.3987.92 Mobile Safari/537.36 (compatible ; Googlebot/2.1 ; +http://www.google.com/bot.html)"
@@ -543,6 +544,10 @@ function add_grouped_sites(init_rules) {
     use_google_referer_default = use_google_referer.slice();
     use_twitter_referer_default = use_twitter_referer.slice();
     change_headers = use_google_bot.concat(use_bing_bot, use_facebook_referer, use_google_referer, use_twitter_referer, use_random_ip);
+    for (let domain of usa_genomeweb_domains) {
+      allow_cookies.push(domain);
+      blockedRegexes[domain] = /crain-platform-.+-prod\.s3\.amazonaws\.com\/s3fs-public\/js\/js_1B1NPD.+\.js/;
+    }
   }
 }
 
