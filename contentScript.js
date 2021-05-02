@@ -2149,8 +2149,26 @@ else if (matchDomain('stratfor.com')) {
 
 else if (matchDomain('techinasia.com')) {
   let paywall = document.querySelector('.paywall-content');
-  if (paywall)
+  if (paywall) {
     paywall.classList.remove('paywall-content');
+    let url = window.location.href;
+    let url_xhr = url.replace('.com/', '.com/wp-json/techinasia/2.0/posts/');
+    fetch(url_xhr)
+    .then(response => {
+      if (response.ok) {
+        response.json().then(json => {
+          let json_text = json.posts[0].content;
+          let content = document.querySelector('div.content');
+          if (json_text && content) {
+            let parser = new DOMParser();
+            let doc = parser.parseFromString('<div class="jsx-1794864983 content">' + json_text + '</div>', 'text/html');
+            let content_new = doc.querySelector('div.content');
+            content.parentNode.replaceChild(content_new, content);
+          }
+        });
+      }
+    });
+  }
   let splash_subscribe = document.querySelector('.splash-subscribe');
   let paywall_hard = document.querySelector('.paywall-hard');
   removeDOMElement(splash_subscribe, paywall_hard);

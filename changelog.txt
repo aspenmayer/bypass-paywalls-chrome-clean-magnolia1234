@@ -6,6 +6,7 @@ Add GenomeWeb, 360Dx & Precision Oncology News
 Add Levante-EMV (Spain)
 Add L'Oeil de la Photographie (fr/en)
 Add The New Atlantis
+Fix-update Tech in Asia (premium)
 Update custom sites (optional: only permissions for added sites)
 Update badge (notification: update & custom permissions)
 
