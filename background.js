@@ -723,6 +723,9 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
         }
       }
     }
+    if (key === 'version_new') {
+      version_new = storageChange.newValue;
+    }
     // reset disableJavascriptOnListedSites eventListener
     ext_api.webRequest.onBeforeRequest.removeListener(disableJavascriptOnListedSites);
     ext_api.webRequest.handlerBehaviorChanged();
@@ -1193,6 +1196,8 @@ function updateBadge(activeTab) {
       badgeText = 'OFF';
       color = 'blue';
     }
+    if (version_new)
+      badgeText = '^' + badgeText;
     let isDefaultSite = matchUrlDomain(defaultSites_domains, currentUrl);
     let isCustomSite = matchUrlDomain(customSites_domains, currentUrl);
     if (!isDefaultSite && isCustomSite) {
@@ -1200,7 +1205,7 @@ function updateBadge(activeTab) {
         origins: ['*://*.' + isCustomSite + '/*']
       }, function (result) {
         if (!result)
-          badgeText = '';
+          badgeText = enabledSites.includes(isCustomSite) ? 'C' : '';
         if (color && badgeText)
           ext_api.browserAction.setBadgeBackgroundColor({color: color});
         ext_api.browserAction.setBadgeText({text: badgeText});
@@ -1211,6 +1216,30 @@ function updateBadge(activeTab) {
       ext_api.browserAction.setBadgeText({text: badgeText});
     }
   }
+}
+
+var version_new;
+check_update();
+function check_update() {
+  var manifestData = ext_api.runtime.getManifest();
+  var manifest_new = 'https://bitbucket.org/magnolia1234/bypass-paywalls-firefox-clean/raw/master/manifest.json';
+  fetch(manifest_new)
+  .then(response => {
+    if (response.ok) {
+      response.json().then(json => {
+        ext_api.management.getSelf(function (result) {
+          var installType = result.installType;
+          var version_len = (installType === 'development') ? 7 : 5;
+          version_new = json['version'];
+          if (version_new.substring(0, version_len) <= manifestData.version.substring(0, version_len))
+            version_new = '';
+          ext_api.storage.local.set({
+            version_new: version_new
+          });
+        });
+      })
+    }
+  });
 }
 
 function site_switch() {

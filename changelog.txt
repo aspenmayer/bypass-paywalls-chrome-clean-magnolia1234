@@ -7,6 +7,7 @@ Add Levante-EMV (Spain)
 Add L'Oeil de la Photographie (fr/en)
 Add The New Atlantis
 Update custom sites (optional: only permissions for added sites)
+Update badge (notification: update & custom permissions)
 
 * v2.1.8.0 (2021-04-25)
 Add Il Giorno (Italy)

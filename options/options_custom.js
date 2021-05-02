@@ -203,7 +203,7 @@ function remove_permissions() {
     var perm_custom = document.getElementById('perm-custom');
     var custom_enabled = document.getElementById('custom-enabled');
     ext_api.permissions.remove({
-        origins: ["<all_urls>"]
+        origins: perm_origins
     }, function (removed) {
         if (removed) {
             perm_custom.innerText = 'NO';

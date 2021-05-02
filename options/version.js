@@ -20,6 +20,9 @@ fetch(manifest_new)
                 var version_len = (installType === 'development') ? 7 : 5;
                 var version_new = json['version'];
                 if (version_new.substring(0, version_len) > manifestData.version.substring(0, version_len)) {
+                    ext_api.storage.local.set({
+                        version_new: version_new
+                    });
                     anchorEl = document.createElement('a');
                     anchorEl.innerText = 'New release v' + version_new;
                     if (installType === 'development')
@@ -30,7 +33,7 @@ fetch(manifest_new)
                     versionString_new.appendChild(anchorEl);
                     if (!manifestData.name.includes('Clean')) {
                         let par = document.createElement('p');
-                        par.innerHTML = "You've installed a fake version of BPC (check GitLab)";
+                        par.innerHTML = "<strong>You've installed a fake version of BPC (check GitLab)</strong>";
                         versionString_new.appendChild(par);
                     }
                 }
