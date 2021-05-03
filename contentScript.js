@@ -1702,6 +1702,17 @@ else if (matchDomain('discovermagazine.com')) {
   }, 1000); // Delay (in milliseconds)
 }
 
+else if (matchDomain('economictimes.indiatimes.com')) {
+  let paywall = document.querySelector('section.prime_paywall');
+  if (paywall) {
+    removeDOMElement(paywall);
+    let content = document.querySelector('div.content1, div.artText');
+    let full_text = document.querySelector('div.paywall.p1');
+    if (content && full_text)
+      content.innerText = full_text.innerText;
+  }
+}
+
 else if (matchDomain('economist.com')) {
   document.addEventListener('DOMContentLoaded', () => {
     let subscribe = document.querySelector('.subscription-proposition');

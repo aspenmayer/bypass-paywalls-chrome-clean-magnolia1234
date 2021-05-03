@@ -245,6 +245,7 @@ var defaultSites =
   "The Dallas Morning News": "dallasnews.com",
   "The Denver Post": "denverpost.com",
   "The Diplomat": "thediplomat.com",
+  "The Economic Times (ET Prime)": "economictimes.indiatimes.com",
   "The Economist": "economist.com",
   "The Globe and Mail": "theglobeandmail.com",
   "The Hill Times": "hilltimes.com",
