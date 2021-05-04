@@ -205,6 +205,7 @@ var use_google_bot_default = [
   'di.se',
   'dn.se',
   'editorialedomani.it',
+  'elmercurio.com',
   'euobserver.com',
   'eurekareport.com.au',
   'finance.si',

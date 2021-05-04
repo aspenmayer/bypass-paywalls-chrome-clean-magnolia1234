@@ -371,7 +371,7 @@ else if (matchDomain('faz.net')) {
                 str = str.replace(/(?:^|[\w\"\“])(\.|\?|!)(?=[A-ZÖÜ\„][A-Za-zÀ-ÿ\„]{1,})/gm, "$&\n\n");
                 str = str.replace(/([a-z\"\“])(?=[A-Z](?=[A-Za-zÀ-ÿ]+))/gm, "$&\n\n");
                 // exceptions: names with alternating lower/uppercase (no general fix)
-                let str_rep_arr = ['BaFin', 'BerlHG', 'BfArM', 'BilMoG', 'DiGA', 'EuGH', 'eWpG', 'FinTechRat', 'GlaxoSmithKline', 'gGmbH', 'IfSG', 'iMessage', 'iOS', 'iPad', 'iPhone', 'medRxiv', 'mRNA', 'PlosOne', 'StVO'];
+                let str_rep_arr = ['BaFin', 'BerlHG', 'BfArM', 'BilMoG', 'DiGA', 'EuGH', 'eWpG', 'FinTechRat', 'GlaxoSmithKline', 'gGmbH', 'IfSG', 'iMessage', 'iOS', 'iPad', 'iPhone', 'iShares', 'medRxiv', 'mRNA', 'PlosOne', 'StVO'];
                 let str_rep_split,
                 str_rep_src;
                 for (let str_rep of str_rep_arr) {
@@ -1497,6 +1497,12 @@ else if (matchDomain('elmercurio.com')) {
     let elem_hidden = document.querySelectorAll('[style="visibility:hidden"]');
     for (let elem of elem_hidden)
       elem.removeAttribute('style');
+    let cont_articlelight = document.querySelector('div.cont_articlelight:not([style])');
+    if (cont_articlelight)
+      cont_articlelight.setAttribute('style', 'height: 100% !important; width: 90% !important');
+    let page_pdf_content = document.querySelector('div.page_pdf_content');
+    let close_html = document.querySelector('div.close_html');
+    removeDOMElement(page_pdf_content, close_html)
   }, 1000); // Delay (in milliseconds)
 }
 
@@ -1935,11 +1941,8 @@ else if (matchDomain('nationalgeographic.com')) {
       body.removeAttribute('style');
     }
   }
-  if (!div_bpc_done) {
-    let selector = 'div[id^="fittPortal"]';
-    waitDOMElement(selector, 'DIV', natgeo_func, false);
-    addDivBpcDone();
-  }
+  waitDOMElement('div[id^="fittPortal"]', 'DIV', natgeo_func, false);
+  csDone = true;
 }
 
 else if (matchDomain('nationalreview.com')) {

@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add The Economic Times (text/India)
+Fix-update El Mercurio (Chile)
 
 * v2.1.9.0 (2021-05-02)
 Add GenomeWeb, 360Dx & Precision Oncology News
