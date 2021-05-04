@@ -1559,9 +1559,13 @@ if (matchDomain('adweek.com')) {
 }
 
 else if (matchDomain('americanbanker.com')) {
-  let paywall = document.querySelector('.embargo-content');
-  if (paywall)
-    paywall.classList.remove('embargo-content');
+  let inline_gate = document.querySelector('.inline-gate');
+  if (inline_gate) {
+    inline_gate.classList.remove('inline-gate');
+    let inline_gated = document.querySelectorAll('.inline-gated');
+    for (let elem of inline_gated)
+      elem.classList.remove('inline-gated');
+  }
 }
 
 else if (matchDomain('americanaffairsjournal.org')) {
