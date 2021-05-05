@@ -5,6 +5,7 @@ Post-release
 Add The Economic Times (text/India)
 Fix-update American Banker
 Fix-update El Mercurio (Chile)
+Fix-update Reuters
 
 * v2.1.9.0 (2021-05-02)
 Add GenomeWeb, 360Dx & Precision Oncology News

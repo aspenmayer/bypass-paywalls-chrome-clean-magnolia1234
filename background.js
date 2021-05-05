@@ -361,7 +361,7 @@ var blockedRegexes = {
   'observador.pt': /\.tinypass\.com\//,
   'parismatch.com': /\.poool\.fr\//,
   'quotidiano.net': /\.tinypass\.com\//,
-  'reuters.com': /\.reuters\.com\/arc\/subs\/p\.min\.js/,
+  'reuters.com': /\.reuters\.com\/(arc\/subs\/p\.min|pf\/resources\/dist\/reuters\/js\/index)\.js/,
   'rollingstone.com': /cdn\.cxense\.com\//,
   'ruhrnachrichten.de': /\.tinypass\.com\//,
   'saechsische.de': /\.tinypass\.com\//,
