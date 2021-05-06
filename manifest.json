@@ -435,6 +435,7 @@
         "*://*.tri-cityherald.com/*",
         "*://*.trouw.nl/*",
         "*://*.tubantia.nl/*",
+        "*://*.usatoday.com/*",
         "*://*.usinenouvelle.com/*",
         "*://*.uusisuomi.fi/*",
         "*://*.valeursactuelles.com/*",
@@ -484,6 +485,7 @@
         "*://*.epimg.net/*",
         "*://*.flip-pay.com/*",
         "*://*.ffx.io/*",
+        "*://*.gannett-cdn.com/*",
         "*://*.htmedia.in/*",
         "*://*.jsdelivr.net/*",
         "*://*.lightboxcdn.com/*",
@@ -497,5 +499,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.1.9.4"
+    "version": "2.1.9.5"
 }

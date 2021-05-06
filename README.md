@@ -187,7 +187,9 @@ _* free articles only._
 [The Mercury News](https://www.mercurynews.com) -
 [The Seattle Times](https://www.seattletimes.com) -
 [The Philadelphia Inquirer](https://www.inquirer.com) -
-[Winston-Salem Journal](https://www.journalnow.com)\
+[Winston-Salem Journal](https://www.journalnow.com)
+
+[USA Today](https://www.usatoday.com)\
 Grouped in options:\
 Gannett Group (local USA Today) sites like (opt-in to custom sites)
 [Detroit Free Press](https://www.freep.com) -

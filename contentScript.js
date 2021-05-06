@@ -368,10 +368,10 @@ else if (matchDomain('faz.net')) {
               article_text.innerText = '';
 
               const breakText = (str) => {
-                str = str.replace(/(?:^|[\w\"\“])(\.|\?|!)(?=[A-ZÖÜ\„][A-Za-zÀ-ÿ\„]{1,})/gm, "$&\n\n");
-                str = str.replace(/([a-z\"\“])(?=[A-Z](?=[A-Za-zÀ-ÿ]+))/gm, "$&\n\n");
+                str = str.replace(/(?:^|[A-Za-z\"\“])(\.|\?|!)(?=[A-ZÖÜ\„\d][A-Za-zÀ-ÿ\„\d]{1,})/gm, "$&\n\n");
+                str = str.replace(/(([a-z]{2,}|[\"\“]))(?=[A-Z](?=[A-Za-zÀ-ÿ]+))/gm, "$&\n\n");
                 // exceptions: names with alternating lower/uppercase (no general fix)
-                let str_rep_arr = ['BaFin', 'BerlHG', 'BfArM', 'BilMoG', 'DiGA', 'EuGH', 'eWpG', 'FinTechRat', 'GlaxoSmithKline', 'gGmbH', 'IfSG', 'iMessage', 'iOS', 'iPad', 'iPhone', 'iShares', 'medRxiv', 'mRNA', 'PlosOne', 'StVO'];
+                let str_rep_arr = ['AstraZeneca', 'BaFin', 'BerlHG', 'BfArM', 'BilMoG', 'DiGA', 'EuGH', 'FinTechRat', 'GlaxoSmithKline', 'IfSG', 'medRxiv', 'PlosOne', 'StVO'];
                 let str_rep_split,
                 str_rep_src;
                 for (let str_rep of str_rep_arr) {
@@ -2292,6 +2292,21 @@ else if (matchDomain('timeshighereducation.com')) {
     let paywall_fade = document.querySelector('div.paywall-fade');
     if (paywall_fade)
       paywall_fade.classList.remove('paywall-fade');
+  }
+}
+
+else if (matchDomain('usatoday.com')) {
+  let roadblock = document.querySelector('.roadblock-container');
+  if (roadblock) {
+    removeDOMElement(roadblock);
+    article_next = document.querySelector('article.next-in-depth-story > div.article-inner');
+    if (article_next) {
+      let url = article_next.getAttribute('data-url');
+      let weblink = document.createElement('a');
+      weblink.href = url;
+      weblink.innerText = 'open next in-depth story';
+      article_next.appendChild(weblink);
+    }
   }
 }
 

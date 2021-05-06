@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add The Economic Times (text/India)
+Add USA Today
 Fix-update American Banker
 Fix-update El Mercurio (Chile)
 Fix-update Reuters

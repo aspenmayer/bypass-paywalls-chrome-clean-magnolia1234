@@ -284,6 +284,7 @@ var defaultSites =
   "Towards Data Science": "towardsdatascience.com",
   "Tribune Publishing Company": "###_usa_tribune",
   "Trouw": "trouw.nl",
+  "USA Today": "usatoday.com",
   "Valeurs Actuelles": "valeursactuelles.com",
   "Vanity Fair": "vanityfair.com",
   "Variety": "variety.com",

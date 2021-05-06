@@ -201,16 +201,11 @@ function request_permissions() {
 // remove permissions for custom sites
 function remove_permissions() {
     var perm_custom = document.getElementById('perm-custom');
-    var custom_enabled = document.getElementById('custom-enabled');
     ext_api.permissions.remove({
         origins: perm_origins
     }, function (removed) {
         if (removed) {
             perm_custom.innerText = 'NO';
-            custom_enabled.innerText = 'NO';
-            ext_api.storage.local.set({
-                "customOptIn": false
-            });
         }
     });
 }
