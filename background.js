@@ -36,6 +36,7 @@ const restrictions = {
 var allow_cookies_default = [
   'abc.es',
   'apollo-magazine.com',
+  'asiatimes.com',
   'atlantico.fr',
   'augsburger-allgemeine.de',
   'belfasttelegraph.co.uk',
@@ -267,6 +268,7 @@ var blockedRegexes = {
   'afr.com': /afr\.com\/assets\/vendorsReactRedux_client.+\.js/,
   'alternatives-economiques.fr': /\.poool\.fr\//,
   'americanbanker.com': /\.tinypass\.com\//,
+  'asiatimes.com': /cdn\.ampproject\.org\/v\d\/amp-(access|ad|analytics)-.+\.(m)?js/,
   'atlantico.fr': /\.poool\.fr\//,
   'barrons.com': /(cdn\.cxense\.com\/.+|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js)/,
   'belfasttelegraph.co.uk': /(cdn\.flip-pay\.com\/clients\/inm\/flip-pay\.js|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js)/,
@@ -1032,7 +1034,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
     let usa_today_site = (matchUrlDomain('gannett-cdn.com', details.url) && matchUrlDomain(['usatoday.com'], header_referer));
     allow_ext_source = allow_ext_source || inkl_site || cl_elmerc_site || es_elesp_site || it_repubblica_site || uk_nlr_site || usa_discmag_site || usa_mw_site || usa_today_site;
 
-    bpc_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain(['augsburger-allgemeine.de', 'barrons.com', 'belfasttelegraph.co.uk', 'cicero.de', 'cmjornal.pt', 'elmundo.es', 'elpais.com', 'elperiodico.com', 'expansion.com', 'freiepresse.de', 'independent.ie', 'irishtimes.com', 'la-croix.com', 'lne.es', 'marketwatch.com', 'nationalreview.com', 'noz.de', 'nwzonline.de', 'seekingalpha.com', 'shz.de', 'sueddeutsche.de', 'svz.de', 'telegraph.co.uk'].concat(au_news_corp_domains, au_nine_domains, de_madsack_domains, es_epiberica_domains, es_grupo_vocento_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, it_repubblica_domains, usa_mcc_domains, usa_theathletic_domains), header_referer));
+    bpc_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain(['asiatimes.com', 'augsburger-allgemeine.de', 'barrons.com', 'belfasttelegraph.co.uk', 'cicero.de', 'cmjornal.pt', 'elmundo.es', 'elpais.com', 'elperiodico.com', 'expansion.com', 'freiepresse.de', 'independent.ie', 'irishtimes.com', 'la-croix.com', 'lne.es', 'marketwatch.com', 'nationalreview.com', 'noz.de', 'nwzonline.de', 'seekingalpha.com', 'shz.de', 'sueddeutsche.de', 'svz.de', 'telegraph.co.uk'].concat(au_news_corp_domains, au_nine_domains, de_madsack_domains, es_epiberica_domains, es_grupo_vocento_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, it_repubblica_domains, usa_mcc_domains, usa_theathletic_domains), header_referer));
   }
 
   if (!isSiteEnabled(details) &&  !allow_ext_source && !bpc_amp_site && !au_apn_site && !au_swm_site) {

@@ -10,6 +10,7 @@ var defaultSites =
   "American Affairs": "americanaffairsjournal.org",
   "American Banker": "americanbanker.com",
   "Apollo Magazine": "apollo-magazine.com",
+  "Asia Times": "asiatimes.com",
   "Atavist Magazine": "atavist.com",
   "Atlantico.fr": "atlantico.fr",
   "Augsburger Allgemeine": "augsburger-allgemeine.de",

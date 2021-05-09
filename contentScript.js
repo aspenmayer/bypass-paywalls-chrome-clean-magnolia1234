@@ -1578,6 +1578,16 @@ else if (matchDomain('asia.nikkei.com')) {
   removeDOMElement(popup);
 }
 
+else if (matchDomain('asiatimes.com')) {
+  let paywall = document.querySelector('div[amp-access="NOT story.ordered"]');
+  removeDOMElement(paywall);
+  let div_hidden = document.querySelector('div[amp-access="story.ordered"][amp-access-hide]');
+  if (div_hidden)
+    div_hidden.removeAttribute('amp-access-hide');
+  let adverts = document.querySelectorAll('amp-ad, amp-consent, amp-embed');
+  removeDOMElement(...adverts);
+}
+
 else if (matchDomain('barrons.com')) {
   document.addEventListener('DOMContentLoaded', () => {
     let body_continuous = document.querySelector('body.is-continuous');

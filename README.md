@@ -545,6 +545,7 @@ Grupo Vocento (ABC) regional sites like
 * opt-in to custom sites for unlisted
 
 #### East Asia
+[Asia Times](https://asiatimes.com) -
 [Caixin Global](https://www.caixinglobal.com) -
 [CommonWealth Magazine Taiwan](https://www.cw.com.tw) -
 [Harvard Business Review Taiwan](https://www.hbrtaiwan.com) -
