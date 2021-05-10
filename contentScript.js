@@ -2096,6 +2096,15 @@ else if (matchDomain('republic.ru')) {
   removeDOMElement(paywall);
 }
 
+else if (matchDomain('scmp.com') && window.location.href.includes('/amp.')) {
+  let div_hidden_all = document.querySelectorAll('div.article-body[amp-access][amp-access-hide]');
+  for (let div_hidden of div_hidden_all)
+    div_hidden.removeAttribute('amp-access-hide');
+  let default_meters = document.querySelectorAll('div.default-meter, div#archive-article-meter');
+  let adverts = document.querySelectorAll('amp-ad, div.ad-banner, div.advert-fly-carpet-container, div.inline-advert');
+  removeDOMElement(...default_meters, ...adverts);
+}
+
 else if (matchDomain('scribd.com')) {
   let blurred_pages = document.querySelectorAll('.blurred_page');
   for (let blurred_page of blurred_pages) {
