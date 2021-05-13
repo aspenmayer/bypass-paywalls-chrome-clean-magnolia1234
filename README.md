@@ -562,7 +562,8 @@ Grupo Vocento (ABC) regional sites like
 [LiveMint](https://www.livemint.com) -
 [The Economic Times (ET Prime)](https://economictimes.indiatimes.com) -
 [The Hindu](https://www.thehindu.com) -
-[The Hindu BusinessLine](https://www.thehindubusinessline.com)
+[The Hindu BusinessLine](https://www.thehindubusinessline.com) -
+[Times of India](https://timesofindia.indiatimes.com)
 
 #### Israel
 [Globes](https://www.globes.co.il) -

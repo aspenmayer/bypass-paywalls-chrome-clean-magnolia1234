@@ -282,6 +282,7 @@ var defaultSites =
   "The West Australian (+ regional)": "thewest.com.au",
   "Time Magazine": "time.com",
   "Times Higher Education": "timeshighereducation.com",
+  "Times of India": "###_timesofindia",
   "Towards Data Science": "towardsdatascience.com",
   "Tribune Publishing Company": "###_usa_tribune",
   "Trouw": "trouw.nl",
@@ -330,10 +331,11 @@ const fr_groupe_ebra_domains = ['bienpublic.com', 'dna.fr', 'estrepublicain.fr',
 const fr_groupe_la_depeche_domains = ['centrepresseaveyron.fr', 'ladepeche.fr', 'lindependant.fr', 'midi-olympique.fr', 'midilibre.fr', 'nrpyrenees.fr', 'petitbleu.fr'];
 const it_ilmessaggero_domains = ['corriereadriatico.it', 'ilgazzettino.it', 'ilmattino.it', 'ilmessaggero.it', 'quotidianodipuglia.it'];
 const nl_ad_region_domains = ['ad.nl', 'bd.nl', 'ed.nl', 'tubantia.nl', 'bndestem.nl', 'pzc.nl', 'destentor.nl', 'gelderlander.nl'];
+const timesofindia_domains = ['timesofindia.com', 'timesofindia.indiatimes.com'];
 const usa_mcc_domains = ['bnd.com', 'charlotteobserver.com', 'fresnobee.com', 'kansas.com', 'kansascity.com', 'kentucky.com', 'newsobserver.com', 'sacbee.com', 'star-telegram.com', 'thestate.com', 'tri-cityherald.com'];
 const usa_nymag_domains = ['curbed.com', 'grubstreet.com', 'nymag.com', 'thecut.com', 'vulture.com'];
 const usa_tribune_domains = ['baltimoresun.com', 'chicagotribune.com', 'courant.com', 'dailypress.com', 'mcall.com', 'nydailynews.com', 'orlandosentinel.com', 'pilotonline.com', 'sun-sentinel.com'];
 const usa_theathletic_domains = ['theathletic.com', 'theathletic.co.uk'];
 
 var defaultSites_grouped_domains = Object.values(defaultSites);
-var defaultSites_domains = defaultSites_grouped_domains.concat(au_comm_media_domains, au_news_corp_domains, au_prov_news_domains, ca_torstar_domains, de_funke_media_domains, de_madsack_domains, es_grupo_vocento_domains, fi_alma_talent_domains, fr_be_groupe_rossel_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, it_ilmessaggero_domains, nl_ad_region_domains, usa_mcc_domains, usa_nymag_domains, usa_tribune_domains, usa_theathletic_domains);
+var defaultSites_domains = defaultSites_grouped_domains.concat(au_comm_media_domains, au_news_corp_domains, au_prov_news_domains, ca_torstar_domains, de_funke_media_domains, de_madsack_domains, es_grupo_vocento_domains, fi_alma_talent_domains, fr_be_groupe_rossel_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, it_ilmessaggero_domains, nl_ad_region_domains, timesofindia_domains, usa_mcc_domains, usa_nymag_domains, usa_tribune_domains, usa_theathletic_domains);

@@ -446,6 +446,7 @@ var grouped_sites = {
 '###_fr_groupe_la_depeche': fr_groupe_la_depeche_domains,
 '###_it_ilmessaggero': it_ilmessaggero_domains,
 '###_nl_ad_region': nl_ad_region_domains,
+'###_timesofindia': timesofindia_domains,
 '###_usa_mcc': usa_mcc_domains,
 '###_usa_nymag': usa_nymag_domains,
 '###_usa_tribune': usa_tribune_domains,
@@ -522,6 +523,14 @@ function add_grouped_sites(init_rules) {
       blockedRegexes[domain] = /utils\.cedsdigital\.it\/js\/PaywallMeter\.js/;
     for (let domain of nl_ad_region_domains)
       remove_cookies_select_drop[domain] = ['temptationTrackingId'];
+    for (let domain of timesofindia_domains) {
+      allow_cookies.push(domain);
+      use_google_bot.push(domain);
+      if (domain === 'timesofindia.com')
+        blockedRegexes[domain] = /\.timesofindia\.com\/jsrender\.cms/;
+      else
+        blockedRegexes[domain] = /timesofindia\.indiatimes\.com\/jsrender\/version-1\.cms/;
+    }
     for (let domain of usa_mcc_domains)
       blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/;
     for (let domain of usa_tribune_domains) {

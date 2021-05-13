@@ -429,6 +429,8 @@
         "*://*.tijd.be/*",
         "*://*.time.com/*",
         "*://*.timeshighereducation.com/*",
+        "*://*.timesofindia.com/*",
+        "*://*.timesofindia.indiatimes.com/*",
         "*://*.tivi.fi/*",
         "*://*.tlz.de/*",
         "*://*.towardsdatascience.com/*",
@@ -500,5 +502,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.2.0.3"
+    "version": "2.2.0.4"
 }
