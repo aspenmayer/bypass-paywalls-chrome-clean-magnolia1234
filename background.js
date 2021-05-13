@@ -279,7 +279,7 @@ var blockedRegexes = {
   'businessinsider.com': /\.tinypass\.com\//,
   'challenges.fr': /\.poool\.fr\//,
   'charliehebdo.fr': /\.poool\.fr\//,
-  'chicagobusiness.com': /(\.tinypass\.com\/|\.chicagobusiness\.com\/.+\/js\/js_-gfDCW.+\.js)/,
+  'chicagobusiness.com': /(\.tinypass\.com\/|\.chicagobusiness\.com\/.+\/js\/js_-.+\.js)/,
   'chronicle.com': /(\.blueconic\.net\/|\.chronicle\.com\/(common\/)?(che-auth0-user|script)\.js)/,
   'clarin.com': /js\.matheranalytics\.com\//,
   'cmjornal.pt': /cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad)-.+\.js/,
