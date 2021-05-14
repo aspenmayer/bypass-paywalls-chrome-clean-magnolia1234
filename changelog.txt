@@ -5,6 +5,7 @@ Post-release
 Add Las Provincias (Spain)
 Add Times of India
 Fix-update Crain's Chicago Business
+Fix-update Knack.be
 Fix-update LeScienze.it
 Fix-update South China Morning Post (amp)
 

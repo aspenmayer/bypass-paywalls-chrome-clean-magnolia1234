@@ -1215,15 +1215,17 @@ else if (matchDomain('gva.be')) {
 
 else if (matchDomain('knack.be')) {
   let paywall = document.querySelector('.rmgPaywall');
-  removeDOMElement(paywall);
-  let hidden_body = document.querySelector('div.rmgDetail-body div');
-  if (hidden_body) {
-    hidden_body.removeAttribute('class');
-    let body_text = hidden_body.innerText.replace(/(?:^|[\w\"\'])(\.|\?|!)(?=[A-Za-zÀ-ÿ\"\']{2,})/gm, "$&\n\n");
-    hidden_body.innerText = body_text;
-    let intro_par = document.querySelector('div.rmgDetail-body p');
-    if (intro_par && intro_par.innerText.length > 200)
-      removeDOMElement(intro_par);
+  if (paywall) {
+    removeDOMElement(paywall);
+    let hidden_body = document.querySelector('div.rmgDetail-body div');
+    if (hidden_body) {
+      hidden_body.removeAttribute('class');
+      let body_text = hidden_body.innerText.replace(/(?:^|[\w\"\'])(\.|\?|!)(?=[A-Za-zÀ-ÿ\"\']{2,})/gm, "$&\n\n");
+      hidden_body.innerText = body_text;
+      let intro_par = document.querySelector('div.rmgDetail-body p');
+      if (intro_par && intro_par.innerText.length > 200)
+        removeDOMElement(intro_par);
+    }
   }
 }
 
