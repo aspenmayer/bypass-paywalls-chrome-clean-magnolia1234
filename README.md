@@ -463,6 +463,7 @@ Grupo Vocento (ABC) regional sites like
 [La Rioja](https://www.larioja.com) -
 [La Verdad](https://www.laverdad.es) -
 [La Voz de Cádiz](https://www.lavozdigital.es) -
+[Las Provincias](https://www.lasprovincias.es) -
 [Sur](https://www.diariosur.es)
 
 ##### Sweden
