@@ -1070,7 +1070,9 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   var useUserAgentMobile = false;
   var setReferer = false;
 
-if (matchUrlDomain(change_headers, details.url) && (['main_frame', 'sub_frame', 'xmlhttprequest'].includes(details.type) || matchUrlDomain(['thetimes.co.uk'], details.url)) && !(matchUrlDomain(['wsj.com'], details.url) && enabledSites.includes('#options_disable_gb_wsj'))){
+if (matchUrlDomain(change_headers, details.url) && (['main_frame', 'sub_frame', 'xmlhttprequest'].includes(details.type) || matchUrlDomain(['thetimes.co.uk'], details.url)) && 
+  !(matchUrlDomain(['barrons.com'], details.url) && enabledSites.includes('#options_disable_gb_barrons')) &&
+  !(matchUrlDomain(['wsj.com'], details.url) && enabledSites.includes('#options_disable_gb_wsj'))) {
   // if referer exists, set it to google
   requestHeaders = requestHeaders.map(function (requestHeader) {
     if (requestHeader.name === 'Referer') {

@@ -315,6 +315,7 @@ var defaultSites =
   "* BPC settings": "###",
   "Show options on update": "#options_on_update",
   "Restore opt-in for custom sites (on reload; Chrome-only)": "#options_restore_custom",
+  "Barron's - no Googlebot (http error 500)": "#options_disable_gb_barrons",
   "The Wall Street Journal - no Googlebot (http error 500)": "#options_disable_gb_wsj"
 }
 

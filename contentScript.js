@@ -1610,6 +1610,8 @@ else if (matchDomain('barrons.com')) {
         signin_link.text = 'Click';
       }
     }
+    let barrons_ads = document.querySelectorAll('.barrons-body-ad-placement');
+    removeDOMElement(...barrons_ads);
   } else {
     let wsj_ads = document.querySelectorAll('.wsj-ad');
     removeDOMElement(...wsj_ads);
