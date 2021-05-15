@@ -562,7 +562,7 @@ function add_grouped_sites(init_rules) {
     change_headers = use_google_bot.concat(use_bing_bot, use_facebook_referer, use_google_referer, use_twitter_referer, use_random_ip);
     for (let domain of usa_genomeweb_domains) {
       allow_cookies.push(domain);
-      blockedRegexes[domain] = /crain-platform-.+-prod\.s3\.amazonaws\.com\/s3fs-public\/js\/js_1B1NPD.+\.js/;
+      blockedRegexes[domain] = /crain-platform-.+-prod\.s3\.amazonaws\.com\/s3fs-public\/js\/js_.+\.js/;
     }
   }
 }

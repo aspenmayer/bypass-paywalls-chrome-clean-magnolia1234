@@ -6,6 +6,7 @@ Add Las Provincias (Spain)
 Add Times of India
 Fix-update Barron's (option to disable Googlebot; http error 500)
 Fix-update Crain's Chicago Business
+Fix-update GenomeWeb sites
 Fix-update Knack.be
 Fix-update LeScienze.it
 Fix-update South China Morning Post (amp)
