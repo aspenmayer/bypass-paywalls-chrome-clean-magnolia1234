@@ -9,6 +9,7 @@ Fix-update Crain's Chicago Business
 Fix-update GenomeWeb sites
 Fix-update Knack.be
 Fix-update LeScienze.it
+Fix-update Repubblica.it
 Fix-update South China Morning Post (amp)
 
 * v2.2.0.0 (2021-05-09)
