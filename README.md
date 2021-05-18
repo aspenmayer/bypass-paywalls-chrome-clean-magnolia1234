@@ -561,6 +561,7 @@ Grupo Vocento (ABC) regional sites like
 [Bloomberg Quint](https://www.bloombergquint.com)* -
 [Business Standard](https://www.business-standard.com) -
 [LiveMint](https://www.livemint.com) -
+[MediaNama](https://www.medianama.com) -
 [The Economic Times (ET Prime)](https://economictimes.indiatimes.com) -
 [The Hindu](https://www.thehindu.com) -
 [The Hindu BusinessLine](https://www.thehindubusinessline.com) -

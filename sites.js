@@ -163,6 +163,7 @@ var defaultSites =
   "Madsack Mediengruppe (Germany)": "###_de_madsack",
   "MarketWatch": "marketwatch.com",
   "McClatchy Group": "###_usa_mcc",
+  "MediaNama": "medianama.com",
   "Medium": "medium.com",
   "Medium custom domains": "###_medium_custom",
   "Mexico News Daily": "mexiconewsdaily.com",

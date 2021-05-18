@@ -21,9 +21,11 @@ const restrictions = {
   'elpais.com': /(\/elpais\.com\/$|\/(.+\.)?elpais\.com\/.+\.html)/,
   'faz.net': /^((?!\/.+\.faz\.net\/aktuell\/(\?switchfaznet)?$).)*$/,
   'foreignaffairs.com': /.+\.foreignaffairs\.com\/(articles|fa-caching|interviews|reviews|sites)\/.+/,
-  'ft.com': /.+\.ft.com\/content\//,
+  'ft.com': /.+\.ft\.com\/content\//,
   'gestion.pe': /.+\/gestion\.pe\/.+((\w)+(\-)+){3,}.+/,
   'globo.com': /^((?!\/valor\.globo\.com\/).)*$/,
+  'medianama.com': /\.medianama\.com\/(\d){4}\/(\d){2}\//,
+  'timesofindia.com': /.+\.timesofindia\.com\/(toi-plus(\/.+)?|.+\.cms)/,
   'nknews.org': /^((?!nknews\.org\/pro\/).)*$/,
   'quora.com': /^((?!quora\.com\/search\?q=).)*$/,
   'seekingalpha.com': /.+\/seekingalpha\.com\/($|(amp\/)?(article|news)\/|samw\/)/,
@@ -104,6 +106,7 @@ var allow_cookies_default = [
   'loeildelaphotographie.com',
   'lrb.co.uk',
   'marketwatch.com',
+  'medianama.com',
   'medium.com',
   'modernhealthcare.com',
   'mz-web.de',
@@ -279,7 +282,7 @@ var blockedRegexes = {
   'businessinsider.com': /\.tinypass\.com\//,
   'challenges.fr': /\.poool\.fr\//,
   'charliehebdo.fr': /\.poool\.fr\//,
-  'chicagobusiness.com': /(\.tinypass\.com\/|\.chicagobusiness\.com\/.+\/js\/js_-.+\.js)/,
+  'chicagobusiness.com': /(\.tinypass\.com\/|\.chicagobusiness\.com\/.+\/js\/js_.+\.js)/,
   'chronicle.com': /(\.blueconic\.net\/|\.chronicle\.com\/(common\/)?(che-auth0-user|script)\.js)/,
   'clarin.com': /js\.matheranalytics\.com\//,
   'cmjornal.pt': /cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad)-.+\.js/,
@@ -869,7 +872,8 @@ ext_api.webRequest.onHeadersReceived.addListener(function (details) {
 },
   ['blocking', 'responseHeaders']);
 
-// elviajero|retina|verne.elpais.com block inline script
+// block inline script
+var block_js_inline = ["*://elviajero.elpais.com/*", "*://retina.elpais.com/*", "*://verne.elpais.com/*", "*://*.medianama.com/*"]
 ext_api.webRequest.onHeadersReceived.addListener(function (details) {
   if (!isSiteEnabled(details)) {
     return;
@@ -884,7 +888,7 @@ ext_api.webRequest.onHeadersReceived.addListener(function (details) {
   };
 }, {
   'types': ['main_frame', 'sub_frame'],
-  'urls': ["*://elviajero.elpais.com/*", "*://retina.elpais.com/*", "*://verne.elpais.com/*"]
+  'urls': block_js_inline
 },
   ['blocking', 'responseHeaders']);
 

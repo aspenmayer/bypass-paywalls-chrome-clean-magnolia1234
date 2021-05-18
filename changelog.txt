@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Add MediaNama (India)
 
 * v2.2.1.0 (2021-05-16)
 Add Las Provincias (Spain)

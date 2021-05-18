@@ -1722,6 +1722,12 @@ else if (matchDomain('cen.acs.org')) {
   });
 }
 
+else if (matchDomain('chicagobusiness.com')) {
+  let body_hidden = document.querySelector('body[class]');
+  if (body_hidden)
+    body_hidden.removeAttribute('class');
+}
+
 else if (matchDomain('discovermagazine.com')) {
   window.setTimeout(function () {
     let mammoth = document.querySelector('.iXVGnF');
