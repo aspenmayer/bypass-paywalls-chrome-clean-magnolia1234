@@ -6,7 +6,7 @@ var csDone = false;
 var ca_torstar_domains = ['niagarafallsreview.ca', 'stcatharinesstandard.ca', 'thepeterboroughexaminer.com', 'therecord.com', 'thespec.com', 'thestar.com', 'wellandtribune.ca'];
 var de_funke_media_domains = ['abendblatt.de', 'braunschweiger-zeitung.de', 'morgenpost.de', 'nrz.de', 'otz.de', 'thueringer-allgemeine.de', 'tlz.de', 'waz.de', 'wp.de', 'wr.de'];
 var de_madsack_domains = ['haz.de', 'kn-online.de', 'ln-online.de', 'lvz.de', 'maz-online.de', 'neuepresse.de', 'ostsee-zeitung.de'];
-var es_epiberica_domains = ['diariodeibiza.es', 'diariodemallorca.es', 'farodevigo.es', 'laprovincia.es', 'levante-emv.com'];
+var es_epiberica_domains = ['diariodeibiza.es', 'diariodemallorca.es', 'farodevigo.es', 'laprovincia.es', 'levante-emv.com', 'lne.es'];
 var es_grupo_vocento_domains = ['diariosur.es', 'diariovasco.com', 'elcomercio.es', 'elcorreo.com', 'eldiariomontanes.es', 'elnortedecastilla.es', 'hoy.es', 'ideal.es', 'larioja.com', 'lasprovincias.es', 'laverdad.es', 'lavozdigital.es'];
 var fr_groupe_ebra_domains = ['bienpublic.com', 'dna.fr', 'estrepublicain.fr', 'lalsace.fr', 'ledauphine.com', 'lejsl.com', 'leprogres.fr', 'republicain-lorrain.fr', 'vosgesmatin.fr'];
 var fr_groupe_la_depeche_domains = ['centrepresseaveyron.fr', 'ladepeche.fr', 'lindependant.fr', 'midi-olympique.fr', 'midilibre.fr', 'nrpyrenees.fr', 'petitbleu.fr'];
@@ -688,21 +688,23 @@ else if (matchDomain(es_grupo_vocento_domains)) {
 }
 
 else if (matchDomain(es_epiberica_domains)) {
+  let truncated = document.querySelector('div.article-body--truncated');
+  if (truncated)
+    truncated.classList.remove('article-body--truncated');
+  window.setTimeout(function () {
+    let paywall = document.querySelector('div.paywall');
+    removeDOMElement(paywall);
+  }, 500); // Delay (in milliseconds)
   if (window.location.href.includes('.amp.html')) {
-    let div_hidden = document.querySelectorAll('div[amp-access="access"]');
+    let div_access = document.querySelector('div[amp-access="access"]');
+    removeDOMElement(div_access);
+    let div_hidden = document.querySelectorAll('div[amp-access="NOT access"][amp-access-hide], div[amp-access="FALSE"][amp-access-hide]');
     for (let elem of div_hidden)
       elem.removeAttribute('amp-access-hide');
   } else {
-    let truncated = document.querySelector('div.article-body--truncated');
-    if (truncated)
-      truncated.classList.remove('article-body--truncated');
     let div_hidden = document.querySelector('div.baldomero');
     if (div_hidden)
       div_hidden.classList.remove('baldomero');
-    window.setTimeout(function () {
-      let paywall = document.querySelector('div.paywall');
-      removeDOMElement(paywall);
-    }, 500); // Delay (in milliseconds)
   }
 }
 
@@ -710,23 +712,6 @@ else if (matchDomain('lavanguardia.com')) {
   let paywall = document.querySelector('[class*="ev-open-modal-paywall"]');
   let infinite_loading = document.querySelector('#infinite-loading');
   removeDOMElement(paywall, infinite_loading);
-}
-
-else if (matchDomain('lne.es')) {
-  let premium = document.querySelector('body.premium');
-  let url = window.location.href;
-  if (!url.includes('.amp.html')) {
-    if (premium) {
-      window.location.href = url.replace('.html', '.amp.html');
-      premium.classList.remove('premium');
-    }
-  } else {
-    let section_hidden = document.querySelectorAll('div[amp-access="access"]');
-    for (let elem of section_hidden)
-      elem.removeAttribute('amp-access-hide');
-    let not_subscriber = document.querySelector('div[amp-access="NOT access"]');
-    removeDOMElement(not_subscriber);
-  }
 }
 
 else if (matchDomain('observador.pt')) {
@@ -1071,7 +1056,7 @@ else if (domain = matchDomain(it_repubblica_domains)) {
       if (['lastampa.it', 'repubblica.it'].includes(domain)) {
         let amphtml = document.querySelector('link[rel="amphtml"]');
         if (!amphtml)
-          amphtml = {href: url.split('?')[0] + 'amp'};
+          amphtml = {href: (url.split('?')[0] + '/amp').replace('//amp', '/amp')};
         if (amphtml)
           window.location.href = amphtml.href;
       } else {
@@ -1480,12 +1465,11 @@ else if (matchDomain(['theathletic.com', 'theathletic.co.uk'])) {
   }
 }
 
-
 else if (matchDomain('thetimes.co.uk')) {
   let block = document.querySelector('.subscription-block');
-  let ad_block = document.getElementById('ad-article-inline')
-    let ad_header = document.getElementById('sticky-ad-header')
-    removeDOMElement(block, ad_block, ad_header);
+  let ad_block = document.getElementById('ad-article-inline');
+  let ad_header = document.getElementById('sticky-ad-header');
+  removeDOMElement(block, ad_block, ad_header);
 }
 
 else if (!matchDomain(['belfasttelegraph.co.uk', 'independent.ie']))
