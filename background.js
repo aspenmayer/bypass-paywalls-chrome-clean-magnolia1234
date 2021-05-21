@@ -16,6 +16,7 @@ const restrictions = {
   'adweek.com': /^((?!\.adweek\.com\/(.+\/)?(amp|agencyspy|tvnewser|tvspy)\/).)*$/,
   'barrons.com': /.+\.barrons\.com\/(amp\/)?article(s)?\/.+/,
   'bloombergquint.com': /^((?!\.bloombergquint\.com\/bq-blue-exclusive\/).)*$/,
+  'economictimes.com': /.+\.economictimes\.com\/($|(__assets|prime)(\/.+)?|.+\.cms)/,
   'elcomercio.pe': /.+\/elcomercio\.pe\/.+((\w)+(\-)+){3,}.+/,
   'elespanol.com': /^((?!\/cronicaglobal\.elespanol\.com\/).)*$/,
   'elpais.com': /(\/elpais\.com\/$|\/(.+\.)?elpais\.com\/.+\.html)/,
@@ -25,7 +26,7 @@ const restrictions = {
   'gestion.pe': /.+\/gestion\.pe\/.+((\w)+(\-)+){3,}.+/,
   'globo.com': /^((?!\/valor\.globo\.com\/).)*$/,
   'medianama.com': /\.medianama\.com\/(\d){4}\/(\d){2}\//,
-  'timesofindia.com': /.+\.timesofindia\.com\/(toi-plus(\/.+)?|.+\.cms)/,
+  'timesofindia.com': /.+\.timesofindia\.com\/($|toi-plus(\/.+)?|.+\.cms)/,
   'nknews.org': /^((?!nknews\.org\/pro\/).)*$/,
   'quora.com': /^((?!quora\.com\/search\?q=).)*$/,
   'seekingalpha.com': /.+\/seekingalpha\.com\/($|(amp\/)?(article|news)\/|samw\/)/,
@@ -57,7 +58,6 @@ var allow_cookies_default = [
   'di.se',
   'dn.se',
   'dvhn.nl',
-  'economictimes.indiatimes.com',
   'editorialedomani.it',
   'elconfidencial.com',
   'elespanol.com',
@@ -225,7 +225,6 @@ var use_google_bot_default = [
   'nouvelobs.com',
   'nzz.ch',
   'piqd.de',
-  'economictimes.indiatimes.com',
   'quora.com',
   'republic.ru',
   'rhein-zeitung.de',
@@ -440,6 +439,7 @@ var grouped_sites = {
 '###_ca_torstar': ca_torstar_domains,
 '###_de_funke_medien': de_funke_media_domains,
 '###_de_madsack': de_madsack_domains,
+'###_economictimes': economictimes_domains,
 '###_es_grupo_vocento': es_grupo_vocento_domains,
 '###_fi_alma_talent': fi_alma_talent_domains,
 '###_fr_be_groupe_rossel': fr_be_groupe_rossel_domains,
@@ -498,6 +498,10 @@ function add_grouped_sites(init_rules) {
     for (let domain of de_madsack_domains) {
       allow_cookies.push(domain);
       blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-(ad|subscriptions)-.+\.js/;
+    }
+    for (let domain of economictimes_domains) {
+      allow_cookies.push(domain);
+      use_google_bot.push(domain);
     }
     for (let domain of es_grupo_vocento_domains) {
       allow_cookies.push(domain);
@@ -850,6 +854,18 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function (details) {
   types: ["main_frame"]
 },
   ["blocking", "requestHeaders"]);
+
+// economictimes redirect
+ext_api.webRequest.onBeforeRequest.addListener(function (details) {
+  if (!isSiteEnabled(details)) {
+    return;
+  }
+  var updatedUrl = details.url.split('?')[0].replace('economictimes.indiatimes.com', 'm.economictimes.com');
+  return { redirectUrl: updatedUrl };
+},
+{urls:["*://economictimes.indiatimes.com/*?from=mdr"], types:["main_frame"]},
+["blocking"]
+);
 
 // fix nytimes x-frame-options (hidden iframe content)
 ext_api.webRequest.onHeadersReceived.addListener(function (details) {

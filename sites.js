@@ -247,7 +247,7 @@ var defaultSites =
   "The Dallas Morning News": "dallasnews.com",
   "The Denver Post": "denverpost.com",
   "The Diplomat": "thediplomat.com",
-  "The Economic Times (ET Prime)": "economictimes.indiatimes.com",
+  "The Economic Times (ET Prime)": "###_economictimes",
   "The Economist": "economist.com",
   "The Globe and Mail": "theglobeandmail.com",
   "The Hill Times": "hilltimes.com",
@@ -326,6 +326,7 @@ const au_prov_news_domains = ['news-mail.com.au', 'frasercoastchronicle.com.au',
 const ca_torstar_domains = ['niagarafallsreview.ca', 'stcatharinesstandard.ca', 'thepeterboroughexaminer.com', 'therecord.com', 'thespec.com', 'thestar.com', 'wellandtribune.ca'];
 const de_funke_media_domains = ['abendblatt.de', 'braunschweiger-zeitung.de', 'morgenpost.de', 'nrz.de', 'otz.de', 'thueringer-allgemeine.de', 'tlz.de', 'waz.de', 'wp.de', 'wr.de'];
 const de_madsack_domains = ['haz.de', 'kn-online.de', 'ln-online.de', 'lvz.de', 'maz-online.de', 'neuepresse.de', 'ostsee-zeitung.de'];
+const economictimes_domains = ['economictimes.com', 'economictimes.indiatimes.com'];
 const es_grupo_vocento_domains = ['diariosur.es', 'diariovasco.com', 'elcomercio.es', 'elcorreo.com', 'eldiariomontanes.es', 'elnortedecastilla.es', 'hoy.es', 'ideal.es', 'larioja.com', 'lasprovincias.es', 'laverdad.es', 'lavozdigital.es'];
 const fi_alma_talent_domains = ['arvopaperi.fi', 'kauppalehti.fi', 'marmai.fi', 'mediuutiset.fi', 'mikrobitti.fi', 'talouselama.fi', 'tekniikkatalous.fi', 'tivi.fi', 'uusisuomi.fi'];
 const fr_be_groupe_rossel_domains = ['aisnenouvelle.fr', 'courrier-picard.fr', 'lardennais.fr', 'lavoixdunord.fr', 'lecho.be', 'lesoir.be', 'lest-eclair.fr', 'liberation-champagne.fr', 'lunion.fr', 'nordeclair.fr', 'paris-normandie.fr', 'sudinfo.be'];
@@ -340,4 +341,4 @@ const usa_tribune_domains = ['baltimoresun.com', 'chicagotribune.com', 'courant.
 const usa_theathletic_domains = ['theathletic.com', 'theathletic.co.uk'];
 
 var defaultSites_grouped_domains = Object.values(defaultSites);
-var defaultSites_domains = defaultSites_grouped_domains.concat(au_comm_media_domains, au_news_corp_domains, au_prov_news_domains, ca_torstar_domains, de_funke_media_domains, de_madsack_domains, es_grupo_vocento_domains, fi_alma_talent_domains, fr_be_groupe_rossel_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, it_ilmessaggero_domains, nl_ad_region_domains, timesofindia_domains, usa_mcc_domains, usa_nymag_domains, usa_tribune_domains, usa_theathletic_domains);
+var defaultSites_domains = defaultSites_grouped_domains.concat(au_comm_media_domains, au_news_corp_domains, au_prov_news_domains, ca_torstar_domains, de_funke_media_domains, de_madsack_domains, economictimes_domains, es_grupo_vocento_domains, fi_alma_talent_domains, fr_be_groupe_rossel_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, it_ilmessaggero_domains, nl_ad_region_domains, timesofindia_domains, usa_mcc_domains, usa_nymag_domains, usa_tribune_domains, usa_theathletic_domains);

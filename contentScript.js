@@ -1723,6 +1723,37 @@ else if (matchDomain('discovermagazine.com')) {
   }, 1000); // Delay (in milliseconds)
 }
 
+else if (matchDomain('economictimes.com')) {
+  window.setTimeout(function () {
+    let paywall = document.querySelector('div#blocker_layer');
+    let data_prime = document.querySelector('div[data-prime="1"]');
+    if (paywall || data_prime) {
+      removeDOMElement(paywall);
+      if (data_prime)
+        data_prime.removeAttribute('data-prime');
+      let content = document.querySelector('div[id^="articlebody_"]');
+      if (content && content.classList.contains('paywall')) {
+        content.classList.remove('paywall');
+        window.location.reload(true);
+      }
+      let full_text = document.querySelector('div.paywall:not([id])');
+      if (content && full_text) {
+        content.innerText = '';
+        let parser = new DOMParser();
+        html = parser.parseFromString('<div>' + full_text.innerHTML + '</div>', 'text/html');
+        let article = html.querySelector('div');
+        content.appendChild(article);
+        removeDOMElement(full_text);
+        let data_adaptive = document.querySelector('div[data-adaptive="1"]');
+        if (data_adaptive)
+          data_adaptive.removeAttribute('data-adaptive');
+        let prime_banner = document.querySelector('div.q0AQz');
+        removeDOMElement(prime_banner);
+      }
+    }
+  }, 500); // Delay (in milliseconds)
+}
+
 else if (matchDomain('economictimes.indiatimes.com')) {
   let paywall = document.querySelector('section.prime_paywall');
   if (paywall) {
@@ -1731,6 +1762,9 @@ else if (matchDomain('economictimes.indiatimes.com')) {
     let full_text = document.querySelector('div.paywall.p1');
     if (content && full_text)
       content.innerText = full_text.innerText;
+    let page_content = document.querySelector('div.pageContent:not([style]');
+    if (page_content)
+      page_content.setAttribute('style', 'height: auto !important;');
   }
 }
 
