@@ -107,7 +107,6 @@ var allow_cookies_default = [
   'medianama.com',
   'medium.com',
   'modernhealthcare.com',
-  'mz-web.de',
   'nation.africa',
   'nationalgeographic.com',
   'nationalpost.com',

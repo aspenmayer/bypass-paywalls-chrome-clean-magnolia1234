@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add MediaNama (India)
+Remove Mitteldeutsche Zeitung (obsolete)
 Fix-update Prensa Iberica
 Fix-update The Economic Times (mobile/India)
 Fix-update Valor Economico (Google webcache)
