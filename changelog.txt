@@ -5,6 +5,7 @@ Post-release
 Add MediaNama (India)
 Fix-update Prensa Iberica
 Fix-update The Economic Times (mobile/India)
+Fix-update Valor Economico (Google webcache)
 
 * v2.2.1.0 (2021-05-16)
 Add Las Provincias (Spain)

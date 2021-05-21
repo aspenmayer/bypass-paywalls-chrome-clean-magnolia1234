@@ -191,7 +191,7 @@ var defaultSites =
   "NRC Handelsblad": "nrc.nl",
   "NyTeknik": "nyteknik.se",
   "O Estado de S. Paulo": "estadao.com.br",
-  "O Globo": "globo.com",
+  "O Globo (& Valor Econômico)": "globo.com",
   "Observador.pt": "observador.pt",
   "Orange County Register": "ocregister.com",
   "Palo Alto Online": "paloaltoonline.com",

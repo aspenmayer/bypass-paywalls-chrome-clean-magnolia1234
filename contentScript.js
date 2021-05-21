@@ -1475,7 +1475,7 @@ else if (matchDomain('thetimes.co.uk')) {
 else if (!matchDomain(['belfasttelegraph.co.uk', 'independent.ie']))
   csDone = true;
 
-} else if (window.location.hostname.match(/\.(br|cl|pe)$/) || matchDomain(['elmercurio.com', 'latercera.com', 'lasegunda.com'])) {//south america
+} else if (window.location.hostname.match(/\.(br|cl|pe)$/) || matchDomain(['elmercurio.com', 'latercera.com', 'lasegunda.com', 'valor.globo.com'])) {//south america
 
 if (matchDomain(['elcomercio.pe', 'gestion.pe'])) {
   let paywall = document.querySelector('.story-content__nota-premium');
@@ -1534,6 +1534,16 @@ else if (matchDomain(["mercuriovalpo.cl", "estrellavalpo.cl"])) {
   let body_modal = document.querySelector('body.modal-open');
   if (body_modal)
     body_modal.classList.remove('modal-open');
+}
+
+else if (matchDomain('valor.globo.com')) {
+  let url = window.location.href;
+  let paywall = document.querySelector('div.paywall');
+  if (paywall) {
+    removeDOMElement(paywall);
+    let url_cache = 'https://webcache.googleusercontent.com/search?q=cache:' + url;
+    replaceDomElementExt(url_cache, true, false, 'div.mc-article-body', 'Failed to load from Google webcache: ');
+  }
 }
 
 else

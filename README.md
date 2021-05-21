@@ -143,7 +143,7 @@ _* free articles only._
 [Loeb Classical Library](https://www.loebclassics.com) -
 [Philosophy Now](https://philosophynow.org) -
 [Quora](https://www.quora.com) -
-[Scribd](http://www.scribd.com) -
+[Scribd](https://www.scribd.com) -
 [Slader](https://www.slader.com) -
 [Statista](https://www.statista.com)
 
@@ -588,7 +588,7 @@ Grupo Vocento (ABC) regional sites like
 [Folha de S. Paulo](https://www.folha.uol.com.br) -
 [O Estado de S. Paulo](https://estadao.com.br) -
 [O Globo](https://oglobo.globo.com) -
-[Valor Econômico](https://valor.globo.com)*
+[Valor Econômico](https://valor.globo.com)
 ##### Chile
 [Diario Financiero](https://www.df.cl) -
 [El Mercurio](https://digital.elmercurio.com) -

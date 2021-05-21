@@ -24,7 +24,6 @@ const restrictions = {
   'foreignaffairs.com': /.+\.foreignaffairs\.com\/(articles|fa-caching|interviews|reviews|sites)\/.+/,
   'ft.com': /.+\.ft\.com\/content\//,
   'gestion.pe': /.+\/gestion\.pe\/.+((\w)+(\-)+){3,}.+/,
-  'globo.com': /^((?!\/valor\.globo\.com\/).)*$/,
   'medianama.com': /\.medianama\.com\/(\d){4}\/(\d){2}\//,
   'timesofindia.com': /.+\.timesofindia\.com\/($|toi-plus(\/.+)?|.+\.cms)/,
   'nknews.org': /^((?!nknews\.org\/pro\/).)*$/,
