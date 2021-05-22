@@ -7,6 +7,7 @@ Remove Mitteldeutsche Zeitung (obsolete)
 Fix-update National Geographic USA
 Fix-update Prensa Iberica
 Fix-update Saechsische Zeitung (amp)
+Fix-update The Daily Telegraph (au)
 Fix-update The Economic Times (mobile/India)
 Fix-update Valor Economico (Google webcache)
 

@@ -33,7 +33,7 @@ if (ext_api.runtime && (matchDomain(['belfasttelegraph.co.uk', 'bostonglobe.com'
         // Australian Provincial Newspapers
         domain = window.location.hostname.replace('www.', '');
         let au_apn_script = document.querySelector('script[src^="https://media.apnarm.net.au/"]');
-        if (au_apn_script || (domain = matchDomain(['news-mail.com.au', 'frasercoastchronicle.com.au', 'gladstoneobserver.com.au', 'dailyexaminer.com.au', 'dailymercury.com.au', 'themorningbulletin.com.au', 'sunshinecoastdaily.com.au', 'gympietimes.com.au', 'northernstar.com.au', 'qt.com.au', 'thechronicle.com.au', 'warwickdailynews.com.au'])))
+        if (au_apn_script || (domain = matchDomain(['news-mail.com.au', 'frasercoastchronicle.com.au', 'gladstoneobserver.com.au', 'dailyexaminer.com.au', 'dailymercury.com.au', 'themorningbulletin.com.au', 'sunshinecoastdaily.com.au', 'gympietimes.com.au', 'northernstar.com.au', 'qt.com.au', 'warwickdailynews.com.au'])))
           if (!cookieExists('subscribed'))
             setCookie('subscribed', 'true', domain, '/', 14);
       } else {
@@ -130,8 +130,8 @@ else {
     removeDOMElement(story_generic_iframe, blocker);
   } else if (window.location.hostname.endsWith('.com.au')) {
     // Australia News Corp
-    let au_nc_sites = ['adelaidenow.com.au', 'cairnspost.com.au', 'couriermail.com.au', 'dailytelegraph.com.au', 'geelongadvertiser.com.au', 'goldcoastbulletin.com.au', 'heraldsun.com.au', 'ntnews.com.au', 'theaustralian.com.au', 'themercury.com.au', 'townsvillebulletin.com.au', 'weeklytimesnow.com.au'];
-    if (matchDomain(au_nc_sites)) {
+    let au_nc_sites = ['adelaidenow.com.au', 'cairnspost.com.au', 'couriermail.com.au', 'dailytelegraph.com.au', 'geelongadvertiser.com.au', 'goldcoastbulletin.com.au', 'heraldsun.com.au', 'ntnews.com.au', 'theaustralian.com.au', 'thechronicle.com.au', 'themercury.com.au', 'townsvillebulletin.com.au', 'weeklytimesnow.com.au'];
+    if (domain = matchDomain(au_nc_sites)) {
       let header_ads = document.querySelector('.header_ads-container');
       removeDOMElement(header_ads);
       if (window.location.hostname.startsWith('amp.')) {
@@ -1592,16 +1592,10 @@ else if (matchDomain('barrons.com')) {
     }
   });
   if (!window.location.href.includes('barrons.com/amp/')) {
-    var href = '';
-    let signin_links = document.querySelectorAll('a.primary-button--link');
+    let signin_links = document.querySelectorAll('a.primary-button--link[href*="target="]');
     for (let signin_link of signin_links) {
-      href = signin_link.href;
-      if (href.includes('target=')) {
-        href = href.split('target')[1].split('%3F')[0];
-        href = href.replace('=', '').replace('%3A', ':').replace(/%2F/g, '/');
-        signin_link.href = href;
-        signin_link.text = 'Click';
-      }
+      signin_link.href = decodeURIComponent(signin_link.href.split('target=')[1]).split('?')[0];
+      signin_link.text = 'Click';
     }
     let barrons_ads = document.querySelectorAll('.barrons-body-ad-placement');
     removeDOMElement(...barrons_ads);
