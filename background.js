@@ -1068,8 +1068,9 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
     let uk_nlr_site = (matchUrlDomain('stripe.com', details.url) && matchUrlDomain('newleftreview.org', header_referer));
     let usa_discmag_site = (matchUrlDomain('ctfassets.net', details.url) && matchUrlDomain('discovermagazine.com', header_referer));
     let usa_mw_site = (matchUrlDomain('wsj.net', details.url) && matchUrlDomain('marketwatch.com', header_referer));
+    let usa_natgeo_site = (matchUrlDomain('natgeofe.com', details.url) && matchUrlDomain('nationalgeographic.com', header_referer));
     let usa_today_site = (matchUrlDomain('gannett-cdn.com', details.url) && matchUrlDomain(['usatoday.com'], header_referer));
-    allow_ext_source = allow_ext_source || inkl_site || cl_elmerc_site || es_elesp_site || it_repubblica_site || uk_nlr_site || usa_discmag_site || usa_mw_site || usa_today_site;
+    allow_ext_source = allow_ext_source || inkl_site || cl_elmerc_site || es_elesp_site || it_repubblica_site || uk_nlr_site || usa_discmag_site || usa_mw_site || usa_natgeo_site || usa_today_site;
 
     bpc_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain(['asiatimes.com', 'augsburger-allgemeine.de', 'barrons.com', 'belfasttelegraph.co.uk', 'cicero.de', 'cmjornal.pt', 'elmundo.es', 'elpais.com', 'elperiodico.com', 'expansion.com', 'freiepresse.de', 'independent.ie', 'irishtimes.com', 'la-croix.com', 'marketwatch.com', 'nationalreview.com', 'noz.de', 'nwzonline.de', 'scmp.com', 'seekingalpha.com', 'shz.de', 'sueddeutsche.de', 'svz.de', 'telegraph.co.uk'].concat(au_news_corp_domains, au_nine_domains, de_madsack_domains, es_epiberica_domains, es_grupo_vocento_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, it_repubblica_domains, usa_mcc_domains, usa_theathletic_domains), header_referer));
   }
