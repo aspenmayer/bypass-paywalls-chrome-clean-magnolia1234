@@ -74,6 +74,18 @@ if (matchDomain(['medium.com', 'towardsdatascience.com']) || document.querySelec
     if (meter)
       meter.hidden = true;
   }, 500); // Delay (in milliseconds)
+  let hidden_images = document.querySelectorAll('img:not([src])');
+  let parser = new DOMParser();
+  for (let hidden_image of hidden_images) {
+    let noscript = hidden_image.parentElement.parentElement.querySelector('noscript');
+    if (noscript && noscript.innerHTML) {
+      let html = parser.parseFromString(noscript.innerHTML, 'text/html');
+      if (html.querySelector('img')) {
+        hidden_image.parentNode.replaceChild(html.querySelector('img'), hidden_image);
+        removeDOMElement(noscript);
+      }
+    }
+  }
 }
 
 else if (window.location.hostname.match(/\.(com|net)\.au$/) || matchDomain(['afr.com'])) {//australia
@@ -2028,13 +2040,11 @@ else if (matchDomain('newyorker.com')) {
   for (let asset_invisible of invisible_assets)
     asset_invisible.classList.remove('responsive-asset--invisible');
   let overlays = document.querySelectorAll('.aspect-ratio--overlay-container, .asset-embed__asset-container');
-  let noscript,
-  html;
   let parser = new DOMParser();
   for (let overlay of overlays) {
-    noscript = overlay.querySelector('noscript');
-    if (noscript) {
-      html = parser.parseFromString(noscript.innerHTML, 'text/html');
+    let noscript = overlay.querySelector('noscript');
+    if (noscript && noscript.innerHTML) {
+      let html = parser.parseFromString(noscript.innerHTML, 'text/html');
       overlay.appendChild(html.querySelector('img'));
       removeDOMElement(noscript);
     }

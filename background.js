@@ -621,6 +621,7 @@ ext_api.storage.local.get({
     }
   }
   disableJavascriptOnListedSites();
+  disableJavascriptInlineOnMediumSites();
 });
 
 // Listen for changes to options
@@ -755,7 +756,7 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
       active: true,
       currentWindow: true
     }, function (tabs) {
-      if (tabs.length > 0 && tabs[0].url && tabs[0].url.indexOf("http") !== -1) {
+      if (tabs && tabs[0] && tabs[0].url.startsWith('http')) {
         ext_api.tabs.update(tabs[0].id, {
           url: tabs[0].url
         });
@@ -910,7 +911,7 @@ ext_api.webRequest.onHeadersReceived.addListener(function (details) {
   ['blocking', 'responseHeaders']);
 
 // block inline script
-var block_js_inline = ["*://elviajero.elpais.com/*", "*://retina.elpais.com/*", "*://verne.elpais.com/*", "*://*.medianama.com/*"]
+var block_js_inline = ["*://elviajero.elpais.com/*", "*://retina.elpais.com/*", "*://verne.elpais.com/*", "*://*.medianama.com/*"];
 ext_api.webRequest.onHeadersReceived.addListener(function (details) {
   if (!isSiteEnabled(details)) {
     return;
@@ -928,6 +929,28 @@ ext_api.webRequest.onHeadersReceived.addListener(function (details) {
   'urls': block_js_inline
 },
   ['blocking', 'responseHeaders']);
+
+// medium sites: block inline script
+var medium_block_js_inline = ["*://*.medium.com/*", "*://*.towardsdatascience.com/*"];
+function disableJavascriptInlineOnMediumSites() {
+  ext_api.webRequest.onHeadersReceived.addListener(function (details) {
+    if (!isSiteEnabled(details) || !details.url.split('?')[0].match(/((\w)+(\-)+){3,}/)) {
+      return;
+    }
+    var headers = details.responseHeaders;
+    headers.push({
+      'name': 'Content-Security-Policy',
+      'value': "script-src *;"
+    });
+    return {
+      responseHeaders: headers
+    };
+  }, {
+    'types': ['main_frame', 'sub_frame'],
+    'urls': medium_block_js_inline
+  },
+    ['blocking', 'responseHeaders']);
+}
 
 var block_js_default = ["*://cdn.tinypass.com/*", "*://*.piano.io/*", "*://*.poool.fr/*",  "*://cdn.ampproject.org/v*/amp-access-*.js", "*://*.blueconic.net/*", "*://*.cxense.com/*", "*://*.evolok.net/*", "*://js.matheranalytics.com/*", "*://*.newsmemory.com/*", "*://*.onecount.net/*", "*://js.pelcro.com/*", "*://*.qiota.com/*", "*://*.tribdss.com/*"];
 var block_js_custom = [];
@@ -1055,7 +1078,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
       active: true,
       currentWindow: true
     }, function (tabs) {
-      if (tabs.length > 0 && tabs[0].url && tabs[0].url.indexOf("http") !== -1) {
+      if (tabs && tabs[0] && tabs[0].url.startsWith('http')) {
         ext_api.tabs.executeScript({
           file: 'options/toggleIcon.js',
           runAt: 'document_start'
@@ -1216,7 +1239,7 @@ if (matchUrlDomain(change_headers, details.url) && (['main_frame', 'sub_frame', 
       active: true,
       currentWindow: true
     }, function (tabs) {
-      if (tabs.length > 0 && tabs[0].url && tabs[0].url.indexOf("http") !== -1) {
+      if (tabs && tabs[0] && tabs[0].url.startsWith('http')) {
         if (isSiteEnabled({url: tabs[0].url})) {
           ext_api.tabs.executeScript({
             file: 'contentScript.js',
@@ -1308,7 +1331,7 @@ function site_switch() {
         active: true,
         currentWindow: true
     }, function (tabs) {
-        if (tabs.length > 0 && tabs[0].url && tabs[0].url.indexOf("http") !== -1) {
+        if (tabs && tabs[0] && tabs[0].url.startsWith('http')) {
             let currentUrl = tabs[0].url;
             let isDefaultSite = matchUrlDomain(defaultSites_grouped_domains, currentUrl);
             if (!isDefaultSite) {
@@ -1354,7 +1377,7 @@ function remove_cookies_fn(domainVar, exclusions = false) {
       active: true,
       currentWindow: true
     }, function (tabs) {
-      if (tabs.length > 0 && tabs[0].url && tabs[0].url.indexOf("http") !== -1) {
+      if (tabs && tabs[0] && tabs[0].url.startsWith('http')) {
         let tabId = tabs[0].id;
         let storeId = '0';
         for (let store of cookieStores) {
@@ -1414,7 +1437,7 @@ function clear_cookies() {
     active: true,
     currentWindow: true
   }, function (tabs) {
-    if (tabs.length > 0 && tabs[0].url && tabs[0].url.indexOf("http") !== -1) {
+    if (tabs && tabs[0] && tabs[0].url.startsWith('http')) {
       ext_api.tabs.executeScript({
         file: 'options/clearCookies.js',
         runAt: 'document_start'
@@ -1457,7 +1480,7 @@ ext_api.runtime.onMessage.addListener(function (message, sender) {
       active: true,
       currentWindow: true
     }, function (tabs) {
-      if (tabs.length > 0 && tabs[0].url && tabs[0].url.indexOf("http") !== -1) {
+      if (tabs && tabs[0] && tabs[0].url.startsWith('http')) {
         let currentUrl = tabs[0].url;
         let domain;
         let isExcludedSite = matchUrlDomain(excludedSites, currentUrl);

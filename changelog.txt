@@ -4,6 +4,7 @@ Changelog Bypass Paywalls Clean - Chrome
 Post-release
 Add MediaNama (India)
 Remove Mitteldeutsche Zeitung (obsolete)
+Fix-update Medium/Towards Data Science
 Fix-update National Geographic USA
 Fix-update Prensa Iberica
 Fix-update Saechsische Zeitung (amp)
