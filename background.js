@@ -555,7 +555,7 @@ function add_grouped_sites(init_rules) {
     }
     for (let domain of it_repubblica_domains) {
       allow_cookies.push(domain);
-      blockedRegexes[domain] = /(scripts\.repubblica\.it\/pw\/pw\.js|cdn\.ampproject\.org\/v\d\/amp-(access|ad|user-notification)-.+\.js|\.repstatic\.it\/minify\/sites\/gelocal\/.+\/config\.cache\.php)/;
+      blockedRegexes[domain] = /(scripts\.repubblica\.it\/pw\/pw\.js|cdn\.ampproject\.org\/v\d\/amp-(access|ad|user-notification)-.+\.js)/;
     }
     for (let domain of nl_pg_domains)
       remove_cookies_select_drop[domain] = ['TID_ID'];

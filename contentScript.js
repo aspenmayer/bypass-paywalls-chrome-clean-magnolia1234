@@ -1063,13 +1063,14 @@ else if (domain = matchDomain(it_repubblica_domains)) {
           amphtml = {href: (url.split('?')[0] + '/amp').replace('//amp', '/amp')};
         if (amphtml)
           window.location.href = amphtml.href;
-      } else {
-        window.setTimeout(function () {
-          let article_body = document.querySelector('div#article-body[style]');
-          if (article_body)
-            article_body.removeAttribute('style');
-        }, 1000); // Delay (in milliseconds)
       }
+    }
+    if (!['lastampa.it', 'repubblica.it'].includes(domain)) {
+      window.setTimeout(function () {
+        let article_body = document.querySelector('div#article-body[style]');
+        if (article_body)
+          article_body.removeAttribute('style');
+      }, 1000); // Delay (in milliseconds)
     }
   } else {
     let paywall;

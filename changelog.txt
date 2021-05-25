@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Fix-update GElocal.it (social)
 
 * v2.2.2.0 (2021-05-23)
 Add MediaNama (India)
