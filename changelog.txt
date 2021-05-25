@@ -4,6 +4,7 @@ Changelog Bypass Paywalls Clean - Chrome
 Post-release
 Add Hindustan Times (India)
 Fix-update GElocal.it (social)
+Fix-update WaPo (comments)
 
 * v2.2.2.0 (2021-05-23)
 Add MediaNama (India)
