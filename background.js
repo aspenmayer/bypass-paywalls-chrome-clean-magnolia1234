@@ -82,6 +82,7 @@ var allow_cookies_default = [
   'haaretz.com',
   'handelsblatt.com',
   'hilltimes.com',
+  'hindustantimes.com',
   'hs.fi',
   'ilfattoquotidiano.it',
   'ilgiorno.it',

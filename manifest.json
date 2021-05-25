@@ -185,6 +185,7 @@
         "*://*.hbrtaiwan.com/*",
         "*://*.heraldsun.com.au/*",
         "*://*.hilltimes.com/*",
+        "*://*.hindustantimes.com/*",
         "*://*.historyextra.com/*",
         "*://*.houstonchronicle.com/*",
         "*://*.hoy.es/*",
@@ -505,5 +506,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.2.2.0"
+    "version": "2.2.2.1"
 }

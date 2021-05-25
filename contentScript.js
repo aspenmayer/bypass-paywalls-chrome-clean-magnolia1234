@@ -1891,6 +1891,22 @@ else if (matchDomain('hbr.org')) {
   removeDOMElement(popup);
 }
 
+else if (matchDomain('hindustantimes.com')) {
+  let paywall = document.querySelector('.freemium-card');
+  if (paywall) {
+    removeDOMElement(paywall);
+    let freemium_text = document.querySelector('.freemiumText');
+    if (freemium_text)
+      freemium_text.classList.remove('freemiumText');
+  }
+  let noscroll = document.querySelector('body.open-popup');
+  if (noscroll)
+    noscroll.classList.remove('open-popup');
+  let close_story = document.querySelector('.closeStory');
+  let ads = document.querySelectorAll('div[class^="adHeight"]');
+  removeDOMElement(close_story, ...ads);
+}
+
 else if (matchDomain('historyextra.com')) {
   let article_masked = document.querySelector('.template-article__masked');
   if (article_masked) {
