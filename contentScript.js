@@ -2216,6 +2216,27 @@ else if (matchDomain('sofrep.com')) {
   removeDOMElement(...banners);
 }
 
+else if (matchDomain('staradvertiser.com')) {
+  let url = window.location.href.split('?')[0];
+  if (url.endsWith('/amp/')) {
+    let section_not_granted = document.querySelector('section[subscriptions-section="content-not-granted"]');
+    if (section_not_granted) {
+      removeDOMElement(section_not_granted);
+      let hidden_content = document.querySelector('section[subscriptions-section="content"]');
+      if (hidden_content)
+        hidden_content.removeAttribute('subscriptions-section');
+    }
+  } else {
+    let paywall = document.querySelector('div#hsa-paywall-overlay');
+    if (paywall) {
+      removeDOMElement(paywall);
+      let div_hidden = document.querySelector('div#hsa-paywall-content[style]');
+      if (div_hidden)
+        div_hidden.removeAttribute('style');
+    }
+  }
+}
+
 else if (matchDomain('startribune.com')) {
   document.addEventListener('DOMContentLoaded', () => {
     let react_modal_portal = document.querySelectorAll('div.ReactModalPortal');
@@ -2253,6 +2274,7 @@ else if (matchDomain('techinasia.com')) {
       if (response.ok) {
         response.json().then(json => {
           let json_text = json.posts[0].content;
+          json_text = json_text.replace(/width\=\"(\d){3,}\"/g, 'width="100%"').replace(/height\=\"(\d){3,}\"/g, 'height="100%"');
           let content = document.querySelector('div.content');
           if (json_text && content) {
             let parser = new DOMParser();

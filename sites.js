@@ -108,6 +108,7 @@ var defaultSites =
   "Harvard Business Review Taiwan": "hbrtaiwan.com",
   "Helsingin Sanomat": "hs.fi",
   "Hindustan Times": "hindustantimes.com",
+  "Honolulu Star-Advertiser": "staradvertiser.com",
   "Houston Chronicle": "houstonchronicle.com",
   "Humo.be": "humo.be",
   "Il Fatto Quotidiano": "ilfattoquotidiano.it",

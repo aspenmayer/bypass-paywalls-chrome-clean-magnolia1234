@@ -379,6 +379,7 @@
         "*://*.spectator.us/*",
         "*://*.standard.net.au/*",
         "*://*.star-telegram.com/*",
+        "*://*.staradvertiser.com/*",
         "*://*.startribune.com/*",
         "*://*.statista.com/*",
         "*://*.stcatharinesstandard.ca/*",
@@ -506,5 +507,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.2.2.2"
+    "version": "2.2.2.3"
 }

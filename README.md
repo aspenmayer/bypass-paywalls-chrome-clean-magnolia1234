@@ -168,6 +168,7 @@ _* free articles only._
 
 ##### Local USA news
 [Crain's Chicago Business](https://www.chicagobusiness.com) -
+[Honolulu Star-Advertiser](https://www.staradvertiser.com) -
 [Houston Chronicle](https://www.houstonchronicle.com) -
 [Los Angeles Business Journal](https://labusinessjournal.com) -
 [Los Angeles Times](https://www.latimes.com) -
