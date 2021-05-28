@@ -4,6 +4,7 @@ Changelog Bypass Paywalls Clean - Chrome
 Post-release
 Add Hindustan Times (India)
 Add Honolulu Star-Advertiser (local USA)
+Fix-update Exame (domain)
 Fix-update GElocal.it (social)
 Fix-update WaPo (comments)
 

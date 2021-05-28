@@ -70,7 +70,7 @@ var defaultSites =
   "Esprit": "esprit.presse.fr",
   "EUobserver": "euobserver.com",
   "Eureka Report": "eurekareport.com.au",
-  "Exame": "exame.abril.com.br",
+  "Exame": "exame.com",
   "Expansión": "expansion.com",
   "Faro de Vigo": "farodevigo.es",
   "Finance.si": "finance.si",

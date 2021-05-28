@@ -585,7 +585,7 @@ Grupo Vocento (ABC) regional sites like
 [Clarín](https://www.clarin.com) -
 [La Nación](https://www.lanacion.com.ar)
 ##### Brazil
-[Exame](https://exame.abril.com.br) -
+[Exame](https://exame.com) -
 [Folha de S. Paulo](https://www.folha.uol.com.br) -
 [O Estado de S. Paulo](https://estadao.com.br) -
 [O Globo](https://oglobo.globo.com) -
