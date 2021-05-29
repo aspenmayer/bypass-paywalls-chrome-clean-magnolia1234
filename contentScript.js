@@ -88,20 +88,9 @@ if (matchDomain(['medium.com', 'towardsdatascience.com']) || document.querySelec
   }
 }
 
-else if (window.location.hostname.match(/\.(com|net)\.au$/) || matchDomain(['afr.com'])) {//australia
+else if (window.location.hostname.match(/\.(com|net)\.au$/)) {//australia
 
-if (matchDomain('afr.com')) {
-  let hidden_images = document.querySelectorAll('img[src*=".gif"]');
-  for (let hidden_image of hidden_images) {
-    var data_src = hidden_image.getAttribute('data-src');
-    if (data_src)
-      hidden_image.setAttribute('src', data_src);
-  }
-  let plista = document.querySelector('div[data-plista-placement="underArticle_Group"]');
-  removeDOMElement(plista);
-}
-
-else if (matchDomain('thesaturdaypaper.com.au')) {
+if (matchDomain('thesaturdaypaper.com.au')) {
   let paywall = document.querySelector('div.paywall-hard-always-show');
   removeDOMElement(paywall);
 }

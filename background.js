@@ -266,7 +266,7 @@ var blockedRegexes = {
   'adweek.com': /\.lightboxcdn\.com\//,
   'apollo-magazine.com': /\.tinypass\.com\//,
   'augsburger-allgemeine.de':/(\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-(ad|subscriptions)-.+\.js)/,
-  'afr.com': /afr\.com\/assets\/vendorsReactRedux_client.+\.js/,
+  'afr.com': /api\.afr\.com\/graphql\?query=.+PaywallRuleQuery/,
   'alternatives-economiques.fr': /\.poool\.fr\//,
   'americanbanker.com': /\.tinypass\.com\//,
   'asiatimes.com': /cdn\.ampproject\.org\/v\d\/amp-(access|ad|analytics)-.+\.(m)?js/,
