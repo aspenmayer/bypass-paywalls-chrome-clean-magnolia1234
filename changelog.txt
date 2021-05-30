@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Add Grupo Abril (Brazil)
 Add Hindustan Times (India)
 Add Honolulu Star-Advertiser (local USA)
 Fix-update Australian Financial Review (videos)

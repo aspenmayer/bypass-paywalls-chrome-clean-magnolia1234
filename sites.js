@@ -99,6 +99,7 @@ var defaultSites =
   "Groupe EBRA (France)": "###_fr_groupe_ebra",
   "Groupe La Dépêche (France)": "###_fr_groupe_la_depeche",
   "Groupe Rossel (France/Belgium)": "###_fr_be_groupe_rossel",
+  "Grupo Abril": "abril.com.br",
   "Grupo Vocento (Spain, regional daily)": "###_es_grupo_vocento",
   "Haaretz English": "haaretz.com",
   "Haaretz": "haaretz.co.il",

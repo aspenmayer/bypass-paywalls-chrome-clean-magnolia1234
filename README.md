@@ -587,6 +587,7 @@ Grupo Vocento (ABC) regional sites like
 ##### Brazil
 [Exame](https://exame.com) -
 [Folha de S. Paulo](https://www.folha.uol.com.br) -
+[Grupo Abril](https://grupoabril.com.br) -
 [O Estado de S. Paulo](https://estadao.com.br) -
 [O Globo](https://oglobo.globo.com) -
 [Valor Econômico](https://valor.globo.com)
