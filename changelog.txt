@@ -2,6 +2,8 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+
+* v2.2.3.0 (2021-05-30)
 Add Grupo Abril (Brazil)
 Add Hindustan Times (India)
 Add Honolulu Star-Advertiser (local USA)
