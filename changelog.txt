@@ -5,6 +5,7 @@ Post-release
 Add Grupo Abril (Brazil)
 Add Hindustan Times (India)
 Add Honolulu Star-Advertiser (local USA)
+Fix-update Atlantico.fr
 Fix-update Australian Financial Review (videos)
 Fix-update Exame (domain)
 Fix-update GElocal.it (social)

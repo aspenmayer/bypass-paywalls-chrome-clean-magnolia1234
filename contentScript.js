@@ -745,9 +745,9 @@ if (matchDomain('alternatives-economiques.fr')) {
 }
 
 else if (matchDomain('atlantico.fr')) {
-  let paywall = document.querySelector('div.dpslvp');
+  let paywall = document.querySelector('div.jvsQuO');
   if (paywall)
-    paywall.classList.remove('dpslvp');
+    paywall.classList.remove('jvsQuO');
 }
 
 else if (matchDomain('challenges.fr')) {
