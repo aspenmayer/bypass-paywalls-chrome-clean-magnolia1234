@@ -167,7 +167,6 @@ _* free articles only._
 [VeloNews](https://www.velonews.com)
 
 ##### Local USA news
-[Crain's Chicago Business](https://www.chicagobusiness.com) -
 [Honolulu Star-Advertiser](https://www.staradvertiser.com) -
 [Houston Chronicle](https://www.houstonchronicle.com) -
 [Los Angeles Business Journal](https://labusinessjournal.com) -
@@ -188,7 +187,13 @@ _* free articles only._
 [The Mercury News](https://www.mercurynews.com) -
 [The Seattle Times](https://www.seattletimes.com) -
 [The Philadelphia Inquirer](https://www.inquirer.com) -
-[Winston-Salem Journal](https://www.journalnow.com)
+[Winston-Salem Journal](https://www.journalnow.com)\
+Grouped in options:\
+Crain's Business sites like
+[Crain's Chicago Business](https://www.chicagobusiness.com) -
+[Crain's Cleveland Business](https://www.crainscleveland.com) -
+[Crain's Detroit Business](https://www.crainsdetroit.com) -
+[Crain's New York Business](https://www.crainsnewyork.com)
 
 [USA Today](https://www.usatoday.com)\
 Grouped in options:\

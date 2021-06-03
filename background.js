@@ -282,7 +282,6 @@ var blockedRegexes = {
   'businessinsider.com': /\.tinypass\.com\//,
   'challenges.fr': /\.poool\.fr\//,
   'charliehebdo.fr': /\.poool\.fr\//,
-  'chicagobusiness.com': /(\.tinypass\.com\/|\.chicagobusiness\.com\/.+\/js\/js_.+\.js)/,
   'chronicle.com': /(\.blueconic\.net\/|\.chronicle\.com\/(common\/)?(che-auth0-user|script)\.js)/,
   'clarin.com': /js\.matheranalytics\.com\//,
   'cmjornal.pt': /cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad)-.+\.js/,
@@ -449,6 +448,7 @@ var grouped_sites = {
 '###_it_ilmessaggero': it_ilmessaggero_domains,
 '###_nl_ad_region': nl_ad_region_domains,
 '###_timesofindia': timesofindia_domains,
+'###_usa_crainsbiz': usa_crainsbiz_domains,
 '###_usa_mcc': usa_mcc_domains,
 '###_usa_nymag': usa_nymag_domains,
 '###_usa_tribune': usa_tribune_domains,
@@ -537,6 +537,10 @@ function add_grouped_sites(init_rules) {
         blockedRegexes[domain] = /\.timesofindia\.com\/jsrender\.cms/;
       else
         blockedRegexes[domain] = /timesofindia\.indiatimes\.com\/jsrender\/version-1\.cms/;
+    }
+    for (let domain of usa_crainsbiz_domains) {
+      allow_cookies.push(domain);
+      blockedRegexes[domain] = /(\.tinypass\.com\/|\.(crains.+|.+business)\.com\/.+\/js\/js_.+\.js)/;
     }
     for (let domain of usa_mcc_domains)
       blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/;

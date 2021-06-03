@@ -11,6 +11,7 @@ var es_grupo_vocento_domains = ['diariosur.es', 'diariovasco.com', 'elcomercio.e
 var fr_groupe_ebra_domains = ['bienpublic.com', 'dna.fr', 'estrepublicain.fr', 'lalsace.fr', 'ledauphine.com', 'lejsl.com', 'leprogres.fr', 'republicain-lorrain.fr', 'vosgesmatin.fr'];
 var fr_groupe_la_depeche_domains = ['centrepresseaveyron.fr', 'ladepeche.fr', 'lindependant.fr', 'midi-olympique.fr', 'midilibre.fr', 'nrpyrenees.fr', 'petitbleu.fr'];
 var it_repubblica_domains = ['gelocal.it', 'ilsecoloxix.it', 'lanuovasardegna.it', 'lastampa.it', 'limesonline.com', 'repubblica.it'];
+var usa_crainsbiz_domains = ['chicagobusiness.com', 'crainscleveland', 'crainsdetroit', 'crainsnewyork.com'];
 var usa_mcc_domains = ['bnd.com', 'charlotteobserver.com', 'fresnobee.com', 'kansas.com', 'kansascity.com', 'kentucky.com', 'newsobserver.com', 'sacbee.com', 'star-telegram.com', 'thestate.com', 'tri-cityherald.com'];
 
 // clean local storage of sites (with an exemption for hold-list)
@@ -1704,7 +1705,7 @@ else if (matchDomain('cen.acs.org')) {
   });
 }
 
-else if (matchDomain(['chicagobusiness.com', 'modernhealthcare.com'])) {
+else if (matchDomain(usa_crainsbiz_domains.concat(['modernhealthcare.com']))) {
   let body_hidden = document.querySelector('body[class]');
   if (body_hidden)
     body_hidden.removeAttribute('class');

@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Add group Crain's Business
 Fix-update Modern Healthcare
 
 * v2.2.3.0 (2021-05-30)

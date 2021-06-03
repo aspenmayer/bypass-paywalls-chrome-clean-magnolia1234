@@ -93,6 +93,9 @@
         "*://*.courant.com/*",
         "*://*.couriermail.com.au/*",
         "*://*.courrier-picard.fr/*",
+        "*://*.crainscleveland.com/*",
+        "*://*.crainsdetroit.com/*",
+        "*://*.crainsnewyork.com/*",
         "*://*.csmonitor.com/*",
         "*://*.curbed.com/*",
         "*://*.cw.com.tw/*",
@@ -508,5 +511,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.2.3.1"
+    "version": "2.2.3.2"
 }
