@@ -350,7 +350,7 @@ var blockedRegexes = {
   'marketwatch.com': /(cdn\.cxense\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js)/,
   'mercuriovalpo.cl': /(.+\.mercuriovalpo\.cl\/impresa\/.+\/assets\/(vendor|\d)\.js|pram\.pasedigital\.cl\/API\/User\/Status\?)/,
   'mexiconewsdaily.com': /\.mexiconewsdaily\.com\/c\/assets\/pigeon\.js/,
-  'modernhealthcare.com': /\.tinypass\.com\//,
+  'modernhealthcare.com': /(\.tinypass\.com\/|\.modernhealthcare\.com\/.+\/js\/js_.+\.js)/,
   'nation.africa': /(\.evolok\.net\/|nation\.africa\/resource\/themes\/nation-.+\/js\/.+\.js)/,
   'nationalgeographic.com': /\.blueconic\.net\//,
   'nationalpost.com': /\.tinypass\.com\//,

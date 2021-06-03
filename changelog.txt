@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Fix-update Modern Healthcare
 
 * v2.2.3.0 (2021-05-30)
 Add Grupo Abril (Brazil)
@@ -730,7 +731,7 @@ Load sites from json
 Block general paywall scripts (like TinyPass/Piano)
 Remove Google Analytics
 
-* v1.6.1.0 (2020-12-15)
+* v1.6.1.0 (2019-12-15)
 Add ET Prime
 Fix Foreign Policy (proper)
 Fix-update Globe and Mail

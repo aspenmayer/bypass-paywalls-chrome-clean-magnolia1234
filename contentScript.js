@@ -1704,7 +1704,7 @@ else if (matchDomain('cen.acs.org')) {
   });
 }
 
-else if (matchDomain('chicagobusiness.com')) {
+else if (matchDomain(['chicagobusiness.com', 'modernhealthcare.com'])) {
   let body_hidden = document.querySelector('body[class]');
   if (body_hidden)
     body_hidden.removeAttribute('class');
