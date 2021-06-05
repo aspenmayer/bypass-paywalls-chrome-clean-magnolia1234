@@ -38,6 +38,7 @@ const restrictions = {
 var allow_cookies_default = [
   'abc.es',
   'abril.com.br',
+  'ajc.com',
   'apollo-magazine.com',
   'asiatimes.com',
   'atlantico.fr',
@@ -269,6 +270,7 @@ var blockedRegexes = {
   'apollo-magazine.com': /\.tinypass\.com\//,
   'augsburger-allgemeine.de':/(\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-(ad|subscriptions)-.+\.js)/,
   'afr.com': /api\.afr\.com\/graphql\?query=.+PaywallRuleQuery/,
+  'ajc.com': /loader-cdn\.azureedge\.net\//,
   'alternatives-economiques.fr': /\.poool\.fr\//,
   'americanbanker.com': /\.tinypass\.com\//,
   'asiatimes.com': /cdn\.ampproject\.org\/v\d\/amp-(access|ad|analytics)-.+\.(m)?js/,

@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add group Crain's Business
+Add The Atlanta Journal-Constitution (local USA)
 Fix-update Modern Healthcare
 
 * v2.2.3.0 (2021-05-30)

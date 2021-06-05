@@ -75,12 +75,10 @@ For zip-installation (load unpacked/developer mode): unzip files to installation
 _* free articles only._
 
 ##### World news
-[First Things](https://www.firstthings.com) -
 [Foreign Affairs](https://www.foreignaffairs.com) -
 [Foreign Policy](https://www.foreignpolicy.com) -
 [Harper's Magazine](https://harpers.org) -
 [Inkl](https://www.inkl.com) -
-[National Review](https://www.nationalreview.com) -
 [Newsweek](https://www.newsweek.com) -
 [Reuters](https://www.reuters.com) -
 [Stratfor](https://stratfor.com) -
@@ -152,7 +150,9 @@ _* free articles only._
 [Atavist Magazine](https://magazine.atavist.com) -
 [Billboard](https://www.billboard.com) -
 [Commentary Magazine](https://www.commentarymagazine.com) -
+[First Things](https://www.firstthings.com) -
 [Medium](https://www.medium.com/topics) (for custom domains enable custom sites) -
+[National Review](https://www.nationalreview.com) -
 [Rolling Stone](https://www.rollingstone.com) -
 [Slate](https://slate.com) -
 [SofRep](https://sofrep.com) -
@@ -181,19 +181,14 @@ _* free articles only._
 [San Diego Union Tribune](https://sandiegouniontribune.com) -
 [San Francisco Chronicle](https://www.sfchronicle.com) -
 [Star Tribune](https://www.startribune.com) -
+[The Atlanta Journal-Constitution](https://www.ajc.com) -
 [The Boston Globe](https://www.bostonglobe.com) -
 [The Dallas Morning News](https://www.dallasnews.com) -
 [The Denver Post](https://www.denverpost.com) -
 [The Mercury News](https://www.mercurynews.com) -
 [The Seattle Times](https://www.seattletimes.com) -
 [The Philadelphia Inquirer](https://www.inquirer.com) -
-[Winston-Salem Journal](https://www.journalnow.com)\
-Grouped in options:\
-Crain's Business sites like
-[Crain's Chicago Business](https://www.chicagobusiness.com) -
-[Crain's Cleveland Business](https://www.crainscleveland.com) -
-[Crain's Detroit Business](https://www.crainsdetroit.com) -
-[Crain's New York Business](https://www.crainsnewyork.com)
+[Winston-Salem Journal](https://www.journalnow.com)
 
 [USA Today](https://www.usatoday.com)\
 Grouped in options:\
@@ -201,7 +196,13 @@ Gannett Group (local USA Today) sites like (opt-in to custom sites)
 [Detroit Free Press](https://www.freep.com) -
 [Milwaukee Journal Sentinel](https://www.jsonline.com) -
 [The Indianapolis Star](https://www.indystar.com) -
-[The Record (North Jersey)](https://www.northjersey.com)\
+[The Record (North Jersey)](https://www.northjersey.com)
+
+Crain's Business sites like
+[Crain's Chicago Business](https://www.chicagobusiness.com) -
+[Crain's Cleveland Business](https://www.crainscleveland.com) -
+[Crain's Detroit Business](https://www.crainsdetroit.com) -
+[Crain's New York Business](https://www.crainsnewyork.com)\
 McClatchy Group sites like (opt-in to custom sites for unlisted)
 [Belleville News-Democrat](https://www.bnd.com) -
 [Fort Worth Star-Telegram](https://www.star-telegram.com) -

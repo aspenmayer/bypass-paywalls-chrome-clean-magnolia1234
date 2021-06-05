@@ -40,6 +40,7 @@
         "*://*.adweek.com/*",
         "*://*.afr.com/*",
         "*://*.aisnenouvelle.fr/*",
+        "*://*.ajc.com/*",
         "*://*.alternatives-economiques.fr/*",
         "*://*.ambito.com/*",
         "*://*.americanaffairsjournal.org/*",
@@ -511,5 +512,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.2.3.2"
+    "version": "2.2.3.3"
 }

@@ -240,6 +240,7 @@ var defaultSites =
   "The American Interest": "the-american-interest.com",
   "The Art Newspaper": "theartnewspaper.com",
   "The Athletic": "###_usa_theathletic",
+  "The Atlanta Journal-Constitution": "ajc.com",
   "The Atlantic": "theatlantic.com",
   "The Australian Financial Review": "afr.com",
   "The Boston Globe (opt-in)": "bostonglobe.com",
