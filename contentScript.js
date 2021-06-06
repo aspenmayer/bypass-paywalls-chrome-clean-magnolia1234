@@ -1462,9 +1462,8 @@ else if (matchDomain(['theathletic.com', 'theathletic.co.uk'])) {
 
 else if (matchDomain('thetimes.co.uk')) {
   let block = document.querySelector('.subscription-block');
-  let ad_block = document.getElementById('ad-article-inline');
-  let ad_header = document.getElementById('sticky-ad-header');
-  removeDOMElement(block, ad_block, ad_header);
+  let adverts = document.querySelectorAll('#ad-article-inline, #sticky-ad-header, div[class*="InlineAdWrapper"], div[class*="NativeAd"], div.responsiveweb-sc-1exejum-0');
+  removeDOMElement(block, ...adverts);
 }
 
 else if (!matchDomain(['belfasttelegraph.co.uk', 'independent.ie']))
