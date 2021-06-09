@@ -69,24 +69,12 @@ if (matchDomain(['medium.com', 'towardsdatascience.com']) || document.querySelec
   let paywall = document.querySelector('div#paywall-background-color');
   removeDOMElement(paywall);
   if (paywall)
-    window.location.reload(true);
+    ext_api.runtime.sendMessage({request: 'refreshCurrentTab'});
   window.setTimeout(function () {
     let meter = document.querySelector('[id*="highlight-meter-"]');
     if (meter)
       meter.hidden = true;
   }, 500); // Delay (in milliseconds)
-  let hidden_images = document.querySelectorAll('img:not([src])');
-  let parser = new DOMParser();
-  for (let hidden_image of hidden_images) {
-    let noscript = hidden_image.parentElement.parentElement.querySelector('noscript');
-    if (noscript && noscript.innerHTML) {
-      let html = parser.parseFromString(noscript.innerHTML, 'text/html');
-      if (html.querySelector('img')) {
-        hidden_image.parentNode.replaceChild(html.querySelector('img'), hidden_image);
-        removeDOMElement(noscript);
-      }
-    }
-  }
 }
 
 else if (window.location.hostname.match(/\.(com|net)\.au$/)) {//australia

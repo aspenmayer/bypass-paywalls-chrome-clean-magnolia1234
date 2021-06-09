@@ -630,7 +630,6 @@ ext_api.storage.local.get({
     }
   }
   disableJavascriptOnListedSites();
-  disableJavascriptInlineOnMediumSites();
 });
 
 // Listen for changes to options
@@ -938,28 +937,6 @@ ext_api.webRequest.onHeadersReceived.addListener(function (details) {
   'urls': block_js_inline
 },
   ['blocking', 'responseHeaders']);
-
-// medium sites: block inline script
-var medium_block_js_inline = ["*://*.medium.com/*", "*://*.towardsdatascience.com/*"];
-function disableJavascriptInlineOnMediumSites() {
-  ext_api.webRequest.onHeadersReceived.addListener(function (details) {
-    if (!isSiteEnabled(details) || !details.url.split('?')[0].match(/((\w)+(\-)+){3,}/)) {
-      return;
-    }
-    var headers = details.responseHeaders;
-    headers.push({
-      'name': 'Content-Security-Policy',
-      'value': "script-src *;"
-    });
-    return {
-      responseHeaders: headers
-    };
-  }, {
-    'types': ['main_frame', 'sub_frame'],
-    'urls': medium_block_js_inline
-  },
-    ['blocking', 'responseHeaders']);
-}
 
 var block_js_default = ["*://cdn.tinypass.com/*", "*://*.piano.io/*", "*://*.poool.fr/*",  "*://cdn.ampproject.org/v*/amp-access-*.js", "*://*.blueconic.net/*", "*://*.cxense.com/*", "*://*.evolok.net/*", "*://js.matheranalytics.com/*", "*://*.newsmemory.com/*", "*://*.onecount.net/*", "*://js.pelcro.com/*", "*://*.qiota.com/*", "*://*.tribdss.com/*"];
 var block_js_custom = [];
@@ -1510,6 +1487,9 @@ ext_api.runtime.onMessage.addListener(function (message, sender) {
       }
     });
   }
+  if (message.request === 'refreshCurrentTab') {
+    refreshCurrentTab();
+  }
   if (message.scheme && (![chrome_scheme, 'undefined'].includes(message.scheme) || focus_changed)) {
       let icon_path = {path: {'128': 'bypass.png'}};
       if (message.scheme === 'dark')
@@ -1621,4 +1601,18 @@ function randomIP() {
   for (let n = 0; n < 4; n++)
     rndmIP.push(randomInt(254) + 1);
   return rndmIP.join('.');
+}
+
+// Refresh the current tab
+function refreshCurrentTab() {
+  ext_api.tabs.query({
+    active: true,
+    currentWindow: true
+  }, function (tabs) {
+    if (tabs && tabs[0] && tabs[0].url.startsWith('http')) {
+      ext_api.tabs.update(tabs[0].id, {
+        url: tabs[0].url
+      });
+    }
+  });
 }
