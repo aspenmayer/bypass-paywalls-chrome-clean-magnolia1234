@@ -1030,8 +1030,8 @@ else if (matchDomain('rep.repubblica.it')) {
 }
 
 else if (domain = matchDomain(it_repubblica_domains)) {
-  let url = window.location.href;
-  if (!url.includes('/amp/')) {
+  let url = window.location.href.split('?')[0];
+  if (!url.match(/\amp(\/)?$/)) {
     let premium = document.querySelector('.paywall-adagio, #paywall');
     if (premium) {
       removeDOMElement(premium);
