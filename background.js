@@ -158,6 +158,7 @@ var allow_cookies_default = [
   'themarker.com',
   'thenewatlantis.com',
   'thewest.com.au',
+  'thewrap.com',
   'time.com',
   'timeshighereducation.com',
   'towardsdatascience.com',
@@ -392,6 +393,7 @@ var blockedRegexes = {
   'thehindubusinessline.com': /(cdn\.cxense\.com\/|\.tinypass\.com\/)/,
   'thenation.com': /\.tinypass\.com\//,
   'thenewatlantis.com': /\.thenewatlantis\.com\/.+\/thenewatlantis\/js\/(gate|donate)\.js/,
+  'thewrap.com': /\.wallkit\.net\/js\//,
   'time.com': /\/time\.com\/dist\/meter-wall-client-js\..+\.js/,
   'timeshighereducation.com': /\.timeshighereducation\.com\/sites\/default\/files\/js\/js_bbCGL.+\.js/,
   'valeursactuelles.com': /\.qiota\.com\//,
@@ -763,16 +765,7 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
     ext_api.webRequest.handlerBehaviorChanged();
 
     // Refresh the current tab
-    ext_api.tabs.query({
-      active: true,
-      currentWindow: true
-    }, function (tabs) {
-      if (tabs && tabs[0] && tabs[0].url.startsWith('http')) {
-        ext_api.tabs.update(tabs[0].id, {
-          url: tabs[0].url
-        });
-      }
-    });
+    refreshCurrentTab();
   }
 });
 
@@ -1613,6 +1606,8 @@ function refreshCurrentTab() {
     currentWindow: true
   }, function (tabs) {
     if (tabs && tabs[0] && tabs[0].url.startsWith('http')) {
+      if (ext_api.runtime.lastError)
+        return;
       ext_api.tabs.update(tabs[0].id, {
         url: tabs[0].url
       });

@@ -2352,6 +2352,12 @@ else if (matchDomain('thepointmag.com')) {
     removeDOMElement(elem);
 }
 
+else if (matchDomain('thewrap.com')) {
+  let paywall = document.querySelector('.wrappro-paywall');
+  if (paywall)
+    paywall.classList.remove('wrappro-paywall');
+}
+
 else if (matchDomain('time.com')) {
   let body = document.querySelector('body');
   if (body)

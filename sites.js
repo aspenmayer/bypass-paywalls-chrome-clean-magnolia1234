@@ -284,6 +284,7 @@ var defaultSites =
   "The Wall Street Journal (not Chinese)": "wsj.com",
   "The Washington Post": "washingtonpost.com",
   "The West Australian (+ regional)": "thewest.com.au",
+  "The Wrap": "thewrap.com",
   "Time Magazine": "time.com",
   "Times Higher Education": "timeshighereducation.com",
   "Times of India": "###_timesofindia",

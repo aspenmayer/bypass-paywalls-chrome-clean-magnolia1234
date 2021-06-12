@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Add The Wrap
 Fix-update Atlantico.fr
 Fix-update Folha de S. Paulo (add blogs)
 Fix-update La Stampa

@@ -162,6 +162,7 @@ _* free articles only._
 [The Daily Beast](https://www.thedailybeast.com)* -
 [The New Atlantis](https://www.thenewatlantis.com) -
 [The Point Magazine](https://thepointmag.com) -
+[The Wrap](https://www.thewrap.com) -
 [Vanity Fair](https://www.vanityfair.com) -
 [Variety](https://variety.com) -
 [VeloNews](https://www.velonews.com)
