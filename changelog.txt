@@ -5,6 +5,7 @@ Post-release
 Fix-update Atlantico.fr
 Fix-update Folha de S. Paulo (add blogs)
 Fix-update La Stampa
+Fix-update Los Angeles Times (overlay)
 Fix-update Medium/Towards Data Science (multimedia)
 
 * v2.2.4.0 (2021-06-06)

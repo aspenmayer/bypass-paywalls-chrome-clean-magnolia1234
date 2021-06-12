@@ -332,7 +332,7 @@ var blockedRegexes = {
   'lasegunda.com': /\.(lasegunda\.com|emol\.cl)\/(.+\/)?js\/(.+\/)?(modal|merPramV\d|PramModal\.min)\.js/,
   'lanazione.it': /\.tinypass\.com\//,
   'latercera.com': /(\.latercera\.com\/arc\/subs\/p\.js|cdn\.cxense\.com\/)/,
-  'latimes.com': /js\.matheranalytics\.com\//,
+  'latimes.com': /(js\.matheranalytics\.com\/|metering\.platform\.latimes\.com\/v\d\/meter)/,
   'latribune.fr': /\.poool\.fr\//,
   'lavanguardia.com': /(\.evolok\.net\/.+\/authorize\/|\.lavanguardia\.com\/(js\/)?godo-)/,
   'lc.nl': /\.evolok\.net\/.+\/authorize\//,
