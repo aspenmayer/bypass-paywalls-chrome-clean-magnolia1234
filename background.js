@@ -74,7 +74,6 @@ var allow_cookies_default = [
   'faz.net',
   'finance.si',
   'financialpost.com',
-  'folha.uol.com.br',
   'ftm.nl',
   'fortune.com',
   'freiepresse.de',
@@ -305,7 +304,6 @@ var blockedRegexes = {
   'exame.com': /\/exame\.com\/.+\/js\/pywll-dyn\.js/,
   'expansion.com': /cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js/,
   'financialpost.com': /\.tinypass\.com\//,
-  'folha.uol.com.br': /(\.folha\.uol\.com\.br\/paywall\/js\/.+\/publicidade\.ads\.js|paywall\.folha\.uol\.com\.br\/|js\.matheranalytics\.com\/)/,
   'foreignaffairs.com': /\.foreignaffairs\.com\/sites\/default\/files\/js\/js_[^y].+\.js/,
   'foreignpolicy.com': /(cdn\.cxense\.com\/|\.tinypass\.com\/)/,
   'fortune.com': /\.tinypass\.com\//,
@@ -438,6 +436,7 @@ var grouped_sites = {
 '###_au_comm_media': au_comm_media_domains,
 '###_au_news_corp': au_news_corp_domains,
 '###_au_prov_news': au_prov_news_domains,
+'###_br_folha': br_folha_domains,
 '###_ca_torstar': ca_torstar_domains,
 '###_de_funke_medien': de_funke_media_domains,
 '###_de_madsack': de_madsack_domains,
@@ -489,6 +488,10 @@ function add_grouped_sites(init_rules) {
     for (let domain of au_prov_news_domains) {
       allow_cookies.push(domain);
       use_google_bot.push(domain);
+    }
+    for (let domain of br_folha_domains) {
+      allow_cookies.push(domain);
+      blockedRegexes[domain] =  /(\.folha\.uol\.com\.br\/paywall\/js\/.+\/publicidade\.ads\.js|paywall\.folha\.uol\.com\.br\/|js\.matheranalytics\.com\/)/;
     }
     for (let domain of ca_torstar_domains) {
       allow_cookies.push(domain);

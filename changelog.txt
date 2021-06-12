@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Fix-update Atlantico.fr
+Fix-update Folha de S. Paulo (add blogs)
 Fix-update La Stampa
 Fix-update Medium/Towards Data Science (multimedia)
 

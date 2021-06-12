@@ -62,6 +62,7 @@
         "*://*.bienpublic.com/*",
         "*://*.billboard.com/*",
         "*://*.bizjournals.com/*",
+        "*://*.blogfolha.uol.com.br/*",
         "*://*.bloomberg.com/*",
         "*://*.bloombergquint.com/*",
         "*://*.bnd.com/*",
@@ -512,5 +513,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.2.4.3"
+    "version": "2.2.4.4"
 }
