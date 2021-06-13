@@ -2,6 +2,8 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+
+* v2.2.5.0 (2021-06-13)
 Add The Wrap
 Fix-update Atlantico.fr
 Fix-update Folha de S. Paulo (add blogs)
