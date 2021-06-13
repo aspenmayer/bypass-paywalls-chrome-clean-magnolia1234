@@ -1452,6 +1452,24 @@ else if (matchDomain('thetimes.co.uk')) {
   let block = document.querySelector('.subscription-block');
   let adverts = document.querySelectorAll('#ad-article-inline, #sticky-ad-header, div[class*="InlineAdWrapper"], div[class*="NativeAd"], div.responsiveweb-sc-1exejum-0');
   removeDOMElement(block, ...adverts);
+  let archive_url = 'https://archive.is?url=' + window.location.href;
+  let paywall = document.querySelector('div#paywall-portal-article-footer');
+  if (paywall) {
+    removeDOMElement(paywall);
+    let text_fail_div = document.createElement('div');
+    text_fail_div.appendChild(document.createTextNode('BPC > Read full article text:\r\n'));
+    let a_link = document.createElement('a');
+    a_link.innerText = archive_url;
+    a_link.href = archive_url;
+    a_link.target = '_blank';
+    a_link.setAttribute('style', 'font-weight: bold;');
+    text_fail_div.appendChild(a_link);
+    let article = document.querySelector('article[role="article"]');
+    if (article)
+      article.insertBefore(text_fail_div, article.firstChild);
+  }
+  let paywall_page = document.querySelector('div#paywall-portal-page-footer');
+  removeDOMElement(paywall_page);
 }
 
 else if (!matchDomain(['belfasttelegraph.co.uk', 'independent.ie']))
