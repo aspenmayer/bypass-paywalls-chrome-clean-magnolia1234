@@ -243,7 +243,7 @@ var defaultSites =
   "The Atlanta Journal-Constitution": "ajc.com",
   "The Atlantic": "theatlantic.com",
   "The Australian Financial Review": "afr.com",
-  "The Boston Globe (opt-in)": "bostonglobe.com",
+  "The Boston Globe": "bostonglobe.com",
   "The Business Journals": "bizjournals.com",
   "The Christian Science Monitor": "csmonitor.com",
   "The Daily Beast (free articles only)": "thedailybeast.com",

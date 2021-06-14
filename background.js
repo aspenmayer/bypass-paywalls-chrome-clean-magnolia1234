@@ -280,7 +280,7 @@ var blockedRegexes = {
   'billboard.com': /(cdn\.cxense\.com\/|\.tinypass\.com\/)/,
   'bizjournals.com': /(assets\.bizjournals\.com\/static\/js\/app\/cxense\.js|cdn\.cxense\.com\/)/,
   'bloomberg.com': /(\.tinypass\.com\/|assets\.bwbx\.io\/s3\/fence\/)/,
-  'bostonglobe.com': /meter\.bostonglobe\.com\/js\//,
+  'bostonglobe.com': /\.blueconic\.net\//,
   'businessinsider.com': /\.tinypass\.com\//,
   'challenges.fr': /\.poool\.fr\//,
   'charliehebdo.fr': /\.poool\.fr\//,

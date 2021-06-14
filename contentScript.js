@@ -25,7 +25,7 @@ var div_bpc_done = document.querySelector('div#bpc_done');
 if (!div_bpc_done) {
 
 // listen to responses from background script
-if (ext_api.runtime && (matchDomain(['belfasttelegraph.co.uk', 'bostonglobe.com', 'independent.ie']) || window.location.hostname.match(/\.(com|net)\.au$/))) {
+if (ext_api.runtime && (matchDomain(['belfasttelegraph.co.uk', 'independent.ie']) || window.location.hostname.match(/\.(com|net)\.au$/))) {
   ext_api.runtime.onMessage.addListener(function (message, sender) {
     // setCookie opt-in
     if (message.optIn) {
@@ -38,12 +38,7 @@ if (ext_api.runtime && (matchDomain(['belfasttelegraph.co.uk', 'bostonglobe.com'
           if (!cookieExists('subscribed'))
             setCookie('subscribed', 'true', domain, '/', 14);
       } else {
-        if (matchDomain('bostonglobe.com')) {
-          if (!cookieExists('s_fid')) {
-            let s_fid = genHexString(16) + '-' + genHexString(16);
-            setCookie('s_fid', s_fid, 'bostonglobe.com', '/', 14);
-          }
-        } else if (domain = matchDomain(['belfasttelegraph.co.uk', 'independent.ie'])) {
+        if (domain = matchDomain(['belfasttelegraph.co.uk', 'independent.ie'])) {
           if (!cookieExists('subscriber'))
             setCookie('subscriber', '{"subscriptionStatus": true}', domain, '/', 14);
           if (hostname.includes('amp.')) {
@@ -1635,6 +1630,19 @@ else if (matchDomain('bloombergquint.com')) {
   let articlesLeftModal = document.querySelector('.paywall-meter-module__story-paywall-container__1UgCE');
   let paywall = document.getElementById('paywallDmp');
   removeDOMElement(articlesLeftModal, paywall);
+}
+
+else if (matchDomain('bostonglobe.com')) {
+  let paywall = document.querySelector('div.meter-paywall');
+  if (paywall) {
+    removeDOMElement(paywall);
+    let body_hidden = document.querySelector('body[style]');
+    if (body_hidden)
+      body_hidden.removeAttribute('style');
+    let continue_button = document.querySelector('button.continue_button');
+    if (continue_button)
+      continue_button.click();
+  }
 }
 
 else if (matchDomain('business-standard.com')) {
