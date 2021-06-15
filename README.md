@@ -547,7 +547,6 @@ Grupo Vocento (ABC) regional sites like
 [Rockhampton Morning Bulletin](https://www.themorningbulletin.com.au) -
 [Sunshine Coast Daily](https://www.sunshinecoastdaily.com.au) -
 [The Gympie Times](https://www.gympietimes.com.au) -
-[The Northern Star](https://www.northernstar.com.au) -
 [The Queensland Times](https://www.qt.com.au) -
 [Warwick Daily News](https://www.warwickdailynews.com.au)
 * opt-in to custom sites for unlisted

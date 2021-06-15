@@ -34,7 +34,7 @@ if (ext_api.runtime && (matchDomain(['belfasttelegraph.co.uk', 'independent.ie']
         // Australian Provincial Newspapers
         domain = window.location.hostname.replace('www.', '');
         let au_apn_script = document.querySelector('script[src^="https://media.apnarm.net.au/"]');
-        if (au_apn_script || (domain = matchDomain(['news-mail.com.au', 'frasercoastchronicle.com.au', 'gladstoneobserver.com.au', 'dailyexaminer.com.au', 'dailymercury.com.au', 'themorningbulletin.com.au', 'sunshinecoastdaily.com.au', 'gympietimes.com.au', 'northernstar.com.au', 'qt.com.au', 'warwickdailynews.com.au'])))
+        if (au_apn_script || (domain = matchDomain(['news-mail.com.au', 'frasercoastchronicle.com.au', 'gladstoneobserver.com.au', 'dailyexaminer.com.au', 'dailymercury.com.au', 'themorningbulletin.com.au', 'sunshinecoastdaily.com.au', 'gympietimes.com.au', 'qt.com.au', 'warwickdailynews.com.au'])))
           if (!cookieExists('subscribed'))
             setCookie('subscribed', 'true', domain, '/', 14);
       } else {
