@@ -3,12 +3,13 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Fix-update Boston Globe (no opt-in)
+Fix-update The Spectator UK (amp)
 
 * v2.2.5.0 (2021-06-13)
 Add The Wrap
 Fix-update Atlantico.fr
 Fix-update Folha de S. Paulo (add blogs)
-Fix-update La Stampa
+Fix-update La Stampa (amp)
 Fix-update Los Angeles Times (overlay)
 Fix-update Medium/Towards Data Science (multimedia)
 Fix-update TheTimes.co.uk (link to archive.is)

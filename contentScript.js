@@ -1398,13 +1398,17 @@ else if (matchDomain('prospectmagazine.co.uk')) {
 }
 
 else if (matchDomain('spectator.co.uk')) {
-  let premium = document.querySelector('.HardPayWallContainer-module__overlay');
-  removeDOMElement(premium);
-  window.setTimeout(function () {
-    if (premium && window.location.href.includes('/www.spectator.co.uk/')) {
-      window.location.href = window.location.href + '/amp';
-    }
-  }, 500); // Delay (in milliseconds)
+  let url = window.location.href.split('?')[0];
+  if (url.match(/\/amp(\/)?$/)) {
+    let paywall = document.querySelectorAll('div[amp-access^="p.show"');
+    let not_logged_in = document.querySelector('div[amp-access*="NOT loggedIn"]');
+    removeDOMElement(...paywall, not_logged_in)
+  } else {
+    let premium = document.querySelector('.HardPayWallContainer-module__overlay');
+    removeDOMElement(premium);
+    if (premium)
+      window.location.href = url + '/amp';
+  }
 }
 
 else if (matchDomain('telegraph.co.uk')) {
