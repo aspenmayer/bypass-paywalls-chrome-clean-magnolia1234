@@ -729,7 +729,7 @@ if (matchDomain('alternatives-economiques.fr')) {
 }
 
 else if (matchDomain('atlantico.fr')) {
-  let paywall = document.querySelector('div.markup');
+  let paywall = document.querySelector('div.markup[class*="Paywall"]');
   if (paywall)
     paywall.setAttribute('class', 'markup');
 }
@@ -1347,7 +1347,10 @@ else if (matchDomain('telegraaf.nl')) {
     removeDOMElement(article_body_old);
     let json = document.querySelector('script[type="application/ld+json"][data-react-helmet="true"]');
     if (json) {
-      var json_text = JSON.parse(json.text).articleBody;
+      let json_text = JSON.parse(json.text).articleBody;
+      let intro = document.querySelector('span[id^="articleIntro"]');
+      if (intro)
+        json_text = json_text.replace(intro.innerText + '\n\n', '');
       let article_body = document.querySelector('section.TextArticlePage__bodyText');
       if (article_body) {
         let div_main = document.createElement('div');

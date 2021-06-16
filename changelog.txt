@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Remove The Northern Star (obsolete)
+Fix-update Atlantico.fr
 Fix-update Boston Globe (no opt-in)
 Fix-update Foreign Policy
 Fix-update The Spectator UK (amp)
