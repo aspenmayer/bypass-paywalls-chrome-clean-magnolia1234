@@ -1361,6 +1361,8 @@ function remove_cookies_fn(domainVar, exclusions = false) {
       currentWindow: true
     }, function (tabs) {
       if (tabs && tabs[0] && tabs[0].url.startsWith('http')) {
+        if (ext_api.runtime.lastError)
+          return;
         let tabId = tabs[0].id;
         let storeId = '0';
         for (let store of cookieStores) {

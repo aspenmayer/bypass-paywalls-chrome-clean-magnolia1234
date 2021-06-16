@@ -1863,11 +1863,11 @@ else if (matchDomain('foreignaffairs.com')) {
 }
 
 else if (matchDomain('foreignpolicy.com')) {
-  let placeholder = document.querySelector('div.loading-placeholder-smaller');
-  removeDOMElement(placeholder);
-  let sub_content = document.querySelector('div.sub_content:not(style)');
-  if (sub_content)
-    sub_content.setAttribute('style', 'display:block !important;');
+  let content_ungated = document.querySelector('div.content-ungated');
+  removeDOMElement(content_ungated);
+  let content_gated = document.querySelector('div.content-gated');
+  if (content_gated)
+    content_gated.classList.remove('content-gated');
 }
 
 else if (matchDomain('ft.com')) {
