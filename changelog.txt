@@ -6,6 +6,7 @@ Remove The Northern Star (obsolete)
 Fix-update Atlantico.fr
 Fix-update Boston Globe (no opt-in)
 Fix-update Foreign Policy
+Fix-update The Globe and Mail
 Fix-update The Spectator UK (amp)
 
 * v2.2.5.0 (2021-06-13)
@@ -412,7 +413,7 @@ Add Westfaelische Rundschau
 Fix-update Australian Financial Review (images)
 Fix-update Domani (Italy)
 Fix-update El Pais (Spain)
-Fix-update Globe and Mail (FF for Android v68)
+Fix-update The Globe and Mail (FF for Android v68)
 Fix-update The Hindu (menu)
 Fix-update WSJ
 Add whitelist for BPC extension
@@ -431,8 +432,8 @@ Minor update opt-in UI
 Add Business Times (Singapore)
 Add Domani (Italy)
 Add Variety
-Fix-update Globe and Mail
 Fix-update MIT Technology Review (overlay)
+Fix-update The Globe and Mail
 
 * v1.8.6.0 (2020-09-14)
 Add Star Tribune
@@ -518,7 +519,7 @@ Add Business Standard (India)
 Add Geelong Advertiser & Western Advocate (plus grouping Australian sites)
 Add Nautilus
 Add Newsweek
-Fix-update Globe and Mail (postfix premium links)
+Fix-update The Globe and Mail (postfix premium links)
 Update paywall scripts: MatherAnalytics
 
 * v1.7.7.0 (2020-06-28)
@@ -546,19 +547,19 @@ Add BBC History Extra
 Add Discover Magazine
 Add Irish Independent
 Add Republic.ru
-Fix-update Globe and Mail (cleanup)
 Fix-update Telegraph.co.uk (cookies)
+Fix-update The Globe and Mail (cleanup)
 Fix-update TheTimes.co.uk (cookies)
 
 * v1.7.4.0 (2020-06-04)
 Add ElMundo.es (amp for premium)
 Fix-update Boston Globe
 Fix-update DeMorgen.be (overlay)
-Fix-update Globe and Mail (premium-only)
 Fix-update Medium (banner)
 Fix Medium custom domains
 Fix-update SeekingAlpha (limit robot-captcha)
 Fix-update Spectator.co.uk (amp for premium)
+Fix-update The Globe and Mail (premium-only)
 New option to block external Javascript for custom sites
 Fix support Brave Browser
 Add block general paywall scripts: BlueConic, OneCount, Qiota & TribDss. Remove Outbrain.
@@ -738,11 +739,11 @@ Fix Australian Financial Review (enable javascript)
 Fix Dagens Nyheter (dn.se)
 Fix Economist (Javascript/cookies)
 Fix ET Prime restrictions (only articles)
-Fix Globe and Mail
 Fix Handelsblatt (Googlebot)
 Fix-update MIT Tech Review
 Fix LeParisien.fr (block TinyPass paywall)
 Fix LesEchos.fr (block TinyPass)
+Fix The Globe and Mail
 Fix Toronto Star (enable Javascript)
 Remove The Athletic trial-banners
 Load sites from json
@@ -752,10 +753,10 @@ Remove Google Analytics
 * v1.6.1.0 (2019-12-15)
 Add ET Prime
 Fix Foreign Policy (proper)
-Fix-update Globe and Mail
 Fix Medium content on non-Medium sites
 Fix-update Philidelphia Inquirer (block paywall-script)
 Fix Spectator.co.uk (block paywall-script)
+Fix-update The Globe and Mail
 Fix Quartz/qz.com (gdpr)
 Fix WSJ (reformatting & restrictions to only articles)
 Rename thenewsrep to new domain sofrep

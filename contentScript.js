@@ -1454,9 +1454,10 @@ else if (matchDomain('thetimes.co.uk')) {
   let block = document.querySelector('.subscription-block');
   let adverts = document.querySelectorAll('#ad-article-inline, #sticky-ad-header, div[class*="InlineAdWrapper"], div[class*="NativeAd"], div.responsiveweb-sc-1exejum-0');
   removeDOMElement(block, ...adverts);
-  let archive_url = 'https://archive.is?url=' + window.location.href;
+  let url = window.location.href;
+  let archive_url = 'https://archive.is?url=' + url;
   let paywall = document.querySelector('div#paywall-portal-article-footer');
-  if (paywall) {
+  if (paywall && !url.includes('?shareToken=')) {
     removeDOMElement(paywall);
     let text_fail_div = document.createElement('div');
     text_fail_div.appendChild(document.createTextNode('BPC > Read full article text:\r\n'));
