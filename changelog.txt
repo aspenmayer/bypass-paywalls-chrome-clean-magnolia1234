@@ -2,6 +2,8 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+
+* v2.2.6.0 (2021-06-20)
 Add group Mediahuis Nederland Regional
 Remove The Northern Star (obsolete)
 Fix Atlantico.fr
