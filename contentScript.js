@@ -13,6 +13,7 @@ var fr_groupe_la_depeche_domains = ['centrepresseaveyron.fr', 'ladepeche.fr', 'l
 var it_repubblica_domains = ['gelocal.it', 'ilsecoloxix.it', 'lanuovasardegna.it', 'lastampa.it', 'limesonline.com', 'repubblica.it'];
 var usa_crainsbiz_domains = ['chicagobusiness.com', 'crainscleveland', 'crainsdetroit', 'crainsnewyork.com'];
 var usa_mcc_domains = ['bnd.com', 'charlotteobserver.com', 'fresnobee.com', 'kansas.com', 'kansascity.com', 'kentucky.com', 'newsobserver.com', 'sacbee.com', 'star-telegram.com', 'thestate.com', 'tri-cityherald.com'];
+var usa_tribune_domains = ['baltimoresun.com', 'chicagotribune.com', 'courant.com', 'dailypress.com', 'mcall.com', 'nydailynews.com', 'orlandosentinel.com', 'pilotonline.com', 'sun-sentinel.com'];
 
 // clean local storage of sites (with an exemption for hold-list)
 var arr_localstorage_hold = ['augsburger-allgemeine.de', 'charliehebdo.fr', 'cmjornal.pt', 'elmundo.es', 'expansion.com', 'houstonchronicle.com', 'irishtimes.com', 'kurier.at', 'nknews.org', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk'];
@@ -1726,12 +1727,6 @@ else if (matchDomain('cen.acs.org')) {
   });
 }
 
-else if (matchDomain(usa_crainsbiz_domains.concat(['modernhealthcare.com']))) {
-  let body_hidden = document.querySelector('body[class]');
-  if (body_hidden)
-    body_hidden.removeAttribute('class');
-}
-
 else if (matchDomain('discovermagazine.com')) {
   window.setTimeout(function () {
     let mammoth = document.querySelector('.iXVGnF');
@@ -2409,6 +2404,17 @@ else if (matchDomain('timeshighereducation.com')) {
     if (paywall_fade)
       paywall_fade.classList.remove('paywall-fade');
   }
+}
+
+else if (matchDomain(usa_crainsbiz_domains.concat(['modernhealthcare.com']))) {
+  let body_hidden = document.querySelector('body[class]');
+  if (body_hidden)
+    body_hidden.removeAttribute('class');
+}
+
+else if (matchDomain(usa_tribune_domains)) {
+  let overlay = document.querySelector('div#zephr-overlay');
+  removeDOMElement(overlay);
 }
 
 else if (matchDomain('usatoday.com')) {
