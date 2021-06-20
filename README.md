@@ -406,14 +406,6 @@ Grouped in options:\
 [Quotidiano di Puglia](https://www.quotidianodipuglia.it)
 
 ##### Netherlands/Flanders
-[Algemeen Dagblad](https://www.ad.nl) and regional ADR sites (grouped in options) like
-[BN DeStem](https://www.bndestem.nl) -
-[Brabants Dagblad](https://www.bd.nl) -
-[Eindhovens Dagblad](https://www.ed.nl) -
-[Gelderlander](https://www.gelderlander.nl) -
-[PZC](https://www.pzc.nl) -
-[Stentor](https://www.destentor.nl) -
-[Tubantia](https://tubantia.nl)  
 [Dagblad van het Noorden](https://www.dvhn.nl) -
 [De Morgen](https://www.demorgen.be) -
 [De Tijd](https://www.tijd.be) -
@@ -424,12 +416,27 @@ Grouped in options:\
 [Humo.be](https://www.humo.be) -
 [Knack.be](https://www.knack.be) -
 [Leeuwarder Courant](https://www.lc.nl) -
-[Noordhollands Dagblad](https://www.noordhollandsdagblad.nl) -
 [NRC Handelsblad](https://www.nrc.nl) -
 [Parool](https://www.parool.nl) -
 [Telegraaf](https://www.telegraaf.nl) -
 [Trouw](https://www.trouw.nl) -
 [Volkskrant](https://www.volkskrant.nl)
+
+Grouped in options:\
+[Algemeen Dagblad](https://www.ad.nl) and regional ADR sites like
+[BN DeStem](https://www.bndestem.nl) -
+[Brabants Dagblad](https://www.bd.nl) -
+[Eindhovens Dagblad](https://www.ed.nl) -
+[Gelderlander](https://www.gelderlander.nl) -
+[PZC](https://www.pzc.nl) -
+[Stentor](https://www.destentor.nl) -
+[Tubantia](https://tubantia.nl)\
+Mediahuis Nederland Regional sites like
+[Noordhollands Dagblad](https://www.noordhollandsdagblad.nl) -
+[Haarlems Dagblad](https://www.haarlemsdagblad.nl) -
+[Leidsch Dagblad](https://www.leidschdagblad.nl) -
+[IJmuider Courant](https://www.ijmuidercourant.nl) -
+[De Gooi- en Eemlander](https://www.gooieneemlander.nl)
 
 ##### Portugal
 [Correio da Manhã](https://www.cmjornal.pt) -

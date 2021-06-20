@@ -116,7 +116,6 @@ var allow_cookies_default = [
   'newleftreview.org',
   'newrepublic.com',
   'newsday.com',
-  'noordhollandsdagblad.nl',
   'nouvelobs.com',
   'noz.de',
   'nwzonline.de',
@@ -451,6 +450,7 @@ var grouped_sites = {
 '###_fr_groupe_la_depeche': fr_groupe_la_depeche_domains,
 '###_it_ilmessaggero': it_ilmessaggero_domains,
 '###_nl_ad_region': nl_ad_region_domains,
+'###_nl_mediahuis_region': nl_mediahuis_region_domains,
 '###_timesofindia': timesofindia_domains,
 '###_usa_crainsbiz': usa_crainsbiz_domains,
 '###_usa_mcc': usa_mcc_domains,
@@ -538,6 +538,8 @@ function add_grouped_sites(init_rules) {
       blockedRegexes[domain] = /utils\.cedsdigital\.it\/js\/PaywallMeter\.js/;
     for (let domain of nl_ad_region_domains)
       remove_cookies_select_drop[domain] = ['temptationTrackingId'];
+    for (let domain of nl_mediahuis_region_domains)
+      allow_cookies.push(domain);
     for (let domain of timesofindia_domains) {
       allow_cookies.push(domain);
       use_google_bot.push(domain);

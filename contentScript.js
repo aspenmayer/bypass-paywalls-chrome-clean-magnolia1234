@@ -11,6 +11,7 @@ var es_grupo_vocento_domains = ['diariosur.es', 'diariovasco.com', 'elcomercio.e
 var fr_groupe_ebra_domains = ['bienpublic.com', 'dna.fr', 'estrepublicain.fr', 'lalsace.fr', 'ledauphine.com', 'lejsl.com', 'leprogres.fr', 'republicain-lorrain.fr', 'vosgesmatin.fr'];
 var fr_groupe_la_depeche_domains = ['centrepresseaveyron.fr', 'ladepeche.fr', 'lindependant.fr', 'midi-olympique.fr', 'midilibre.fr', 'nrpyrenees.fr', 'petitbleu.fr'];
 var it_repubblica_domains = ['gelocal.it', 'ilsecoloxix.it', 'lanuovasardegna.it', 'lastampa.it', 'limesonline.com', 'repubblica.it'];
+var nl_mediahuis_region_domains = ['gooieneemlander.nl', 'haarlemsdagblad.nl', 'ijmuidercourant.nl', 'leidschdagblad.nl', 'noordhollandsdagblad.nl'];
 var usa_crainsbiz_domains = ['chicagobusiness.com', 'crainscleveland', 'crainsdetroit', 'crainsnewyork.com'];
 var usa_mcc_domains = ['bnd.com', 'charlotteobserver.com', 'fresnobee.com', 'kansas.com', 'kansascity.com', 'kentucky.com', 'newsobserver.com', 'sacbee.com', 'star-telegram.com', 'thestate.com', 'tri-cityherald.com'];
 var usa_tribune_domains = ['baltimoresun.com', 'chicagotribune.com', 'courant.com', 'dailypress.com', 'mcall.com', 'nydailynews.com', 'orlandosentinel.com', 'pilotonline.com', 'sun-sentinel.com'];
@@ -1210,7 +1211,7 @@ else if (matchDomain(["lc.nl", "dvhn.nl"])) {
   removeDOMElement(top_ad, plus);
 }
 
-else if (matchDomain('noordhollandsdagblad.nl')) {
+else if (matchDomain(nl_mediahuis_region_domains)) {
   window.setTimeout(function () {
     let close_button = document.querySelector('button[data-testid="button-close"]');
     if (close_button)
@@ -1223,7 +1224,7 @@ else if (matchDomain('noordhollandsdagblad.nl')) {
       let paywall = document.querySelector('div[data-auth-root="paywall"]');
       removeDOMElement(paywall);
       let auth_body = document.querySelector('div[data-auth-body="article"]');
-      if (auth_body) {
+      if (paywall && auth_body) {
         let auth_body_par_count = auth_body.querySelectorAll('p');
         if (auth_body_par_count.length < 2) {
           let url = window.location.href;
@@ -1231,16 +1232,12 @@ else if (matchDomain('noordhollandsdagblad.nl')) {
           let split1 = html.split('window["__PRELOADED_STATE_GRAPH__')[1].split(/=(.+)/)[1];
           let split2 = split1.split('</script>')[0].trim();
           let split3 = split2.split('"body":')[1];
-          let state = split3.split('},"')[0] + '}';
+          let state = split3.split('},"gal')[0] + '}';
           try {
             let data = JSON.parse(state);
             let article = data.json;
             auth_body.innerHTML = '';
-            let par_html,
-            par_dom,
-            par_elem,
-            par_div,
-            par_key;
+            let par_html, par_dom, par_elem, par_div, par_key;
             let parser = new DOMParser();
             for (let par of article) {
               for (let key in par) {
@@ -1295,7 +1292,7 @@ else if (matchDomain('noordhollandsdagblad.nl')) {
               }
             }
           } catch (err) {
-            console.warn('unable to parse noordhollands dagblad text');
+            console.warn('unable to parse text');
             console.warn(err);
           }
         }

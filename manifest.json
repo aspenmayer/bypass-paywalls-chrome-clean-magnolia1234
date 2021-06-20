@@ -177,6 +177,7 @@
         "*://*.globes.co.il/*",
         "*://*.globo.com/*",
         "*://*.goldcoastbulletin.com.au/*",
+        "*://*.gooieneemlander.nl/*",
         "*://*.griffithreview.com/*",
         "*://*.groene.nl/*",
         "*://*.grubstreet.com/*",
@@ -184,6 +185,7 @@
         "*://*.gympietimes.com.au/*",
         "*://*.haaretz.co.il/*",
         "*://*.haaretz.com/*",
+        "*://*.haarlemsdagblad.nl/*",
         "*://*.handelsblatt.com/*",
         "*://*.harpers.org/*",
         "*://*.haz.de/*",
@@ -198,6 +200,7 @@
         "*://*.hs.fi/*",
         "*://*.humo.be/*",
         "*://*.ideal.es/*",
+        "*://*.ijmuidercourant.nl/*",
         "*://*.ilfattoquotidiano.it/*",
         "*://*.ilgazzettino.it/*",
         "*://*.ilgiorno.it/*",
@@ -252,6 +255,7 @@
         "*://*.lecho.be/*",
         "*://*.ledauphine.com/*",
         "*://*.ledevoir.com/*",
+        "*://*.leidschdagblad.nl/*",
         "*://*.lejdd.fr/*",
         "*://*.lejsl.com/*",
         "*://*.leparisien.fr/*",
@@ -513,5 +517,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.2.5.6"
+    "version": "2.2.5.7"
 }
