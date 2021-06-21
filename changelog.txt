@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Fix blocked referer
 
 * v2.2.6.0 (2021-06-20)
 Add group Mediahuis Nederland Regional

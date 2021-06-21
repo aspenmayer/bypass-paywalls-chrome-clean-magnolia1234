@@ -989,9 +989,14 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
       continue;
     }
   }
-  // fix brave browser
-  if (!details.originUrl && !header_referer.includes(details.initiator))
+
+  // fix blocked referer
+  if (!header_referer) {
+    if (typeof browser !== 'object')
       header_referer = details.initiator;
+    else
+      header_referer = details.originUrl;
+  }
 
   // remove cookies for sites medium platform (custom domains)
   var medium_custom_domain = (matchUrlDomain('cdn-client.medium.com', details.url) && ['script'].includes(details.type) && !matchUrlDomain(['medium.com', 'towardsdatascience.com'], header_referer) && enabledSites.includes('###_medium_custom'));
