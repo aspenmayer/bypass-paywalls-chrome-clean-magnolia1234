@@ -1,5 +1,6 @@
 var ext_api = chrome || browser;
 
+var useragent_options = ['', 'googlebot', 'bingbot'];
 var referer_options = ['', 'facebook', 'google', 'twitter'];
 
 function capitalize(str) {
@@ -176,7 +177,7 @@ function edit_options() {
         var edit_site = sites_custom[title];
         document.querySelector('input[data-key="title"]').value = title;
         document.querySelector('input[data-key="domain"]').value = edit_site.domain;
-        document.querySelector('input[data-key="googlebot"]').checked = (edit_site.googlebot > 0);
+        document.querySelector('select[data-key="useragent"]').selectedIndex = (edit_site.googlebot > 0) ? 1 : useragent_options.indexOf(edit_site.useragent);
         document.querySelector('input[data-key="allow_cookies"]').checked = (edit_site.allow_cookies > 0);
         document.querySelector('input[data-key="block_javascript"]').checked = (edit_site.block_javascript > 0);
         document.querySelector('input[data-key="block_javascript_ext"]').checked = (edit_site.block_javascript_ext > 0);
@@ -234,7 +235,6 @@ function renderOptions() {
         var add_checkboxes = {
             'title': 0,
             'domain': 0,
-            'googlebot': 1,
             'allow_cookies': 1,
             'block_javascript': 1,
             'block_javascript_ext': 1
@@ -254,6 +254,20 @@ function renderOptions() {
             labelEl.appendChild(document.createTextNode(' ' + key));
             add_sitesEl.appendChild(labelEl);
         }
+
+        labelEl = document.createElement('label');
+        labelEl.appendChild(document.createTextNode('useragent '));
+        inputEl = document.createElement('select');
+        inputEl.dataset.key = 'useragent';
+        labelEl.appendChild(inputEl);
+
+        for (var i = 0; i < useragent_options.length; i++) {
+            var option = document.createElement("option");
+            option.value = useragent_options[i];
+            option.text = useragent_options[i];
+            inputEl.appendChild(option);
+        }
+        add_sitesEl.appendChild(labelEl);
 
         labelEl = document.createElement('label');
         labelEl.appendChild(document.createTextNode('referer '));
@@ -289,6 +303,7 @@ function renderOptions() {
                 (sites_custom[key]['allow_cookies']>0 ? ' | allow_cookies' : '') + 
                 (sites_custom[key]['block_javascript']>0 ? ' | block javascript' : '') + 
                 (sites_custom[key]['block_javascript_ext']>0 ? ' | block javascript ext' : '') +
+                (sites_custom[key]['useragent'] ? ' | useragent: ' +  sites_custom[key]['useragent'] : '');
                 (sites_custom[key]['referer'] ? ' | referer: ' +  sites_custom[key]['referer'] : '');
             optionEl.value = key;
             selectEl.add(optionEl);

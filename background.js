@@ -246,12 +246,13 @@ var use_google_bot_default = [
 var use_google_bot = use_google_bot_default.slice();
 
 // Override User-Agent with Bingbot
-var use_bing_bot = [
+var use_bing_bot_default = [
   'haaretz.co.il',
   'haaretz.com',
   'stratfor.com',
   'themarker.com',
 ];
+var use_bing_bot = use_bing_bot_default.slice();
 
 var use_facebook_referer_default = ['clarin.com', 'fd.nl', 'ilmanifesto.it', 'law.com', 'sloanreview.mit.edu'];
 var use_facebook_referer = use_facebook_referer_default.slice();
@@ -576,15 +577,17 @@ function add_grouped_sites(init_rules) {
     }
     for (let domain of nl_pg_domains)
       remove_cookies_select_drop[domain] = ['TID_ID'];
-    use_google_bot_default = use_google_bot.slice();
-    use_facebook_referer_default = use_facebook_referer.slice();
-    use_google_referer_default = use_google_referer.slice();
-    use_twitter_referer_default = use_twitter_referer.slice();
-    change_headers = use_google_bot.concat(use_bing_bot, use_facebook_referer, use_google_referer, use_twitter_referer, use_random_ip);
     for (let domain of usa_genomeweb_domains) {
       allow_cookies.push(domain);
       blockedRegexes[domain] = /crain-platform-.+-prod\.s3\.amazonaws\.com\/s3fs-public\/js\/js_.+\.js/;
     }
+
+    use_google_bot_default = use_google_bot.slice();
+    use_bing_bot_default = use_bing_bot.slice();
+    use_facebook_referer_default = use_facebook_referer.slice();
+    use_google_referer_default = use_google_referer.slice();
+    use_twitter_referer_default = use_twitter_referer.slice();
+    change_headers = use_google_bot.concat(use_bing_bot, use_facebook_referer, use_google_referer, use_twitter_referer, use_random_ip);
   }
 }
 
@@ -599,10 +602,37 @@ ext_api.storage.local.get({
   var sites_custom = items.sites_custom;
   excludedSites = items.sites_excluded;
 
+  enabledSites = Object.keys(sites).filter(function (key) {
+      return (sites[key] !== '' && sites[key] !== '###');
+    }).map(function (key) {
+      return sites[key].toLowerCase();
+    });
+  customSites = sites_custom;
+  customSites_domains = Object.values(sites_custom).map(x => x.domain);
+  disabledSites = defaultSites_domains.concat(customSites_domains).filter(x => !enabledSites.includes(x) && x !== '###');
+  add_grouped_sites(true);  //and exclude sites
+
+  for (let domainVar of enabledSites) {
+    if (!allow_cookies.includes(domainVar) && !remove_cookies.includes(domainVar)) {
+      allow_cookies.push(domainVar);
+      remove_cookies.push(domainVar);
+    }
+  }
+
   for (let key in sites_custom) {
     var domainVar = sites_custom[key]['domain'].toLowerCase();
     if (sites_custom[key]['googlebot'] > 0 && !use_google_bot.includes(domainVar))
       use_google_bot.push(domainVar);
+    switch (sites_custom[key]['useragent']) {
+    case 'googlebot':
+      if (!use_google_bot.includes(domainVar))
+        use_google_bot.push(domainVar);
+      break;
+    case 'bingbot':
+      if (!use_bing_bot.includes(domainVar))
+        use_bing_bot.push(domainVar);
+      break;
+    }
     if (sites_custom[key]['allow_cookies'] > 0 && !allow_cookies.includes(domainVar))
       allow_cookies.push(domainVar);
     if (sites_custom[key]['block_javascript'] > 0)
@@ -621,22 +651,6 @@ ext_api.storage.local.get({
     }
   }
 
-  enabledSites = Object.keys(sites).filter(function (key) {
-      return (sites[key] !== '' && sites[key] !== '###');
-    }).map(function (key) {
-      return sites[key].toLowerCase();
-    });
-  customSites = sites_custom;
-  customSites_domains = Object.values(sites_custom).map(x => x.domain);
-  disabledSites = defaultSites_domains.concat(customSites_domains).filter(x => !enabledSites.includes(x) && x !== '###');
-  add_grouped_sites(true);  //and exclude sites
-
-  for (let domainVar of enabledSites) {
-    if (!allow_cookies.includes(domainVar) && !remove_cookies.includes(domainVar)) {
-      allow_cookies.push(domainVar);
-      remove_cookies.push(domainVar);
-    }
-  }
   disableJavascriptOnListedSites();
 });
 
@@ -701,6 +715,7 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
       }
 
       use_google_bot = use_google_bot_default.slice();
+      use_bing_bot = use_bing_bot_default.slice();
       use_facebook_referer = use_facebook_referer_default.slice();
       use_google_referer = use_google_referer_default.slice();
       use_twitter_referer = use_twitter_referer_default.slice();
@@ -710,6 +725,16 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
         var domainVar = sites_custom[key]['domain'].toLowerCase();
         if (sites_custom[key]['googlebot'] > 0 && !use_google_bot.includes(domainVar)) {
           use_google_bot.push(domainVar);
+        }
+        switch (sites_custom[key]['useragent']) {
+        case 'googlebot':
+          if (!use_google_bot.includes(domainVar))
+            use_google_bot.push(domainVar);
+          break;
+        case 'bingbot':
+          if (!use_bing_bot.includes(domainVar))
+            use_bing_bot.push(domainVar);
+          break;
         }
         if (sites_custom[key]['allow_cookies'] > 0) {
           if (allow_cookies.includes(domainVar)) {
