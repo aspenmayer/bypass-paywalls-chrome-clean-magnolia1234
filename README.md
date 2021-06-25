@@ -445,9 +445,6 @@ Mediahuis Nederland Regional sites like
 ##### Russia
 [Republic.ru](https://republic.ru)
 
-##### Slovenia
-[Finance.si](https://www.finance.si)
-
 ##### Spain
 [ABC](https://www.abc.es) -
 [Diario de Ibiza](https://www.diariodeibiza.es) -

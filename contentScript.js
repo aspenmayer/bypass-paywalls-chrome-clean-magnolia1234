@@ -208,10 +208,12 @@ else {
                 } else if (par.kind === 'inline') {
                   if (par.asset.kind === 'image') {
                     article = article + '<figure><img src="' + par.asset.original.reference + '" style="width:100%">';
-                    article = article + '<figcaption>' +
-                      par.asset.captionText + ' ' + par.asset.copyrightByline +
-                      ((par.asset.copyrightCredit && par.asset.captionText !== par.asset.copyrightByline) ? '/' + par.asset.copyrightCredit : '') +
-                      '<figcaption></figure>';
+                    if (par.asset.captionText)
+                      article = article + '<figcaption>' +
+                        par.asset.captionText + ' ' + par.asset.copyrightByline +
+                        ((par.asset.copyrightCredit && par.asset.captionText !== par.asset.copyrightByline) ? '/' + par.asset.copyrightCredit : '') +
+                        '<figcaption>';
+                    article = article + '</figure>';
                   }
                 } else {
                   article = article + '<p>' + par.text + '</p>';
