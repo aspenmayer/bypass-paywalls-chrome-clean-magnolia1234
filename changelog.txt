@@ -2,6 +2,8 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+
+* v2.2.7.0 (2021-06-27)
 Fix National Geographic USA
 Remove Finance.si (obsolete)
 Fix blocked referer
