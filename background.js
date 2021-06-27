@@ -1016,9 +1016,9 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   // fix blocked referer
   if (!header_referer) {
     if (typeof browser !== 'object')
-      header_referer = details.initiator;
+      header_referer = details.initiator ? details.initiator : '';
     else
-      header_referer = details.originUrl;
+      header_referer = details.originUrl ? details.originUrl : '';
   }
 
   // remove cookies for sites medium platform (custom domains)
@@ -1231,7 +1231,7 @@ if (matchUrlDomain(change_headers, details.url) && (['main_frame', 'sub_frame', 
 
   if (tabId !== -1) {
     ext_api.tabs.get(tabId, function (currentTab) {
-      if ((currentTab && isSiteEnabled(currentTab)) || medium_custom_domain || au_apn_site || au_swm_site) {
+      if ((currentTab && isSiteEnabled(currentTab) && !(matchUrlDomain('nationalgeographic.com', currentTabUrl) && !header_referer)) || medium_custom_domain || au_apn_site || au_swm_site) {
         if (currentTab.url !== currentTabUrl) {
           csDone = false;
           currentTabUrl = currentTab.url;

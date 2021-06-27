@@ -193,7 +193,7 @@ else {
                   if (par.reference.includes('https://omny.fm/') || par.reference.includes('https://docdro.id/')) {
                     article = article + '<embed src="' + par.reference + '" style="height:500px; width:100%" frameborder="0"></embed>';
                   } else {
-                    article = article + 'Embed: ' + '<a href="' + par.reference + '" target="_blank">' + par.reference + '</a>';
+                    article = article + 'Embed: ' + '<a href="' + par.reference + '" target="_blank">' + par.reference.split('?')[0] + '</a>';
                     console.log('embed: ' + par.reference);
                   }
                 } else if (par.kind === 'unordered-list') {
@@ -1247,13 +1247,13 @@ else if (matchDomain(nl_mediahuis_region_domains)) {
                 par_elem = '';
                 par_key = par[key];
                 if (key === 'subhead') {
-                  par_elem = document.createElement('strong');
-                  par_elem.innerText = par_key;
+                  par_html = parser.parseFromString('<div><strong>' + par_key + '</strong></div>', 'text/html');
+                  par_elem = par_html.querySelector('div');
                 } else if (key === 'twitter' || key === 'instagram') {
                   par_elem = document.createElement('a');
                   Object.assign(par_elem, {
                     href: par_key,
-                    innerText: par_key,
+                    innerText: par_key.split('?')[0],
                     target: '_blank'
                   });
                 } else if (key === 'youtube') {
@@ -1921,6 +1921,11 @@ else if (matchDomain('historyextra.com')) {
   }
   let ad_banner = document.querySelector('.ad-banner-container');
   removeDOMElement(ad_banner);
+}
+
+else if (matchDomain(['houstonchronicle.com', 'sfchronicle.com'])) {
+  let wrapper = document.querySelector('.belowMastheadWrapper');
+  removeDOMElement(wrapper);
 }
 
 else if (matchDomain('inkl.com')) {
