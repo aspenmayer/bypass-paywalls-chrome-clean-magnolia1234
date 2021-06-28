@@ -248,10 +248,29 @@ else {
 
 if (matchDomain('augsburger-allgemeine.de')) {
   let url = window.location.href;
-  if (url.includes('-amp.html')) {
+  if (!url.includes('-amp.html')) {
+    let paywall = document.querySelector('div.aa-visible-logged-out');
+    if (paywall) {
+      removeDOMElement(paywall);
+      window.location.href = url.replace('.html', '-amp.html');
+    }
+  } else {
     let subscr_sections = document.querySelectorAll('div[subscriptions-section="content"]');
     for (let subscr_section of subscr_sections)
       subscr_section.removeAttribute('subscriptions-section');
+    let amp_iframes = document.querySelectorAll('amp-iframe');
+    let elem;
+    for (let amp_iframe of amp_iframes) {
+      elem = document.createElement('iframe');
+      elem.src = amp_iframe.getAttribute('src');
+      elem.setAttribute('frameborder', '0');
+      if (amp_iframe.getAttribute('height') && amp_iframe.getAttribute('width')) {
+        elem.setAttribute('height') = amp_iframe.getAttribute('height');
+        elem.setAttribute('width') = amp_iframe.getAttribute('width');
+      }
+      amp_iframe.parentElement.insertBefore(elem, amp_iframe);
+      removeDOMElement(amp_iframe);
+    }
     let amp_ads = document.querySelectorAll('amp-ad');
     removeDOMElement(...amp_ads);
   }
