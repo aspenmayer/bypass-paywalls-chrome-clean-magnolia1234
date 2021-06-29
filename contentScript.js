@@ -180,50 +180,68 @@ else {
               let url = window.location.href;
               if (!url_loaded || !url.includes(url_loaded.slice(-10)))
                 window.location.reload(true);
-              let article = '';
-              let div_content = document.createElement('div');
+              let par_elem, par_sub1, par_sub2;
+              let par_dom = document.createElement('div');
+              let tweet_id = 1;
               for (let par of json_content) {
+                par_elem = '';
                 if (par.kind === 'text') {
-                  article = article + '<p>' + par.text + '</p>';
+                  par_elem = document.createElement('p');
+                  par_elem.innerText = par.text;
                 } else if (par.kind === 'subhead') {
-                  article = article + '<h2>' + par.text + '</h2>';
+                  par_elem = document.createElement('h2');
+                  par_elem.innerText = par.text;
                 } else if (par.kind === 'pull-quote') {
-                  article = article + '<i>' + (par.attribution ? par.attribution + ': ' : '') + par.text + '</i>';
+                  par_elem = document.createElement('i');
+                  par_elem.innerText = (par.attribution ? par.attribution + ': ' : '') + par.text;
                 } else if (par.kind === 'embed') {
                   if (par.reference.includes('https://omny.fm/') || par.reference.includes('https://docdro.id/')) {
-                    article = article + '<embed src="' + par.reference + '" style="height:500px; width:100%" frameborder="0"></embed>';
+                    par_elem = document.createElement('embed');
+                    par_elem.src = par.reference;
+                    par_elem.style = 'height:500px; width:100%';
+                    par_elem.frameborder = '0';
                   } else {
-                    article = article + 'Embed: ' + '<a href="' + par.reference + '" target="_blank">' + par.reference.split('?')[0] + '</a>';
+                    par_elem = document.createElement('a');
+                    par_elem.href = par.reference;
+                    par_elem.innerText = par.reference.split('?')[0];
                     console.log('embed: ' + par.reference);
                   }
                 } else if (par.kind === 'unordered-list') {
                   if (par.items) {
-                    article = article + '<ul>';
+                    par_elem = document.createElement('ul');
                     for (let item of par.items)
                       if (item.text && item.intentions[0].href) {
-                        article = article + '<li><a href="' + item.intentions[0].href + '">' + item.text + '</a></li>';
+                        par_sub1 = document.createElement('li');
+                        par_sub2 = document.createElement('a');
+                        par_sub2.href = item.intentions[0].href;
+                        par_sub2.innerText = item.text;
+                        par_sub1.appendChild(par_sub2);
+                        par_elem.appendChild(par_sub1);
                       }
-                    article = article + '</ul>';
                   }
                 } else if (par.kind === 'inline') {
                   if (par.asset.kind === 'image') {
-                    article = article + '<figure><img src="' + par.asset.original.reference + '" style="width:100%">';
-                    if (par.asset.captionText)
-                      article = article + '<figcaption>' +
-                        par.asset.captionText + ' ' + par.asset.copyrightByline +
-                        ((par.asset.copyrightCredit && par.asset.captionText !== par.asset.copyrightByline) ? '/' + par.asset.copyrightCredit : '') +
-                        '<figcaption>';
-                    article = article + '</figure>';
+                    par_elem = document.createElement('figure');
+                    par_sub1 = document.createElement('img');
+                    par_sub1.src = par.asset.original.reference;
+                    par_sub1.style = 'width:100%';
+                    par_elem.appendChild(par_sub1);
+                    if (par.asset.captionText) {
+                      par_sub2 = document.createElement('figcaption');
+                      par_sub2.innerText = par.asset.captionText + ' ' + par.asset.copyrightByline +
+                        ((par.asset.copyrightCredit && par.asset.captionText !== par.asset.copyrightByline) ? '/' + par.asset.copyrightCredit : '');
+                      par_elem.appendChild(par_sub2);
+                    }
                   }
                 } else {
-                  article = article + '<p>' + par.text + '</p>';
+                  par_elem = document.createElement('p');
+                  par_elem.innerText = par.text;
                   console.log(par.kind);
                 }
+                if (par_elem)
+                  par_dom.appendChild(par_elem);
               }
               let content = document.querySelector('div[class*="StyledArticleContent"]');
-              let parser = new DOMParser();
-              let par_html = parser.parseFromString('<div>' + article + '</div>', 'text/html');
-              let par_dom = par_html.querySelector('div');
               if (content) {
                 content.appendChild(par_dom);
               } else {
@@ -356,7 +374,7 @@ else if (matchDomain('faz.net')) {
         if (response.ok) {
           response.text().then(html => {
             var parser = new DOMParser();
-            var doc = parser.parseFromString(html, 'text/html');
+            var doc = parser.parseFromString(DOMPurify.sanitize(html), 'text/html');
             let json = doc.querySelector('script[id="schemaOrgJson"]');
             if (json) {
               var json_text = json.text.replace(/(\r|\n)/g, '');
@@ -898,7 +916,7 @@ else if (matchDomain('lesechos.fr') && window.location.href.match(/-\d{6,}/)) {
         if (paywallNode) {
           let contentNode = document.createElement('div');
           let parser = new DOMParser();
-          let article_html = parser.parseFromString('<div>' + article + '</div>', 'text/html');
+          let article_html = parser.parseFromString('<div>' + DOMPurify.sanitize(article) + '</div>', 'text/html');
           let article_par = article_html.querySelector('div');
           if (article_par) {
             contentNode.appendChild(article_par);
@@ -1130,10 +1148,7 @@ else if (matchDomain('gva.be')) {
         let parser = new DOMParser();
         let div_content = main_content.querySelector('div');
         div_content.setAttribute('class', 'gva-6c6ea21_marginbottom5 gva-28c280e9_contentwrapper');
-        let par_elem,
-        par_key,
-        par_li,
-        par_html;
+        let par_elem, par_key, par_li, par_html;
         let head = document.querySelector('head');
         let streamone = false;
         let flourish = false;
@@ -1143,7 +1158,7 @@ else if (matchDomain('gva.be')) {
             par_key = par[key];
             if (['p', 'subhead'].includes(key)) {
               if (par_key.includes('<')) {
-                par_html = parser.parseFromString('<p>' + par_key + '</p>', 'text/html');
+                par_html = parser.parseFromString('<p>' + DOMPurify.sanitize(par_key) + '</p>', 'text/html');
                 par_elem = par_html.querySelector('p');
               } else
                 par_elem.innerText = par_key;
@@ -1155,7 +1170,7 @@ else if (matchDomain('gva.be')) {
             } else if (key === 'bullet_list') {
               par_elem = document.createElement('ul');
               for (let bullet of par_key) {
-                par_html = parser.parseFromString('<li>' + bullet + '</li>', 'text/html');
+                par_html = parser.parseFromString('<li>' + DOMPurify.sanitize(bullet) + '</li>', 'text/html');
                 par_li = par_html.querySelector('li');
                 let bullet_link = par_li.querySelector('a');
                 if (bullet_link && bullet_link.href && !bullet_link.innerText)
@@ -1165,17 +1180,18 @@ else if (matchDomain('gva.be')) {
             } else if (key === 'streamone') {
               if (!streamone) {
                 let streamone_script = document.createElement('script');
-                streamone_script.setAttribute('src', 'https://shared.mediahuis.be/videoplayers/mediahuis/video-theoplayer.js?v=20201111T131002');
+                streamone_script.setAttribute('src', 'https://shared.mediahuis.be/videoplayers/mediahuis/video-theoplayer.js?v=20210629T080526');
                 streamone_script.setAttribute('defer', true);
                 streamone_script.setAttribute('crossorigin', 'anonymous');
                 if (head)
                   head.appendChild(streamone_script);
                 streamone = true;
               }
-              par_html = parser.parseFromString('<div id="json_id"><div class="gva-6c6ea21_marginbottom5 gva-28c280e9_contentwrapper"><div class="gva-6c6ea21_marginbottom4"><div class="gva-6c6ea21_marginbottom0"><div class="gva-e5b9f66a_root" data-testid="embed-video"><svg class="gva-e5b9f66a_placeholder" viewBox="0 0 16 9" aria-hidden="true"></svg><div><div id="video-player-' + par_key.id + '" style="width:100%;" data-video-embed-id="' + par_key.id + '" data-video-target-id="video-player-' + par_key.id + '" data-video-brand="gva" class="js-theoplayer-placeholder"></div></div></div></div></div>', 'text/html');
+              let par_key_id = DOMPurify.sanitize(par_key.id);
+              par_html = parser.parseFromString('<div id="json_id"><div class="gva-6c6ea21_marginbottom5 gva-28c280e9_contentwrapper"><div class="gva-6c6ea21_marginbottom4"><div class="gva-6c6ea21_marginbottom0"><div class="gva-e5b9f66a_root" data-testid="embed-video"><svg class="gva-e5b9f66a_placeholder" viewBox="0 0 16 9" aria-hidden="true"></svg><div><div id="video-player-' + par_key_id + '" style="width:100%;" data-video-embed-id="' + par_key_id + '" data-video-target-id="video-player-' + par_key_id + '" data-video-brand="gva" class="js-theoplayer-placeholder"></div></div></div></div></div>', 'text/html');
               par_elem = par_html.querySelector('div');
             } else if (key === 'legacy-ml') {
-              par_html = parser.parseFromString(par_key, 'text/html');
+              par_html = parser.parseFromString(DOMPurify.sanitize(par_key), 'text/html');
               par_elem = par_html.querySelector('div');
               if (!flourish && par_key.includes('flourish.studio')) {
                 let flourish_script = document.createElement('script');
@@ -1186,7 +1202,7 @@ else if (matchDomain('gva.be')) {
               }
             } else {
               console.log(key + ': ' + par_key);
-              par_html = parser.parseFromString('<p>' + par_key + '</p>', 'text/html');
+              par_html = parser.parseFromString('<p>' + DOMPurify.sanitize(par_key) + '</p>', 'text/html');
               par_elem = par_html.querySelector('p');
             }
             if (!['streamone', 'legacy-ml'].includes(key))
@@ -1266,7 +1282,7 @@ else if (matchDomain(nl_mediahuis_region_domains)) {
                 par_elem = '';
                 par_key = par[key];
                 if (key === 'subhead') {
-                  par_html = parser.parseFromString('<div><strong>' + par_key + '</strong></div>', 'text/html');
+                  par_html = parser.parseFromString('<div><strong>' + DOMPurify.sanitize(par_key) + '</strong></div>', 'text/html');
                   par_elem = par_html.querySelector('div');
                 } else if (key === 'twitter' || key === 'instagram') {
                   par_elem = document.createElement('a');
@@ -1304,7 +1320,7 @@ else if (matchDomain(nl_mediahuis_region_domains)) {
                   par_div.innerText += par[key].credit ? '\n' + par[key].credit : '';
                   par_elem.appendChild(par_div);
                 } else {
-                  par_html = parser.parseFromString('<div>' + par_key + '</div>', 'text/html');
+                  par_html = parser.parseFromString('<div>' + DOMPurify.sanitize(par_key) + '</div>', 'text/html');
                   par_elem = par_html.querySelector('div');
                 }
                 if (par_elem)
@@ -1691,7 +1707,7 @@ else if (matchDomain('business-standard.com')) {
         json_text = parseHtmlEntities(json_text);
         json_text = json_text.replace(/(?:^|[\w\"\'\’])(\.|\?|!)(?=[A-Z\"\”\“\‘\’\'][A-Za-zÀ-ÿ\"\”\“\‘\’\']{1,})/gm, "$&</br></br>") + '</br></br>';
         let parser = new DOMParser();
-        let html = parser.parseFromString('<div>' + json_text + '</div>', 'text/html');
+        let html = parser.parseFromString('<div>' + DOMPurify.sanitize(json_text) + '</div>', 'text/html');
         let article = html.querySelector('div');
         if (article) {
           let p_content = document.querySelector('span.p-content.paywall');
@@ -1773,7 +1789,7 @@ else if (matchDomain('economictimes.com')) {
       if (content && full_text) {
         content.innerText = '';
         let parser = new DOMParser();
-        html = parser.parseFromString('<div>' + full_text.innerHTML + '</div>', 'text/html');
+        html = parser.parseFromString('<div>' + DOMPurify.sanitize(full_text.innerHTML) + '</div>', 'text/html');
         let article = html.querySelector('div');
         content.appendChild(article);
         removeDOMElement(full_text);
@@ -2090,7 +2106,7 @@ else if (matchDomain('newyorker.com')) {
   for (let overlay of overlays) {
     let noscript = overlay.querySelector('noscript');
     if (noscript && noscript.innerHTML) {
-      let html = parser.parseFromString(noscript.innerHTML, 'text/html');
+      let html = parser.parseFromString(DOMPurify.sanitize(noscript.innerHTML), 'text/html');
       overlay.appendChild(html.querySelector('img'));
       removeDOMElement(noscript);
     }
@@ -2114,7 +2130,7 @@ else if (matchDomain('nzherald.co.nz')) {
       par_dom;
       let parser = new DOMParser();
       for (let hidden_par of hidden_pars) {
-        let par_html = parser.parseFromString('<div style="margin: 10px 0px; font-size: 17px">' + hidden_par.innerHTML + '</div>', 'text/html');
+        let par_html = parser.parseFromString('<div style="margin: 10px 0px; font-size: 17px">' + DOMPurify.sanitize(hidden_par.innerHTML) + '</div>', 'text/html');
         let par_dom = par_html.querySelector('div');
         article_content.insertBefore(par_dom, hidden_par);
       }
@@ -2307,7 +2323,7 @@ else if (matchDomain('techinasia.com')) {
           let content = document.querySelector('div.content');
           if (json_text && content) {
             let parser = new DOMParser();
-            let doc = parser.parseFromString('<div class="jsx-1794864983 content">' + json_text + '</div>', 'text/html');
+            let doc = parser.parseFromString('<div class="jsx-1794864983 content">' + DOMPurify.sanitize(json_text) + '</div>', 'text/html');
             let content_new = doc.querySelector('div.content');
             content.parentNode.replaceChild(content_new, content);
           }
@@ -2593,6 +2609,7 @@ function matchDomain(domains, hostname) {
   return matched_domain;
 }
 
+// add domains to manifest (content_scripts - matches)
 function replaceDomElementExt(url, proxy, base64, selector, text_fail = '') {
   let proxyurl = proxy ? 'https://bpc2-cors-anywhere.herokuapp.com/' : '';
   fetch(proxyurl + url, {headers: {"Content-Type": "text/plain", "X-Requested-With": "XMLHttpRequest"} })
@@ -2605,7 +2622,7 @@ function replaceDomElementExt(url, proxy, base64, selector, text_fail = '') {
           selector = 'body';
         }
         let parser = new DOMParser();
-        let doc = parser.parseFromString(html, 'text/html');
+        let doc = parser.parseFromString(DOMPurify.sanitize(html), 'text/html');
         let article_new = doc.querySelector(selector);
         if (article_new) {
           if (article)

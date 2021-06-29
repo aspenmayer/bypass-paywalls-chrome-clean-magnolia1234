@@ -1231,19 +1231,27 @@ if (matchUrlDomain(change_headers, details.url) && (['main_frame', 'sub_frame', 
 
   if (tabId !== -1) {
     ext_api.tabs.get(tabId, function (currentTab) {
-      if ((currentTab && isSiteEnabled(currentTab) && !(matchUrlDomain('nationalgeographic.com', currentTabUrl) && !header_referer)) || medium_custom_domain || au_apn_site || au_swm_site) {
+      if ((currentTab && isSiteEnabled(currentTab) && !(matchUrlDomain('nationalgeographic.com', currentTab.url) && !header_referer)) || medium_custom_domain || au_apn_site || au_swm_site) {
         if (currentTab.url !== currentTabUrl) {
           csDone = false;
           currentTabUrl = currentTab.url;
         }
         if ((!['font', 'stylesheet'].includes(details.type) || matchUrlDomain(cs_limit_except, currentTabUrl)) && !csDone) {
+          let lib_file = 'lib/empty.js';
+          if (matchUrlDomain(['business-standard.com', 'cicero.de', 'economictimes.com', 'faz.net', 'gva.be', 'lesechos.fr', 'newleftreview.org', 'newyorker.com', 'nzherald.co.nz', 'prospectmagazine.co.uk', 'sudouest.fr', 'techinasia.com', 'valor.globo.com'].concat(nl_mediahuis_region_domains), currentTabUrl))
+            lib_file = 'lib/purify.min.js';
           ext_api.tabs.executeScript(tabId, {
-            file: 'contentScript.js',
+            file: lib_file,
             runAt: 'document_start'
-          }, function (res) {
-            if (ext_api.runtime.lastError || res[0]) {
-              return;
-            }
+          }, function () {
+            ext_api.tabs.executeScript(tabId, {
+              file: 'contentScript.js',
+              runAt: 'document_start'
+            }, function (res) {
+              if (ext_api.runtime.lastError || res[0]) {
+                return;
+              }
+            })
           });
         }
       }
