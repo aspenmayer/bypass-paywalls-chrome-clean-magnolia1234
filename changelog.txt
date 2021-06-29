@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Fix Augsburger Allgemeine
+Fix Quartz (link to archive.is)
 Maintenance contentScript (sanitize html-input)
 
 * v2.2.7.0 (2021-06-27)

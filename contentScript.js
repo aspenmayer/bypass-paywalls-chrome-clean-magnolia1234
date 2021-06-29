@@ -374,7 +374,7 @@ else if (matchDomain('faz.net')) {
         if (response.ok) {
           response.text().then(html => {
             var parser = new DOMParser();
-            var doc = parser.parseFromString(DOMPurify.sanitize(html), 'text/html');
+            var doc = parser.parseFromString(html, 'text/html');
             let json = doc.querySelector('script[id="schemaOrgJson"]');
             if (json) {
               var json_text = json.text.replace(/(\r|\n)/g, '');
@@ -1494,17 +1494,9 @@ else if (matchDomain('thetimes.co.uk')) {
   let paywall = document.querySelector('div#paywall-portal-article-footer');
   if (paywall && !url.includes('?shareToken=')) {
     removeDOMElement(paywall);
-    let text_fail_div = document.createElement('div');
-    text_fail_div.appendChild(document.createTextNode('BPC > Read full article text:\r\n'));
-    let a_link = document.createElement('a');
-    a_link.innerText = archive_url;
-    a_link.href = archive_url;
-    a_link.target = '_blank';
-    a_link.setAttribute('style', 'font-weight: bold;');
-    text_fail_div.appendChild(a_link);
     let article = document.querySelector('article[role="article"]');
     if (article)
-      article.insertBefore(text_fail_div, article.firstChild);
+      article.insertBefore(archiveLink(archive_url), article.firstChild);
   }
   let paywall_page = document.querySelector('div#paywall-portal-page-footer');
   removeDOMElement(paywall_page);
@@ -2187,11 +2179,22 @@ else if (matchDomain('nytimes.com')) {
 }
 
 else if (matchDomain('qz.com')) {
+  let url = window.location.href;
   window.setTimeout(function () {
-    let url = window.location.href;
     if (url.includes('utm_source='))
       window.location.href = url.split('?')[0];
   }, 500); // Delay (in milliseconds)
+  let archive_url = 'https://archive.is?url=' + url;
+  let paywall = document.querySelector('div.KbD9m');
+  let overflow = document.querySelector('div._7S-qA');
+  let msg = document.querySelector('div#bpc_archive');
+  if (paywall && !msg) {
+    if (overflow)
+      overflow.classList.remove('_7S-qA');
+    let article = document.querySelector('div#article-content');
+    if (article)
+      article.appendChild(archiveLink(archive_url));
+  }
 }
 
 else if (matchDomain('republic.ru')) {
@@ -2644,6 +2647,19 @@ function replaceDomElementExt(url, proxy, base64, selector, text_fail = '') {
       }
     }
   });
+}
+
+function archiveLink(archive_url) {
+  let text_fail_div = document.createElement('div');
+  text_fail_div.id = 'bpc_archive';
+  text_fail_div.appendChild(document.createTextNode('BPC > Read full article text:\r\n'));
+  let a_link = document.createElement('a');
+  a_link.innerText = archive_url;
+  a_link.href = archive_url;
+  a_link.target = '_blank';
+  a_link.setAttribute('style', 'font-weight: bold;');
+  text_fail_div.appendChild(a_link);
+  return text_fail_div;
 }
 
 function removeClassesByPrefix(el, prefix) {

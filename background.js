@@ -365,6 +365,7 @@ var blockedRegexes = {
   'observador.pt': /\.tinypass\.com\//,
   'parismatch.com': /\.poool\.fr\//,
   'quotidiano.net': /\.tinypass\.com\//,
+  'qz.com': /\.tinypass\.com\//,
   'reuters.com': /\.reuters\.com\/(arc\/subs\/p\.min|pf\/resources\/dist\/reuters\/js\/index)\.js/,
   'rollingstone.com': /cdn\.cxense\.com\//,
   'ruhrnachrichten.de': /\.tinypass\.com\//,
@@ -1238,7 +1239,7 @@ if (matchUrlDomain(change_headers, details.url) && (['main_frame', 'sub_frame', 
         }
         if ((!['font', 'stylesheet'].includes(details.type) || matchUrlDomain(cs_limit_except, currentTabUrl)) && !csDone) {
           let lib_file = 'lib/empty.js';
-          if (matchUrlDomain(['business-standard.com', 'cicero.de', 'economictimes.com', 'faz.net', 'gva.be', 'lesechos.fr', 'newleftreview.org', 'newyorker.com', 'nzherald.co.nz', 'prospectmagazine.co.uk', 'sudouest.fr', 'techinasia.com', 'valor.globo.com'].concat(nl_mediahuis_region_domains), currentTabUrl))
+          if (matchUrlDomain(['business-standard.com', 'cicero.de', 'economictimes.com', 'gva.be', 'lesechos.fr', 'newleftreview.org', 'newyorker.com', 'nzherald.co.nz', 'prospectmagazine.co.uk', 'sudouest.fr', 'techinasia.com', 'valor.globo.com'].concat(nl_mediahuis_region_domains), currentTabUrl))
             lib_file = 'lib/purify.min.js';
           ext_api.tabs.executeScript(tabId, {
             file: lib_file,
