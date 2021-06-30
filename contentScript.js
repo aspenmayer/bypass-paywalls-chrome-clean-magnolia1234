@@ -283,8 +283,8 @@ if (matchDomain('augsburger-allgemeine.de')) {
       elem.src = amp_iframe.getAttribute('src');
       elem.setAttribute('frameborder', '0');
       if (amp_iframe.getAttribute('height') && amp_iframe.getAttribute('width')) {
-        elem.setAttribute('height') = amp_iframe.getAttribute('height');
-        elem.setAttribute('width') = amp_iframe.getAttribute('width');
+        elem.setAttribute('height', amp_iframe.getAttribute('height'));
+        elem.setAttribute('width', amp_iframe.getAttribute('width'));
       }
       amp_iframe.parentElement.insertBefore(elem, amp_iframe);
       removeDOMElement(amp_iframe);
@@ -397,7 +397,7 @@ else if (matchDomain('faz.net')) {
                 str = str.replace(/(?:^|[A-Za-z\"\“])(\.|\?|!)(?=[A-ZÖÜ\„\d][A-Za-zÀ-ÿ\„\d]{1,})/gm, "$&\n\n");
                 str = str.replace(/(([a-z]{2,}|[\"\“]))(?=[A-Z](?=[A-Za-zÀ-ÿ]+))/gm, "$&\n\n");
                 // exceptions: names with alternating lower/uppercase (no general fix)
-                let str_rep_arr = ['AstraZeneca', 'BaFin', 'BerlHG', 'BfArM', 'BilMoG', 'DiGA', 'EuGH', 'FinTechRat', 'GlaxoSmithKline', 'IfSG', 'medRxiv', 'PlosOne', 'StVO'];
+                let str_rep_arr = ['AstraZeneca', 'BaFin', 'BerlHG', 'BfArM', 'BilMoG', 'BioNTech', 'DiGA', 'EuGH', 'FinTechRat', 'GlaxoSmithKline', 'IfSG', 'medRxiv', 'PlosOne', 'StVO'];
                 let str_rep_split,
                 str_rep_src;
                 for (let str_rep of str_rep_arr) {
@@ -2044,16 +2044,18 @@ else if (matchDomain('nation.africa')) {
 }
 
 else if (matchDomain('nationalgeographic.com')) {
-  function natgeo_func(node) {
-    removeDOMElement(node);
-    let body = document.querySelector('body[class]');
-    if (body) {
-      body.removeAttribute('class');
-      body.removeAttribute('style');
-    }
+  // plus code in contentScript_once.js
+  let url = window.location.href;
+  let archive_url = 'https://archive.is?url=' + url;
+  let subscribed = document.querySelector('.Article__Content--gated');
+  let overlay = document.querySelector('.Article__Content__Overlay--gated');
+  let msg = document.querySelector('div#bpc_archive');
+  if (subscribed && !msg) {
+    subscribed.appendChild(archiveLink(archive_url));
+    subscribed.setAttribute('style', 'overflow: visible !important;');
+    if (overlay)
+      overlay.classList.remove('Article__Content__Overlay--gated');
   }
-  waitDOMElement('div[id^="fittPortal"]', 'DIV', natgeo_func, false);
-  csDone = true;
 }
 
 else if (matchDomain('nationalreview.com')) {

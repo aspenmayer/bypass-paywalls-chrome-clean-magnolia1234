@@ -3,11 +3,11 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Fix Augsburger Allgemeine
+Fix National Geographic USA (magazine/link to archive.is)
 Fix Quartz (link to archive.is)
 Maintenance contentScript (sanitize html-input)
 
 * v2.2.7.0 (2021-06-27)
-Fix National Geographic USA
 Remove Finance.si (obsolete)
 Fix blocked referer
 Update custom sites (set useragent Bingbot)

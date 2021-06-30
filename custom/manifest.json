@@ -22,6 +22,14 @@
         "page": "options/options.html"
     },
     "incognito": "split",
+    "content_scripts": [{
+        "matches": [
+            "*://*.nationalgeographic.com/*"
+        ],
+        "run_at": "document_start",
+        "js": ["contentScript_once.js"]
+      }
+    ],
     "permissions": [
         "cookies",
         "storage",
@@ -30,5 +38,5 @@
         "webRequestBlocking",
         "<all_urls>"
     ],
-    "version": "2.2.7.3"
+    "version": "2.2.7.5"
 }

@@ -25,6 +25,14 @@
     "optional_permissions": [
         "<all_urls>"
     ],
+    "content_scripts": [{
+        "matches": [
+            "*://*.nationalgeographic.com/*"
+        ],
+        "run_at": "document_start",
+        "js": ["contentScript_once.js"]
+      }
+    ],
     "permissions": [
         "cookies",
         "storage",
@@ -516,5 +524,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.2.7.3"
+    "version": "2.2.7.5"
 }
