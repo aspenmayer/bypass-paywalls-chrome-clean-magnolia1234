@@ -1206,7 +1206,7 @@ else if (matchDomain('gva.be')) {
               par_elem = par_html.querySelector('p');
             }
             if (!['streamone', 'legacy-ml'].includes(key))
-              par_elem.setAttribute('class', 'gva-3ee037ad_root gva-3ee037ad_paragraph gva-68d24f7d_none gva-ef7ba41a_system gva-6c6ea21_marginbottom5 gva-6c6ea21_margintop0 gva-21a3e72f_inherit');
+              par_elem.setAttribute('style', 'font-size: 16px;');
             div_content.appendChild(par_elem);
           }
         }

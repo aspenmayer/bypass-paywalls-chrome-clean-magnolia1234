@@ -218,6 +218,7 @@ var use_google_bot_default = [
   'hs.fi',
   'intelligentinvestor.com.au',
   'lanouvellerepublique.fr',
+  'leparisien.fr',
   'miamiherald.com',
   'newleftreview.org',
   'nknews.org',
