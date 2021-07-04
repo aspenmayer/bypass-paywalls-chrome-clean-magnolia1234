@@ -2,12 +2,13 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
-Fix Le Parisien
+Fix Le Parisien (Googlebot)
+Fix WaPo
 
 * v2.2.7.5 (2021-06-30)
 Fix Augsburger Allgemeine
-Fix National Geographic USA (magazine/link to archive.is)
-Fix Quartz (link to archive.is)
+Fix National Geographic USA (magazine/link to archive.today)
+Fix Quartz (link to archive.today)
 Maintenance contentScript (sanitize html-input)
 
 * v2.2.7.0 (2021-06-27)
@@ -32,7 +33,7 @@ Fix Folha de S. Paulo (add blogs)
 Fix La Stampa (amp)
 Fix Los Angeles Times (overlay)
 Fix Medium/Towards Data Science (multimedia)
-Fix TheTimes.co.uk (link to archive.is)
+Fix TheTimes.co.uk (link to archive.today)
 
 * v2.2.4.0 (2021-06-06)
 Add group Crain's Business
