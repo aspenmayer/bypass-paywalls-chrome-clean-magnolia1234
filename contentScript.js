@@ -1315,7 +1315,7 @@ else if (matchDomain(nl_mediahuis_region_domains)) {
                   par_elem = document.createElement('div');
                   let par_img = document.createElement('img');
                   par_img.src = par_key.url;
-                  par_elem.appendChild(par_img)
+                  par_elem.appendChild(par_img);
                   par_div = document.createElement('div');
                   par_div.innerText = par[key].caption ? par[key].caption : '';
                   par_div.innerText += par[key].credit ? '\n' + par[key].credit : '';
@@ -2511,12 +2511,17 @@ else if (matchDomain('washingtonpost.com')) {
   } else {
     function wapo_main(node) {
       removeDOMElement(node);
-      let url = window.location.href;
-      if (!url.includes('outputType=amp'))
-        window.location.href = url.split('?')[0] + '?outputType=amp';
+      window.location.href = url.split('?')[0] + '?outputType=amp';
     }
-    waitDOMElement('div[id^="paywall-"]', 'DIV', wapo_main, false);
-    csDoneOnce = true;
+    let url = window.location.href;
+    if (!url.includes('outputType=amp')) {
+      waitDOMElement('div[id^="paywall-"]', 'DIV', wapo_main, false);
+      csDoneOnce = true;
+    } else {
+      let subscr_sections = document.querySelectorAll('[subscriptions-section="content"]');
+      for (let subscr_section of subscr_sections)
+        subscr_section.removeAttribute('subscriptions-section');
+    }
   }
 }
 
