@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Fix Il Secolo XIX (amp-redirect)
+Fix New Left Review (timing)
 Fix WaPo (amp)
 
 * v2.2.8.0 (2021-07-04)

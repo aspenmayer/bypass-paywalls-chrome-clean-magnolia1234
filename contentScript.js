@@ -1572,7 +1572,7 @@ else if (matchDomain('valor.globo.com')) {
   if (paywall) {
     removeDOMElement(paywall);
     let url_cache = 'https://webcache.googleusercontent.com/search?q=cache:' + url;
-    replaceDomElementExt(url_cache, true, false, 'div.mc-article-body', 'Failed to load from Google webcache: ');
+    replaceDomElementExt(url_cache, true, false, 'div.protected-content', 'Failed to load from Google webcache: ');
   }
 }
 
@@ -2074,13 +2074,15 @@ else if (matchDomain('nationalreview.com')) {
 }
 
 else if (matchDomain('newleftreview.org')) {
-  let url = window.location.href;
-  let paywall = document.querySelector('div.promo-wrapper');
-  if (paywall) {
-    removeDOMElement(paywall);
-    let url_cache = 'https://webcache.googleusercontent.com/search?q=cache:' + url.split('//')[1];
-    replaceDomElementExt(url_cache, true, false, 'div.article-page', 'Failed to load from Google webcache: ');
-  }
+  window.setTimeout(function () {
+    let url = window.location.href;
+    let paywall = document.querySelector('div.promo-wrapper');
+    if (paywall) {
+      removeDOMElement(paywall);
+      let url_cache = 'https://webcache.googleusercontent.com/search?q=cache:' + url.split('//')[1];
+      replaceDomElementExt(url_cache, true, false, 'div.article-page', 'Failed to load from Google webcache: ');
+    }
+  }, 500); // Delay (in milliseconds)
 }
 
 else if (matchDomain('newstatesman.com')) {
@@ -2493,9 +2495,11 @@ else if (matchDomain('venturebeat.com')) {
 }
 
 else if (matchDomain('washingtonpost.com')) {
-  let leaderboard = document.querySelector('#leaderboard-wrapper');
-  let adverts = document.querySelectorAll('div[data-qa="article-body-ad"]');
-  removeDOMElement(leaderboard, ...adverts);
+  window.setTimeout(function () {
+    let leaderboard = document.querySelector('#leaderboard-wrapper');
+    let adverts = document.querySelectorAll('div[data-qa="article-body-ad"]');
+    removeDOMElement(leaderboard, ...adverts);
+  }, 500); // Delay (in milliseconds)
   if (location.href.includes('/gdpr-consent/')) {
     let free_button = document.querySelector('.gdpr-consent-container .continue-btn.button.free');
     if (free_button)
