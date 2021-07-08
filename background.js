@@ -29,6 +29,7 @@ const restrictions = {
   'nknews.org': /^((?!nknews\.org\/pro\/).)*$/,
   'quora.com': /^((?!quora\.com\/search\?q=).)*$/,
   'seekingalpha.com': /.+\/seekingalpha\.com\/($|(amp\/)?(article|news)\/|samw\/)/,
+  'sueddeutsche.de': /^((?!projekte\.sueddeutsche\.de\/).)*$/,
   'techinasia.com': /\.techinasia\.com\/.+/,
   'wsj.com': /^((?!\/cn\.wsj\.com\/).)*$/
 }
@@ -219,7 +220,6 @@ var use_google_bot_default = [
   'intelligentinvestor.com.au',
   'lanouvellerepublique.fr',
   'leparisien.fr',
-  'miamiherald.com',
   'newleftreview.org',
   'nknews.org',
   'nouvelobs.com',
@@ -401,7 +401,7 @@ var blockedRegexes = {
   'variety.com': /cdn\.cxense\.com\//,
   'velonews.com': /\.velonews\.com\/.+\/scripts\/contentGate.+\.js/,
   'venturebeat.com': /\.wallkit\.net\/js\//,
-  'washingtonpost.com': /cdn\.ampproject\.org\/.+\/v\d\/amp-((sticky-)?ad|subscriptions)-.+\.js/,
+  'washingtonpost.com': /cdn\.ampproject\.org\/.+\/v\d\/amp-(access|(sticky-)?ad|subscriptions)-.+\.js/,
   'wsj.com': /(cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js|cdn\.cxense\.com\/)/
 };
 
@@ -1150,8 +1150,8 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   var useUserAgentMobile = false;
   var setReferer = false;
 
-if (matchUrlDomain(change_headers, details.url) && (['main_frame', 'sub_frame', 'xmlhttprequest'].includes(details.type) || matchUrlDomain('thetimes.co.uk', details.url)) && 
-  !(details.url.includes('.washingtonpost.com/talk/api/') && ['xmlhttprequest'].includes(details.type)) &&
+if (matchUrlDomain(change_headers, details.url) && (['main_frame', 'sub_frame', 'xmlhttprequest'].includes(details.type) || matchUrlDomain('thetimes.co.uk', details.url)) &&
+  !(matchUrlDomain('washingtonpost.com', details.url) && (details.url.includes('/interactive/') || (details.url.includes('/talk/api/') && ['xmlhttprequest'].includes(details.type)))) &&
   !(matchUrlDomain('barrons.com', details.url) && enabledSites.includes('#options_disable_gb_barrons')) &&
   !(matchUrlDomain('wsj.com', details.url) && enabledSites.includes('#options_disable_gb_wsj'))) {
   // if referer exists, set it to google

@@ -172,7 +172,6 @@ _* free articles only._
 [Houston Chronicle](https://www.houstonchronicle.com) -
 [Los Angeles Business Journal](https://labusinessjournal.com) -
 [Los Angeles Times](https://www.latimes.com) -
-[Miami Herald](https://www.miamiherald.com) -
 [Mountain View Voice](https://www.mv-voice.com) -
 [New York Magazine](https://www.nymag.com) (+ [Curbed](https://www.curbed.com/), [Grub Street](https://www.grubstreet.com), [The Cut](https://www.thecut.com) & [Vulture](https://www.vulture.com)) -
 [Newsday](https://www.newsday.com) -
@@ -208,6 +207,7 @@ McClatchy Group sites like (opt-in to custom sites for unlisted)
 [Belleville News-Democrat](https://www.bnd.com) -
 [Fort Worth Star-Telegram](https://www.star-telegram.com) -
 [Lexington Herald-Leader](https://www.kentucky.com) -
+[Miami Herald](https://www.miamiherald.com) -
 [The Charlotte Observer](https://www.charlotteobserver.com) -
 [The Fresno Bee](https://www.fresnobee.com) -
 [The Kansas City Star](https://www.kansascity.com) -

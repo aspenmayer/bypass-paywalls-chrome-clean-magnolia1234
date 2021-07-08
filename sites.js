@@ -170,7 +170,6 @@ var defaultSites =
   "Medium": "medium.com",
   "Medium custom domains": "###_medium_custom",
   "Mexico News Daily": "mexiconewsdaily.com",
-  "Miami Herald": "miamiherald.com",
   "MIT Sloan Management Review": "sloanreview.mit.edu",
   "MIT Technology Review": "technologyreview.com",
   "Modern Healthcare": "modernhealthcare.com",
@@ -341,7 +340,7 @@ const nl_ad_region_domains = ['ad.nl', 'bd.nl', 'ed.nl', 'tubantia.nl', 'bndeste
 const nl_mediahuis_region_domains = ['gooieneemlander.nl', 'haarlemsdagblad.nl', 'ijmuidercourant.nl', 'leidschdagblad.nl', 'noordhollandsdagblad.nl'];
 const timesofindia_domains = ['timesofindia.com', 'timesofindia.indiatimes.com'];
 const usa_crainsbiz_domains = ['chicagobusiness.com', 'crainscleveland', 'crainsdetroit', 'crainsnewyork.com'];
-const usa_mcc_domains = ['bnd.com', 'charlotteobserver.com', 'fresnobee.com', 'kansas.com', 'kansascity.com', 'kentucky.com', 'newsobserver.com', 'sacbee.com', 'star-telegram.com', 'thestate.com', 'tri-cityherald.com'];
+const usa_mcc_domains = ['bnd.com', 'charlotteobserver.com', 'fresnobee.com', 'kansas.com', 'kansascity.com', 'kentucky.com', 'miamiherald.com', 'newsobserver.com', 'sacbee.com', 'star-telegram.com', 'thestate.com', 'tri-cityherald.com'];
 const usa_nymag_domains = ['curbed.com', 'grubstreet.com', 'nymag.com', 'thecut.com', 'vulture.com'];
 const usa_tribune_domains = ['baltimoresun.com', 'chicagotribune.com', 'courant.com', 'dailypress.com', 'mcall.com', 'nydailynews.com', 'orlandosentinel.com', 'pilotonline.com', 'sun-sentinel.com'];
 const usa_theathletic_domains = ['theathletic.com', 'theathletic.co.uk'];

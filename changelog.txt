@@ -3,8 +3,9 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Fix Il Secolo XIX (amp-redirect)
+Fix Miami Herald (group McClatchy)
 Fix New Left Review (timing)
-Fix WaPo (amp)
+Fix WaPo (amp/interactive)
 
 * v2.2.8.0 (2021-07-04)
 Fix Le Parisien (Googlebot)
