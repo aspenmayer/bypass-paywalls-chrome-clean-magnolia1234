@@ -5,7 +5,7 @@ Post-release
 Fix Il Secolo XIX (amp-redirect)
 Fix Miami Herald (group McClatchy)
 Fix New Left Review (timing)
-Fix WaPo (amp/interactive)
+Fix WaPo (disable Googlebot & fix amp/interactive)
 Maintenance contentScript (update sanitize html-input)
 
 * v2.2.8.0 (2021-07-04)

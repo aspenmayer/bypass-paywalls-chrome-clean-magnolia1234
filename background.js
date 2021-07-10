@@ -235,7 +235,6 @@ var use_google_bot_default = [
   'thetimes.co.uk',
   'usatoday.com',
   'usinenouvelle.com',
-  'washingtonpost.com',
   'wired.com',
   'wiwo.de',
   'worldpoliticsreview.com',
@@ -1151,7 +1150,6 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   var setReferer = false;
 
 if (matchUrlDomain(change_headers, details.url) && (['main_frame', 'sub_frame', 'xmlhttprequest'].includes(details.type) || matchUrlDomain('thetimes.co.uk', details.url)) &&
-  !(matchUrlDomain('washingtonpost.com', details.url) && (details.url.includes('/interactive/') || (details.url.includes('/talk/api/') && ['xmlhttprequest'].includes(details.type)))) &&
   !(matchUrlDomain('barrons.com', details.url) && enabledSites.includes('#options_disable_gb_barrons')) &&
   !(matchUrlDomain('wsj.com', details.url) && enabledSites.includes('#options_disable_gb_wsj'))) {
   // if referer exists, set it to google
@@ -1240,7 +1238,7 @@ if (matchUrlDomain(change_headers, details.url) && (['main_frame', 'sub_frame', 
         }
         if ((!['font', 'stylesheet'].includes(details.type) || matchUrlDomain(cs_limit_except, currentTabUrl)) && !csDone) {
           let lib_file = 'lib/empty.js';
-          if (matchUrlDomain(['cicero.de', 'economictimes.com', 'gva.be', 'lesechos.fr', 'newleftreview.org', 'newyorker.com', 'nzherald.co.nz', 'prospectmagazine.co.uk', 'sudouest.fr', 'techinasia.com', 'valor.globo.com'].concat(nl_mediahuis_region_domains), currentTabUrl))
+          if (matchUrlDomain(['cicero.de', 'economictimes.com', 'gva.be', 'lesechos.fr', 'newleftreview.org', 'newyorker.com', 'nzherald.co.nz', 'prospectmagazine.co.uk', 'sudouest.fr', 'techinasia.com', 'valor.globo.com', 'washingtonpost.com'].concat(nl_mediahuis_region_domains), currentTabUrl))
             lib_file = 'lib/purify.min.js';
           ext_api.tabs.executeScript(tabId, {
             file: lib_file,

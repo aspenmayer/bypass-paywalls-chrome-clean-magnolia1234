@@ -211,10 +211,14 @@ else {
                   if (par.items) {
                     par_elem = document.createElement('ul');
                     for (let item of par.items)
-                      if (item.text && item.intentions[0].href) {
+                      if (item.text) {
                         par_sub1 = document.createElement('li');
-                        par_sub2 = document.createElement('a');
-                        par_sub2.href = item.intentions[0].href;
+                        if (item.intentions[0] && item.intentions[0].href) {
+                          par_sub2 = document.createElement('a');
+                          par_sub2.href = item.intentions[0].href;
+                        } else {
+                          par_sub2 = document.createElement('span');
+                        }
                         par_sub2.innerText = item.text;
                         par_sub1.appendChild(par_sub2);
                         par_elem.appendChild(par_sub1);
@@ -2519,12 +2523,20 @@ else if (matchDomain('washingtonpost.com')) {
   } else {
     function wapo_main(node) {
       removeDOMElement(node);
-      window.location.href = url.split('?')[0] + '?outputType=amp';
+      let url_amp = url.split('?')[0] + '?outputType=amp';
+      replaceDomElementExt(url_amp, false, false, 'div.article-body', 'Failed to load from amp-page: ');
+    }
+    function wapo_overlay(node) {
+      node.removeAttribute('style');
     }
     let url = window.location.href;
     if (!url.includes('outputType=amp')) {
       waitDOMElement('div[id^="paywall-"]', 'DIV', wapo_main, false);
-      csDoneOnce = true;
+      waitDOMElement('div[data-qa*="wall"]', 'DIV', removeDOMElement, true);
+      waitDOMAttribute('body', 'BODY', 'style', wapo_overlay, true);
+      waitDOMAttribute('html', 'HTML', 'style', wapo_overlay, false);
+      if (!url.includes('/interactive/'))
+        csDoneOnce = true;
     } else {
       let subscr_sections = document.querySelectorAll('[subscriptions-section="content"]');
       for (let subscr_section of subscr_sections)
@@ -2616,6 +2628,24 @@ function waitDOMElement(selector, tagName = '', callback, multiple = false) {
   });
 }
 
+function waitDOMAttribute(selector, tagName = '', attributeName = '', callback, multiple = false) {
+  let targetNode = document.querySelector(selector);
+  if (!targetNode)
+	  return;
+  new window.MutationObserver(function (mutations) {
+    for (let mutation of mutations) {
+      if (mutation.target.attributes[attributeName]) {
+        callback(mutation.target);
+        if (!multiple)
+          this.disconnect();
+      }
+    }
+  }).observe(targetNode, {
+    attributes: true,
+    attributeFilter: [attributeName]
+  });
+}
+
 function addDivBpcDone() {
   let div_bpc_new = document.createElement('div');
   div_bpc_new.setAttribute('id', 'bpc_done');
@@ -2645,6 +2675,9 @@ function replaceDomElementExt(url, proxy, base64, selector, text_fail = '') {
         if (base64) {
           html = decode_utf8(atob(html));
           selector = 'body';
+        }
+        if (matchDomain(['washingtonpost.com']) && html.includes('<amp-')) {
+          html = html.replace(/<amp-/g, '<').replace(/<\/amp-/g, '</');
         }
         let parser = new DOMParser();
         let doc = parser.parseFromString(DOMPurify.sanitize(html, {ADD_ATTR: ['layout'], ADD_TAGS: ['amp-img']}), 'text/html');
