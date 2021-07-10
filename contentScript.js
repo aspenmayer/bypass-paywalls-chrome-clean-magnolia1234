@@ -1574,6 +1574,11 @@ else if (matchDomain('valor.globo.com')) {
     let url_cache = 'https://webcache.googleusercontent.com/search?q=cache:' + url;
     replaceDomElementExt(url_cache, true, false, 'div.protected-content', 'Failed to load from Google webcache: ');
   }
+  let skeleton_box = document.querySelector('div.glb-skeleton-box');
+  if (skeleton_box) {
+    skeleton_box.classList.remove('glb-skeleton-box');
+    skeleton_box.removeAttribute('style');
+  }
 }
 
 else
@@ -1695,12 +1700,11 @@ else if (matchDomain('business-standard.com')) {
           json = script;
       }
       if (json) {
-        let json_text = JSON.parse(json.text.replace(/(\r\n|\n|\r|\t)/gm, ''))[0].articleBody;
+        let json_text = JSON.parse(json.text.replace(/(\r|\n|\t)/gm, ''))[0].articleBody;
         json_text = parseHtmlEntities(json_text);
-        json_text = json_text.replace(/(?:^|[\w\"\'\’])(\.|\?|!)(?=[A-Z\"\”\“\‘\’\'][A-Za-zÀ-ÿ\"\”\“\‘\’\']{1,})/gm, "$&</br></br>") + '</br></br>';
-        let parser = new DOMParser();
-        let html = parser.parseFromString('<div>' + DOMPurify.sanitize(json_text) + '</div>', 'text/html');
-        let article = html.querySelector('div');
+        json_text = json_text.replace(/(?:^|[\w\"\'\’])(\.|\?|!)(?=[A-Z\"\”\“\‘\’\'][A-Za-zÀ-ÿ\"\”\“\‘\’\']{1,})/gm, "$&\r\n\r\n") + '\r\n\r\n';
+        let article = document.createElement('div');
+        article.innerText = json_text;
         if (article) {
           let p_content = document.querySelector('span.p-content.paywall');
           if (p_content) {
@@ -1781,7 +1785,7 @@ else if (matchDomain('economictimes.com')) {
       if (content && full_text) {
         content.innerText = '';
         let parser = new DOMParser();
-        html = parser.parseFromString('<div>' + DOMPurify.sanitize(full_text.innerHTML) + '</div>', 'text/html');
+        html = parser.parseFromString('<div>' + DOMPurify.sanitize(full_text.innerHTML, {ADD_ATTR: ['frameborder'], ADD_TAGS: ['iframe']}) + '</div>', 'text/html');
         let article = html.querySelector('div');
         content.appendChild(article);
         removeDOMElement(full_text);
@@ -2643,7 +2647,8 @@ function replaceDomElementExt(url, proxy, base64, selector, text_fail = '') {
           selector = 'body';
         }
         let parser = new DOMParser();
-        let doc = parser.parseFromString(DOMPurify.sanitize(html), 'text/html');
+        let doc = parser.parseFromString(DOMPurify.sanitize(html, {ADD_ATTR: ['layout'], ADD_TAGS: ['amp-img']}), 'text/html');
+        //console.log(DOMPurify.removed);
         let article_new = doc.querySelector(selector);
         if (article_new) {
           if (article)

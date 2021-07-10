@@ -6,6 +6,7 @@ Fix Il Secolo XIX (amp-redirect)
 Fix Miami Herald (group McClatchy)
 Fix New Left Review (timing)
 Fix WaPo (amp/interactive)
+Maintenance contentScript (update sanitize html-input)
 
 * v2.2.8.0 (2021-07-04)
 Fix Le Parisien (Googlebot)

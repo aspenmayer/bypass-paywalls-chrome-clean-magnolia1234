@@ -1240,7 +1240,7 @@ if (matchUrlDomain(change_headers, details.url) && (['main_frame', 'sub_frame', 
         }
         if ((!['font', 'stylesheet'].includes(details.type) || matchUrlDomain(cs_limit_except, currentTabUrl)) && !csDone) {
           let lib_file = 'lib/empty.js';
-          if (matchUrlDomain(['business-standard.com', 'cicero.de', 'economictimes.com', 'gva.be', 'lesechos.fr', 'newleftreview.org', 'newyorker.com', 'nzherald.co.nz', 'prospectmagazine.co.uk', 'sudouest.fr', 'techinasia.com', 'valor.globo.com'].concat(nl_mediahuis_region_domains), currentTabUrl))
+          if (matchUrlDomain(['cicero.de', 'economictimes.com', 'gva.be', 'lesechos.fr', 'newleftreview.org', 'newyorker.com', 'nzherald.co.nz', 'prospectmagazine.co.uk', 'sudouest.fr', 'techinasia.com', 'valor.globo.com'].concat(nl_mediahuis_region_domains), currentTabUrl))
             lib_file = 'lib/purify.min.js';
           ext_api.tabs.executeScript(tabId, {
             file: lib_file,
