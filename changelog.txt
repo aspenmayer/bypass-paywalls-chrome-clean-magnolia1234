@@ -2,6 +2,8 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+
+* v2.2.9.0 (2021-07-11)
 Add TradeWinds
 Fix Discover Magazine
 Fix Il Secolo XIX (amp-redirect)
