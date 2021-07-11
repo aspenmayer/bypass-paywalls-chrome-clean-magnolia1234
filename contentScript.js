@@ -18,7 +18,7 @@ var usa_mcc_domains = ['bnd.com', 'charlotteobserver.com', 'fresnobee.com', 'kan
 var usa_tribune_domains = ['baltimoresun.com', 'chicagotribune.com', 'courant.com', 'dailypress.com', 'mcall.com', 'nydailynews.com', 'orlandosentinel.com', 'pilotonline.com', 'sun-sentinel.com'];
 
 // clean local storage of sites (with an exemption for hold-list)
-var arr_localstorage_hold = ['augsburger-allgemeine.de', 'charliehebdo.fr', 'cmjornal.pt', 'elmundo.es', 'expansion.com', 'houstonchronicle.com', 'irishtimes.com', 'kurier.at', 'nknews.org', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk'];
+var arr_localstorage_hold = ['augsburger-allgemeine.de', 'charliehebdo.fr', 'cmjornal.pt', 'elmundo.es', 'expansion.com', 'houstonchronicle.com', 'irishtimes.com', 'kurier.at', 'nknews.org', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk', 'tradewindsnews.com'];
 arr_localstorage_hold = arr_localstorage_hold.concat(de_funke_media_domains, es_grupo_vocento_domains);
 if (!matchDomain(arr_localstorage_hold)) {
   window.localStorage.clear();
@@ -2455,6 +2455,50 @@ else if (matchDomain('timeshighereducation.com')) {
     let paywall_fade = document.querySelector('div.paywall-fade');
     if (paywall_fade)
       paywall_fade.classList.remove('paywall-fade');
+  }
+}
+
+else if (matchDomain('tradewindsnews.com')) {
+  let url = window.location.href;
+  if (url.includes('.com/markets/')) {
+    let paywall = document.querySelector('iframe[src]');
+    removeDOMElement(paywall);
+    let overflow = document.querySelector('body[style]');
+    if (overflow)
+      overflow.removeAttribute('style');
+    let blurred = document.querySelector('body > div[style]');
+    if (blurred)
+      blurred.removeAttribute('style');
+  } else {
+    window.setTimeout(function () {
+      let paywall = document.querySelector('iframe#paywall-iframe');
+      if (paywall) {
+        removeDOMElement(paywall);
+        fetch(url)
+        .then(response => {
+          if (response.ok) {
+            response.text().then(html => {
+              let split1 = html.split('window.__INITIAL_STATE__=')[1];
+              let state = split1.split('};')[0] + '}';
+              if (state) {
+                let json = JSON.parse(state);
+                if (json) {
+                  let json_text = json.article.body;
+                  let parser = new DOMParser();
+                  let doc = parser.parseFromString('<div>' + DOMPurify.sanitize(json_text, {ADD_ATTR: ['itemprop']}) + '</div>', 'text/html');
+                  let article_new = doc.querySelector('div');
+                  let article = document.querySelector('div.article-body-preview');
+                  if (article_new) {
+                    if (article)
+                      article.parentNode.replaceChild(article_new, article);
+                  }
+                }
+              }
+            })
+          }
+        })
+      }
+    }, 500); // Delay (in milliseconds)
   }
 }
 

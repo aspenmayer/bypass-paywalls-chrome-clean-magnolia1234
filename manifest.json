@@ -456,6 +456,7 @@
         "*://*.tlz.de/*",
         "*://*.towardsdatascience.com/*",
         "*://*.townsvillebulletin.com.au/*",
+        "*://*.tradewindsnews.com/*",
         "*://*.tri-cityherald.com/*",
         "*://*.trouw.nl/*",
         "*://*.tubantia.nl/*",
@@ -522,5 +523,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.2.8.6"
+    "version": "2.2.8.7"
 }

@@ -287,6 +287,7 @@ var defaultSites =
   "Times Higher Education": "timeshighereducation.com",
   "Times of India": "###_timesofindia",
   "Towards Data Science": "towardsdatascience.com",
+  "TradeWinds": "tradewindsnews.com",
   "Tribune Publishing Company": "###_usa_tribune",
   "Trouw": "trouw.nl",
   "USA Today": "usatoday.com",

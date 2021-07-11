@@ -1125,7 +1125,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
     bpc_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain(['asiatimes.com', 'augsburger-allgemeine.de', 'barrons.com', 'belfasttelegraph.co.uk', 'cicero.de', 'cmjornal.pt', 'elmundo.es', 'elpais.com', 'elperiodico.com', 'expansion.com', 'freiepresse.de', 'independent.ie', 'irishtimes.com', 'la-croix.com', 'marketwatch.com', 'nationalreview.com', 'noz.de', 'nwzonline.de', 'scmp.com', 'seekingalpha.com', 'shz.de', 'staradvertiser.com', 'sueddeutsche.de', 'svz.de', 'telegraph.co.uk', 'washingtonpost.com'].concat(au_news_corp_domains, au_nine_domains, de_madsack_domains, es_epiberica_domains, es_grupo_vocento_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, it_repubblica_domains, usa_mcc_domains, usa_theathletic_domains), header_referer));
   }
 
-  if (!isSiteEnabled(details) &&  !allow_ext_source && !bpc_amp_site && !au_apn_site && !au_swm_site) {
+  if (!isSiteEnabled(details) && !allow_ext_source && !bpc_amp_site && !au_apn_site && !au_swm_site) {
     return;
   }
 
@@ -1238,7 +1238,7 @@ if (matchUrlDomain(change_headers, details.url) && (['main_frame', 'sub_frame', 
         }
         if ((!['font', 'stylesheet'].includes(details.type) || matchUrlDomain(cs_limit_except, currentTabUrl)) && !csDone) {
           let lib_file = 'lib/empty.js';
-          if (matchUrlDomain(['cicero.de', 'economictimes.com', 'gva.be', 'lesechos.fr', 'newleftreview.org', 'newyorker.com', 'nzherald.co.nz', 'prospectmagazine.co.uk', 'sudouest.fr', 'techinasia.com', 'valor.globo.com', 'washingtonpost.com'].concat(nl_mediahuis_region_domains), currentTabUrl))
+          if (matchUrlDomain(['cicero.de', 'economictimes.com', 'gva.be', 'lesechos.fr', 'newleftreview.org', 'newyorker.com', 'nzherald.co.nz', 'prospectmagazine.co.uk', 'sudouest.fr', 'techinasia.com', 'tradewindsnews.com', 'valor.globo.com', 'washingtonpost.com'].concat(nl_mediahuis_region_domains), currentTabUrl))
             lib_file = 'lib/purify.min.js';
           ext_api.tabs.executeScript(tabId, {
             file: lib_file,
