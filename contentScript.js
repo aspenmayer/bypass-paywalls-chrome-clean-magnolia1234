@@ -1766,7 +1766,7 @@ else if (matchDomain('discovermagazine.com')) {
     let mammoth = document.querySelector('.iXVGnF');
     if (mammoth)
       window.location.reload();
-    let banner = document.querySelector('div.hWOjDZ, div.qa7yll-1');
+    let banner = document.querySelector('div.dPURIw');
     if (banner)
       banner.setAttribute('style', 'display:none;');
   }, 1000); // Delay (in milliseconds)
@@ -2569,6 +2569,7 @@ else if (matchDomain('washingtonpost.com')) {
       removeDOMElement(node);
       let url_amp = url.split('?')[0] + '?outputType=amp';
       replaceDomElementExt(url_amp, false, false, 'div.article-body', 'Failed to load from amp-page: ');
+      window.scrollTo(0, 0);
     }
     function wapo_overlay(node) {
       node.removeAttribute('style');

@@ -504,7 +504,6 @@
         "*://*.bwbx.io/*",
         "*://*.cedsdigital.it/*",
         "*://*.corriereobjects.it/*",
-        "*://*.ctfassets.net/*",
         "*://*.eestatic.com/*",
         "*://*.emol.cl/*",
         "*://*.epimg.net/*",
@@ -523,5 +522,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.2.8.7"
+    "version": "2.2.8.8"
 }

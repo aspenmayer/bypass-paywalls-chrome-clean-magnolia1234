@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add TradeWinds
+Fix Discover Magazine
 Fix Il Secolo XIX (amp-redirect)
 Fix Miami Herald (group McClatchy)
 Fix New Left Review (timing)
