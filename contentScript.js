@@ -127,11 +127,9 @@ else {
         for (let div_hidden of div_hidden_all)
           div_hidden.removeAttribute('amp-access-hide');
       } else if (window.location.href.includes('?amp')) {
-        //window.setTimeout(function () {
         let div_hidden = document.querySelector('div[amp-access="subscriber AND status=\'logged-in\'"]');
         if (div_hidden)
           div_hidden.removeAttribute('amp-access-hide');
-        //}, 500); // Delay (in milliseconds)
       }
       let amp_iframes = document.querySelectorAll('amp-iframe');
       let elem;

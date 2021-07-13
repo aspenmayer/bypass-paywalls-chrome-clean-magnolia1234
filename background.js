@@ -485,8 +485,7 @@ function add_grouped_sites(init_rules) {
     }
     for (let domain of au_news_corp_domains) {
       allow_cookies.push(domain);
-      if (domain !== 'dailytelegraph.com.au')
-        use_google_bot.push(domain);
+      use_google_bot.push(domain);
       blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-(access|ad|iframe)-.+\.js/;
     }
     for (let domain of au_prov_news_domains) {
@@ -908,18 +907,6 @@ ext_api.webRequest.onBeforeRequest.addListener(function (details) {
   return { redirectUrl: updatedUrl };
 },
 {urls:["*://*.saechsische.de/*-plus-amp.html*"], types:["main_frame"]},
-["blocking"]
-);
-
-// dailytelegraph.com.au amp-redirect
-ext_api.webRequest.onBeforeRequest.addListener(function (details) {
-  if (!isSiteEnabled(details)) {
-    return;
-  }
-  var updatedUrl = decodeURIComponent(details.url.split('&dest=')[1].split('&')[0]).replace('www.', 'amp.');
-  return { redirectUrl: updatedUrl };
-},
-{urls:["*://www.dailytelegraph.com.au/subscribe/*"], types:["main_frame"]},
 ["blocking"]
 );
 
