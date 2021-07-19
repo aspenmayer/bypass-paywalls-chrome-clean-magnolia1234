@@ -1651,21 +1651,43 @@ else if (matchDomain('barrons.com')) {
 }
 
 else if (matchDomain('bloomberg.com')) {
-  document.addEventListener('DOMContentLoaded', () => {
-    let fence = document.querySelector('.fence-body');
-    if (fence) {
-      fence.classList.remove('fence-body');
+  sessionStorage.clear();
+  let counter = document.querySelector('div#fortress-preblocked-container-root');
+  let leaderboard = document.querySelector('div[id^="leaderboard"]');
+  let shimmering_content = document.querySelectorAll('div[class^="shimmering-"]');
+  removeDOMElement(counter, leaderboard, ...shimmering_content);
+  let hidden_images = document.querySelectorAll('div.lazy-img > img.lazy-img__image[src$="x-1.png"][data-native-src]');
+  for (let hidden_image of hidden_images) {
+    hidden_image.setAttribute('src', hidden_image.getAttribute('data-native-src'));
+    hidden_image.removeAttribute('class');
+    hidden_image.parentElement.removeAttribute('class');
+  }
+  let json_script = document.querySelector('script[data-component-props="ArticleBody"], script[data-component-props="FeatureBody"]');
+  if (json_script) {
+    let json = JSON.parse(json_script.innerHTML);
+    if (json) {
+      let json_text = json.body;
+      let json_id = json.id;
+      let meta_id = document.querySelector('meta[name="parsely-post-id"][content]');
+      if (json_text && json_text !== 'undefined' && json_id && json_id !== 'undefined' && meta_id && meta_id.content === json_id) {
+        removeDOMElement(json_script);
+        let article = document.querySelector('div.body-copy-v2');
+        let article_class = 'body-copy-v2';
+        if (!article) {
+          article = document.querySelector('div.body-copy');
+          article_class = 'body-copy';
+        }
+        let parser = new DOMParser();
+        let doc = parser.parseFromString('<div class="' + article_class + '">' + DOMPurify.sanitize(json_text, {ADD_TAGS: ['iframe']}) + '</div>', 'text/html');
+        let article_new = doc.querySelector('div');
+        if (article_new) {
+          if (article) {
+            article.parentNode.replaceChild(article_new, article);
+          }
+        }
+      }
     }
-  });
-  let body_overlay = document.querySelector('body[data-paywall-overlay-status="show"]');
-  if (body_overlay)
-    body_overlay.removeAttribute('data-paywall-overlay-status');
-  let noscroll = document.querySelector('body[class*="noScroll"]');
-  if (noscroll)
-    removeClassesByPrefix(noscroll, 'noScroll');
-  let paywall_overlay = document.querySelector('div#graphics-paywall-overlay');
-  let banner = document.getElementById('paywall-banner');
-  removeDOMElement(banner, paywall_overlay);
+  }
 }
 
 else if (matchDomain('bloombergquint.com')) {
