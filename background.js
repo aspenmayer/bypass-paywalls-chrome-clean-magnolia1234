@@ -89,6 +89,7 @@ var allow_cookies_default = [
   'ilgiorno.it',
   'ilrestodelcarlino.it',
   'independent.ie',
+  'infzm.com',
   'intelligentinvestor.com.au',
   'jpost.com',
   'knack.be',
@@ -907,6 +908,18 @@ ext_api.webRequest.onBeforeRequest.addListener(function (details) {
   return { redirectUrl: updatedUrl };
 },
 {urls:["*://*.saechsische.de/*-plus-amp.html*"], types:["main_frame"]},
+["blocking"]
+);
+
+// infzm.com redirect to wap (mobile)
+ext_api.webRequest.onBeforeRequest.addListener(function (details) {
+  if (!isSiteEnabled(details)) {
+    return;
+  }
+  var updatedUrl = details.url.replace('.com/contents/', '.com/wap/#/content/');
+  return { redirectUrl: updatedUrl };
+},
+{urls:["*://www.infzm.com/contents/*"], types:["main_frame"]},
 ["blocking"]
 );
 

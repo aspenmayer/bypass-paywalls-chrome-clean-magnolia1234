@@ -219,6 +219,7 @@
         "*://*.ilsecoloxix.it/*",
         "*://*.inc.com/*",
         "*://*.independent.ie/*",
+        "*://*.infzm.com/*",
         "*://*.inkl.com/*",
         "*://*.inquirer.com/*",
         "*://*.intelligentinvestor.com.au/*",
@@ -522,5 +523,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.2.9.1"
+    "version": "2.2.9.2"
 }

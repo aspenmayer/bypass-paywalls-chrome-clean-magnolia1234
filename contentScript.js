@@ -1961,6 +1961,18 @@ else if (matchDomain(['houstonchronicle.com', 'sfchronicle.com'])) {
   removeDOMElement(wrapper);
 }
 
+else if (matchDomain('infzm.com')) {
+  let url = window.location.href;
+  if (url.includes('/wap/#/')) {
+    let container = document.querySelector('section.container');
+    if (container)
+      container.classList.remove('container');
+    let overlay = document.querySelector('div.article-content[style]');
+    if (overlay)
+      overlay.removeAttribute('style');
+  }
+}
+
 else if (matchDomain('inkl.com')) {
   document.addEventListener('DOMContentLoaded', () => {
     let menu_btn = document.querySelector('div.left-buttons-container button.menu-btn');

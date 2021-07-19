@@ -225,6 +225,7 @@ var defaultSites =
   "Slate": "slate.com",
   "SOFREP": "sofrep.com",
   "South China Morning Post": "scmp.com",
+  "Southern Weekly": "infzm.com",
   "Sports Illustrated": "si.com",
   "Star Tribune": "startribune.com",
   "Statista": "statista.com",
