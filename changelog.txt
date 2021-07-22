@@ -4,6 +4,7 @@ Changelog Bypass Paywalls Clean - Chrome
 Post-release
 Add Southern Weekly (China)
 Fix Bloomberg
+Fix Nikkei Asian Review (cookies)
 Fix The Daily Telegraph (au)
 
 * v2.2.9.0 (2021-07-11)
