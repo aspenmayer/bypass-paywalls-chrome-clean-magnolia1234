@@ -223,6 +223,7 @@
         "*://*.inkl.com/*",
         "*://*.inquirer.com/*",
         "*://*.intelligentinvestor.com.au/*",
+        "*://*.intrafish.com/*",
         "*://*.irishtimes.com/*",
         "*://*.japantimes.co.jp/*",
         "*://*.journaldunet.com/*",
@@ -365,6 +366,7 @@
         "*://*.quotidiano.net/*",
         "*://*.quotidianodipuglia.it/*",
         "*://*.qz.com/*",
+        "*://*.rechargenews.com/*",
         "*://*.repubblica.it/*",
         "*://*.republic.ru/*",
         "*://*.republicain-lorrain.fr/*",
@@ -461,6 +463,7 @@
         "*://*.tri-cityherald.com/*",
         "*://*.trouw.nl/*",
         "*://*.tubantia.nl/*",
+        "*://*.upstreamonline.com/*",
         "*://*.usatoday.com/*",
         "*://*.usinenouvelle.com/*",
         "*://*.uusisuomi.fi/*",
@@ -523,5 +526,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.2.9.5"
+    "version": "2.2.9.6"
 }

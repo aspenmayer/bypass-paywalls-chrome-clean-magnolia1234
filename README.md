@@ -115,8 +115,14 @@ _* free articles only._
 [Seeking Alpha](https://seekingalpha.com) -
 [Stock News](https://stocknews.com) -
 [The Business Journals](https://www.bizjournals.com) -
-[The Wall Street Journal](https://www.wsj.com) -
-[TradeWinds](https://www.tradewindsnews.com)
+[The Wall Street Journal](https://www.wsj.com)
+
+Grouped in options:\
+NHST Media Group sites like (opt-in to custom sites)
+[Intrafish](https://www.intrafish.com) -
+[Recharge](https://www.rechargenews.com) -
+[TradeWinds](https://www.tradewindsnews.com) -
+[Upstream](https://www.upstreamonline.com)
 
 ##### Tech/Science
 [360Dx](https://www.360dx.com) -

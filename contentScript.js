@@ -14,12 +14,13 @@ var fr_groupe_ebra_domains = ['bienpublic.com', 'dna.fr', 'estrepublicain.fr', '
 var fr_groupe_la_depeche_domains = ['centrepresseaveyron.fr', 'ladepeche.fr', 'lindependant.fr', 'midi-olympique.fr', 'midilibre.fr', 'nrpyrenees.fr', 'petitbleu.fr'];
 var it_repubblica_domains = ['gelocal.it', 'ilsecoloxix.it', 'lanuovasardegna.it', 'lastampa.it', 'limesonline.com', 'repubblica.it'];
 var nl_mediahuis_region_domains = ['gooieneemlander.nl', 'haarlemsdagblad.nl', 'ijmuidercourant.nl', 'leidschdagblad.nl', 'noordhollandsdagblad.nl'];
+var no_nhst_media_domains = ['intrafish.com', 'rechargenews.com', 'tradewindsnews.com', 'upstreamonline.com'];
 var usa_crainsbiz_domains = ['chicagobusiness.com', 'crainscleveland', 'crainsdetroit', 'crainsnewyork.com'];
 var usa_mcc_domains = ['bnd.com', 'charlotteobserver.com', 'fresnobee.com', 'kansas.com', 'kansascity.com', 'kentucky.com', 'miamiherald.com', 'newsobserver.com', 'sacbee.com', 'star-telegram.com', 'thestate.com', 'tri-cityherald.com'];
 var usa_tribune_domains = ['baltimoresun.com', 'chicagotribune.com', 'courant.com', 'dailypress.com', 'mcall.com', 'nydailynews.com', 'orlandosentinel.com', 'pilotonline.com', 'sun-sentinel.com'];
 
 // clean local storage of sites (with an exemption for hold-list)
-var arr_localstorage_hold = ['augsburger-allgemeine.de', 'charliehebdo.fr', 'cmjornal.pt', 'elmundo.es', 'expansion.com', 'houstonchronicle.com', 'irishtimes.com', 'kurier.at', 'nknews.org', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk', 'tradewindsnews.com'];
+var arr_localstorage_hold = ['augsburger-allgemeine.de', 'charliehebdo.fr', 'cmjornal.pt', 'elmundo.es', 'expansion.com', 'houstonchronicle.com', 'irishtimes.com', 'kurier.at', 'nknews.org', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk'].concat(no_nhst_media_domains);
 arr_localstorage_hold = arr_localstorage_hold.concat(de_funke_media_domains, es_grupo_vocento_domains);
 if (!matchDomain(arr_localstorage_hold)) {
   window.localStorage.clear();
@@ -2496,9 +2497,9 @@ else if (matchDomain('timeshighereducation.com')) {
   }
 }
 
-else if (matchDomain('tradewindsnews.com')) {
+else if (matchDomain(no_nhst_media_domains)) {
   let url = window.location.href;
-  if (url.includes('.com/markets/')) {
+  if (url.includes('.tradewinds.com/markets/')) {
     let paywall = document.querySelector('iframe[src]');
     removeDOMElement(paywall);
     let overflow = document.querySelector('body[style]');

@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Add NHST Media Group (TradeWinds)
 Add Southern Weekly (China)
 Fix Alma Talent sites
 Fix Bloomberg

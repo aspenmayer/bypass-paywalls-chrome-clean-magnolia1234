@@ -453,6 +453,7 @@ var grouped_sites = {
 '###_it_ilmessaggero': it_ilmessaggero_domains,
 '###_nl_ad_region': nl_ad_region_domains,
 '###_nl_mediahuis_region': nl_mediahuis_region_domains,
+'###_no_nhst_media': no_nhst_media_domains,
 '###_timesofindia': timesofindia_domains,
 '###_usa_crainsbiz': usa_crainsbiz_domains,
 '###_usa_mcc': usa_mcc_domains,
@@ -543,6 +544,10 @@ function add_grouped_sites(init_rules) {
       remove_cookies_select_drop[domain] = ['temptationTrackingId'];
     for (let domain of nl_mediahuis_region_domains)
       allow_cookies.push(domain);
+    for (let domain of no_nhst_media_domains) {
+      allow_cookies.push(domain);
+      use_facebook_referer.push(domain);
+    }
     for (let domain of timesofindia_domains) {
       allow_cookies.push(domain);
       use_google_bot.push(domain);
@@ -1230,7 +1235,7 @@ if (matchUrlDomain(change_headers, details.url) && (['main_frame', 'sub_frame', 
         }
         if ((!['font', 'stylesheet'].includes(details.type) || matchUrlDomain(cs_limit_except, currentTabUrl)) && !csDone) {
           let lib_file = 'lib/empty.js';
-          if (matchUrlDomain(['bloomberg.com', 'cicero.de', 'economictimes.com', 'gva.be', 'lesechos.fr', 'newleftreview.org', 'newyorker.com', 'nzherald.co.nz', 'prospectmagazine.co.uk', 'sudouest.fr', 'techinasia.com', 'tradewindsnews.com', 'valor.globo.com', 'washingtonpost.com'].concat(nl_mediahuis_region_domains), currentTabUrl))
+          if (matchUrlDomain(['bloomberg.com', 'cicero.de', 'economictimes.com', 'gva.be', 'lesechos.fr', 'newleftreview.org', 'newyorker.com', 'nzherald.co.nz', 'prospectmagazine.co.uk', 'sudouest.fr', 'techinasia.com', 'valor.globo.com', 'washingtonpost.com'].concat(nl_mediahuis_region_domains, no_nhst_media_domains), currentTabUrl))
             lib_file = 'lib/purify.min.js';
           ext_api.tabs.executeScript(tabId, {
             file: lib_file,
