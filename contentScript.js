@@ -16,6 +16,7 @@ var it_repubblica_domains = ['gelocal.it', 'ilsecoloxix.it', 'lanuovasardegna.it
 var nl_mediahuis_region_domains = ['gooieneemlander.nl', 'haarlemsdagblad.nl', 'ijmuidercourant.nl', 'leidschdagblad.nl', 'noordhollandsdagblad.nl'];
 var no_nhst_media_domains = ['intrafish.com', 'rechargenews.com', 'tradewindsnews.com', 'upstreamonline.com'];
 var usa_crainsbiz_domains = ['chicagobusiness.com', 'crainscleveland', 'crainsdetroit', 'crainsnewyork.com'];
+var timesofindia_domains = ['timesofindia.com', 'timesofindia.indiatimes.com'];
 var usa_mcc_domains = ['bnd.com', 'charlotteobserver.com', 'fresnobee.com', 'kansas.com', 'kansascity.com', 'kentucky.com', 'miamiherald.com', 'newsobserver.com', 'sacbee.com', 'star-telegram.com', 'thestate.com', 'tri-cityherald.com'];
 var usa_tribune_domains = ['baltimoresun.com', 'chicagotribune.com', 'courant.com', 'dailypress.com', 'mcall.com', 'nydailynews.com', 'orlandosentinel.com', 'pilotonline.com', 'sun-sentinel.com'];
 
@@ -2497,6 +2498,16 @@ else if (matchDomain('timeshighereducation.com')) {
   }
 }
 
+else if (matchDomain(timesofindia_domains)) {
+  let region_block = document.querySelector('div.plan-popup.active');
+  if (region_block) {
+    removeDOMElement(region_block);
+    let overflow = document.querySelector('html[style]');
+    if (overflow)
+      overflow.removeAttribute('style');
+  }
+}
+
 else if (matchDomain(no_nhst_media_domains)) {
   let url = window.location.href;
   if (url.includes('.tradewinds.com/markets/')) {
@@ -2524,7 +2535,7 @@ else if (matchDomain(no_nhst_media_domains)) {
                 if (json) {
                   let json_text = json.article.body;
                   let parser = new DOMParser();
-                  let doc = parser.parseFromString('<div>' + DOMPurify.sanitize(json_text, {ADD_ATTR: ['itemprop']}) + '</div>', 'text/html');
+                  let doc = parser.parseFromString('<div>' + DOMPurify.sanitize(json_text, {ADD_ATTR: ['itemprop'], ADD_TAGS: ['link']}) + '</div>', 'text/html');
                   let article_new = doc.querySelector('div');
                   let article = document.querySelector('div.article-body-preview');
                   if (article_new) {
