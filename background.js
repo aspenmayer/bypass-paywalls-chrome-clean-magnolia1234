@@ -519,6 +519,8 @@ function add_grouped_sites(init_rules) {
       blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-(access|ad|subscriptions)-.+\.js/;
     }
     for (let domain of fi_alma_talent_domains) {
+      if (!['mediuutiset.fi'].includes(domain))
+        blockedRegexes[domain] = /\.fi\/static\/vendor\..+\.chunk\.js/;
       use_google_bot.push(domain);
     }
     for (let domain of fr_be_groupe_rossel_domains) {

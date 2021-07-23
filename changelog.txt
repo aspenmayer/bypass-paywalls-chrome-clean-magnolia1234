@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add Southern Weekly (China)
+Fix Alma Talent sites
 Fix Bloomberg
 Fix Nikkei Asian Review (cookies)
 Fix The Daily Telegraph (au)
