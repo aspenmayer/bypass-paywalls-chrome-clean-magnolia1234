@@ -2626,9 +2626,11 @@ else if (matchDomain('washingtonpost.com')) {
     }
     let url = window.location.href;
     if (!url.includes('outputType=amp')) {
-      waitDOMElement('div[id^="paywall-"]', 'DIV', wapo_main, false);
+      waitDOMElement('div[id^="paywall-"], div.wp_signin, div#wp_Signin', 'DIV', wapo_main, false);
       waitDOMElement('div[data-qa*="wall"]', 'DIV', removeDOMElement, true);
-      waitDOMAttribute('body', 'BODY', 'style', wapo_overlay, true);
+      window.setTimeout(function () {
+        waitDOMAttribute('body', 'BODY', 'style', wapo_overlay, true);
+      }, 500); // Delay (in milliseconds)
       waitDOMAttribute('html', 'HTML', 'style', wapo_overlay, false);
       if (!url.includes('/interactive/'))
         csDoneOnce = true;

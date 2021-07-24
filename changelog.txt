@@ -9,6 +9,7 @@ Fix Bloomberg
 Fix Nikkei Asian Review (cookies)
 Fix The Daily Telegraph (au)
 Fix Times of India (TOI+ region block)
+Fix WaPo (magazine)
 
 * v2.2.9.0 (2021-07-11)
 Add TradeWinds
