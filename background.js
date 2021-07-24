@@ -232,7 +232,6 @@ var use_google_bot_default = [
   'rheinpfalz.de',
   'ruhrnachrichten.de',
   'seekingalpha.com',
-  'statista.com',
   'thetimes.co.uk',
   'usatoday.com',
   'usinenouvelle.com',
@@ -255,7 +254,7 @@ var use_bing_bot = use_bing_bot_default.slice();
 
 var use_facebook_referer_default = ['clarin.com', 'fd.nl', 'ilmanifesto.it', 'law.com', 'sloanreview.mit.edu'];
 var use_facebook_referer = use_facebook_referer_default.slice();
-var use_google_referer_default = [];
+var use_google_referer_default = ['statista.com'];
 var use_google_referer = use_google_referer_default.slice();
 var use_twitter_referer_default = ['medium.com', 'towardsdatascience.com'];
 var use_twitter_referer = use_twitter_referer_default.slice();
@@ -1145,14 +1144,15 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
 
   var useUserAgentMobile = false;
   var setReferer = false;
+  var googlebotEnabled = matchUrlDomain(use_google_bot, details.url) && 
+    !(matchUrlDomain('barrons.com', details.url) && enabledSites.includes('#options_disable_gb_barrons')) &&
+    !(matchUrlDomain('wsj.com', details.url) && enabledSites.includes('#options_disable_gb_wsj'));
 
-if (matchUrlDomain(change_headers, details.url) && (['main_frame', 'sub_frame', 'xmlhttprequest'].includes(details.type) || matchUrlDomain('thetimes.co.uk', details.url)) &&
-  !(matchUrlDomain('barrons.com', details.url) && enabledSites.includes('#options_disable_gb_barrons')) &&
-  !(matchUrlDomain('wsj.com', details.url) && enabledSites.includes('#options_disable_gb_wsj'))) {
-  // if referer exists, set it to google
+if (matchUrlDomain(change_headers, details.url) && (['main_frame', 'sub_frame', 'xmlhttprequest'].includes(details.type) || matchUrlDomain('thetimes.co.uk', details.url))) {
+  // if referer exists, set it
   requestHeaders = requestHeaders.map(function (requestHeader) {
     if (requestHeader.name === 'Referer') {
-      if (matchUrlDomain(use_google_bot, details.url) || matchUrlDomain(use_google_referer, details.url)) {
+      if (googlebotEnabled || matchUrlDomain(use_google_referer, details.url)) {
         requestHeader.value = 'https://www.google.com/';
       } else if (matchUrlDomain(use_facebook_referer, details.url)) {
         requestHeader.value = 'https://www.facebook.com/';
@@ -1169,7 +1169,7 @@ if (matchUrlDomain(change_headers, details.url) && (['main_frame', 'sub_frame', 
 
   // otherwise add it
   if (!setReferer) {
-    if (matchUrlDomain(use_google_bot, details.url) || matchUrlDomain(use_google_referer, details.url)) {
+    if (googlebotEnabled || matchUrlDomain(use_google_referer, details.url)) {
       requestHeaders.push({
         name: 'Referer',
         value: 'https://www.google.com/'
@@ -1188,7 +1188,7 @@ if (matchUrlDomain(change_headers, details.url) && (['main_frame', 'sub_frame', 
   }
 
   // override User-Agent to use Googlebot
-  if (matchUrlDomain(use_google_bot, details.url)) {
+  if (googlebotEnabled) {
     requestHeaders.push({
       "name": "User-Agent",
       "value": useUserAgentMobile ? userAgentMobileG : userAgentDesktopG

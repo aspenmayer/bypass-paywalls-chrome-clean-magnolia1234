@@ -7,6 +7,7 @@ Add Southern Weekly (China)
 Fix Alma Talent sites
 Fix Bloomberg
 Fix Nikkei Asian Review (cookies)
+Fix Statista (set referer Google)
 Fix The Daily Telegraph (au)
 Fix Times of India (TOI+ region block)
 Fix WaPo (magazine)
