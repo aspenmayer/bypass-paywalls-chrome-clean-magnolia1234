@@ -400,7 +400,7 @@ var blockedRegexes = {
   'variety.com': /cdn\.cxense\.com\//,
   'velonews.com': /\.velonews\.com\/.+\/scripts\/contentGate.+\.js/,
   'venturebeat.com': /\.wallkit\.net\/js\//,
-  'washingtonpost.com': /cdn\.ampproject\.org\/.+\/v\d\/amp-(access|(sticky-)?ad|subscriptions)-.+\.js/,
+  'washingtonpost.com': /(\.washingtonpost\.com\/.+\/default-article\/.+\/load_immediately\/.+\.js|cdn\.ampproject\.org\/.+\/v\d\/amp-(access|(sticky-)?ad|subscriptions)-.+\.js)/,
   'wsj.com': /(cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js|cdn\.cxense\.com\/)/
 };
 

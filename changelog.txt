@@ -2,6 +2,8 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+
+* v2.3.0.0 (2021-07-25)
 Add NHST Media Group (TradeWinds)
 Add Southern Weekly (China)
 Fix Alma Talent sites
