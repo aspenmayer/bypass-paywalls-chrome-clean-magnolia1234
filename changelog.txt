@@ -2,6 +2,8 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Fix El Mercurio (timing)
+Fix custom sites (no useragent/referer on restart)
 
 * v2.3.0.0 (2021-07-25)
 Add NHST Media Group (TradeWinds)

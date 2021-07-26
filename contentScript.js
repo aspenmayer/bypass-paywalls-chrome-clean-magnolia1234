@@ -1525,13 +1525,15 @@ else if (matchDomain('elmercurio.com')) {
     let elem_hidden = document.querySelectorAll('[style="visibility:hidden"]');
     for (let elem of elem_hidden)
       elem.removeAttribute('style');
-    let cont_articlelight = document.querySelector('div.cont_articlelight:not([style])');
-    if (cont_articlelight)
-      cont_articlelight.setAttribute('style', 'height: 100% !important; width: 90% !important');
     let page_pdf_content = document.querySelector('div.page_pdf_content');
     let close_html = document.querySelector('div.close_html');
     removeDOMElement(page_pdf_content, close_html)
   }, 1000); // Delay (in milliseconds)
+  window.setTimeout(function () {
+    let cont_articlelight = document.querySelector('div.cont_articlelight');
+    if (cont_articlelight)
+      cont_articlelight.setAttribute('style', 'height: 100% !important; width: 90% !important');
+  }, 3000); // Delay (in milliseconds)
 }
 
 else if (matchDomain('estadao.com.br')) {

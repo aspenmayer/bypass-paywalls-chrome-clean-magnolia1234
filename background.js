@@ -657,6 +657,7 @@ ext_api.storage.local.get({
     }
   }
 
+  change_headers = use_google_bot.concat(use_bing_bot, use_facebook_referer, use_google_referer, use_twitter_referer, use_random_ip);
   disableJavascriptOnListedSites();
 });
 
