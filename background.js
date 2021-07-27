@@ -35,7 +35,7 @@ const restrictions = {
 }
 
 // Don't remove cookies before page load
-// allow_cookies are completed with domains in sites.js (default allow/remove_cookies)
+// allow_cookies are completed with domains in custom sites (default allow/remove_cookies)
 var allow_cookies_default = [
   'abc.es',
   'abril.com.br',
@@ -51,10 +51,10 @@ var allow_cookies_default = [
   'bostonglobe.com',
   'business-standard.com',
   'charliehebdo.fr',
+  'chronicle.com',
   'cicero.de',
   'clarin.com',
   'cmjornal.pt',
-  'chronicle.com',
   'dallasnews.com',
   'df.cl',
   'di.se',
@@ -74,9 +74,9 @@ var allow_cookies_default = [
   'expansion.com',
   'faz.net',
   'financialpost.com',
-  'ftm.nl',
   'fortune.com',
   'freiepresse.de',
+  'ftm.nl',
   'gestion.pe',
   'gva.be',
   'haaretz.co.il',
@@ -129,8 +129,8 @@ var allow_cookies_default = [
   'piqd.de',
   'politicaexterior.com',
   'prospectmagazine.co.uk',
-  'quotidiano.net',
   'quora.com',
+  'quotidiano.net',
   'reuters.com',
   'rhein-zeitung.de',
   'rheinpfalz.de',
@@ -174,13 +174,8 @@ var allow_cookies_default = [
 ];
 var allow_cookies = allow_cookies_default.slice();
 
-// Removes cookies after page load
-// remove_cookies are completed with domains of sites.js (default allow/remove_cookies)
-var remove_cookies = [
-]
-
 // select specific cookie(s) to hold from remove_cookies domains
-const remove_cookies_select_hold = {
+var remove_cookies_select_hold = {
   'barrons.com': ['wsjregion'],
   'groene.nl': ['accept-cookies', 'popunder-hidden'],
   'newstatesman.com': ['STYXKEY_nsversion'],
@@ -193,13 +188,21 @@ const remove_cookies_select_hold = {
 var remove_cookies_select_drop = {
   'ambito.com': ['TDNotesRead'],
   'caixinglobal.com': ['CAIXINGLB_LOGIN_UUID'],
-  'dn.se': ['randomSplusId'],
   'fd.nl': ['socialread'],
   'griffithreview.com': ['issuem_lp'],
   'nrc.nl': ['counter'],
   'theatlantic.com': ['articleViews'],
   'thepointmag.com': ['monthly_history']
 }
+
+var cookies_select_domains = Object.keys(remove_cookies_select_hold).concat(Object.keys(remove_cookies_select_drop));
+
+// Removes cookies after page load
+// remove_cookies are completed with domains of custom sites (default allow/remove_cookies)
+var remove_cookies_default = [];
+var remove_cookies = remove_cookies_default.concat(cookies_select_domains);
+
+allow_cookies = allow_cookies.concat(cookies_select_domains);
 
 // Override User-Agent with Googlebot
 var use_google_bot_default = [
@@ -287,7 +290,7 @@ var blockedRegexes = {
   'cmjornal.pt': /cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad)-.+\.js/,
   'corriere.it': /(\.tinypass\.com\/|\.rcsobjects\.it\/rcs_(cpmt|tracking-service)\/|\.corriereobjects\.it\/.+\/js\/(_paywall\.sjs|tracking\/)|\.userzoom\.com\/files\/js\/)/,
   'dallasnews.com': /(\.blueconic\.net\/|js\.matheranalytics\.com\/)/,
-  'digiday.com': /\.tinypass\.com\//,
+  'digiday.com': /cdn.\.tinypass\.com\//,
   'dvhn.nl': /\.evolok\.net\/.+\/authorize\//,
   'economist.com': /\.tinypass\.com\//,
   'editorialedomani.it': /(\.editorialedomani\.it\/pelcro\.js|js\.pelcro\.com\/)/,
@@ -539,8 +542,11 @@ function add_grouped_sites(init_rules) {
     }
     for (let domain of it_ilmessaggero_domains)
       blockedRegexes[domain] = /utils\.cedsdigital\.it\/js\/PaywallMeter\.js/;
-    for (let domain of nl_ad_region_domains)
+    for (let domain of nl_ad_region_domains) {
+      allow_cookies.push(domain);
+      remove_cookies.push(domain);
       remove_cookies_select_drop[domain] = ['temptationTrackingId'];
+    }
     for (let domain of nl_mediahuis_region_domains)
       allow_cookies.push(domain);
     for (let domain of no_nhst_media_domains) {
@@ -581,8 +587,11 @@ function add_grouped_sites(init_rules) {
       allow_cookies.push(domain);
       blockedRegexes[domain] = /(scripts\.repubblica\.it\/pw\/pw\.js|cdn\.ampproject\.org\/v\d\/amp-(access|ad|user-notification)-.+\.js)/;
     }
-    for (let domain of nl_pg_domains)
+    for (let domain of nl_pg_domains) {
+      allow_cookies.push(domain);
+      remove_cookies.push(domain);
       remove_cookies_select_drop[domain] = ['TID_ID'];
+    }
     for (let domain of usa_genomeweb_domains) {
       allow_cookies.push(domain);
       blockedRegexes[domain] = /crain-platform-.+-prod\.s3\.amazonaws\.com\/s3fs-public\/js\/js_.+\.js/;
@@ -618,13 +627,6 @@ ext_api.storage.local.get({
   disabledSites = defaultSites_domains.concat(customSites_domains).filter(x => !enabledSites.includes(x) && x !== '###');
   add_grouped_sites(true);  //and exclude sites
 
-  for (let domainVar of enabledSites) {
-    if (!allow_cookies.includes(domainVar) && !remove_cookies.includes(domainVar)) {
-      allow_cookies.push(domainVar);
-      remove_cookies.push(domainVar);
-    }
-  }
-
   for (let key in sites_custom) {
     var domainVar = sites_custom[key]['domain'].toLowerCase();
     if (sites_custom[key]['googlebot'] > 0 && !use_google_bot.includes(domainVar))
@@ -639,7 +641,7 @@ ext_api.storage.local.get({
         use_bing_bot.push(domainVar);
       break;
     }
-    if (sites_custom[key]['allow_cookies'] > 0 && !allow_cookies.includes(domainVar))
+    if (sites_custom[key]['allow_cookies'] > 0 && !allow_cookies.includes(domainVar) && !defaultSites_domains.includes(domainVar))
       allow_cookies.push(domainVar);
     if (sites_custom[key]['block_javascript'] > 0)
       block_js_custom.push(domainVar);
@@ -654,6 +656,13 @@ ext_api.storage.local.get({
       break;
     case 'twitter':
       use_twitter_referer.push(domainVar);
+    }
+  }
+
+  for (let domainVar of enabledSites) {
+    if (!allow_cookies.includes(domainVar) && !remove_cookies.includes(domainVar) && !defaultSites_domains.includes(domainVar)) {
+      allow_cookies.push(domainVar);
+      remove_cookies.push(domainVar);
     }
   }
 
@@ -678,7 +687,7 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
       add_grouped_sites(false);
 
       for (let domainVar of enabledSites) {
-        if (!allow_cookies.includes(domainVar) && !remove_cookies.includes(domainVar)) {
+        if (!allow_cookies.includes(domainVar) && !remove_cookies.includes(domainVar) && !defaultSites_domains.includes(domainVar)) {
           allow_cookies.push(domainVar);
           remove_cookies.push(domainVar);
         }
@@ -710,17 +719,6 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
         });
       });
 
-      // restore cookie-settings for removed custom (& also default) domain
-      var sites_custom_default_domain_removed = Object.values(sites_custom_old).map(function (site_old) {
-          return site_old.domain;
-        }).filter(x => !Object.values(sites_custom).map(function (site_new) {
-            return site_new.domain;
-          }).includes(x) && defaultSites_domains.includes(x));
-      for (let domain of sites_custom_default_domain_removed) {
-        if (!allow_cookies_default.includes(domain) && !remove_cookies.includes(domain))
-          remove_cookies.push(domain);
-      }
-
       use_google_bot = use_google_bot_default.slice();
       use_bing_bot = use_bing_bot_default.slice();
       use_facebook_referer = use_facebook_referer_default.slice();
@@ -743,14 +741,16 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
             use_bing_bot.push(domainVar);
           break;
         }
-        if (sites_custom[key]['allow_cookies'] > 0) {
-          if (allow_cookies.includes(domainVar)) {
-            if (remove_cookies.includes(domainVar))
-              remove_cookies.splice(remove_cookies.indexOf(domainVar), 1);
-          } else
-            allow_cookies.push(domainVar);
-        } else if (!allow_cookies_default.includes(domainVar) && allow_cookies.includes(domainVar) && !remove_cookies.includes(domainVar))
+        if (!defaultSites_domains.includes(domainVar)) {
+          if (sites_custom[key]['allow_cookies'] > 0) {
+            if (allow_cookies.includes(domainVar)) {
+              if (remove_cookies.includes(domainVar))
+                remove_cookies.splice(remove_cookies.indexOf(domainVar), 1);
+            } else
+              allow_cookies.push(domainVar);
+          } else if (allow_cookies.includes(domainVar) && !remove_cookies.includes(domainVar))
             remove_cookies.push(domainVar);
+        }
         if (sites_custom[key]['block_javascript'] > 0) {
           block_js_custom.push(domainVar);
         }
@@ -1448,7 +1448,7 @@ function remove_cookies_fn(domainVar, exclusions = false) {
 // remove cookies after page load
 ext_api.webRequest.onCompleted.addListener(function (details) {
   let domainVar = matchUrlDomain(remove_cookies, details.url);
-  if (domainVar && !['font', 'stylesheet'].includes(details.type) && enabledSites.includes(domainVar)) {
+  if (domainVar && ['main_frame', 'sub_frame', 'xmlhttprequest', 'other'].includes(details.type) && enabledSites.includes(domainVar)) {
     remove_cookies_fn(domainVar, true);
   }
 }, {
