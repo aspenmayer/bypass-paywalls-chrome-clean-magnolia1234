@@ -1784,6 +1784,12 @@ else if (matchDomain('cen.acs.org')) {
   });
 }
 
+else if (matchDomain('csmonitor.com')) {
+  let paywall = document.querySelector('div.paywall');
+  console.log(paywall);
+  removeDOMElement(paywall);
+}
+
 else if (matchDomain('discovermagazine.com')) {
   window.setTimeout(function () {
     let mammoth = document.querySelector('.iXVGnF');

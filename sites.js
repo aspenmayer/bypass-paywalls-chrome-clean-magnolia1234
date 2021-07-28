@@ -73,7 +73,7 @@ var defaultSites =
   "Exame": "exame.com",
   "Expansión": "expansion.com",
   "Faro de Vigo": "farodevigo.es",
-  "Financial News": "fnlondon.com",
+  "Financial News (London)": "fnlondon.com",
   "Financial Post": "financialpost.com",
   "Financial Times (not Chinese)": "ft.com",
   "Financieele Dagblad (fd.nl)": "fd.nl",

@@ -217,6 +217,7 @@ var use_google_bot_default = [
   'elmercurio.com',
   'euobserver.com',
   'eurekareport.com.au',
+  'fnlondon.com',
   'ft.com',
   'handelsblatt.com',
   'hilltimes.com',
