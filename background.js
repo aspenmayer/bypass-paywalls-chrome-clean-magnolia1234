@@ -338,7 +338,6 @@ var blockedRegexes = {
   'latribune.fr': /\.poool\.fr\//,
   'lavanguardia.com': /(\.evolok\.net\/.+\/authorize\/|\.lavanguardia\.com\/(js\/)?godo-)/,
   'lc.nl': /\.evolok\.net\/.+\/authorize\//,
-  'le1hebdo.fr':  /(\.qiota\.com\/|\/le1hebdo\.fr\/assets\/front\/js\/qiota\.script\.js)/,
   'lejdd.fr': /\.poool\.fr\//,
   'leparisien.fr': /\.tinypass\.com\//,
   'lesechos.fr': /\.tinypass\.com\//,

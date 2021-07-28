@@ -151,7 +151,6 @@ var defaultSites =
   "Le Parisien": "leparisien.fr",
   "Le Scienze": "lescienze.it",
   "Le Télégramme": "letelegramme.fr",
-  "Le Un": "le1hebdo.fr",
   "Leeuwarder Courant": "lc.nl",
   "Les Échos": "lesechos.fr",
   "Levante-EMV": "levante-emv.com",

@@ -260,7 +260,6 @@
         "*://*.lavozdigital.es/*",
         "*://*.law.com/*",
         "*://*.lc.nl/*",
-        "*://*.le1hebdo.fr/*",
         "*://*.lecho.be/*",
         "*://*.ledauphine.com/*",
         "*://*.ledevoir.com/*",
@@ -526,5 +525,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.3.0.4"
+    "version": "2.3.0.5"
 }

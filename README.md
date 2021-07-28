@@ -305,7 +305,6 @@ Alma Talent sites (grouped in options) like
 [Le Journal du Net](https://www.journaldunet.com) -
 [Le Parisien](https://www.leparisien.fr) -
 [Le Télégramme](https://www.letelegramme.fr) -
-[Le Un](https://le1hebdo.fr) -
 [Les Échos](https://www.lesechos.fr) -
 [Libération](https://www.liberation.fr)* -
 [Paris Match](https://www.parismatch.com) -
