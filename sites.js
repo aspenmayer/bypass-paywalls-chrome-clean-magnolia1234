@@ -35,7 +35,7 @@ var defaultSites =
   "Chronicle of Higher Education": "chronicle.com",
   "Cicero.de": "cicero.de",
   "Clarín": "clarin.com",
-  "Commentary Magazine": "commentarymagazine.com",
+  "Commentary Magazine": "commentary.org",
   "CommonWealth Magazine Taiwan": "cw.com.tw",
   "Correio da Manhã": "cmjornal.pt",
   "Corriere Della Sera": "corriere.it",
