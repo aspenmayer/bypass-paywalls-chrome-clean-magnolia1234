@@ -687,11 +687,11 @@ else if (matchDomain('elperiodico.com')) {
 
 else if (matchDomain(es_grupo_vocento_domains)) {
   let url = window.location.href;
-  let content_exclusive_bg = document.querySelector('.content-exclusive-bg, #cierre_suscripcion');
+  let content_exclusive_bg = document.querySelector('.content-exclusive-bg, #cierre_suscripcion, ev-engagement[group-name^="paywall-"]');
   let amphtml = document.querySelector('link[rel="amphtml"]');
   if (content_exclusive_bg && amphtml) {
     removeDOMElement(content_exclusive_bg);
-    window.location.href = url.replace('.html', '_amp.html');
+    window.location.href = url.split('?')[0].replace('.html', '_amp.html');
   } else if (url.includes('_amp.html')) {
     let voc_advers = document.querySelectorAll('.voc-adver, amp-embed');
     removeDOMElement(...voc_advers);
