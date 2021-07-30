@@ -393,23 +393,24 @@ Madsack Mediengruppe sites like (opt-in to custom sites for unlisted)
 [Domani](https://editorialedomani.it) -
 [GElocal.it](https://quotidiani.gelocal.it) -
 [Il Fatto Quotidiano](https://www.ilfattoquotidiano.it) -
-[Il Giorno](https://www.ilgiorno.it) -
 [Il Manifesto](https://ilmanifesto.it) -
-[Il Resto del Carlino](https://www.ilrestodelcarlino.it) -
-[Il Secolo XIX](https://www.ilsecoloxix.it) -
-[La Nazione](https://www.lanazione.it) -
+[[Il Secolo XIX](https://www.ilsecoloxix.it) -
 [La Nuova Sardegna](https://www.lanuovasardegna.it) -
 [La Repubblica](https://www.repubblica.it) -
 [La Stampa](https://www.lastampa.it) -
 [Le Scienze](https://www.lescienze.it) -
-[LimesOnline (it/en)](https://www.limesonline.com) -
-[Quotidiano.net](https://www.quotidiano.net)\
+[LimesOnline (it/en)](https://www.limesonline.com)\
 Grouped in options:\
 [Il Messaggero](https://www.ilmessaggero.it) and regional sites like
 [Corriere Adriatico](https://www.corriereadriatico.it) -
 [Il Gazzettino](https://www.ilgazzettino.it) -
 [Il Mattino](https://www.ilmattino.it) -
-[Quotidiano di Puglia](https://www.quotidianodipuglia.it)
+[Quotidiano di Puglia](https://www.quotidianodipuglia.it)\
+[Quotidiano Nazionale](https://www.quotidiano.net) and regional sites like
+[Il Giorno](https://www.ilgiorno.it) -
+[Il Resto del Carlino](https://www.ilrestodelcarlino.it) -
+[Il Telegrafo Livorno](https://www.iltelegrafolivorno.it) -
+[La Nazione](https://www.lanazione.it)
 
 ##### Netherlands/Flanders
 [Dagblad van het Noorden](https://www.dvhn.nl) -
@@ -426,8 +427,7 @@ Grouped in options:\
 [Parool](https://www.parool.nl) -
 [Telegraaf](https://www.telegraaf.nl) -
 [Trouw](https://www.trouw.nl) -
-[Volkskrant](https://www.volkskrant.nl)
-
+[Volkskrant](https://www.volkskrant.nl)\
 Grouped in options:\
 [Algemeen Dagblad](https://www.ad.nl) and regional ADR sites like
 [BN DeStem](https://www.bndestem.nl) -

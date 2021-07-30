@@ -112,10 +112,8 @@ var defaultSites =
   "Houston Chronicle": "houstonchronicle.com",
   "Humo.be": "humo.be",
   "Il Fatto Quotidiano": "ilfattoquotidiano.it",
-  "Il Giorno": "ilgiorno.it",
   "Il Manifesto": "ilmanifesto.it",
   "Il Messaggero (+ regional)": "###_it_ilmessaggero",
-  "Il Resto del Carlino": "ilrestodelcarlino.it",
   "Il Secolo XIX": "ilsecoloxix.it",
   "Inc.com": "inc.com",
   "Inkl": "inkl.com",
@@ -133,7 +131,6 @@ var defaultSites =
   "La Croix": "la-croix.com",
   "La Estrella de Valparaíso": "estrellavalpo.cl",
   "La Nación": "lanacion.com.ar",
-  "La Nazione": "lanazione.it",
   "La Nouvelle République du Centre-Ouest": "lanouvellerepublique.fr",
   "La Nueva España": "lne.es",
   "La Nuova Sardegna": "lanuovasardegna.it",
@@ -205,7 +202,7 @@ var defaultSites =
   "Prospect Magazine": "prospectmagazine.co.uk",
   "Quartz (free articles only)": "qz.com",
   "Quora": "quora.com",
-  "Quotidiano.net": "quotidiano.net",
+  "Quotidiano.net (+ regional)": "###_it_quotidiano",
   "Republic.ru": "republic.ru",
   "Reuters": "reuters.com",
   "Rhein-Zeitung": "rhein-zeitung.de",
@@ -337,6 +334,7 @@ const fr_be_groupe_rossel_domains = ['aisnenouvelle.fr', 'courrier-picard.fr', '
 const fr_groupe_ebra_domains = ['bienpublic.com', 'dna.fr', 'estrepublicain.fr', 'lalsace.fr', 'ledauphine.com', 'lejsl.com', 'leprogres.fr', 'republicain-lorrain.fr', 'vosgesmatin.fr'];
 const fr_groupe_la_depeche_domains = ['centrepresseaveyron.fr', 'ladepeche.fr', 'lindependant.fr', 'midi-olympique.fr', 'midilibre.fr', 'nrpyrenees.fr', 'petitbleu.fr'];
 const it_ilmessaggero_domains = ['corriereadriatico.it', 'ilgazzettino.it', 'ilmattino.it', 'ilmessaggero.it', 'quotidianodipuglia.it'];
+const it_quotidiano_domains = ['ilgiorno.it', 'ilrestodelcarlino.it', 'iltelegrafolivorno.it', 'lanazione.it', 'quotidiano.net'];
 const nl_ad_region_domains = ['ad.nl', 'bd.nl', 'ed.nl', 'tubantia.nl', 'bndestem.nl', 'pzc.nl', 'destentor.nl', 'gelderlander.nl'];
 const nl_mediahuis_region_domains = ['gooieneemlander.nl', 'haarlemsdagblad.nl', 'ijmuidercourant.nl', 'leidschdagblad.nl', 'noordhollandsdagblad.nl'];
 const no_nhst_media_domains = ['intrafish.com', 'rechargenews.com', 'tradewindsnews.com', 'upstreamonline.com'];
@@ -348,4 +346,4 @@ const usa_tribune_domains = ['baltimoresun.com', 'chicagotribune.com', 'courant.
 const usa_theathletic_domains = ['theathletic.com', 'theathletic.co.uk'];
 
 var defaultSites_grouped_domains = Object.values(defaultSites);
-var defaultSites_domains = defaultSites_grouped_domains.concat(au_comm_media_domains, au_news_corp_domains, au_prov_news_domains, br_folha_domains, ca_torstar_domains, de_funke_media_domains, de_madsack_domains, economictimes_domains, es_grupo_vocento_domains, fi_alma_talent_domains, fr_be_groupe_rossel_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, it_ilmessaggero_domains, nl_ad_region_domains, nl_mediahuis_region_domains, no_nhst_media_domains, timesofindia_domains, usa_crainsbiz_domains, usa_mcc_domains, usa_nymag_domains, usa_tribune_domains, usa_theathletic_domains);
+var defaultSites_domains = defaultSites_grouped_domains.concat(au_comm_media_domains, au_news_corp_domains, au_prov_news_domains, br_folha_domains, ca_torstar_domains, de_funke_media_domains, de_madsack_domains, economictimes_domains, es_grupo_vocento_domains, fi_alma_talent_domains, fr_be_groupe_rossel_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, it_ilmessaggero_domains, it_quotidiano_domains, nl_ad_region_domains, nl_mediahuis_region_domains, no_nhst_media_domains, timesofindia_domains, usa_crainsbiz_domains, usa_mcc_domains, usa_nymag_domains, usa_tribune_domains, usa_theathletic_domains);

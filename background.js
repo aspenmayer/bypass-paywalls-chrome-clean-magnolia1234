@@ -85,8 +85,6 @@ var allow_cookies_default = [
   'hindustantimes.com',
   'hs.fi',
   'ilfattoquotidiano.it',
-  'ilgiorno.it',
-  'ilrestodelcarlino.it',
   'independent.ie',
   'infzm.com',
   'intelligentinvestor.com.au',
@@ -94,7 +92,6 @@ var allow_cookies_default = [
   'knack.be',
   'kurier.at',
   'la-croix.com',
-  'lanazione.it',
   'lanouvellerepublique.fr',
   'latribune.fr',
   'lavanguardia.com',
@@ -129,7 +126,6 @@ var allow_cookies_default = [
   'politicaexterior.com',
   'prospectmagazine.co.uk',
   'quora.com',
-  'quotidiano.net',
   'reuters.com',
   'rhein-zeitung.de',
   'rheinpfalz.de',
@@ -268,14 +264,14 @@ var change_headers = use_google_bot.concat(use_bing_bot, use_facebook_referer, u
 var blockedRegexes = {
   'abril.com.br': /\.abril\.com\.br\/.+\/abril-paywall\/js\/abril-paywall\.js/,
   'adweek.com': /\.lightboxcdn\.com\//,
-  'apollo-magazine.com': /\.tinypass\.com\//,
-  'augsburger-allgemeine.de':/(\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-(ad|subscriptions)-.+\.js)/,
   'afr.com': /api\.afr\.com\/graphql\?query=.+PaywallRuleQuery/,
   'ajc.com': /loader-cdn\.azureedge\.net\//,
   'alternatives-economiques.fr': /\.poool\.fr\//,
   'americanbanker.com': /\.tinypass\.com\//,
+  'apollo-magazine.com': /\.tinypass\.com\//,
   'asiatimes.com': /cdn\.ampproject\.org\/v\d\/amp-(access|ad|analytics)-.+\.(m)?js/,
   'atlantico.fr': /\.poool\.fr\//,
+  'augsburger-allgemeine.de':/(\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-(ad|subscriptions)-.+\.js)/,
   'barrons.com': /(cdn\.cxense\.com\/.+|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js)/,
   'belfasttelegraph.co.uk': /(cdn\.flip-pay\.com\/clients\/inm\/flip-pay\.js|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js)/,
   'billboard.com': /(cdn\.cxense\.com\/|\.tinypass\.com\/)/,
@@ -321,8 +317,6 @@ var blockedRegexes = {
   'hilltimes.com': /\.hilltimes\.com\/.+\/js\/loadingoverlay\/loadingoverlay\.min\.js/,
   'historyextra.com': /\.evolok\.net\/.+\/authorize\//,
   'houstonchronicle.com': /\.blueconic\.net\//,
-  'ilgiorno.it': /\.tinypass\.com\//,
-  'ilrestodelcarlino.it': /\.tinypass\.com\//,
   'independent.ie': /(cdn\.flip-pay\.com\/clients\/inm\/flip-pay\.js|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js)/,
   'inquirer.com': /\.tinypass\.com\//,
   'irishtimes.com': /cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js/,
@@ -332,7 +326,6 @@ var blockedRegexes = {
   'kurier.at': /\.tinypass\.com\//,
   'la-croix.com': /cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js/,
   'lasegunda.com': /\.(lasegunda\.com|emol\.cl)\/(.+\/)?js\/(.+\/)?(modal|merPramV\d|PramModal\.min)\.js/,
-  'lanazione.it': /\.tinypass\.com\//,
   'latercera.com': /(\.latercera\.com\/arc\/subs\/p\.js|cdn\.cxense\.com\/)/,
   'latimes.com': /(js\.matheranalytics\.com\/|metering\.platform\.latimes\.com\/v\d\/meter)/,
   'latribune.fr': /\.poool\.fr\//,
@@ -366,13 +359,11 @@ var blockedRegexes = {
   'nytimes.com': /(meter-svc\.nytimes\.com\/meter\.js|mwcm\.nyt\.com\/.+\.js)/,
   'observador.pt': /\.tinypass\.com\//,
   'parismatch.com': /\.poool\.fr\//,
-  'quotidiano.net': /\.tinypass\.com\//,
   'qz.com': /\.tinypass\.com\//,
   'reuters.com': /\.reuters\.com\/(arc\/subs\/p\.min|pf\/resources\/dist\/reuters\/js\/index)\.js/,
   'rollingstone.com': /cdn\.cxense\.com\//,
   'ruhrnachrichten.de': /\.tinypass\.com\//,
   'saechsische.de': /\.tinypass\.com\//,
-  'thesaturdaypaper.com.au': /\.thesaturdaypaper\.com\.au\/sites\/all\/modules\/custom\/node_meter\/pw\.js/,
   'science-et-vie.com': /\.qiota\.com\//,
   'sciencesetavenir.fr': /\.poool\.fr\//,
   'scmp.com': /(\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|ad|analytics|consent|fx-flying-carpet)-.+\.js)/,
@@ -395,6 +386,7 @@ var blockedRegexes = {
   'thehindubusinessline.com': /(cdn\.cxense\.com\/|\.tinypass\.com\/)/,
   'thenation.com': /\.tinypass\.com\//,
   'thenewatlantis.com': /\.thenewatlantis\.com\/.+\/thenewatlantis\/js\/(gate|donate)\.js/,
+  'thesaturdaypaper.com.au': /\.thesaturdaypaper\.com\.au\/sites\/all\/modules\/custom\/node_meter\/pw\.js/,
   'thewrap.com': /\.wallkit\.net\/js\//,
   'time.com': /\/time\.com\/dist\/meter-wall-client-js\..+\.js/,
   'timeshighereducation.com': /\.timeshighereducation\.com\/sites\/default\/files\/js\/js_bbCGL.+\.js/,
@@ -452,6 +444,7 @@ var grouped_sites = {
 '###_fr_groupe_ebra': fr_groupe_ebra_domains,
 '###_fr_groupe_la_depeche': fr_groupe_la_depeche_domains,
 '###_it_ilmessaggero': it_ilmessaggero_domains,
+'###_it_quotidiano': it_quotidiano_domains,
 '###_nl_ad_region': nl_ad_region_domains,
 '###_nl_mediahuis_region': nl_mediahuis_region_domains,
 '###_no_nhst_media': no_nhst_media_domains,
@@ -546,6 +539,10 @@ function add_grouped_sites(init_rules) {
       remove_cookies.push(domain);
       remove_cookies_select_drop[domain] = ['temptationTrackingId'];
     }
+    for (let domain of it_quotidiano_domains) {
+      allow_cookies.push(domain);
+      blockedRegexes[domain] = /(cdn\.cxense\.com\/|\.tinypass\.com\/)/;
+    }
     for (let domain of nl_mediahuis_region_domains)
       allow_cookies.push(domain);
     for (let domain of no_nhst_media_domains) {
@@ -565,7 +562,7 @@ function add_grouped_sites(init_rules) {
       blockedRegexes[domain] = /(\.tinypass\.com\/|\.(crains.+|.+business)\.com\/.+\/js\/js_.+\.js)/;
     }
     for (let domain of usa_mcc_domains)
-      blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/;
+      blockedRegexes[domain] = /(js\.matheranalytics\.com\/|cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js)/;
     for (let domain of usa_tribune_domains) {
       allow_cookies.push(domain);
       blockedRegexes[domain] = /\.tribdss\.com\//;
@@ -1058,7 +1055,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   if (usa_mcc_domain) {
     let mcc_domain = urlHost(header_referer).replace('account.', '');
     if (!usa_mcc_domains.includes(mcc_domain)) {
-      blockedRegexes[mcc_domain] = /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/;
+      blockedRegexes[domain] = /(js\.matheranalytics\.com\/|cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js)/;
       usa_mcc_domains.push(mcc_domain);
       if (!enabledSites.includes(mcc_domain))
         enabledSites.push(mcc_domain);

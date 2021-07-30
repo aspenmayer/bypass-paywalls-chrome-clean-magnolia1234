@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Grouping Quotidiano.net sites (Italy)
 Remove Le Un (obsolete)
 Fix Commentary Magazine (new domain)
 Fix Gestion & El Comercio (Peru)
@@ -53,7 +54,7 @@ Remove The Northern Star (obsolete)
 Fix Atlantico.fr
 Fix Boston Globe (no opt-in)
 Fix Foreign Policy
-Fix Group Tribune Publishing Company (overlay)
+Fix group Tribune Publishing Company (overlay)
 Fix The Globe and Mail
 Fix The Spectator UK (amp)
 

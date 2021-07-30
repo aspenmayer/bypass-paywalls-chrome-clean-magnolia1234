@@ -13,6 +13,7 @@ var fi_alma_talent_domains = ['arvopaperi.fi', 'kauppalehti.fi', 'marmai.fi', 'm
 var fr_groupe_ebra_domains = ['bienpublic.com', 'dna.fr', 'estrepublicain.fr', 'lalsace.fr', 'ledauphine.com', 'lejsl.com', 'leprogres.fr', 'republicain-lorrain.fr', 'vosgesmatin.fr'];
 var fr_groupe_la_depeche_domains = ['centrepresseaveyron.fr', 'ladepeche.fr', 'lindependant.fr', 'midi-olympique.fr', 'midilibre.fr', 'nrpyrenees.fr', 'petitbleu.fr'];
 var it_repubblica_domains = ['gelocal.it', 'ilsecoloxix.it', 'lanuovasardegna.it', 'lastampa.it', 'limesonline.com', 'repubblica.it'];
+var it_quotidiano_domains = ['ilgiorno.it', 'ilrestodelcarlino.it', 'iltelegrafolivorno.it', 'lanazione.it', 'quotidiano.net'];
 var nl_mediahuis_region_domains = ['gooieneemlander.nl', 'haarlemsdagblad.nl', 'ijmuidercourant.nl', 'leidschdagblad.nl', 'noordhollandsdagblad.nl'];
 var no_nhst_media_domains = ['intrafish.com', 'rechargenews.com', 'tradewindsnews.com', 'upstreamonline.com'];
 var usa_crainsbiz_domains = ['chicagobusiness.com', 'crainscleveland', 'crainsdetroit', 'crainsnewyork.com'];
@@ -1023,7 +1024,7 @@ else if (matchDomain('ilfattoquotidiano.it')) {
   }, 500); // Delay (in milliseconds)
 }
 
-else if (matchDomain(['ilgiorno.it', 'ilrestodelcarlino.it', 'lanazione.it', 'quotidiano.net'])) {
+else if (matchDomain(it_quotidiano_domains)) {
   let detail_text_truncated = document.querySelector('div.detail-text--truncated');
   let detail_page_paywall = document.querySelector('body.detail-page--paywall');
   if (detail_page_paywall) {

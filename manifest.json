@@ -217,6 +217,7 @@
         "*://*.ilmessaggero.it/*",
         "*://*.ilrestodelcarlino.it/*",
         "*://*.ilsecoloxix.it/*",
+        "*://*.iltelegrafolivorno.it/*",
         "*://*.inc.com/*",
         "*://*.independent.ie/*",
         "*://*.infzm.com/*",
@@ -525,5 +526,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.3.0.5"
+    "version": "2.3.0.6"
 }
