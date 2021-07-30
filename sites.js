@@ -159,6 +159,7 @@ var defaultSites =
   "Los Angeles Business Journal": "labusinessjournal.com",
   "Los Angeles Times": "latimes.com",
   "Madsack Mediengruppe (Germany)": "###_de_madsack",
+  "Marca": "marca.com",
   "MarketWatch": "marketwatch.com",
   "McClatchy Group": "###_usa_mcc",
   "Mediahuis Nederland Regional": "###_nl_mediahuis_region",
