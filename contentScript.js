@@ -89,7 +89,7 @@ if (matchDomain('thesaturdaypaper.com.au')) {
 
 else if (domain = matchDomain(["brisbanetimes.com.au", "smh.com.au", "theage.com.au", "watoday.com.au"])) {
   let url = window.location.href;
-  let for_subscribers = document.querySelector('meta[content^="FOR SUBSCRIBERS"]');
+  let for_subscribers = document.querySelector('meta[content^="FOR SUBSCRIBERS"], #paywall_prompt');
   if (for_subscribers) {
     window.setTimeout(function () {
       window.location.href = url.replace('www.', 'amp.');

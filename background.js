@@ -572,7 +572,7 @@ function add_grouped_sites(init_rules) {
 
     // rules only
     for (let domain of au_nine_domains)
-      blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/;
+      blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-((sticky-)?ad|subscriptions)-.+\.js/;
     for (let domain of es_unidad_domains) {
       allow_cookies.push(domain);
       blockedRegexes[domain] =  /cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad|consent)-.+\.js/;

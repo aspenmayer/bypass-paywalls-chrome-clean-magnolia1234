@@ -6,6 +6,7 @@ Add Iltalehti.fi (Firefox-only)
 Add Marca (Spain)
 Grouping Quotidiano.net sites (Italy)
 Remove Le Un (obsolete)
+Fix Australia Nine sites
 Fix Commentary Magazine (new domain)
 Fix Gestion & El Comercio (Peru)
 Fix Grupo Vocento (Spain)
