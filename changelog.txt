@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Add Iltalehti.fi (Firefox-only)
 Add Marca (Spain)
 Grouping Quotidiano.net sites (Italy)
 Remove Le Un (obsolete)
