@@ -2660,6 +2660,7 @@ else if (matchDomain('washingtonpost.com')) {
 }
 
 else if (matchDomain('wsj.com') && !matchDomain('cn.wsj.com')) {
+  let url = window.location.href;
   if (location.href.includes('/articles/')) {
     let close_button = document.querySelector('div.close-btn[role="button"]');
     if (close_button)
@@ -2667,14 +2668,20 @@ else if (matchDomain('wsj.com') && !matchDomain('cn.wsj.com')) {
   }
   let wsj_ads = document.querySelectorAll('div.wsj-ad');
   removeDOMElement(...wsj_ads);
-  document.addEventListener('DOMContentLoaded', () => {
-    let url = window.location.href;
-    let snippet = document.querySelector('.snippet-promotion');
-    let wsj_pro = document.querySelector('meta[name="page.site"][content="wsjpro"]');
-    if (snippet || wsj_pro) {
-      window.location.href = url.replace('wsj.com', 'wsj.com/amp');
-    }
-  });
+  if (url.includes('/amp/')) {
+    let masthead_link = document.querySelector('div.masthead > a[href*="/articles/"]');
+    if (masthead_link)
+      masthead_link.href = 'https://www.wsj.com';
+  } else {
+    document.addEventListener('DOMContentLoaded', () => {
+      let snippet = document.querySelector('.snippet-promotion');
+      let wsj_pro = document.querySelector('meta[name="page.site"][content="wsjpro"]');
+      if (snippet || wsj_pro) {
+        removeDOMElement(snippet, wsj_pro);
+        window.location.href = url.replace('wsj.com', 'wsj.com/amp');
+      }
+    });
+  }
 }
 
 else if ((domain = matchDomain(usa_mcc_domains)) || document.querySelector('script[src^="https://media.mcclatchyinteractive.com/"]') || window.location.href.match(/\/\/amp\..+\.com\/(.+\/)?article(\d){8,}\.html/)) {

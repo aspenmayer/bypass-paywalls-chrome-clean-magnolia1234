@@ -12,6 +12,7 @@ Fix Gestion & El Comercio (Peru)
 Fix Grupo Vocento (Spain)
 Fix Financial News (London)
 Fix The Athletic (podcast)
+Fix WSJ (amp homepage link)
 Update remove cookies (faster)
 
 * v2.3.0.1 (2021-07-26)

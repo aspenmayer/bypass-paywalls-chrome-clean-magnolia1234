@@ -283,6 +283,7 @@ var blockedRegexes = {
   'chronicle.com': /(\.blueconic\.net\/|\.chronicle\.com\/(common\/)?(che-auth0-user|script)\.js)/,
   'clarin.com': /js\.matheranalytics\.com\//,
   'cmjornal.pt': /cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad)-.+\.js/,
+  'commentary.org': /\.commentary\.org\/.+\/js\/dg-locker-public\.js/,
   'corriere.it': /(\.tinypass\.com\/|\.rcsobjects\.it\/rcs_(cpmt|tracking-service)\/|\.corriereobjects\.it\/.+\/js\/(_paywall\.sjs|tracking\/)|\.userzoom\.com\/files\/js\/)/,
   'dallasnews.com': /(\.blueconic\.net\/|js\.matheranalytics\.com\/)/,
   'digiday.com': /cdn.\.tinypass\.com\//,
