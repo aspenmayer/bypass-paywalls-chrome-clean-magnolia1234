@@ -1490,6 +1490,15 @@ else if (matchDomain(['theathletic.com', 'theathletic.co.uk'])) {
       subscr_section.removeAttribute('subscriptions-section');
     let subscr_actions = document.querySelectorAll('[subscriptions-actions]');
     removeDOMElement(...subscr_actions);
+    let podcast = document.querySelector('div[id^="podcast-clip-"]');
+    if (podcast) {
+      let podcast_src = podcast.innerHTML.replace(/<amp-/g, '<').replace(/<\/amp-/g, '</');
+      let parser = new DOMParser();
+      let doc = parser.parseFromString('<div>' + DOMPurify.sanitize(podcast_src, {ADD_TAGS: ['iframe'], ADD_ATTR: ['layout', 'sandbox']}) + '</div>', 'text/html');
+      let podcast_new = doc.querySelector('div');
+      if (podcast_new)
+        podcast.parentNode.replaceChild(podcast_new, podcast);
+    }
   }
 }
 
