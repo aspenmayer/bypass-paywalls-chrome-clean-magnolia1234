@@ -17,7 +17,7 @@ var it_repubblica_domains = ['gelocal.it', 'ilsecoloxix.it', 'lanuovasardegna.it
 var it_quotidiano_domains = ['ilgiorno.it', 'ilrestodelcarlino.it', 'iltelegrafolivorno.it', 'lanazione.it', 'quotidiano.net'];
 var nl_mediahuis_region_domains = ['gooieneemlander.nl', 'haarlemsdagblad.nl', 'ijmuidercourant.nl', 'leidschdagblad.nl', 'noordhollandsdagblad.nl'];
 var no_nhst_media_domains = ['intrafish.com', 'rechargenews.com', 'tradewindsnews.com', 'upstreamonline.com'];
-var usa_crainsbiz_domains = ['chicagobusiness.com', 'crainscleveland', 'crainsdetroit', 'crainsnewyork.com'];
+var usa_crainsbiz_domains = ['chicagobusiness.com', 'crainscleveland.com', 'crainsdetroit.com', 'crainsnewyork.com'];
 var timesofindia_domains = ['timesofindia.com', 'timesofindia.indiatimes.com'];
 var usa_mcc_domains = ['bnd.com', 'charlotteobserver.com', 'fresnobee.com', 'kansas.com', 'kansascity.com', 'kentucky.com', 'miamiherald.com', 'newsobserver.com', 'sacbee.com', 'star-telegram.com', 'thestate.com', 'tri-cityherald.com'];
 var usa_tribune_domains = ['baltimoresun.com', 'chicagotribune.com', 'courant.com', 'dailypress.com', 'mcall.com', 'nydailynews.com', 'orlandosentinel.com', 'pilotonline.com', 'sun-sentinel.com'];
@@ -1671,12 +1671,13 @@ else if (matchDomain('bloomberg.com')) {
   let counter = document.querySelector('div#fortress-preblocked-container-root');
   let leaderboard = document.querySelector('div[id^="leaderboard"]');
   let shimmering_content = document.querySelectorAll('div[class^="shimmering-"]');
-  removeDOMElement(counter, leaderboard, ...shimmering_content);
-  let hidden_images = document.querySelectorAll('div.lazy-img > img.lazy-img__image[src$="x-1.png"][data-native-src]');
+  let page_ad = document.querySelectorAll('div.page-ad');
+  removeDOMElement(counter, leaderboard, ...shimmering_content, ...page_ad);
+  let hidden_images = document.querySelectorAll('img.lazy-img__image[src][data-native-src]');
   for (let hidden_image of hidden_images) {
-    hidden_image.setAttribute('src', hidden_image.getAttribute('data-native-src'));
-    hidden_image.removeAttribute('class');
-    hidden_image.parentElement.removeAttribute('class');
+    if (hidden_image.src.match(/\/60x-1\.(png|jpg)$/))
+      hidden_image.setAttribute('src', hidden_image.getAttribute('data-native-src'));
+    hidden_image.style.filter = 'none';
   }
   let json_script = document.querySelector('script[data-component-props="ArticleBody"], script[data-component-props="FeatureBody"]');
   if (json_script) {
