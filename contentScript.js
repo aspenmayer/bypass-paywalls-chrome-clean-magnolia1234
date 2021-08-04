@@ -1380,35 +1380,41 @@ else if (matchDomain('telegraaf.nl')) {
   }
   let article_wrapper = document.querySelector('.ArticlePageWrapper__uid');
   let spotx_banner = document.querySelector('.ArticleBodyBlocks__inlineArticleSpotXBanner');
-  let paywall = document.querySelector('.PopupBackdrop__block');
+  let paywall = document.querySelector('.MeteringNotification__backdrop');
   removeDOMElement(spotx_banner, paywall);
-  let premium = document.querySelector('.PremiumLabelWithLine__body');
+  let premium = document.querySelector('.PremiumLabelWithLine');
   let article_id = article_wrapper ? article_wrapper.innerText : '123';
   let article_body_done = document.querySelector('#articleBody' + article_id);
   if (premium && !article_body_done) {
     let article_body_old = document.querySelector('[id^="articleBody"]');
     removeDOMElement(article_body_old);
-    let json = document.querySelector('script[type="application/ld+json"][data-react-helmet="true"]');
+    let html = document.documentElement.outerHTML;
+    let json = html.split('window.__APOLLO_STATE__=')[1].split('};')[0] + '}';
     if (json) {
-      let json_text = JSON.parse(json.text).articleBody;
-      let intro = document.querySelector('span[id^="articleIntro"]');
-      if (intro)
-        json_text = json_text.replace(intro.innerText + '\n\n', '');
-      let article_body = document.querySelector('section.TextArticlePage__bodyText');
-      if (article_body) {
-        let div_main = document.createElement('div');
-        div_main.setAttribute('id', 'articleBody' + article_id);
-        let div_elem = document.createElement('div');
-        div_elem.setAttribute('data-element', 'articleBodyBlocks');
-        let text_array = json_text.split('\n\n');
-        text_array.forEach(p_text => {
-          let p_div = document.createElement('p');
-          p_div.setAttribute('class', 'ArticleBodyBlocks__paragraph ArticleBodyBlocks__paragraph--nieuws');
-          p_div.innerText = p_text;
-          div_elem.appendChild(p_div);
-        });
-        div_main.appendChild(div_elem);
-        article_body.appendChild(div_main);
+      let json_article_id = json.split('uid\":')[1].split(',\"')[0];
+      if (json_article_id && json_article_id !== article_id)
+        window.location.reload(true);
+      let json_text = json.split('"body":"')[1].split('","__typename":')[0];
+      if (json_text) {
+        let intro = document.querySelector('span[id^="articleIntro"]');
+        if (intro)
+          json_text = json_text.replace(intro.innerText + '\n\n', '');
+        let article_body = document.querySelector('section.TextArticlePage__bodyText');
+        if (article_body) {
+          let div_main = document.createElement('div');
+          div_main.setAttribute('id', 'articleBody' + article_id);
+          let div_elem = document.createElement('div');
+          div_elem.setAttribute('data-element', 'articleBodyBlocks');
+          let text_array = json_text.split('\\n');
+          text_array.forEach(p_text => {
+            let p_div = document.createElement('p');
+            p_div.setAttribute('class', 'ArticleBodyBlocks__paragraph');
+            p_div.innerText = p_text;
+            div_elem.appendChild(p_div);
+          });
+          div_main.appendChild(div_elem);
+          article_body.appendChild(div_main);
+        }
       }
     }
   }

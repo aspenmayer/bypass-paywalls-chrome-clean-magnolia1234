@@ -316,6 +316,7 @@ var blockedRegexes = {
   'hilltimes.com': /\.hilltimes\.com\/.+\/js\/loadingoverlay\/loadingoverlay\.min\.js/,
   'historyextra.com': /\.evolok\.net\/.+\/authorize\//,
   'houstonchronicle.com': /\.blueconic\.net\//,
+  'inc.com': /\.tinypass\.com\//,
   'independent.ie': /(cdn\.flip-pay\.com\/clients\/inm\/flip-pay\.js|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js)/,
   'inquirer.com': /\.tinypass\.com\//,
   'irishtimes.com': /cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js/,
