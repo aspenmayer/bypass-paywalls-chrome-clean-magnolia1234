@@ -116,6 +116,7 @@ var defaultSites =
   "Il Messaggero (+ regional)": "###_it_ilmessaggero",
   "Il Secolo XIX": "ilsecoloxix.it",
   "Inc.com": "inc.com",
+  "Inc42": "inc42.com",
   "Inkl": "inkl.com",
   "Intelligent Investor": "intelligentinvestor.com.au",
   "Irish Independent (opt-in)": "independent.ie",

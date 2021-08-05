@@ -23,7 +23,7 @@ var usa_mcc_domains = ['bnd.com', 'charlotteobserver.com', 'fresnobee.com', 'kan
 var usa_tribune_domains = ['baltimoresun.com', 'chicagotribune.com', 'courant.com', 'dailypress.com', 'mcall.com', 'nydailynews.com', 'orlandosentinel.com', 'pilotonline.com', 'sun-sentinel.com'];
 
 // clean local storage of sites (with an exemption for hold-list)
-var arr_localstorage_hold = ['augsburger-allgemeine.de', 'charliehebdo.fr', 'cmjornal.pt', 'houstonchronicle.com', 'irishtimes.com', 'kurier.at', 'nknews.org', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk'].concat(es_unidad_domains, no_nhst_media_domains);
+var arr_localstorage_hold = ['augsburger-allgemeine.de', 'charliehebdo.fr', 'cmjornal.pt', 'houstonchronicle.com', 'inc42.com', 'irishtimes.com', 'kurier.at', 'nknews.org', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk'].concat(es_unidad_domains, no_nhst_media_domains);
 arr_localstorage_hold = arr_localstorage_hold.concat(de_funke_media_domains, es_grupo_vocento_domains);
 if (!matchDomain(arr_localstorage_hold)) {
   window.localStorage.clear();
@@ -2013,6 +2013,27 @@ else if (matchDomain('historyextra.com')) {
 else if (matchDomain(['houstonchronicle.com', 'sfchronicle.com'])) {
   let wrapper = document.querySelector('.belowMastheadWrapper');
   removeDOMElement(wrapper);
+}
+
+else if (matchDomain('inc42.com')) {
+  let url = window.location.href;
+  if (!url.includes('/amp/')) {
+    let premium = document.querySelector('div.premium-container');
+    if (premium) {
+      removeDOMElement(premium);
+      window.location.href = url.split('?')[0] + 'amp/';
+    }
+  } else {
+    let plus_popup = document.querySelector('div#plus-pop');
+    if (plus_popup) {
+      removeDOMElement(plus_popup);
+      let expired = document.querySelectorAll('div[amp-access="p.showPageviewExpired"], div[amp-access="cm.maxViews AND NOT loggedIn"]');
+      removeDOMElement(...expired);
+      let not_expired = document.querySelectorAll('div[amp-access^="NOT p.showPageviewExpired"][amp-access-hide]');
+      for (let elem of not_expired)
+        elem.removeAttribute('amp-access-hide');
+    }
+  }
 }
 
 else if (matchDomain('infzm.com')) {
