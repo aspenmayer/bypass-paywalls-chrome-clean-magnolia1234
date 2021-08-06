@@ -277,7 +277,7 @@ var blockedRegexes = {
   'belfasttelegraph.co.uk': /(cdn\.flip-pay\.com\/clients\/inm\/flip-pay\.js|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js)/,
   'billboard.com': /(cdn\.cxense\.com\/|\.tinypass\.com\/)/,
   'bizjournals.com': /(assets\.bizjournals\.com\/static\/js\/app\/cxense\.js|cdn\.cxense\.com\/)/,
-  'bloomberg.com': /(\.tinypass\.com\/|assets\.bwbx\.io\/s3\/fence\/)/,
+  'bloomberg.com': /\.tinypass\.com\//,
   'bostonglobe.com': /\.blueconic\.net\//,
   'businessinsider.com': /\.tinypass\.com\//,
   'challenges.fr': /\.poool\.fr\//,

@@ -1394,7 +1394,7 @@ else if (matchDomain('telegraaf.nl')) {
       let json_article_id = json.split('uid\":')[1].split(',\"')[0];
       if (json_article_id && json_article_id !== article_id)
         window.location.reload(true);
-      let json_text = json.split('"body":"')[1].split('","__typename":')[0];
+      let json_text = json.includes('"body":"') ? json.split('"body":"')[1].split('","__typename":')[0] : '';
       if (json_text) {
         let intro = document.querySelector('span[id^="articleIntro"]');
         if (intro)
@@ -1673,39 +1673,48 @@ else if (matchDomain('barrons.com')) {
 }
 
 else if (matchDomain('bloomberg.com')) {
+  function bloomberg_noscroll(node) {
+    node.removeAttribute('data-paywall-overlay-status');
+  }
+  waitDOMElement('div#fortress-paywall-container-root', 'DIV', removeDOMElement, true);
+  waitDOMAttribute('body', 'BODY', 'data-paywall-overlay-status', bloomberg_noscroll, true);
   sessionStorage.clear();
   let counter = document.querySelector('div#fortress-preblocked-container-root');
-  let leaderboard = document.querySelector('div[id^="leaderboard"]');
-  let shimmering_content = document.querySelectorAll('div[class^="shimmering-"]');
-  let page_ad = document.querySelectorAll('div.page-ad');
-  removeDOMElement(counter, leaderboard, ...shimmering_content, ...page_ad);
-  let hidden_images = document.querySelectorAll('img.lazy-img__image[src][data-native-src]');
-  for (let hidden_image of hidden_images) {
-    if (hidden_image.src.match(/\/60x-1\.(png|jpg)$/))
-      hidden_image.setAttribute('src', hidden_image.getAttribute('data-native-src'));
-    hidden_image.style.filter = 'none';
-  }
-  let json_script = document.querySelector('script[data-component-props="ArticleBody"], script[data-component-props="FeatureBody"]');
-  if (json_script) {
-    let json = JSON.parse(json_script.innerHTML);
-    if (json) {
-      let json_text = json.body ? json.body : '';
-      if (json_text) {
-        removeDOMElement(json_script);
-        let article = document.querySelector('div.body-copy-v2:not(.art_done)');
-        let article_class = 'body-copy-v2';
-        if (!article) {
-          article = document.querySelector('div.body-copy:not(.art_done)');
-          article_class = 'body-copy';
+  removeDOMElement(counter);
+  let url = window.location.href;
+  if (url.includes('/articles/')) {
+    let leaderboard = document.querySelector('div[id^="leaderboard"], div.leaderboard-wrapper');
+    let shimmering_content = document.querySelectorAll('div[class^="shimmering-"]');
+    let page_ad = document.querySelectorAll('div.page-ad');
+    removeDOMElement(leaderboard, ...shimmering_content, ...page_ad);
+    let hidden_images = document.querySelectorAll('img.lazy-img__image[src][data-native-src]');
+    for (let hidden_image of hidden_images) {
+      if (hidden_image.src.match(/\/60x-1\.(png|jpg)$/))
+        hidden_image.setAttribute('src', hidden_image.getAttribute('data-native-src'));
+      hidden_image.style.filter = 'none';
+    }
+    let json_script = document.querySelector('script[data-component-props="ArticleBody"], script[data-component-props="FeatureBody"]');
+    if (json_script) {
+      let json = JSON.parse(json_script.innerHTML);
+      if (json) {
+        let json_text = json.body ? json.body : '';
+        if (json_text) {
+          removeDOMElement(json_script);
+          let article = document.querySelector('div.body-copy-v2:not(.art_done)');
+          let article_class = 'body-copy-v2';
+          if (!article) {
+            article = document.querySelector('div.body-copy:not(.art_done)');
+            article_class = 'body-copy';
+          }
+          if (article) {
+            article_class += ' art_done';
+            let parser = new DOMParser();
+            let doc = parser.parseFromString('<div class="' + article_class + '">' + DOMPurify.sanitize(json_text, {ADD_TAGS: ['iframe']}) + '</div>', 'text/html');
+            let article_new = doc.querySelector('div');
+            if (article_new)
+              article.parentNode.replaceChild(article_new, article);
+          }
         }
-		if (article) {
-          article_class += ' art_done';
-          let parser = new DOMParser();
-          let doc = parser.parseFromString('<div class="' + article_class + '">' + DOMPurify.sanitize(json_text, {ADD_TAGS: ['iframe']}) + '</div>', 'text/html');
-          let article_new = doc.querySelector('div');
-          if (article_new)
-            article.parentNode.replaceChild(article_new, article);
-		}
       }
     }
   }
