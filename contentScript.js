@@ -2432,6 +2432,15 @@ else if (matchDomain('stratfor.com')) {
     hidden_image.setAttribute('src', hidden_image.getAttribute('data-src'));
 }
 
+else if (matchDomain('study.com')) {
+  let faded_content = document.querySelector('div.faded-content');
+  if (faded_content)
+    faded_content.removeAttribute('class');
+  let div_hidden = document.querySelector('div.hidden[ng-non-bindable]');
+  if (div_hidden)
+    div_hidden.removeAttribute('class');
+}
+
 else if (matchDomain('techinasia.com')) {
   let paywall = document.querySelector('.paywall-content');
   if (paywall) {

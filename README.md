@@ -151,7 +151,8 @@ NHST Media Group sites like (opt-in to custom sites)
 [Quora](https://www.quora.com) -
 [Scribd](https://www.scribd.com) -
 [Slader](https://www.slader.com) -
-[Statista](https://www.statista.com)
+[Statista](https://www.statista.com) -
+[Study.com (no videos)](https://study.com)
 
 ##### Magazines/Blogs
 [Apollo Magazine](https://www.apollo-magazine.com) -

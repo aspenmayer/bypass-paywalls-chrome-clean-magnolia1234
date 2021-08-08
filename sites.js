@@ -230,6 +230,7 @@ var defaultSites =
   "Statista": "statista.com",
   "Stock News": "stocknews.com",
   "Stratfor": "stratfor.com",
+  "Study.com (no videos)": "study.com",
   "Sud Ouest": "sudouest.fr",
   "Süddeutsche Zeitung": "sueddeutsche.de",
   "Tech in Asia": "techinasia.com",

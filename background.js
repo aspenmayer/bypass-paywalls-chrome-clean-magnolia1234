@@ -143,6 +143,7 @@ var allow_cookies_default = [
   'startribune.com',
   'stocknews.com',
   'stratfor.com',
+  'study.com',
   'sudouest.fr',
   'sueddeutsche.de',
   'svz.de',
