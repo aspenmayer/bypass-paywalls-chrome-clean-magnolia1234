@@ -49,6 +49,7 @@ var allow_cookies_default = [
   'billboard.com',
   'bostonglobe.com',
   'business-standard.com',
+  'businessoffashion.com',
   'charliehebdo.fr',
   'chronicle.com',
   'cicero.de',

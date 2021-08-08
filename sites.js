@@ -243,6 +243,7 @@ var defaultSites =
   "The Australian Financial Review": "afr.com",
   "The Boston Globe": "bostonglobe.com",
   "The Business Journals": "bizjournals.com",
+  "The Business of Fashion": "businessoffashion.com",
   "The Christian Science Monitor": "csmonitor.com",
   "The Daily Beast (free articles only)": "thedailybeast.com",
   "The Dallas Morning News": "dallasnews.com",

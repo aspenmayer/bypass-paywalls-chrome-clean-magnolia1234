@@ -1389,7 +1389,7 @@ else if (matchDomain('telegraaf.nl')) {
     let article_body_old = document.querySelector('[id^="articleBody"]');
     removeDOMElement(article_body_old);
     let html = document.documentElement.outerHTML;
-    let json = html.split('window.__APOLLO_STATE__=')[1].split('};')[0] + '}';
+    let json = html.includes('window.__APOLLO_STATE__=') ? html.split('window.__APOLLO_STATE__=')[1].split('};')[0] + '}' : '';
     if (json) {
       let json_article_id = json.split('uid\":')[1].split(',\"')[0];
       if (json_article_id && json_article_id !== article_id)
@@ -1774,6 +1774,18 @@ else if (matchDomain('business-standard.com')) {
     }
   });
 }
+
+else if (matchDomain('businessoffashion.com')) {
+  let paywall = document.querySelector('div.paywall');
+  if (paywall) {
+    let article_locked = document.querySelector('div.article-locked');
+    if (article_locked)
+      article_locked.removeAttribute('class');
+    let article_locked_overlay = document.querySelector('div.article-locked-overlay');
+    removeDOMElement(paywall, article_locked_overlay);
+  }
+}
+
 else if (matchDomain('caixinglobal.com')) {
   window.setTimeout(function () {
     let pay_tips = document.querySelectorAll('.cons-pay-tip');
@@ -1813,7 +1825,6 @@ else if (matchDomain('cen.acs.org')) {
 
 else if (matchDomain('csmonitor.com')) {
   let paywall = document.querySelector('div.paywall');
-  console.log(paywall);
   removeDOMElement(paywall);
 }
 

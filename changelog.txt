@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add Inc42 (India)
+Add The Business of Fashion
 Fix Bloomberg (quotes/blurred images)
 Fix Telegraaf.nl
 

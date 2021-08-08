@@ -115,6 +115,7 @@ _* free articles only._
 [Seeking Alpha](https://seekingalpha.com) -
 [Stock News](https://stocknews.com) -
 [The Business Journals](https://www.bizjournals.com) -
+[The Business of Fashion](https://www.businessoffashion.com) -
 [The Wall Street Journal](https://www.wsj.com)
 
 Grouped in options:\
