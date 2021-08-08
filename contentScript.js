@@ -405,7 +405,7 @@ else if (matchDomain('faz.net')) {
                 str = str.replace(/(?:^|[A-Za-z\"\“])(\.|\?|!)(?=[A-ZÖÜ\„\d][A-Za-zÀ-ÿ\„\d]{1,})/gm, "$&\n\n");
                 str = str.replace(/(([a-z]{2,}|[\"\“]))(?=[A-Z](?=[A-Za-zÀ-ÿ]+))/gm, "$&\n\n");
                 // exceptions: names with alternating lower/uppercase (no general fix)
-                let str_rep_arr = ['AstraZeneca', 'BaFin', 'BerlHG', 'BfArM', 'BilMoG', 'BioNTech', 'DiGA', 'EuGH', 'FinTechRat', 'GlaxoSmithKline', 'IfSG', 'medRxiv', 'PlosOne', 'StVO'];
+                let str_rep_arr = ['AstraZeneca', 'BaFin', 'BerlHG', 'BfArM', 'BilMoG', 'BioNTech', 'DiGA', 'EuGH', 'FinTechRat', 'GlaxoSmithKline', 'IfSG', 'medRxiv', 'mmHg', 'PlosOne', 'StVO'];
                 let str_rep_split,
                 str_rep_src;
                 for (let str_rep of str_rep_arr) {
@@ -2315,6 +2315,12 @@ else if (matchDomain('qz.com')) {
 else if (matchDomain('republic.ru')) {
   let paywall = document.querySelector('.paywall-section');
   removeDOMElement(paywall);
+}
+
+
+else if (matchDomain('sandiegouniontribune.com')) {
+  let metering_bottompanel = document.querySelector('metering-bottompanel');
+  removeDOMElement(metering_bottompanel);
 }
 
 else if (matchDomain('scmp.com') && window.location.href.includes('/amp.')) {

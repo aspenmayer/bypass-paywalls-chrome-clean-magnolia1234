@@ -5,6 +5,7 @@ Post-release
 Add Inc42 (India)
 Add The Business of Fashion
 Fix Bloomberg (quotes/blurred images)
+Fix San Diego Union-Tribune
 Fix Telegraaf.nl
 
 * v2.3.1.0 (2021-08-01)
