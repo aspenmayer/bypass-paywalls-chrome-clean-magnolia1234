@@ -2,6 +2,8 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+
+* v2.3.2.0 (2021-08-08)
 Add Inc42 (India)
 Add Study.com (no videos)
 Add The Business of Fashion
