@@ -2134,6 +2134,13 @@ else if (matchDomain('marketwatch.com')) {
   removeDOMElement(...ads);
 }
 
+else if (matchDomain('medianama.com')) {
+  window.setTimeout(function () {
+    let modal = document.querySelector('div.modal');
+    removeDOMElement(modal);
+  }, 500); // Delay (in milliseconds)
+}
+
 else if (matchDomain('mexiconewsdaily.com')) {
   window.setTimeout(function () {
     let popup = document.querySelector('div.pigeon-widget-prompt');
