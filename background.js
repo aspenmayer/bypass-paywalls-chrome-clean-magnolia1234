@@ -976,7 +976,7 @@ ext_api.webRequest.onHeadersReceived.addListener(function (details) {
 },
   ['blocking', 'responseHeaders']);
 
-var block_js_default = ["*://cdn.tinypass.com/*", "*://*.piano.io/*", "*://*.poool.fr/*",  "*://cdn.ampproject.org/v*/amp-access-*.js", "*://*.blueconic.net/*", "*://*.cxense.com/*", "*://*.evolok.net/*", "*://js.matheranalytics.com/*", "*://*.newsmemory.com/*", "*://*.onecount.net/*", "*://js.pelcro.com/*", "*://*.qiota.com/*", "*://*.tribdss.com/*"];
+var block_js_default = ["*://cdn.tinypass.com/*", "*://*.piano.io/*", "*://*.poool.fr/*",  "*://cdn.ampproject.org/v*/amp-access-*.js", "*://cdn.ampproject.org/v*/amp-subscriptions-*.js", "*://*.blueconic.net/*", "*://*.cxense.com/*", "*://*.evolok.net/*", "*://js.matheranalytics.com/*", "*://*.newsmemory.com/*", "*://*.onecount.net/*", "*://js.pelcro.com/*", "*://*.qiota.com/*", "*://*.tribdss.com/*"];
 var block_js_custom = [];
 var block_js_custom_ext = [];
 var block_js = block_js_default.concat(block_js_custom);
@@ -1062,11 +1062,13 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   }
 
   // block script for additional McClatchy sites (opt-in to custom sites)
-  var usa_mcc_domain = (matchUrlDomain('mcclatchyinteractive.com', details.url) && ['script'].includes(details.type) && !matchUrlDomain(usa_mcc_domains, header_referer) && enabledSites.includes('###_usa_mcc'));
+  var usa_mcc_domain = ((matchUrlDomain('mcclatchyinteractive.com', details.url) && ['script'].includes(details.type)) ||
+  (matchUrlDomain('mcclatchy-wires.com', details.url) && ['image'].includes(details.type)) &&
+  !matchUrlDomain(usa_mcc_domains, header_referer) && enabledSites.includes('###_usa_mcc'));
   if (usa_mcc_domain) {
-    let mcc_domain = urlHost(header_referer).replace('account.', '');
+    let mcc_domain = urlHost(header_referer).replace(/^(account|amp)\./, '');
     if (!usa_mcc_domains.includes(mcc_domain)) {
-      blockedRegexes[domain] = /(js\.matheranalytics\.com\/|cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js)/;
+      blockedRegexes[mcc_domain] = /(js\.matheranalytics\.com\/|cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js)/;
       usa_mcc_domains.push(mcc_domain);
       if (!enabledSites.includes(mcc_domain))
         enabledSites.push(mcc_domain);

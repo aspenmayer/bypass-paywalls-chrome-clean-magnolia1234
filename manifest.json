@@ -521,14 +521,17 @@
         "*://*.jsdelivr.net/*",
         "*://*.lightboxcdn.com/*",
         "*://*.loader-cdn.azureedge.net/*",
+        "*://*.mcclatchy-wires.com/*",
+        "*://*.mcclatchyinteractive.com/*",
         "*://*.natgeofe.com/*",
         "*://*.nyt.com/*",
         "*://*.pasedigital.cl/*",
         "*://*.rcsobjects.it/*",
         "*://*.repstatic.it/*",
+        "*://*.rndtech.de/*",
         "*://*.userzoom.com/*",
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.3.2.1"
+    "version": "2.3.2.2"
 }

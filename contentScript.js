@@ -2754,7 +2754,7 @@ else if (matchDomain('wsj.com') && !matchDomain('cn.wsj.com')) {
   }
 }
 
-else if ((domain = matchDomain(usa_mcc_domains)) || document.querySelector('script[src^="https://media.mcclatchyinteractive.com/"]') || window.location.href.match(/\/\/amp\..+\.com\/(.+\/)?article(\d){8,}\.html/)) {
+else if ((domain = matchDomain(usa_mcc_domains)) || document.querySelector('script[src^="https://media.mcclatchyinteractive.com/"]') || (window.location.href.match(/\/\/amp\..+\.com\/(.+\/)?article(\d){8,}\.html/) && document.querySelector('a[href^="https://classifieds.mcclatchy.com/"]'))) {
   if (!domain)
     domain = document.domain.replace(/(account|amp)\./, '');
   let url = window.location.href;
@@ -2855,7 +2855,6 @@ function matchDomain(domains, hostname) {
   return matched_domain;
 }
 
-// add domains to manifest (content_scripts - matches)
 function replaceDomElementExt(url, proxy, base64, selector, text_fail = '') {
   let proxyurl = proxy ? 'https://bpc2-cors-anywhere.herokuapp.com/' : '';
   fetch(proxyurl + url, {headers: {"Content-Type": "text/plain", "X-Requested-With": "XMLHttpRequest"} })
