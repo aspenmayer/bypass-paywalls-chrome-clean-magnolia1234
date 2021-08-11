@@ -4,6 +4,7 @@ Changelog Bypass Paywalls Clean - Chrome
 Post-release
 Fix group McClatchy (unlisted sites)
 Fix MediaNama (modal)
+Fix The Athletic
 
 * v2.3.2.0 (2021-08-08)
 Add Inc42 (India)

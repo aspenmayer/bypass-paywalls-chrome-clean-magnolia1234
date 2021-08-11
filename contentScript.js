@@ -1392,8 +1392,11 @@ else if (matchDomain('telegraaf.nl')) {
     let json = html.includes('window.__APOLLO_STATE__=') ? html.split('window.__APOLLO_STATE__=')[1].split('};')[0] + '}' : '';
     if (json) {
       let json_article_id = json.split('uid\":')[1].split(',\"')[0];
-      if (json_article_id && json_article_id !== article_id)
-        window.location.reload(true);
+      if (json_article_id && json_article_id !== article_id) {
+        window.setTimeout(function () {
+          window.location.reload(true);
+        }, 500);
+      }
       let json_text = json.includes('"body":"') ? json.split('"body":"')[1].split('","__typename":')[0] : '';
       if (json_text) {
         let intro = document.querySelector('span[id^="articleIntro"]');
@@ -1483,8 +1486,8 @@ else if (matchDomain('the-tls.co.uk')) {
 }
 
 else if (matchDomain(['theathletic.com', 'theathletic.co.uk'])) {
-  if (!window.location.href.includes('/?amp')) {
-    let paywall = document.querySelector('div#paywall-container');
+  if (!window.location.href.includes('?amp')) {
+    let paywall = document.querySelector('div#paywall-container, div[subscriptions-action="subscribe"]');
     let amphtml = document.querySelector('link[rel="amphtml"]');
     if (paywall && amphtml) {
       removeDOMElement(paywall);
