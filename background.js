@@ -102,6 +102,7 @@ var allow_cookies_default = [
   'lesechos.fr',
   'letelegramme.fr',
   'lexpress.fr',
+  'livelaw.in',
   'loeildelaphotographie.com',
   'lrb.co.uk',
   'marketwatch.com',

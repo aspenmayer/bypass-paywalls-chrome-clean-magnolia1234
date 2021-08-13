@@ -583,6 +583,7 @@ Grupo Vocento (ABC) regional sites like
 [Business Standard](https://www.business-standard.com) -
 [Hindustan Times](https://www.hindustantimes.com) -
 [Inc42](https://inc42.com) -
+[Live Law](https://www.livelaw.in) -
 [LiveMint](https://www.livemint.com) -
 [MediaNama](https://www.medianama.com) -
 [The Economic Times (ET Prime)](https://economictimes.indiatimes.com) -

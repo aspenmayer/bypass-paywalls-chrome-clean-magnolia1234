@@ -154,6 +154,7 @@ var defaultSites =
   "Levante-EMV": "levante-emv.com",
   "Libération (free articles only)": "liberation.fr",
   "LimesOnline": "limesonline.com",
+  "Live Law": "livelaw.in",
   "LiveMint": "livemint.com",
   "Loeb Classical Library": "loebclassics.com",
   "London Review of Books": "lrb.co.uk",

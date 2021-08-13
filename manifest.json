@@ -284,6 +284,7 @@
         "*://*.liberation.fr/*",
         "*://*.limesonline.com/*",
         "*://*.lindependant.fr/*",
+        "*://*.livelaw.com/*",
         "*://*.livemint.com/*",
         "*://*.ln-online.de/*",
         "*://*.lne.es/*",
@@ -533,5 +534,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.3.2.4"
+    "version": "2.3.2.5"
 }
