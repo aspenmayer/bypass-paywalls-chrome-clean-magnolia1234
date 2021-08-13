@@ -5,6 +5,7 @@ Post-release
 Fix group McClatchy (unlisted sites)
 Fix MediaNama (modal)
 Fix The Athletic
+Fix The Daily Beast (members-only)
 
 * v2.3.2.0 (2021-08-08)
 Add Inc42 (India)

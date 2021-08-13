@@ -168,7 +168,7 @@ NHST Media Group sites like (opt-in to custom sites)
 [Sports Illustrated](https://www.si.com) -
 [The Art Newspaper](https://www.theartnewspaper.com) -
 [The Athletic](https://theathletic.com) -
-[The Daily Beast](https://www.thedailybeast.com)* -
+[The Daily Beast](https://www.thedailybeast.com) -
 [The New Atlantis](https://www.thenewatlantis.com) -
 [The Point Magazine](https://thepointmag.com) -
 [The Wrap](https://www.thewrap.com) -

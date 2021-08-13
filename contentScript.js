@@ -1688,7 +1688,7 @@ else if (matchDomain('bloomberg.com')) {
   if (url.includes('/articles/')) {
     let leaderboard = document.querySelector('div[id^="leaderboard"], div.leaderboard-wrapper');
     let shimmering_content = document.querySelectorAll('div[class^="shimmering-"]');
-    let page_ad = document.querySelectorAll('div.page-ad');
+    let page_ad = document.querySelectorAll('div.page-ad, div[data-ad-placeholder]');
     removeDOMElement(leaderboard, ...shimmering_content, ...page_ad);
     let hidden_images = document.querySelectorAll('img.lazy-img__image[src][data-native-src]');
     for (let hidden_image of hidden_images) {
@@ -2504,6 +2504,43 @@ else if (matchDomain('the-american-interest.com')) {
 else if (matchDomain('theatlantic.com')) {
   let banner = document.querySelector('.c-nudge__container,.c-non-metered-nudge');
   removeDOMElement(banner);
+}
+
+else if (matchDomain('thedailybeast.com')) {
+  let paywall = document.querySelector('div.Body__paywall-container');
+  if (paywall) {
+    removeDOMElement(paywall);
+    let json_script = document.querySelector('script[displayName="initialState"]');
+    if (json_script) {
+      let json_text = json_script.innerText.includes('"sections":') ? json_script.innerText.split('"sections":')[1].split('},"')[0] : '';
+      if (json_text) {
+        let pars = json_text.split('"').filter(function (value) {
+            return (value.split('[').length < 2 && value.split(']').length < 2);
+          });
+        let mobile_doc = document.querySelector('div.Mobiledoc');
+        if (mobile_doc) {
+          let mobile_doc_text = mobile_doc.innerText.replace(/(\r|\n)/g, '');
+          let par, par_elem;
+          for (let elem of pars) {
+            if (elem === 'p') {
+              if (par && !mobile_doc_text.includes(par)) {
+                par_elem = document.createElement('p');
+                par_elem.innerText = par;
+                mobile_doc.appendChild(par_elem);
+              }
+              par = '';
+            } else
+              par += elem;
+          }
+          if (par && !mobile_doc_text.includes(par)) {
+            par_elem = document.createElement('p');
+            par_elem.innerText = par;
+            mobile_doc.appendChild(par_elem);
+          }
+        }
+      }
+    }
+  }
 }
 
 else if (matchDomain('thediplomat.com')) {
