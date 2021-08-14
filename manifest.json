@@ -40,6 +40,7 @@
         "webRequest",
         "webRequestBlocking",
         "*://*.360dx.com/*",
+        "*://*.aamulehti.fi/*",
         "*://*.abc.es/*",
         "*://*.abendblatt.de/*",
         "*://*.abril.com.br/*",
@@ -530,9 +531,10 @@
         "*://*.rcsobjects.it/*",
         "*://*.repstatic.it/*",
         "*://*.rndtech.de/*",
+        "*://*.sanoma-sndp.fi/*",
         "*://*.userzoom.com/*",
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.3.2.5"
+    "version": "2.3.2.6"
 }

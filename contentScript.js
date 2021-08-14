@@ -2525,7 +2525,7 @@ else if (matchDomain('thedailybeast.com')) {
       let json_text = json_script.innerText.includes('"sections":') ? json_script.innerText.split('"sections":')[1].split('},"')[0] : '';
       if (json_text) {
         let pars = json_text.split('"').filter(function (value) {
-            return (value.split('[').length < 2 && value.split(']').length < 2);
+            return (value.split('[').length < 3 && value.split(']').length < 3);
           });
         let mobile_doc = document.querySelector('div.Mobiledoc');
         if (mobile_doc) {

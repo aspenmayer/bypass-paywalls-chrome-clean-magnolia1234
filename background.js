@@ -448,6 +448,7 @@ var grouped_sites = {
 '###_economictimes': economictimes_domains,
 '###_es_grupo_vocento': es_grupo_vocento_domains,
 '###_fi_alma_talent': fi_alma_talent_domains,
+'###_fi_sanoma': fi_sanoma_domains,
 '###_fr_be_groupe_rossel': fr_be_groupe_rossel_domains,
 '###_fr_groupe_ebra': fr_groupe_ebra_domains,
 '###_fr_groupe_la_depeche': fr_groupe_la_depeche_domains,
@@ -1039,25 +1040,27 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   }
 
   // remove cookies for sites medium platform (custom domains)
-  var medium_custom_domain = (matchUrlDomain('cdn-client.medium.com', details.url) && ['script'].includes(details.type) && !matchUrlDomain(['medium.com', 'towardsdatascience.com'], header_referer) && enabledSites.includes('###_medium_custom'));
+  var medium_custom_domain = (matchUrlDomain('cdn-client.medium.com', details.url) && ['script'].includes(details.type) && !matchUrlDomain(medium_custom_domains.concat(['medium.com', 'towardsdatascience.com']), header_referer) && enabledSites.includes('###_medium_custom'));
   if (medium_custom_domain) {
-    let mc_domain = urlHost(header_referer);
+    let mc_domain = urlHost(header_referer).replace(/^(www|m)\./, '');;
     if (!use_twitter_referer.includes(mc_domain)) {
       use_twitter_referer.push(mc_domain);
       change_headers.push(mc_domain);
     }
+    medium_custom_domains.push(mc_domain);
     if (!enabledSites.includes(mc_domain))
       enabledSites.push(mc_domain);
   }
 
   // set googlebot-useragent for Gannett sites
-  var usa_gannett_domain = (matchUrlDomain('gannett-cdn.com', details.url) && ['xmlhttprequest'].includes(details.type) && !matchUrlDomain(['usatoday.com'], header_referer) && enabledSites.includes('###_usa_gannett'));
+  var usa_gannett_domain = (matchUrlDomain('gannett-cdn.com', details.url) && ['xmlhttprequest'].includes(details.type) && !matchUrlDomain(usa_gannett_domains.concat(['usatoday.com']), header_referer) && enabledSites.includes('###_usa_gannett'));
   if (usa_gannett_domain) {
-    let gn_domain = urlHost(header_referer);
+    let gn_domain = urlHost(header_referer).replace(/^(www|eu)\./, '');;
     if (!use_google_bot.includes(gn_domain)) {
       use_google_bot.push(gn_domain);
       change_headers.push(gn_domain);
     }
+    usa_gannett_domains.push(gn_domain);
     if (!enabledSites.includes(gn_domain))
       enabledSites.push(gn_domain);
   }
@@ -1068,12 +1071,10 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   !matchUrlDomain(usa_mcc_domains, header_referer) && enabledSites.includes('###_usa_mcc'));
   if (usa_mcc_domain) {
     let mcc_domain = urlHost(header_referer).replace(/^(account|amp)\./, '');
-    if (!usa_mcc_domains.includes(mcc_domain)) {
-      blockedRegexes[mcc_domain] = /(js\.matheranalytics\.com\/|cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js)/;
-      usa_mcc_domains.push(mcc_domain);
-      if (!enabledSites.includes(mcc_domain))
-        enabledSites.push(mcc_domain);
-    }
+    blockedRegexes[mcc_domain] = /(js\.matheranalytics\.com\/|cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js)/;
+    usa_mcc_domains.push(mcc_domain);
+    if (!enabledSites.includes(mcc_domain))
+      enabledSites.push(mcc_domain);
   }
 
   // block script for additional Madsack/RND sites (opt-in to custom sites)
@@ -1086,6 +1087,22 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
       de_madsack_domains.push(rnd_domain);
       if (!enabledSites.includes(rnd_domain))
         enabledSites.push(rnd_domain);
+    }
+  }
+
+  // set user-agent to GoogleBot for additional Snamoma Media Finland (opt-in to custom sites)
+  var fi_sanoma_sndp_domain = (matchUrlDomain('sanoma-sndp.fi', details.url) && ['xmlhttprequest'].includes(details.type) && !matchUrlDomain(fi_sanoma_domains, header_referer) && enabledSites.includes('###_fi_sanoma'));
+  if (fi_sanoma_sndp_domain) {
+    let sanoma_domain = urlHost(header_referer).replace(/^www\./, '');
+    if (!fi_sanoma_domains.includes(sanoma_domain)) {
+      allow_cookies.push(sanoma_domain);
+      if (!use_google_bot.includes(sanoma_domain)) {
+        use_google_bot.push(sanoma_domain);
+        change_headers.push(sanoma_domain);
+      }
+      fi_sanoma_domains.push(sanoma_domain);
+      if (!enabledSites.includes(sanoma_domain))
+        enabledSites.push(sanoma_domain);
     }
   }
 

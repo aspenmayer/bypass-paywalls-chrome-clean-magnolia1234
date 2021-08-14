@@ -119,7 +119,7 @@ _* free articles only._
 [The Wall Street Journal](https://www.wsj.com)
 
 Grouped in options:\
-NHST Media Group sites like (opt-in to custom sites)
+NHST Media Group sites like
 [Intrafish](https://www.intrafish.com) -
 [Recharge](https://www.rechargenews.com) -
 [TradeWinds](https://www.tradewindsnews.com) -
@@ -277,8 +277,13 @@ Tribune Publishing Company sites like
 [Berlingske](https://www.berlingske.dk)
 
 ##### Finland
-[Helsingin Sanomat](https://www.hs.fi)\
-Alma Talent sites (grouped in options) like
+Grouped in options:\
+Sanoma Media Finland sites like
+[Aamulehti](https://www.aamulehti.fi) -
+[Helsingin Sanomat](https://www.hs.fi)
+* opt-in to custom sites for unlisted/regional sites
+
+Alma Talent sites like
 [Arvopaperi](https://www.arvopaperi.fi) -
 [Iltalehti (Firefox-only)](https://www.iltalehti.fi/) -
 [Kauppalehti](https://www.kauppalehti.fi) -
