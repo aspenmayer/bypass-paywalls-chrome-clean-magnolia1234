@@ -2754,9 +2754,11 @@ else if (matchDomain('washingtonpost.com')) {
   } else {
     function wapo_main(node) {
       removeDOMElement(node);
-      let url_amp = url.split('?')[0] + '?outputType=amp';
-      replaceDomElementExt(url_amp, false, false, 'div.article-body', 'Failed to load from amp-page: ');
-      window.scrollTo(0, 0);
+      if (!url.match(/\/(graphics|interactive)\//)) {
+        let url_amp = url.split('?')[0] + '?outputType=amp';
+        replaceDomElementExt(url_amp, false, false, 'div.article-body', 'Failed to load from amp-page: ');
+        window.scrollTo(0, 0);
+      }
     }
     function wapo_overlay(node) {
       node.removeAttribute('style');
@@ -2769,7 +2771,7 @@ else if (matchDomain('washingtonpost.com')) {
         waitDOMAttribute('body', 'BODY', 'style', wapo_overlay, true);
       }, 500); // Delay (in milliseconds)
       waitDOMAttribute('html', 'HTML', 'style', wapo_overlay, false);
-      if (!url.includes('/interactive/'))
+      if (!url.match(/\/(graphics|interactive)\//))
         csDoneOnce = true;
     } else {
       let subscr_sections = document.querySelectorAll('[subscriptions-section="content"]');
@@ -2924,7 +2926,7 @@ function replaceDomElementExt(url, proxy, base64, selector, text_fail = '') {
         //console.log(DOMPurify.removed);
         let article_new = doc.querySelector(selector);
         if (article_new) {
-          if (article)
+          if (article && article.parentNode)
             article.parentNode.replaceChild(article_new, article);
         }
       });
