@@ -184,7 +184,6 @@ NHST Media Group sites like
 [Mountain View Voice](https://www.mv-voice.com) -
 [New York Magazine](https://www.nymag.com) (+ [Curbed](https://www.curbed.com/), [Grub Street](https://www.grubstreet.com), [The Cut](https://www.thecut.com) & [Vulture](https://www.vulture.com)) -
 [Newsday](https://www.newsday.com) -
-[Orange County Register](https://www.ocregister.com) -
 [Palo Alto Online](https://www.paloaltoonline.com) -
 [Pittsburgh Post Gazette](https://post-gazette.com) -
 [San Diego Union Tribune](https://sandiegouniontribune.com) -
@@ -193,26 +192,23 @@ NHST Media Group sites like
 [The Atlanta Journal-Constitution](https://www.ajc.com) -
 [The Boston Globe](https://www.bostonglobe.com) -
 [The Dallas Morning News](https://www.dallasnews.com) -
-[The Denver Post](https://www.denverpost.com) -
-[The Mercury News](https://www.mercurynews.com) -
 [The Seattle Times](https://www.seattletimes.com) -
 [The Philadelphia Inquirer](https://www.inquirer.com) -
 [Winston-Salem Journal](https://www.journalnow.com)
 
 [USA Today](https://www.usatoday.com)\
 Grouped in options:\
-Gannett Group (local USA Today) sites like (opt-in to custom sites)
+*Gannett Group (local USA Today)* sites like (opt-in to custom sites)
 [Detroit Free Press](https://www.freep.com) -
 [Milwaukee Journal Sentinel](https://www.jsonline.com) -
 [The Indianapolis Star](https://www.indystar.com) -
-[The Record (North Jersey)](https://www.northjersey.com)
-
-Crain's Business sites like
+[The Record (North Jersey)](https://www.northjersey.com)\
+*Crain's Business* sites like
 [Crain's Chicago Business](https://www.chicagobusiness.com) -
 [Crain's Cleveland Business](https://www.crainscleveland.com) -
 [Crain's Detroit Business](https://www.crainsdetroit.com) -
 [Crain's New York Business](https://www.crainsnewyork.com)\
-McClatchy Group sites like (opt-in to custom sites for unlisted)
+*McClatchy Group* sites like (opt-in to custom sites for unlisted)
 [Belleville News-Democrat](https://www.bnd.com) -
 [Fort Worth Star-Telegram](https://www.star-telegram.com) -
 [Lexington Herald-Leader](https://www.kentucky.com) -
@@ -225,7 +221,14 @@ McClatchy Group sites like (opt-in to custom sites for unlisted)
 [The State](https://www.thestate.com) -
 [The Wichita Eagle](https://www.kansas.com) -
 [Tri-City Herald](https://www.tri-cityherald.com)\
-Tribune Publishing Company sites like
+*MediaNews Group* sites like (opt-in to custom sites for unlisted/local sites):
+[East Bay Times](https://www.eastbaytimes.com) -
+[Orange County Register](https://www.ocregister.com) -
+[St. Paul Pioneer Press](https://www.twincities.com) -
+[The Denver Post](https://www.denverpost.com) -
+[The Mercury News](https://www.mercurynews.com) -
+[The Press-Enterprise](https://www.pe.com)\
+*Tribune Publishing Company* sites like
 [Baltimore Sun](https://www.baltimoresun.com) -
 [Chicago Tribune](https://www.chicagotribune.com) -
 [Daily Press](https://www.dailypress.com) -

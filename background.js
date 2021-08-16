@@ -84,7 +84,6 @@ var allow_cookies_default = [
   'handelsblatt.com',
   'hilltimes.com',
   'hindustantimes.com',
-  'hs.fi',
   'ilfattoquotidiano.it',
   'inc42.com',
   'independent.ie',
@@ -221,7 +220,6 @@ var use_google_bot_default = [
   'ft.com',
   'handelsblatt.com',
   'hilltimes.com',
-  'hs.fi',
   'intelligentinvestor.com.au',
   'lanouvellerepublique.fr',
   'leparisien.fr',
@@ -460,6 +458,7 @@ var grouped_sites = {
 '###_timesofindia': timesofindia_domains,
 '###_usa_crainsbiz': usa_crainsbiz_domains,
 '###_usa_mcc': usa_mcc_domains,
+'###_usa_mng': usa_mng_domains,
 '###_usa_nymag': usa_nymag_domains,
 '###_usa_tribune': usa_tribune_domains,
 '###_usa_theathletic': usa_theathletic_domains
@@ -527,6 +526,10 @@ function add_grouped_sites(init_rules) {
         blockedRegexes[domain] = /\.fi\/static\/vendor\..+\.chunk\.js/;
       use_google_bot.push(domain);
     }
+    for (let domain of fi_sanoma_domains) {
+      allow_cookies.push(domain);
+      use_google_bot.push(domain);
+    }
     for (let domain of fr_be_groupe_rossel_domains) {
       if (!['lecho.be'].includes(domain)) {
         allow_cookies.push(domain);
@@ -575,6 +578,10 @@ function add_grouped_sites(init_rules) {
     for (let domain of usa_tribune_domains) {
       allow_cookies.push(domain);
       blockedRegexes[domain] = /\.tribdss\.com\//;
+    }
+    for (let domain of usa_mng_domains) {
+      allow_cookies.push(domain);
+      blockedRegexes[domain] = /(\.blueconic\.net\/|\.tinypass\.com\/|\.com\/.+\/loader\.min\.js|cdn\.ampproject\.org\/v\d\/amp-((sticky-)?ad|subscriptions)-.+\.js)/;
     }
     for (let domain of usa_theathletic_domains) {
       allow_cookies.push(domain);
@@ -1077,6 +1084,17 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
       enabledSites.push(mcc_domain);
   }
 
+  // block script for additional MediaNews Group sites (opt-in to custom sites)
+  var usa_mng_domain = (details.url.match(/\.com\/wp-content\/plugins\/dfm(-pushly|_zeus)\/.+\.js/) && ['script'].includes(details.type) &&
+  !matchUrlDomain(usa_mng_domains, header_referer) && enabledSites.includes('###_usa_mng'));
+  if (usa_mng_domain) {
+    let mng_domain = urlHost(header_referer).replace(/^www\./, '');
+    blockedRegexes[mng_domain] = /(\.blueconic\.net\/|\.tinypass\.com\/|\.com\/.+\/loader\.min\.js|cdn\.ampproject\.org\/v\d\/amp-((sticky-)?ad|subscriptions)-.+\.js)/;
+    usa_mng_domains.push(mng_domain);
+    if (!enabledSites.includes(mng_domain))
+      enabledSites.push(mng_domain);
+  }
+
   // block script for additional Madsack/RND sites (opt-in to custom sites)
   var de_rnd_domain = (matchUrlDomain('rndtech.de', details.url) && ['script'].includes(details.type) && !matchUrlDomain(de_madsack_domains.concat(['madsack.de', 'madsack-medien-campus.de', 'rnd.de']), header_referer) && enabledSites.includes('###_de_madsack'));
   if (de_rnd_domain) {
@@ -1155,7 +1173,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
     let usa_today_site = (matchUrlDomain('gannett-cdn.com', details.url) && matchUrlDomain(['usatoday.com'], header_referer));
     allow_ext_source = allow_ext_source || inkl_site || cl_elmerc_site || es_elesp_site || it_repubblica_site || usa_mw_site || usa_natgeo_site || usa_today_site;
 
-    bpc_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain(['asiatimes.com', 'augsburger-allgemeine.de', 'barrons.com', 'belfasttelegraph.co.uk', 'cicero.de', 'cmjornal.pt', 'elpais.com', 'elperiodico.com', 'freiepresse.de', 'inc42.com', 'independent.ie', 'irishtimes.com', 'la-croix.com', 'marketwatch.com', 'nationalreview.com', 'noz.de', 'nwzonline.de', 'scmp.com', 'seekingalpha.com', 'shz.de', 'staradvertiser.com', 'sueddeutsche.de', 'svz.de', 'telegraph.co.uk', 'washingtonpost.com'].concat(au_news_corp_domains, au_nine_domains, de_madsack_domains, es_epiberica_domains, es_grupo_vocento_domains, es_unidad_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, it_repubblica_domains, usa_mcc_domains, usa_theathletic_domains), header_referer));
+    bpc_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain(['asiatimes.com', 'augsburger-allgemeine.de', 'barrons.com', 'belfasttelegraph.co.uk', 'cicero.de', 'cmjornal.pt', 'elpais.com', 'elperiodico.com', 'freiepresse.de', 'inc42.com', 'independent.ie', 'irishtimes.com', 'la-croix.com', 'marketwatch.com', 'nationalreview.com', 'noz.de', 'nwzonline.de', 'scmp.com', 'seekingalpha.com', 'shz.de', 'staradvertiser.com', 'sueddeutsche.de', 'svz.de', 'telegraph.co.uk', 'washingtonpost.com'].concat(au_news_corp_domains, au_nine_domains, de_madsack_domains, es_epiberica_domains, es_grupo_vocento_domains, es_unidad_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, it_repubblica_domains, usa_mcc_domains, usa_mng_domains, usa_theathletic_domains), header_referer));
   }
 
   if (!isSiteEnabled(details) && !allow_ext_source && !bpc_amp_site && !au_apn_site && !au_swm_site) {

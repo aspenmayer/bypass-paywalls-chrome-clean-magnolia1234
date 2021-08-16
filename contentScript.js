@@ -20,6 +20,7 @@ var no_nhst_media_domains = ['intrafish.com', 'rechargenews.com', 'tradewindsnew
 var usa_crainsbiz_domains = ['chicagobusiness.com', 'crainscleveland.com', 'crainsdetroit.com', 'crainsnewyork.com'];
 var timesofindia_domains = ['timesofindia.com', 'timesofindia.indiatimes.com'];
 var usa_mcc_domains = ['bnd.com', 'charlotteobserver.com', 'fresnobee.com', 'kansas.com', 'kansascity.com', 'kentucky.com', 'miamiherald.com', 'newsobserver.com', 'sacbee.com', 'star-telegram.com', 'thestate.com', 'tri-cityherald.com'];
+var usa_mng_domains =   ['denverpost.com', 'eastbaytimes.com', 'mercurynews.com', 'ocregister.com', 'pe.com', 'twincities.com'];
 var usa_tribune_domains = ['baltimoresun.com', 'chicagotribune.com', 'courant.com', 'dailypress.com', 'mcall.com', 'nydailynews.com', 'orlandosentinel.com', 'pilotonline.com', 'sun-sentinel.com'];
 
 // clean local storage of sites (with an exemption for hold-list)
@@ -2829,6 +2830,18 @@ else if ((domain = matchDomain(usa_mcc_domains)) || document.querySelector('scri
     premium_link = premium_svg.parentElement;
     if (premium_link.href.includes('www.'))
       premium_link.href = premium_link.href.replace('www.', 'amp.');
+  }
+}
+
+else if ((domain = matchDomain(usa_mng_domains)) || (window.location.href.match(/\.com\/(\d){4}\/(\d){2}\/(\d){2}\/.+\/amp\//) && document.querySelector('amp-img#paywall[src*=".com/wp-content/plugins/dfm-amp-mods/"]'))) {
+  let url = window.location.href;
+  if (url.split('?')[0].endsWith('/amp/')) {
+    let subscr_sections = document.querySelectorAll('div[subscriptions-section="content"]');
+    for (let subscr_section of subscr_sections) {
+      subscr_section.removeAttribute('subscriptions-section');
+    }
+    let amp_ads = document.querySelectorAll('amp-ad, amp-embed');
+    removeDOMElement(...amp_ads);
   }
 }
 
