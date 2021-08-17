@@ -111,7 +111,6 @@ _* free articles only._
 [Law.com](https://www.law.com)* -
 [MarketWatch](https://www.marketwatch.com) -
 [MIT Sloan Management Review](https://sloanreview.mit.edu) -
-[Modern Healthcare](https://www.modernhealthcare.com) -
 [Quartz](https://qz.com)* -
 [Seeking Alpha](https://seekingalpha.com) -
 [Stock News](https://stocknews.com) -
@@ -120,7 +119,15 @@ _* free articles only._
 [The Wall Street Journal](https://www.wsj.com)
 
 Grouped in options:\
-NHST Media Group sites like
+*Crain Communications* sites like\
+[Ad Age](https://adage.com) -
+[Automotive News](https://www.autonews.com) -
+[Crain's Chicago Business](https://www.chicagobusiness.com) -
+[Crain's Cleveland Business](https://www.crainscleveland.com) -
+[Crain's Detroit Business](https://www.crainsdetroit.com) -
+[Crain's New York Business](https://www.crainsnewyork.com) -
+[Modern Healthcare](https://www.modernhealthcare.com)\
+*NHST Media Group* sites like\
 [Intrafish](https://www.intrafish.com) -
 [Recharge](https://www.rechargenews.com) -
 [TradeWinds](https://www.tradewindsnews.com) -
@@ -204,11 +211,6 @@ Grouped in options:\
 [Milwaukee Journal Sentinel](https://www.jsonline.com) -
 [The Indianapolis Star](https://www.indystar.com) -
 [The Record (North Jersey)](https://www.northjersey.com)\
-*Crain's Business* sites like
-[Crain's Chicago Business](https://www.chicagobusiness.com) -
-[Crain's Cleveland Business](https://www.crainscleveland.com) -
-[Crain's Detroit Business](https://www.crainsdetroit.com) -
-[Crain's New York Business](https://www.crainsnewyork.com)\
 *McClatchy Group* sites like (opt-in to custom sites for unlisted)\
 [Belleville News-Democrat](https://www.bnd.com) -
 [Fort Worth Star-Telegram](https://www.star-telegram.com) -

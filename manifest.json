@@ -45,6 +45,7 @@
         "*://*.abendblatt.de/*",
         "*://*.abril.com.br/*",
         "*://*.ad.nl/*",
+        "*://*.adage.com/*",
         "*://*.adelaidenow.com.au/*",
         "*://*.adweek.com/*",
         "*://*.afr.com/*",
@@ -61,6 +62,7 @@
         "*://*.atavist.com/*",
         "*://*.atlantico.fr/*",
         "*://*.augsburger-allgemeine.de/*",
+        "*://*.autonews.com/*",
         "*://*.baltimoresun.com/*",
         "*://*.barrons.com/*",
         "*://*.bd.nl/*",
@@ -539,5 +541,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.3.3.2"
+    "version": "2.3.3.3"
 }

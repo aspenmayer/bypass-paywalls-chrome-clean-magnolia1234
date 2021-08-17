@@ -39,7 +39,7 @@ var defaultSites =
   "CommonWealth Magazine Taiwan": "cw.com.tw",
   "Correio da Manhã": "cmjornal.pt",
   "Corriere Della Sera": "corriere.it",
-  "Crain's Business": "###_usa_crainsbiz",
+  "Crain Communications": "###_usa_craincomm",
   "Dagblad van het Noorden": "dvhn.nl",
   "Dagens Industri": "di.se",
   "Dagens Nyheter": "dn.se",
@@ -171,7 +171,6 @@ var defaultSites =
   "Mexico News Daily": "mexiconewsdaily.com",
   "MIT Sloan Management Review": "sloanreview.mit.edu",
   "MIT Technology Review": "technologyreview.com",
-  "Modern Healthcare": "modernhealthcare.com",
   "Mountain View Voice": "mv-voice.com",
   "National Geographic USA": "nationalgeographic.com",
   "National Post": "nationalpost.com",
@@ -344,7 +343,7 @@ const nl_ad_region_domains = ['ad.nl', 'bd.nl', 'ed.nl', 'tubantia.nl', 'bndeste
 const nl_mediahuis_region_domains = ['gooieneemlander.nl', 'haarlemsdagblad.nl', 'ijmuidercourant.nl', 'leidschdagblad.nl', 'noordhollandsdagblad.nl'];
 const no_nhst_media_domains = ['intrafish.com', 'rechargenews.com', 'tradewindsnews.com', 'upstreamonline.com'];
 const timesofindia_domains = ['timesofindia.com', 'timesofindia.indiatimes.com'];
-const usa_crainsbiz_domains = ['chicagobusiness.com', 'crainscleveland.com', 'crainsdetroit.com', 'crainsnewyork.com'];
+const usa_craincomm_domains = ['adage.com', 'autonews.com', 'chicagobusiness.com', 'crainscleveland.com', 'crainsdetroit.com', 'crainsnewyork.com', 'modernhealthcare.com'];
 const usa_gannett_domains = [];
 const usa_mcc_domains = ['bnd.com', 'charlotteobserver.com', 'fresnobee.com', 'kansas.com', 'kansascity.com', 'kentucky.com', 'miamiherald.com', 'newsobserver.com', 'sacbee.com', 'star-telegram.com', 'thestate.com', 'tri-cityherald.com'];
 const usa_mng_domains =   ['denverpost.com', 'eastbaytimes.com', 'mercurynews.com', 'ocregister.com', 'pe.com', 'twincities.com'];
@@ -353,4 +352,4 @@ const usa_tribune_domains = ['baltimoresun.com', 'chicagotribune.com', 'courant.
 const usa_theathletic_domains = ['theathletic.com', 'theathletic.co.uk'];
 
 var defaultSites_grouped_domains = Object.values(defaultSites);
-var defaultSites_domains = defaultSites_grouped_domains.concat(au_comm_media_domains, au_news_corp_domains, au_prov_news_domains, br_folha_domains, ca_torstar_domains, de_funke_media_domains, de_madsack_domains, economictimes_domains, es_grupo_vocento_domains, fi_alma_talent_domains, fi_sanoma_domains, fr_be_groupe_rossel_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, it_ilmessaggero_domains, it_quotidiano_domains, nl_ad_region_domains, nl_mediahuis_region_domains, no_nhst_media_domains, timesofindia_domains, usa_crainsbiz_domains, usa_mcc_domains, usa_mng_domains, usa_nymag_domains, usa_tribune_domains, usa_theathletic_domains);
+var defaultSites_domains = defaultSites_grouped_domains.concat(au_comm_media_domains, au_news_corp_domains, au_prov_news_domains, br_folha_domains, ca_torstar_domains, de_funke_media_domains, de_madsack_domains, economictimes_domains, es_grupo_vocento_domains, fi_alma_talent_domains, fi_sanoma_domains, fr_be_groupe_rossel_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, it_ilmessaggero_domains, it_quotidiano_domains, nl_ad_region_domains, nl_mediahuis_region_domains, no_nhst_media_domains, timesofindia_domains, usa_craincomm_domains, usa_mcc_domains, usa_mng_domains, usa_nymag_domains, usa_tribune_domains, usa_theathletic_domains);

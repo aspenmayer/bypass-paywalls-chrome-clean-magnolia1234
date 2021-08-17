@@ -107,7 +107,6 @@ var allow_cookies_default = [
   'marketwatch.com',
   'medianama.com',
   'medium.com',
-  'modernhealthcare.com',
   'nation.africa',
   'nationalgeographic.com',
   'nationalpost.com',
@@ -347,7 +346,6 @@ var blockedRegexes = {
   'marketwatch.com': /(cdn\.cxense\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js)/,
   'mercuriovalpo.cl': /(.+\.mercuriovalpo\.cl\/impresa\/.+\/assets\/(vendor|\d)\.js|pram\.pasedigital\.cl\/API\/User\/Status\?)/,
   'mexiconewsdaily.com': /\.mexiconewsdaily\.com\/c\/assets\/pigeon\.js/,
-  'modernhealthcare.com': /(\.tinypass\.com\/|\.modernhealthcare\.com\/.+\/js\/js_.+\.js)/,
   'nation.africa': /(\.evolok\.net\/|nation\.africa\/resource\/themes\/nation-.+\/js\/.+\.js)/,
   'nationalgeographic.com': /\.blueconic\.net\//,
   'nationalpost.com': /\.tinypass\.com\//,
@@ -457,7 +455,7 @@ var grouped_sites = {
 '###_nl_mediahuis_region': nl_mediahuis_region_domains,
 '###_no_nhst_media': no_nhst_media_domains,
 '###_timesofindia': timesofindia_domains,
-'###_usa_crainsbiz': usa_crainsbiz_domains,
+'###_usa_craincomm': usa_craincomm_domains,
 '###_usa_mcc': usa_mcc_domains,
 '###_usa_mng': usa_mng_domains,
 '###_usa_nymag': usa_nymag_domains,
@@ -570,9 +568,10 @@ function add_grouped_sites(init_rules) {
       else
         blockedRegexes[domain] = /timesofindia\.indiatimes\.com\/jsrender\/version-1\.cms/;
     }
-    for (let domain of usa_crainsbiz_domains) {
-      allow_cookies.push(domain);
-      blockedRegexes[domain] = /(\.tinypass\.com\/|\.(crains.+|.+business)\.com\/.+\/js\/js_.+\.js)/;
+    for (let domain of usa_craincomm_domains) {
+      if (domain !== 'autonews.com')
+        allow_cookies.push(domain);
+      blockedRegexes[domain] = new RegExp('(\.tinypass\.com\/|\.' + domain + '\/.+\/js\/js_(e|E).+\.js)');
     }
     for (let domain of usa_mcc_domains)
       blockedRegexes[domain] = /(js\.matheranalytics\.com\/|cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js)/;
