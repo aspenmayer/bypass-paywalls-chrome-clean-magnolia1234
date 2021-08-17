@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add MediaNews Group (local USA)
+Fix The Daily Beast (proper)
 
 * v2.3.3.0 (2021-08-15)
 Add Live Law (India)

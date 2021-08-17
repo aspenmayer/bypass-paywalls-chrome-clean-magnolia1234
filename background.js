@@ -363,6 +363,7 @@ var blockedRegexes = {
   'nytimes.com': /(meter-svc\.nytimes\.com\/meter\.js|mwcm\.nyt\.com\/.+\.js)/,
   'observador.pt': /\.tinypass\.com\//,
   'parismatch.com': /\.poool\.fr\//,
+  'post-gazette.com': /(cdn\.cxense\.com\/|\.tinypass\.com\/)/,
   'qz.com': /\.tinypass\.com\//,
   'reuters.com': /\.reuters\.com\/(arc\/subs\/p\.min|pf\/resources\/dist\/reuters\/js\/index)\.js/,
   'rollingstone.com': /cdn\.cxense\.com\//,

@@ -17,8 +17,8 @@ var it_repubblica_domains = ['gelocal.it', 'ilsecoloxix.it', 'lanuovasardegna.it
 var it_quotidiano_domains = ['ilgiorno.it', 'ilrestodelcarlino.it', 'iltelegrafolivorno.it', 'lanazione.it', 'quotidiano.net'];
 var nl_mediahuis_region_domains = ['gooieneemlander.nl', 'haarlemsdagblad.nl', 'ijmuidercourant.nl', 'leidschdagblad.nl', 'noordhollandsdagblad.nl'];
 var no_nhst_media_domains = ['intrafish.com', 'rechargenews.com', 'tradewindsnews.com', 'upstreamonline.com'];
-var usa_crainsbiz_domains = ['chicagobusiness.com', 'crainscleveland.com', 'crainsdetroit.com', 'crainsnewyork.com'];
 var timesofindia_domains = ['timesofindia.com', 'timesofindia.indiatimes.com'];
+var usa_crainsbiz_domains = ['chicagobusiness.com', 'crainscleveland.com', 'crainsdetroit.com', 'crainsnewyork.com'];
 var usa_mcc_domains = ['bnd.com', 'charlotteobserver.com', 'fresnobee.com', 'kansas.com', 'kansascity.com', 'kentucky.com', 'miamiherald.com', 'newsobserver.com', 'sacbee.com', 'star-telegram.com', 'thestate.com', 'tri-cityherald.com'];
 var usa_mng_domains =   ['denverpost.com', 'eastbaytimes.com', 'mercurynews.com', 'ocregister.com', 'pe.com', 'twincities.com'];
 var usa_tribune_domains = ['baltimoresun.com', 'chicagotribune.com', 'courant.com', 'dailypress.com', 'mcall.com', 'nydailynews.com', 'orlandosentinel.com', 'pilotonline.com', 'sun-sentinel.com'];
@@ -382,11 +382,11 @@ else if (matchDomain('faz.net')) {
       .then(response => {
         if (response.ok) {
           response.text().then(html => {
-            var parser = new DOMParser();
-            var doc = parser.parseFromString(html, 'text/html');
+            let parser = new DOMParser();
+            let doc = parser.parseFromString(html, 'text/html');
             let json = doc.querySelector('script[id="schemaOrgJson"]');
             if (json) {
-              var json_text = json.text.replace(/(\r|\n)/g, '');
+              let json_text = json.text.replace(/(\r|\n)/g, '');
               let split1 = json_text.split('"ArticleBody": "');
               let split2 = split1[1].split('","author":');
               if (split2[0].includes('"'))
@@ -753,7 +753,7 @@ else if (matchDomain('politicaexterior.com')) {
     let article = document.querySelector('div.entry-content-text');
     let json = document.querySelector('script[type="application/ld+json"]:not([class]');
     if (json) {
-      var json_text = JSON.parse(json.text).description.replace(/&amp;nbsp;/g, '');
+      let json_text = JSON.parse(json.text).description.replace(/&amp;nbsp;/g, '');
       let article_new = document.createElement('div');
       article_new.setAttribute('class', 'entry-content-text');
       article_new.innerText = '\r\n' + json_text;
@@ -1903,7 +1903,7 @@ else if (matchDomain('economist.com')) {
       }
     }, 600); // Delay (in milliseconds)
     let p_articles = document.querySelectorAll('p.article__body-text');
-    var href;
+    let href;
     for (let p_article of p_articles) {
       let e_anchors = document.querySelectorAll('a');
       href = '';
@@ -1951,7 +1951,7 @@ else if (matchDomain('foreignaffairs.com')) {
     elem.classList.add('loaded');
   let hidden_images = document.querySelectorAll('img[src^="data:image/"]');
   for (let hidden_image of hidden_images) {
-    var data_src = hidden_image.getAttribute('data-src');
+    let data_src = hidden_image.getAttribute('data-src');
     if (data_src) {
       hidden_image.setAttribute('src', data_src);
       hidden_image.removeAttribute('class');
@@ -2096,8 +2096,8 @@ else if (matchDomain('inkl.com')) {
   if (dive_deeper_summary_bodies) {
     for (let summary_body of dive_deeper_summary_bodies) {
       if (!summary_body.querySelector('a')) {
-        var ng_click = summary_body.getAttribute('ng-click').replace("showArticle('", '').replace("')", '');
-        var weblink = document.createElement('a');
+        let ng_click = summary_body.getAttribute('ng-click').replace("showArticle('", '').replace("')", '');
+        let weblink = document.createElement('a');
         weblink.text = 'open';
         weblink.href = 'https://www.inkl.com/news/' + ng_click;
         summary_body.appendChild(weblink);
@@ -2340,8 +2340,10 @@ else if (matchDomain('republic.ru')) {
 
 
 else if (matchDomain('sandiegouniontribune.com')) {
-  let metering_bottompanel = document.querySelector('metering-bottompanel');
-  removeDOMElement(metering_bottompanel);
+  window.setTimeout(function () {
+    let metering_bottompanel = document.querySelector('metering-bottompanel');
+    removeDOMElement(metering_bottompanel);
+  }, 500); // Delay (in milliseconds)
 }
 
 else if (matchDomain('scmp.com') && window.location.href.includes('/amp.')) {
@@ -2523,7 +2525,10 @@ else if (matchDomain('thedailybeast.com')) {
     removeDOMElement(paywall);
     let json_script = document.querySelector('script[displayName="initialState"]');
     if (json_script) {
-      let json_text = json_script.innerText.includes('"sections":') ? json_script.innerText.split('"sections":')[1].split('},"')[0] : '';
+      let json_split = json_script.innerText.includes('"sections":') ? json_script.innerText.split('"sections":') : [];
+      let json_text;
+      if (json_split.length > 1)
+        json_text = json_split[json_split.length - 1].split('},"')[0];
       if (json_text) {
         let pars = json_text.split('"').filter(function (value) {
             return (value.split('[').length < 3 && value.split(']').length < 3);
@@ -2911,7 +2916,7 @@ function addDivBpcDone() {
 }
 
 function matchDomain(domains, hostname) {
-  var matched_domain = false;
+  let matched_domain = false;
   if (!hostname)
     hostname = window.location.hostname;
   if (typeof domains === 'string')
@@ -2989,7 +2994,7 @@ function cookieExists(name) {
 }
 
 function setCookie(name, value, domain, path, days) {
-  var max_age = days * 24 * 60 * 60;
+  let max_age = days * 24 * 60 * 60;
   document.cookie = name + "=" + (value || "") + "; domain=" + domain + "; path=" + path + "; max-age=" + max_age;
 }
 
@@ -3013,9 +3018,9 @@ function genHexString(len) {
 
 function makeRandomNumber(len) {
   let result = '';
-  var characters = '123456789';
-  var charactersLength = characters.length;
-  for (var i = 0; i < len; i++)
+  let characters = '123456789';
+  let charactersLength = characters.length;
+  for (let i = 0; i < len; i++)
     result += characters.charAt(Math.floor(Math.random() * charactersLength));
   return result;
 }
@@ -3028,13 +3033,13 @@ function pageContains(selector, text) {
 }
 
 function parseHtmlEntities(encodedString) {
-  var translate_re = /&(nbsp|amp|quot|lt|gt|deg|hellip|laquo|raquo|ldquo|rdquo|lsquo|rsquo|mdash);/g;
-  var translate = {"nbsp": " ", "amp": "&", "quot": "\"", "lt": "<", "gt": ">", "deg": "°", "hellip": "…",
+  let translate_re = /&(nbsp|amp|quot|lt|gt|deg|hellip|laquo|raquo|ldquo|rdquo|lsquo|rsquo|mdash);/g;
+  let translate = {"nbsp": " ", "amp": "&", "quot": "\"", "lt": "<", "gt": ">", "deg": "°", "hellip": "…",
       "laquo": "«", "raquo": "»", "ldquo": "“", "rdquo": "”", "lsquo": "‘", "rsquo": "’", "mdash": "—"};
   return encodedString.replace(translate_re, function (match, entity) {
       return translate[entity];
   }).replace(/&#(\d+);/gi, function (match, numStr) {
-      var num = parseInt(numStr, 10);
+      let num = parseInt(numStr, 10);
       return String.fromCharCode(num);
   });
 }

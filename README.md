@@ -1,6 +1,6 @@
 # Bypass Paywalls Clean for Chrome
 
-* [Installation instructions](#installation-instructions)
+* [Installation](#installation)
 * [Update](#update)
 * [List of supported websites](#list-of-supported-websites)
 * [Sites with limited number of free articles](#sites-with-limited-number-of-free-articles)
@@ -11,7 +11,7 @@
 * [Changelog-releases](#changelog-releases)
 * [License](#license)
 
-### Installation instructions
+### Installation
 Due to [Google internal policy](https://developer.chrome.com/webstore/program_policies), the extension is not available on the Chrome Web Store.  
 The following instructions are needed to install third-party extensions in [Chromium](https://en.wikipedia.org/wiki/Chromium_(web_browser))-based desktop browsers.  
 In extension developer mode you can always install BPC by `Load unpacked` (latest master, but no automatic updates) or by crx-file (latest release & automatic updates, but possible 'whitelisting' of extension is needed).
@@ -51,7 +51,9 @@ Windows Registry Editor Version 5.00
 
 #### Android
 1. Install [Kiwi Browser](https://play.google.com/store/apps/details?id=com.kiwibrowser.browser&hl=nl) or [Yandex Browser](https://play.google.com/store/apps/details?id=com.yandex.browser&hl=en) from the Google PlayStore.
-2. For Kiwi Browser load the CRX-file in releases (auto-updating, no whitelist needed, opt-in for custom sites not working (use kiwi-custom crx; updates to latest regular version)) or use latest master zip-file (no automatic updates, for custom sites use manifest.json from custom folder).
+2. For Kiwi Browser you have two options:
+* load the CRX-file in releases (auto-updating, no whitelist needed, opt-in for custom sites not working (use kiwi-custom crx; updates to latest regular version))
+* install latest master zip-file (no automatic updates, for custom sites use manifest.json from custom folder).
 3. For Yandex Browser follow Chrome instructions above (load unpacked; step 6: pick  manifest.json instead of the folder). If it fails try a few times or use Total Commander (as file manager). You can use a Git client like MGit to clone (and update) this repository on your mobile device.\
 For custom sites copy manifest.json from custom folder to the main extension folder (optional permissions are lost on reload).
 
@@ -61,9 +63,8 @@ Visit the [Firefox repository](https://gitlab.com/magnolia1234/bypass-paywalls-f
 #### Notes
 * This extension works best alongside the adblocker [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm?hl=en).
 * On Yandex Android use [uBlock Origin development build](https://chrome.google.com/webstore/detail/ublock-origin-dev-build/cgbcahbpdhpcegmbfconppldiemgcoii).
-* If you live in the EU, also consider installing the extension [I don't care about cookies](https://chrome.google.com/webstore/detail/i-dont-care-about-cookies/fihnjjcciajhdojfnbdddfaoknhalnja) in order to remove cookie warnings (or add filter [Easylist Cookies](https://easylist-downloads.adblockplus.org/easylist-cookie.txt) | [I don't care about cookies custom filter](https://www.i-dont-care-about-cookies.eu/abp) to uBlock Origin). Some sites need to set a consent-cookie for (social) media.
 * Do not delete extension's folder from your computer/smartphone or Bypass Paywalls Clean (in developer mode) will disappear at restart.
-* Every time you open Chrome it may warn you about running extensions in developer mode, just close the popup to keep the extension enabled.
+* In Chrome/Opera/Brave to disable the developer mode extensions popup use the extensions toolbar menu (by default enabled in Chrome 87+ or (if available) enable (experimental) chrome flag: chrome://flags/#extensions-toolbar-menu)
 * You will be logged out for most of the sites you have checked.
 
 ### Update
@@ -185,8 +186,8 @@ NHST Media Group sites like
 [New York Magazine](https://www.nymag.com) (+ [Curbed](https://www.curbed.com/), [Grub Street](https://www.grubstreet.com), [The Cut](https://www.thecut.com) & [Vulture](https://www.vulture.com)) -
 [Newsday](https://www.newsday.com) -
 [Palo Alto Online](https://www.paloaltoonline.com) -
-[Pittsburgh Post Gazette](https://post-gazette.com) -
-[San Diego Union Tribune](https://sandiegouniontribune.com) -
+[Pittsburgh Post Gazette](https://www.post-gazette.com) -
+[San Diego Union Tribune](https://www.sandiegouniontribune.com) -
 [San Francisco Chronicle](https://www.sfchronicle.com) -
 [Star Tribune](https://www.startribune.com) -
 [The Atlanta Journal-Constitution](https://www.ajc.com) -
@@ -198,7 +199,7 @@ NHST Media Group sites like
 
 [USA Today](https://www.usatoday.com)\
 Grouped in options:\
-*Gannett Group (local USA Today)* sites like (opt-in to custom sites)
+*Gannett Group (local USA Today)* sites like (opt-in to custom sites)\
 [Detroit Free Press](https://www.freep.com) -
 [Milwaukee Journal Sentinel](https://www.jsonline.com) -
 [The Indianapolis Star](https://www.indystar.com) -
@@ -208,7 +209,7 @@ Grouped in options:\
 [Crain's Cleveland Business](https://www.crainscleveland.com) -
 [Crain's Detroit Business](https://www.crainsdetroit.com) -
 [Crain's New York Business](https://www.crainsnewyork.com)\
-*McClatchy Group* sites like (opt-in to custom sites for unlisted)
+*McClatchy Group* sites like (opt-in to custom sites for unlisted)\
 [Belleville News-Democrat](https://www.bnd.com) -
 [Fort Worth Star-Telegram](https://www.star-telegram.com) -
 [Lexington Herald-Leader](https://www.kentucky.com) -
@@ -221,14 +222,14 @@ Grouped in options:\
 [The State](https://www.thestate.com) -
 [The Wichita Eagle](https://www.kansas.com) -
 [Tri-City Herald](https://www.tri-cityherald.com)\
-*MediaNews Group* sites like (opt-in to custom sites for unlisted/local sites):
+*MediaNews Group* sites like (opt-in to custom sites for unlisted/local sites)\
 [East Bay Times](https://www.eastbaytimes.com) -
 [Orange County Register](https://www.ocregister.com) -
 [St. Paul Pioneer Press](https://www.twincities.com) -
 [The Denver Post](https://www.denverpost.com) -
 [The Mercury News](https://www.mercurynews.com) -
 [The Press-Enterprise](https://www.pe.com)\
-*Tribune Publishing Company* sites like
+*Tribune Publishing Company* sites like\
 [Baltimore Sun](https://www.baltimoresun.com) -
 [Chicago Tribune](https://www.chicagotribune.com) -
 [Daily Press](https://www.dailypress.com) -
@@ -281,12 +282,11 @@ Grouped in options:\
 
 ##### Finland
 Grouped in options:\
-Sanoma Media Finland sites like
+*Sanoma Media Finland* sites like (opt-in to custom sites for unlisted/regional sites)\
 [Aamulehti](https://www.aamulehti.fi) -
 [Helsingin Sanomat](https://www.hs.fi)
-* opt-in to custom sites for unlisted/regional sites
 
-Alma Talent sites like
+*Alma Talent* sites like\
 [Arvopaperi](https://www.arvopaperi.fi) -
 [Iltalehti (Firefox-only)](https://www.iltalehti.fi/) -
 [Kauppalehti](https://www.kauppalehti.fi) -
@@ -322,9 +322,10 @@ Alma Talent sites like
 [Science & Vie](https://www.science-et-vie.com) -
 [Sciences et Avenir](https://www.sciencesetavenir.fr) -
 [Sud Ouest](https://www.sudouest.fr) -
-[Valeurs Actuelles](https://www.valeursactuelles.com)\
+[Valeurs Actuelles](https://www.valeursactuelles.com)
+
 Grouped in options:\
-Groupe EBRA sites like
+*Groupe EBRA* sites like\
 [Dernières Nouvelles d'Alsace](https://www.dna.fr) -
 [L'Alsace](https://www.lalsace.fr) -
 [L'Est Républicain](https://www.estrepublicain.fr) -
@@ -334,7 +335,7 @@ Groupe EBRA sites like
 [Le Progrès](https://www.leprogres.fr) -
 [Le Républicain Lorrain](https://www.republicain-lorrain.fr) -
 [Vosges Matin](https://www.vosgesmatin.fr)\
-Groupe La Dépêche sites like
+*Groupe La Dépêche* sites like\
 [Centre Presse](https://www.centrepresseaveyron.fr) -
 [L'Indépendant](https://www.lindependant.fr) -
 [La Dépêche du Midi](https://www.ladepeche.fr) -
@@ -342,7 +343,7 @@ Groupe La Dépêche sites like
 [Le Petit Bleu d'Agen](https://www.petitbleu.fr) -
 [Midi Libre](https://www.midilibre.fr) -
 [Midi Olympique](https://www.midi-olympique.fr)  
-Groupe Rossel sites (grouped in options) like
+*Groupe Rossel* sites like\
 [L'Aisne nouvelle](https://www.aisnenouvelle.fr) -
 [L'Ardennais](https://www.lardennais.fr) -
 [L'Est-Éclair](https://www.lest-eclair.fr) -
@@ -377,9 +378,10 @@ Groupe Rossel sites (grouped in options) like
 [Schleswig-Holsteinischer Zeitungsverlag](https://www.shz.de) -
 [Schweriner Volkszeitung](https://www.svz.de) -
 [Süddeutsche Zeitung](https://www.sueddeutsche.de) -
-[WirtschaftsWoche](https://www.wiwo.de)\
+[WirtschaftsWoche](https://www.wiwo.de)
+
 Grouped in options:\
-Funke Mediengruppe sites like
+*Funke Mediengruppe* sites like\
 [Berliner Morgenpost](https://www.morgenpost.de) -
 [Braunschweiger Zeitung](https://www.braunschweiger-zeitung.de) -
 [Hamburger Abendblatt](https://www.abendblatt.de) -
@@ -390,7 +392,7 @@ Funke Mediengruppe sites like
 [Westdeutsche Allgemeine Zeitung](https://www.waz.de) -
 [Westfalenpost](https://www.wp.de) -
 [Westfälische Rundschau](https://www.wr.de)\
-Madsack Mediengruppe sites like (opt-in to custom sites for unlisted)
+*Madsack Mediengruppe* sites like (opt-in to custom sites for unlisted)\
 [Hannoversche Allgemeine Zeitung](https://www.haz.de) -
 [Kieler Nachrichten](https://www.kn-online.de) -
 [Leipziger Volkszeitung](https://www.lvz.de) -
@@ -410,7 +412,8 @@ Madsack Mediengruppe sites like (opt-in to custom sites for unlisted)
 [La Repubblica](https://www.repubblica.it) -
 [La Stampa](https://www.lastampa.it) -
 [Le Scienze](https://www.lescienze.it) -
-[LimesOnline (it/en)](https://www.limesonline.com)\
+[LimesOnline (it/en)](https://www.limesonline.com)
+
 Grouped in options:\
 [Il Messaggero](https://www.ilmessaggero.it) and regional sites like
 [Corriere Adriatico](https://www.corriereadriatico.it) -
@@ -438,7 +441,8 @@ Grouped in options:\
 [Parool](https://www.parool.nl) -
 [Telegraaf](https://www.telegraaf.nl) -
 [Trouw](https://www.trouw.nl) -
-[Volkskrant](https://www.volkskrant.nl)\
+[Volkskrant](https://www.volkskrant.nl)
+
 Grouped in options:\
 [Algemeen Dagblad](https://www.ad.nl) and regional ADR sites like
 [BN DeStem](https://www.bndestem.nl) -
@@ -448,7 +452,7 @@ Grouped in options:\
 [PZC](https://www.pzc.nl) -
 [Stentor](https://www.destentor.nl) -
 [Tubantia](https://tubantia.nl)\
-Mediahuis Nederland Regional sites like
+*Mediahuis Nederland Regional* sites like\
 [Noordhollands Dagblad](https://www.noordhollandsdagblad.nl) -
 [Haarlems Dagblad](https://www.haarlemsdagblad.nl) -
 [Leidsch Dagblad](https://www.leidschdagblad.nl) -
@@ -479,9 +483,10 @@ Mediahuis Nederland Regional sites like
 [La Vanguardia](https://www.lavanguardia.com) -
 [Levante-EMV](https://www.levante-emv.com) -
 [Marca](https://www.marca.com) -
-[Política Exterior](https://www.politicaexterior.com)\
+[Política Exterior](https://www.politicaexterior.com)
+
 Grouped in options:\
-Grupo Vocento (ABC) regional sites like
+*Grupo Vocento* (ABC regional) sites like\
 [Diario Vasco](https://www.diariovasco.com) -
 [El Comercio](https://www.elcomercio.es) -
 [El Correo](https://www.elcorreo.com) -
@@ -512,7 +517,9 @@ Grupo Vocento (ABC) regional sites like
 #### Australia/New Zealand
 
 [Brisbane Times](https://www.brisbanetimes.com.au) -
+[Eureka Report](https://www.eurekareport.com.au) -
 [Griffith Review](https://www.griffithreview.com) -
+[Intelligent Investor](https://www.intelligentinvestor.com.au) -
 [New Zealand Herald](https://www.nzherald.co.nz) -
 [The Age](https://www.theage.com.au) -
 [The Australian Financial Review](https://www.afr.com) -
@@ -522,7 +529,8 @@ Grupo Vocento (ABC) regional sites like
 [The West Australian (+ regional)](https://thewest.com.au) -
 [WAtoday](https://www.watoday.com.au)
 
-##### > News Corp Australia (grouped in options)
+Grouped in options:\
+*News Corp Australia* site like\
 [Cairns Post](https://www.cairnspost.com.au) -
 [Geelong Advertiser](https://www.geelongadvertiser.com.au) -
 [Gold Coast Bulletin](https://www.goldcoastbulletin.com.au) -
@@ -535,14 +543,8 @@ Grupo Vocento (ABC) regional sites like
 [The Daily Telegraph](https://www.dailytelegraph.com.au) -
 [The Mercury Tasmania](https://www.themercury.com.au) -
 [The Weekly Times](https://www.weeklytimesnow.com.au) -
-[Townsville Bulletin](https://www.townsvillebulletin.com.au)
-
-##### > Financial
-
-[Eureka Report](https://www.eurekareport.com.au) -
-[Intelligent Investor](https://www.intelligentinvestor.com.au)
-
-##### > Australian Community Media (daily, grouped in options)
+[Townsville Bulletin](https://www.townsvillebulletin.com.au)\
+*Australian Community Media (daily)* sites like (add to custom sites for unlisted & block general paywall-script Piano)\
 [Bendigo Advertiser](https://www.bendigoadvertiser.com.au) -
 [Central Western Daily](https://www.centralwesterndaily.com.au) -
 [Daily Liberal](https://www.dailyliberal.com.au) -
@@ -557,10 +559,8 @@ Grupo Vocento (ABC) regional sites like
 [The Northern Daily Leader](https://www.northerndailyleader.com.au) -
 [The Port Macquarie News](https://www.portnews.com.au) -
 [The Standard](https://www.standard.net.au) -
-[Western Advocate](https://www.westernadvocate.com.au)
-* add to custom sites for unlisted & block general paywall-script Piano
-
-##### > Australian Provincial Newspapers (all, grouped in options)
+[Western Advocate](https://www.westernadvocate.com.au)\
+*Australian Provincial Newspapers* site like (opt-in to custom sites for unlisted)\
 [Bundaberg News Mail](https://www.news-mail.com.au) -
 [Fraser Coast Chronicle](https://www.frasercoastchronicle.com.au) -
 [Gladstone Observer](https://www.gladstoneobserver.com.au) -
@@ -571,7 +571,6 @@ Grupo Vocento (ABC) regional sites like
 [The Gympie Times](https://www.gympietimes.com.au) -
 [The Queensland Times](https://www.qt.com.au) -
 [Warwick Daily News](https://www.warwickdailynews.com.au)
-* opt-in to custom sites for unlisted
 
 #### East Asia
 [Asia Times](https://asiatimes.com) -
@@ -647,9 +646,9 @@ For user with the limited permissions BPC-version this will only work for suppor
 If removing the cookies works you can also add the site as a custom site.
 
 ### New site requests
-You can submit a request for a new website [here](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/issues).  
+You can [submit a request for a new website](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/issues).  
 Please read the following instructions and share your results for a quicker process.  
-Remember to check the [previous requests](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/issues) before asking for a new website.
+Remember to check the [previous requests](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/issues?scope=all&state=all) before asking for a new website.
 1. Visit an article on the site you want to bypass the paywall for and copy the article title.
 2. Open up a new incognito window (Ctrl+Shift+N) and paste the article title into Google.
 3. Click on the same article from the Google search results page. Or you can:
@@ -659,7 +658,7 @@ Remember to check the [previous requests](https://gitlab.com/magnolia1234/bypass
 ### Add custom site
 Add your own custom site (also for testing).  
 Check 'Options'-link in popup-menu and go to custom sites.  
-\* by default BPC has limited permissions, but you can opt-in to enable custom sites (and also clear cookies/block general paywall-scripts for non-listed sites). You can also just request permissions for the custom sites you added.
+\* by default BPC has limited permissions, but you can opt-in to enable custom sites (and also clear cookies/block general paywall-scripts for non-listed sites). You can also just request permissions for the custom sites you added yourself.
 
 Make sure the (new) site is checked under Options (or check on/off-button).  
 By default sites' cookies/local storage are removed after page loads (to bypass article limit).  
@@ -674,8 +673,10 @@ You can also exclude a specific domain which is grouped in options.
 * Add usefull custom filter [Fanboy's Enhanced Tracking List](https://www.fanboy.co.nz/enhancedstats.txt)
 * If a site doesn't work, try turning off uBlock and refreshing.
 * Make sure the (new) site is checked under Options.
+* You will be logged out for most of the sites you have checked.
 * Make sure you're running the latest version of Bypass Paywalls Clean.
-* If none of these work, you can submit an issue [here](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/issues).
+* If none of these work, you can [submit an issue](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/issues).
+* If you live in the EU, also consider installing the extension [I don't care about cookies](https://chrome.google.com/webstore/detail/i-dont-care-about-cookies/fihnjjcciajhdojfnbdddfaoknhalnja) in order to remove cookie warnings (or add filter [Easylist Cookies](https://easylist-downloads.adblockplus.org/easylist-cookie.txt) | [I don't care about cookies custom filter](https://www.i-dont-care-about-cookies.eu/abp) to uBlock Origin). Some sites need to set a consent-cookie for (social) media.
 
 ### Changelog-releases
 * Visit the [changelog page](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/blob/master/changelog.txt).
