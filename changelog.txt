@@ -2,8 +2,9 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
-Add AdAge & Automotive News (& fix group Crain Communications)
+Add Ad Age & Automotive News (& fix group Crain Communications)
 Add MediaNews Group (local USA)
+Fix group Mediahuis Nederland Regional
 Fix The Daily Beast (proper)
 
 * v2.3.3.0 (2021-08-15)

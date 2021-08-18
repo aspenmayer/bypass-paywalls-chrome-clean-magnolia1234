@@ -1273,15 +1273,11 @@ else if (matchDomain(nl_mediahuis_region_domains)) {
       if (paywall && auth_body) {
         let auth_body_par_count = auth_body.querySelectorAll('p');
         if (auth_body_par_count.length < 2) {
-          let url = window.location.href;
-          let html = document.documentElement.outerHTML;
-          let split1 = html.split('window["__PRELOADED_STATE_GRAPH__')[1].split(/=(.+)/)[1];
-          let split2 = split1.split('</script>')[0].trim();
-          let split3 = split2.split('"body":')[1];
-          let state = split3.split('},"gal')[0] + '}';
+          let json_script = document.querySelector('script[data-fragment-type="PacoArticleContent"]');
+          let json_str = json_script.text.substring(json_script.textContent.indexOf('{'));
           try {
-            let data = JSON.parse(state);
-            let article = data.json;
+            let json = JSON.parse(json_str);
+            let article = Object.values(json)[0]['data']['article']['body'];
             auth_body.innerHTML = '';
             let par_html, par_dom, par_elem, par_div, par_key;
             let parser = new DOMParser();
@@ -1329,8 +1325,8 @@ else if (matchDomain(nl_mediahuis_region_domains)) {
                   par_div.innerText += par[key].credit ? '\n' + par[key].credit : '';
                   par_elem.appendChild(par_div);
                 } else {
-                  par_html = parser.parseFromString('<div>' + DOMPurify.sanitize(par_key) + '</div>', 'text/html');
-                  par_elem = par_html.querySelector('div');
+                  par_html = parser.parseFromString('<p style="font-size: 18px; line-height: 1.625;">' + DOMPurify.sanitize(par_key) + '</div>', 'text/html');
+                  par_elem = par_html.querySelector('p');
                 }
                 if (par_elem)
                   par_dom.appendChild(par_elem);
