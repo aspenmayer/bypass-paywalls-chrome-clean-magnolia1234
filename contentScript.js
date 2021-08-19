@@ -24,7 +24,7 @@ var usa_mng_domains =   ['denverpost.com', 'eastbaytimes.com', 'mercurynews.com'
 var usa_tribune_domains = ['baltimoresun.com', 'chicagotribune.com', 'courant.com', 'dailypress.com', 'mcall.com', 'nydailynews.com', 'orlandosentinel.com', 'pilotonline.com', 'sun-sentinel.com'];
 
 // clean local storage of sites (with an exemption for hold-list)
-var arr_localstorage_hold = ['augsburger-allgemeine.de', 'charliehebdo.fr', 'cmjornal.pt', 'houstonchronicle.com', 'inc42.com', 'irishtimes.com', 'kurier.at', 'nknews.org', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk'].concat(es_unidad_domains, no_nhst_media_domains);
+var arr_localstorage_hold = ['augsburger-allgemeine.de', 'charliehebdo.fr', 'cmjornal.pt', 'houstonchronicle.com', 'inc42.com', 'irishtimes.com', 'kurier.at', 'nknews.org', 'seekingalpha.com', 'sfchronicle.com', 'theaustralian.com.au', 'thehindu.com', 'thetimes.co.uk'].concat(es_unidad_domains, no_nhst_media_domains);
 arr_localstorage_hold = arr_localstorage_hold.concat(de_funke_media_domains, es_grupo_vocento_domains);
 if (!matchDomain(arr_localstorage_hold)) {
   window.localStorage.clear();

@@ -488,7 +488,10 @@ function add_grouped_sites(init_rules) {
     }
     for (let domain of au_news_corp_domains) {
       allow_cookies.push(domain);
-      use_google_bot.push(domain);
+      if (domain !== 'theaustralian.com.au')
+        use_google_bot.push(domain);
+      else
+        use_bing_bot.push(domain);
       blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-(access|ad|iframe)-.+\.js/;
     }
     for (let domain of au_prov_news_domains) {

@@ -5,6 +5,7 @@ Post-release
 Add Ad Age & Automotive News (& fix group Crain Communications)
 Add MediaNews Group (local USA)
 Fix group Mediahuis Nederland Regional
+Fix The Australian
 Fix The Daily Beast (proper/images)
 
 * v2.3.3.0 (2021-08-15)
