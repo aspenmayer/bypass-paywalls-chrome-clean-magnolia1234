@@ -2521,35 +2521,59 @@ else if (matchDomain('thedailybeast.com')) {
     removeDOMElement(paywall);
     let json_script = document.querySelector('script[displayName="initialState"]');
     if (json_script) {
-      let json_split = json_script.innerText.includes('"sections":') ? json_script.innerText.split('"sections":') : [];
-      let json_text;
-      if (json_split.length > 1)
-        json_text = json_split[json_split.length - 1].split('},"')[0];
-      if (json_text) {
-        let pars = json_text.split('"').filter(function (value) {
-            return (value.split('[').length < 3 && value.split(']').length < 3);
-          });
-        let mobile_doc = document.querySelector('div.Mobiledoc');
-        if (mobile_doc) {
-          let mobile_doc_text = mobile_doc.innerText.replace(/(\r|\n)/g, '');
-          let par, par_elem;
-          for (let elem of pars) {
-            if (elem === 'p') {
-              if (par && !mobile_doc_text.includes(par)) {
-                par_elem = document.createElement('p');
-                par_elem.innerText = par;
-                mobile_doc.appendChild(par_elem);
+      let json_str = json_script.text.substring(json_script.textContent.indexOf('{'));
+      try {
+        let json = JSON.parse(json_str);
+        if (json.body) {
+          let pars = json.body.sections;
+          let cards = json.body.cards;
+          if (pars) {
+            let mobile_doc = document.querySelector('div.Mobiledoc');
+            if (mobile_doc) {
+              let mobile_doc_text = mobile_doc.innerText.replace(/(\r|\n)/g, '');
+              for (let elem of pars) {
+                let par_elem = '';
+                if (elem[0] === 1) {
+                  if (elem[1] === 'p') {
+                    let par = '';
+                    for (let part of elem[2])
+                      par += part[3];
+                    if (par && !mobile_doc_text.includes(par)) {
+                      par_elem = document.createElement('p');
+                      par_elem.innerText = par;
+                    }
+                  }
+                } else if (elem[0] === 10) {
+                  if (cards && cards[elem[1]]) {
+                    let card = cards[elem[1]];
+                    if (card[0] === 'pt-image') {
+                      par_elem = document.createElement('p');
+                      let par_fig = document.createElement('figure');
+                      let par_img = document.createElement('img');
+                      par_img.src = card[1].url;
+                      par_fig.appendChild(par_img);
+                      par_elem.appendChild(par_fig);
+                      let par_cap = document.createElement('figcaption');
+                      par_cap.innerText = card[1].title + ' ' + card[1].credit;
+                      par_elem.appendChild(par_cap);
+                    } else if (card[0] === 'pt-fancy-links-card') {
+                      par_elem = document.createElement('p');
+                      let par_link = document.createElement('a');
+                      par_link.href = card[1].links;
+                      par_link.innerText = card[1].linksData[0].long_headline;
+                      par_elem.appendChild(par_link);
+                    }
+                  }
+                }
+                if (par_elem)
+                  mobile_doc.appendChild(par_elem);
               }
-              par = '';
-            } else
-              par += elem;
-          }
-          if (par && !mobile_doc_text.includes(par)) {
-            par_elem = document.createElement('p');
-            par_elem.innerText = par;
-            mobile_doc.appendChild(par_elem);
+            }
           }
         }
+        csDoneOnce = true;
+      } catch (err) {
+        console.log(err);
       }
     }
   }
