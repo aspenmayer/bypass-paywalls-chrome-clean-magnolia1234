@@ -153,6 +153,7 @@ var allow_cookies_default = [
   'theartnewspaper.com',
   'thehindu.com',
   'thehindubusinessline.com',
+  'theintercept.com',
   'themarker.com',
   'thenewatlantis.com',
   'thewest.com.au',
@@ -388,6 +389,7 @@ var blockedRegexes = {
   'theglobeandmail.com': /smartwall\.theglobeandmail\.com\//,
   'thehindu.com': /(cdn\.cxense\.com\/|\.tinypass\.com\/)/,
   'thehindubusinessline.com': /(cdn\.cxense\.com\/|\.tinypass\.com\/)/,
+  'theintercept.com': /\.theintercept\.com\/api\/tinypass\.min\.js/,
   'thenation.com': /\.tinypass\.com\//,
   'thenewatlantis.com': /\.thenewatlantis\.com\/.+\/thenewatlantis\/js\/(gate|donate)\.js/,
   'thesaturdaypaper.com.au': /\.thesaturdaypaper\.com\.au\/sites\/all\/modules\/custom\/node_meter\/pw\.js/,
@@ -398,7 +400,7 @@ var blockedRegexes = {
   'variety.com': /cdn\.cxense\.com\//,
   'velonews.com': /\.velonews\.com\/.+\/scripts\/contentGate.+\.js/,
   'venturebeat.com': /\.wallkit\.net\/js\//,
-  'washingtonpost.com': /(\.washingtonpost\.com\/.+\/default-article\/.+\/load_immediately\/.+\.js|cdn\.ampproject\.org\/.+\/v\d\/amp-(access|(sticky-)?ad|subscriptions)-.+\.js)/,
+  'washingtonpost.com': /(\.washingtonpost\.com\/.+\/(default-article\/.+\/load_immediately|jqmodal)\/.+\.js|cdn\.ampproject\.org\/.+\/v\d\/amp-(access|(sticky-)?ad|subscriptions)-.+\.js)/,
   'wsj.com': /(cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js|cdn\.cxense\.com\/)/
 };
 

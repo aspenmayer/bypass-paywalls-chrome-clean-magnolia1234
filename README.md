@@ -176,6 +176,7 @@ Grouped in options:\
 [Sports Illustrated](https://www.si.com) -
 [The Art Newspaper](https://www.theartnewspaper.com) -
 [The Athletic](https://theathletic.com) -
+[The Intercept](https://theintercept.com) -
 [The Daily Beast](https://www.thedailybeast.com) -
 [The New Atlantis](https://www.thenewatlantis.com) -
 [The Point Magazine](https://thepointmag.com) -

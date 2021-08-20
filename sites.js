@@ -255,6 +255,7 @@ var defaultSites =
   "The Hill Times": "hilltimes.com",
   "The Hindu": "thehindu.com",
   "The Hindu BusinessLine": "thehindubusinessline.com",
+  "The Intercept": "theintercept.com",
   "The Irish Times": "irishtimes.com",
   "The Japan Times": "japantimes.co.jp",
   "The Jerusalem Post": "jpost.com",

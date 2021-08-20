@@ -4,6 +4,7 @@ Changelog Bypass Paywalls Clean - Chrome
 Post-release
 Add Ad Age & Automotive News (& fix group Crain Communications)
 Add MediaNews Group (local USA)
+Add The Intercept
 Fix group Mediahuis Nederland Regional
 Fix The Australian
 Fix The Daily Beast (proper/images)
