@@ -24,7 +24,7 @@ var usa_mng_domains =   ['denverpost.com', 'eastbaytimes.com', 'mercurynews.com'
 var usa_tribune_domains = ['baltimoresun.com', 'chicagotribune.com', 'courant.com', 'dailypress.com', 'mcall.com', 'nydailynews.com', 'orlandosentinel.com', 'pilotonline.com', 'sun-sentinel.com'];
 
 // clean local storage of sites (with an exemption for hold-list)
-var arr_localstorage_hold = ['augsburger-allgemeine.de', 'charliehebdo.fr', 'cmjornal.pt', 'houstonchronicle.com', 'inc42.com', 'irishtimes.com', 'kurier.at', 'nknews.org', 'seekingalpha.com', 'sfchronicle.com', 'theaustralian.com.au', 'thehindu.com', 'thetimes.co.uk'].concat(es_unidad_domains, no_nhst_media_domains);
+var arr_localstorage_hold = ['augsburger-allgemeine.de', 'charliehebdo.fr', 'cmjornal.pt', 'houstonchronicle.com', 'inc42.com', 'irishtimes.com', 'kurier.at', 'nknews.org', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk'].concat(es_unidad_domains, no_nhst_media_domains);
 arr_localstorage_hold = arr_localstorage_hold.concat(de_funke_media_domains, es_grupo_vocento_domains);
 if (!matchDomain(arr_localstorage_hold)) {
   window.localStorage.clear();
@@ -2380,17 +2380,6 @@ else if (matchDomain('seekingalpha.com')) {
     let adverts = document.querySelectorAll('.ad-wrap');
     removeDOMElement(...adverts);
   }
-}
-
-else if (matchDomain('slader.com')) {
-  window.setTimeout(function () {
-    let paywall = document.querySelector('.Paywall');
-    let paywall_footer = document.querySelector('.Paywall__footer-counter');
-    removeDOMElement(paywall, paywall_footer);
-    let blur = document.querySelector('section.Paywall__blur');
-    if (blur)
-      blur.classList.remove('Paywall__blur');
-  }, 500); // Delay (in milliseconds)
 }
 
 else if (matchDomain('slate.com')) {

@@ -138,7 +138,6 @@ var allow_cookies_default = [
   'seekingalpha.com',
   'shz.de',
   'si.com',
-  'slader.com',
   'staradvertiser.com',
   'startribune.com',
   'stocknews.com',
@@ -260,7 +259,7 @@ var use_google_referer_default = ['statista.com'];
 var use_google_referer = use_google_referer_default.slice();
 var use_twitter_referer_default = ['medium.com', 'towardsdatascience.com'];
 var use_twitter_referer = use_twitter_referer_default.slice();
-var use_random_ip = ['esprit.presse.fr', 'slader.com'];
+var use_random_ip = ['esprit.presse.fr'];
 var change_headers = use_google_bot.concat(use_bing_bot, use_facebook_referer, use_google_referer, use_twitter_referer, use_random_ip);
 
 // block paywall-scripts individually
@@ -490,10 +489,7 @@ function add_grouped_sites(init_rules) {
     }
     for (let domain of au_news_corp_domains) {
       allow_cookies.push(domain);
-      if (domain !== 'theaustralian.com.au')
-        use_google_bot.push(domain);
-      else
-        use_bing_bot.push(domain);
+      use_google_bot.push(domain);
       blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-(access|ad|iframe)-.+\.js/;
     }
     for (let domain of au_prov_news_domains) {
@@ -1199,7 +1195,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
     !(matchUrlDomain('barrons.com', details.url) && enabledSites.includes('#options_disable_gb_barrons')) &&
     !(matchUrlDomain('wsj.com', details.url) && enabledSites.includes('#options_disable_gb_wsj'));
 
-if (matchUrlDomain(change_headers, details.url) && (['main_frame', 'sub_frame', 'xmlhttprequest'].includes(details.type) || matchUrlDomain('thetimes.co.uk', details.url))) {
+if (matchUrlDomain(change_headers, details.url) && (['main_frame', 'sub_frame', 'xmlhttprequest'].includes(details.type) || matchUrlDomain(['theaustralian.com.au', 'thetimes.co.uk'], details.url))) {
   // if referer exists, set it
   requestHeaders = requestHeaders.map(function (requestHeader) {
     if (requestHeader.name === 'Referer') {

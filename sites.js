@@ -220,7 +220,6 @@ var defaultSites =
   "Scientific American (free articles only)": "scientificamerican.com",
   "Scribd (documents only)": "scribd.com",
   "Seeking Alpha": "seekingalpha.com",
-  "Slader": "slader.com",
   "Slate": "slate.com",
   "SOFREP": "sofrep.com",
   "South China Morning Post": "scmp.com",

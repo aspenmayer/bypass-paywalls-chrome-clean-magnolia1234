@@ -158,7 +158,6 @@ Grouped in options:\
 [Philosophy Now](https://philosophynow.org) -
 [Quora](https://www.quora.com) -
 [Scribd](https://www.scribd.com) -
-[Slader](https://www.slader.com) -
 [Statista](https://www.statista.com) -
 [Study.com (no videos)](https://study.com)
 

@@ -5,6 +5,7 @@ Post-release
 Add Ad Age & Automotive News (& fix group Crain Communications)
 Add MediaNews Group (local USA)
 Add The Intercept
+Remove Slader (obsolete)
 Fix group Mediahuis Nederland Regional
 Fix The Australian
 Fix The Daily Beast (proper/images)
