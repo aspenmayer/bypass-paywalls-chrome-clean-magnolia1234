@@ -72,8 +72,10 @@ ext_api.runtime.sendMessage({request: 'optin'});
 if (matchDomain(['medium.com', 'towardsdatascience.com']) || document.querySelector('script[src^="https://cdn-client.medium.com/"]')) {
   let paywall = document.querySelector('div#paywall-background-color');
   removeDOMElement(paywall);
-  if (paywall)
+  if (paywall) {
     ext_api.runtime.sendMessage({request: 'refreshCurrentTab'});
+    csDoneOnce = true;
+  }
   window.setTimeout(function () {
     let meter = document.querySelector('[id*="highlight-meter-"]');
     if (meter)

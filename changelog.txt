@@ -7,6 +7,7 @@ Add MediaNews Group (local USA)
 Add The Intercept
 Remove Slader (obsolete)
 Fix group Mediahuis Nederland Regional
+Fix Medium (timing)
 Fix The Australian
 Fix The Daily Beast (proper/images)
 
