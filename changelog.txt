@@ -2,6 +2,8 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+
+* v2.3.4.0 (2021-08-22)
 Add Ad Age & Automotive News (& fix group Crain Communications)
 Add MediaNews Group (local USA)
 Add The Intercept
