@@ -572,7 +572,7 @@ function add_grouped_sites(init_rules) {
     for (let domain of usa_craincomm_domains) {
       if (domain !== 'autonews.com')
         allow_cookies.push(domain);
-      blockedRegexes[domain] = new RegExp('(\.tinypass\.com\/|\.' + domain + '\/.+\/js\/js_(e|E).+\.js)');
+      blockedRegexes[domain] = new RegExp('(\.tinypass\.com\/|\.' + domain + '\/.+\/js\/js_.+\.js)');
     }
     for (let domain of usa_mcc_domains)
       blockedRegexes[domain] = /(js\.matheranalytics\.com\/|cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js)/;

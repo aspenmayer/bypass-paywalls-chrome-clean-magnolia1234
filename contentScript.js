@@ -2710,6 +2710,13 @@ else if (matchDomain(usa_craincomm_domains)) {
   let body_hidden = document.querySelector('body[class]');
   if (body_hidden)
     body_hidden.removeAttribute('class');
+  let lazy_images = document.querySelectorAll('img.lazy[data-src]');
+  for (let lazy_image of lazy_images) {
+    lazy_image.src = lazy_image.getAttribute('data-src');
+    lazy_image.removeAttribute('class');
+  }
+  let lazy_sources = document.querySelectorAll('source[srcset^="data:image"]');
+  removeDOMElement(...lazy_sources);
 }
 
 else if (matchDomain(usa_tribune_domains)) {
