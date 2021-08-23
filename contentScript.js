@@ -1684,11 +1684,12 @@ else if (matchDomain('bloomberg.com')) {
   let counter = document.querySelector('div#fortress-preblocked-container-root');
   removeDOMElement(counter);
   let url = window.location.href;
-  if (url.includes('/articles/')) {
+  if (url.match(/\/(articles|features)\//)) {
     let leaderboard = document.querySelector('div[id^="leaderboard"], div.leaderboard-wrapper');
     let shimmering_content = document.querySelectorAll('div[class^="shimmering-"]');
     let page_ad = document.querySelectorAll('div.page-ad, div[data-ad-placeholder]');
-    removeDOMElement(leaderboard, ...shimmering_content, ...page_ad);
+    let reg_ui_client = document.querySelector('div#reg-ui-client');
+    removeDOMElement(leaderboard, ...shimmering_content, ...page_ad, reg_ui_client);
     let hidden_images = document.querySelectorAll('img.lazy-img__image[src][data-native-src]');
     for (let hidden_image of hidden_images) {
       if (hidden_image.src.match(/\/60x-1\.(png|jpg)$/))
@@ -1711,7 +1712,7 @@ else if (matchDomain('bloomberg.com')) {
           if (article) {
             article_class += ' art_done';
             let parser = new DOMParser();
-            let doc = parser.parseFromString('<div class="' + article_class + '">' + DOMPurify.sanitize(json_text, {ADD_TAGS: ['iframe']}) + '</div>', 'text/html');
+            let doc = parser.parseFromString('<div class="' + article_class + '">' + DOMPurify.sanitize(json_text, {ADD_TAGS: ['iframe', 'script']}) + '</div>', 'text/html');
             let article_new = doc.querySelector('div');
             if (article_new)
               article.parentNode.replaceChild(article_new, article);

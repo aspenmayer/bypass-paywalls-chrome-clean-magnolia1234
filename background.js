@@ -175,6 +175,7 @@ var allow_cookies = allow_cookies_default.slice();
 // select specific cookie(s) to hold from remove_cookies domains
 var remove_cookies_select_hold = {
   'barrons.com': ['wsjregion'],
+  'bloomberg.com': ['bb_geo_info'],
   'groene.nl': ['accept-cookies', 'popunder-hidden'],
   'newstatesman.com': ['STYXKEY_nsversion'],
   'qz.com': ['gdpr'],
