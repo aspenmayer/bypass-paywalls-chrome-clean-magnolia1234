@@ -142,6 +142,7 @@ var defaultSites =
   "La Tribune": "latribune.fr",
   "La Vanguardia": "lavanguardia.com",
   "Law.com (free articles only)": "law.com",
+  "Law360 (free articles only)": "law360.com",
   "Le Devoir": "ledevoir.com",
   "Le Journal du Dimanche": "lejdd.fr",
   "Le Journal du Net": "journaldunet.com",

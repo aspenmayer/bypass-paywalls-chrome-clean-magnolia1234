@@ -303,7 +303,7 @@ function renderOptions() {
                 (sites_custom[key]['allow_cookies']>0 ? ' | allow_cookies' : '') + 
                 (sites_custom[key]['block_javascript']>0 ? ' | block javascript' : '') + 
                 (sites_custom[key]['block_javascript_ext']>0 ? ' | block javascript ext' : '') +
-                (sites_custom[key]['useragent'] ? ' | useragent: ' +  sites_custom[key]['useragent'] : '');
+                (sites_custom[key]['useragent'] ? ' | useragent: ' +  sites_custom[key]['useragent'] : '') +
                 (sites_custom[key]['referer'] ? ' | referer: ' +  sites_custom[key]['referer'] : '');
             optionEl.value = key;
             selectEl.add(optionEl);

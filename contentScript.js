@@ -2110,6 +2110,13 @@ else if (matchDomain('jpost.com')) {
   removeDOMElement(...premium_banners);
 }
 
+else if (matchDomain('law360.com')) {
+  window.setTimeout(function () {
+    let modal = document.querySelectorAll('div#NewsletterModal, div.modal-backdrop');
+    removeDOMElement(...modal);
+  }, 500); // Delay (in milliseconds)
+}
+
 else if (matchDomain('livelaw.in')) {
   let paywall = document.querySelectorAll('div.restricted_message > div.story, div.restricted_message > div.row');
   if (paywall) {

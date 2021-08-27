@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Add Law360 (free articles only)
 Fix Bloomberg (graphics)
 
 * v2.3.4.1 (2021-08-23)

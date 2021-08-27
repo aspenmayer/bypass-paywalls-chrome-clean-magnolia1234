@@ -258,7 +258,7 @@ var use_facebook_referer_default = ['clarin.com', 'fd.nl', 'ilmanifesto.it', 'la
 var use_facebook_referer = use_facebook_referer_default.slice();
 var use_google_referer_default = ['statista.com'];
 var use_google_referer = use_google_referer_default.slice();
-var use_twitter_referer_default = ['medium.com', 'towardsdatascience.com'];
+var use_twitter_referer_default = ['law360.com', 'medium.com', 'towardsdatascience.com'];
 var use_twitter_referer = use_twitter_referer_default.slice();
 var use_random_ip = ['esprit.presse.fr'];
 var change_headers = use_google_bot.concat(use_bing_bot, use_facebook_referer, use_google_referer, use_twitter_referer, use_random_ip);
@@ -1170,10 +1170,11 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
     let cl_elmerc_site = (matchUrlDomain('emol.cl', details.url) && matchUrlDomain('elmercurio.com', header_referer));
     let es_elesp_site = (matchUrlDomain('eestatic.com', details.url) && matchUrlDomain('elespanol.com', header_referer));
     let it_repubblica_site = (matchUrlDomain(['repstatic.it'], details.url) && matchUrlDomain(it_repubblica_domains, header_referer));
+    let usa_law360_site = (matchUrlDomain('law360news.com', details.url) && matchUrlDomain('law360.com', header_referer));
     let usa_mw_site = (matchUrlDomain('wsj.net', details.url) && matchUrlDomain('marketwatch.com', header_referer));
     let usa_natgeo_site = (matchUrlDomain('natgeofe.com', details.url) && matchUrlDomain('nationalgeographic.com', header_referer));
     let usa_today_site = (matchUrlDomain('gannett-cdn.com', details.url) && matchUrlDomain(['usatoday.com'], header_referer));
-    allow_ext_source = allow_ext_source || inkl_site || cl_elmerc_site || es_elesp_site || it_repubblica_site || usa_mw_site || usa_natgeo_site || usa_today_site;
+    allow_ext_source = allow_ext_source || inkl_site || cl_elmerc_site || es_elesp_site || it_repubblica_site || usa_law360_site || usa_mw_site || usa_natgeo_site || usa_today_site;
 
     bpc_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain(['asiatimes.com', 'augsburger-allgemeine.de', 'barrons.com', 'belfasttelegraph.co.uk', 'cicero.de', 'cmjornal.pt', 'elpais.com', 'elperiodico.com', 'freiepresse.de', 'inc42.com', 'independent.ie', 'irishtimes.com', 'la-croix.com', 'marketwatch.com', 'nationalreview.com', 'noz.de', 'nwzonline.de', 'scmp.com', 'seekingalpha.com', 'shz.de', 'staradvertiser.com', 'sueddeutsche.de', 'svz.de', 'telegraph.co.uk', 'washingtonpost.com'].concat(au_news_corp_domains, au_nine_domains, de_madsack_domains, es_epiberica_domains, es_grupo_vocento_domains, es_unidad_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, it_repubblica_domains, usa_mcc_domains, usa_mng_domains, usa_theathletic_domains), header_referer));
   }
