@@ -170,6 +170,7 @@
         "*://*.financialpost.com/*",
         "*://*.firstthings.com/*",
         "*://*.fnlondon.com/*",
+        "*://*.forbes.com/*",
         "*://*.folha.uol.com.br/*",
         "*://*.foreignaffairs.com/*",
         "*://*.foreignpolicy.com/*",
@@ -543,5 +544,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.3.4.3"
+    "version": "2.3.4.4"
 }

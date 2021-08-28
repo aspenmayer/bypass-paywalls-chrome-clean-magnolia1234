@@ -105,6 +105,7 @@ _* free articles only._
 [Business Insider](https://www.businessinsider.com) -
 [Digiday](https://digiday.com) -
 [Entrepreneur](https://www.entrepreneur.com) -
+[Forbes](https://www.forbes.com) -
 [Fortune](https://fortune.com) -
 [Harvard Business Review](https://www.hbr.org) -
 [Inc.com](https://www.inc.com) -
