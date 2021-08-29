@@ -5,6 +5,7 @@ Post-release
 Add Forbes
 Add Law360 (free articles only)
 Fix Bloomberg (graphics)
+Fix Corriere della Sera (videos)
 Fix Repubblica.it (podcasts)
 
 * v2.3.4.1 (2021-08-23)
@@ -401,7 +402,7 @@ Add El Periodico de Catalunya (Spain)
 Add Grupo Vocento (Spain, regional daily)
 Add La Croix (France)
 Add The Hindu BusinessLine (India)
-Fix Corriere Della Sera (redirect preview)
+Fix Corriere della Sera (redirect preview)
 Fix Faz.net (error in json)
 Fix LesEchos.fr (json)
 Fix popup (update notification & close error)
@@ -730,7 +731,7 @@ Add The Athletic UK
 Add Il Messaggero (Italy)
 Fix Financial Times (ft.com)
 Update (custom)options UI
-Fix Corriere Della Sera
+Fix Corriere della Sera
 Fix custom sites (domains with capitals)
 Update version-check (replace innerHTML)
 
@@ -738,7 +739,7 @@ Update version-check (replace innerHTML)
 Add Aftonbladet.se
 Fix Australian Community Media newspapers
 Fix Economist (inactive links)
-Fix Corriere Della Sera
+Fix Corriere della Sera
 Add link to releases (version check)
 Show badge-notification for regional Ad.nl sites
 Prepare release (limited permissions)
@@ -770,7 +771,7 @@ Add WAtoday (Australia)
 Fix TheNation paywall-script block
 Refresh tab after saved options
 Fix Leeuwarder Courant
-Fix Corriere Della Sera
+Fix Corriere della Sera
 
 * v1.6.2.3 (2020-02-12)
 Add CommonWealth Magazine Taiwan

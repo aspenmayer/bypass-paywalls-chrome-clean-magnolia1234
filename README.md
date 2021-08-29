@@ -406,7 +406,7 @@ Grouped in options:\
 [Ostsee-Zeitung](https://www.ostsee-zeitung.de)
 
 ##### Italy
-[Corriere Della Sera](https://www.corriere.it) -
+[Corriere della Sera](https://www.corriere.it) -
 [Domani](https://editorialedomani.it) -
 [GElocal.it](https://quotidiani.gelocal.it) -
 [Il Fatto Quotidiano](https://www.ilfattoquotidiano.it) -

@@ -536,13 +536,11 @@
         "*://*.natgeofe.com/*",
         "*://*.nyt.com/*",
         "*://*.pasedigital.cl/*",
-        "*://*.rcsobjects.it/*",
         "*://*.repstatic.it/*",
         "*://*.rndtech.de/*",
         "*://*.sanoma-sndp.fi/*",
-        "*://*.userzoom.com/*",
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.3.4.5"
+    "version": "2.3.4.6"
 }

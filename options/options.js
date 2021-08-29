@@ -36,7 +36,6 @@ function renderOptions() {
     var sites = items.sites;
     var sites_excluded = items.sites_excluded;
     var sitesEl = document.getElementById('bypass_sites');
-    var clean_key;
     for (var key in defaultSites) {
       if (!defaultSites.hasOwnProperty(key)) {
         continue;
@@ -47,8 +46,7 @@ function renderOptions() {
       inputEl.type = 'checkbox';
       inputEl.dataset.key = key;
       inputEl.dataset.value = value;
-      clean_key = key.replace(/\s\(.*\)/, '');
-      inputEl.checked = Object.keys(sites).some(title => (title.replace(/\s\(.*\)/, '') === clean_key)) && !sites_excluded.includes(value);
+      inputEl.checked = Object.keys(sites).some(title => keyCompare(title, key)) && !sites_excluded.includes(value);
       if (value !== '###') {
           labelEl.appendChild(inputEl);
       } else {
@@ -75,8 +73,7 @@ function renderOptions() {
       inputEl.type = 'checkbox';
       inputEl.dataset.key = key;
       inputEl.dataset.value = domain;
-      clean_key = key.replace(/\s\(.*\)/, '');
-      inputEl.checked = Object.keys(sites).some(title => (title.replace(/\s\(.*\)/, '') === clean_key)) && !sites_excluded.includes(domain);
+      inputEl.checked = Object.keys(sites).some(title => keyCompare(title, key)) && !sites_excluded.includes(domain);
       if (value !== '' && value !== '###') {
         labelEl.appendChild(inputEl);
       }
@@ -121,6 +118,10 @@ function selectNone() {
 
 function closeButton() {
   open(location).close();
+}
+
+function keyCompare(firstStr, secondStr) {
+  return firstStr.toLowerCase().replace(/\s\(.*\)/, '') === secondStr.toLowerCase().replace(/\s\(.*\)/, '')
 }
 
 document.addEventListener('DOMContentLoaded', renderOptions);

@@ -38,7 +38,7 @@ var defaultSites =
   "Commentary Magazine": "commentary.org",
   "CommonWealth Magazine Taiwan": "cw.com.tw",
   "Correio da Manhã": "cmjornal.pt",
-  "Corriere Della Sera": "corriere.it",
+  "Corriere della Sera": "corriere.it",
   "Crain Communications": "###_usa_craincomm",
   "Dagblad van het Noorden": "dvhn.nl",
   "Dagens Industri": "di.se",
