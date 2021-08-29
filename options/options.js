@@ -46,7 +46,7 @@ function renderOptions() {
       inputEl.type = 'checkbox';
       inputEl.dataset.key = key;
       inputEl.dataset.value = value;
-      inputEl.checked = Object.keys(sites).some(title => keyCompare(title, key)) && !sites_excluded.includes(value);
+      inputEl.checked = Object.keys(sites).some(title => compareKey(title, key)) && !sites_excluded.includes(value);
       if (value !== '###') {
           labelEl.appendChild(inputEl);
       } else {
@@ -73,7 +73,7 @@ function renderOptions() {
       inputEl.type = 'checkbox';
       inputEl.dataset.key = key;
       inputEl.dataset.value = domain;
-      inputEl.checked = Object.keys(sites).some(title => keyCompare(title, key)) && !sites_excluded.includes(domain);
+      inputEl.checked = Object.keys(sites).some(title => compareKey(title, key)) && !sites_excluded.includes(domain);
       if (value !== '' && value !== '###') {
         labelEl.appendChild(inputEl);
       }
@@ -120,8 +120,8 @@ function closeButton() {
   open(location).close();
 }
 
-function keyCompare(firstStr, secondStr) {
-  return firstStr.toLowerCase().replace(/\s\(.*\)/, '') === secondStr.toLowerCase().replace(/\s\(.*\)/, '')
+function compareKey(firstStr, secondStr) {
+  return firstStr.toLowerCase().replace(/\s\(.*\)/, '') === secondStr.toLowerCase().replace(/\s\(.*\)/, '');
 }
 
 document.addEventListener('DOMContentLoaded', renderOptions);

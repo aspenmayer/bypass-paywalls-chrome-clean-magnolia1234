@@ -2,6 +2,8 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+
+* v2.3.5.0 (2021-08-29)
 Add Forbes
 Add Law360 (free articles only)
 Fix Bloomberg (graphics)
