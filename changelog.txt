@@ -5,6 +5,7 @@ Post-release
 Add Forbes
 Add Law360 (free articles only)
 Fix Bloomberg (graphics)
+Fix Repubblica.it (podcasts)
 
 * v2.3.4.1 (2021-08-23)
 Fix group Crain Communications

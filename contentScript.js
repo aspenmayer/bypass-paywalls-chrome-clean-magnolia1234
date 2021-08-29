@@ -1079,17 +1079,6 @@ else if (matchDomain('rep.repubblica.it')) {
 else if (domain = matchDomain(it_repubblica_domains)) {
   let url = window.location.href.split('?')[0];
   if (!url.match(/\amp(\/)?$/)) {
-    let premium = document.querySelector('.paywall-adagio, #paywall');
-    if (premium) {
-      removeDOMElement(premium);
-      if (['ilsecoloxix.it', 'lastampa.it', 'repubblica.it'].includes(domain)) {
-        let amphtml = document.querySelector('link[rel="amphtml"]');
-        if (!amphtml)
-          amphtml = {href: (url.split('?')[0] + '/amp').replace('//amp', '/amp')};
-        if (amphtml)
-          window.location.href = amphtml.href;
-      }
-    }
     if (!['ilsecoloxix.it', 'lastampa.it', 'repubblica.it'].includes(domain)) {
       window.setTimeout(function () {
         let article_body = document.querySelector('div#article-body[style]');
