@@ -273,7 +273,7 @@ else {
     csDone = true;
 }
 
-} else if (window.location.hostname.match(/\.(de|at|ch)$/) || matchDomain(['faz.net'])) {//germany/austria/switzerland - ch
+} else if (window.location.hostname.match(/\.(de|at|ch)$/) || matchDomain(['faz.net', 'handelsblatt.com'])) {//germany/austria/switzerland - ch
 
 if (matchDomain('augsburger-allgemeine.de')) {
   let url = window.location.href;
@@ -462,6 +462,23 @@ else if (matchDomain('freiepresse.de')) {
     let amp_ads = document.querySelectorAll('amp-fx-flying-carpet, amp-ad, amp-embed');
     let pw_layer = document.querySelector('.pw-layer');
     removeDOMElement(...amp_ads, pw_layer);
+  }
+}
+
+else if (matchDomain('handelsblatt.com')) {
+  let url = window.location.href;
+  if (url.match(/\/amp(\d)?\./)) {
+    let amp_ads = document.querySelectorAll('amp-ad, amp-embed');
+    removeDOMElement(...amp_ads);
+  } else {
+    let paywall = document.querySelector('div.temp-paywall2');
+    let amphtml = document.querySelector('link[rel="amphtml"]');
+    if (!amphtml)
+      amphtml = {href: url.replace(/\/(www|app)\./, '/amp2.')};
+    if (paywall && amphtml) {
+      removeDOMElement(paywall);
+      window.location.href = amphtml.href;
+    }
   }
 }
 
@@ -1791,7 +1808,7 @@ else if (matchDomain('caixinglobal.com')) {
     }
     let app_exclusive_tip = document.querySelector('.app-exclusive-tip');
     removeDOMElement(app_exclusive_tip);
-  }, 500); // Delay (in milliseconds)
+  }, 1000); // Delay (in milliseconds)
 }
 
 else if (matchDomain(ca_torstar_domains)) {
@@ -2250,8 +2267,7 @@ else if (matchDomain('nzherald.co.nz')) {
         hidden_not_par.removeAttribute('style');
       }
       let hidden_pars = article_content.querySelectorAll('p.' + css_selector);
-      let par_html,
-      par_dom;
+      let par_html, par_dom;
       let parser = new DOMParser();
       for (let hidden_par of hidden_pars) {
         let par_html = parser.parseFromString('<div style="margin: 10px 0px; font-size: 17px">' + DOMPurify.sanitize(hidden_par.innerHTML) + '</div>', 'text/html');

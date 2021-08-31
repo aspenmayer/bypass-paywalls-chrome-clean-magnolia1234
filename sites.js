@@ -103,7 +103,7 @@ var defaultSites =
   "Grupo Vocento (Spain, regional daily)": "###_es_grupo_vocento",
   "Haaretz English": "haaretz.com",
   "Haaretz": "haaretz.co.il",
-  "Handelsblatt": "handelsblatt.com",
+  "Handelsblatt (only non-premium articles)": "handelsblatt.com",
   "Harper's Magazine": "harpers.org",
   "Harvard Business Review": "hbr.org",
   "Harvard Business Review Taiwan": "hbrtaiwan.com",
