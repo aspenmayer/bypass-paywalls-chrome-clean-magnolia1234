@@ -168,7 +168,6 @@ var allow_cookies_default = [
   'velonews.com',
   'venturebeat.com',
   'washingtonpost.com',
-  'wiwo.de',
   'worldpoliticsreview.com',
   'zeit.de',
 ];
@@ -240,7 +239,6 @@ var use_google_bot_default = [
   'usatoday.com',
   'usinenouvelle.com',
   'wired.com',
-  'wiwo.de',
   'worldpoliticsreview.com',
   'wsj.com',
   'zeit.de',

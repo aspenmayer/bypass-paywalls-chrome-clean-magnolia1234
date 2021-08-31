@@ -301,7 +301,6 @@ var defaultSites =
   "WAtoday": "watoday.com.au",
   "Winston-Salem Journal": "journalnow.com",
   "Wired": "wired.com",
-  "WirtschaftsWoche": "wiwo.de",
   "World Politics Review": "worldpoliticsreview.com",
   "* Block Paywall-scripts (opt-in to custom sites to enable also for non-listed sites)": "###",
   "Amp-access": "cdn.ampproject.org",

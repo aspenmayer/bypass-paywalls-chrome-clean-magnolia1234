@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Remove WirtschaftsWoche (obsolete)
 Fix Estadao.com.br
 Fix Handelsblatt (only non-premium articles)
 
