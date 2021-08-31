@@ -249,6 +249,7 @@ var use_google_bot = use_google_bot_default.slice();
 var use_bing_bot_default = [
   'haaretz.co.il',
   'haaretz.com',
+  'nzherald.co.nz',
   'stratfor.com',
   'themarker.com',
 ];
@@ -1200,7 +1201,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
     !(matchUrlDomain('barrons.com', details.url) && enabledSites.includes('#options_disable_gb_barrons')) &&
     !(matchUrlDomain('wsj.com', details.url) && enabledSites.includes('#options_disable_gb_wsj'));
 
-if (matchUrlDomain(change_headers, details.url) && (['main_frame', 'sub_frame', 'xmlhttprequest'].includes(details.type) || matchUrlDomain(['theaustralian.com.au', 'thetimes.co.uk'], details.url))) {
+if (matchUrlDomain(change_headers, details.url) && (!['font', 'image', 'stylesheet'].includes(details.type) || matchUrlDomain(['thetimes.co.uk'], details.url))) {
   // if referer exists, set it
   requestHeaders = requestHeaders.map(function (requestHeader) {
     if (requestHeader.name === 'Referer') {
