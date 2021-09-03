@@ -1024,25 +1024,23 @@ if (matchDomain('corriere.it')) {
 }
 
 else if (matchDomain('ilfattoquotidiano.it')) {
-  window.setTimeout(function () {
-    let paywall = document.querySelector('.read-more');
-    let subscribe = document.querySelector('.article-ifq-bottom-pro-sostenitore');
-    removeDOMElement(paywall, subscribe);
-    if (paywall) {
-      if (window.location.href.includes('?'))
-        window.location.href = window.location.href.replace('?', 'amp/?');
-      else
-        window.location.href = window.location.href + 'amp';
+  let url = window.location.href;
+  if (url.includes('/amp/')) {
+    let section_not_granted = document.querySelector('section[subscriptions-section="content-not-granted"]');
+    let comments = document.querySelector('div.content.comments');
+    removeDOMElement(section_not_granted, comments);
+    let hidden_content = document.querySelector('section[subscriptions-section="content"]');
+    if (hidden_content)
+      hidden_content.setAttribute('style', 'display:block !important;');
+    let amp_ads = document.querySelectorAll('amp-ad, div#_4sVideoContainer');
+    removeDOMElement(...amp_ads);
+  } else {
+    let paywall = pageContains('section.article-body > p', '[...]');
+    if (paywall.length > 0) {
+      removeDOMElement(...paywall);
+      window.location.href = url.split('?')[0] + 'amp';
     }
-    if (window.location.href.includes('/amp/')) {
-      let section_not_granted = document.querySelector('section[subscriptions-section="content-not-granted"]');
-      let comments = document.querySelector('div.content.comments');
-      removeDOMElement(section_not_granted, comments);
-      let hidden_content = document.querySelector('section[subscriptions-section="content"]');
-      if (hidden_content)
-        hidden_content.setAttribute('style', 'display:block !important;');
-    }
-  }, 500); // Delay (in milliseconds)
+  }
 }
 
 else if (matchDomain(it_quotidiano_domains)) {

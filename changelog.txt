@@ -5,6 +5,7 @@ Post-release
 Remove WirtschaftsWoche (obsolete)
 Fix Estadao.com.br
 Fix Handelsblatt (only non-premium articles)
+Fix ilFattoQuotidiano.it
 Fix NzHerald
 
 * v2.3.5.0 (2021-08-29)

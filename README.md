@@ -410,7 +410,7 @@ Grouped in options:\
 [GElocal.it](https://quotidiani.gelocal.it) -
 [Il Fatto Quotidiano](https://www.ilfattoquotidiano.it) -
 [Il Manifesto](https://ilmanifesto.it) -
-[[Il Secolo XIX](https://www.ilsecoloxix.it) -
+[Il Secolo XIX](https://www.ilsecoloxix.it) -
 [La Nuova Sardegna](https://www.lanuovasardegna.it) -
 [La Repubblica](https://www.repubblica.it) -
 [La Stampa](https://www.lastampa.it) -
@@ -437,8 +437,8 @@ Grouped in options:\
 [Follow the Money](https://www.ftm.nl) -
 [Gazet van Antwerpen](https://www.gva.be) -
 [Groene Amsterdammer](https://www.groene.nl) -
-[Humo.be](https://www.humo.be) -
-[Knack.be](https://www.knack.be) -
+[Humo](https://www.humo.be) -
+[Knack](https://www.knack.be) -
 [Leeuwarder Courant](https://www.lc.nl) -
 [NRC Handelsblad](https://www.nrc.nl) -
 [Parool](https://www.parool.nl) -
