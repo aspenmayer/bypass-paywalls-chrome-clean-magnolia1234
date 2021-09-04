@@ -51,7 +51,7 @@ if (ext_api.runtime && (matchDomain(['belfasttelegraph.co.uk', 'independent.ie']
           if (!cookieExists('subscriber'))
             setCookie('subscriber', '{"subscriptionStatus": true}', domain, '/', 14);
           if (hostname.includes('amp.')) {
-            let subscriber = document.querySelector('section[amp-access="subscriber"]');
+            let subscriber = document.querySelector('section[amp-access="subscriber"][amp-access-hide]');
             if (subscriber)
               subscriber.removeAttribute('amp-access-hide');
             let not_subscriber = document.querySelector('section[amp-access="NOT subscriber"]');
@@ -131,11 +131,11 @@ else {
       let header_ads = document.querySelector('.header_ads-container');
       removeDOMElement(header_ads);
       if (window.location.hostname.startsWith('amp.')) {
-        let div_hidden_all = document.querySelectorAll('div[amp-access="access AND subscriber"]');
-        for (let div_hidden of div_hidden_all)
-          div_hidden.removeAttribute('amp-access-hide');
+        let div_hidden = document.querySelectorAll('div[amp-access="access AND subscriber"][amp-access-hide]');
+        for (let elem of div_hidden)
+          elem.removeAttribute('amp-access-hide');
       } else if (window.location.href.includes('?amp')) {
-        let div_hidden = document.querySelector('div[amp-access="subscriber AND status=\'logged-in\'"]');
+        let div_hidden = document.querySelector('div[amp-access="subscriber AND status=\'logged-in\'"][amp-access-hide]');
         if (div_hidden)
           div_hidden.removeAttribute('amp-access-hide');
       }
@@ -504,15 +504,15 @@ else if (matchDomain('kurier.at')) {
 
 else if (matchDomain(['noz.de', 'nwzonline.de', 'shz.de', 'svz.de'])) {
   let url = window.location.href;
-  let paywall = document.querySelector('.paywall, .story--premium__container');
   if (url.includes('?amp') || url.includes('-amp.html')) {
-    let subscriber = document.querySelector('div[amp-access="NOT data.reduced"]');
-    if (subscriber)
-      subscriber.removeAttribute('amp-access-hide');
+    let subscriber = document.querySelectorAll('div[amp-access="NOT data.reduced"][amp-access-hide]');
+    for (let elem of subscriber)
+      elem.removeAttribute('amp-access-hide');
     let non_subscriber = document.querySelector('div[amp-access="data.reduced"]');
     let amp_ads = document.querySelectorAll('amp-ad, amp-embed, #flying-carpet-wrapper');
     removeDOMElement(non_subscriber, ...amp_ads);
   } else {
+    let paywall = document.querySelector('.paywall, .story--premium__container');
     let amphtml = document.querySelector('link[rel="amphtml"]');
     if (paywall && amphtml) {
       removeDOMElement(paywall);
@@ -609,7 +609,7 @@ if (matchDomain('cmjornal.pt')) {
       window.location.href = amphtml.href;
     }
   } else {
-    let section_hidden = document.querySelectorAll('section[amp-access="subscriber"]');
+    let section_hidden = document.querySelectorAll('section[amp-access="subscriber"][amp-access-hide]');
     for (let elem of section_hidden)
       elem.removeAttribute('amp-access-hide');
     let not_subscriber = document.querySelector('section[amp-access="NOT subscriber"]');
@@ -645,7 +645,7 @@ else if (domain = matchDomain(es_unidad_domains)) {
     let paywall = document.querySelector('div[amp-access="authorized!=true"]');
     if (paywall) {
       removeDOMElement(paywall);
-      let div_hidden = document.querySelector('div[amp-access="authorized=true"]');
+      let div_hidden = document.querySelector('div[amp-access="authorized=true"][amp-access-hide]');
       if (div_hidden) {
         div_hidden.removeAttribute('amp-access-hide');
       }
@@ -659,7 +659,7 @@ else if (matchDomain('elpais.com')) {
   let url = window.location.href;
   let login_register = document.querySelector('.login_register');
   if (url.includes('.amp.html') || url.includes('?outputType=amp')) {
-    let paywall = document.querySelectorAll('div[amp-access="success"]');
+    let paywall = document.querySelectorAll('div[amp-access="success"][amp-access-hide]');
     for (let elem of paywall)
       elem.removeAttribute('amp-access-hide');
     let amp_ads = document.querySelectorAll('amp-ad');
@@ -692,7 +692,7 @@ else if (matchDomain('elperiodico.com')) {
     if (not_logged) {
       let non_subscr_section = document.querySelector('div[amp-access="NOT logged"]');
       removeDOMElement(not_logged, non_subscr_section);
-      let subscr_section = document.querySelector('div[amp-access="logged"]');
+      let subscr_section = document.querySelector('div[amp-access="logged"][amp-access-hide]');
       if (subscr_section)
         subscr_section.removeAttribute('amp-access-hide');
     }
@@ -1113,7 +1113,7 @@ else if (domain = matchDomain(it_repubblica_domains)) {
         removeDOMElement(preview);
       }
     } else {
-      paywall = document.querySelector('div[amp-access="showContent"]');
+      paywall = document.querySelector('div[amp-access="showContent"][amp-access-hide]');
       if (paywall)
         paywall.removeAttribute('amp-access-hide');
     }
@@ -1476,7 +1476,7 @@ else if (matchDomain('telegraph.co.uk')) {
     if (paywall) {
       let truncated_content = document.querySelector('.truncated-content');
       removeDOMElement(paywall, truncated_content);
-      let subscr_section = document.querySelector('.notAccessibleForFree');
+      let subscr_section = document.querySelector('.notAccessibleForFree[amp-access-hide]');
       if (subscr_section)
         subscr_section.removeAttribute('amp-access-hide');
     }
@@ -2356,9 +2356,9 @@ else if (matchDomain('sandiegouniontribune.com')) {
 }
 
 else if (matchDomain('scmp.com') && window.location.href.includes('/amp.')) {
-  let div_hidden_all = document.querySelectorAll('div.article-body[amp-access][amp-access-hide]');
-  for (let div_hidden of div_hidden_all)
-    div_hidden.removeAttribute('amp-access-hide');
+  let div_hidden = document.querySelectorAll('div.article-body[amp-access][amp-access-hide]');
+  for (let elem of div_hidden)
+    elem.removeAttribute('amp-access-hide');
   let default_meters = document.querySelectorAll('div.default-meter, div#archive-article-meter');
   let adverts = document.querySelectorAll('amp-ad, div.ad-banner, div.advert-fly-carpet-container, div.inline-advert');
   removeDOMElement(...default_meters, ...adverts);
@@ -2384,9 +2384,9 @@ else if (matchDomain('seekingalpha.com')) {
       window.location.href = url.replace('seekingalpha.com/', 'seekingalpha.com/amp/');
     }, 500); // Delay (in milliseconds)
   } else if (url.includes('/amp/')) {
-    let div_hidden_all = document.querySelectorAll('[amp-access*="premium_access OR"]');
-    for (let div_hidden of div_hidden_all)
-      div_hidden.removeAttribute('amp-access-hide');
+    let div_hidden = document.querySelectorAll('[amp-access*="premium_access OR"][amp-access-hide]');
+    for (let elem of div_hidden)
+      elem.removeAttribute('amp-access-hide');
     let paywall = document.querySelector('[class*="paywall-container"]');
     if (paywall)
       paywall.setAttribute('style', 'display:none;');

@@ -109,7 +109,7 @@ function add_options() {
     }
 
     if (title && sites_custom[title]['domain']) {
-        sites_custom[title]['domain'] = sites_custom[title]['domain'].replace('www.', '').toLowerCase();
+        sites_custom[title]['domain'] = sites_custom[title]['domain'].replace(/(http(s)?:\/\/(www\.)?|^www\.|\/$)/g, '').toLowerCase();
 
         // add new site to local storage
         ext_api.storage.local.get({
