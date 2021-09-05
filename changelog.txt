@@ -4,6 +4,7 @@ Changelog Bypass Paywalls Clean - Chrome
 Post-release
 Remove WirtschaftsWoche (obsolete)
 Fix Estadao.com.br
+Fix Gestion & El Comercio (Peru)
 Fix Handelsblatt (only non-premium articles)
 Fix Il Fatto Quotidiano
 Fix Il Secolo XIX (mobile)
