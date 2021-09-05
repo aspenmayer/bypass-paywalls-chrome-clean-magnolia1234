@@ -1094,12 +1094,28 @@ else if (matchDomain('rep.repubblica.it')) {
 else if (domain = matchDomain(it_repubblica_domains)) {
   let url = window.location.href.split('?')[0];
   if (!url.match(/\amp(\/)?$/)) {
-    if (!['ilsecoloxix.it', 'lastampa.it', 'repubblica.it'].includes(domain)) {
-      window.setTimeout(function () {
-        let article_body = document.querySelector('div#article-body[style]');
-        if (article_body)
-          article_body.removeAttribute('style');
-      }, 1000); // Delay (in milliseconds)
+    if (['ilsecoloxix.it', 'lastampa.it', 'repubblica.it'].includes(domain)) {
+      let premium = document.querySelector('#paywall, iframe#__limio_frame');
+      if (premium) {
+        removeDOMElement(premium);
+        if (['ilsecoloxix.it', 'lastampa.it', 'repubblica.it'].includes(domain) && !url.includes('/podcast/')) {
+          let amphtml = document.querySelector('link[rel="amphtml"]');
+          if (!amphtml)
+            amphtml = {href: (url.split('?')[0] + '/amp').replace('//amp', '/amp')};
+          if (amphtml)
+            window.location.href = amphtml.href;
+        }
+      }
+    } else {
+      let premium = document.querySelector('.paywall-adagio');
+      if (premium) {
+        removeDOMElement(premium);
+        window.setTimeout(function () {
+          let article_body = document.querySelector('div#article-body[style]');
+          if (article_body)
+            article_body.removeAttribute('style');
+        }, 1000); // Delay (in milliseconds)
+      }
     }
   } else {
     let paywall;
