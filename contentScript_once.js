@@ -12,6 +12,14 @@ if (matchDomain('nationalgeographic.com')) {
   waitDOMElement('div[id^="fittPortal"]', 'DIV', natgeo_func, false);
 }
 
+else if (matchDomain('nyteknik.se')) {
+  window.setTimeout(function () {
+    let hidden_images = document.querySelectorAll('img[src=""][data-proxy-image]');
+    for (let hidden_image of hidden_images)
+      hidden_image.setAttribute('src', hidden_image.getAttribute('data-proxy-image').replace('_320', '_640'));
+  }, 2000); // Delay (in milliseconds)
+}
+
 function matchDomain(domains, hostname) {
   var matched_domain = false;
   if (!hostname)

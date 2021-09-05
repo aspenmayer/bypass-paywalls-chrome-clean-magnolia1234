@@ -24,7 +24,8 @@
     "incognito": "split",
     "content_scripts": [{
         "matches": [
-            "*://*.nationalgeographic.com/*"
+            "*://*.nationalgeographic.com/*",
+            "*://*.nyteknik.se/*"
         ],
         "run_at": "document_start",
         "js": ["contentScript_once.js"]
@@ -38,5 +39,5 @@
         "webRequestBlocking",
         "<all_urls>"
     ],
-    "version": "2.3.5.5"
+    "version": "2.3.5.6"
 }

@@ -8,6 +8,7 @@ Fix Gestion & El Comercio (Peru)
 Fix Handelsblatt (only non-premium articles)
 Fix Il Fatto Quotidiano
 Fix Il Secolo XIX (mobile)
+Fix NyTeknik (images)
 Fix NzHerald
 Fix shz.de & svz.de
 

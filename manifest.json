@@ -27,7 +27,8 @@
     ],
     "content_scripts": [{
         "matches": [
-            "*://*.nationalgeographic.com/*"
+            "*://*.nationalgeographic.com/*",
+            "*://*.nyteknik.se/*"
         ],
         "run_at": "document_start",
         "js": ["contentScript_once.js"]
@@ -541,5 +542,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.3.5.5"
+    "version": "2.3.5.6"
 }
