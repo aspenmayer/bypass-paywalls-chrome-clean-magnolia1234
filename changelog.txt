@@ -2,6 +2,8 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+
+* v2.3.6.0 (2021-09-05)
 Remove WirtschaftsWoche (obsolete)
 Fix Estadao.com.br
 Fix Gestion & El Comercio (Peru)
