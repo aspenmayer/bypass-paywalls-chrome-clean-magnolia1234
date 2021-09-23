@@ -1689,6 +1689,11 @@ else if (matchDomain('barrons.com')) {
     let barrons_ads = document.querySelectorAll('.barrons-body-ad-placement');
     removeDOMElement(...barrons_ads);
   } else {
+    let preview = document.querySelector('section[subscriptions-section="content-not-granted"]');
+    removeDOMElement(preview);
+    let subscr_section = document.querySelector('section[subscriptions-section="content"]');
+    if (subscr_section)
+      subscr_section.removeAttribute('subscriptions-section');
     let wsj_ads = document.querySelectorAll('.wsj-ad');
     removeDOMElement(...wsj_ads);
   }
@@ -2843,6 +2848,11 @@ else if (matchDomain('wsj.com') && !matchDomain('cn.wsj.com')) {
     let masthead_link = document.querySelector('div.masthead > a[href*="/articles/"]');
     if (masthead_link)
       masthead_link.href = 'https://www.wsj.com';
+    let preview = document.querySelector('section[subscriptions-section="content-not-granted"]');
+    removeDOMElement(preview);
+    let subscr_section = document.querySelector('section[subscriptions-section="content"]');
+    if (subscr_section)
+      subscr_section.removeAttribute('subscriptions-section');
   } else {
     document.addEventListener('DOMContentLoaded', () => {
       let snippet = document.querySelector('.snippet-promotion');
