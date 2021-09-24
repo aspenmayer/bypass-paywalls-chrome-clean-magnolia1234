@@ -147,6 +147,7 @@
         "*://*.elcomercio.pe/*",
         "*://*.elconfidencial.com/*",
         "*://*.elcorreo.com/*",
+        "*://*.eldia.es/*",
         "*://*.eldiario.es/*",
         "*://*.eldiariomontanes.es/*",
         "*://*.elespanol.com/*",
@@ -155,6 +156,7 @@
         "*://*.elnortedecastilla.es/*",
         "*://*.elpais.com/*",
         "*://*.elperiodico.com/*",
+        "*://*.elperiodicomediterraneo.com/*",
         "*://*.entrepreneur.com/*",
         "*://*.esprit.presse.fr/*",
         "*://*.estadao.com.br/*",
@@ -229,6 +231,7 @@
         "*://*.inc.com/*",
         "*://*.inc42.com/*",
         "*://*.independent.ie/*",
+        "*://*.informacion.es/*",
         "*://*.infzm.com/*",
         "*://*.inkl.com/*",
         "*://*.inquirer.com/*",
@@ -542,5 +545,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.3.6.2"
+    "version": "2.3.6.3"
 }

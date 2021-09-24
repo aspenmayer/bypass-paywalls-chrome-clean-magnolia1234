@@ -471,8 +471,6 @@ Grouped in options:\
 
 ##### Spain
 [ABC](https://www.abc.es) -
-[Diario de Ibiza](https://www.diariodeibiza.es) -
-[Diario de Mallorca](https://www.diariodemallorca.es) -
 [El Confidencial](https://www.elconfidencial.com) -
 [El Diario.es](https://www.eldiario.es) -
 [El Español](https://www.elespanol.com) -
@@ -480,15 +478,21 @@ Grouped in options:\
 [El País](https://elpais.com) -
 [El Periódico de Catalunya](https://www.elperiodico.com) -
 [Expansión](https://www.expansion.com) -
-[Faro de Vigo](https://www.farodevigo.es) -
-[La Nueva España](https://www.lne.es) -
-[La Provincia](https://www.laprovincia.es) -
 [La Vanguardia](https://www.lavanguardia.com) -
-[Levante-EMV](https://www.levante-emv.com) -
 [Marca](https://www.marca.com) -
 [Política Exterior](https://www.politicaexterior.com)
 
 Grouped in options:\
+*Grupo Prensa Ibérica* sites like\
+[Diario de Ibiza](https://www.diariodeibiza.es) -
+[Diario de Mallorca](https://www.diariodemallorca.es) -
+[El Día](https://www.eldia.es) -
+[El Periódico Mediterráneo](https://www.elperiodicomediterraneo.com) -
+[Faro de Vigo](https://www.farodevigo.es) -
+[Información](https://www.informacion.es) -
+[La Nueva España](https://www.lne.es) -
+[La Provincia](https://www.laprovincia.es) -
+[Levante-EMV](https://www.levante-emv.com)\
 *Grupo Vocento* (ABC regional) sites like\
 [Diario Vasco](https://www.diariovasco.com) -
 [El Comercio](https://www.elcomercio.es) -

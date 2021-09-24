@@ -411,7 +411,6 @@ var blockedRegexes = {
 
 // grouped domains (rules only)
 const au_nine_domains = ['brisbanetimes.com.au', 'smh.com.au', 'theage.com.au', 'watoday.com.au'];
-const es_epiberica_domains = ['diariodeibiza.es', 'diariodemallorca.es', 'farodevigo.es', 'laprovincia.es', 'levante-emv.com', 'lne.es'];
 const es_unidad_domains = ['elmundo.es', 'expansion.com', 'marca.com'];
 const it_repubblica_domains = ['gelocal.it', 'ilsecoloxix.it', 'lanuovasardegna.it', 'lastampa.it', 'limesonline.com', 'repubblica.it'].concat(['lescienze.it']);
 const nl_pg_domains = ['parool.nl', 'trouw.nl', 'volkskrant.nl', 'humo.be', 'demorgen.be'];
@@ -448,6 +447,7 @@ var grouped_sites = {
 '###_de_funke_medien': de_funke_media_domains,
 '###_de_madsack': de_madsack_domains,
 '###_economictimes': economictimes_domains,
+'###_es_epiberica': es_epiberica_domains,
 '###_es_grupo_vocento': es_grupo_vocento_domains,
 '###_fi_alma_talent': fi_alma_talent_domains,
 '###_fi_sanoma': fi_sanoma_domains,
@@ -520,6 +520,10 @@ function add_grouped_sites(init_rules) {
     for (let domain of economictimes_domains) {
       allow_cookies.push(domain);
       use_google_bot.push(domain);
+    }
+    for (let domain of es_epiberica_domains) {
+      allow_cookies.push(domain);
+      blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-(access|analytics|consent)-.+\.js/;
     }
     for (let domain of es_grupo_vocento_domains) {
       allow_cookies.push(domain);
@@ -599,10 +603,6 @@ function add_grouped_sites(init_rules) {
     for (let domain of es_unidad_domains) {
       allow_cookies.push(domain);
       blockedRegexes[domain] =  /cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad|consent)-.+\.js/;
-    }
-    for (let domain of es_epiberica_domains) {
-      allow_cookies.push(domain);
-      blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-(access|analytics|consent)-.+\.js/;
     }
     for (let domain of it_repubblica_domains) {
       allow_cookies.push(domain);

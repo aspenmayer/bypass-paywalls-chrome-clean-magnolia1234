@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Add Grupo Prensa Ibérica (Spain)
 Fix Challenges.fr (blur)
 Fix LesEchos.fr (json)
 Fix WSJ & Barron's (amp)
