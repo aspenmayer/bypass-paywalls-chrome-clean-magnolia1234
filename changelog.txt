@@ -2,6 +2,8 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Fix Challenges.fr (blur)
+Fix LesEchos.fr (json)
 Fix WSJ & Barron's (amp)
 
 * v2.3.6.0 (2021-09-05)

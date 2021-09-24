@@ -807,9 +807,9 @@ else if (matchDomain('challenges.fr')) {
   let amorce = document.querySelector('.user-paying-amorce');
   if (amorce)
     amorce.setAttribute('style', 'display:none !important');
-  let content = document.querySelector('.user-paying-content');
-  if (content)
-    content.setAttribute('style', 'display: block !important');
+  let content = document.querySelectorAll('.user-paying-content');
+  for (let elem of content)
+    elem.classList.remove('user-paying-content');
   let paywall = document.querySelector('.temp-paywall');
   removeDOMElement(paywall);
 }
@@ -919,7 +919,7 @@ else if (matchDomain(['lejdd.fr', 'parismatch.com'])) {
 
 else if (matchDomain('lesechos.fr') && window.location.href.match(/-\d{6,}/)) {
   window.setTimeout(function () {
-    let abo_banner = document.querySelector('[class^="pgxf3b"]');
+    let abo_banner = document.querySelector('div[class*="pgxf3b-2"]');
     let ad_blocks = document.querySelectorAll('[class*="jzxvkd"');
     for (let ad_block of ad_blocks)
       ad_block.setAttribute('style', 'display:none');
@@ -930,15 +930,18 @@ else if (matchDomain('lesechos.fr') && window.location.href.match(/-\d{6,}/)) {
       let state;
       let split1 = html.split('window.__PRELOADED_STATE__=')[1];
       let split2 = split1.split('</script>')[0].trim();
-      if (split2.includes('; window.__DATA__='))
+      if (split2.includes('; window.__DATA__=')) {
         state = split2.split('; window.__DATA__=')[0].trim();
-      else
+        if (state.length < 200)
+          state = split2.split('; window.__DATA__=')[1].split('; window.__')[0].trim();
+      } else
         state = split2.substr(0, split2.length - 1);
       try {
         let data = JSON.parse(state);
-        let article = data.article.data.stripes[0].mainContent[0].data.description;
-        let url_loaded = data.article.data.path;
-        if (!url.replace(/%20/g, '').includes(url_loaded))
+        let data_article = data.article ? data.article : data.pageProps;
+        let article = data_article.data.stripes[0].mainContent[0].data.description;
+        let url_loaded = data_article.data.path;
+        if (url_loaded && !url.replace(/%20/g, '').includes(url_loaded))
           window.location.reload(true);
         let paywallNode = document.querySelector('.post-paywall');
         if (paywallNode) {
