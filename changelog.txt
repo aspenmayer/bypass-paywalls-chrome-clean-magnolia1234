@@ -2,9 +2,10 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
-Add Grupo Prensa Ibérica (Spain)
+Add Grupo Prensa Iberica (Spain)
 Fix Challenges.fr (blur)
 Fix LesEchos.fr (json)
+Fix Repubblica.it & LaStampa.it (videos on Firefox)
 Fix WSJ & Barron's (amp)
 
 * v2.3.6.0 (2021-09-05)

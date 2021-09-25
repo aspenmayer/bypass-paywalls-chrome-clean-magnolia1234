@@ -23,13 +23,15 @@ const restrictions = {
   'faz.net': /^((?!\/.+\.faz\.net\/aktuell\/(\?switchfaznet)?$).)*$/,
   'foreignaffairs.com': /.+\.foreignaffairs\.com\/(articles|fa-caching|interviews|reviews|sites)\/.+/,
   'ft.com': /.+\.ft\.com\/content\//,
+  'lastampa.it': /^((?!\/video\.lastampa\.it\/).)*$/,
   'medianama.com': /\.medianama\.com\/((\d){4}\/(\d){2}|wp-content)\//,
   'timesofindia.com': /.+\.timesofindia\.com\/($|toi-plus(\/.+)?|.+\.cms)/,
   'nknews.org': /^((?!nknews\.org\/pro\/).)*$/,
   'quora.com': /^((?!quora\.com\/search\?q=).)*$/,
+  'repubblica.it': /^((?!\/video\.repubblica\.it\/).)*$/,
   'seekingalpha.com': /.+\/seekingalpha\.com\/($|(amp\/)?(article|news)\/|samw\/)/,
   'statista.com': /^((?!\.statista\.com\/(outlook|study)\/).)*$/,
-  'sueddeutsche.de': /^((?!projekte\.sueddeutsche\.de\/).)*$/,
+  'sueddeutsche.de': /^((?!(projekte|zeitung)\.sueddeutsche\.de\/).)*$/,
   'techinasia.com': /\.techinasia\.com\/.+/,
   'wsj.com': /^((?!\/cn\.wsj\.com\/).)*$/
 }
