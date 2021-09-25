@@ -1,6 +1,7 @@
 var defaultSites =
 {
   "360Dx": "360dx.com",
+  "Aachener Zeitung": "aachener-zeitung.de",
   "ABC.es": "abc.es",
   "Adweek": "adweek.com",
   "Algemeen Dagblad (+ regional)": "###_nl_ad_region",

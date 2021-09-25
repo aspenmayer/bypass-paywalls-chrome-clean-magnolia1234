@@ -275,7 +275,25 @@ else {
 
 } else if (window.location.hostname.match(/\.(de|at|ch)$/) || matchDomain(['faz.net', 'handelsblatt.com'])) {//germany/austria/switzerland - ch
 
-if (matchDomain('augsburger-allgemeine.de')) {
+if (matchDomain('aachener-zeitung.de')) {
+  let url = window.location.href;
+  if (url.includes('?output=amp')) {
+    let subscr_sections = document.querySelectorAll('section[subscriptions-section="content"]');
+    for (let subscr_section of subscr_sections)
+      subscr_section.removeAttribute('subscriptions-section');
+    let amp_ads = document.querySelectorAll('amp-ad, amp-embed');
+    removeDOMElement(...amp_ads);
+  } else {
+    let paywall = document.querySelector('.park-article-paywall, .text-blurred');
+    let amphtml = document.querySelector('link[rel="amphtml"]');
+    if (paywall && amphtml) {
+      removeDOMElement(paywall);
+      window.location.href = amphtml.href;
+    }
+  }
+}
+
+else if (matchDomain('augsburger-allgemeine.de')) {
   let url = window.location.href;
   if (!url.includes('-amp.html')) {
     let paywall = document.querySelector('div.aa-visible-logged-out');

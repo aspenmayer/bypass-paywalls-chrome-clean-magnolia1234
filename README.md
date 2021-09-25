@@ -362,6 +362,7 @@ Grouped in options:\
 [SudInfo](https://www.sudinfo.be)
 
 ##### Germany/Austria
+[Aachener Zeitung](https://www.aachener-zeitung.de) -
 [Augsburger Allgemeine](https://www.augsburger-allgemeine.de) -
 [Berliner Zeitung](https://www.berliner-zeitung.de) -
 [Cicero](https://www.cicero.de) -

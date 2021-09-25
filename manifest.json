@@ -41,6 +41,7 @@
         "webRequest",
         "webRequestBlocking",
         "*://*.360dx.com/*",
+        "*://*.aachener-zeitung.de/*",
         "*://*.aamulehti.fi/*",
         "*://*.abc.es/*",
         "*://*.abendblatt.de/*",
@@ -545,5 +546,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.3.6.3"
+    "version": "2.3.6.4"
 }
