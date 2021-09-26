@@ -600,6 +600,12 @@ function add_grouped_sites(init_rules) {
       allow_cookies.push(domain);
       blockedRegexes[domain] = /(\.blueconic\.net\/|\.tinypass\.com\/|\.com\/.+\/loader\.min\.js|cdn\.ampproject\.org\/v\d\/amp-((sticky-)?ad|subscriptions)-.+\.js)/;
     }
+    for (let domain of usa_nymag_domains) {
+      allow_cookies.push(domain);
+      remove_cookies.push(domain);
+      remove_cookies_select_drop[domain] = ['nymcid'];
+      blockedRegexes[domain] = /fosse\.nymag\.com\/fosse\/.+\/scripts\/.+\.js/;
+    }
     for (let domain of usa_theathletic_domains) {
       allow_cookies.push(domain);
       blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/;
