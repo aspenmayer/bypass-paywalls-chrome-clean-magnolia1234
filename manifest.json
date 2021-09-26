@@ -456,6 +456,7 @@
         "*://*.theintercept.com/*",
         "*://*.thelogic.co/*",
         "*://*.themarker.com/*",
+        "*://*.themarket.ch/*",
         "*://*.themercury.com.au/*",
         "*://*.themorningbulletin.com.au/*",
         "*://*.thenation.com/*",
@@ -548,5 +549,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.3.6.5"
+    "version": "2.3.6.6"
 }

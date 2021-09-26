@@ -260,6 +260,7 @@ var defaultSites =
   "The Jerusalem Post": "jpost.com",
   "The Logic": "thelogic.co",
   "The Marker": "themarker.com",
+  "The Market.ch": "themarket.ch",
   "The Nation": "thenation.com",
   "The New Atlantis": "thenewatlantis.com",
   "The New Republic": "newrepublic.com",

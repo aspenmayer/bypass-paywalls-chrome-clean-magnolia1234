@@ -516,7 +516,8 @@ Grouped in options:\
 [NyTeknik](https://www.nyteknik.se)
 
 ##### Switzerland
-[Neue Zürcher Zeitung](https://www.nzz.ch)
+[Neue Zürcher Zeitung](https://www.nzz.ch) -
+[The Market](https://themarket.ch)
 
 #### Africa
 

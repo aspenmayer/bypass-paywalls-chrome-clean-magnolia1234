@@ -6,6 +6,7 @@ Add Aachener Zeitung (Germany)
 Add Grupo Prensa Iberica (Spain)
 Add Tampa Bay Times (local USA)
 Add Telerama.fr
+Add TheMarket.ch
 Fix Challenges.fr (blur)
 Fix LesEchos.fr (json)
 Fix New York Magazine sites
