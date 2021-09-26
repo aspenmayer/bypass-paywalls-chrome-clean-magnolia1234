@@ -5,6 +5,7 @@ Post-release
 Add Aachener Zeitung (Germany)
 Add Grupo Prensa Iberica (Spain)
 Add Tampa Bay Times (local USA)
+Add Telerama.fr
 Fix Challenges.fr (blur)
 Fix LesEchos.fr (json)
 Fix Repubblica.it & LaStampa.it (videos on Firefox)

@@ -233,6 +233,7 @@ var defaultSites =
   "Tampa Bay Times": "tampabay.com",
   "Tech in Asia": "techinasia.com",
   "Telegraaf": "telegraaf.nl",
+  "Télérama": "telerama.fr",
   "The Age": "theage.com.au",
   "The American Interest": "the-american-interest.com",
   "The Art Newspaper": "theartnewspaper.com",

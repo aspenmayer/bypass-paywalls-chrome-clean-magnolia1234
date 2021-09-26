@@ -327,6 +327,7 @@ Grouped in options:\
 [Science & Vie](https://www.science-et-vie.com) -
 [Sciences et Avenir](https://www.sciencesetavenir.fr) -
 [Sud Ouest](https://www.sudouest.fr) -
+[Télérama](https://www.telerama.fr) -
 [Valeurs Actuelles](https://www.valeursactuelles.com)
 
 Grouped in options:\
