@@ -959,6 +959,18 @@ ext_api.webRequest.onBeforeRequest.addListener(function (details) {
 ["blocking"]
 );
 
+// theaustralian.com redirect subscribe to amp
+ext_api.webRequest.onBeforeRequest.addListener(function (details) {
+  if (!isSiteEnabled(details)) {
+    return;
+  }
+  var updatedUrl = decodeURIComponent(details.url.split('dest=')[1].split('&')[0]).replace('www.', 'amp.');
+  return { redirectUrl: updatedUrl };
+},
+{urls:["*://www.theaustralian.com.au/subscribe/*"], types:["main_frame"]},
+["blocking"]
+);
+
 // fix nytimes x-frame-options (hidden iframe content)
 ext_api.webRequest.onHeadersReceived.addListener(function (details) {
   if (!isSiteEnabled(details)) {
@@ -1206,6 +1218,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   var setReferer = false;
   var googlebotEnabled = matchUrlDomain(use_google_bot, details.url) && 
     !(matchUrlDomain('barrons.com', details.url) && enabledSites.includes('#options_disable_gb_barrons')) &&
+    !(matchUrlDomain('theaustralian.com.au', details.url) && enabledSites.includes('#options_disable_gb_theaustralian')) &&
     !(matchUrlDomain('wsj.com', details.url) && enabledSites.includes('#options_disable_gb_wsj'));
 
 if (matchUrlDomain(change_headers, details.url) && (!['font', 'image', 'stylesheet'].includes(details.type) || matchUrlDomain(['thetimes.co.uk'], details.url))) {

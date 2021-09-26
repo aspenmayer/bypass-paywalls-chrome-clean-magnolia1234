@@ -8,6 +8,7 @@ Add Tampa Bay Times (local USA)
 Fix Challenges.fr (blur)
 Fix LesEchos.fr (json)
 Fix Repubblica.it & LaStampa.it (videos on Firefox)
+Fix The Australian (option to disable Googlebot; http error 403)
 Fix WSJ & Barron's (amp)
 
 * v2.3.6.0 (2021-09-05)
