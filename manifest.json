@@ -198,7 +198,6 @@
         "*://*.griffithreview.com/*",
         "*://*.groene.nl/*",
         "*://*.grubstreet.com/*",
-        "*://*.gva.be/*",
         "*://*.gympietimes.com.au/*",
         "*://*.haaretz.co.il/*",
         "*://*.haaretz.com/*",
@@ -549,5 +548,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.3.7.0"
+    "version": "2.3.7.1"
 }

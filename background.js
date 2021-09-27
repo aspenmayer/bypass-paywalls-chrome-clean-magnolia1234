@@ -83,7 +83,6 @@ var allow_cookies_default = [
   'freiepresse.de',
   'ftm.nl',
   'gestion.pe',
-  'gva.be',
   'haaretz.co.il',
   'haaretz.com',
   'handelsblatt.com',
@@ -1318,7 +1317,7 @@ if (matchUrlDomain(change_headers, details.url) && (!['font', 'image', 'styleshe
         }
         if ((!['font', 'stylesheet'].includes(details.type) || matchUrlDomain(cs_limit_except, currentTabUrl)) && !csDone) {
           let lib_file = 'lib/empty.js';
-          if (matchUrlDomain(['bloomberg.com', 'cicero.de', 'economictimes.com', 'gva.be', 'lesechos.fr', 'newleftreview.org', 'newyorker.com', 'nzherald.co.nz', 'prospectmagazine.co.uk', 'sudouest.fr', 'techinasia.com', 'valor.globo.com', 'washingtonpost.com'].concat(nl_mediahuis_region_domains, no_nhst_media_domains, usa_theathletic_domains), currentTabUrl))
+          if (matchUrlDomain(['bloomberg.com', 'cicero.de', 'economictimes.com', 'lesechos.fr', 'newleftreview.org', 'newyorker.com', 'nzherald.co.nz', 'prospectmagazine.co.uk', 'sudouest.fr', 'techinasia.com', 'valor.globo.com', 'washingtonpost.com'].concat(nl_mediahuis_region_domains, no_nhst_media_domains, usa_theathletic_domains), currentTabUrl))
             lib_file = 'lib/purify.min.js';
           ext_api.tabs.executeScript(tabId, {
             file: lib_file,

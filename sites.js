@@ -86,7 +86,6 @@ var defaultSites =
   "Freie Presse": "freiepresse.de",
   "Funke Mediengruppe": "###_de_funke_medien",
   "Gannett Group (local USA Today) (opt-in to custom sites)": "###_usa_gannett",
-  "Gazet van Antwerpen": "gva.be",
   "GElocal.it": "gelocal.it",
   "GenomeWeb": "genomeweb.com",
   "Gestión": "gestion.pe",
