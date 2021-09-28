@@ -1898,33 +1898,35 @@ else if (matchDomain('firstthings.com')) {
 }
 
 else if (matchDomain('foreignaffairs.com')) {
-  let paywall = document.querySelector('.paywall');
-  let loading_indicator = document.querySelector('.loading-indicator');
-  let msg_bottom = document.querySelector('.messages--container--bottom');
-  removeDOMElement(paywall, loading_indicator, msg_bottom);
-  let article_dropcap = document.querySelectorAll('.article-dropcap');
-  for (let elem of article_dropcap)
-    elem.classList.add('loaded');
-  let hidden_images = document.querySelectorAll('img[src^="data:image/"]');
-  for (let hidden_image of hidden_images) {
-    let data_src = hidden_image.getAttribute('data-src');
-    if (data_src) {
-      hidden_image.setAttribute('src', data_src);
-      hidden_image.removeAttribute('class');
+  window.setTimeout(function () {
+    let paywall = document.querySelector('.paywall');
+    let loading_indicator = document.querySelector('.loading-indicator');
+    let msg_bottom = document.querySelector('.messages--container--bottom');
+    removeDOMElement(paywall, loading_indicator, msg_bottom);
+    let article_dropcap = document.querySelectorAll('.article-dropcap');
+    for (let elem of article_dropcap)
+      elem.classList.add('loaded');
+    let hidden_images = document.querySelectorAll('img[src^="data:image/"]');
+    for (let hidden_image of hidden_images) {
+      let data_src = hidden_image.getAttribute('data-src');
+      if (data_src) {
+        hidden_image.setAttribute('src', data_src);
+        hidden_image.removeAttribute('class');
+      }
     }
-  }
-  let img_list = document.querySelectorAll('.magazine-list-article img');
-  for (let img_elem of img_list)
-    img_elem.setAttribute('class', 'mb-4');
-  if (window.location.href.includes('/interviews/')) {
-    let img_header = document.querySelector('.interview-header > div');
-    if (img_header) {
-      let img_src = img_header.getAttribute('data-src');
-      let img_elem = document.createElement('img');
-      img_elem.src = img_src;
-      img_header.appendChild(img_elem);
+    let img_list = document.querySelectorAll('.magazine-list-article img');
+    for (let img_elem of img_list)
+      img_elem.setAttribute('class', 'mb-4');
+    if (window.location.href.includes('/interviews/')) {
+      let img_header = document.querySelector('.interview-header > div');
+      if (img_header) {
+        let img_src = img_header.getAttribute('data-src');
+        let img_elem = document.createElement('img');
+        img_elem.src = img_src;
+        img_header.appendChild(img_elem);
+      }
     }
-  }
+  }, 1000); // Delay (in milliseconds)
 }
 
 else if (matchDomain('foreignpolicy.com')) {
@@ -2397,7 +2399,7 @@ else if (matchDomain('stocknews.com')) {
 }
 
 else if (matchDomain('stratfor.com')) {
-  let banner = document.querySelector('.free-cta-container');
+  let banner = document.querySelector('.free-cta-container, .paywall-banner');
   removeDOMElement(banner);
   let hidden_images = document.querySelectorAll('img[src^="data:image/gif"][data-src]');
   for (let hidden_image of hidden_images)

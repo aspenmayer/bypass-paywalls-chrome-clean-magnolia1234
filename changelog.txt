@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Remove Gazet van Antwerpen (obsolete)
+Fix Foreign Affairs (timing)
 Fix Telerama.fr (mobile)
 
 * v2.3.7.0 (2021-09-26)
