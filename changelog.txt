@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Remove Gazet van Antwerpen (obsolete)
+Fix El Periodico de Catalunya (amp)
 Fix Foreign Affairs (timing)
 Fix Telerama.fr (mobile)
 

@@ -708,9 +708,9 @@ else if (matchDomain('elperiodico.com')) {
   } else {
     let not_logged = document.querySelector('.ep-masPeriodico-info-login');
     if (not_logged) {
-      let non_subscr_section = document.querySelector('div[amp-access="NOT logged"]');
+      let non_subscr_section = document.querySelector('div[amp-access^="NOT logged"]');
       removeDOMElement(not_logged, non_subscr_section);
-      let subscr_section = document.querySelector('div[amp-access="logged"][amp-access-hide]');
+      let subscr_section = document.querySelector('div[amp-access^="logged"][amp-access-hide]');
       if (subscr_section)
         subscr_section.removeAttribute('amp-access-hide');
     }
