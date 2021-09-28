@@ -6,6 +6,7 @@ Remove Gazet van Antwerpen (obsolete)
 Fix El Periodico de Catalunya (amp)
 Fix Foreign Affairs (timing)
 Fix Telerama.fr (mobile)
+Fix VeloNews
 
 * v2.3.7.0 (2021-09-26)
 Add Aachener Zeitung (Germany)

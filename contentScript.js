@@ -2706,9 +2706,9 @@ else if (matchDomain('usatoday.com')) {
 else if (matchDomain('velonews.com')) {
   let paywall = document.querySelector('div.o-membership-overlay');
   if (paywall) {
-    let js_gated = document.querySelector('div.js-gated');
-    if (js_gated)
-      js_gated.classList.remove('js-gated');
+    let is_gated = document.querySelector('.is-gated');
+    if (is_gated)
+      is_gated.classList.remove('is-gated');
     removeDOMElement(paywall);
   }
 }
