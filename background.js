@@ -204,7 +204,7 @@ var cookies_select_domains = Object.keys(remove_cookies_select_hold).concat(Obje
 
 // Removes cookies after page load
 // remove_cookies are completed with domains of custom sites (default allow/remove_cookies)
-var remove_cookies_default = ['scientificamerican.com'];
+var remove_cookies_default = ['medium.com', 'scientificamerican.com'];
 var remove_cookies = remove_cookies_default.concat(cookies_select_domains);
 
 allow_cookies = allow_cookies.concat(cookies_select_domains);

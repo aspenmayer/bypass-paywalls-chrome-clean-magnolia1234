@@ -2189,6 +2189,11 @@ else if (matchDomain('newstatesman.com')) {
   removeDOMElement(tns_modal_wrapper);
 }
 
+else if (matchDomain('newrepublic.com')) {
+  let pw_opups = document.querySelector('div#pwPopups');
+  removeDOMElement(pw_opups);
+}
+
 else if (matchDomain('newyorker.com')) {
   let paywall_bar = document.querySelector('.paywall-bar');
   removeDOMElement(paywall_bar);

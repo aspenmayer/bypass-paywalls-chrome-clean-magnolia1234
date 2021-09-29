@@ -42,7 +42,7 @@ If you're familiar with Git(Hub)-clients you can also clone this repo and update
 5. If dragging crx-file does not work, try 'load unpacked' installation (above).
 
 * By default BPC has limited permissions, but you can opt-in to enable custom sites (and also clear cookies/block general paywall-scripts for non-listed sites).
-* In Windows 'whitelist' BPC (run as administrator one of the reg-files in [whitelist-downloads](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/tree/master/whitelist)  
+* In Windows 'whitelist' BPC: run as administrator one of the reg-files in [whitelist-downloads](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/tree/master/whitelist)  
 If you already have 'whitelisted' extensions than you should change "1" to a new key (also change name of HLM-key for beta/developer versions of browsers).  
 Example Chrome-regfile:  
 Windows Registry Editor Version 5.00  

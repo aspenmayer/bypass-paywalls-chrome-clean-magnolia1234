@@ -5,6 +5,7 @@ Post-release
 Remove Gazet van Antwerpen (obsolete)
 Fix El Periodico de Catalunya (amp)
 Fix Foreign Affairs (timing)
+Fix Medium (cookies)
 Fix Telerama.fr (mobile)
 Fix VeloNews
 
