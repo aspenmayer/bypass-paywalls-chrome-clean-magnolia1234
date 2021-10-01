@@ -297,6 +297,7 @@ var defaultSites =
   "VentureBeat": "venturebeat.com",
   "Volkskrant": "volkskrant.nl",
   "WAtoday": "watoday.com.au",
+  "Westfalen-Blatt": "westfalen-blatt.de",
   "Winston-Salem Journal": "journalnow.com",
   "Wired": "wired.com",
   "World Politics Review": "worldpoliticsreview.com",

@@ -504,6 +504,7 @@
         "*://*.weeklytimesnow.com.au/*",
         "*://*.wellandtribune.ca/*",
         "*://*.westernadvocate.com.au/*",
+        "*://*.westfalen-blatt.de/*",
         "*://*.wired.com/*",
         "*://*.worldpoliticsreview.com/*",
         "*://*.wp.de/*",
@@ -548,5 +549,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.3.7.3"
+    "version": "2.3.7.4"
 }

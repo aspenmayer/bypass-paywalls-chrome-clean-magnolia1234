@@ -587,6 +587,17 @@ else if (matchDomain('sueddeutsche.de')) {
   }, 500); // Delay (in milliseconds)
 }
 
+else if (matchDomain('westfalen-blatt.de')) {
+  let url = window.location.href;
+  if (url.includes('/amp/')) {
+    let subscr_sections = document.querySelectorAll('section[subscriptions-section="content"]');
+    for (let subscr_section of subscr_sections)
+      subscr_section.removeAttribute('subscriptions-section');
+  }
+  let amp_ads = document.querySelectorAll('section[class^="fp-ad"]');
+  removeDOMElement(...amp_ads);
+}
+
 else if ((domain = matchDomain(de_madsack_domains)) || document.querySelector('link[rel="preload"][href="https://static.rndtech.de/cmp/1.x.x.js"]')) {
   let url = window.location.href;
   if (!url.includes(domain + '/amp/')) {
