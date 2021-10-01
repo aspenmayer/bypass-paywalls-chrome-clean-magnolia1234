@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Remove Gazet van Antwerpen (obsolete)
+Fix Boston Globe
 Fix El Periodico de Catalunya (amp)
 Fix Foreign Affairs (timing)
 Fix Medium (cookies)

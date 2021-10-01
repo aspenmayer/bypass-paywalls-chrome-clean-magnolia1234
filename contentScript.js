@@ -1688,7 +1688,8 @@ else if (matchDomain('bloombergquint.com')) {
 
 else if (matchDomain('bostonglobe.com')) {
   let paywall = document.querySelector('div.meter-paywall');
-  if (paywall) {
+  let fade = document.querySelector('div.fade');
+  if (paywall || fade) {
     removeDOMElement(paywall);
     let body_hidden = document.querySelector('body[style]');
     if (body_hidden)
