@@ -4,6 +4,7 @@ Changelog Bypass Paywalls Clean - Chrome
 Post-release
 Add Westfalen-Blatt (Germany)
 Remove Gazet van Antwerpen (obsolete)
+Remove Republic.ru (obsolete)
 Fix Boston Globe
 Fix El Periodico de Catalunya (amp)
 Fix Foreign Affairs (timing)

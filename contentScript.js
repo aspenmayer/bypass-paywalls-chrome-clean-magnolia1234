@@ -2312,12 +2312,6 @@ else if (matchDomain('qz.com')) {
   }
 }
 
-else if (matchDomain('republic.ru')) {
-  let paywall = document.querySelector('.paywall-section');
-  removeDOMElement(paywall);
-}
-
-
 else if (matchDomain('sandiegouniontribune.com')) {
   window.setTimeout(function () {
     let metering_bottompanel = document.querySelector('metering-bottompanel');

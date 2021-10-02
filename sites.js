@@ -201,7 +201,6 @@ var defaultSites =
   "Quartz (free articles only)": "qz.com",
   "Quora": "quora.com",
   "Quotidiano.net (+ regional)": "###_it_quotidiano",
-  "Republic.ru": "republic.ru",
   "Reuters": "reuters.com",
   "Rhein-Zeitung": "rhein-zeitung.de",
   "Rolling Stone": "rollingstone.com",

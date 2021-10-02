@@ -236,7 +236,6 @@ var use_google_bot_default = [
   'nzz.ch',
   'piqd.de',
   'quora.com',
-  'republic.ru',
   'rhein-zeitung.de',
   'rheinpfalz.de',
   'ruhrnachrichten.de',

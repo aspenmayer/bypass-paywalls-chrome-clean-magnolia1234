@@ -469,9 +469,6 @@ Grouped in options:\
 [Correio da Manhã](https://www.cmjornal.pt) -
 [Observador](https://observador.pt)
 
-##### Russia
-[Republic.ru](https://republic.ru)
-
 ##### Spain
 [ABC](https://www.abc.es) -
 [El Confidencial](https://www.elconfidencial.com) -
