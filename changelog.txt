@@ -5,6 +5,7 @@ Post-release
 Add Westfalen-Blatt (Germany)
 Remove Gazet van Antwerpen (obsolete)
 Remove Republic.ru (obsolete)
+Fix Bloomberg (blur)
 Fix Boston Globe
 Fix El Periodico de Catalunya (amp)
 Fix Foreign Affairs (timing)

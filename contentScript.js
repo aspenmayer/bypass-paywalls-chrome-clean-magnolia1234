@@ -1664,6 +1664,11 @@ else if (matchDomain('bloomberg.com')) {
         hidden_image.setAttribute('src', hidden_image.getAttribute('data-native-src'));
       hidden_image.style.filter = 'none';
     }
+    let blur = document.querySelector('div.blur[style]');
+    if (blur) {
+      blur.classList.remove('blur');
+      blur.removeAttribute('style');
+    }
     let json_script = document.querySelector('script[data-component-props="ArticleBody"], script[data-component-props="FeatureBody"]');
     if (json_script) {
       let json = JSON.parse(json_script.innerHTML);
