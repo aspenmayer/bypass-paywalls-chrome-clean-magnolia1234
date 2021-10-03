@@ -365,6 +365,7 @@ Grouped in options:\
 [Le Soir](https://www.lesoir.be) -
 [Libération Champagne](https://www.liberation-champagne.fr) -
 [Nord Éclair](https://www.nordeclair.fr) -
+[Nord Littoral](https://www.nordlittoral.fr) -
 [Paris Normandie](https://www.paris-normandie.fr) -
 [SudInfo](https://www.sudinfo.be)
 

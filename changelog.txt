@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Add NordLittoral.fr (Groupe Rossel)
 Add Westfalen-Blatt (Germany)
 Remove Gazet van Antwerpen (obsolete)
 Remove Republic.ru (obsolete)
