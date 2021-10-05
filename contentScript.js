@@ -2630,6 +2630,14 @@ else if (matchDomain('timeshighereducation.com')) {
     if (paywall_fade)
       paywall_fade.classList.remove('paywall-fade');
   }
+  let hidden_images = document.querySelectorAll('img.b-lazy[src^="data:image/"][data-src]');
+  for (let hidden_image of hidden_images) {
+    hidden_image.setAttribute('src', hidden_image.getAttribute('data-src'));
+    hidden_image.classList.remove('b-lazy');
+    hidden_image.parentElement.classList.remove('media--loading');
+  }
+  let ads = document.querySelectorAll('div[id^="div-gpt-in-article-ad-"], div[class^="the-dfp__in-article-ATD"]');
+  removeDOMElement(...ads);
 }
 
 else if (matchDomain(timesofindia_domains)) {

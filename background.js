@@ -33,6 +33,7 @@ const restrictions = {
   'statista.com': /^((?!\.statista\.com\/(outlook|study)\/).)*$/,
   'sueddeutsche.de': /^((?!(projekte|zeitung)\.sueddeutsche\.de\/).)*$/,
   'techinasia.com': /\.techinasia\.com\/.+/,
+  'timeshighereducation.com':  /.+\.timeshighereducation\.com\/(sites\/default\/files\/|.+((\w)+(\-)+){3,}.+)/,
   'wsj.com': /^((?!\/cn\.wsj\.com\/).)*$/
 }
 
@@ -408,7 +409,7 @@ var blockedRegexes = {
   'thesaturdaypaper.com.au': /\.thesaturdaypaper\.com\.au\/sites\/all\/modules\/custom\/node_meter\/pw\.js/,
   'thewrap.com': /\.wallkit\.net\/js\//,
   'time.com': /\/time\.com\/dist\/meter-wall-client-js\..+\.js/,
-  'timeshighereducation.com': /\.timeshighereducation\.com\/sites\/default\/files\/js\/js_bbCGL.+\.js/,
+  'timeshighereducation.com': /\.timeshighereducation\.com\/sites\/default\/files\/.+\/js__.+\.js/,
   'valeursactuelles.com': /\.qiota\.com\//,
   'variety.com': /cdn\.cxense\.com\//,
   'velonews.com': /\.velonews\.com\/.+\/scripts\/contentGate.+\.js/,
