@@ -278,7 +278,7 @@ var defaultSites =
   "The Times": "thetimes.co.uk",
   "The Times Literary Supplement": "the-tls.co.uk",
   "The Toronto Star (+ local TorStar sites)": "###_ca_torstar",
-  "The Wall Street Journal (not Chinese)": "wsj.com",
+  "The Wall Street Journal": "wsj.com",
   "The Washington Post": "washingtonpost.com",
   "The West Australian (+ regional)": "thewest.com.au",
   "The Wrap": "thewrap.com",

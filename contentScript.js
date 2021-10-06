@@ -2793,7 +2793,7 @@ else if (matchDomain('washingtonpost.com')) {
   }
 }
 
-else if (matchDomain('wsj.com') && !matchDomain('cn.wsj.com')) {
+else if (matchDomain('wsj.com')) {
   let url = window.location.href;
   if (location.href.includes('/articles/')) {
     let close_button = document.querySelector('div.close-btn[role="button"]');

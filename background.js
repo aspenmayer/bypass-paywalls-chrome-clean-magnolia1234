@@ -33,8 +33,7 @@ const restrictions = {
   'statista.com': /^((?!\.statista\.com\/(outlook|study)\/).)*$/,
   'sueddeutsche.de': /^((?!(projekte|zeitung)\.sueddeutsche\.de\/).)*$/,
   'techinasia.com': /\.techinasia\.com\/.+/,
-  'timeshighereducation.com':  /.+\.timeshighereducation\.com\/(sites\/default\/files\/|.+((\w)+(\-)+){3,}.+)/,
-  'wsj.com': /^((?!\/cn\.wsj\.com\/).)*$/
+  'timeshighereducation.com':  /.+\.timeshighereducation\.com\/(sites\/default\/files\/|.+((\w)+(\-)+){3,}.+)/
 }
 
 // Don't remove cookies before page load
