@@ -686,14 +686,17 @@ else if (domain = matchDomain(es_unidad_domains)) {
 
 else if (matchDomain('elpais.com')) {
   let url = window.location.href;
-  let login_register = document.querySelector('.login_register');
+  let login_register = document.querySelector('.login_register, #ctn_closed_article');
   if (url.includes('.amp.html') || url.includes('?outputType=amp')) {
+    let preview = document.querySelector('div[amp-access="NOT success"]');
     let paywall = document.querySelectorAll('div[amp-access="success"][amp-access-hide]');
     for (let elem of paywall)
       elem.removeAttribute('amp-access-hide');
     let amp_ads = document.querySelectorAll('amp-ad');
-    removeDOMElement(login_register, ...amp_ads);
+    removeDOMElement(login_register, preview, ...amp_ads);
   } else {
+    let counter = document.querySelector('#counterLayerDiv');
+    removeDOMElement(counter);
     let amphtml = document.querySelector('link[rel="amphtml"]');
     if (login_register && amphtml) {
       removeDOMElement(login_register);
