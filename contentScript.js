@@ -1803,6 +1803,14 @@ else if (matchDomain('cen.acs.org')) {
   });
 }
 
+else if (matchDomain('chronicle.com')) {
+  let preview = document.querySelector('div[data-content-summary]');
+  removeDOMElement(preview);
+  let article_hidden = document.querySelector('div[data-content-body]');
+  if (article_hidden)
+    article_hidden.removeAttribute('data-content-body');
+}
+
 else if (matchDomain('csmonitor.com')) {
   let paywall = document.querySelector('div.paywall');
   removeDOMElement(paywall);
