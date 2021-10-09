@@ -85,6 +85,7 @@
         "*://*.braunschweiger-zeitung.de/*",
         "*://*.brisbanetimes.com.au/*",
         "*://*.britannica.com/*",
+        "*://*.buffalonews.com/*",
         "*://*.business-standard.com/*",
         "*://*.businessinsider.com/*",
         "*://*.businessoffashion.com/*",
@@ -174,8 +175,8 @@
         "*://*.financialpost.com/*",
         "*://*.firstthings.com/*",
         "*://*.fnlondon.com/*",
-        "*://*.forbes.com/*",
         "*://*.folha.uol.com.br/*",
+        "*://*.forbes.com/*",
         "*://*.foreignaffairs.com/*",
         "*://*.foreignpolicy.com/*",
         "*://*.fortune.com/*",
@@ -390,6 +391,7 @@
         "*://*.reuters.com/*",
         "*://*.rhein-zeitung.de/*",
         "*://*.rheinpfalz.de/*",
+        "*://*.richmond.com/*",
         "*://*.rollingstone.com/*",
         "*://*.ruhrnachrichten.de/*",
         "*://*.sacbee.com/*",
@@ -484,6 +486,8 @@
         "*://*.tri-cityherald.com/*",
         "*://*.trouw.nl/*",
         "*://*.tubantia.nl/*",
+        "*://*.tucson.com/*",
+        "*://*.tulsaworld.com/*",
         "*://*.twincities.com/*",
         "*://*.upstreamonline.com/*",
         "*://*.usatoday.com/*",
@@ -549,5 +553,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.3.8.3"
+    "version": "2.3.8.4"
 }

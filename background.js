@@ -472,6 +472,7 @@ var grouped_sites = {
 '###_no_nhst_media': no_nhst_media_domains,
 '###_timesofindia': timesofindia_domains,
 '###_usa_craincomm': usa_craincomm_domains,
+'###_usa_lee_ent': usa_lee_ent_domains,
 '###_usa_mcc': usa_mcc_domains,
 '###_usa_mng': usa_mng_domains,
 '###_usa_nymag': usa_nymag_domains,
@@ -592,6 +593,10 @@ function add_grouped_sites(init_rules) {
       if (domain !== 'autonews.com')
         allow_cookies.push(domain);
       blockedRegexes[domain] = new RegExp('(\.tinypass\.com\/|\.' + domain + '\/.+\/js\/js_.+\.js)');
+    }
+    for (let domain of usa_lee_ent_domains) {
+      allow_cookies.push(domain);
+      blockedRegexes[domain] = new RegExp('\.' + domain + '\/shared-content\/art\/tncms\/user\/user\.js');
     }
     for (let domain of usa_mcc_domains)
       blockedRegexes[domain] = /(js\.matheranalytics\.com\/|cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js)/;
@@ -1021,7 +1026,7 @@ ext_api.webRequest.onHeadersReceived.addListener(function (details) {
 },
   ['blocking', 'responseHeaders']);
 
-var block_js_default = ["*://cdn.tinypass.com/*", "*://*.piano.io/*", "*://*.poool.fr/*",  "*://cdn.ampproject.org/v*/amp-access-*.js", "*://cdn.ampproject.org/v*/amp-subscriptions-*.js", "*://loader-cdn.azureedge.net/prod/*/loader.min.js", "*://*.blueconic.net/*", "*://*.cxense.com/*", "*://*.evolok.net/*", "*://js.matheranalytics.com/*", "*://*.newsmemory.com/*", "*://*.onecount.net/*", "*://js.pelcro.com/*", "*://*.qiota.com/*", "*://*.tribdss.com/*"];
+var block_js_default = ["*://cdn.tinypass.com/*", "*://*.piano.io/*", "*://*.poool.fr/*",  "*://cdn.ampproject.org/v*/amp-access-*.js", "*://cdn.ampproject.org/v*/amp-subscriptions-*.js", "*://loader-cdn.azureedge.net/prod/*/loader.min.js*", "*://*.blueconic.net/*", "*://*.cxense.com/*", "*://*.evolok.net/*", "*://js.matheranalytics.com/*", "*://*.newsmemory.com/*", "*://*.onecount.net/*", "*://js.pelcro.com/*", "*://*.qiota.com/*", "*://*.tribdss.com/*"];
 var block_js_custom = [];
 var block_js_custom_ext = [];
 var block_js = block_js_default.concat(block_js_custom);
@@ -1106,6 +1111,17 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
     usa_gannett_domains.push(gn_domain);
     if (!enabledSites.includes(gn_domain))
       enabledSites.push(gn_domain);
+  }
+
+  // block script for additional Lee Enterprises sites (opt-in to custom sites)
+  var usa_lee_ent_domain = (details.url.match(/\.com\/shared-content\/art\/tncms\/.+\.js/) && ['script'].includes(details.type) &&
+  !matchUrlDomain(usa_lee_ent_domains, header_referer) && enabledSites.includes('###_usa_lee_ent'));
+  if (usa_lee_ent_domain) {
+    let lee_ent_domain = urlHost(header_referer).replace(/^(www|m)\./, '');
+    blockedRegexes[lee_ent_domain] = /\.com\/shared-content\/art\/tncms\/user\/user.js/;
+    usa_lee_ent_domains.push(lee_ent_domain);
+    if (!enabledSites.includes(lee_ent_domain))
+      enabledSites.push(lee_ent_domain);
   }
 
   // block script for additional McClatchy sites (opt-in to custom sites)

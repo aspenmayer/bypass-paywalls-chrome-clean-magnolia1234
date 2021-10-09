@@ -219,6 +219,11 @@ Grouped in options:\
 [Milwaukee Journal Sentinel](https://www.jsonline.com) -
 [The Indianapolis Star](https://www.indystar.com) -
 [The Record (North Jersey)](https://www.northjersey.com)\
+*Lee Enterprises Group* sites like (opt-in to custom sites for unlisted)\
+[Arizona Daily Star](https://tucson.com) -
+[Richmond Times-Dispatch](https://richmond.com) -
+[The Buffalo News](https://buffalonews.com) -
+[Tulsa World](https://tulsaworld.com)\
 *McClatchy Group* sites like (opt-in to custom sites for unlisted)\
 [Belleville News-Democrat](https://www.bnd.com) -
 [Fort Worth Star-Telegram](https://www.star-telegram.com) -
