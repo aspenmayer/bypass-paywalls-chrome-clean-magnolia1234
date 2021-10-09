@@ -5,6 +5,7 @@ Post-release
 Add Lee Enterprises Group (local USA)
 Fix Chronicle of Higher Education
 Fix El Pais (amp/videos)
+Fix MarketWatch (amp)
 Fix Times Higher Education
 Fix WSJ (Chinese)
 Update block general paywall script (AzureEdge)

@@ -2138,6 +2138,13 @@ else if (matchDomain('marketwatch.com')) {
     let container_sponsored = document.querySelector('div.container--sponsored');
     let amp_ads = document.querySelectorAll('.display-ad');
     removeDOMElement(meter, container_sponsored, ...amp_ads);
+    let preview = document.querySelector('div[subscriptions-section="content-not-granted"]');
+    if (preview) {
+      removeDOMElement(preview);
+      let subscr_section = document.querySelector('section[subscriptions-section="content"]');
+      if (subscr_section)
+        subscr_section.removeAttribute('subscriptions-section');
+    }
   }
   let ads = document.querySelectorAll('div.element--ad, div.j-ad');
   removeDOMElement(...ads);

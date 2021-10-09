@@ -356,7 +356,7 @@ var blockedRegexes = {
   'loeildelaphotographie.com': /cdn\.loeildelaphotographie\.com\/wp-content\/.+\/hague-child\/js\/script-.+\.js/,
   'lopinion.fr': /\.poool\.fr\//,
   'lrb.co.uk': /\.tinypass\.com\//,
-  'marketwatch.com': /(cdn\.cxense\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js)/,
+  'marketwatch.com': /(cdn\.cxense\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|ad|subscriptions)-.+\.js)/,
   'mercuriovalpo.cl': /(.+\.mercuriovalpo\.cl\/impresa\/.+\/assets\/(vendor|\d)\.js|pram\.pasedigital\.cl\/API\/User\/Status\?)/,
   'mexiconewsdaily.com': /\.mexiconewsdaily\.com\/c\/assets\/pigeon\.js/,
   'nation.africa': /(\.evolok\.net\/|nation\.africa\/resource\/themes\/nation-.+\/js\/.+\.js)/,
