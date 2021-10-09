@@ -6,6 +6,7 @@ Fix Chronicle of Higher Education
 Fix El Pais (amp/videos)
 Fix Times Higher Education
 Fix WSJ (Chinese)
+Update block general paywall script (AzureEdge)
 
 * v2.3.8.0 (2021-10-03)
 Add NordLittoral.fr (Groupe Rossel)

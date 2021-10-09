@@ -1021,7 +1021,7 @@ ext_api.webRequest.onHeadersReceived.addListener(function (details) {
 },
   ['blocking', 'responseHeaders']);
 
-var block_js_default = ["*://cdn.tinypass.com/*", "*://*.piano.io/*", "*://*.poool.fr/*",  "*://cdn.ampproject.org/v*/amp-access-*.js", "*://cdn.ampproject.org/v*/amp-subscriptions-*.js", "*://*.blueconic.net/*", "*://*.cxense.com/*", "*://*.evolok.net/*", "*://js.matheranalytics.com/*", "*://*.newsmemory.com/*", "*://*.onecount.net/*", "*://js.pelcro.com/*", "*://*.qiota.com/*", "*://*.tribdss.com/*"];
+var block_js_default = ["*://cdn.tinypass.com/*", "*://*.piano.io/*", "*://*.poool.fr/*",  "*://cdn.ampproject.org/v*/amp-access-*.js", "*://cdn.ampproject.org/v*/amp-subscriptions-*.js", "*://loader-cdn.azureedge.net/prod/*/loader.min.js", "*://*.blueconic.net/*", "*://*.cxense.com/*", "*://*.evolok.net/*", "*://js.matheranalytics.com/*", "*://*.newsmemory.com/*", "*://*.onecount.net/*", "*://js.pelcro.com/*", "*://*.qiota.com/*", "*://*.tribdss.com/*"];
 var block_js_custom = [];
 var block_js_custom_ext = [];
 var block_js = block_js_default.concat(block_js_custom);

@@ -302,6 +302,7 @@ var defaultSites =
   "World Politics Review": "worldpoliticsreview.com",
   "* Block Paywall-scripts (opt-in to custom sites to enable also for non-listed sites)": "###",
   "Amp-access": "cdn.ampproject.org",
+  "AzureEdge": "loader-cdn.azureedge.net",
   "BlueConic": "blueconic.net",
   "Cxense": "cxense.com",
   "Evolok": "evolok.net",
