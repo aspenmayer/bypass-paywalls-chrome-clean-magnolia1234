@@ -2,6 +2,8 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+
+* v2.3.9.0 (2021-10-10)
 Add Lee Enterprises Group (local USA)
 Fix Chronicle of Higher Education
 Fix El Pais (amp/videos)
