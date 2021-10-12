@@ -510,6 +510,7 @@
         "*://*.westernadvocate.com.au/*",
         "*://*.westfalen-blatt.de/*",
         "*://*.wired.com/*",
+        "*://*.wn.de/*",
         "*://*.worldpoliticsreview.com/*",
         "*://*.wp.de/*",
         "*://*.wr.de/*",
@@ -553,5 +554,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.3.9.1"
+    "version": "2.3.9.2"
 }

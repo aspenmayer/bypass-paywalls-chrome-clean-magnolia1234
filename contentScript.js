@@ -587,14 +587,14 @@ else if (matchDomain('sueddeutsche.de')) {
   }, 500); // Delay (in milliseconds)
 }
 
-else if (matchDomain('westfalen-blatt.de')) {
+else if (matchDomain(['westfalen-blatt.de', 'wn.de'])) {
   let url = window.location.href;
   if (url.includes('/amp/')) {
     let subscr_sections = document.querySelectorAll('section[subscriptions-section="content"]');
     for (let subscr_section of subscr_sections)
       subscr_section.removeAttribute('subscriptions-section');
   }
-  let amp_ads = document.querySelectorAll('section[class^="fp-ad"]');
+  let amp_ads = document.querySelectorAll('amp-ad, section[class^="fp-ad"]');
   removeDOMElement(...amp_ads);
 }
 
