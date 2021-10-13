@@ -1131,7 +1131,7 @@ else if (matchDomain('rep.repubblica.it')) {
 else if (domain = matchDomain(it_repubblica_domains)) {
   let url = window.location.href.split('?')[0];
   if (!url.match(/\amp(\/)?$/)) {
-    if (['ilsecoloxix.it', 'lastampa.it', 'repubblica.it'].includes(domain) || ['messaggeroveneto.gelocal.it'].includes(window.location.hostname)) {
+    if (['gelocal.it', 'ilsecoloxix.it', 'lastampa.it', 'repubblica.it'].includes(domain)) {
       let premium = document.querySelector('#paywall, iframe#__limio_frame');
       if (premium) {
         removeDOMElement(premium);

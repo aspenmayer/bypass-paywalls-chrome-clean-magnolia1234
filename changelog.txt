@@ -3,7 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add Westfaelische Nachrichten (Germany)
-Fix Messaggero Veneto (GElocal)
+Fix GElocal.it
 
 * v2.3.9.0 (2021-10-10)
 Add Lee Enterprises Group (local USA)
