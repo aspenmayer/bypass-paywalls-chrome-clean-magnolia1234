@@ -2194,19 +2194,16 @@ else if (matchDomain('nationalgeographic.com')) {
 }
 
 else if (matchDomain('nationalreview.com')) {
-  document.addEventListener('DOMContentLoaded', () => {
-    let url = window.location.href;
-    let article_truncated = document.querySelector('div#article-content-truncate-wrap');
-    if (article_truncated && !url.includes('/amp/')) {
-      article_truncated.removeAttribute('id');
-      if (url.includes('?'))
-        window.location.href = url.replace('?', 'amp/?');
-      else
-        window.location.href = url + 'amp';
+  let url = window.location.href.split('?')[0];
+  if (!url.includes('/amp/')) {
+    let continue_reading = document.querySelector('div.continue-reading');
+    if (continue_reading) {
+      removeDOMElement(continue_reading);
+      window.location.href = url + 'amp';
     }
-    let adverts = document.querySelectorAll('.ad-unit--center');
-    removeDOMElement(...adverts);
-  });
+  }
+  let adverts = document.querySelectorAll('amp-ad, .ad-unit--center');
+  removeDOMElement(...adverts);
 }
 
 else if (matchDomain('newleftreview.org')) {
