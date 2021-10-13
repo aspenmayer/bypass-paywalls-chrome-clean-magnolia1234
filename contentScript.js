@@ -554,9 +554,18 @@ else if (matchDomain('rheinpfalz.de')) {
 }
 
 else if (matchDomain(['ruhrnachrichten.de', 'hellwegeranzeiger.de'])) {
-  let paywall = document.querySelector('.PianoContent');
-  if (paywall)
-    paywall.classList.remove('PianoContent');
+  let url = window.location.href;
+  if (!url.includes('?amp')) {
+    let paywall = document.querySelector('.PianoContent');
+    if (paywall)
+      paywall.classList.remove('PianoContent');
+  } else {
+    let subscr_sections = document.querySelectorAll('section[subscriptions-section="content"]');
+    for (let subscr_section of subscr_sections)
+      subscr_section.removeAttribute('subscriptions-section');
+    let amp_ads = document.querySelectorAll('amp-ad');
+    removeDOMElement(...amp_ads);
+  }
 }
 
 else if (matchDomain('sueddeutsche.de')) {

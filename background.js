@@ -381,7 +381,7 @@ var blockedRegexes = {
   'qz.com': /\.tinypass\.com\//,
   'reuters.com': /\.reuters\.com\/(arc\/subs\/p\.min|pf\/resources\/dist\/reuters\/js\/index)\.js/,
   'rollingstone.com': /cdn\.cxense\.com\//,
-  'ruhrnachrichten.de': /\.tinypass\.com\//,
+  'ruhrnachrichten.de': /(\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-((sticky-)?ad|consent|subscriptions)-.+\.js)/,
   'saechsische.de': /\.tinypass\.com\//,
   'sandiegouniontribune.com': /metering\.platform\.sandiegouniontribune\.com\/v\d\/meter/,
   'science-et-vie.com': /\.qiota\.com\//,

@@ -5,6 +5,7 @@ Post-release
 Add Westfaelische Nachrichten (Germany)
 Fix GElocal.it
 Fix National Review
+Fix Ruhr Nachrichten (amp)
 
 * v2.3.9.0 (2021-10-10)
 Add Lee Enterprises Group (local USA)
