@@ -319,6 +319,7 @@ var defaultSites =
   "TribDss": "tribdss.com",
   "* BPC settings": "###",
   "Show options on update": "#options_on_update",
+  "Enable new sites by default": "#options_enable_new_sites",
   "Restore opt-in for custom sites (on reload; Chrome-only)": "#options_restore_custom",
   "Barron's - no Googlebot (http error 500)": "#options_disable_gb_barrons",
   "The Australian - no Googlebot (http error 403)": "#options_disable_gb_theaustralian",

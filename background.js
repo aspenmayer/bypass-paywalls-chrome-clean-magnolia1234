@@ -659,10 +659,12 @@ function add_grouped_sites(init_rules) {
 // Add googlebot- and block_javascript-settings for custom sites
 ext_api.storage.local.get({
   sites: {},
+  sites_default: Object.keys(defaultSites).filter(x => !defaultSites[x].match(/^(#options_|###$)/)),
   sites_custom: {},
   sites_excluded: []
 }, function (items) {
   var sites = items.sites;
+  var sites_default = items.sites_default;
   var sites_custom = items.sites_custom;
   excludedSites = items.sites_excluded;
 
@@ -671,6 +673,22 @@ ext_api.storage.local.get({
     }).map(function (key) {
       return sites[key].toLowerCase();
     });
+
+  // Enable new sites by default (opt-in)
+  if (enabledSites.includes('#options_enable_new_sites')) {
+    var sites_new = Object.keys(defaultSites).filter(x => !defaultSites[x].match(/^(#options_|###$)/) && !sites_default.includes(x));
+    for (let site_new of sites_new) {
+      sites[site_new] = defaultSites[site_new];
+    }
+    ext_api.storage.local.set({
+      sites: sites
+    });
+  }
+  sites_default = Object.keys(defaultSites).filter(x => !defaultSites[x].match(/^(#options_|###$)/));
+  ext_api.storage.local.set({
+    sites_default: sites_default
+  });
+
   customSites = sites_custom;
   customSites_domains = Object.values(sites_custom).map(x => x.domain);
   disabledSites = defaultSites_domains.concat(customSites_domains).filter(x => !enabledSites.includes(x) && x !== '###');
