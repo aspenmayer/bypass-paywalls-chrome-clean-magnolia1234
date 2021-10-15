@@ -6,6 +6,7 @@ Add Westfaelische Nachrichten (Germany)
 Fix GElocal.it
 Fix National Review
 Fix Ruhr Nachrichten (amp)
+Fix Tech in Asia (visual story)
 Update options: enable new sites by default
 
 * v2.3.9.0 (2021-10-10)

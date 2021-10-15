@@ -2462,7 +2462,7 @@ else if (matchDomain('techinasia.com')) {
   if (paywall) {
     paywall.classList.remove('paywall-content');
     let url = window.location.href;
-    let url_xhr = url.replace('.com/', '.com/wp-json/techinasia/2.0/posts/');
+    let url_xhr = url.replace('.com/', '.com/wp-json/techinasia/2.0/posts/').replace('/visual-story/', '/');
     fetch(url_xhr)
     .then(response => {
       if (response.ok) {
