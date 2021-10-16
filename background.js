@@ -2,7 +2,9 @@
 
 'use strict';
 var ext_api = (typeof browser === 'object') ? browser : chrome;
-var ext_name = ext_api.runtime.getManifest().name;
+var manifestData = ext_api.runtime.getManifest();
+var ext_name = manifestData.name;
+var ext_version = manifestData.version;
 
 const cs_limit_except = ['elespanol.com', 'faz.net', 'inkl.com', 'la-croix.com', 'nation.africa', 'nationalgeographic.com'];
 var currentTabUrl = '';
@@ -656,16 +658,18 @@ function add_grouped_sites(init_rules) {
 }
 
 // Get the enabled sites (from local storage) & add to allow/remove_cookies (if not already in one of these arrays)
-// Add googlebot- and block_javascript-settings for custom sites
+// Add user-agent/referer and block_javascript-settings for custom sites
 ext_api.storage.local.get({
   sites: {},
   sites_default: Object.keys(defaultSites).filter(x => !defaultSites[x].match(/^(#options_|###$)/)),
   sites_custom: {},
-  sites_excluded: []
+  sites_excluded: [],
+  ext_version_old: '2.3.9.0'
 }, function (items) {
   var sites = items.sites;
   var sites_default = items.sites_default;
   var sites_custom = items.sites_custom;
+  var ext_version_old = items.ext_version_old
   excludedSites = items.sites_excluded;
 
   enabledSites = Object.keys(sites).filter(function (key) {
@@ -675,19 +679,22 @@ ext_api.storage.local.get({
     });
 
   // Enable new sites by default (opt-in)
-  if (enabledSites.includes('#options_enable_new_sites')) {
-    var sites_new = Object.keys(defaultSites).filter(x => !defaultSites[x].match(/^(#options_|###$)/) && !sites_default.includes(x));
-    for (let site_new of sites_new) {
-      sites[site_new] = defaultSites[site_new];
+  if (ext_version > ext_version_old) {
+    if (enabledSites.includes('#options_enable_new_sites')) {
+      var sites_new = Object.keys(defaultSites).filter(x => !defaultSites[x].match(/^(#options_|###$)/) && !sites_default.includes(x));
+      for (let site_new of sites_new) {
+        sites[site_new] = defaultSites[site_new];
+      }
+      ext_api.storage.local.set({
+        sites: sites
+      });
     }
+    sites_default = Object.keys(defaultSites).filter(x => !defaultSites[x].match(/^(#options_|###$)/));
     ext_api.storage.local.set({
-      sites: sites
+      sites_default: sites_default,
+      ext_version_old: ext_version
     });
   }
-  sites_default = Object.keys(defaultSites).filter(x => !defaultSites[x].match(/^(#options_|###$)/));
-  ext_api.storage.local.set({
-    sites_default: sites_default
-  });
 
   customSites = sites_custom;
   customSites_domains = Object.values(sites_custom).map(x => x.domain);
@@ -859,8 +866,8 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
         }
       }
     }
-    if (key === 'version_new') {
-      version_new = storageChange.newValue;
+    if (key === 'ext_version_new') {
+      ext_version_new = storageChange.newValue;
     }
     // reset disableJavascriptOnListedSites eventListener
     ext_api.webRequest.onBeforeRequest.removeListener(disableJavascriptOnListedSites);
@@ -1421,7 +1428,7 @@ function updateBadge(activeTab) {
       badgeText = 'OFF';
       color = 'blue';
     }
-    if (version_new)
+    if (ext_version_new)
       badgeText = '^' + badgeText;
     let isDefaultSite = matchUrlDomain(defaultSites_domains, currentUrl);
     let isCustomSite = matchUrlDomain(customSites_domains, currentUrl);
@@ -1443,10 +1450,9 @@ function updateBadge(activeTab) {
   }
 }
 
-var version_new;
+var ext_version_new;
 check_update();
 function check_update() {
-  var manifestData = ext_api.runtime.getManifest();
   var manifest_new = 'https://bitbucket.org/magnolia1234/bypass-paywalls-firefox-clean/raw/master/manifest.json';
   fetch(manifest_new)
   .then(response => {
@@ -1454,12 +1460,12 @@ function check_update() {
       response.json().then(json => {
         ext_api.management.getSelf(function (result) {
           var installType = result.installType;
-          var version_len = (installType === 'development') ? 7 : 5;
-          version_new = json['version'];
-          if (version_new.substring(0, version_len) <= manifestData.version.substring(0, version_len))
-            version_new = '';
+          var ext_version_len = (installType === 'development') ? 7 : 5;
+          ext_version_new = json['version'];
+          if (ext_version_new.substring(0, ext_version_len) <= ext_version.substring(0, ext_version_len))
+            ext_version_new = '';
           ext_api.storage.local.set({
-            version_new: version_new
+            ext_version_new: ext_version_new
           });
         });
       })
