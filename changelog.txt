@@ -2,6 +2,8 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+
+* v2.4.0.0 (2021-10-17)
 Add Westfaelische Nachrichten (Germany)
 Remove Australian Provincial Newspapers (obsolete)
 Fix GElocal.it
