@@ -8,7 +8,7 @@ Fix GElocal.it
 Fix National Review
 Fix Ruhr Nachrichten (amp)
 Fix Tech in Asia (visual story)
-Update custom sites (block regex & add import)
+Update custom sites (block regex, amp unhide & add imported)
 Update options: enable new sites by default
 
 * v2.3.9.0 (2021-10-10)

@@ -425,6 +425,8 @@ var blockedRegexes = {
   'wsj.com': /(cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent|subscriptions)-.+\.js|cdn\.cxense\.com\/)/
 };
 
+var amp_unhide = [];
+
 // grouped domains in sites.js (for options)
 
 // grouped domains (rules only)
@@ -726,6 +728,8 @@ ext_api.storage.local.get({
         blockedRegexes[domainVar] = new RegExp(sites_custom[key]['block_regex']);
       }
     }
+    if (sites_custom[key]['amp_unhide'] > 0)
+      amp_unhide.push(domainVar);
     switch (sites_custom[key]['referer']) {
     case 'facebook':
       use_facebook_referer.push(domainVar);
@@ -805,6 +809,7 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
       use_twitter_referer = use_twitter_referer_default.slice();
       block_js_custom = [];
       block_js_custom_ext = [];
+      amp_unhide = [];
       for (let key in sites_custom) {
         var domainVar = sites_custom[key]['domain'].toLowerCase();
         if (sites_custom[key]['googlebot'] > 0 && !use_google_bot.includes(domainVar)) {
@@ -836,16 +841,21 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
         if (sites_custom[key]['block_javascript_ext'] > 0) {
           block_js_custom_ext.push(domainVar);
         }
-		if (!(defaultSites_domains.includes(domainVar) && blockedRegexes[domainVar])) {
-		  if (sites_custom[key]['block_regex']) {
-		    if (sites_custom[key]['block_regex'].match(/^\/.+\/$/))
-		      sites_custom[key]['block_regex'] = sites_custom[key]['block_regex'].replace(/(^\/|\/$)/g, '');
-		    blockedRegexes[domainVar] = new RegExp(sites_custom[key]['block_regex']);
-		  } else {
-		    if (blockedRegexes[domainVar])
-		      delete blockedRegexes[domainVar];
-		  }
-		}
+        if (!(defaultSites_domains.includes(domainVar) && blockedRegexes[domainVar])) {
+          if (sites_custom[key]['block_regex']) {
+            if (sites_custom[key]['block_regex'].match(/^\/.+\/$/))
+              sites_custom[key]['block_regex'] = sites_custom[key]['block_regex'].replace(/(^\/|\/$)/g, '');
+            blockedRegexes[domainVar] = new RegExp(sites_custom[key]['block_regex']);
+          } else {
+            if (blockedRegexes[domainVar])
+              delete blockedRegexes[domainVar];
+          }
+        }
+        if (sites_custom[key]['amp_unhide'] > 0) {
+          amp_unhide.push(domainVar);
+        } else {
+          amp_unhide.splice(amp_unhide.indexOf(domainVar), 1);
+        }
         switch (sites_custom[key]['referer']) {
         case 'facebook':
           use_facebook_referer.push(domainVar);
@@ -1272,7 +1282,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
     let usa_today_site = (matchUrlDomain('gannett-cdn.com', details.url) && matchUrlDomain(['usatoday.com'], header_referer));
     allow_ext_source = allow_ext_source || inkl_site || cl_elmerc_site || es_elesp_site || it_repubblica_site || usa_law360_site || usa_mw_site || usa_natgeo_site || usa_today_site;
 
-    bpc_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain(['aachener-zeitung.de', 'asiatimes.com', 'augsburger-allgemeine.de', 'barrons.com', 'belfasttelegraph.co.uk', 'cicero.de', 'cmjornal.pt', 'elpais.com', 'elperiodico.com', 'freiepresse.de', 'handelsblatt.com', 'ilfattoquotidiano.it', 'inc42.com', 'independent.ie', 'irishtimes.com', 'la-croix.com', 'marketwatch.com', 'nationalreview.com', 'noz.de', 'nwzonline.de', 'scmp.com', 'seekingalpha.com', 'shz.de', 'staradvertiser.com', 'sueddeutsche.de', 'svz.de', 'telegraph.co.uk', 'washingtonpost.com', 'westfalen-blatt.de', 'wn.de', 'wsj.com'].concat(au_news_corp_domains, au_nine_domains, de_madsack_domains, es_epiberica_domains, es_grupo_vocento_domains, es_unidad_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, it_repubblica_domains, usa_mcc_domains, usa_mng_domains, usa_theathletic_domains), header_referer));
+    bpc_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain(['aachener-zeitung.de', 'asiatimes.com', 'augsburger-allgemeine.de', 'barrons.com', 'belfasttelegraph.co.uk', 'cicero.de', 'cmjornal.pt', 'elpais.com', 'elperiodico.com', 'freiepresse.de', 'handelsblatt.com', 'ilfattoquotidiano.it', 'inc42.com', 'independent.ie', 'irishtimes.com', 'la-croix.com', 'marketwatch.com', 'nationalreview.com', 'noz.de', 'nwzonline.de', 'scmp.com', 'seekingalpha.com', 'shz.de', 'staradvertiser.com', 'sueddeutsche.de', 'svz.de', 'telegraph.co.uk', 'washingtonpost.com', 'westfalen-blatt.de', 'wn.de', 'wsj.com'].concat(amp_unhide, au_news_corp_domains, au_nine_domains, de_madsack_domains, es_epiberica_domains, es_grupo_vocento_domains, es_unidad_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, it_repubblica_domains, usa_mcc_domains, usa_mng_domains, usa_theathletic_domains), header_referer));
   }
 
   if (!isSiteEnabled(details) && !allow_ext_source && !bpc_amp_site && !au_swm_site) {
@@ -1383,26 +1393,27 @@ if (matchUrlDomain(change_headers, details.url) && (!['font', 'image', 'styleshe
           let lib_file = 'lib/empty.js';
           if (matchUrlDomain(['bloomberg.com', 'cicero.de', 'economictimes.com', 'lesechos.fr', 'newleftreview.org', 'newyorker.com', 'nzherald.co.nz', 'prospectmagazine.co.uk', 'sudouest.fr', 'techinasia.com', 'valor.globo.com', 'washingtonpost.com'].concat(nl_mediahuis_region_domains, no_nhst_media_domains, usa_theathletic_domains), currentTabUrl))
             lib_file = 'lib/purify.min.js';
-            var bg2csData = {
-              optin_setcookie: optin_setcookie
-            };
+          var bg2csData = {
+            optin_setcookie: optin_setcookie,
+            amp_unhide: matchUrlDomain(amp_unhide, currentTabUrl)
+          };
+          ext_api.tabs.executeScript(tabId, {
+            code: 'var bg2csData = ' + JSON.stringify(bg2csData) + ';'
+          }, function () {
             ext_api.tabs.executeScript(tabId, {
-              code: 'var bg2csData = ' + JSON.stringify(bg2csData) + ';'
+              file: lib_file,
+              runAt: 'document_start'
             }, function () {
               ext_api.tabs.executeScript(tabId, {
-                file: lib_file,
+                file: 'contentScript.js',
                 runAt: 'document_start'
-              }, function () {
-                ext_api.tabs.executeScript(tabId, {
-                  file: 'contentScript.js',
-                  runAt: 'document_start'
-                }, function (res) {
-                  if (ext_api.runtime.lastError || res[0]) {
-                    return;
-                  }
-                })
-              });
+              }, function (res) {
+                if (ext_api.runtime.lastError || res[0]) {
+                  return;
+                }
+              })
             });
+          });
         }
       }
     });

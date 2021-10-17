@@ -32,12 +32,32 @@ if (!matchDomain(arr_localstorage_hold)) {
 var div_bpc_done = document.querySelector('div#bpc_done');
 if (!div_bpc_done) {
 
+var bg2csData;
 // check for opt-in confirmation (from background.js)
-if (bg2csData.optin_setcookie) {
+if ((bg2csData !== undefined) && bg2csData.optin_setcookie) {
   if (domain = matchDomain(['belfasttelegraph.co.uk', 'independent.ie'])) {
     if (!cookieExists('subscriber'))
       setCookie('subscriber', '{"subscriptionStatus": true}', domain, '/', 14);
   }
+}
+
+// custom sites: try to unhide text on amp-page
+if ((bg2csData !== undefined) && bg2csData.amp_unhide) {
+  window.setTimeout(function () {
+    let amp_page = document.querySelector('script[src^="https://cdn.ampproject.org/"]');
+    if (amp_page) {
+      let preview = document.querySelector('[subscriptions-section="content-not-granted"]');
+      removeDOMElement(preview);
+      let subscr_section = document.querySelectorAll('[subscriptions-section="content"]');
+      for (let elem of subscr_section)
+        elem.removeAttribute('subscriptions-section');
+    }
+    let content_hidden = document.querySelectorAll('[amp-access][amp-access-hide]');
+    for (elem of content_hidden)
+      elem.removeAttribute('amp-access-hide');
+    let amp_ads = document.querySelectorAll('amp-ad');
+    removeDOMElement(...amp_ads);
+  }, 500); // Delay (in milliseconds)
 }
 
 // Content workarounds/domain
@@ -856,7 +876,7 @@ else if ((domain = matchDomain(fr_groupe_ebra_domains)) && window.location.href.
       }, 500); // Delay (in milliseconds)
     }
   } else {
-    let amp_access_hide = document.querySelector('[amp-access-hide]');
+    let amp_access_hide = document.querySelector('[amp-access][amp-access-hide]');
     if (amp_access_hide) {
       let not_access_section = document.querySelector('section[amp-access="NOT access"]');
       removeDOMElement(not_access_section);
@@ -2864,9 +2884,9 @@ else
   csDone = true;
 }
 
-if (csDone || csDoneOnce) {
+if ((csDone && (bg2csData !== undefined)) || csDoneOnce) {
   addDivBpcDone();
-  if (csDone)
+  if (csDone && (bg2csData !== undefined) && !bg2csData.amp_unhide)
     ext_api.runtime.sendMessage({csDone: true});
 }
 

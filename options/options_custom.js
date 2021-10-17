@@ -189,6 +189,7 @@ function edit_options() {
     document.querySelector('input[data-key="block_javascript"]').checked = (edit_site.block_javascript > 0);
     document.querySelector('input[data-key="block_javascript_ext"]').checked = (edit_site.block_javascript_ext > 0);
     document.querySelector('input[data-key="block_regex"]').value = edit_site.block_regex ? edit_site.block_regex : '';
+    document.querySelector('input[data-key="amp_unhide"]').checked = (edit_site.amp_unhide > 0);
     document.querySelector('select[data-key="referer"]').selectedIndex = referer_options.indexOf(edit_site.referer);
   });
 }
@@ -246,7 +247,8 @@ function renderOptions() {
       'allow_cookies': 1,
       'block_javascript': 1,
       'block_javascript_ext': 1,
-      'block_regex': 0
+      'block_regex': 0,
+      'amp_unhide': 1
     };
     for (var key in add_checkboxes) {
       labelEl = document.createElement('label');
@@ -306,7 +308,8 @@ function renderOptions() {
       (sites_custom[key]['block_javascript_ext'] > 0 ? ' | block javascript ext' : '') +
       (sites_custom[key]['block_regex'] ? ' | block regex' : '') +
       (sites_custom[key]['useragent'] ? ' | useragent: ' + sites_custom[key]['useragent'] : '') +
-      (sites_custom[key]['referer'] ? ' | referer: ' + sites_custom[key]['referer'] : '');
+      (sites_custom[key]['referer'] ? ' | referer: ' + sites_custom[key]['referer'] : '') +
+      (sites_custom[key]['amp_unhide'] > 0 ? ' | amp_unhide' : '');
       optionEl.value = key;
       selectEl.add(optionEl);
     }
