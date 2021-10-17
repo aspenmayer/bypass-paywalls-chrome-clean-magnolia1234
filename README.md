@@ -579,18 +579,7 @@ Grouped in options:\
 [The Northern Daily Leader](https://www.northerndailyleader.com.au) -
 [The Port Macquarie News](https://www.portnews.com.au) -
 [The Standard](https://www.standard.net.au) -
-[Western Advocate](https://www.westernadvocate.com.au)\
-*Australian Provincial Newspapers* site like (opt-in to custom sites for unlisted)\
-[Bundaberg News Mail](https://www.news-mail.com.au) -
-[Fraser Coast Chronicle](https://www.frasercoastchronicle.com.au) -
-[Gladstone Observer](https://www.gladstoneobserver.com.au) -
-[Grafton Daily Examiner](https://www.dailyexaminer.com.au) -
-[Mackay Daily Mercury](https://www.dailymercury.com.au) -
-[Rockhampton Morning Bulletin](https://www.themorningbulletin.com.au) -
-[Sunshine Coast Daily](https://www.sunshinecoastdaily.com.au) -
-[The Gympie Times](https://www.gympietimes.com.au) -
-[The Queensland Times](https://www.qt.com.au) -
-[Warwick Daily News](https://www.warwickdailynews.com.au)
+[Western Advocate](https://www.westernadvocate.com.au)
 
 #### East Asia
 [Asia Times](https://asiatimes.com) -

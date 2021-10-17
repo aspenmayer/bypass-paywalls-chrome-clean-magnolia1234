@@ -9,6 +9,7 @@ var ext_version = manifestData.version;
 const cs_limit_except = ['elespanol.com', 'faz.net', 'inkl.com', 'la-croix.com', 'nation.africa', 'nationalgeographic.com'];
 var currentTabUrl = '';
 var csDone = false;
+var optin_setcookie = false;
 
 // Cookies from this list are blocked by default (obsolete)
 // defaultSites are loaded from sites.js at installation extension
@@ -458,7 +459,6 @@ function setDefaultOptions() {
 var grouped_sites = {
 '###_au_comm_media': au_comm_media_domains,
 '###_au_news_corp': au_news_corp_domains,
-'###_au_prov_news': au_prov_news_domains,
 '###_br_folha': br_folha_domains,
 '###_ca_torstar': ca_torstar_domains,
 '###_de_funke_medien': de_funke_media_domains,
@@ -513,10 +513,6 @@ function add_grouped_sites(init_rules) {
       allow_cookies.push(domain);
       use_google_bot.push(domain);
       blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-(access|ad|iframe)-.+\.js/;
-    }
-    for (let domain of au_prov_news_domains) {
-      allow_cookies.push(domain);
-      use_google_bot.push(domain);
     }
     for (let domain of br_folha_domains) {
       allow_cookies.push(domain);
@@ -664,12 +660,14 @@ ext_api.storage.local.get({
   sites_default: Object.keys(defaultSites).filter(x => !defaultSites[x].match(/^(#options_|###$)/)),
   sites_custom: {},
   sites_excluded: [],
-  ext_version_old: '2.3.9.0'
+  ext_version_old: '2.3.9.0',
+  optIn: false
 }, function (items) {
   var sites = items.sites;
   var sites_default = items.sites_default;
   var sites_custom = items.sites_custom;
-  var ext_version_old = items.ext_version_old
+  var ext_version_old = items.ext_version_old;
+  optin_setcookie = items.optIn;
   excludedSites = items.sites_excluded;
 
   enabledSites = Object.keys(sites).filter(function (key) {
@@ -885,6 +883,9 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
     }
     if (key === 'ext_version_new') {
       ext_version_new = storageChange.newValue;
+    }
+    if (key === 'optIn') {
+      optin_setcookie = storageChange.newValue;
     }
     // reset disableJavascriptOnListedSites eventListener
     ext_api.webRequest.onBeforeRequest.removeListener(disableJavascriptOnListedSites);
@@ -1258,7 +1259,6 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
 
   let allow_ext_source = medium_custom_domain;
   let bpc_amp_site = false;
-  let au_apn_site = (header_referer && (urlHost(header_referer).endsWith('com.au') || urlHost(header_referer).endsWith('net.au')) && details.url.includes('https://media.apnarm.net.au/'));
   let au_swm_site = (header_referer && urlHost(header_referer).endsWith('com.au') && details.url.includes('https://s.thewest.com.au/'));
 
   if (isSiteEnabled({url: header_referer})) {
@@ -1275,7 +1275,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
     bpc_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain(['aachener-zeitung.de', 'asiatimes.com', 'augsburger-allgemeine.de', 'barrons.com', 'belfasttelegraph.co.uk', 'cicero.de', 'cmjornal.pt', 'elpais.com', 'elperiodico.com', 'freiepresse.de', 'handelsblatt.com', 'ilfattoquotidiano.it', 'inc42.com', 'independent.ie', 'irishtimes.com', 'la-croix.com', 'marketwatch.com', 'nationalreview.com', 'noz.de', 'nwzonline.de', 'scmp.com', 'seekingalpha.com', 'shz.de', 'staradvertiser.com', 'sueddeutsche.de', 'svz.de', 'telegraph.co.uk', 'washingtonpost.com', 'westfalen-blatt.de', 'wn.de', 'wsj.com'].concat(au_news_corp_domains, au_nine_domains, de_madsack_domains, es_epiberica_domains, es_grupo_vocento_domains, es_unidad_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, it_repubblica_domains, usa_mcc_domains, usa_mng_domains, usa_theathletic_domains), header_referer));
   }
 
-  if (!isSiteEnabled(details) && !allow_ext_source && !bpc_amp_site && !au_apn_site && !au_swm_site) {
+  if (!isSiteEnabled(details) && !allow_ext_source && !bpc_amp_site && !au_swm_site) {
     return;
   }
 
@@ -1374,7 +1374,7 @@ if (matchUrlDomain(change_headers, details.url) && (!['font', 'image', 'styleshe
 
   if (tabId !== -1) {
     ext_api.tabs.get(tabId, function (currentTab) {
-      if ((currentTab && isSiteEnabled(currentTab)) || medium_custom_domain || au_apn_site || au_swm_site) {
+      if ((currentTab && isSiteEnabled(currentTab)) || medium_custom_domain || au_swm_site) {
         if (currentTab.url !== currentTabUrl) {
           csDone = false;
           currentTabUrl = currentTab.url;
@@ -1383,19 +1383,26 @@ if (matchUrlDomain(change_headers, details.url) && (!['font', 'image', 'styleshe
           let lib_file = 'lib/empty.js';
           if (matchUrlDomain(['bloomberg.com', 'cicero.de', 'economictimes.com', 'lesechos.fr', 'newleftreview.org', 'newyorker.com', 'nzherald.co.nz', 'prospectmagazine.co.uk', 'sudouest.fr', 'techinasia.com', 'valor.globo.com', 'washingtonpost.com'].concat(nl_mediahuis_region_domains, no_nhst_media_domains, usa_theathletic_domains), currentTabUrl))
             lib_file = 'lib/purify.min.js';
-          ext_api.tabs.executeScript(tabId, {
-            file: lib_file,
-            runAt: 'document_start'
-          }, function () {
+            var bg2csData = {
+              optin_setcookie: optin_setcookie
+            };
             ext_api.tabs.executeScript(tabId, {
-              file: 'contentScript.js',
-              runAt: 'document_start'
-            }, function (res) {
-              if (ext_api.runtime.lastError || res[0]) {
-                return;
-              }
-            })
-          });
+              code: 'var bg2csData = ' + JSON.stringify(bg2csData) + ';'
+            }, function () {
+              ext_api.tabs.executeScript(tabId, {
+                file: lib_file,
+                runAt: 'document_start'
+              }, function () {
+                ext_api.tabs.executeScript(tabId, {
+                  file: 'contentScript.js',
+                  runAt: 'document_start'
+                }, function (res) {
+                  if (ext_api.runtime.lastError || res[0]) {
+                    return;
+                  }
+                })
+              });
+            });
         }
       }
     });
@@ -1622,16 +1629,6 @@ function clear_cookies() {
 
 var chrome_scheme = 'light';
 ext_api.runtime.onMessage.addListener(function (message, sender) {
-  // check storage for opt in
-  if (message.request === 'optin') {
-    ext_api.storage.local.get("optIn", function (result) {
-      // send message back to content script with value of opt in
-      ext_api.tabs.sendMessage(
-        sender.tab.id, {
-        "optIn": (true == result.optIn)
-      });
-    });
-  }
   if (message.request === 'clear_cookies') {
     clear_cookies();
   }

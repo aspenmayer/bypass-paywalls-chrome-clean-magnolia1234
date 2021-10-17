@@ -24,8 +24,7 @@ var usa_mng_domains =   ['denverpost.com', 'eastbaytimes.com', 'mercurynews.com'
 var usa_tribune_domains = ['baltimoresun.com', 'chicagotribune.com', 'courant.com', 'dailypress.com', 'mcall.com', 'nydailynews.com', 'orlandosentinel.com', 'pilotonline.com', 'sun-sentinel.com'];
 
 // clean local storage of sites (with an exemption for hold-list)
-var arr_localstorage_hold = ['augsburger-allgemeine.de', 'charliehebdo.fr', 'cmjornal.pt', 'houstonchronicle.com', 'inc42.com', 'irishtimes.com', 'kurier.at', 'nknews.org', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk'].concat(es_unidad_domains, no_nhst_media_domains);
-arr_localstorage_hold = arr_localstorage_hold.concat(de_funke_media_domains, es_grupo_vocento_domains);
+var arr_localstorage_hold = ['augsburger-allgemeine.de', 'charliehebdo.fr', 'cmjornal.pt', 'houstonchronicle.com', 'inc42.com', 'irishtimes.com', 'kurier.at', 'nknews.org', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk'].concat(de_funke_media_domains, es_grupo_vocento_domains, es_unidad_domains, no_nhst_media_domains);
 if (!matchDomain(arr_localstorage_hold)) {
   window.localStorage.clear();
 }
@@ -33,38 +32,12 @@ if (!matchDomain(arr_localstorage_hold)) {
 var div_bpc_done = document.querySelector('div#bpc_done');
 if (!div_bpc_done) {
 
-// listen to responses from background script
-if (ext_api.runtime && (matchDomain(['belfasttelegraph.co.uk', 'independent.ie']) || window.location.hostname.match(/\.(com|net)\.au$/))) {
-  ext_api.runtime.onMessage.addListener(function (message, sender) {
-    // setCookie opt-in
-    if (message.optIn) {
-      let hostname = window.location.hostname;
-      if (hostname.match(/\.(com|net)\.au$/)) {
-        // Australian Provincial Newspapers
-        domain = window.location.hostname.replace('www.', '');
-        let au_apn_script = document.querySelector('script[src^="https://media.apnarm.net.au/"]');
-        if (au_apn_script || (domain = matchDomain(['news-mail.com.au', 'frasercoastchronicle.com.au', 'gladstoneobserver.com.au', 'dailyexaminer.com.au', 'dailymercury.com.au', 'themorningbulletin.com.au', 'sunshinecoastdaily.com.au', 'gympietimes.com.au', 'qt.com.au', 'warwickdailynews.com.au'])))
-          if (!cookieExists('subscribed'))
-            setCookie('subscribed', 'true', domain, '/', 14);
-      } else {
-        if (domain = matchDomain(['belfasttelegraph.co.uk', 'independent.ie'])) {
-          if (!cookieExists('subscriber'))
-            setCookie('subscriber', '{"subscriptionStatus": true}', domain, '/', 14);
-          if (hostname.includes('amp.')) {
-            let subscriber = document.querySelector('section[amp-access="subscriber"][amp-access-hide]');
-            if (subscriber)
-              subscriber.removeAttribute('amp-access-hide');
-            let not_subscriber = document.querySelector('section[amp-access="NOT subscriber"]');
-            let amp_ads = document.querySelectorAll('amp-ad, amp-embed');
-            removeDOMElement(not_subscriber, ...amp_ads);
-          }
-        }
-      }
-    }
-  });
-
-// ask for opt-in confirmation
-ext_api.runtime.sendMessage({request: 'optin'});
+// check for opt-in confirmation (from background.js)
+if (bg2csData.optin_setcookie) {
+  if (domain = matchDomain(['belfasttelegraph.co.uk', 'independent.ie'])) {
+    if (!cookieExists('subscriber'))
+      setCookie('subscriber', '{"subscriptionStatus": true}', domain, '/', 14);
+  }
 }
 
 // Content workarounds/domain
