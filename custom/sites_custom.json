@@ -1,0 +1,110 @@
+{
+  "Aargauerzeitung.ch": {
+    "allow_cookies": "1",
+    "domain": "aargauerzeitung.ch",
+    "useragent": "googlebot"
+  },
+  "Ara.cat": {
+    "allow_cookies": "1",
+    "domain": "ara.cat",
+    "useragent": "googlebot"
+  },
+  "Asiasentinel.com": {
+    "allow_cookies": "1",
+    "domain": "asiasentinel.com",
+    "useragent": "googlebot"
+  },
+  "Beobachter.ch": {
+    "allow_cookies": "1",
+    "domain": "beobachter.ch",
+    "useragent": "googlebot"
+  },
+  "Bnn.de": {
+    "allow_cookies": "1",
+    "domain": "bnn.de",
+    "useragent": "googlebot"
+  },
+  "Capital.bg": {
+    "allow_cookies": "1",
+    "domain": "capital.bg",
+    "useragent": "googlebot"
+  },
+  "Connexionfrance.com": {
+    "domain": "connexionfrance.com"
+  },
+  "Handelszeitung.ch": {
+    "allow_cookies": "1",
+    "domain": "handelszeitung.ch",
+    "useragent": "googlebot"
+  },
+  "Heraldscotland.com": {
+    "domain": "heraldscotland.com"
+  },
+  "Internationalepolitik.de": {
+    "allow_cookies": "1",
+    "domain": "internationalepolitik.de"
+  },
+  "Lindipendente.online": {
+    "allow_cookies": "1",
+    "domain": "lindipendente.online",
+    "useragent": "googlebot"
+  },
+  "Lsa-conso.fr": {
+    "allow_cookies": "1",
+    "domain": "lsa-conso.fr",
+    "useragent": "googlebot"
+  },
+  "Luzernerzeitung.ch": {
+    "allow_cookies": "1",
+    "domain": "luzernerzeitung.ch",
+    "useragent": "googlebot"
+  },
+  "Muensterschezeitung.de": {
+    "allow_cookies": "1",
+    "domain": "muensterschezeitung.de",
+    "useragent": "googlebot"
+  },
+  "Pressandjournal.co.uk": {
+    "allow_cookies": "1",
+    "domain": "pressandjournal.co.uk",
+    "useragent": "googlebot"
+  },
+  "Pv-digest.de": {
+    "allow_cookies": "1",
+    "domain": "pv-digest.de",
+    "useragent": "googlebot"
+  },
+  "Speld.nl": {
+    "domain": "speld.nl"
+  },
+  "Supchina.com": {
+    "allow_cookies": "1",
+    "domain": "supchina.com"
+  },
+  "Tagblatt.ch": {
+    "allow_cookies": "1",
+    "domain": "tagblatt.ch",
+    "useragent": "googlebot"
+  },
+  "The-past.com": {
+    "domain": "the-past.com"
+  },
+  "Themonthly.com.au": {
+    "domain": "themonthly.com.au"
+  },
+  "Tijorifinance.com": {
+    "allow_cookies": "1",
+    "domain": "tijorifinance.com",
+    "useragent": "googlebot"
+  },
+  "Voguebusiness.com": {
+    "allow_cookies": "1",
+    "domain": "voguebusiness.com",
+    "useragent": "googlebot"
+  },
+  "Wz.de": {
+    "allow_cookies": "1",
+    "domain": "wz.de",
+    "useragent": "googlebot"
+  }
+}

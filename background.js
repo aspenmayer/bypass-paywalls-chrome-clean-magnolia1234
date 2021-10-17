@@ -721,6 +721,13 @@ ext_api.storage.local.get({
       block_js_custom.push(domainVar);
     if (sites_custom[key]['block_javascript_ext'] > 0)
       block_js_custom_ext.push(domainVar);
+    if (!(defaultSites_domains.includes(domainVar) && blockedRegexes[domainVar])) {
+      if (sites_custom[key]['block_regex']) {
+        if (sites_custom[key]['block_regex'].match(/^\/.+\/$/))
+          sites_custom[key]['block_regex'] = sites_custom[key]['block_regex'].replace(/(^\/|\/$)/g, '');
+        blockedRegexes[domainVar] = new RegExp(sites_custom[key]['block_regex']);
+      }
+    }
     switch (sites_custom[key]['referer']) {
     case 'facebook':
       use_facebook_referer.push(domainVar);
@@ -831,6 +838,16 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
         if (sites_custom[key]['block_javascript_ext'] > 0) {
           block_js_custom_ext.push(domainVar);
         }
+		if (!(defaultSites_domains.includes(domainVar) && blockedRegexes[domainVar])) {
+		  if (sites_custom[key]['block_regex']) {
+		    if (sites_custom[key]['block_regex'].match(/^\/.+\/$/))
+		      sites_custom[key]['block_regex'] = sites_custom[key]['block_regex'].replace(/(^\/|\/$)/g, '');
+		    blockedRegexes[domainVar] = new RegExp(sites_custom[key]['block_regex']);
+		  } else {
+		    if (blockedRegexes[domainVar])
+		      delete blockedRegexes[domainVar];
+		  }
+		}
         switch (sites_custom[key]['referer']) {
         case 'facebook':
           use_facebook_referer.push(domainVar);
