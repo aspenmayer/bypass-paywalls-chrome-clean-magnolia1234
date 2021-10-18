@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Fix Business Standard
 Fix Financial Times (amp)
 
 * v2.4.0.0 (2021-10-17)
