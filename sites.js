@@ -17,7 +17,6 @@ var defaultSites =
   "Augsburger Allgemeine": "augsburger-allgemeine.de",
   "Australia News Corp": "###_au_news_corp",
   "Australian Community Media (daily)": "###_au_comm_media",
-  "Australian Provincial Newspapers (daily) (opt-in)": "###_au_prov_news",
   "Barron's": "barrons.com",
   "BBC History Extra": "historyextra.com",
   "Belfast Telegraph (opt-in)": "belfasttelegraph.co.uk",

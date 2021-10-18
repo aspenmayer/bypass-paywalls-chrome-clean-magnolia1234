@@ -1970,10 +1970,16 @@ else if (matchDomain('foreignpolicy.com')) {
 }
 
 else if (matchDomain('ft.com')) {
-  let cookie_banner = document.querySelector('.o-banner__outer');
-  let ribbon = document.querySelector('.js-article-ribbon');
-  let ads = document.querySelector('.o-ads');
-  removeDOMElement(cookie_banner, ribbon, ads);
+  if (window.location.hostname.startsWith('amp.')) {
+    let subscr_section = document.querySelector('[subscriptions-section="content"]');
+    if (subscr_section)
+      subscr_section.removeAttribute('subscriptions-section');
+  } else {
+    let cookie_banner = document.querySelector('.o-banner__outer');
+    let ribbon = document.querySelector('.js-article-ribbon');
+    let ads = document.querySelector('.o-ads');
+    removeDOMElement(cookie_banner, ribbon, ads);
+  }
 }
 
 else if (matchDomain('griffithreview.com')) {
