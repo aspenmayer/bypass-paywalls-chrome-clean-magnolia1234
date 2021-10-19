@@ -6,6 +6,7 @@ Fix ABC.es (Evolok)
 Fix Business Standard
 Fix Il Tirreno (GElocal.it)
 Fix Financial Times (amp)
+Fix Trouw.nl (timing)
 
 * v2.4.0.0 (2021-10-17)
 Add Westfaelische Nachrichten (Germany)

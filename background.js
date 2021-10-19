@@ -642,6 +642,7 @@ function add_grouped_sites(init_rules) {
       allow_cookies.push(domain);
       remove_cookies.push(domain);
       remove_cookies_select_drop[domain] = ['TID_ID'];
+      blockedRegexes[domain] = new RegExp('\.' + domain + '\/temptation\/resolve');
     }
     for (let domain of usa_genomeweb_domains) {
       allow_cookies.push(domain);
