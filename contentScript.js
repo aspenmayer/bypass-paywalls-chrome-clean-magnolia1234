@@ -1133,20 +1133,18 @@ else if (matchDomain('rep.repubblica.it')) {
 else if (domain = matchDomain(it_repubblica_domains)) {
   let url = window.location.href.split('?')[0];
   if (!url.match(/\amp(\/)?$/)) {
-    if (['gelocal.it', 'ilsecoloxix.it', 'lastampa.it', 'repubblica.it'].includes(domain)) {
-      let premium = document.querySelector('#paywall, iframe#__limio_frame');
-      if (premium) {
-        removeDOMElement(premium);
-        if (!url.includes('/podcast/')) {
-          let amphtml = document.querySelector('link[rel="amphtml"]');
-          if (!amphtml)
-            amphtml = {href: (url.split('?')[0] + '/amp').replace('//amp', '/amp')};
-          if (amphtml)
-            window.location.href = amphtml.href;
-        }
+    let premium = document.querySelector('#paywall, iframe#__limio_frame');
+    if (premium) {
+      removeDOMElement(premium);
+      if (!url.includes('/podcast/')) {
+        let amphtml = document.querySelector('link[rel="amphtml"]');
+        if (!amphtml)
+          amphtml = {href: (url.split('?')[0] + '/amp').replace('//amp', '/amp')};
+        if (amphtml)
+          window.location.href = amphtml.href;
       }
-    } else {
-      let premium = document.querySelector('.paywall-adagio');
+    } else if (matchDomain('gelocal.it')) {
+      premium = document.querySelector('.paywall-adagio');
       if (premium) {
         removeDOMElement(premium);
         window.setTimeout(function () {
@@ -1971,6 +1969,8 @@ else if (matchDomain('ft.com')) {
     let subscr_section = document.querySelector('[subscriptions-section="content"]');
     if (subscr_section)
       subscr_section.removeAttribute('subscriptions-section');
+    let amp_ads = document.querySelectorAll('.ad-container, amp-ad');
+    removeDOMElement(...amp_ads);
   } else {
     let cookie_banner = document.querySelector('.o-banner__outer');
     let ribbon = document.querySelector('.js-article-ribbon');
