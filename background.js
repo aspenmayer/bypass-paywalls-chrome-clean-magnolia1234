@@ -426,6 +426,7 @@ var blockedRegexes = {
   'wn.de': /cdn\.ampproject\.org\/v\d\/amp-(ad|subscriptions)-.+\.js/,
   'wsj.com': /(cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent|subscriptions)-.+\.js|cdn\.cxense\.com\/)/
 };
+var blockedRegexesCustom = {};
 
 var amp_unhide = [];
 
@@ -724,12 +725,10 @@ ext_api.storage.local.get({
       block_js_custom.push(domainVar);
     if (sites_custom[key]['block_javascript_ext'] > 0)
       block_js_custom_ext.push(domainVar);
-    if (!(defaultSites_domains.includes(domainVar) && blockedRegexes[domainVar])) {
-      if (sites_custom[key]['block_regex']) {
-        if (sites_custom[key]['block_regex'].match(/^\/.+\/$/))
-          sites_custom[key]['block_regex'] = sites_custom[key]['block_regex'].replace(/(^\/|\/$)/g, '');
-        blockedRegexes[domainVar] = new RegExp(sites_custom[key]['block_regex']);
-      }
+    if (sites_custom[key]['block_regex']) {
+      if (sites_custom[key]['block_regex'].match(/^\/.+\/$/))
+        sites_custom[key]['block_regex'] = sites_custom[key]['block_regex'].replace(/(^\/|\/$)/g, '');
+      blockedRegexesCustom[domainVar] = new RegExp(sites_custom[key]['block_regex']);
     }
     if (sites_custom[key]['amp_unhide'] > 0)
       amp_unhide.push(domainVar);
@@ -812,6 +811,7 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
       use_twitter_referer = use_twitter_referer_default.slice();
       block_js_custom = [];
       block_js_custom_ext = [];
+      blockedRegexesCustom = {};
       amp_unhide = [];
       for (let key in sites_custom) {
         var domainVar = sites_custom[key]['domain'].toLowerCase();
@@ -844,20 +844,13 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
         if (sites_custom[key]['block_javascript_ext'] > 0) {
           block_js_custom_ext.push(domainVar);
         }
-        if (!(defaultSites_domains.includes(domainVar) && blockedRegexes[domainVar])) {
-          if (sites_custom[key]['block_regex']) {
-            if (sites_custom[key]['block_regex'].match(/^\/.+\/$/))
-              sites_custom[key]['block_regex'] = sites_custom[key]['block_regex'].replace(/(^\/|\/$)/g, '');
-            blockedRegexes[domainVar] = new RegExp(sites_custom[key]['block_regex']);
-          } else {
-            if (blockedRegexes[domainVar])
-              delete blockedRegexes[domainVar];
-          }
+        if (sites_custom[key]['block_regex']) {
+          if (sites_custom[key]['block_regex'].match(/^\/.+\/$/))
+            sites_custom[key]['block_regex'] = sites_custom[key]['block_regex'].replace(/(^\/|\/$)/g, '');
+          blockedRegexesCustom[domainVar] = new RegExp(sites_custom[key]['block_regex']);
         }
         if (sites_custom[key]['amp_unhide'] > 0) {
           amp_unhide.push(domainVar);
-        } else {
-          amp_unhide.splice(amp_unhide.indexOf(domainVar), 1);
         }
         switch (sites_custom[key]['referer']) {
         case 'facebook':
@@ -1245,11 +1238,10 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   // check for blocked regular expression: domain enabled, match regex, block on an internal or external regex
   var blockedDomains = Object.keys(blockedRegexes);
   var domain = matchUrlDomain(blockedDomains, header_referer);
-  var block_regex = true;
-  if (domain && details.url.match(blockedRegexes[domain]) && isSiteEnabled({url: header_referer})) {
-    if (block_regex)
-      return { cancel: true };
-  }
+  var blockedDomainsCustom = Object.keys(blockedRegexesCustom);
+  var domainCustom = matchUrlDomain(blockedDomainsCustom, header_referer);
+  if (((domain && details.url.match(blockedRegexes[domain])) || (domainCustom && details.url.match(blockedRegexesCustom[domainCustom]))) && isSiteEnabled({url: header_referer}))
+    return { cancel: true };
 
   // load toggleIcon.js (icon for dark or incognito mode in Chrome))
   if (typeof browser !== 'object' && ['main_frame', 'xmlhttprequest'].includes(details.type)) {
