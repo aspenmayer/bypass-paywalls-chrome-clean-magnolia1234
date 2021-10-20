@@ -418,7 +418,6 @@
         "*://*.study.com/*",
         "*://*.sudinfo.be/*",
         "*://*.sudouest.fr/*",
-        "*://*.sueddeutsche.de/*",
         "*://*.sun-sentinel.com/*",
         "*://*.svz.de/*",
         "*://*.talouselama.fi/*",
@@ -544,5 +543,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.4.0.2"
+    "version": "2.4.0.3"
 }

@@ -227,7 +227,6 @@ var defaultSites =
   "Stratfor": "stratfor.com",
   "Study.com (no videos)": "study.com",
   "Sud Ouest": "sudouest.fr",
-  "Süddeutsche Zeitung": "sueddeutsche.de",
   "Tampa Bay Times": "tampabay.com",
   "Tech in Asia": "techinasia.com",
   "Telegraaf": "telegraaf.nl",

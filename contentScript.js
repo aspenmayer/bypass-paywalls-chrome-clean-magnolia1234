@@ -561,34 +561,6 @@ else if (matchDomain(['ruhrnachrichten.de', 'hellwegeranzeiger.de'])) {
   }
 }
 
-else if (matchDomain('sueddeutsche.de')) {
-  let url = window.location.href;
-  document.addEventListener('DOMContentLoaded', () => {
-    let offer_page = document.querySelector('div.offer-page');
-    if (url.startsWith('https://www.sueddeutsche.de') && (url.includes('reduced=true') || offer_page))
-      window.location.href = url.split('?')[0].split('!')[0].replace('www.', 'amphtml.');
-    else if (url.startsWith('https://sz-magazin.sueddeutsche.de')) {
-      if (url.includes('reduced=true') || offer_page)
-        window.location.href = new URL(url).pathname + '!amp';
-    }
-  });
-  window.setTimeout(function () {
-    if (url.includes('!amp')) {
-      let paragraph_reduced = document.querySelector('.paragraph--reduced');
-      if (paragraph_reduced)
-        paragraph_reduced.classList.remove('paragraph--reduced');
-      let paragraph_hidden = document.querySelectorAll('.paragraph--hidden');
-      for (let par_hidden of paragraph_hidden)
-        par_hidden.classList.remove('paragraph--hidden');
-      let paragraph_dynamic = document.querySelector('.paragraph--dynamic');
-      if (paragraph_dynamic)
-        paragraph_dynamic.classList.remove('paragraph--dynamic');
-      let amp_offerpage = document.querySelector('.amp-offerpage');
-      removeDOMElement(amp_offerpage);
-    }
-  }, 500); // Delay (in milliseconds)
-}
-
 else if (matchDomain(['westfalen-blatt.de', 'wn.de'])) {
   let url = window.location.href;
   if (url.includes('/amp/')) {
