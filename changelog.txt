@@ -9,6 +9,7 @@ Fix Business Standard
 Fix Il Tirreno (GElocal.it)
 Fix Financial Times (amp)
 Fix La Croix (timing)
+Fix The New Yorker (homepage)
 Fix Trouw.nl (timing)
 Update custom sites (block regex for default sites)
 

@@ -2212,7 +2212,7 @@ else if (matchDomain('newrepublic.com')) {
   removeDOMElement(pw_opups);
 }
 
-else if (matchDomain('newyorker.com')) {
+else if (matchDomain('newyorker.com') && window.location.href.split('?')[0].match(/\.com\/.+\//) ) {
   let paywall_bar = document.querySelector('.paywall-bar');
   removeDOMElement(paywall_bar);
   let invisible_assets = document.querySelectorAll('.responsive-asset--invisible');
