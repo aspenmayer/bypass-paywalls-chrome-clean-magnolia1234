@@ -6,7 +6,7 @@ var manifestData = ext_api.runtime.getManifest();
 var ext_name = manifestData.name;
 var ext_version = manifestData.version;
 
-const cs_limit_except = ['elespanol.com', 'faz.net', 'inkl.com', 'la-croix.com', 'nation.africa', 'nationalgeographic.com'];
+const cs_limit_except = ['elespanol.com', 'faz.net', 'inkl.com', 'nation.africa', 'nationalgeographic.com'];
 var currentTabUrl = '';
 var csDone = false;
 var optin_setcookie = false;
@@ -348,7 +348,7 @@ var blockedRegexes = {
   'jpost.com': /\.jpost\.com\/bundles\/js_article\?/,
   'knack.be': /\.knack\.be\/js\/responsive\/rmgModal\.js/,
   'kurier.at': /\.tinypass\.com\//,
-  'la-croix.com': /cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js/,
+  'la-croix.com': /(\.la-croix\.com\/build\/lacroix\/article.+\.js|cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js)/,
   'lasegunda.com': /\.(lasegunda\.com|emol\.cl)\/(.+\/)?js\/(.+\/)?(modal|merPramV\d|PramModal\.min)\.js/,
   'latercera.com': /(\.latercera\.com\/arc\/subs\/p\.js|cdn\.cxense\.com\/)/,
   'latimes.com': /metering\.platform\.latimes\.com\/v\d\/meter/,

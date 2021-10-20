@@ -917,13 +917,9 @@ else if (matchDomain('journaldunet.com')) {
 else if (matchDomain('la-croix.com')) {
   let url = window.location.href;
   if (!url.includes('la-croix.com/amp/')) {
-    let paywall_host_param = document.querySelector('#paywall-host-param');
-    removeDOMElement(paywall_host_param);
-    let show_paywall = document.querySelector('#showPayWall');
-    if (show_paywall)
-      window.setTimeout(function () {
-        window.location.reload(true);
-      }, 500);
+    let hidden_images = document.querySelectorAll('source[srcset]');
+    for (elem of hidden_images)
+      elem.removeAttribute('srcset');
   } else {
     let paywall_block = document.querySelector('#paywall_block');
     let amp_ads = document.querySelectorAll('amp-ad, amp-embed');
