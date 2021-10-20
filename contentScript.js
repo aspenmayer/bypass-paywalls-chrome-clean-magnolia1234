@@ -793,7 +793,7 @@ else if (matchDomain('politicaexterior.com')) {
 else
   csDone = true;
 
-} else if (window.location.hostname.endsWith('.fr') || matchDomain(['bienpublic.com', 'journaldunet.com', 'la-croix.com', 'ledauphine.com', 'ledevoir.com', 'lejsl.com', 'loeildelaphotographie.com', 'nouvelobs.com', 'parismatch.com'])) {//france
+} else if (window.location.hostname.endsWith('.fr') || matchDomain(['bienpublic.com', 'journaldunet.com', 'la-croix.com', 'ledauphine.com', 'ledevoir.com', 'lejsl.com', 'loeildelaphotographie.com', 'marianne.net', 'nouvelobs.com', 'parismatch.com'])) {//france
 
 if (matchDomain('alternatives-economiques.fr')) {
   window.setTimeout(function () {
@@ -990,6 +990,23 @@ else if (matchDomain('loeildelaphotographie.com')) {
   let blurred_images = document.querySelectorAll('img[style*="blur"]');
   for (let blurred_image of blurred_images)
     blurred_image.removeAttribute('style');
+}
+
+else if (matchDomain('marianne.net')) {
+  let paywall = document.querySelector('div.paywall');
+  if (paywall) {
+    let article_source = document.querySelector('div.article-body[data-content-src]');
+    if (article_source) {
+      let article_text = decode_utf8(atob(article_source.getAttribute('data-content-src')));
+      let parser = new DOMParser();
+      let html = parser.parseFromString('<div>' + DOMPurify.sanitize(article_text) + '</div>', 'text/html');
+      let article = html.querySelector('div');
+      article_source.innerHTML = '';
+      article_source.appendChild(article);
+      article_source.removeAttribute('data-content-src');
+    }
+    removeDOMElement(paywall);
+  }
 }
 
 else if (matchDomain('nouvelobs.com')) {

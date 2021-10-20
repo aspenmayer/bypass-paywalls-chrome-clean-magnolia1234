@@ -110,6 +110,7 @@ var allow_cookies_default = [
   'livelaw.in',
   'loeildelaphotographie.com',
   'lrb.co.uk',
+  'marianne.net',
   'marketwatch.com',
   'medianama.com',
   'medium.com',
@@ -362,6 +363,7 @@ var blockedRegexes = {
   'loeildelaphotographie.com': /cdn\.loeildelaphotographie\.com\/wp-content\/.+\/hague-child\/js\/script-.+\.js/,
   'lopinion.fr': /\.poool\.fr\//,
   'lrb.co.uk': /\.tinypass\.com\//,
+  'marianne.net': /\.poool\.fr\//,
   'marketwatch.com': /(cdn\.cxense\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|ad|subscriptions)-.+\.js)/,
   'mercuriovalpo.cl': /(.+\.mercuriovalpo\.cl\/impresa\/.+\/assets\/(vendor|\d)\.js|pram\.pasedigital\.cl\/API\/User\/Status\?)/,
   'mexiconewsdaily.com': /\.mexiconewsdaily\.com\/c\/assets\/pigeon\.js/,
@@ -1384,7 +1386,7 @@ if (matchUrlDomain(change_headers, details.url) && (!['font', 'image', 'styleshe
         }
         if ((!['font', 'stylesheet'].includes(details.type) || matchUrlDomain(cs_limit_except, currentTabUrl)) && !csDone) {
           let lib_file = 'lib/empty.js';
-          if (matchUrlDomain(['bloomberg.com', 'cicero.de', 'economictimes.com', 'lesechos.fr', 'newleftreview.org', 'newyorker.com', 'nzherald.co.nz', 'prospectmagazine.co.uk', 'sudouest.fr', 'techinasia.com', 'valor.globo.com', 'washingtonpost.com'].concat(nl_mediahuis_region_domains, no_nhst_media_domains, usa_theathletic_domains), currentTabUrl))
+          if (matchUrlDomain(['bloomberg.com', 'cicero.de', 'economictimes.com', 'lesechos.fr', 'marianne.net', 'newleftreview.org', 'newyorker.com', 'nzherald.co.nz', 'prospectmagazine.co.uk', 'sudouest.fr', 'techinasia.com', 'valor.globo.com', 'washingtonpost.com'].concat(nl_mediahuis_region_domains, no_nhst_media_domains, usa_theathletic_domains), currentTabUrl))
             lib_file = 'lib/purify.min.js';
           var bg2csData = {
             optin_setcookie: optin_setcookie,

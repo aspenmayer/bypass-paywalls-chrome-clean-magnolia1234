@@ -303,6 +303,7 @@
         "*://*.lunion.fr/*",
         "*://*.lvz.de/*",
         "*://*.marca.com/*",
+        "*://*.marianne.net/*",
         "*://*.marketwatch.com/*",
         "*://*.marmai.fi/*",
         "*://*.maz-online.de/*",
@@ -543,5 +544,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.4.0.3"
+    "version": "2.4.0.4"
 }
