@@ -1637,6 +1637,17 @@ else if (matchDomain('bloomberg.com')) {
         hidden_image.setAttribute('src', hidden_image.getAttribute('data-native-src'));
       hidden_image.style.filter = 'none';
     }
+    let hidden_charts = document.querySelectorAll('div[data-toaster-id][data-src]');
+    for (let hidden_chart of hidden_charts) {
+      let elem = document.createElement('iframe');
+      Object.assign(elem, {
+        src: hidden_chart.getAttribute('data-src'),
+        frameborder: 0,
+        height: hidden_chart.getAttribute('style').replace('min-height: ', ''),
+        scrolling: 'no'
+      });
+      hidden_chart.parentNode.replaceChild(elem, hidden_chart);
+    }
     let blur = document.querySelector('div.blur[style]');
     if (blur) {
       blur.classList.remove('blur');

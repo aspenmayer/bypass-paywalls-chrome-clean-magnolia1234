@@ -4,6 +4,7 @@ Changelog Bypass Paywalls Clean - Chrome
 Post-release
 Remove Sueddeutsche Zeitung (obsolete)
 Fix ABC.es (Evolok)
+Fix Bloomberg (charts)
 Fix Business Standard
 Fix Il Tirreno (GElocal.it)
 Fix Financial Times (amp)
