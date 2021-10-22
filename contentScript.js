@@ -1188,7 +1188,7 @@ else if (matchDomain('ftm.nl')) {
 }
 
 else if (matchDomain('knack.be')) {
-  let paywall = document.querySelector('.rmgPaywall');
+  let paywall = document.querySelector('[class$="Paywall"], #paywall-modal-below');
   if (paywall) {
     removeDOMElement(paywall);
     let hidden_body = document.querySelector('div.rmgDetail-body div');

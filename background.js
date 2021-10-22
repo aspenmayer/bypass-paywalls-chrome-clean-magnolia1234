@@ -346,7 +346,7 @@ var blockedRegexes = {
   'irishtimes.com': /cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js/,
   'japantimes.co.jp': /\.piano\.io\//,
   'jpost.com': /\.jpost\.com\/bundles\/js_article\?/,
-  'knack.be': /\.knack\.be\/js\/responsive\/rmgModal\.js/,
+  'knack.be': /(\.knack\.be\/js\/responsive\/rmg(Modal|Paywall)\.js|\.blueconic\.net\/)/,
   'kurier.at': /\.tinypass\.com\//,
   'la-croix.com': /(\.la-croix\.com\/build\/lacroix\/article.+\.js|cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js)/,
   'lasegunda.com': /\.(lasegunda\.com|emol\.cl)\/(.+\/)?js\/(.+\/)?(modal|merPramV\d|PramModal\.min)\.js/,

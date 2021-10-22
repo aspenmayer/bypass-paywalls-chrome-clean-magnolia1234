@@ -9,6 +9,7 @@ Fix Bloomberg (charts)
 Fix Business Standard
 Fix Il Tirreno (GElocal.it)
 Fix Financial Times (amp)
+Fix Knack.be
 Fix La Croix (timing)
 Fix The Globe and Mail
 Fix The New Yorker (homepage)
