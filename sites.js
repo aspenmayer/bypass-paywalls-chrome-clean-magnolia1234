@@ -253,7 +253,6 @@ var defaultSites =
   "The Hindu": "thehindu.com",
   "The Hindu BusinessLine": "thehindubusinessline.com",
   "The Intercept": "theintercept.com",
-  "The Irish Times": "irishtimes.com",
   "The Japan Times": "japantimes.co.jp",
   "The Jerusalem Post": "jpost.com",
   "The Logic": "thelogic.co",

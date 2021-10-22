@@ -25,7 +25,7 @@ var usa_mng_domains =   ['denverpost.com', 'eastbaytimes.com', 'mercurynews.com'
 var usa_tribune_domains = ['baltimoresun.com', 'chicagotribune.com', 'courant.com', 'dailypress.com', 'mcall.com', 'nydailynews.com', 'orlandosentinel.com', 'pilotonline.com', 'sun-sentinel.com'];
 
 // clean local storage of sites (with an exemption for hold-list)
-var arr_localstorage_hold = ['augsburger-allgemeine.de', 'charliehebdo.fr', 'cmjornal.pt', 'houstonchronicle.com', 'inc42.com', 'irishtimes.com', 'kurier.at', 'nknews.org', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk'].concat(de_funke_media_domains, es_grupo_vocento_domains, es_unidad_domains, no_nhst_media_domains);
+var arr_localstorage_hold = ['augsburger-allgemeine.de', 'charliehebdo.fr', 'cmjornal.pt', 'houstonchronicle.com', 'inc42.com', 'kurier.at', 'nknews.org', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk'].concat(de_funke_media_domains, es_grupo_vocento_domains, es_unidad_domains, no_nhst_media_domains);
 if (!matchDomain(arr_localstorage_hold)) {
   window.localStorage.clear();
 }
@@ -1379,21 +1379,9 @@ else if (matchDomain('telegraaf.nl')) {
 else
   csDone = true;
 
-} else if (window.location.hostname.match(/\.(ie|uk)$/) || matchDomain(['irishtimes.com', 'theathletic.com'])) {//united kingdom/ireland
+} else if (window.location.hostname.match(/\.(ie|uk)$/) || matchDomain(['theathletic.com'])) {//united kingdom/ireland
 
-if (matchDomain('irishtimes.com')) {
-  document.addEventListener('DOMContentLoaded', () => {
-    let amphtml = document.querySelector('link[rel="amphtml"]');
-    let stub_article_msg = document.querySelector('div.stub-article-msg');
-    let url = window.location.href;
-    if ((url.includes('mode=sample') || stub_article_msg) && amphtml)
-      window.location.href = amphtml.href;
-    let amp_ads = document.querySelectorAll('.amp-ad-container');
-    removeDOMElement(...amp_ads);
-  });
-}
-
-else if (matchDomain('prospectmagazine.co.uk')) {
+if (matchDomain('prospectmagazine.co.uk')) {
   let url = window.location.href;
   document.addEventListener('DOMContentLoaded', () => {
     let paywall = document.querySelector('div.paywall_overlay_blend, div.paywall');
