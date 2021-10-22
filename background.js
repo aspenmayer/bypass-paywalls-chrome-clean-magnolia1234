@@ -35,6 +35,7 @@ const restrictions = {
   'seekingalpha.com': /.+\/seekingalpha\.com\/($|(amp\/)?(article|news)\/|samw\/)/,
   'statista.com': /^((?!\.statista\.com\/(outlook|study)\/).)*$/,
   'techinasia.com': /\.techinasia\.com\/.+/,
+  'theglobeandmail.com': /\.theglobeandmail\.com\/.+\//,
   'timeshighereducation.com':  /.+\.timeshighereducation\.com\/(sites\/default\/files\/|.+((\w)+(\-)+){3,}.+)/
 }
 
@@ -407,7 +408,7 @@ var blockedRegexes = {
   'telegraph.co.uk': /(\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js|\.telegraph\.co\.uk\/.+\/piano.+\.js|assets\.adobedtm\.com\/.+\.js)/,
   'theartnewspaper.com': /\.amazonaws.com\/production-website-scripts\/bouncer\.js/,
   'thedailybeast.com': /\.tinypass\.com\//,
-  'theglobeandmail.com': /smartwall\.theglobeandmail\.com\//,
+  'theglobeandmail.com': /(\.theglobeandmail\.com\/pf\/dist\/engine\/react\.js|smartwall\.theglobeandmail\.com\/)/,
   'thehindu.com': /(cdn\.cxense\.com\/|\.tinypass\.com\/)/,
   'thehindubusinessline.com': /(cdn\.cxense\.com\/|\.tinypass\.com\/)/,
   'theintercept.com': /\.theintercept\.com\/api\/tinypass\.min\.js/,
