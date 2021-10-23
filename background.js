@@ -26,7 +26,6 @@ const restrictions = {
   'faz.net': /^((?!\/.+\.faz\.net\/aktuell\/(\?switchfaznet)?$).)*$/,
   'foreignaffairs.com': /.+\.foreignaffairs\.com\/(articles|fa-caching|interviews|reviews|sites)\/.+/,
   'ft.com': /.+\.ft\.com\/content\//,
-  'lastampa.it': /^((?!\/video\.lastampa\.it\/).)*$/,
   'medianama.com': /\.medianama\.com\/((\d){4}\/(\d){2}|wp-content)\//,
   'timesofindia.com': /.+\.timesofindia\.com\/($|toi-plus(\/.+)?|.+\.cms)/,
   'nknews.org': /^((?!nknews\.org\/pro\/).)*$/,
@@ -636,7 +635,7 @@ function add_grouped_sites(init_rules) {
     }
     for (let domain of it_repubblica_domains) {
       allow_cookies.push(domain);
-      if (['gelocal.it', 'ilsecoloxix.it', 'lastampa.it', 'repubblica.it'].includes(domain))
+      if (['gelocal.it', 'ilsecoloxix.it', 'repubblica.it'].includes(domain))
         use_google_bot.push(domain);
       blockedRegexes[domain] = /(scripts\.repubblica\.it\/pw\/pw\.js|cdn\.ampproject\.org\/v\d\/amp-(access|ad|user-notification)-.+\.js)/;
     }
