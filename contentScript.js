@@ -1628,8 +1628,12 @@ else if (matchDomain('bloomberg.com')) {
   waitDOMElement('div#fortress-paywall-container-root', 'DIV', removeDOMElement, true);
   waitDOMAttribute('body', 'BODY', 'data-paywall-overlay-status', bloomberg_noscroll, true);
   sessionStorage.clear();
+  let paywall = document.querySelector('div#fortress-paywall-container-root');
   let counter = document.querySelector('div#fortress-preblocked-container-root');
-  removeDOMElement(counter);
+  let noscroll = document.querySelector('body[data-paywall-overlay-status]');
+  if (noscroll)
+    noscroll.removeAttribute('data-paywall-overlay-status');
+  removeDOMElement(paywall, counter);
   let url = window.location.href;
   if (url.match(/\/(articles|features)\//)) {
     let leaderboard = document.querySelector('div[id^="leaderboard"], div.leaderboard-wrapper');
@@ -2787,6 +2791,19 @@ else if (matchDomain('washingtonpost.com')) {
       for (let subscr_section of subscr_sections)
         subscr_section.removeAttribute('subscriptions-section');
     }
+  }
+}
+
+else if (matchDomain('wired.com')) {
+  let url = window.location.href.split('?')[0];
+  if (url.endsWith('/amp')) {
+    let preview = document.querySelector('section[subscriptions-section="content-not-granted"]');
+    removeDOMElement(preview);
+    let subscr_section = document.querySelector('[subscriptions-section="content"]');
+    if (subscr_section)
+      subscr_section.removeAttribute('subscriptions-section');
+    let amp_ads = document.querySelectorAll('.ad');
+    removeDOMElement(...amp_ads);
   }
 }
 

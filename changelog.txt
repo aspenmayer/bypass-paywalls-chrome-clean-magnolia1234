@@ -15,6 +15,7 @@ Fix La Croix (timing)
 Fix The Globe and Mail
 Fix The New Yorker (homepage)
 Fix Trouw.nl (timing)
+Fix Wired (amp)
 Update custom sites (block regex for default sites)
 
 * v2.4.0.0 (2021-10-17)
