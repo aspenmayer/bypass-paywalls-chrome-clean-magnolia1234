@@ -1428,10 +1428,10 @@ else if (matchDomain('the-tls.co.uk')) {
 
 else if (matchDomain(['theathletic.com', 'theathletic.co.uk'])) {
   if (!window.location.href.includes('?amp')) {
-    let paywall = document.querySelector('div#paywall-container, div[subscriptions-action="subscribe"]');
+    let paywall = document.querySelectorAll('div#paywall-container, div[subscriptions-action="subscribe"]', 'a.headline-paywall');
     let amphtml = document.querySelector('link[rel="amphtml"]');
     if (paywall && amphtml) {
-      removeDOMElement(paywall);
+      removeDOMElement(...paywall);
       window.location.href = amphtml.href;
     }
   } else {
