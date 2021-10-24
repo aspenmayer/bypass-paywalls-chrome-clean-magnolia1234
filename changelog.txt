@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Add Elle.fr
 Add Marianne (France)
 Remove Irish Times (obsolete)
 Remove Sueddeutsche Zeitung (obsolete)

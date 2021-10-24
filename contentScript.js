@@ -833,6 +833,14 @@ else if (matchDomain('charliehebdo.fr')) {
   }, 500); // Delay (in milliseconds)
 }
 
+else if (matchDomain('elle.fr')) {
+  let hidden_images = document.querySelectorAll('img[src^="data:image/"][data-src]');
+  for (let hidden_image of hidden_images)
+    hidden_image.setAttribute('src', hidden_image.getAttribute('data-src'));
+  let subscription_bar = document.querySelector('.tc-subscription-bar');
+  removeDOMElement(subscription_bar);
+}
+
 else if (matchDomain('esprit.presse.fr')) {
   let paywall = document.querySelector('.panel-popup-paywall');
   removeDOMElement(paywall);
@@ -1922,13 +1930,10 @@ else if (matchDomain('foreignaffairs.com')) {
     let article_dropcap = document.querySelectorAll('.article-dropcap');
     for (let elem of article_dropcap)
       elem.classList.add('loaded');
-    let hidden_images = document.querySelectorAll('img[src^="data:image/"]');
+    let hidden_images = document.querySelectorAll('img[src^="data:image/"][data-src]');
     for (let hidden_image of hidden_images) {
-      let data_src = hidden_image.getAttribute('data-src');
-      if (data_src) {
-        hidden_image.setAttribute('src', data_src);
-        hidden_image.removeAttribute('class');
-      }
+      hidden_image.setAttribute('src', hidden_image.getAttribute('data-src'));
+      hidden_image.removeAttribute('class');
     }
     let img_list = document.querySelectorAll('.magazine-list-article img');
     for (let img_elem of img_list)

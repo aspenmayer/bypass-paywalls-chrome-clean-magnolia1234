@@ -63,6 +63,7 @@ var defaultSites =
   "El Mundo": "elmundo.es",
   "El País": "elpais.com",
   "El Periódico (de Catalunya)": "elperiodico.com",
+  "Elle.fr": "elle.fr",
   "Encyclopedia Britannica": "britannica.com",
   "Entrepreneur": "entrepreneur.com",
   "Esprit": "esprit.presse.fr",

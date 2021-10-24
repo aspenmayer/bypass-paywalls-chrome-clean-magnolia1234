@@ -317,6 +317,7 @@ Grouped in options:\
 [Atlantico](https://atlantico.fr) -
 [Challenges](https://www.challenges.fr) -
 [Charlie Hebdo](https://charliehebdo.fr) -
+[Elle](https://www.elle.fr) -
 [Esprit](https://esprit.presse.fr) -
 [L'Express](https://www.lexpress.fr) -
 [L'Obs](https://www.nouvelobs.com) -

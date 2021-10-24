@@ -151,6 +151,7 @@
         "*://*.eldiario.es/*",
         "*://*.eldiariomontanes.es/*",
         "*://*.elespanol.com/*",
+        "*://*.elle.fr/*",
         "*://*.elmercurio.com/*",
         "*://*.elmundo.es/*",
         "*://*.elnortedecastilla.es/*",
@@ -543,5 +544,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.4.0.6"
+    "version": "2.4.0.7"
 }
