@@ -2,6 +2,8 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+
+* v2.4.1.0 (2021-10-24)
 Add Elle.fr
 Add Marianne (France)
 Remove Irish Times (obsolete)
