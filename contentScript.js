@@ -2436,6 +2436,41 @@ else if (matchDomain('stratfor.com')) {
   let hidden_images = document.querySelectorAll('img[src^="data:image/gif"][data-src]');
   for (let hidden_image of hidden_images)
     hidden_image.setAttribute('src', hidden_image.getAttribute('data-src'));
+  let url = window.location.href.split('?')[0];
+  if (url.match(/(\/(\d){4}-([a-z]|-)+-forecast(-([a-z]|-)+)?|-forecast-(\d){4}-([a-z]|[0-9]|-)+)$/)) {
+    json_script = document.querySelector('script#__NEXT_DATA__');
+    if (json_script && dompurify_loaded) {
+      let json = JSON.parse(json_script.innerText);
+      if (json && json.props.pageProps.data) {
+        let overview_div = document.querySelector('div[class^="overview_overview__"] > div');
+        if (overview_div) {
+          let data = json.props.pageProps.data;
+          let parser = new DOMParser();
+          let doc = parser.parseFromString('<div>' + DOMPurify.sanitize('<p>' + data.teaser_body + '</p>' + data.overview + '<p><h2>Sections</h2></p>' ) + '</div>', 'text/html');
+          let content_new = doc.querySelector('div');
+          let sections = data.section;
+          for (let section of sections) {
+            let section_link = document.createElement('a');
+            section_link.innerText = section.title;
+            section_link.href = 'https://' + window.location.hostname + '/' + section.path_alias;
+            content_new.appendChild(section_link);
+            content_new.appendChild(document.createElement('br'));
+          }
+          overview_div.parentNode.replaceChild(content_new, overview_div);
+          csDoneOnce = true;
+        }
+      }
+    }
+    waitDOMElement('div.paywall-banner', 'DIV', removeDOMElement, false);
+  } else if (url.match(/\/article\/.+-forecast(-.+)?\//)) {
+    let next_section_buttons = document.querySelectorAll('div[class^="nextSection_nextSection__"] > button');
+    for (let elem of next_section_buttons) {
+      let section_link = document.createElement('a');
+      section_link.innerText = elem.innerText;
+      section_link.href = url.replace(/[^\/]+$/, '') + elem.innerText.split(': ')[1].toLowerCase().split(' ').filter(x => !['a', 'an', 'of', 'the'].includes(x)).join('-');
+      elem.parentNode.replaceChild(section_link, elem);
+    }
+  }
 }
 
 else if (matchDomain('study.com')) {

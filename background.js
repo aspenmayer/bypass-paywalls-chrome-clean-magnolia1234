@@ -1300,6 +1300,8 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
     !(matchUrlDomain('barrons.com', details.url) && enabledSites.includes('#options_disable_gb_barrons')) &&
     !(matchUrlDomain('theaustralian.com.au', details.url) && enabledSites.includes('#options_disable_gb_theaustralian')) &&
     !(matchUrlDomain('wsj.com', details.url) && enabledSites.includes('#options_disable_gb_wsj'));
+  var bingbotEnabled = matchUrlDomain(use_bing_bot, details.url) && 
+    !(matchUrlDomain('stratfor.com', details.url) && details.url.match(/(\/(\d){4}-([a-z]||-)+-forecast(-([a-z]|-)+)?|-forecast-(\d){4}-([a-z]|[0-9]||-)+)$/));
 
 if (matchUrlDomain(change_headers, details.url) && (!['font', 'image', 'stylesheet'].includes(details.type) || matchUrlDomain(['thetimes.co.uk'], details.url))) {
   // if referer exists, set it
@@ -1353,7 +1355,7 @@ if (matchUrlDomain(change_headers, details.url) && (!['font', 'image', 'styleshe
   }
 
   // override User-Agent to use Bingbot
-  if (matchUrlDomain(use_bing_bot, details.url)) {
+  if (bingbotEnabled) {
     requestHeaders.push({
       "name": "User-Agent",
       "value": useUserAgentMobile ? userAgentMobileB : userAgentDesktopB
@@ -1388,7 +1390,7 @@ if (matchUrlDomain(change_headers, details.url) && (!['font', 'image', 'styleshe
         }
         if ((!['font', 'stylesheet'].includes(details.type) || matchUrlDomain(cs_limit_except, currentTabUrl)) && !csDone) {
           let lib_file = 'lib/empty.js';
-          if (matchUrlDomain(['bloomberg.com', 'cicero.de', 'economictimes.com', 'lesechos.fr', 'marianne.net', 'newleftreview.org', 'newyorker.com', 'nzherald.co.nz', 'prospectmagazine.co.uk', 'sudouest.fr', 'techinasia.com', 'valor.globo.com', 'washingtonpost.com'].concat(nl_mediahuis_region_domains, no_nhst_media_domains, usa_theathletic_domains), currentTabUrl))
+          if (matchUrlDomain(['bloomberg.com', 'cicero.de', 'economictimes.com', 'lesechos.fr', 'marianne.net', 'newleftreview.org', 'newyorker.com', 'nzherald.co.nz', 'prospectmagazine.co.uk', 'stratfor.com', 'sudouest.fr', 'techinasia.com', 'valor.globo.com', 'washingtonpost.com'].concat(nl_mediahuis_region_domains, no_nhst_media_domains, usa_theathletic_domains), currentTabUrl))
             lib_file = 'lib/purify.min.js';
           var bg2csData = {
             optin_setcookie: optin_setcookie,
