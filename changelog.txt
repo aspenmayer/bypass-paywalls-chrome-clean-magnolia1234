@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Fix Stratfor (forecasts)
+Fix The Athletic (timing)
 
 * v2.4.1.0 (2021-10-24)
 Add Elle.fr
