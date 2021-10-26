@@ -2448,7 +2448,10 @@ else if (matchDomain('stratfor.com')) {
         if (overview_div) {
           let data = json.props.pageProps.data;
           let parser = new DOMParser();
-          let doc = parser.parseFromString('<div>' + DOMPurify.sanitize('<p>' + data.teaser_body + '</p>' + data.overview + '<p><h2>Sections</h2></p>' ) + '</div>', 'text/html');
+          let data_overview = data.overview;
+          if (!parseHtmlEntities(data_overview).includes(data.teaser_body))
+            data_overview = '<p>' + data.teaser_body + '</p>' + data_overview;
+          let doc = parser.parseFromString('<div>' + DOMPurify.sanitize(data_overview + '<p><h2>Sections</h2></p>') + '</div>', 'text/html');
           let content_new = doc.querySelector('div');
           let sections = data.section;
           for (let section of sections) {

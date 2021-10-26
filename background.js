@@ -30,7 +30,6 @@ const restrictions = {
   'timesofindia.com': /.+\.timesofindia\.com\/($|toi-plus(\/.+)?|.+\.cms)/,
   'nknews.org': /^((?!nknews\.org\/pro\/).)*$/,
   'quora.com': /^((?!quora\.com\/search\?q=).)*$/,
-  'repubblica.it': /^((?!\/video\.repubblica\.it\/).)*$/,
   'seekingalpha.com': /.+\/seekingalpha\.com\/($|(amp\/)?(article|news)\/|samw\/)/,
   'statista.com': /^((?!\.statista\.com\/(outlook|study)\/).)*$/,
   'techinasia.com': /\.techinasia\.com\/.+/,
@@ -637,8 +636,6 @@ function add_grouped_sites(init_rules) {
     }
     for (let domain of it_repubblica_domains) {
       allow_cookies.push(domain);
-      if (['gelocal.it', 'ilsecoloxix.it', 'repubblica.it'].includes(domain))
-        use_google_bot.push(domain);
       blockedRegexes[domain] = /(scripts\.repubblica\.it\/pw\/pw\.js|cdn\.ampproject\.org\/v\d\/amp-(access|ad|user-notification)-.+\.js)/;
     }
     for (let domain of nl_pg_domains) {

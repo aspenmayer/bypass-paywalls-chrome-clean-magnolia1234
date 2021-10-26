@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Fix Repubblica sites (disable Googlebot)
 Fix Stratfor (forecasts)
 Fix The Athletic (timing)
 
@@ -18,7 +19,6 @@ Fix Financial Times (amp)
 Fix Knack.be
 Fix La Croix (timing)
 Fix La Stampa (http error 403)
-Fix The Athletic
 Fix The Globe and Mail
 Fix The New Yorker (homepage)
 Fix Trouw.nl (timing)
