@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Fix Westfaelische Nachrichten & Westfalen-Blatt
 
 * v2.4.1.3 (2021-10-28)
 Fix Repubblica sites (disable Googlebot)

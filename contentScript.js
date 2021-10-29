@@ -568,9 +568,15 @@ else if (matchDomain(['westfalen-blatt.de', 'wn.de'])) {
     let subscr_sections = document.querySelectorAll('section[subscriptions-section="content"]');
     for (let subscr_section of subscr_sections)
       subscr_section.removeAttribute('subscriptions-section');
+    let amp_ads = document.querySelectorAll('amp-ad, amp-embed, section[class^="fp-ad"]');
+    removeDOMElement(...amp_ads);
+  } else {
+    let paywall = document.querySelector('.fp-article-paywall');
+    if (paywall) {
+      removeDOMElement(paywall);
+      window.location.href = url.replace('.de/', '.de/amp/');
+    }
   }
-  let amp_ads = document.querySelectorAll('amp-ad, section[class^="fp-ad"]');
-  removeDOMElement(...amp_ads);
 }
 
 else if ((domain = matchDomain(de_madsack_domains)) || document.querySelector('link[rel="preload"][href="https://static.rndtech.de/cmp/1.x.x.js"]')) {
@@ -1707,7 +1713,7 @@ else if (matchDomain('bloombergquint.com')) {
 }
 
 else if (matchDomain('bostonglobe.com')) {
-  let paywall = document.querySelector('div.meter-paywall');
+  let paywall = document.querySelector('div.meter-paywall, div.incognito-paywall');
   let fade = document.querySelector('div.fade');
   if (paywall || fade) {
     removeDOMElement(paywall);
@@ -1718,6 +1724,9 @@ else if (matchDomain('bostonglobe.com')) {
     if (continue_button)
       continue_button.click();
   }
+  let ads = document.querySelectorAll('div.arc_ad');
+  for (let ad of ads)
+    ad.style = 'display:none';
 }
 
 else if (matchDomain('business-standard.com')) {
