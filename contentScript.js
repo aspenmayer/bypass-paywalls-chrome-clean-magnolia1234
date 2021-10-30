@@ -1611,14 +1611,14 @@ else if (matchDomain('asiatimes.com')) {
 }
 
 else if (matchDomain('barrons.com')) {
-  document.addEventListener('DOMContentLoaded', () => {
+  let url = window.location.href;
+  if (!url.includes('barrons.com/amp/')) {
     let body_continuous = document.querySelector('body.is-continuous');
     let snippet = document.querySelector('meta[content="snippet"]');
     if (body_continuous && snippet) {
-      window.location.href = window.location.href.replace('barrons.com', 'barrons.com/amp');
+      removeDOMElement(snippet);
+      window.location.href = url.replace('barrons.com', 'barrons.com/amp');
     }
-  });
-  if (!window.location.href.includes('barrons.com/amp/')) {
     let signin_links = document.querySelectorAll('a.primary-button--link[href*="target="]');
     for (let signin_link of signin_links) {
       signin_link.href = decodeURIComponent(signin_link.href.split('target=')[1]).split('?')[0];
@@ -1632,7 +1632,7 @@ else if (matchDomain('barrons.com')) {
     let subscr_section = document.querySelector('section[subscriptions-section="content"]');
     if (subscr_section)
       subscr_section.removeAttribute('subscriptions-section');
-    let wsj_ads = document.querySelectorAll('.wsj-ad');
+    let wsj_ads = document.querySelectorAll('.wsj-ad, amp-ad');
     removeDOMElement(...wsj_ads);
   }
 }

@@ -109,7 +109,7 @@ function add_options() {
     } else {
       if (elem.dataset.value) {
         if (elem.checked)
-          sites_custom[title][elem.dataset.key] = elem.dataset.value;
+          sites_custom[title][elem.dataset.key] = parseInt(elem.dataset.value);
       } else if (elem.value)
         sites_custom[title][elem.dataset.key] = elem.value;
     }
