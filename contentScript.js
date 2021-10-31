@@ -1074,9 +1074,9 @@ else if (matchDomain('ilfattoquotidiano.it')) {
     let amp_ads = document.querySelectorAll('amp-ad, div#_4sVideoContainer');
     removeDOMElement(...amp_ads);
   } else {
-    let paywall = pageContains('section.article-body > p', '[...]');
-    if (paywall.length > 0) {
-      removeDOMElement(...paywall);
+    let paywall = document.querySelector('div.read-more');
+    if (paywall) {
+      removeDOMElement(paywall);
       window.location.href = url.split('?')[0] + 'amp';
     }
   }
