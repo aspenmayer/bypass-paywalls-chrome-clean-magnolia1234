@@ -2868,7 +2868,7 @@ else if (matchDomain('wsj.com')) {
     if (close_button)
       close_button.click();
   }
-  let wsj_ads = document.querySelectorAll('div.wsj-ad');
+  let wsj_ads = document.querySelectorAll('div[class*="wsj-ad"]');
   removeDOMElement(...wsj_ads);
   if (url.includes('/amp/')) {
     let masthead_link = document.querySelector('div.masthead > a[href*="/articles/"]');
@@ -2880,14 +2880,12 @@ else if (matchDomain('wsj.com')) {
     if (subscr_section)
       subscr_section.removeAttribute('subscriptions-section');
   } else {
-    document.addEventListener('DOMContentLoaded', () => {
-      let snippet = document.querySelector('.snippet-promotion');
-      let wsj_pro = document.querySelector('meta[name="page.site"][content="wsjpro"]');
-      if (snippet || wsj_pro) {
-        removeDOMElement(snippet, wsj_pro);
-        window.location.href = url.replace('wsj.com', 'wsj.com/amp');
-      }
-    });
+    let snippet = document.querySelector('.snippet-promotion');
+    let wsj_pro = document.querySelector('meta[name="page.site"][content="wsjpro"]');
+    if (snippet || wsj_pro) {
+      removeDOMElement(snippet, wsj_pro);
+      window.location.href = url.replace('wsj.com', 'wsj.com/amp');
+    }
   }
 }
 
