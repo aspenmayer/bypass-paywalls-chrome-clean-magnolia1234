@@ -2801,11 +2801,6 @@ else if (matchDomain('venturebeat.com')) {
 }
 
 else if (matchDomain('washingtonpost.com')) {
-  window.setTimeout(function () {
-    let leaderboard = document.querySelector('#leaderboard-wrapper');
-    let adverts = document.querySelectorAll('div[data-qa="article-body-ad"]');
-    removeDOMElement(leaderboard, ...adverts);
-  }, 500); // Delay (in milliseconds)
   if (location.href.includes('/gdpr-consent/')) {
     let free_button = document.querySelector('.gdpr-consent-container .continue-btn.button.free');
     if (free_button)
@@ -2819,32 +2814,9 @@ else if (matchDomain('washingtonpost.com')) {
       }
     }, 300); // Delay (in milliseconds)
   } else {
-    function wapo_main(node) {
-      removeDOMElement(node);
-      if (!url.match(/\/(graphics|interactive)\//)) {
-        let url_amp = url.split('?')[0] + '?outputType=amp';
-        replaceDomElementExt(url_amp, false, false, 'div.article-body', 'Failed to load from amp-page: ');
-        window.scrollTo(0, 0);
-      }
-    }
-    function wapo_overlay(node) {
-      node.removeAttribute('style');
-    }
-    let url = window.location.href;
-    if (!url.includes('outputType=amp')) {
-      waitDOMElement('div[id^="paywall-"], div.wp_signin, div#wp_Signin', 'DIV', wapo_main, false);
-      waitDOMElement('div[data-qa*="wall"]', 'DIV', removeDOMElement, true);
-      window.setTimeout(function () {
-        waitDOMAttribute('body', 'BODY', 'style', wapo_overlay, true);
-      }, 500); // Delay (in milliseconds)
-      waitDOMAttribute('html', 'HTML', 'style', wapo_overlay, false);
-      if (!url.match(/\/(graphics|interactive)\//))
-        csDoneOnce = true;
-    } else {
-      let subscr_sections = document.querySelectorAll('[subscriptions-section="content"]');
-      for (let subscr_section of subscr_sections)
-        subscr_section.removeAttribute('subscriptions-section');
-    }
+    let leaderboard = document.querySelector('#leaderboard-wrapper');
+    let adverts = document.querySelectorAll('div[data-qa$="-ad"]');
+    removeDOMElement(leaderboard, ...adverts);    
   }
 }
 
@@ -3012,9 +2984,6 @@ function replaceDomElementExt(url, proxy, base64, selector, text_fail = '') {
         if (base64) {
           html = decode_utf8(atob(html));
           selector = 'body';
-        }
-        if (matchDomain(['washingtonpost.com']) && html.includes('<amp-')) {
-          html = html.replace(/<amp-/g, '<').replace(/<\/amp-/g, '</');
         }
         let parser = new DOMParser();
         let doc = parser.parseFromString(DOMPurify.sanitize(html, {ADD_ATTR: ['layout'], ADD_TAGS: ['amp-img']}), 'text/html');

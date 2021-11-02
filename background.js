@@ -421,7 +421,7 @@ var blockedRegexes = {
   'variety.com': /cdn\.cxense\.com\//,
   'velonews.com': /\.velonews\.com\/.+\/scripts\/contentGate.+\.js/,
   'venturebeat.com': /\.wallkit\.net\/js\//,
-  'washingtonpost.com': /(\.washingtonpost\.com\/.+\/(default-article\/.+\/load_immediately|jqmodal)\/.+\.js|cdn\.ampproject\.org\/.+\/v\d\/amp-(access|(sticky-)?ad|subscriptions)-.+\.js)/,
+  'washingtonpost.com': /\.washingtonpost\.com\/pwapiv2\/article/,
   'westfalen-blatt.de': /cdn\.ampproject\.org\/.+\/v\d\/amp-(ad|subscriptions)-.+\.js/,
   'wired.com': /cdn\.ampproject\.org\/v\d\/amp-(ad|subscriptions)-.+\.js/,
   'wn.de': /cdn\.ampproject\.org\/v\d\/amp-(ad|subscriptions)-.+\.js/,
@@ -1276,7 +1276,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
     let usa_today_site = (matchUrlDomain('gannett-cdn.com', details.url) && matchUrlDomain(['usatoday.com'], header_referer));
     allow_ext_source = allow_ext_source || inkl_site || cl_elmerc_site || es_elesp_site || it_repubblica_site || usa_law360_site || usa_mw_site || usa_natgeo_site || usa_today_site;
 
-    bpc_amp_site = (matchUrlDomain('cdn.ampproject.org', details.url) && matchUrlDomain(['aachener-zeitung.de', 'asiatimes.com', 'augsburger-allgemeine.de', 'barrons.com', 'belfasttelegraph.co.uk', 'cicero.de', 'cmjornal.pt', 'economist.com', 'elpais.com', 'elperiodico.com', 'freiepresse.de', 'ft.com', 'handelsblatt.com', 'ilfattoquotidiano.it', 'inc42.com', 'independent.ie', 'la-croix.com', 'marketwatch.com', 'nationalreview.com', 'noz.de', 'nwzonline.de', 'scmp.com', 'seekingalpha.com', 'shz.de', 'staradvertiser.com', 'svz.de', 'telegraph.co.uk', 'washingtonpost.com', 'westfalen-blatt.de', 'wired.com', 'wn.de', 'wsj.com'].concat(amp_unhide, au_news_corp_domains, au_nine_domains, de_madsack_domains, es_epiberica_domains, es_grupo_vocento_domains, es_unidad_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, it_repubblica_domains, usa_mcc_domains, usa_mng_domains, usa_theathletic_domains), header_referer));
+    bpc_amp_site = matchUrlDomain('cdn.ampproject.org', details.url) && (enabledSites.includes('cdn.ampproject.org') || matchUrlDomain(defaultSites_domains.concat(amp_unhide), header_referer));
   }
 
   if (!isSiteEnabled(details) && !allow_ext_source && !bpc_amp_site && !au_swm_site) {
@@ -1387,7 +1387,7 @@ if (matchUrlDomain(change_headers, details.url) && (!['font', 'image', 'styleshe
         }
         if ((!['font', 'stylesheet'].includes(details.type) || matchUrlDomain(cs_limit_except, currentTabUrl)) && !csDone) {
           let lib_file = 'lib/empty.js';
-          if (matchUrlDomain(['bloomberg.com', 'cicero.de', 'economictimes.com', 'lesechos.fr', 'marianne.net', 'newleftreview.org', 'newyorker.com', 'nzherald.co.nz', 'prospectmagazine.co.uk', 'stratfor.com', 'sudouest.fr', 'techinasia.com', 'valor.globo.com', 'washingtonpost.com'].concat(nl_mediahuis_region_domains, no_nhst_media_domains, usa_theathletic_domains), currentTabUrl))
+          if (matchUrlDomain(['bloomberg.com', 'cicero.de', 'economictimes.com', 'lesechos.fr', 'marianne.net', 'newleftreview.org', 'newyorker.com', 'nzherald.co.nz', 'prospectmagazine.co.uk', 'stratfor.com', 'sudouest.fr', 'techinasia.com', 'valor.globo.com'].concat(nl_mediahuis_region_domains, no_nhst_media_domains, usa_theathletic_domains), currentTabUrl))
             lib_file = 'lib/purify.min.js';
           var bg2csData = {
             optin_setcookie: optin_setcookie,
