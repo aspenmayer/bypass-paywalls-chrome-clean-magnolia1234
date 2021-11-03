@@ -604,7 +604,7 @@ function add_grouped_sites(init_rules) {
     }
     for (let domain of usa_lee_ent_domains) {
       allow_cookies.push(domain);
-      blockedRegexes[domain] = new RegExp('\.' + domain + '\/shared-content\/art\/tncms\/user\/user\.js');
+      blockedRegexes[domain] = /api\.bntech\.io\/js\//;
     }
     for (let domain of usa_mcc_domains)
       blockedRegexes[domain] = /(js\.matheranalytics\.com\/|cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js)/;
@@ -1170,7 +1170,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   !matchUrlDomain(usa_lee_ent_domains, header_referer) && enabledSites.includes('###_usa_lee_ent'));
   if (usa_lee_ent_domain) {
     let lee_ent_domain = urlHost(header_referer).replace(/^(www|m)\./, '');
-    blockedRegexes[lee_ent_domain] = /\.com\/shared-content\/art\/tncms\/user\/user.js/;
+    blockedRegexes[lee_ent_domain] = blockedRegexes['buffalonews.com'];
     usa_lee_ent_domains.push(lee_ent_domain);
     if (!enabledSites.includes(lee_ent_domain))
       enabledSites.push(lee_ent_domain);
@@ -1182,7 +1182,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   !matchUrlDomain(usa_mcc_domains, header_referer) && enabledSites.includes('###_usa_mcc'));
   if (usa_mcc_domain) {
     let mcc_domain = urlHost(header_referer).replace(/^(account|amp)\./, '');
-    blockedRegexes[mcc_domain] = /(js\.matheranalytics\.com\/|cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js)/;
+    blockedRegexes[mcc_domain] = blockedRegexes['bnd.com'];
     usa_mcc_domains.push(mcc_domain);
     if (!enabledSites.includes(mcc_domain))
       enabledSites.push(mcc_domain);
@@ -1193,7 +1193,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   !matchUrlDomain(usa_mng_domains, header_referer) && enabledSites.includes('###_usa_mng'));
   if (usa_mng_domain) {
     let mng_domain = urlHost(header_referer).replace(/^www\./, '');
-    blockedRegexes[mng_domain] = /(\.blueconic\.net\/|\.tinypass\.com\/|\.com\/.+\/loader\.min\.js|cdn\.ampproject\.org\/v\d\/amp-((sticky-)?ad|subscriptions)-.+\.js)/;
+    blockedRegexes[mng_domain] = blockedRegexes['denverpost.com'];
     usa_mng_domains.push(mng_domain);
     if (!enabledSites.includes(mng_domain))
       enabledSites.push(mng_domain);
@@ -1205,7 +1205,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
     let rnd_domain = urlHost(header_referer).replace(/^(www|m)\./, '');
     if (!de_madsack_domains.includes(rnd_domain)) {
       allow_cookies.push(rnd_domain);
-      blockedRegexes[rnd_domain] = /(cdn\.cxense\.com\/|\.tinypass\.com\/)/;
+      blockedRegexes[rnd_domain] = blockedRegexes['haz.de'];
       de_madsack_domains.push(rnd_domain);
       if (!enabledSites.includes(rnd_domain))
         enabledSites.push(rnd_domain);
