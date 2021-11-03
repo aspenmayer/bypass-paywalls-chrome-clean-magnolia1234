@@ -947,12 +947,10 @@ else if (matchDomain('lesechos.fr') && window.location.href.match(/-\d{6,}/)) {
       let url = window.location.href;
       let html = document.documentElement.outerHTML;
       let state;
-      let split1 = html.split('window.__PRELOADED_STATE__=')[1];
+      let split1 = html.split('window.__CONFIG__=')[1];
       let split2 = split1.split('</script>')[0].trim();
       if (split2.includes('; window.__DATA__=')) {
-        state = split2.split('; window.__DATA__=')[0].trim();
-        if (state.length < 200)
-          state = split2.split('; window.__DATA__=')[1].split('; window.__')[0].trim();
+        state = split2.split('; window.__DATA__=')[1].split('; window.__')[0].trim();
       } else
         state = split2.substr(0, split2.length - 1);
       try {
@@ -1073,7 +1071,7 @@ else if (matchDomain('ilfattoquotidiano.it')) {
       hidden_content.setAttribute('style', 'display:block !important;');
     let amp_ads = document.querySelectorAll('amp-ad, div#_4sVideoContainer');
     removeDOMElement(...amp_ads);
-  } else {
+  } else if (url.split('?')[0].match(/\/\d{4}\/\d{2}\/\d{2}\//)) {
     let paywall = document.querySelector('div.read-more');
     if (paywall) {
       removeDOMElement(paywall);

@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Fix LesEchos.fr (json)
 Fix WaPo (images)
 Fix WSJ (timing)
 
