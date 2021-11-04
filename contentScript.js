@@ -514,6 +514,26 @@ else if (matchDomain('kurier.at')) {
     plus_content.classList.remove('plusContent');
 }
 
+else if (matchDomain('mz.de')) {
+  let url = window.location.href.split('?')[0];
+  let paywall = document.querySelector('.fp-paywall');
+  if (url.includes('/amp/')) {
+    let preview = document.querySelector('section[subscriptions-section="content-not-granted"]');
+    removeDOMElement(preview);
+    let subscr_section = document.querySelector('[subscriptions-section="content"]');
+    if (subscr_section) {
+      subscr_section.removeAttribute('subscriptions-section');
+      let amp_ads = document.querySelectorAll('amp-ad, amp-embed');
+      removeDOMElement(...amp_ads);
+    }
+  } else {
+    if (paywall) {
+      removeDOMElement(paywall);
+      window.location.href = window.location.href.replace('.de/', '.de/amp/');
+    }
+  }
+}
+
 else if (matchDomain(['noz.de', 'nwzonline.de', 'shz.de', 'svz.de'])) {
   let url = window.location.href;
   if (url.includes('?amp') || url.includes('-amp.html')) {

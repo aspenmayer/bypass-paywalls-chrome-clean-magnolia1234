@@ -952,6 +952,11 @@ var defaultSites = {
     domain: "technologyreview.com",
     block_regex: /\.blueconic\.net\//
   },
+  "Mitteldeutsche Zeitung": {
+    domain: "mz.de",
+    allow_cookies: 1,
+    block_regex: /cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad|subscriptions)-.+\.js/
+  },
   "Mountain View Voice": {
     domain: "mv-voice.com"
   },

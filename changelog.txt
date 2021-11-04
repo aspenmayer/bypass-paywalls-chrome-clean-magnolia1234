@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Add Mitteldeutsche Zeitung
 Fix Lee Enterprises Group
 Fix LesEchos.fr (json)
 Fix WaPo (images)

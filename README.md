@@ -388,6 +388,7 @@ Grouped in options:\
 [Handelsblatt](https://www.handelsblatt.com)* -
 [Krautreporter.de](https://krautreporter.de) -
 [Kurier.at](https://kurier.at) -
+[Mitteldeutsche Zeitung](https://www.mz.de) -
 [Neue Osnabrücker Zeitung](https://www.noz.de]) -
 [Nordwest Zeitung](https://www.nwzonline.de) -
 [Piqd.de](https://www.piqd.de) -
