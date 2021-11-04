@@ -11,9 +11,7 @@ var currentTabUrl = '';
 var csDone = false;
 var optin_setcookie = false;
 
-// Cookies from this list are blocked by default (obsolete)
 // defaultSites are loaded from sites.js at installation extension
-// var defaultSites = {};
 
 const restrictions = {
   'adweek.com': /^((?!\.adweek\.com\/(.+\/)?(amp|agencyspy|tvnewser|tvspy)\/).)*$/,
@@ -37,408 +35,47 @@ const restrictions = {
   'timeshighereducation.com':  /.+\.timeshighereducation\.com\/(sites\/default\/files\/|.+((\w)+(\-)+){3,}.+)/
 }
 
-// Don't remove cookies before page load
-// allow_cookies are completed with domains in custom sites (default allow/remove_cookies)
-var allow_cookies_default = [
-  'aachener-zeitung.de',
-  'abc.es',
-  'abril.com.br',
-  'ajc.com',
-  'apollo-magazine.com',
-  'asiatimes.com',
-  'atlantico.fr',
-  'augsburger-allgemeine.de',
-  'belfasttelegraph.co.uk',
-  'berliner-zeitung.de',
-  'berlingske.dk',
-  'billboard.com',
-  'bostonglobe.com',
-  'business-standard.com',
-  'businessoffashion.com',
-  'charliehebdo.fr',
-  'chronicle.com',
-  'cicero.de',
-  'clarin.com',
-  'cmjornal.pt',
-  'corriere.it',
-  'dallasnews.com',
-  'df.cl',
-  'di.se',
-  'dn.se',
-  'dvhn.nl',
-  'editorialedomani.it',
-  'elcomercio.pe',
-  'elconfidencial.com',
-  'elespanol.com',
-  'elle.fr',
-  'elmercurio.com',
-  'elpais.com',
-  'elperiodico.com',
-  'entrepreneur.com',
-  'esprit.presse.fr',
-  'euobserver.com',
-  'eurekareport.com.au',
-  'faz.net',
-  'financialpost.com',
-  'forbes.com',
-  'fortune.com',
-  'freiepresse.de',
-  'ftm.nl',
-  'gestion.pe',
-  'haaretz.co.il',
-  'haaretz.com',
-  'handelsblatt.com',
-  'hilltimes.com',
-  'hindustantimes.com',
-  'ilfattoquotidiano.it',
-  'inc42.com',
-  'independent.ie',
-  'infzm.com',
-  'intelligentinvestor.com.au',
-  'jpost.com',
-  'knack.be',
-  'kurier.at',
-  'la-croix.com',
-  'lanouvellerepublique.fr',
-  'latribune.fr',
-  'lavanguardia.com',
-  'lc.nl',
-  'lejdd.fr',
-  'lesechos.fr',
-  'letelegramme.fr',
-  'lexpress.fr',
-  'livelaw.in',
-  'loeildelaphotographie.com',
-  'lrb.co.uk',
-  'marianne.net',
-  'marketwatch.com',
-  'medianama.com',
-  'medium.com',
-  'nation.africa',
-  'nationalgeographic.com',
-  'nationalpost.com',
-  'nationalreview.com',
-  'newleftreview.org',
-  'newrepublic.com',
-  'newsday.com',
-  'nouvelobs.com',
-  'noz.de',
-  'nwzonline.de',
-  'nybooks.com',
-  'nyteknik.se',
-  'nytimes.com',
-  'nzz.ch',
-  'observador.pt',
-  'parismatch.com',
-  'piqd.de',
-  'politicaexterior.com',
-  'prospectmagazine.co.uk',
-  'quora.com',
-  'reuters.com',
-  'rhein-zeitung.de',
-  'rheinpfalz.de',
-  'rollingstone.com',
-  'ruhrnachrichten.de',
-  'saechsische.de',
-  'scientificamerican.com',
-  'scribd.com',
-  'seekingalpha.com',
-  'shz.de',
-  'si.com',
-  'staradvertiser.com',
-  'startribune.com',
-  'stocknews.com',
-  'stratfor.com',
-  'study.com',
-  'sudouest.fr',
-  'svz.de',
-  'tampabay.com',
-  'techinasia.com',
-  'telegraaf.nl',
-  'telerama.fr',
-  'the-american-interest.com',
-  'theartnewspaper.com',
-  'thehindu.com',
-  'thehindubusinessline.com',
-  'theintercept.com',
-  'themarker.com',
-  'themarket.ch',
-  'thenewatlantis.com',
-  'thewest.com.au',
-  'thewrap.com',
-  'time.com',
-  'timeshighereducation.com',
-  'towardsdatascience.com',
-  'usatoday.com',
-  'usinenouvelle.com',
-  'variety.com',
-  'velonews.com',
-  'venturebeat.com',
-  'washingtonpost.com',
-  'westfalen-blatt.de',
-  'wn.de',
-  'worldpoliticsreview.com',
-  'zeit.de',
-];
-var allow_cookies = allow_cookies_default.slice();
+// Don't remove cookies before/after page load
+var allow_cookies = [];
+var remove_cookies = [];
+// select specific cookie(s) to hold/drop from remove_cookies domains
+var remove_cookies_select_hold, remove_cookies_select_drop;
 
-// select specific cookie(s) to hold from remove_cookies domains
-var remove_cookies_select_hold = {
-  'barrons.com': ['wsjregion'],
-  'bloomberg.com': ['bb_geo_info'],
-  'groene.nl': ['accept-cookies', 'popunder-hidden'],
-  'newstatesman.com': ['STYXKEY_nsversion'],
-  'qz.com': ['gdpr'],
-  'seattletimes.com': ['st_newsletter_splash_seen'],
-  'wsj.com': ['wsjregion', 'ResponsiveConditional_initialBreakpoint']
-}
-
-// select only specific cookie(s) to drop from remove_cookies domains
-var remove_cookies_select_drop = {
-  'ambito.com': ['TDNotesRead'],
-  'caixinglobal.com': ['CAIXINGLB_LOGIN_UUID'],
-  'fd.nl': ['socialread'],
-  'griffithreview.com': ['issuem_lp'],
-  'nrc.nl': ['counter'],
-  'theatlantic.com': ['articleViews'],
-  'thepointmag.com': ['monthly_history']
-}
-
-var cookies_select_domains = Object.keys(remove_cookies_select_hold).concat(Object.keys(remove_cookies_select_drop));
-
-// Removes cookies after page load
-// remove_cookies are completed with domains of custom sites (default allow/remove_cookies)
-var remove_cookies_default = ['medium.com', 'scientificamerican.com'];
-var remove_cookies = remove_cookies_default.concat(cookies_select_domains);
-
-allow_cookies = allow_cookies.concat(cookies_select_domains);
-
-// Override User-Agent with Googlebot
-var use_google_bot_default = [
-  'abc.es',
-  'barrons.com',
-  'berlingske.dk',
-  'deutsche-wirtschafts-nachrichten.de',
-  'df.cl',
-  'di.se',
-  'dn.se',
-  'editorialedomani.it',
-  'elmercurio.com',
-  'euobserver.com',
-  'eurekareport.com.au',
-  'fnlondon.com',
-  'ft.com',
-  'handelsblatt.com',
-  'hilltimes.com',
-  'intelligentinvestor.com.au',
-  'lanouvellerepublique.fr',
-  'leparisien.fr',
-  'nationalreview.com',
-  'newleftreview.org',
-  'nknews.org',
-  'nouvelobs.com',
-  'nzz.ch',
-  'piqd.de',
-  'quora.com',
-  'rhein-zeitung.de',
-  'rheinpfalz.de',
-  'ruhrnachrichten.de',
-  'seekingalpha.com',
-  'telerama.fr',
-  'themarket.ch',
-  'thetimes.co.uk',
-  'usatoday.com',
-  'usinenouvelle.com',
-  'westfalen-blatt.de',
-  'wired.com',
-  'wn.de',
-  'worldpoliticsreview.com',
-  'wsj.com',
-  'zeit.de',
-];
-var use_google_bot = use_google_bot_default.slice();
-
-// Override User-Agent with Bingbot
-var use_bing_bot_default = [
-  'haaretz.co.il',
-  'haaretz.com',
-  'nzherald.co.nz',
-  'stratfor.com',
-  'themarker.com',
-];
-var use_bing_bot = use_bing_bot_default.slice();
-
-var use_facebook_referer_default = ['clarin.com', 'fd.nl', 'ilmanifesto.it', 'law.com', 'sloanreview.mit.edu'];
-var use_facebook_referer = use_facebook_referer_default.slice();
-var use_google_referer_default = ['statista.com'];
-var use_google_referer = use_google_referer_default.slice();
-var use_twitter_referer_default = ['law360.com', 'medium.com', 'towardsdatascience.com'];
-var use_twitter_referer = use_twitter_referer_default.slice();
+// Set User-Agent
+var use_google_bot, use_bing_bot;
+// Set Referer
+var use_facebook_referer, use_google_referer, use_twitter_referer;
+// Set random IP-address
 var use_random_ip = ['esprit.presse.fr'];
-var change_headers = use_google_bot.concat(use_bing_bot, use_facebook_referer, use_google_referer, use_twitter_referer, use_random_ip);
+// concat all sites with change of headers (useragent, referer or random ip)
+var change_headers;
 
 // block paywall-scripts individually
-var blockedRegexes = {
-  'aachener-zeitung.de': /cdn\.ampproject\.org\/v\d\/amp-(ad|analytics|consent|subscriptions)-.+\.js/,
-  'abc.es': /\.evolok\.net\//,
-  'abril.com.br': /\.abril\.com\.br\/.+\/abril-paywall\/js\/abril-paywall\.js/,
-  'adweek.com': /\.lightboxcdn\.com\//,
-  'afr.com': /api\.afr\.com\/graphql\?query=.+PaywallRuleQuery/,
-  'ajc.com': /loader-cdn\.azureedge\.net\//,
-  'alternatives-economiques.fr': /\.poool\.fr\//,
-  'americanbanker.com': /\.tinypass\.com\//,
-  'apollo-magazine.com': /\.tinypass\.com\//,
-  'asiatimes.com': /cdn\.ampproject\.org\/v\d\/amp-(access|ad|analytics)-.+\.(m)?js/,
-  'atlantico.fr': /\.poool\.fr\//,
-  'augsburger-allgemeine.de':/(\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-(ad|subscriptions)-.+\.js)/,
-  'barrons.com': /(cdn\.cxense\.com\/.+|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent|subscriptions)-.+\.js)/,
-  'belfasttelegraph.co.uk': /(cdn\.flip-pay\.com\/clients\/inm\/flip-pay\.js|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js)/,
-  'billboard.com': /(cdn\.cxense\.com\/|\.tinypass\.com\/)/,
-  'bizjournals.com': /(assets\.bizjournals\.com\/static\/js\/app\/cxense\.js|cdn\.cxense\.com\/)/,
-  'bloomberg.com': /\.tinypass\.com\//,
-  'bostonglobe.com': /\.blueconic\.net\//,
-  'businessinsider.com': /\.tinypass\.com\//,
-  'challenges.fr': /\.poool\.fr\//,
-  'charliehebdo.fr': /\.poool\.fr\//,
-  'chronicle.com': /(\.blueconic\.net\/|\.chronicle\.com\/(common\/)?(che-auth0-user|script)\.js)/,
-  'clarin.com': /js\.matheranalytics\.com\//,
-  'cmjornal.pt': /cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad)-.+\.js/,
-  'commentary.org': /\.commentary\.org\/.+\/js\/dg-locker-public\.js/,
-  'corriere.it': /(\.tinypass\.com\/|\.corriereobjects\.it\/.+\/js\/_paywall\.sjs)/,
-  'dallasnews.com': /(\.blueconic\.net\/|js\.matheranalytics\.com\/)/,
-  'digiday.com': /cdn.\.tinypass\.com\//,
-  'dvhn.nl': /\.evolok\.net\//,
-  'economist.com': /(\.tinypass\.com\/cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js)/,
-  'editorialedomani.it': /(\.editorialedomani\.it\/pelcro\.js|js\.pelcro\.com\/)/,
-  'elcomercio.pe': /\/elcomercio\.pe\/pf\/dist\/engine\/react\.js/,
-  'elconfidencial.com': /\.tinypass\.com\//,
-  'elespanol.com': /\.eestatic\.com\/assets_js\/web\/v\d\/historia.*\.min\.js/,
-  'elle.fr': /\.poool\.fr\//,
-  'elmercurio.com': /\.(elmercurio\.com|emol\.cl)\/(.+\/)?js\/(.+\/)?(modal|merPramV\d|PramModal\.min)\.js/,
-  'elpais.com': /(\.epimg\.net\/js\/.+\/(noticia|user)\.min\.js|\/elpais\.com\/arc\/subs\/p\.min\.js|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad|consent)-.+\.js)/,
-  'elperiodico.com': /cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js/,
-  'estadao.com.br': /acesso\.estadao\.com\.br\/paywall\/.+\/.+\.js/,
-  'estrellavalpo.cl': /(\.mercuriovalpo\.cl\/impresa\/.+\/assets\/(vendor|\d)\.js|pram\.pasedigital\.cl\/API\/User\/Status\?)/,
-  'exame.com': /\/exame\.com\/.+\/js\/pywll-dyn\.js/,
-  'financialpost.com': /\.tinypass\.com\//,
-  'forbes.com': /\.tinypass\.com\//,
-  'foreignaffairs.com': /\.foreignaffairs\.com\/sites\/default\/files\/js\/js_[^y].+\.js/,
-  'foreignpolicy.com': /(cdn\.cxense\.com\/|\.tinypass\.com\/)/,
-  'fortune.com': /\.tinypass\.com\//,
-  'freiepresse.de': /cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js/,
-  'ft.com': /cdn\.ampproject\.org\/v\d\/amp-(access|ad|subscriptions)-.+\.js/,
-  'ftm.nl': /\.ftm\.nl\/js\/routing\?/,
-  'gestion.pe': /\/gestion\.pe\/pf\/dist\/engine\/react\.js/,
-  'globes.co.il': /\.tinypass\.com\//,
-  'globo.com': /\.tinypass\.com\//,
-  'griffithreview.com': /\.griffithreview\.com\/.+\/leaky-paywall\//,
-  'haaretz.co.il': /haaretz\.co\.il\/htz\/js\/inter\.js/,
-  'haaretz.com': /haaretz\.com\/hdc\/web\/js\/minified\/header-scripts-int.js/,
-  'hbr.org': /\.tinypass\.com\//,
-  'hilltimes.com': /\.hilltimes\.com\/.+\/js\/loadingoverlay\/loadingoverlay\.min\.js/,
-  'historyextra.com': /\.evolok\.net\//,
-  'houstonchronicle.com': /\.blueconic\.net\//,
-  'ilfattoquotidiano.it': /cdn\.ampproject\.org\/v\d\/amp-(ad|subscriptions)-.+\.js/,
-  'inc.com': /\.tinypass\.com\//,
-  'inc42.com': /(\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|ad|analytics)-.+\.(m)?js)/,
-  'independent.ie': /(cdn\.flip-pay\.com\/clients\/inm\/flip-pay\.js|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js)/,
-  'inquirer.com': /\.tinypass\.com\//,
-  'japantimes.co.jp': /\.piano\.io\//,
-  'jpost.com': /\.jpost\.com\/bundles\/js_article\?/,
-  'knack.be': /(\.knack\.be\/js\/responsive\/rmg(Modal|Paywall)\.js|\.blueconic\.net\/)/,
-  'kurier.at': /\.tinypass\.com\//,
-  'la-croix.com': /(\.la-croix\.com\/build\/lacroix\/article.+\.js|cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js)/,
-  'lasegunda.com': /\.(lasegunda\.com|emol\.cl)\/(.+\/)?js\/(.+\/)?(modal|merPramV\d|PramModal\.min)\.js/,
-  'latercera.com': /(\.latercera\.com\/arc\/subs\/p\.js|cdn\.cxense\.com\/)/,
-  'latimes.com': /metering\.platform\.latimes\.com\/v\d\/meter/,
-  'latribune.fr': /\.poool\.fr\//,
-  'lavanguardia.com': /(\.evolok\.net\/|\.lavanguardia\.com\/(js\/)?godo-)/,
-  'lc.nl': /\.evolok\.net\//,
-  'lejdd.fr': /\.poool\.fr\//,
-  'leparisien.fr': /\.tinypass\.com\//,
-  'lesechos.fr': /\.tinypass\.com\//,
-  'letelegramme.fr': /\.poool\.fr\//,
-  'lexpress.fr': /\.poool\.fr\//,
-  'livemint.com': /(\.livemint\.com\/js\/localWorker\.js|analytics\.htmedia\.in\/analytics-js\/.+\.js)/,
-  'loeildelaphotographie.com': /cdn\.loeildelaphotographie\.com\/wp-content\/.+\/hague-child\/js\/script-.+\.js/,
-  'lopinion.fr': /\.poool\.fr\//,
-  'lrb.co.uk': /\.tinypass\.com\//,
-  'marianne.net': /\.poool\.fr\//,
-  'marketwatch.com': /(cdn\.cxense\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|ad|subscriptions)-.+\.js)/,
-  'mercuriovalpo.cl': /(.+\.mercuriovalpo\.cl\/impresa\/.+\/assets\/(vendor|\d)\.js|pram\.pasedigital\.cl\/API\/User\/Status\?)/,
-  'mexiconewsdaily.com': /\.mexiconewsdaily\.com\/c\/assets\/pigeon\.js/,
-  'nation.africa': /(\.evolok\.net\/|nation\.africa\/resource\/themes\/nation-.+\/js\/.+\.js)/,
-  'nationalgeographic.com': /\.blueconic\.net\//,
-  'nationalpost.com': /\.tinypass\.com\//,
-  'nationalreview.com': /(\.blueconic\.net\/|\.nationalreview\.com\/script\.js|cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js)/,
-  'newrepublic.com': /\.onecount\.net\/js\//,
-  'newsday.com': /(loader-cdn\.azureedge\.net\/|js\.matheranalytics\.com\/)/,
-  'newsweek.com': /js\.pelcro\.com\//,
-  'newyorker.com': /\.newyorker\.com\/verso\/static\/presenter-articles.+\.js/,
-  'nknews.org': /\.nknews\.org\/wp-content\/themes\/nknews\/js\/bootstrap\.min\.js/,
-  'noz.de': /cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad|fx-flying-carpet)-.+\.js/,
-  'nwzonline.de': /cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad|fx-flying-carpet)-.+\.js/,
-  'nyteknik.se': /\.nyteknik\.se\/.+\/static\/js\/site\.min\.js/,
-  'nytimes.com': /(meter-svc\.nytimes\.com\/meter\.js|mwcm\.nyt\.com\/.+\.js)/,
-  'observador.pt': /\.tinypass\.com\//,
-  'parismatch.com': /\.poool\.fr\//,
-  'post-gazette.com': /(cdn\.cxense\.com\/|\.tinypass\.com\/)/,
-  'qz.com': /\.tinypass\.com\//,
-  'reuters.com': /\.reuters\.com\/(arc\/subs\/p\.min|pf\/resources\/dist\/reuters\/js\/index)\.js/,
-  'rollingstone.com': /cdn\.cxense\.com\//,
-  'ruhrnachrichten.de': /(\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-((sticky-)?ad|consent|subscriptions)-.+\.js)/,
-  'saechsische.de': /\.tinypass\.com\//,
-  'sandiegouniontribune.com': /metering\.platform\.sandiegouniontribune\.com\/v\d\/meter/,
-  'science-et-vie.com': /\.qiota\.com\//,
-  'sciencesetavenir.fr': /\.poool\.fr\//,
-  'scmp.com': /(\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|ad|analytics|consent|fx-flying-carpet)-.+\.js)/,
-  'seekingalpha.com': /(\.tinypass\.com\/|cdn\.ampproject\.org(\/.+)?\/v\d\/amp-(access|ad|loader)-.+\.js)/,
-  'sfchronicle.com': /\.blueconic\.net\//,
-  'shz.de': /cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad|fx-flying-carpet)-.+\.js/,
-  'si.com': /\.blueconic\.net\//,
-  'slate.com': /(cdn\.cxense\.com\/|\.tinypass\.com\/)/,
-  'sloanreview.mit.edu': /(\.tinypass\.com\/|\/sloanreview\.mit\.edu\/.+\/welcome-ad\.js)/,
-  'spectator.co.uk': /\.tinypass\.com\//,
-  'spectator.com.au': /\.tinypass\.com\//,
-  'spectator.us': /(cdn\.cxense\.com\/|\.tinypass\.com\/)/,
-  'svz.de': /cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad|fx-flying-carpet)-.+\.js/,
-  'tampabay.com': /(loader-cdn\.azureedge\.net\/|js\.matheranalytics\.com\/)/,
-  'technologyreview.com': /\.blueconic\.net\//,
-  'telegraph.co.uk': /(\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js|\.telegraph\.co\.uk\/.+\/piano.+\.js|assets\.adobedtm\.com\/.+\.js)/,
-  'theartnewspaper.com': /\.amazonaws.com\/production-website-scripts\/bouncer\.js/,
-  'thedailybeast.com': /\.tinypass\.com\//,
-  'theglobeandmail.com': /(\.theglobeandmail\.com\/pf\/dist\/engine\/react\.js|smartwall\.theglobeandmail\.com\/)/,
-  'thehindu.com': /(cdn\.cxense\.com\/|\.tinypass\.com\/)/,
-  'thehindubusinessline.com': /(cdn\.cxense\.com\/|\.tinypass\.com\/)/,
-  'theintercept.com': /\.theintercept\.com\/api\/tinypass\.min\.js/,
-  'thenation.com': /\.tinypass\.com\//,
-  'thenewatlantis.com': /\.thenewatlantis\.com\/.+\/thenewatlantis\/js\/(gate|donate)\.js/,
-  'thesaturdaypaper.com.au': /\.thesaturdaypaper\.com\.au\/sites\/all\/modules\/custom\/node_meter\/pw\.js/,
-  'thewrap.com': /\.wallkit\.net\/js\//,
-  'time.com': /\/time\.com\/dist\/meter-wall-client-js\..+\.js/,
-  'timeshighereducation.com': /\.timeshighereducation\.com\/sites\/default\/files\/.+\/js__.+\.js/,
-  'valeursactuelles.com': /\.qiota\.com\//,
-  'variety.com': /cdn\.cxense\.com\//,
-  'velonews.com': /\.velonews\.com\/.+\/scripts\/contentGate.+\.js/,
-  'venturebeat.com': /\.wallkit\.net\/js\//,
-  'washingtonpost.com': /\.washingtonpost\.com\/pwapiv2\/article/,
-  'westfalen-blatt.de': /cdn\.ampproject\.org\/.+\/v\d\/amp-(ad|subscriptions)-.+\.js/,
-  'wired.com': /cdn\.ampproject\.org\/v\d\/amp-(ad|subscriptions)-.+\.js/,
-  'wn.de': /cdn\.ampproject\.org\/v\d\/amp-(ad|subscriptions)-.+\.js/,
-  'wsj.com': /(cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent|subscriptions)-.+\.js|cdn\.cxense\.com\/)/
-};
-var blockedRegexesCustom = {};
+var blockedRegexes = {};
 
-var amp_unhide = [];
+// unhide text on amp-page
+var amp_unhide;
 
-// grouped domains in sites.js (for options)
+// custom: block javascript
+var block_js_custom = [];
+var block_js_custom_ext = [];
 
-// grouped domains (rules only)
-const au_nine_domains = ['brisbanetimes.com.au', 'smh.com.au', 'theage.com.au', 'watoday.com.au'];
-const es_unidad_domains = ['elmundo.es', 'expansion.com', 'marca.com'];
-const it_repubblica_domains = ['gelocal.it', 'ilsecoloxix.it', 'lanuovasardegna.it', 'lastampa.it', 'limesonline.com', 'repubblica.it'].concat(['lescienze.it']);
-const nl_pg_domains = ['parool.nl', 'trouw.nl', 'volkskrant.nl', 'humo.be', 'demorgen.be'];
-const usa_genomeweb_domains = ['genomeweb.com', '360dx.com', 'precisiononcologynews.com'];
+function initSetRules() {
+  allow_cookies = [];
+  remove_cookies = [];
+  remove_cookies_select_drop = {};
+  remove_cookies_select_hold = {};
+  use_google_bot = [];
+  use_bing_bot = [];
+  use_facebook_referer = [];
+  use_google_referer = [];
+  use_twitter_referer = [];
+  change_headers = [];
+  amp_unhide = [];
+  block_js_custom = [];
+  block_js_custom_ext = [];
+  blockedRegexes = {};
+}
 
 const userAgentDesktopG = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
 const userAgentMobileG = "Chrome/80.0.3987.92 Mobile Safari/537.36 (compatible ; Googlebot/2.1 ; +http://www.google.com/bot.html)"
@@ -448,6 +85,7 @@ const userAgentMobileB = "Chrome/80.0.3987.92 Mobile Safari/537.36 (compatible; 
 
 var enabledSites = [];
 var disabledSites = [];
+var optionSites = {};
 var customSites = {};
 var customSites_domains = [];
 var excludedSites = [];
@@ -455,44 +93,135 @@ var excludedSites = [];
 function setDefaultOptions() {
   ext_api.storage.local.set({
     sites: filterObject(defaultSites, function (val, key) {
-      return !val.includes('#options_disable_')
+      return !val.domain.match(/^(###$|#options_disable_)/)
+    },
+      function (val, key) {
+      return [key, val.domain]
     })
   }, function () {
     ext_api.runtime.openOptionsPage();
   });
 }
 
-var grouped_sites = {
-'###_au_comm_media': au_comm_media_domains,
-'###_au_news_corp': au_news_corp_domains,
-'###_br_folha': br_folha_domains,
-'###_ca_torstar': ca_torstar_domains,
-'###_de_funke_medien': de_funke_media_domains,
-'###_de_madsack': de_madsack_domains,
-'###_economictimes': economictimes_domains,
-'###_es_epiberica': es_epiberica_domains,
-'###_es_grupo_vocento': es_grupo_vocento_domains,
-'###_fi_alma_talent': fi_alma_talent_domains,
-'###_fi_sanoma': fi_sanoma_domains,
-'###_fr_be_groupe_rossel': fr_be_groupe_rossel_domains,
-'###_fr_groupe_ebra': fr_groupe_ebra_domains,
-'###_fr_groupe_la_depeche': fr_groupe_la_depeche_domains,
-'###_it_ilmessaggero': it_ilmessaggero_domains,
-'###_it_quotidiano': it_quotidiano_domains,
-'###_nl_ad_region': nl_ad_region_domains,
-'###_nl_mediahuis_region': nl_mediahuis_region_domains,
-'###_no_nhst_media': no_nhst_media_domains,
-'###_timesofindia': timesofindia_domains,
-'###_usa_craincomm': usa_craincomm_domains,
-'###_usa_lee_ent': usa_lee_ent_domains,
-'###_usa_mcc': usa_mcc_domains,
-'###_usa_mng': usa_mng_domains,
-'###_usa_nymag': usa_nymag_domains,
-'###_usa_tribune': usa_tribune_domains,
-'###_usa_theathletic': usa_theathletic_domains
-};
+function set_rules(sites, sites_custom) {
+  initSetRules();
+  for (let site in sites) {
+    let site_domain = sites[site].toLowerCase();
+    let custom = false;
+    if (!site_domain.match(/^(###$|#options_)/)) {
+      let rule = {};
+      if (defaultSites.hasOwnProperty(site)) {
+        rule = defaultSites[site];
+       } else { // custom sites
+        rule = sites_custom[site];
+        custom = true;
+      }
+      let domains = [site_domain];
+      let group = false;
+      if (rule.hasOwnProperty('group')) {
+        domains = rule.group;
+        group = true;
+      }
+      let rule_default = {};
+      if (rule.hasOwnProperty('exception')) {
+        for (let key in rule)
+          rule_default[key] = rule[key];
+      }
+      for (let domain of domains) {
+        let custom_in_group = false;
+        if (rule_default.hasOwnProperty('exception')) {
+          let exception_rule = rule_default.exception.filter(x => domain === x.domain);
+          if (exception_rule.length > 0)
+            rule = exception_rule[0];
+          else
+            rule = rule_default;
+        }
+        // custom domain for default site(group)
+        if (!custom) {
+          let isCustomSite = matchDomain(customSites_domains, domain);
+          let customSite_title = isCustomSite ? Object.keys(customSites).find(key => customSites[key].domain === isCustomSite) : '';
+          if (customSite_title) {
+            // add default block_regex
+            let block_regex_default = '';
+            if (rule.hasOwnProperty('block_regex'))
+              block_regex_default = rule.block_regex;
+            
+            rule = sites_custom[customSite_title];
+            if (block_regex_default) {
+              if (rule.hasOwnProperty('block_regex')) {
+                if (block_regex_default instanceof RegExp)
+                  block_regex_default = block_regex_default.source;
+                rule.block_regex = '(' + block_regex_default + '|' + rule.block_regex.replace(/(^\/|\/$)/g, '') + ')';
+              } else
+                rule.block_regex = block_regex_default;
+            }
+            if (group)
+              custom_in_group = true;
+            else
+              custom = true;
+          }
+        }
+        addCookieRules(rule, custom || custom_in_group);
+        
+        if (rule.allow_cookies > 0 && !allow_cookies.includes(domain))
+          allow_cookies.push(domain);
+        if (rule.remove_cookies > 0 && !remove_cookies.includes(domain))
+          remove_cookies.push(domain);
+        if (rule.hasOwnProperty('remove_cookies_select_drop'))
+          remove_cookies_select_drop[domain] = rule.remove_cookies_select_drop;
+        if (rule.hasOwnProperty('remove_cookies_select_hold'))
+          remove_cookies_select_hold[domain] = rule.remove_cookies_select_hold;
+        if (rule.hasOwnProperty('block_regex')) {
+          if (rule.block_regex instanceof RegExp)
+            blockedRegexes[domain] = rule.block_regex;
+          else
+            blockedRegexes[domain] = new RegExp(rule.block_regex.replace('{domain}', domain.replace('.', '\\.').replace(/(^\/|\/$)/g, '')));
+        }
+        if (rule.useragent) {
+          switch (rule.useragent) {
+          case 'googlebot':
+            if (!use_google_bot.includes(domain))
+              use_google_bot.push(domain);
+            break;
+          case 'bingbot':
+            if (!use_bing_bot.includes(domain))
+              use_bing_bot.push(domain);
+            break;
+          }
+        }
+        if (rule.referer) {
+          switch (rule.referer) {
+          case 'facebook':
+            if (!use_facebook_referer.includes(domain))
+              use_facebook_referer.push(domain);
+            break;
+          case 'google':
+            if (!use_google_referer.includes(domain))
+              use_google_referer.push(domain);
+            break;
+          case 'twitter':
+            if (!use_twitter_referer.includes(domain))
+              use_twitter_referer.push(domain);
+            break;
+          }
+        }
+        // custom
+        if (rule.googlebot > 0)
+          use_google_bot.push(domain);
+        if (rule.block_javascript > 0)
+          block_js_custom.push(domain);
+        if (rule.block_javascript_ext > 0)
+          block_js_custom_ext.push(domain);
+        if (rule.amp_unhide > 0)
+          amp_unhide.push(domain);
+      }
+    }
+  }
+  change_headers = use_google_bot.concat(use_bing_bot, use_facebook_referer, use_google_referer, use_twitter_referer, use_random_ip);
+  disableJavascriptOnListedSites();
+}
 
-function add_grouped__enabled_domains(groups) {
+function add_grouped_enabled_domains(groups) {
   for (let key in groups) {
     if (enabledSites.includes(key))
       enabledSites = enabledSites.concat(groups[key]);
@@ -507,162 +236,16 @@ function add_grouped__enabled_domains(groups) {
   }
 }
 
-// add grouped sites to en/disabledSites & init rules (optional)
-function add_grouped_sites(init_rules) {
-  add_grouped__enabled_domains(grouped_sites);
-  if (init_rules) {
-    for (let domain of au_comm_media_domains) {
-      allow_cookies.push(domain);
-      blockedRegexes[domain] = /cdn-au\.piano\.io\/api\/tinypass.+\.js/;
-    }
-    for (let domain of au_news_corp_domains) {
-      allow_cookies.push(domain);
-      use_google_bot.push(domain);
-      blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-(access|ad|iframe)-.+\.js/;
-    }
-    for (let domain of br_folha_domains) {
-      allow_cookies.push(domain);
-      blockedRegexes[domain] =  /(\.folha\.uol\.com\.br\/paywall\/js\/.+\/publicidade\.ads\.js|paywall\.folha\.uol\.com\.br\/|js\.matheranalytics\.com\/)/;
-    }
-    for (let domain of ca_torstar_domains) {
-      allow_cookies.push(domain);
-      blockedRegexes[domain] = /\.(ca|com)\/api\/overlaydata/;
-    }
-    for (let domain of de_funke_media_domains) {
-      allow_cookies.push(domain);
-      blockedRegexes[domain] = /(cdn\.cxense\.com\/|\.tinypass\.com\/)/;
-      use_google_bot.push(domain);
-    }
-    for (let domain of de_madsack_domains) {
-      allow_cookies.push(domain);
-      blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-(ad|subscriptions)-.+\.js/;
-    }
-    for (let domain of economictimes_domains) {
-      allow_cookies.push(domain);
-      use_google_bot.push(domain);
-    }
-    for (let domain of es_epiberica_domains) {
-      allow_cookies.push(domain);
-      blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-(access|analytics|consent)-.+\.js/;
-    }
-    for (let domain of es_grupo_vocento_domains) {
-      allow_cookies.push(domain);
-      blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-(access|ad|subscriptions)-.+\.js/;
-    }
-    for (let domain of fi_alma_talent_domains) {
-      if (!['mediuutiset.fi'].includes(domain))
-        blockedRegexes[domain] = /\.fi\/static\/vendor\..+\.chunk\.js/;
-      use_google_bot.push(domain);
-    }
-    for (let domain of fi_sanoma_domains) {
-      allow_cookies.push(domain);
-      use_google_bot.push(domain);
-    }
-    for (let domain of fr_be_groupe_rossel_domains) {
-      if (!['lecho.be'].includes(domain)) {
-        allow_cookies.push(domain);
-        use_google_bot.push(domain);
-      }
-    }
-    for (let domain of fr_groupe_ebra_domains) {
-      allow_cookies.push(domain);
-      blockedRegexes[domain] = /(\.poool\.fr\/|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js)/;
-    }
-    for (let domain of fr_groupe_la_depeche_domains) {
-      allow_cookies.push(domain);
-      blockedRegexes[domain] = /(\.poool\.fr\/|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent|subscriptions)-.+\.js)/;//|iframe
-    }
-    for (let domain of it_ilmessaggero_domains)
-      blockedRegexes[domain] = /utils\.cedsdigital\.it\/js\/PaywallMeter\.js/;
-    for (let domain of nl_ad_region_domains) {
-      allow_cookies.push(domain);
-      remove_cookies.push(domain);
-      remove_cookies_select_drop[domain] = ['temptationTrackingId'];
-    }
-    for (let domain of it_quotidiano_domains) {
-      allow_cookies.push(domain);
-      blockedRegexes[domain] = /(cdn\.cxense\.com\/|\.tinypass\.com\/)/;
-    }
-    for (let domain of nl_mediahuis_region_domains)
-      allow_cookies.push(domain);
-    for (let domain of no_nhst_media_domains) {
-      allow_cookies.push(domain);
-      use_facebook_referer.push(domain);
-    }
-    for (let domain of timesofindia_domains) {
-      allow_cookies.push(domain);
-      use_google_bot.push(domain);
-      if (domain === 'timesofindia.com')
-        blockedRegexes[domain] = /\.timesofindia\.com\/jsrender\.cms/;
-      else
-        blockedRegexes[domain] = /timesofindia\.indiatimes\.com\/jsrender\/version-1\.cms/;
-    }
-    for (let domain of usa_craincomm_domains) {
-      if (domain !== 'autonews.com')
-        allow_cookies.push(domain);
-      blockedRegexes[domain] = new RegExp('(\.tinypass\.com\/|\.' + domain + '\/.+\/js\/js_.+\.js)');
-    }
-    for (let domain of usa_lee_ent_domains) {
-      allow_cookies.push(domain);
-      blockedRegexes[domain] = /api\.bntech\.io\/js\//;
-    }
-    for (let domain of usa_mcc_domains)
-      blockedRegexes[domain] = /(js\.matheranalytics\.com\/|cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js)/;
-    for (let domain of usa_tribune_domains) {
-      allow_cookies.push(domain);
-      blockedRegexes[domain] = /\.tribdss\.com\//;
-    }
-    for (let domain of usa_mng_domains) {
-      allow_cookies.push(domain);
-      blockedRegexes[domain] = /(\.blueconic\.net\/|\.tinypass\.com\/|\.com\/.+\/loader\.min\.js|cdn\.ampproject\.org\/v\d\/amp-((sticky-)?ad|subscriptions)-.+\.js)/;
-    }
-    for (let domain of usa_nymag_domains) {
-      allow_cookies.push(domain);
-      remove_cookies.push(domain);
-      remove_cookies_select_drop[domain] = ['nymcid'];
-      blockedRegexes[domain] = /fosse\.nymag\.com\/fosse\/.+\/scripts\/.+\.js/;
-    }
-    for (let domain of usa_theathletic_domains) {
-      allow_cookies.push(domain);
-      blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-subscriptions-.+\.js/;
-    }
-
-    // rules only
-    for (let domain of au_nine_domains)
-      blockedRegexes[domain] = /cdn\.ampproject\.org\/v\d\/amp-((sticky-)?ad|subscriptions)-.+\.js/;
-    for (let domain of es_unidad_domains) {
-      allow_cookies.push(domain);
-      blockedRegexes[domain] =  /cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad|consent)-.+\.js/;
-    }
-    for (let domain of it_repubblica_domains) {
-      allow_cookies.push(domain);
-      blockedRegexes[domain] = /(scripts\.repubblica\.it\/pw\/pw\.js|cdn\.ampproject\.org\/v\d\/amp-(access|ad|user-notification)-.+\.js)/;
-    }
-    for (let domain of nl_pg_domains) {
-      allow_cookies.push(domain);
-      remove_cookies.push(domain);
-      remove_cookies_select_drop[domain] = ['TID_ID'];
-      blockedRegexes[domain] = new RegExp('\.' + domain + '\/temptation\/resolve');
-    }
-    for (let domain of usa_genomeweb_domains) {
-      allow_cookies.push(domain);
-      blockedRegexes[domain] = /crain-platform-.+-prod\.s3\.amazonaws\.com\/s3fs-public\/js\/js_.+\.js/;
-    }
-
-    use_google_bot_default = use_google_bot.slice();
-    use_bing_bot_default = use_bing_bot.slice();
-    use_facebook_referer_default = use_facebook_referer.slice();
-    use_google_referer_default = use_google_referer.slice();
-    use_twitter_referer_default = use_twitter_referer.slice();
-    change_headers = use_google_bot.concat(use_bing_bot, use_facebook_referer, use_google_referer, use_twitter_referer, use_random_ip);
-  }
+// add grouped sites to en/disabledSites (and exclude sites)
+function add_grouped_sites(grouped_sites, sites, sites_custom) {
+  add_grouped_enabled_domains(grouped_sites);
+  set_rules(sites, sites_custom);
 }
 
-// Get the enabled sites (from local storage) & add to allow/remove_cookies (if not already in one of these arrays)
-// Add user-agent/referer and block_javascript-settings for custom sites
+// Get the enabled sites (from local storage) & set_rules for sites
 ext_api.storage.local.get({
   sites: {},
-  sites_default: Object.keys(defaultSites).filter(x => !defaultSites[x].match(/^(#options_|###$)/)),
+  sites_default: Object.keys(defaultSites).filter(x => !defaultSites[x].domain.match(/^(#options_|###$)/)),
   sites_custom: {},
   sites_excluded: [],
   ext_version_old: '2.3.9.0',
@@ -684,7 +267,7 @@ ext_api.storage.local.get({
   // Enable new sites by default (opt-in)
   if (ext_version > ext_version_old) {
     if (enabledSites.includes('#options_enable_new_sites')) {
-      var sites_new = Object.keys(defaultSites).filter(x => !defaultSites[x].match(/^(#options_|###$)/) && !sites_default.includes(x));
+      var sites_new = Object.keys(defaultSites).filter(x => !defaultSites[x].domain.match(/^(#options_|###$)/) && !sites_default.includes(x));
       for (let site_new of sites_new) {
         sites[site_new] = defaultSites[site_new];
       }
@@ -692,7 +275,7 @@ ext_api.storage.local.get({
         sites: sites
       });
     }
-    sites_default = Object.keys(defaultSites).filter(x => !defaultSites[x].match(/^(#options_|###$)/));
+    sites_default = Object.keys(defaultSites).filter(x => !defaultSites[x].domain.match(/^(#options_|###$)/));
     ext_api.storage.local.set({
       sites_default: sites_default,
       ext_version_old: ext_version
@@ -702,56 +285,8 @@ ext_api.storage.local.get({
   customSites = sites_custom;
   customSites_domains = Object.values(sites_custom).map(x => x.domain);
   disabledSites = defaultSites_domains.concat(customSites_domains).filter(x => !enabledSites.includes(x) && x !== '###');
-  add_grouped_sites(true);  //and exclude sites
-
-  for (let key in sites_custom) {
-    var domainVar = sites_custom[key]['domain'].toLowerCase();
-    if (sites_custom[key]['googlebot'] > 0 && !use_google_bot.includes(domainVar))
-      use_google_bot.push(domainVar);
-    switch (sites_custom[key]['useragent']) {
-    case 'googlebot':
-      if (!use_google_bot.includes(domainVar))
-        use_google_bot.push(domainVar);
-      break;
-    case 'bingbot':
-      if (!use_bing_bot.includes(domainVar))
-        use_bing_bot.push(domainVar);
-      break;
-    }
-    if (sites_custom[key]['allow_cookies'] > 0 && !allow_cookies.includes(domainVar) && !defaultSites_domains.includes(domainVar))
-      allow_cookies.push(domainVar);
-    if (sites_custom[key]['block_javascript'] > 0)
-      block_js_custom.push(domainVar);
-    if (sites_custom[key]['block_javascript_ext'] > 0)
-      block_js_custom_ext.push(domainVar);
-    if (sites_custom[key]['block_regex']) {
-      if (sites_custom[key]['block_regex'].match(/^\/.+\/$/))
-        sites_custom[key]['block_regex'] = sites_custom[key]['block_regex'].replace(/(^\/|\/$)/g, '');
-      blockedRegexesCustom[domainVar] = new RegExp(sites_custom[key]['block_regex']);
-    }
-    if (sites_custom[key]['amp_unhide'] > 0)
-      amp_unhide.push(domainVar);
-    switch (sites_custom[key]['referer']) {
-    case 'facebook':
-      use_facebook_referer.push(domainVar);
-      break;
-    case 'google':
-      use_google_referer.push(domainVar);
-      break;
-    case 'twitter':
-      use_twitter_referer.push(domainVar);
-    }
-  }
-
-  for (let domainVar of enabledSites) {
-    if (!allow_cookies.includes(domainVar) && !remove_cookies.includes(domainVar) && !defaultSites_domains.includes(domainVar)) {
-      allow_cookies.push(domainVar);
-      remove_cookies.push(domainVar);
-    }
-  }
-
-  change_headers = use_google_bot.concat(use_bing_bot, use_facebook_referer, use_google_referer, use_twitter_referer, use_random_ip);
-  disableJavascriptOnListedSites();
+  add_grouped_enabled_domains(grouped_sites);
+  set_rules(sites, customSites);
 });
 
 // Listen for changes to options
@@ -762,107 +297,45 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
     var storageChange = changes[key];
     if (key === 'sites') {
       var sites = storageChange.newValue;
+      optionSites = sites;
       enabledSites = Object.keys(sites).filter(function (key) {
           return (sites[key] !== '' && sites[key] !== '###');
         }).map(function (key) {
           return sites[key];
         });
       disabledSites = defaultSites_domains.concat(customSites_domains).filter(x => !enabledSites.includes(x) && x !== '###');
-      add_grouped_sites(false);
-
-      for (let domainVar of enabledSites) {
-        if (!allow_cookies.includes(domainVar) && !remove_cookies.includes(domainVar) && !defaultSites_domains.includes(domainVar)) {
-          allow_cookies.push(domainVar);
-          remove_cookies.push(domainVar);
-        }
-      }
+      add_grouped_enabled_domains(grouped_sites);
+      set_rules(sites, customSites);
     }
     if (key === 'sites_custom') {
       var sites_custom = storageChange.newValue ? storageChange.newValue : {};
       var sites_custom_old = storageChange.oldValue ? storageChange.oldValue : {};
       customSites = sites_custom;
       customSites_domains = Object.values(sites_custom).map(x => x.domain);
-
-      // add/remove custom sites in options
-      var sites_custom_added = Object.keys(sites_custom).filter(x => !Object.keys(sites_custom_old).includes(x) && !defaultSites.hasOwnProperty(x));
-      var sites_custom_removed = Object.keys(sites_custom_old).filter(x => !Object.keys(sites_custom).includes(x) && !defaultSites.hasOwnProperty(x));
-
+      
+      // add/remove custom sites in options (not for default site(group))
+      var sites_custom_added = Object.keys(sites_custom).filter(x => !Object.keys(sites_custom_old).includes(x) && !defaultSites.hasOwnProperty(x) && !defaultSites_domains.includes(sites_custom[x].domain));
+      var sites_custom_removed = Object.keys(sites_custom_old).filter(x => !Object.keys(sites_custom).includes(x) && !defaultSites.hasOwnProperty(x) && !defaultSites_domains.includes(sites_custom_old[x].domain));
+      
       ext_api.storage.local.get({
         sites: {}
       }, function (items) {
         var sites = items.sites;
-        for (let key of sites_custom_added)
-          sites[key] = sites_custom[key].domain;
-        for (let key of sites_custom_removed)
-          delete sites[key];
-
-        ext_api.storage.local.set({
-          sites: sites
-        }, function () {
-          true;
-        });
+        if (sites_custom_added.concat(sites_custom_removed).length > 0) {
+          for (let key of sites_custom_added)
+            sites[key] = sites_custom[key].domain;
+          for (let key of sites_custom_removed)
+            delete sites[key];
+          
+          ext_api.storage.local.set({
+            sites: sites
+          }, function () {
+            true;
+          });
+        } else
+          set_rules(sites, customSites);
       });
-
-      use_google_bot = use_google_bot_default.slice();
-      use_bing_bot = use_bing_bot_default.slice();
-      use_facebook_referer = use_facebook_referer_default.slice();
-      use_google_referer = use_google_referer_default.slice();
-      use_twitter_referer = use_twitter_referer_default.slice();
-      block_js_custom = [];
-      block_js_custom_ext = [];
-      blockedRegexesCustom = {};
-      amp_unhide = [];
-      for (let key in sites_custom) {
-        var domainVar = sites_custom[key]['domain'].toLowerCase();
-        if (sites_custom[key]['googlebot'] > 0 && !use_google_bot.includes(domainVar)) {
-          use_google_bot.push(domainVar);
-        }
-        switch (sites_custom[key]['useragent']) {
-        case 'googlebot':
-          if (!use_google_bot.includes(domainVar))
-            use_google_bot.push(domainVar);
-          break;
-        case 'bingbot':
-          if (!use_bing_bot.includes(domainVar))
-            use_bing_bot.push(domainVar);
-          break;
-        }
-        if (!defaultSites_domains.includes(domainVar)) {
-          if (sites_custom[key]['allow_cookies'] > 0) {
-            if (allow_cookies.includes(domainVar)) {
-              if (remove_cookies.includes(domainVar))
-                remove_cookies.splice(remove_cookies.indexOf(domainVar), 1);
-            } else
-              allow_cookies.push(domainVar);
-          } else if (allow_cookies.includes(domainVar) && !remove_cookies.includes(domainVar))
-            remove_cookies.push(domainVar);
-        }
-        if (sites_custom[key]['block_javascript'] > 0) {
-          block_js_custom.push(domainVar);
-        }
-        if (sites_custom[key]['block_javascript_ext'] > 0) {
-          block_js_custom_ext.push(domainVar);
-        }
-        if (sites_custom[key]['block_regex']) {
-          if (sites_custom[key]['block_regex'].match(/^\/.+\/$/))
-            sites_custom[key]['block_regex'] = sites_custom[key]['block_regex'].replace(/(^\/|\/$)/g, '');
-          blockedRegexesCustom[domainVar] = new RegExp(sites_custom[key]['block_regex']);
-        }
-        if (sites_custom[key]['amp_unhide'] > 0) {
-          amp_unhide.push(domainVar);
-        }
-        switch (sites_custom[key]['referer']) {
-        case 'facebook':
-          use_facebook_referer.push(domainVar);
-          break;
-        case 'google':
-          use_google_referer.push(domainVar);
-          break;
-        case 'twitter':
-          use_twitter_referer.push(domainVar);
-        }
-      }
-      change_headers = use_google_bot.concat(use_bing_bot, use_facebook_referer, use_google_referer, use_twitter_referer, use_random_ip);
+      
     }
     if (key === 'sites_excluded') {
       var sites_excluded = storageChange.newValue ? storageChange.newValue : [];
@@ -1078,10 +551,7 @@ ext_api.webRequest.onHeadersReceived.addListener(function (details) {
 },
   ['blocking', 'responseHeaders']);
 
-var block_js_default = ["*://cdn.tinypass.com/*", "*://*.piano.io/*", "*://*.poool.fr/*",  "*://cdn.ampproject.org/v*/amp-access-*.js", "*://cdn.ampproject.org/v*/amp-subscriptions-*.js", "*://loader-cdn.azureedge.net/prod/*/loader.min.js*", "*://*.blueconic.net/*", "*://*.cxense.com/*", "*://*.evolok.net/*", "*://js.matheranalytics.com/*", "*://*.newsmemory.com/*", "*://*.onecount.net/*", "*://js.pelcro.com/*", "*://*.qiota.com/*", "*://*.tribdss.com/*"];
-var block_js_custom = [];
-var block_js_custom_ext = [];
-var block_js = block_js_default.concat(block_js_custom);
+var block_js = ["*://cdn.tinypass.com/*", "*://*.piano.io/*", "*://*.poool.fr/*",  "*://cdn.ampproject.org/v*/amp-access-*.js", "*://cdn.ampproject.org/v*/amp-subscriptions-*.js", "*://loader-cdn.azureedge.net/prod/*/loader.min.js*", "*://*.blueconic.net/*", "*://*.cxense.com/*", "*://*.evolok.net/*", "*://js.matheranalytics.com/*", "*://*.newsmemory.com/*", "*://*.onecount.net/*", "*://js.pelcro.com/*", "*://*.qiota.com/*", "*://*.tribdss.com/*"];
 
 // Disable javascript for these sites/general paywall-scripts
 function disableJavascriptOnListedSites() {
@@ -1140,6 +610,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   }
 
   // remove cookies for sites medium platform (custom domains)
+  var medium_custom_domains = [];
   var medium_custom_domain = (matchUrlDomain('cdn-client.medium.com', details.url) && ['script'].includes(details.type) && !matchUrlDomain(medium_custom_domains.concat(['medium.com', 'towardsdatascience.com']), header_referer) && enabledSites.includes('###_medium_custom'));
   if (medium_custom_domain) {
     let mc_domain = urlHost(header_referer).replace(/^(www|m)\./, '');;
@@ -1153,6 +624,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   }
 
   // set googlebot-useragent for Gannett sites
+  var usa_gannett_domains = [];
   var usa_gannett_domain = (matchUrlDomain('gannett-cdn.com', details.url) && ['xmlhttprequest'].includes(details.type) && !matchUrlDomain(usa_gannett_domains.concat(['usatoday.com']), header_referer) && enabledSites.includes('###_usa_gannett'));
   if (usa_gannett_domain) {
     let gn_domain = urlHost(header_referer).replace(/^(www|eu)\./, '');;
@@ -1166,6 +638,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   }
 
   // block script for additional Lee Enterprises sites (opt-in to custom sites)
+  var usa_lee_ent_domains = grouped_sites['###_usa_lee_ent'];
   var usa_lee_ent_domain = (details.url.match(/\.com\/shared-content\/art\/tncms\/.+\.js/) && ['script'].includes(details.type) &&
   !matchUrlDomain(usa_lee_ent_domains, header_referer) && enabledSites.includes('###_usa_lee_ent'));
   if (usa_lee_ent_domain) {
@@ -1177,6 +650,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   }
 
   // block script for additional McClatchy sites (opt-in to custom sites)
+  var usa_mcc_domains = grouped_sites['###_usa_mcc'];
   var usa_mcc_domain = ((matchUrlDomain('mcclatchyinteractive.com', details.url) && ['script'].includes(details.type)) ||
   (matchUrlDomain('mcclatchy-wires.com', details.url) && ['image'].includes(details.type)) &&
   !matchUrlDomain(usa_mcc_domains, header_referer) && enabledSites.includes('###_usa_mcc'));
@@ -1189,6 +663,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   }
 
   // block script for additional MediaNews Group sites (opt-in to custom sites)
+  var usa_mng_domains = grouped_sites['###_usa_mng'];
   var usa_mng_domain = (details.url.match(/\.com\/wp-content\/plugins\/dfm(-pushly|_zeus)\/.+\.js/) && ['script'].includes(details.type) &&
   !matchUrlDomain(usa_mng_domains, header_referer) && enabledSites.includes('###_usa_mng'));
   if (usa_mng_domain) {
@@ -1200,6 +675,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   }
 
   // block script for additional Madsack/RND sites (opt-in to custom sites)
+  var de_madsack_domains = grouped_sites['###_de_madsack'];
   var de_rnd_domain = (matchUrlDomain('rndtech.de', details.url) && ['script'].includes(details.type) && !matchUrlDomain(de_madsack_domains.concat(['madsack.de', 'madsack-medien-campus.de', 'rnd.de']), header_referer) && enabledSites.includes('###_de_madsack'));
   if (de_rnd_domain) {
     let rnd_domain = urlHost(header_referer).replace(/^(www|m)\./, '');
@@ -1213,6 +689,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   }
 
   // set user-agent to GoogleBot for additional Snamoma Media Finland (opt-in to custom sites)
+  var fi_sanoma_domains = grouped_sites['###_fi_sanoma'];
   var fi_sanoma_sndp_domain = (matchUrlDomain('sanoma-sndp.fi', details.url) && ['xmlhttprequest'].includes(details.type) && !matchUrlDomain(fi_sanoma_domains, header_referer) && enabledSites.includes('###_fi_sanoma'));
   if (fi_sanoma_sndp_domain) {
     let sanoma_domain = urlHost(header_referer).replace(/^www\./, '');
@@ -1237,9 +714,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   // check for blocked regular expression: domain enabled, match regex, block on an internal or external regex
   var blockedDomains = Object.keys(blockedRegexes);
   var domain = matchUrlDomain(blockedDomains, header_referer);
-  var blockedDomainsCustom = Object.keys(blockedRegexesCustom);
-  var domainCustom = matchUrlDomain(blockedDomainsCustom, header_referer);
-  if (((domain && details.url.match(blockedRegexes[domain])) || (domainCustom && details.url.match(blockedRegexesCustom[domainCustom]))) && isSiteEnabled({url: header_referer}))
+  if (domain && details.url.match(blockedRegexes[domain]) && isSiteEnabled({url: header_referer}))
     return { cancel: true };
 
   // load toggleIcon.js (icon for dark or incognito mode in Chrome))
@@ -1517,7 +992,7 @@ function site_switch() {
                 if (isDefaultSiteGroup)
                     isDefaultSite = Object.keys(grouped_sites).find(key => grouped_sites[key].includes(isDefaultSiteGroup));
             }
-            let defaultSite_title = isDefaultSite ? Object.keys(defaultSites).find(key => defaultSites[key] === isDefaultSite) : '';
+            let defaultSite_title = isDefaultSite ? Object.keys(defaultSites).find(key => defaultSites[key].domain === isDefaultSite) : '';
             let isCustomSite = matchUrlDomain(Object.values(customSites_domains), currentUrl);
             let customSite_title = isCustomSite ? Object.keys(customSites).find(key => customSites[key].domain === isCustomSite) : '';
             let site_title = defaultSite_title || customSite_title;
@@ -1722,9 +1197,11 @@ if (typeof browser !== 'object') {
   });
 }
 
-function filterObject(obj, callback) {
+function filterObject(obj, filterFn, mapFn = function (val, key) {
+  return [key, val];
+}) {
   return Object.fromEntries(Object.entries(obj).
-    filter(([key, val]) => callback(val, key)));
+    filter(([key, val]) => filterFn(val, key)).map(([key, val]) => mapFn(val, key)));
 }
 
 function isSiteEnabled(details) {

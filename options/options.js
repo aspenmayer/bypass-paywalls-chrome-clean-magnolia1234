@@ -40,7 +40,7 @@ function renderOptions() {
       if (!defaultSites.hasOwnProperty(key)) {
         continue;
       }
-      var value = defaultSites[key];
+      var value = defaultSites[key].domain;
       labelEl = document.createElement('label');
       var inputEl = document.createElement('input');
       inputEl.type = 'checkbox';

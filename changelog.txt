@@ -6,6 +6,7 @@ Fix Lee Enterprises Group
 Fix LesEchos.fr (json)
 Fix WaPo (images)
 Fix WSJ (timing)
+Refactor (custom) site rules
 
 * v2.4.2.0 (2021-10-31)
 Fix Barron's (timing)
