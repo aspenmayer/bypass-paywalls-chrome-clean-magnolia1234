@@ -680,6 +680,11 @@ else if (domain = matchDomain(es_unidad_domains)) {
         div_hidden.removeAttribute('amp-access-hide');
       }
     }
+    let preview = document.querySelector('[subscriptions-section="content-not-granted"]');
+    removeDOMElement(preview);
+    let subscr_section = document.querySelectorAll('[subscriptions-section="content"]');
+    for (let elem of subscr_section)
+      elem.removeAttribute('subscriptions-section');
     let adverts = document.querySelectorAll('.advertising, amp-embed, amp-ad');
     removeDOMElement(...adverts);
   }

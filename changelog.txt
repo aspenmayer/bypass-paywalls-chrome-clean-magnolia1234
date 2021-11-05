@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add Mitteldeutsche Zeitung
+Fix ElMundo.es (amp)
 Fix Lee Enterprises Group
 Fix LesEchos.fr (json)
 Fix WaPo (images)

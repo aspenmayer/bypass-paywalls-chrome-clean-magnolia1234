@@ -1692,7 +1692,7 @@ var group_rules = {
   },
   es_unidad_domains: {
     allow_cookies: 1,
-    block_regex: /cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad|consent)-.+\.js/
+    block_regex: /cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad|consent|subscriptions)-.+\.js/
   },
   it_repubblica_domains: {
     allow_cookies: 1,
