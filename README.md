@@ -44,7 +44,6 @@ If you're familiar with Git(Hub)-clients you can also clone this repo and update
 2. In your browser go to the extensions page.
 3. Enable Developer Mode.
 4. Drag your crx-file anywhere on the page to import it (when you have an active 'load unpacked' installation, first remove it (and backup your custom sites); for automatic update).
-5. If dragging crx-file does not work, try 'load unpacked' installation (above).
 
 * By default BPC has limited permissions, but you can opt-in to enable custom sites (and also clear cookies/block general paywall-scripts for non-listed sites).
 
