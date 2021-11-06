@@ -620,6 +620,10 @@ var defaultSites = {
     domain: "hbr.org",
     block_regex: /\.tinypass\.com\//
   },
+  "Harvard Business Review China": {
+    domain: "hbrchina.org",
+    allow_cookies: 1
+  },
   "Harvard Business Review Taiwan": {
     domain: "hbrtaiwan.com"
   },

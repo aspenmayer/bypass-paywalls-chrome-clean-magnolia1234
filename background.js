@@ -258,10 +258,10 @@ ext_api.storage.local.get({
   optin_setcookie = items.optIn;
   excludedSites = items.sites_excluded;
 
-  enabledSites = Object.keys(sites).filter(function (key) {
-      return (sites[key] !== '' && sites[key] !== '###');
-    }).map(function (key) {
-      return sites[key].toLowerCase();
+  enabledSites = Object.values(sites).filter(function (val) {
+      return (val !== '' && val !== '###');
+    }).map(function (val) {
+      return val.toLowerCase();
     });
 
   // Enable new sites by default (opt-in)
@@ -298,10 +298,10 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
     if (key === 'sites') {
       var sites = storageChange.newValue;
       optionSites = sites;
-      enabledSites = Object.keys(sites).filter(function (key) {
-          return (sites[key] !== '' && sites[key] !== '###');
-        }).map(function (key) {
-          return sites[key];
+      enabledSites = Object.values(sites).filter(function (val) {
+          return (val !== '' && val !== '###');
+        }).map(function (val) {
+          return val.toLowerCase();
         });
       disabledSites = defaultSites_domains.concat(customSites_domains).filter(x => !enabledSites.includes(x) && x !== '###');
       add_grouped_enabled_domains(grouped_sites);

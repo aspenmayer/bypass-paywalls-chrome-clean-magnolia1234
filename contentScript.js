@@ -2028,6 +2028,12 @@ else if (matchDomain('hbr.org')) {
   removeDOMElement(popup);
 }
 
+else if (matchDomain('hbrchina.org')) {
+  let div_hidden = document.querySelector('div#the_content');
+  if (div_hidden)
+    div_hidden.removeAttribute('style');
+}
+
 else if (matchDomain('hindustantimes.com')) {
   let paywall = document.querySelector('.freemium-card');
   if (paywall) {

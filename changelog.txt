@@ -2,12 +2,14 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Add Harvard Business Review China
 Add Mitteldeutsche Zeitung
 Fix ElMundo.es (amp)
 Fix Lee Enterprises Group
 Fix LesEchos.fr (json)
 Fix WaPo (images)
 Fix WSJ (timing)
+Add allowlist for BPC extension (macOS)
 Refactor (custom) site rules
 
 * v2.4.2.0 (2021-10-31)
@@ -602,7 +604,7 @@ Fix El Pais (Spain)
 Fix The Globe and Mail (FF for Android v68)
 Fix The Hindu (menu)
 Fix WSJ
-Add whitelist for BPC extension
+Add allowlist for BPC extension (Windows)
 Fix custom sites Googlebot-fix (after reload)
 
 * v1.8.8.0 (2020-09-27)

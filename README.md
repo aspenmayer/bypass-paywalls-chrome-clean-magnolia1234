@@ -21,7 +21,7 @@ Due to [Google internal policy](https://developer.chrome.com/webstore/program_po
 The following instructions are needed to install third-party extensions in [Chromium](https://en.wikipedia.org/wiki/Chromium_(web_browser))-based desktop browsers.  
 In extension developer mode you can always install BPC by `Load unpacked` (latest master, but no automatic updates) or by crx-file (latest release & automatic updates, but possibly you have to add the extension to the allowlist).
 
-#### Load unpacked: Chrome (desktop), Microsoft Edge (Chromium)/Brave/Yandex
+#### Load unpacked: Chrome, Microsoft Edge or Brave (all desktop))
 * or add extension to allowlist and install automatically updating crx-file (see next section)
 
 1. Download this repository as a [ZIP-file from GitLab](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/archive/master/bypass-paywalls-chrome-clean-master.zip).
@@ -37,8 +37,8 @@ In extension developer mode you can always install BPC by `Load unpacked` (lates
 
 If you're familiar with Git(Hub)-clients you can also clone this repo and update the extension that way (load unpacked folder used by Git(Hub)-client).
 
-#### CRX-file: other Chromium browsers (Opera/Vivaldi)
-* or add extension to allowlist for Chrome, MS Edge, Brave or Yandex (see [instructions](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/tree/master/allowlist/README.md))
+#### CRX-file: other Chromium browsers (Opera/Vivaldi/Yandex)
+* or add extension to allowlist for Chrome, MS Edge or Brave (see [instructions](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/tree/master/allowlist/README.md))
 
 1. Download the extension as a crx-file from the [releases page](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/releases).
 2. In your browser go to the extensions page.
@@ -579,6 +579,7 @@ Grouped in options:\
 [Asia Times](https://asiatimes.com) -
 [Caixin Global](https://www.caixinglobal.com) -
 [CommonWealth Magazine Taiwan](https://www.cw.com.tw) -
+[Harvard Business Review China](https://www.hbrchina.org) -
 [Harvard Business Review Taiwan](https://www.hbrtaiwan.com) -
 [Nikkei Asian Review](https://asia.nikkei.com) -
 [NK News](https://www.nknews.org)* -
