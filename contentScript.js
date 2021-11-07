@@ -1011,12 +1011,6 @@ else if (matchDomain('lesechos.fr') && window.location.href.match(/-\d{6,}/)) {
   }, 500); // Delay (in milliseconds)
 }
 
-else if (matchDomain('liberation.fr')) {
-  let close_button = document.querySelector('.pw-action-close');
-  if (close_button)
-    close_button.click();
-}
-
 else if (matchDomain('loeildelaphotographie.com')) {
   let paywall = document.querySelector('.paywall');
   if (paywall) {

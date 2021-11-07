@@ -4,6 +4,7 @@ Changelog Bypass Paywalls Clean - Chrome
 Post-release
 Add Harvard Business Review China
 Add Mitteldeutsche Zeitung
+Remove Liberation.fr (obsolete)
 Fix ElMundo.es (amp)
 Fix Lee Enterprises Group
 Fix LesEchos.fr (json)

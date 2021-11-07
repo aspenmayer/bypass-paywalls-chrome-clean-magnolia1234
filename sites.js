@@ -830,9 +830,6 @@ var defaultSites = {
     allow_cookies: 1,
     block_regex: /\.tinypass\.com\//
   },
-  "Libération (free articles only)": {
-    domain: "liberation.fr"
-  },
   "LimesOnline": {
     domain: "limesonline.com",
     group_rule: "it_repubblica_domains"

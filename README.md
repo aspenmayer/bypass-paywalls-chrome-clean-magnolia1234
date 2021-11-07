@@ -326,7 +326,6 @@ Grouped in options:\
 [Le Parisien](https://www.leparisien.fr) -
 [Le Télégramme](https://www.letelegramme.fr) -
 [Les Échos](https://www.lesechos.fr) -
-[Libération](https://www.liberation.fr)* -
 [Marianne](https://www.marianne.net) -
 [Paris Match](https://www.parismatch.com) -
 [Science & Vie](https://www.science-et-vie.com) -

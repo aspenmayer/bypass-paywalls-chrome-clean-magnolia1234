@@ -133,10 +133,11 @@ function set_rules(sites, sites_updated, sites_custom) {
         rule = defaultSites[site];
         if (sites_updated.hasOwnProperty(site))
           rule = sites_updated[site];
-      } else { // custom sites
+      } else if (sites_custom.hasOwnProperty(site)) { // custom sites
         rule = sites_custom[site];
         custom = true;
-      }
+      } else
+        continue;
       let domains = [site_domain];
       let group = false;
       if (rule.hasOwnProperty('group')) {
