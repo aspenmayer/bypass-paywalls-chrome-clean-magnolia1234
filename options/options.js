@@ -96,7 +96,7 @@ function renderOptions() {
 function selectAll() {
   var inputEls = Array.from(document.querySelectorAll('input'));
   inputEls = inputEls.filter(function (input) {
-      return (!input.dataset.value.includes('#options_disable_'));
+      return (!input.dataset.value.match(/^#options_(disable|optin)_/));
     });
   inputEls.forEach(function (inputEl) {
     inputEl.checked = true;

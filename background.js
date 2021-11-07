@@ -2,6 +2,7 @@
 
 'use strict';
 var ext_api = (typeof browser === 'object') ? browser : chrome;
+var url_loc = (typeof browser === 'object') ? 'firefox' : 'chrome';
 var manifestData = ext_api.runtime.getManifest();
 var ext_name = manifestData.name;
 var ext_version = manifestData.version;
@@ -88,6 +89,7 @@ var disabledSites = [];
 var optionSites = {};
 var customSites = {};
 var customSites_domains = [];
+var updatedSites = {};
 var excludedSites = [];
 
 function setDefaultOptions() {
@@ -103,7 +105,24 @@ function setDefaultOptions() {
   });
 }
 
-function set_rules(sites, sites_custom) {
+function check_sites_updated() {
+  var sites_updated_json = 'https://gitlab.com/magnolia1234/bypass-paywalls-' + url_loc + '-clean/-/raw/master/sites_updated.json';
+  fetch(sites_updated_json)
+  .then(response => {
+    if (response.ok) {
+      response.json().then(json => {
+        expandSiteRules(json);
+        ext_api.storage.local.set({
+          sites_updated: json
+        });
+      })
+    }
+  }).catch(function (err) {
+    false;
+  });
+}
+
+function set_rules(sites, sites_updated, sites_custom) {
   initSetRules();
   for (let site in sites) {
     let site_domain = sites[site].toLowerCase();
@@ -112,7 +131,9 @@ function set_rules(sites, sites_custom) {
       let rule = {};
       if (defaultSites.hasOwnProperty(site)) {
         rule = defaultSites[site];
-       } else { // custom sites
+        if (sites_updated.hasOwnProperty(site))
+          rule = sites_updated[site];
+      } else { // custom sites
         rule = sites_custom[site];
         custom = true;
       }
@@ -145,8 +166,9 @@ function set_rules(sites, sites_custom) {
             let block_regex_default = '';
             if (rule.hasOwnProperty('block_regex'))
               block_regex_default = rule.block_regex;
-            
-            rule = sites_custom[customSite_title];
+            rule = {};
+            for (let key in sites_custom[customSite_title])
+              rule[key] = sites_custom[customSite_title][key];
             if (block_regex_default) {
               if (rule.hasOwnProperty('block_regex')) {
                 if (block_regex_default instanceof RegExp)
@@ -221,6 +243,7 @@ function set_rules(sites, sites_custom) {
   disableJavascriptOnListedSites();
 }
 
+// add grouped sites to en/disabledSites (and exclude sites)
 function add_grouped_enabled_domains(groups) {
   for (let key in groups) {
     if (enabledSites.includes(key))
@@ -236,24 +259,21 @@ function add_grouped_enabled_domains(groups) {
   }
 }
 
-// add grouped sites to en/disabledSites (and exclude sites)
-function add_grouped_sites(grouped_sites, sites, sites_custom) {
-  add_grouped_enabled_domains(grouped_sites);
-  set_rules(sites, sites_custom);
-}
-
 // Get the enabled sites (from local storage) & set_rules for sites
 ext_api.storage.local.get({
   sites: {},
   sites_default: Object.keys(defaultSites).filter(x => !defaultSites[x].domain.match(/^(#options_|###$)/)),
   sites_custom: {},
+  sites_updated: {},		 
   sites_excluded: [],
   ext_version_old: '2.3.9.0',
   optIn: false
 }, function (items) {
   var sites = items.sites;
+  optionSites = sites;
   var sites_default = items.sites_default;
   var sites_custom = items.sites_custom;
+  var sites_updated = items.sites_updated;
   var ext_version_old = items.ext_version_old;
   optin_setcookie = items.optIn;
   excludedSites = items.sites_excluded;
@@ -284,9 +304,12 @@ ext_api.storage.local.get({
 
   customSites = sites_custom;
   customSites_domains = Object.values(sites_custom).map(x => x.domain);
+  updatedSites = sites_updated;		 
   disabledSites = defaultSites_domains.concat(customSites_domains).filter(x => !enabledSites.includes(x) && x !== '###');
   add_grouped_enabled_domains(grouped_sites);
-  set_rules(sites, customSites);
+  set_rules(sites, updatedSites, customSites);
+  if (enabledSites.includes('#options_optin_update_rules'))
+    check_sites_updated();
 });
 
 // Listen for changes to options
@@ -305,7 +328,7 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
         });
       disabledSites = defaultSites_domains.concat(customSites_domains).filter(x => !enabledSites.includes(x) && x !== '###');
       add_grouped_enabled_domains(grouped_sites);
-      set_rules(sites, customSites);
+      set_rules(sites, updatedSites, customSites);
     }
     if (key === 'sites_custom') {
       var sites_custom = storageChange.newValue ? storageChange.newValue : {};
@@ -333,10 +356,14 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
             true;
           });
         } else
-          set_rules(sites, customSites);
+          set_rules(sites, updatedSites, customSites);
       });
-      
     }
+    if (key === 'sites_updated') {
+      var sites_updated = storageChange.newValue ? storageChange.newValue : {};
+      updatedSites = sites_updated;
+      set_rules(optionSites, updatedSites, customSites);
+    }											
     if (key === 'sites_excluded') {
       var sites_excluded = storageChange.newValue ? storageChange.newValue : [];
       var sites_excluded_old = storageChange.oldValue ? storageChange.oldValue : [];
@@ -959,7 +986,7 @@ function updateBadge(activeTab) {
 var ext_version_new;
 check_update();
 function check_update() {
-  var manifest_new = 'https://bitbucket.org/magnolia1234/bypass-paywalls-firefox-clean/raw/master/manifest.json';
+  var manifest_new = 'https://gitlab.com/magnolia1234/bypass-paywalls-' + url_loc + '-clean/-/raw/master/manifest.json';
   fetch(manifest_new)
   .then(response => {
     if (response.ok) {

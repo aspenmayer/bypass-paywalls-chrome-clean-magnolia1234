@@ -30,7 +30,7 @@ var defaultSites = {
       "destentor.nl",
       "gelderlander.nl"
     ],
-    remove_cookies_select_drop: ['temptationTrackingId']
+    remove_cookies_select_drop: ["temptationTrackingId"]
   },
   "Alma Talent (Finland)": {
     domain: "###_fi_alma_talent",
@@ -60,7 +60,7 @@ var defaultSites = {
   },
   "Ámbito": {
     domain: "ambito.com",
-    remove_cookies_select_drop: ['TDNotesRead']
+    remove_cookies_select_drop: ["TDNotesRead"]
   },
   "American Affairs": {
     domain: "americanaffairsjournal.org"
@@ -138,7 +138,7 @@ var defaultSites = {
   "Barron's": {
     domain: "barrons.com",
     block_regex: /(cdn\.cxense\.com\/.+|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent|subscriptions)-.+\.js)/,
-    remove_cookies_select_hold: ['wsjregion'],
+    remove_cookies_select_hold: ["wsjregion"],
     useragent: "googlebot"
   },
   "BBC History Extra": {
@@ -167,7 +167,7 @@ var defaultSites = {
   "Bloomberg": {
     domain: "bloomberg.com",
     block_regex: /\.tinypass\.com\//,
-    remove_cookies_select_hold: ['bb_geo_info']
+    remove_cookies_select_hold: ["bb_geo_info"]
   },
   "Bloomberg Quint (free articles only)": {
     domain: "bloombergquint.com"
@@ -186,7 +186,7 @@ var defaultSites = {
   },
   "Caixin Global": {
     domain: "caixinglobal.com",
-    remove_cookies_select_drop: ['CAIXINGLB_LOGIN_UUID']
+    remove_cookies_select_drop: ["CAIXINGLB_LOGIN_UUID"]
   },
   "Challenges": {
     domain: "challenges.fr",
@@ -406,7 +406,7 @@ var defaultSites = {
   "Financieele Dagblad (fd.nl)": {
     domain: "fd.nl",
     referer: "facebook",
-    remove_cookies_select_drop: ['socialread']
+    remove_cookies_select_drop: ["socialread"]
   },
   "First Things": {
     domain: "firstthings.com"
@@ -496,11 +496,11 @@ var defaultSites = {
   "Griffith Review": {
     domain: "griffithreview.com",
     block_regex: /\.griffithreview\.com\/.+\/leaky-paywall\//,
-    remove_cookies_select_drop: ['issuem_lp']
+    remove_cookies_select_drop: ["issuem_lp"]
   },
   "Groene Amsterdammer": {
     domain: "groene.nl",
-    remove_cookies_select_hold: ['accept-cookies', 'popunder-hidden']
+    remove_cookies_select_hold: ["accept-cookies", "popunder-hidden"]
   },
   "Groupe EBRA (France)": {
     domain: "###_fr_groupe_ebra",
@@ -1007,7 +1007,7 @@ var defaultSites = {
       "thecut.com",
       "vulture.com"
     ],
-    remove_cookies_select_drop: ['nymcid'],
+    remove_cookies_select_drop: ["nymcid"],
     block_regex: /fosse\.nymag\.com\/fosse\/.+\/scripts\/.+\.js/
   },
   "New Zealand Herald": {
@@ -1049,7 +1049,7 @@ var defaultSites = {
   },
   "NRC Handelsblad": {
     domain: "nrc.nl",
-    remove_cookies_select_drop: ['counter']
+    remove_cookies_select_drop: ["counter"]
   },
   "NyTeknik": {
     domain: "nyteknik.se",
@@ -1108,7 +1108,7 @@ var defaultSites = {
   "Quartz (free articles only)": {
     domain: "qz.com",
     block_regex: /\.tinypass\.com\//,
-    remove_cookies_select_hold: ['gdpr']
+    remove_cookies_select_hold: ["gdpr"]
   },
   "Quora": {
     domain: "quora.com",
@@ -1295,7 +1295,7 @@ var defaultSites = {
   },
   "The Atlantic": {
     domain: "theatlantic.com",
-    remove_cookies_select_drop: ['articleViews']
+    remove_cookies_select_drop: ["articleViews"]
   },
   "The Australian Financial Review": {
     domain: "afr.com",
@@ -1405,7 +1405,7 @@ var defaultSites = {
   },
   "The New Statesman": {
     domain: "newstatesman.com",
-    remove_cookies_select_hold: ['STYXKEY_nsversion']
+    remove_cookies_select_hold: ["STYXKEY_nsversion"]
   },
   "The New York Review of Books": {
     domain: "nybooks.com",
@@ -1426,7 +1426,7 @@ var defaultSites = {
   },
   "The Point Magazine": {
     domain: "thepointmag.com",
-    remove_cookies_select_drop: ['monthly_history']
+    remove_cookies_select_drop: ["monthly_history"]
   },
   "The Saturday Paper": {
     domain: "thesaturdaypaper.com.au",
@@ -1434,7 +1434,7 @@ var defaultSites = {
   },
   "The Seattle Times": {
     domain: "seattletimes.com",
-    remove_cookies_select_hold: ['st_newsletter_splash_seen']
+    remove_cookies_select_hold: ["st_newsletter_splash_seen"]
   },
   "The Spectator (UK)": {
     domain: "spectator.co.uk",
@@ -1480,7 +1480,7 @@ var defaultSites = {
   "The Wall Street Journal": {
     domain: "wsj.com",
     block_regex: /(cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent|subscriptions)-.+\.js|cdn\.cxense\.com\/)/,
-    remove_cookies_select_hold: ['wsjregion', 'ResponsiveConditional_initialBreakpoint'],
+    remove_cookies_select_hold: ["wsjregion", "ResponsiveConditional_initialBreakpoint"],
     useragent: "googlebot"
   },
   "The Washington Post": {
@@ -1662,6 +1662,9 @@ var defaultSites = {
   },
   "Enable new sites by default": {
     domain: "#options_enable_new_sites"
+  },
+  "Check for update rules at startup": {
+    domain: "#options_optin_update_rules"
   },
   "Restore opt-in for custom sites (on reload; Chrome-only)": {
     domain: "#options_restore_custom"

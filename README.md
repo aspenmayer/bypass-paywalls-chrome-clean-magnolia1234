@@ -67,7 +67,8 @@ Visit the [Firefox repository](https://gitlab.com/magnolia1234/bypass-paywalls-f
 
 ### Update
 For crx-installation: check for updates (in chrome://extensions).\
-For zip-installation (load unpacked/developer mode): unzip files to installation folder or use a Git(Hub)-client to clone the extension (locally).
+For zip-installation (load unpacked/developer mode): unzip files to installation folder or use a Git(Hub)-client to clone the extension (locally).\
+You can also check for update of site rules at startup (opt-in).
 
 ### List of supported websites
 
