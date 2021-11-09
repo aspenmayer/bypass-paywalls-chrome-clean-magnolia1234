@@ -1032,7 +1032,8 @@ var defaultSites = {
     referer: "facebook"
   },
   "Nikkei Asian Review": {
-    domain: "asia.nikkei.com"
+    domain: "asia.nikkei.com",
+    remove_cookies_select_drop: ["xbc"]
   },
   "NK News (free articles only)": {
     domain: "nknews.org",

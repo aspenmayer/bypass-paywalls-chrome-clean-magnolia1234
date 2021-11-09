@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Fix Nikkei Asian Review (cookies)
 
 * v2.4.3.0 (2021-11-07)
 Add Harvard Business Review China

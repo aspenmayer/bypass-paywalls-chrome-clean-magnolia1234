@@ -585,7 +585,7 @@ var block_js = ["*://cdn.tinypass.com/*", "*://*.piano.io/*", "*://*.poool.fr/*"
 function disableJavascriptOnListedSites() {
   ext_api.webRequest.onBeforeRequest.addListener(function (details) {
     let header_referer = details.originUrl ? details.originUrl : details.initiator;
-    if (!isSiteEnabled(details) || matchUrlDomain(excludedSites, header_referer)) {
+    if (!isSiteEnabled(details) || matchUrlDomain(excludedSites.concat(['asia.nikkei.com']), header_referer)) {
       return;
     }
     return {
@@ -1068,6 +1068,8 @@ function remove_cookies_fn(domainVar, exclusions = false) {
             storeId = store.id;
         }
         storeId = storeId.toString();
+        if (domainVar === 'asia.nikkei.com')
+          domainVar = 'nikkei.com';
         var cookie_get_options = {
           domain: domainVar
         };

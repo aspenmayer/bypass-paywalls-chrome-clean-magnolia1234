@@ -1439,8 +1439,8 @@ else if (matchDomain('spectator.co.uk')) {
 }
 
 else if (matchDomain('telegraph.co.uk')) {
-  let url = window.location.href;
-  if (new URL(url).pathname.endsWith('/amp/')) {
+  let url = window.location.href.split('?')[0];
+  if (url.endsWith('/amp/')) {
     let paywall = document.querySelector('.premium-paywall');
     if (paywall) {
       let truncated_content = document.querySelector('.truncated-content');
@@ -1449,6 +1449,11 @@ else if (matchDomain('telegraph.co.uk')) {
       if (subscr_section)
         subscr_section.removeAttribute('amp-access-hide');
     }
+    let amp_ads = document.querySelectorAll('amp-ad, amp-embed');
+    removeDOMElement(...amp_ads);
+  } else {
+    let ads = document.querySelectorAll('.advert, .commercial-unit');
+    removeDOMElement(...ads);
   }
 }
 
@@ -1613,7 +1618,7 @@ else if (matchDomain('americanaffairsjournal.org')) {
 }
 
 else if (matchDomain('asia.nikkei.com')) {
-  let popup = document.querySelector('.pw-widget--popup');
+  let popup = document.querySelector('#pianoj_ribbon');
   removeDOMElement(popup);
 }
 
@@ -2257,8 +2262,9 @@ else if (matchDomain('newstatesman.com')) {
 }
 
 else if (matchDomain('newrepublic.com')) {
-  let pw_opups = document.querySelector('div#pwPopups');
-  removeDOMElement(pw_opups);
+  let pw_popups = document.querySelector('div#pwPopups');
+  let ads = document.querySelectorAll('.ad-unit, .ad-container');
+  removeDOMElement(pw_popups, ...ads);
 }
 
 else if (matchDomain('newyorker.com') && window.location.href.split('?')[0].match(/\.com\/.+\//) ) {
