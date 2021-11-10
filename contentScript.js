@@ -1332,9 +1332,9 @@ else if (matchDomain(nl_mediahuis_region_domains)) {
 
 else if (matchDomain('nrc.nl')) {
   window.setTimeout(function () {
-    let mijnnrc_overlay = document.querySelector('#mijnnrc__modal__overlay');
+    let nrc_overlay = document.querySelectorAll('[id$="modal__overlay"]');
     let subscribe_bar = document.querySelector('.header__subscribe-bar');
-    removeDOMElement(mijnnrc_overlay, subscribe_bar);
+    removeDOMElement(...nrc_overlay, subscribe_bar);
     let paywall = document.querySelector('.has-paywall');
     if (paywall)
       paywall.classList.remove('has-paywall');

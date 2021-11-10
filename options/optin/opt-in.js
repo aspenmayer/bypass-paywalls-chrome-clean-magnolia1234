@@ -75,4 +75,23 @@ window.addEventListener("load", function () {
             });
         });
     });
+
+    var update_enabled = document.getElementById('update-enabled');
+    ext_api.storage.local.get({optInUpdate: true}, function (result) {
+        update_enabled.innerText = result.optInUpdate ? 'YES' : 'NO';
+    });
+
+    document.getElementById("update-enable").addEventListener("click", function () {
+        ext_api.storage.local.set({
+            "optInUpdate": true
+        });
+        update_enabled.innerText = 'YES';
+    });
+
+    document.getElementById("update-disable").addEventListener("click", function () {
+        ext_api.storage.local.set({
+            "optInUpdate": false
+        });
+        update_enabled.innerText = 'NO';
+    });
 });

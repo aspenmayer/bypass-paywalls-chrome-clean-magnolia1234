@@ -11,6 +11,7 @@ const cs_limit_except = ['elespanol.com', 'faz.net', 'inkl.com', 'nation.africa'
 var currentTabUrl = '';
 var csDone = false;
 var optin_setcookie = false;
+var optin_update = true;
 
 // defaultSites are loaded from sites.js at installation extension
 
@@ -106,7 +107,8 @@ function setDefaultOptions() {
 }
 
 function check_sites_updated() {
-  var sites_updated_json = 'https://gitlab.com/magnolia1234/bypass-paywalls-' + url_loc + '-clean/-/raw/master/sites_updated.json';
+  //var sites_updated_json = 'https://gitlab.com/magnolia1234/bypass-paywalls-' + url_loc + '-clean/-/raw/master/sites_updated.json';
+  var sites_updated_json = 'https://bitbucket.org/magnolia1234/bypass-paywalls-firefox-clean/raw/master/sites_updated.json';
   fetch(sites_updated_json)
   .then(response => {
     if (response.ok) {
@@ -268,7 +270,8 @@ ext_api.storage.local.get({
   sites_updated: {},		 
   sites_excluded: [],
   ext_version_old: '2.3.9.0',
-  optIn: false
+  optIn: false,
+  optInUpdate: true
 }, function (items) {
   var sites = items.sites;
   optionSites = sites;
@@ -277,6 +280,7 @@ ext_api.storage.local.get({
   var sites_updated = items.sites_updated;
   var ext_version_old = items.ext_version_old;
   optin_setcookie = items.optIn;
+  optin_update = items.optInUpdate;
   excludedSites = items.sites_excluded;
 
   enabledSites = Object.values(sites).filter(function (val) {
@@ -311,6 +315,8 @@ ext_api.storage.local.get({
   set_rules(sites, updatedSites, customSites);
   if (enabledSites.includes('#options_optin_update_rules'))
     check_sites_updated();
+  if (optin_update)
+    check_update();
 });
 
 // Listen for changes to options
@@ -392,6 +398,9 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
     }
     if (key === 'optIn') {
       optin_setcookie = storageChange.newValue;
+    }
+    if (key === 'optInUpdate') {
+      optin_update = storageChange.newValue;
     }
     // reset disableJavascriptOnListedSites eventListener
     ext_api.webRequest.onBeforeRequest.removeListener(disableJavascriptOnListedSites);
@@ -985,9 +994,9 @@ function updateBadge(activeTab) {
 }
 
 var ext_version_new;
-check_update();
 function check_update() {
-  var manifest_new = 'https://gitlab.com/magnolia1234/bypass-paywalls-' + url_loc + '-clean/-/raw/master/manifest.json';
+  //var manifest_new = 'https://gitlab.com/magnolia1234/bypass-paywalls-' + url_loc + '-clean/-/raw/master/manifest.json';
+  var manifest_new = 'https://bitbucket.org/magnolia1234/bypass-paywalls-firefox-clean/raw/master/manifest.json';
   fetch(manifest_new)
   .then(response => {
     if (response.ok) {

@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Fix Nikkei Asian Review (cookies)
+Check for update version on startup/options (now opt-out)
 
 * v2.4.3.0 (2021-11-07)
 Add Harvard Business Review China
@@ -14,7 +15,7 @@ Fix LesEchos.fr (json)
 Fix WaPo (images)
 Fix WSJ (timing)
 Add allowlist for BPC extension (macOS)
-Check for update rules at startup (opt-in)
+Check for update rules on startup (opt-in)
 Refactor (custom) site rules
 
 * v2.4.2.0 (2021-10-31)
