@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Fix Nikkei Asian Review (cookies)
+Fix Repubblica sites (re-enable Googlebot)
 Check for update version on startup/options (now opt-out)
 
 * v2.4.3.0 (2021-11-07)

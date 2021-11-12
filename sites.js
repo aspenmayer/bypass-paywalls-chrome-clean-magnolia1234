@@ -1701,7 +1701,8 @@ var group_rules = {
   },
   it_repubblica_domains: {
     allow_cookies: 1,
-    block_regex: /(scripts\.repubblica\.it\/pw\/pw\.js|cdn\.ampproject\.org\/v\d\/amp-(access|ad|user-notification)-.+\.js)/
+    block_regex: /(scripts\.repubblica\.it\/pw\/pw\.js|cdn\.ampproject\.org\/v\d\/amp-(access|ad|user-notification)-.+\.js)/,
+    useragent: "googlebot"
   },
   nl_pg_domains: {
     remove_cookies_select_drop: ['TID_ID'],

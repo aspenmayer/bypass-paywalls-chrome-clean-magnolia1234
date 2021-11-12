@@ -26,15 +26,17 @@ const restrictions = {
   'faz.net': /^((?!\/.+\.faz\.net\/aktuell\/(\?switchfaznet)?$).)*$/,
   'foreignaffairs.com': /.+\.foreignaffairs\.com\/(articles|fa-caching|interviews|reviews|sites)\/.+/,
   'ft.com': /.+\.ft\.com\/content\//,
+  'lastampa.it': /^((?!\/video\.lastampa\.it\/).)*$/,
   'medianama.com': /\.medianama\.com\/((\d){4}\/(\d){2}|wp-content)\//,
   'timesofindia.com': /.+\.timesofindia\.com\/($|toi-plus(\/.+)?|.+\.cms)/,
   'nknews.org': /^((?!nknews\.org\/pro\/).)*$/,
   'quora.com': /^((?!quora\.com\/search\?q=).)*$/,
+  'repubblica.it': /^((?!\/video\.repubblica\.it\/).)*$/,
   'seekingalpha.com': /.+\/seekingalpha\.com\/($|(amp\/)?(article|news)\/|samw\/)/,
   'statista.com': /^((?!\.statista\.com\/(outlook|study)\/).)*$/,
   'techinasia.com': /\.techinasia\.com\/.+/,
   'theglobeandmail.com': /\.theglobeandmail\.com\/.+\//,
-  'timeshighereducation.com':  /.+\.timeshighereducation\.com\/(sites\/default\/files\/|.+((\w)+(\-)+){3,}.+)/
+  'timeshighereducation.com':  /.+\.timeshighereducation\.com\/((features|news|people)\/|.+((\w)+(\-)+){3,}.+|sites\/default\/files\/)/
 }
 
 // Don't remove cookies before/after page load
