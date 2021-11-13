@@ -2355,6 +2355,14 @@ else if (matchDomain('nytimes.com')) {
   }
 }
 
+else if (matchDomain('quora.com')) {
+  let overlay = document.querySelector('div.qu-zIndex--inline_overlay');
+  removeDOMElement(overlay);
+  let mask_image = document.querySelector('div.ePDXbR');
+  if (mask_image)
+    mask_image.classList.remove('ePDXbR');
+}
+
 else if (matchDomain('qz.com')) {
   let url = window.location.href;
   window.setTimeout(function () {

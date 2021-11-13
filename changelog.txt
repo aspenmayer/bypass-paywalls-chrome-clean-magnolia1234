@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Fix Nikkei Asian Review (cookies)
+Fix Quora+ (banner)
 Fix Repubblica sites (re-enable Googlebot)
 Add rules for new sites (opt-in to custom sites)
 Check for update version on startup/options (now opt-out)
