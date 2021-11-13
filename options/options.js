@@ -31,61 +31,71 @@ function save_options() {
 function renderOptions() {
   var labelEl;
   ext_api.storage.local.get({
-    sites: {}, sites_custom: {}, sites_excluded: []
-  }, function(items) {
+    sites: {},
+    sites_updated: {},
+    sites_custom: {},
+    sites_excluded: []
+  }, function (items) {
     var sites = items.sites;
+    var sites_updated = items.sites_updated;
+    var sites_custom = items.sites_custom;
     var sites_excluded = items.sites_excluded;
     var sitesEl = document.getElementById('bypass_sites');
-    for (var key in defaultSites) {
-      if (!defaultSites.hasOwnProperty(key)) {
-        continue;
+    var site_types = {
+      "updated": {
+        sites: sites_updated,
+        title: '* Updated (new) Sites (opt-in to custom sites)',
+        default_sites: false
+      },
+      "default": {
+        sites: defaultSites,
+        title: '* Default Sites',
+        default_sites: true
+      },
+      "custom": {
+        sites: sites_custom,
+        title: '* Custom (new) Sites',
+        default_sites: false
       }
-      var value = defaultSites[key].domain;
+    };
+    var first = true;
+    for (let site_type in site_types) {
+      if (!first)
+        labelEl.appendChild(document.createElement('hr'));
+      else
+        first = false;
       labelEl = document.createElement('label');
-      var inputEl = document.createElement('input');
-      inputEl.type = 'checkbox';
-      inputEl.dataset.key = key;
-      inputEl.dataset.value = value;
-      inputEl.checked = Object.keys(sites).some(title => compareKey(title, key)) && !sites_excluded.includes(value);
-      if (value !== '###') {
-          labelEl.appendChild(inputEl);
-      } else {
-          labelEl.appendChild(document.createElement('hr'));
-          labelEl.setAttribute('style', ' font-weight: bold;');
-      }
-      labelEl.appendChild(document.createTextNode(' ' + key));
+      labelEl.setAttribute('style', ' font-weight: bold;');
+      labelEl.appendChild(document.createTextNode(site_types[site_type].title));
       sitesEl.appendChild(labelEl);
-    }
-    // custom
-    labelEl.appendChild(document.createElement('hr'));
-    labelEl = document.createElement('label');
-    labelEl.setAttribute('style', ' font-weight: bold;');
-    labelEl.appendChild(document.createTextNode('* Custom Sites'));
-    sitesEl.appendChild(labelEl);
-    var sites_custom = items.sites_custom;
-    for (var key in sites_custom) {
-      var domain = sites_custom[key]['domain'];
-      if (defaultSites.hasOwnProperty(key) || defaultSites_domains.includes(domain)) {
-        continue;
-      }
-      labelEl = document.createElement('label');
-      var inputEl = document.createElement('input');
-      inputEl.type = 'checkbox';
-      inputEl.dataset.key = key;
-      inputEl.dataset.value = domain;
-      inputEl.checked = Object.keys(sites).some(title => compareKey(title, key)) && !sites_excluded.includes(domain);
-      if (value !== '' && value !== '###') {
-        labelEl.appendChild(inputEl);
-      }
-      labelEl.appendChild(document.createTextNode(' '+key));
-      sitesEl.appendChild(labelEl);
+      let sites_arr = site_types[site_type].sites
+        for (let key in sites_arr) {
+          let domain = sites_arr[key]['domain'];
+          if (!site_types[site_type].default_sites && (defaultSites.hasOwnProperty(key) || defaultSites_domains.includes(domain))) {
+            continue;
+          }
+          labelEl = document.createElement('label');
+          let inputEl = document.createElement('input');
+          inputEl.type = 'checkbox';
+          inputEl.dataset.key = key;
+          inputEl.dataset.value = domain;
+          inputEl.checked = Object.keys(sites).some(title => compareKey(title, key)) && !sites_excluded.includes(domain);
+          if (domain !== '' && domain !== '###') {
+            labelEl.appendChild(inputEl);
+          } else {
+            labelEl.appendChild(document.createElement('hr'));
+            labelEl.setAttribute('style', ' font-weight: bold;');
+          }
+          labelEl.appendChild(document.createTextNode(' ' + key));
+          sitesEl.appendChild(labelEl);
+        }
     }
     // excluded
     labelEl.appendChild(document.createElement('hr'));
     labelEl = document.createElement('label');
     labelEl.setAttribute('style', ' font-weight: bold;');
     labelEl.appendChild(document.createTextNode('* Excluded Sites (ignored when checked in list)'));
-    sitesEl.appendChild(labelEl);	
+    sitesEl.appendChild(labelEl);
     labelEl = document.createElement('label');
     labelEl.appendChild(document.createTextNode(sites_excluded.join()));
     sitesEl.appendChild(labelEl);

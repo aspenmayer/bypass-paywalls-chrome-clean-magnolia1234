@@ -224,9 +224,12 @@ var perm_origins;
 // Restores checkbox input states using the preferences stored in ext_api.storage.
 function renderOptions() {
   ext_api.storage.local.get({
-    sites_custom: {}
+    sites_custom: {},
+    sites_updated: {}
   }, function (items) {
     var sites_custom = items.sites_custom;
+    var sites_updated = items.sites_updated;
+    var sites_updated_new = Object.keys(sites_updated).filter(x => !defaultSites_domains.includes(x.domain));
     var sitesEl = document.getElementById('bypass_sites');
     sitesEl.innerHTML = '';
     var labelEl = document.createElement('label');
@@ -315,6 +318,12 @@ function renderOptions() {
     }
     labelEl.appendChild(selectEl);
     custom_sitesEl.appendChild(labelEl);
+
+    for (let key in sites_updated_new) {
+      let domain = sites_updated_new[key]['domain'];
+      if (!perm_origins.includes(domain))
+        perm_origins.push('*://*.' + domain + '/*');
+    }
     
     var perm_custom = document.getElementById('perm-custom');
     ext_api.permissions.contains({

@@ -137,7 +137,9 @@ function set_rules(sites, sites_updated, sites_custom) {
         rule = defaultSites[site];
         if (sites_updated.hasOwnProperty(site))
           rule = sites_updated[site];
-      } else if (sites_custom.hasOwnProperty(site)) { // custom sites
+      } else if (sites_updated.hasOwnProperty(site)) { // updated (new) sites
+        rule = sites_updated[site];
+      } else if (sites_custom.hasOwnProperty(site)) { // custom (new) sites
         rule = sites_custom[site];
         custom = true;
       } else
@@ -278,8 +280,9 @@ ext_api.storage.local.get({
   var sites = items.sites;
   optionSites = sites;
   var sites_default = items.sites_default;
-  var sites_custom = items.sites_custom;
-  var sites_updated = items.sites_updated;
+  customSites = items.sites_custom;
+  customSites_domains = Object.values(customSites).map(x => x.domain);
+  updatedSites = items.sites_updated;
   var ext_version_old = items.ext_version_old;
   optin_setcookie = items.optIn;
   optin_update = items.optInUpdate;
@@ -294,9 +297,9 @@ ext_api.storage.local.get({
   // Enable new sites by default (opt-in)
   if (ext_version > ext_version_old) {
     if (enabledSites.includes('#options_enable_new_sites')) {
-      var sites_new = Object.keys(defaultSites).filter(x => !defaultSites[x].domain.match(/^(#options_|###$)/) && !sites_default.includes(x));
+      let sites_new = Object.keys(defaultSites).filter(x => !defaultSites[x].domain.match(/^(#options_|###$)/) && !sites_default.includes(x));
       for (let site_new of sites_new) {
-        sites[site_new] = defaultSites[site_new];
+        sites[site_new] = defaultSites[site_new].domain;
       }
       ext_api.storage.local.set({
         sites: sites
@@ -309,9 +312,6 @@ ext_api.storage.local.get({
     });
   }
 
-  customSites = sites_custom;
-  customSites_domains = Object.values(sites_custom).map(x => x.domain);
-  updatedSites = sites_updated;		 
   disabledSites = defaultSites_domains.concat(customSites_domains).filter(x => !enabledSites.includes(x) && x !== '###');
   add_grouped_enabled_domains(grouped_sites);
   set_rules(sites, updatedSites, customSites);
