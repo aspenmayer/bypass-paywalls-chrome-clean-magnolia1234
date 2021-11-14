@@ -71,16 +71,15 @@ function renderOptions() {
       let sites_arr = site_types[site_type].sites
         for (let key in sites_arr) {
           let domain = sites_arr[key]['domain'];
-          if (!site_types[site_type].default_sites && (defaultSites.hasOwnProperty(key) || defaultSites_domains.includes(domain))) {
+          if (!domain || (!site_types[site_type].default_sites && (defaultSites.hasOwnProperty(key) || defaultSites_domains.includes(domain))))
             continue;
-          }
           labelEl = document.createElement('label');
           let inputEl = document.createElement('input');
           inputEl.type = 'checkbox';
           inputEl.dataset.key = key;
           inputEl.dataset.value = domain;
           inputEl.checked = Object.keys(sites).some(title => compareKey(title, key)) && !sites_excluded.includes(domain);
-          if (domain !== '' && domain !== '###') {
+          if (domain !== '###') {
             labelEl.appendChild(inputEl);
           } else {
             labelEl.appendChild(document.createElement('hr'));

@@ -5,8 +5,9 @@ Post-release
 Fix Nikkei Asian Review (cookies)
 Fix Quora+ (banner)
 Fix Repubblica sites (re-enable Googlebot)
-Add rules for new sites (opt-in to custom sites)
+Add rules for new sites (post-release; opt-in to custom sites)
 Check for update version on startup/options (now opt-out)
+Update group rules (post-release)
 
 * v2.4.3.0 (2021-11-07)
 Add Harvard Business Review China

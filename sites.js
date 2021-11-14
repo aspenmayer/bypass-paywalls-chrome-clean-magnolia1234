@@ -1,7 +1,7 @@
 var defaultSites = {
   "360Dx": {
     domain: "360dx.com",
-    group_rule: "usa_genomeweb_domains"
+    group_rule: "###_gr_usa_genomeweb_domains"
   },
   "Aachener Zeitung": {
     domain: "aachener-zeitung.de",
@@ -174,7 +174,7 @@ var defaultSites = {
   },
   "Brisbane Times": {
     domain: "brisbanetimes.com.au",
-    group_rule: "au_nine_domains"
+    group_rule: "###_gr_au_nine_domains"
   },
   "Business Insider": {
     domain: "businessinsider.com",
@@ -279,7 +279,7 @@ var defaultSites = {
   },
   "DeMorgen": {
     domain: "demorgen.be",
-    group_rule: "nl_pg_domains"
+    group_rule: "###_gr_nl_pg_domains"
   },
   "Deutsche Wirtschafts Nachrichten": {
     domain: "deutsche-wirtschafts-nachrichten.de",
@@ -343,7 +343,7 @@ var defaultSites = {
   },
   "El Mundo": {
     domain: "elmundo.es",
-    group_rule: "es_unidad_domains"
+    group_rule: "###_gr_es_unidad_domains"
   },
   "El País": {
     domain: "elpais.com",
@@ -387,7 +387,7 @@ var defaultSites = {
   },
   "Expansión": {
     domain: "expansion.com",
-    group_rule: "es_unidad_domains"
+    group_rule: "###_gr_es_unidad_domains"
   },
   "Financial News (London)": {
     domain: "fnlondon.com",
@@ -475,11 +475,11 @@ var defaultSites = {
   },
   "GElocal.it": {
     domain: "gelocal.it",
-    group_rule: "it_repubblica_domains"
+    group_rule: "###_gr_it_repubblica_domains"
   },
   "GenomeWeb": {
     domain: "genomeweb.com",
-    group_rule: "usa_genomeweb_domains"
+    group_rule: "###_gr_usa_genomeweb_domains"
   },
   "Gestión": {
     domain: "gestion.pe",
@@ -641,7 +641,7 @@ var defaultSites = {
   },
   "Humo.be": {
     domain: "humo.be",
-    group_rule: "nl_pg_domains"
+    group_rule: "###_gr_nl_pg_domains"
   },
   "Il Fatto Quotidiano": {
     domain: "ilfattoquotidiano.it",
@@ -665,7 +665,7 @@ var defaultSites = {
   },
   "Il Secolo XIX": {
     domain: "ilsecoloxix.it",
-    group_rule: "it_repubblica_domains"
+    group_rule: "###_gr_it_repubblica_domains"
   },
   "Inc.com": {
     domain: "inc.com",
@@ -748,11 +748,11 @@ var defaultSites = {
   },
   "La Nuova Sardegna": {
     domain: "lanuovasardegna.it",
-    group_rule: "it_repubblica_domains"
+    group_rule: "###_gr_it_repubblica_domains"
   },
   "La Repubblica": {
     domain: "repubblica.it",
-    group_rule: "it_repubblica_domains"
+    group_rule: "###_gr_it_repubblica_domains"
   },
   "La Segunda": {
     domain: "lasegunda.com",
@@ -760,7 +760,7 @@ var defaultSites = {
   },
   "La Stampa": {
     domain: "lastampa.it",
-    group_rule: "it_repubblica_domains"
+    group_rule: "###_gr_it_repubblica_domains"
   },
   "La Tercera": {
     domain: "latercera.com",
@@ -802,7 +802,7 @@ var defaultSites = {
   },
   "Le Scienze": {
     domain: "lescienze.it",
-    group_rule: "it_repubblica_domains"
+    group_rule: "###_gr_it_repubblica_domains"
   },
   "Le Télégramme": {
     domain: "letelegramme.fr",
@@ -832,7 +832,7 @@ var defaultSites = {
   },
   "LimesOnline": {
     domain: "limesonline.com",
-    group_rule: "it_repubblica_domains"
+    group_rule: "###_gr_it_repubblica_domains"
   },
   "Live Law": {
     domain: "livelaw.in",
@@ -873,7 +873,7 @@ var defaultSites = {
   },
   "Marca": {
     domain: "marca.com",
-    group_rule: "es_unidad_domains"
+    group_rule: "###_gr_es_unidad_domains"
   },
   "Marianne.net": {
     domain: "marianne.net",
@@ -1077,7 +1077,7 @@ var defaultSites = {
   },
   "Parool": {
     domain: "parool.nl",
-    group_rule: "nl_pg_domains"
+    group_rule: "###_gr_nl_pg_domains"
   },
   "Philosophy Now": {
     domain: "philosophynow.org"
@@ -1097,7 +1097,7 @@ var defaultSites = {
   },
   "Precision Oncology News": {
     domain: "precisiononcologynews.com",
-    group_rule: "usa_genomeweb_domains"
+    group_rule: "###_gr_usa_genomeweb_domains"
   },
   "Prospect Magazine": {
     domain: "prospectmagazine.co.uk",
@@ -1266,7 +1266,7 @@ var defaultSites = {
   },
   "The Age": {
     domain: "theage.com.au",
-    group_rule: "au_nine_domains"
+    group_rule: "###_gr_au_nine_domains"
   },
   "The American Interest": {
     domain: "the-american-interest.com",
@@ -1448,7 +1448,7 @@ var defaultSites = {
   },
   "The Sydney Morning Herald": {
     domain: "smh.com.au",
-    group_rule: "au_nine_domains"
+    group_rule: "###_gr_au_nine_domains"
   },
   "The Telegraph": {
     domain: "telegraph.co.uk",
@@ -1545,7 +1545,7 @@ var defaultSites = {
   },
   "Trouw": {
     domain: "trouw.nl",
-    group_rule: "nl_pg_domains"
+    group_rule: "###_gr_nl_pg_domains"
   },
   "USA Today": {
     domain: "usatoday.com",
@@ -1576,11 +1576,11 @@ var defaultSites = {
   },
   "Volkskrant": {
     domain: "volkskrant.nl",
-    group_rule: "nl_pg_domains"
+    group_rule: "###_gr_nl_pg_domains"
   },
   "WAtoday": {
     domain: "watoday.com.au",
-    group_rule: "au_nine_domains"
+    group_rule: "###_gr_au_nine_domains"
   },
   "Westfalen-Blatt": {
     domain: "westfalen-blatt.de",
@@ -1606,6 +1606,31 @@ var defaultSites = {
     domain: "worldpoliticsreview.com",
     allow_cookies: 1,
     useragent: "googlebot"
+  },
+  "###_gr_au_nine_domains": {
+    group_rule_domains: ["brisbanetimes.com.au", "smh.com.au", "theage.com.au", "watoday.com.au"],
+    block_regex: /cdn\.ampproject\.org\/v\d\/amp-((sticky-)?ad|subscriptions)-.+\.js/
+  },
+  "###_gr_es_unidad_domains": {
+    group_rule_domains: ["elmundo.es", "expansion.com", "marca.com"],
+    allow_cookies: 1,
+    block_regex: /cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad|consent|subscriptions)-.+\.js/
+  },
+  "###_gr_it_repubblica_domains": {
+    group_rule_domains: ["gelocal.it", "ilsecoloxix.it", "lanuovasardegna.it", "lastampa.it", "limesonline.com", "repubblica.it"],
+    allow_cookies: 1,
+    block_regex: /(scripts\.repubblica\.it\/pw\/pw\.js|cdn\.ampproject\.org\/v\d\/amp-(access|ad|user-notification)-.+\.js)/,
+    useragent: "googlebot"
+  },
+  "###_gr_nl_pg_domains": {
+    group_rule_domains: ["parool.nl", "trouw.nl", "volkskrant.nl", "humo.be", "demorgen.be"],
+    remove_cookies_select_drop: ["TID_ID"],
+    block_regex: "\\.{domain}\\/temptation\\/resolve"
+  },
+  "###_gr_usa_genomeweb_domains": {
+    group_rule_domains: ["genomeweb.com", "360dx.com", "precisiononcologynews.com"],
+    allow_cookies: 1,
+    block_regex: /crain-platform-.+-prod\.s3\.amazonaws\.com\/s3fs-public\/js\/js_.+\.js/
   },
   "* Block Paywall-scripts (opt-in to custom sites to enable also for non-listed sites)": {
     domain: "###"
@@ -1678,41 +1703,13 @@ var defaultSites = {
   }
 }
 
-var defaultSites_grouped_domains = Object.values(defaultSites).map(x => x.domain);
+var defaultSites_grouped_domains = Object.values(defaultSites).filter(function (value) {
+    return value.hasOwnProperty('domain');
+  }).map(x => x.domain);
 var defaultSites_groups_domains = [].concat.apply([], Object.values(defaultSites).filter(function (value) {
     return value.hasOwnProperty('group');
   }).map(x => x.group));
 var defaultSites_domains = defaultSites_grouped_domains.concat(defaultSites_groups_domains);
-
-// grouped domains (rules only)
-var au_nine_domains = ['brisbanetimes.com.au', 'smh.com.au', 'theage.com.au', 'watoday.com.au'];
-var es_unidad_domains = ['elmundo.es', 'expansion.com', 'marca.com'];
-var it_repubblica_domains = ['gelocal.it', 'ilsecoloxix.it', 'lanuovasardegna.it', 'lastampa.it', 'limesonline.com', 'repubblica.it'].concat(['lescienze.it']);
-var nl_pg_domains = ['parool.nl', 'trouw.nl', 'volkskrant.nl', 'humo.be', 'demorgen.be'];
-var usa_genomeweb_domains = ['genomeweb.com', '360dx.com', 'precisiononcologynews.com'];
-
-var group_rules = {
-  au_nine_domains: {
-    block_regex: /cdn\.ampproject\.org\/v\d\/amp-((sticky-)?ad|subscriptions)-.+\.js/
-  },
-  es_unidad_domains: {
-    allow_cookies: 1,
-    block_regex: /cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad|consent|subscriptions)-.+\.js/
-  },
-  it_repubblica_domains: {
-    allow_cookies: 1,
-    block_regex: /(scripts\.repubblica\.it\/pw\/pw\.js|cdn\.ampproject\.org\/v\d\/amp-(access|ad|user-notification)-.+\.js)/,
-    useragent: "googlebot"
-  },
-  nl_pg_domains: {
-    remove_cookies_select_drop: ['TID_ID'],
-    block_regex: "\\.{domain}\\/temptation\\/resolve"
-  },
-  usa_genomeweb_domains: {
-    allow_cookies: 1,
-    block_regex: /crain-platform-.+-prod\.s3\.amazonaws\.com\/s3fs-public\/js\/js_.+\.js/
-  }
-}
 
 function addCookieRules(rule, custom) {
   if (rule.hasOwnProperty('remove_cookies_select_drop') || rule.hasOwnProperty('remove_cookies_select_hold') || (custom && !rule.hasOwnProperty('allow_cookies'))) {
@@ -1721,26 +1718,43 @@ function addCookieRules(rule, custom) {
   }
 }
 
-function expandSiteRules(sites, custom = false) {
+function expandSiteRules(sites, updated = false) {
   for (let site in sites) {
     let rule = sites[site];
-    let domain = rule.domain;
     if (rule.hasOwnProperty('group_rule')) {
-      let rules = group_rules[rule.group_rule];
-      for (key in rules)
-        sites[site][key] = rules[key];
-      sites[site].domain = domain;
+      let rules = sites[rule.group_rule];
+      for (key in rules) {
+        if (key !== 'group_rule_domains')
+          sites[site][key] = rules[key];
+      }
       //delete sites[site].group_rule;
     }
-    if (rule.hasOwnProperty('group'))
+    if (updated) {
+      if (rule.hasOwnProperty('group_rule_domains')) {
+        let domains = rule.group_rule_domains;
+        for (let domain of domains) {
+          let defaultTitle = Object.keys(defaultSites).find(key => defaultSites[key].domain === domain);
+          if (defaultTitle) {
+            for (key in rule) {
+              if (key !== 'group_rule_domains')
+                defaultSites[defaultTitle][key] = rule[key];
+            }
+          }
+        }
+      }
+    }
+    if (rule.hasOwnProperty('group')) {
+      let domain = rule.domain;
       grouped_sites[domain] = rule.group
+    }
   }
 }
 
 var grouped_sites = {};
 expandSiteRules(defaultSites);
 
-// grouped domains (dompurify)
+// grouped domains (background)
+var it_repubblica_domains = defaultSites['###_gr_it_repubblica_domains']['group_rule_domains'].concat(['lescienze.it']);
 var nl_mediahuis_region_domains = grouped_sites['###_nl_mediahuis_region'];
 var no_nhst_media_domains = grouped_sites['###_no_nhst_media'];
 var usa_theathletic_domains = grouped_sites['###_usa_theathletic'];

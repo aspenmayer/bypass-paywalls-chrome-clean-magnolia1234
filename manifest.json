@@ -59,7 +59,6 @@
         "*://*.americanbanker.com/*",
         "*://*.apollo-magazine.com/*",
         "*://*.arvopaperi.fi/*",
-        "*://*.asia.nikkei.com/*",
         "*://*.asiatimes.com/*",
         "*://*.atavist.com/*",
         "*://*.atlantico.fr/*",
@@ -337,6 +336,7 @@
         "*://*.newsweek.com/*",
         "*://*.newyorker.com/*",
         "*://*.niagarafallsreview.ca/*",
+        "*://*.nikkei.com/*",
         "*://*.nknews.org/*",
         "*://*.noordhollandsdagblad.nl/*",
         "*://*.nordeclair.fr/*",
@@ -546,5 +546,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.4.3.4"
+    "version": "2.4.3.5"
 }

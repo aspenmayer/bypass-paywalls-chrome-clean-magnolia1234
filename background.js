@@ -93,12 +93,13 @@ var optionSites = {};
 var customSites = {};
 var customSites_domains = [];
 var updatedSites = {};
+var updatedSites_new = [];
 var excludedSites = [];
 
 function setDefaultOptions() {
   ext_api.storage.local.set({
     sites: filterObject(defaultSites, function (val, key) {
-      return !val.domain.match(/^(###$|#options_disable_)/)
+      return val.domain && !val.domain.match(/^(###$|#options_disable_)/)
     },
       function (val, key) {
       return [key, val.domain]
@@ -115,7 +116,7 @@ function check_sites_updated() {
   .then(response => {
     if (response.ok) {
       response.json().then(json => {
-        expandSiteRules(json);
+        expandSiteRules(json, true);
         ext_api.storage.local.set({
           sites_updated: json
         });
@@ -269,7 +270,7 @@ function add_grouped_enabled_domains(groups) {
 // Get the enabled sites (from local storage) & set_rules for sites
 ext_api.storage.local.get({
   sites: {},
-  sites_default: Object.keys(defaultSites).filter(x => !defaultSites[x].domain.match(/^(#options_|###$)/)),
+  sites_default: Object.keys(defaultSites).filter(x => defaultSites[x].domain && !defaultSites[x].domain.match(/^(#options_|###$)/)),
   sites_custom: {},
   sites_updated: {},		 
   sites_excluded: [],
@@ -295,17 +296,19 @@ ext_api.storage.local.get({
     });
 
   // Enable new sites by default (opt-in)
-  if (ext_version > ext_version_old) {
+  updatedSites_new = Object.keys(updatedSites).filter(x => updatedSites[x].domain && !defaultSites_domains.includes(updatedSites[x].domain));
+  for (let site_updated_new of updatedSites_new)
+    defaultSites[site_updated_new] = updatedSites[site_updated_new];
+  if (ext_version > ext_version_old || updatedSites_new.length > 0) {
     if (enabledSites.includes('#options_enable_new_sites')) {
-      let sites_new = Object.keys(defaultSites).filter(x => !defaultSites[x].domain.match(/^(#options_|###$)/) && !sites_default.includes(x));
-      for (let site_new of sites_new) {
+      let sites_new = Object.keys(defaultSites).filter(x => defaultSites[x].domain && !defaultSites[x].domain.match(/^(#options_|###$)/) && !sites_default.includes(x));
+      for (let site_new of sites_new)
         sites[site_new] = defaultSites[site_new].domain;
-      }
       ext_api.storage.local.set({
         sites: sites
       });
     }
-    sites_default = Object.keys(defaultSites).filter(x => !defaultSites[x].domain.match(/^(#options_|###$)/));
+    sites_default = Object.keys(defaultSites).filter(x => defaultSites[x].domain && !defaultSites[x].domain.match(/^(#options_|###$)/));
     ext_api.storage.local.set({
       sites_default: sites_default,
       ext_version_old: ext_version
@@ -371,7 +374,17 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
     if (key === 'sites_updated') {
       var sites_updated = storageChange.newValue ? storageChange.newValue : {};
       updatedSites = sites_updated;
-      set_rules(optionSites, updatedSites, customSites);
+      updatedSites_new = Object.keys(updatedSites).filter(x => updatedSites[x].domain && !defaultSites_domains.includes(updatedSites[x].domain));
+      if (updatedSites_new.length > 0) {
+        if (enabledSites.includes('#options_enable_new_sites')) {
+          for (let site_updated_new of updatedSites_new)
+            optionSites[site_updated_new] = updatedSites[site_updated_new].domain;
+          ext_api.storage.local.set({
+            sites: optionSites
+          });
+        }
+      } else
+        set_rules(optionSites, updatedSites, customSites);
     }											
     if (key === 'sites_excluded') {
       var sites_excluded = storageChange.newValue ? storageChange.newValue : [];
