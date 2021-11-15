@@ -689,6 +689,10 @@ var defaultSites = {
     allow_cookies: 1,
     block_regex: /(cdn\.flip-pay\.com\/clients\/inm\/flip-pay\.js|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js)/
   },
+  "Italian.tech": {
+    domain: "italian.tech",
+    group_rule: "###_gr_it_repubblica_domains"
+  },
   "Knack.be": {
     domain: "knack.be",
     allow_cookies: 1,
@@ -1617,7 +1621,7 @@ var defaultSites = {
     block_regex: /cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad|consent|subscriptions)-.+\.js/
   },
   "###_gr_it_repubblica_domains": {
-    group_rule_domains: ["gelocal.it", "ilsecoloxix.it", "lanuovasardegna.it", "lastampa.it", "limesonline.com", "repubblica.it"],
+    group_rule_domains: ["gelocal.it", "ilsecoloxix.it", "italian.tech", "lanuovasardegna.it", "lastampa.it", "lescienze.it", "limesonline.com", "repubblica.it"],
     allow_cookies: 1,
     block_regex: /(scripts\.repubblica\.it\/pw\/pw\.js|cdn\.ampproject\.org\/v\d\/amp-(access|ad|user-notification)-.+\.js)/,
     useragent: "googlebot"
@@ -1754,7 +1758,7 @@ var grouped_sites = {};
 expandSiteRules(defaultSites);
 
 // grouped domains (background)
-var it_repubblica_domains = defaultSites['###_gr_it_repubblica_domains']['group_rule_domains'].concat(['lescienze.it']);
+var it_repubblica_domains = defaultSites['###_gr_it_repubblica_domains']['group_rule_domains'];
 var nl_mediahuis_region_domains = grouped_sites['###_nl_mediahuis_region'];
 var no_nhst_media_domains = grouped_sites['###_no_nhst_media'];
 var usa_theathletic_domains = grouped_sites['###_usa_theathletic'];

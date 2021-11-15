@@ -422,6 +422,7 @@ Grouped in options:\
 [Il Fatto Quotidiano](https://www.ilfattoquotidiano.it) -
 [Il Manifesto](https://ilmanifesto.it) -
 [Il Secolo XIX](https://www.ilsecoloxix.it) -
+[Italian.tech](https://www.italian.tech) -
 [La Nuova Sardegna](https://www.lanuovasardegna.it) -
 [La Repubblica](https://www.repubblica.it) -
 [La Stampa](https://www.lastampa.it) -

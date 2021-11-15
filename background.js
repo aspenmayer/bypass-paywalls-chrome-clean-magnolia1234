@@ -841,7 +841,7 @@ if (matchUrlDomain(change_headers, details.url) && (!['font', 'image', 'styleshe
       setReferer = true;
     }
     if (requestHeader.name === 'User-Agent') {
-      useUserAgentMobile = requestHeader.value.toLowerCase().includes("mobile") && !matchUrlDomain(['telerama.fr'], details.url);
+      useUserAgentMobile = requestHeader.value.toLowerCase().includes("mobile") && !matchUrlDomain(['telerama.fr'].concat(it_repubblica_domains), details.url);
     }
     return requestHeader;
   });

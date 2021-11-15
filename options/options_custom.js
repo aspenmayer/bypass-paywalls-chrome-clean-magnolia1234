@@ -229,7 +229,7 @@ function renderOptions() {
   }, function (items) {
     var sites_custom = items.sites_custom;
     var sites_updated = items.sites_updated;
-    var sites_updated_new = Object.keys(sites_updated).filter(x => !defaultSites_domains.includes(x.domain));
+    var sites_updated_domains_new = Object.values(sites_updated).filter(x => (x.domain && !defaultSites_domains.includes(x.domain) || x.group)).map(x => x.group ? x.group.filter(y => !defaultSites_domains.includes(y)) : x.domain).flat();
     var sitesEl = document.getElementById('bypass_sites');
     sitesEl.innerHTML = '';
     var labelEl = document.createElement('label');
@@ -301,7 +301,7 @@ function renderOptions() {
     for (let key in sites_custom) {
       optionEl = document.createElement('option');
       let domain = sites_custom[key]['domain'];
-      perm_origins.push('*://*.' + domain + '/*');
+      perm_origins.push(domain);
       let isDefaultSite = defaultSites_domains.includes(domain);
       optionEl.text = isDefaultSite ? '*' : '';
       optionEl.text += key + ': ' + domain +
@@ -318,11 +318,13 @@ function renderOptions() {
     }
     labelEl.appendChild(selectEl);
     custom_sitesEl.appendChild(labelEl);
-
-    for (let key in sites_updated_new) {
-      let domain = sites_updated_new[key]['domain'];
-      if (!perm_origins.includes(domain))
-        perm_origins.push('*://*.' + domain + '/*');
+    
+    if (sites_updated_domains_new.length > 0) {
+      labelEl = document.createElement('p');
+      labelEl.appendChild(document.createElement('label'));
+      labelEl.appendChild(document.createTextNode('Updated sites: ' + sites_updated_domains_new.join()));
+      custom_sitesEl.appendChild(labelEl);
+      perm_origins = perm_origins.concat(sites_updated_domains_new).map(x => '*://*.' + x + '/*');
     }
     
     var perm_custom = document.getElementById('perm-custom');
@@ -335,7 +337,7 @@ function renderOptions() {
         perm_custom.innerText = 'NO';
       }
     });
-  });
+    });
   
   var custom_enabled = document.getElementById('custom-enabled');
   ext_api.permissions.contains({

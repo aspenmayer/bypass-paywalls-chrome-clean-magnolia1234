@@ -234,6 +234,7 @@
         "*://*.inquirer.com/*",
         "*://*.intelligentinvestor.com.au/*",
         "*://*.intrafish.com/*",
+        "*://*.italian.tech/*",
         "*://*.japantimes.co.jp/*",
         "*://*.journaldunet.com/*",
         "*://*.journalnow.com/*",
@@ -546,5 +547,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.4.4.0"
+    "version": "2.4.4.1"
 }
