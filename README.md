@@ -209,6 +209,17 @@ Grouped in options:\
 
 [USA Today](https://www.usatoday.com)\
 Grouped in options:\
+*Advance Local* sites like:\
+[AL/Alabama](https://www.al.com) -
+[MLive/Michigan](https://www.mlive.com) -
+[NJ/New Jersey](https://www.nj.com) -
+[Staten Island Advance](https://www.silive.com) -
+[The Express-Times](https://www.lehighvalleylive.com) -
+[The Oregonian](https://www.oregonlive.com) -
+[The Patriot-News](https://www.pennlive.com) -
+[The Plain Dealer](https://www.cleveland.com) -
+[The Post-Standard](https://www.syracuse.com) -
+[The Republican](https://www.masslive.com)\
 *Gannett Group (local USA Today)* sites like (opt-in to custom sites)\
 [Detroit Free Press](https://www.freep.com) -
 [Milwaukee Journal Sentinel](https://www.jsonline.com) -

@@ -14,6 +14,22 @@ var defaultSites = {
     block_regex: /\.evolok\.net\//,
     useragent: "googlebot"
   },
+  "Advance Local": {
+    domain: "###_usa_adv_local",
+    allow_cookies: 1,
+    group: [
+      "al.com",
+      "cleveland.com",
+      "lehighvalleylive.com",
+      "masslive.com",
+      "mlive.com",
+      "nj.com",
+      "oregonlive.com",
+      "pennlive.com",
+      "silive.com",
+      "syracuse.com"
+    ]
+  },
   "Adweek": {
     domain: "adweek.com",
     block_regex: /\.lightboxcdn\.com\//
@@ -23,12 +39,12 @@ var defaultSites = {
     group: [
       "ad.nl",
       "bd.nl",
-      "ed.nl",
-      "tubantia.nl",
       "bndestem.nl",
-      "pzc.nl",
       "destentor.nl",
-      "gelderlander.nl"
+      "ed.nl",
+      "gelderlander.nl",
+      "pzc.nl",
+      "tubantia.nl"
     ],
     remove_cookies_select_drop: ["temptationTrackingId"]
   },

@@ -19,6 +19,7 @@ var it_quotidiano_domains = ['ilgiorno.it', 'ilrestodelcarlino.it', 'iltelegrafo
 var nl_mediahuis_region_domains = ['gooieneemlander.nl', 'haarlemsdagblad.nl', 'ijmuidercourant.nl', 'leidschdagblad.nl', 'noordhollandsdagblad.nl'];
 var no_nhst_media_domains = ['intrafish.com', 'rechargenews.com', 'tradewindsnews.com', 'upstreamonline.com'];
 var timesofindia_domains = ['timesofindia.com', 'timesofindia.indiatimes.com'];
+var usa_adv_local_domains = ['al.com', 'cleveland.com', 'lehighvalleylive.com', 'masslive.com', 'mlive.com', 'nj.com', 'oregonlive.com', 'pennlive.com', 'silive.com', 'syracuse.com'];
 var usa_craincomm_domains = ['adage.com', 'autonews.com', 'chicagobusiness.com', 'crainscleveland.com', 'crainsdetroit.com', 'crainsnewyork.com', 'modernhealthcare.com'];
 var usa_mcc_domains = ['bnd.com', 'charlotteobserver.com', 'fresnobee.com', 'kansas.com', 'kansascity.com', 'kentucky.com', 'miamiherald.com', 'newsobserver.com', 'sacbee.com', 'star-telegram.com', 'thestate.com', 'tri-cityherald.com'];
 var usa_mng_domains =   ['denverpost.com', 'eastbaytimes.com', 'mercurynews.com', 'ocregister.com', 'pe.com', 'twincities.com'];
@@ -1594,7 +1595,24 @@ else
 
 } else {//other (like com/org & not at/be/br/ch/cl/de/fr/es/ie/nl/pe/pt/uk))
 
-if (matchDomain('adweek.com')) {
+if (matchDomain(usa_adv_local_domains)) {
+  let url = window.location.href;
+  if (url.includes('?outputType=amp')) {
+    let amp_ads = document.querySelectorAll('.amp-ad-container, amp-embed');
+    removeDOMElement(...amp_ads);
+  } else {
+    let paywall = document.querySelector('.paywall');
+    let amphtml = document.querySelector('link[rel="amphtml"]');
+    if (paywall && amphtml) {
+      removeDOMElement(paywall);
+      window.location.href = amphtml.href;
+    }
+    let ads = document.querySelectorAll('div.ad');
+    removeDOMElement(...ads);
+  }
+}
+
+else if (matchDomain('adweek.com')) {
   let url = window.location.href;
   let body_single = document.querySelector('body.single');
   let amphtml = document.querySelector('link[rel="amphtml"]');
