@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add Italian.tech
+Fix Medium (faster)
 
 * v2.4.4.0 (2021-11-14)
 Fix Nikkei Asian Review (cookies)

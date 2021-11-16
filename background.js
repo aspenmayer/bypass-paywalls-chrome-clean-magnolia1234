@@ -1135,7 +1135,10 @@ function remove_cookies_fn(domainVar, exclusions = false) {
 // remove cookies after page load
 ext_api.webRequest.onCompleted.addListener(function (details) {
   let domainVar = matchUrlDomain(remove_cookies, details.url);
-  if (domainVar && ['main_frame', 'sub_frame', 'xmlhttprequest', 'other'].includes(details.type) && enabledSites.includes(domainVar)) {
+  let types = ['main_frame', 'sub_frame', 'xmlhttprequest', 'other'];
+  if (domainVar === 'medium.com')
+    types = ['main_frame', 'image'];
+  if (domainVar && types.includes(details.type) && enabledSites.includes(domainVar)) {
     remove_cookies_fn(domainVar, true);
   }
 }, {
