@@ -1462,8 +1462,8 @@ var defaultSites = {
     domain: "spectator.com.au",
     block_regex: /\.tinypass\.com\//
   },
-  "The Spectator USA": {
-    domain: "spectator.us",
+  "The Spectator World": {
+    domain: "spectatorworld.com",
     block_regex: /(cdn\.cxense\.com\/|\.tinypass\.com\/)/
   },
   "The Sydney Morning Herald": {

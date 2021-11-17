@@ -2,5 +2,9 @@
   "Italian.tech": {
     "domain": "italian.tech",
     "group_rule": "###_gr_it_repubblica_domains"
+  },
+  "The Spectator World": {
+    "domain": "spectatorworld.com",
+    "block_regex": "(cdn\\.cxense\\.com\\/|\\.tinypass\\.com\\/)"
   }
 }

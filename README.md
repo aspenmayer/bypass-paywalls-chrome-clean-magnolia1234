@@ -91,7 +91,7 @@ _* free articles only._
 [The New York Review of Books](https://www.nybooks.com) -
 [The New York Times](https://www.nytimes.com) -
 [The New Yorker](https://www.newyorker.com) -
-[The Spectator USA](https://spectator.us) -
+[The Spectator World](https://spectatorworld.com) -
 [The Washington Post](https://www.washingtonpost.com) -
 [Time Magazine](https://time.com) -
 [World Politics Review](https://www.worldpoliticsreview.com)
