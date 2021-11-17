@@ -53,12 +53,29 @@ if ((bg2csData !== undefined) && bg2csData.amp_unhide) {
       let subscr_section = document.querySelectorAll('[subscriptions-section="content"]');
       for (let elem of subscr_section)
         elem.removeAttribute('subscriptions-section');
+      let content_hidden = document.querySelectorAll('[amp-access][amp-access-hide]');
+      for (elem of content_hidden)
+        elem.removeAttribute('amp-access-hide');
+      let amp_ads = document.querySelectorAll('amp-ad');
+      removeDOMElement(...amp_ads);
     }
-    let content_hidden = document.querySelectorAll('[amp-access][amp-access-hide]');
-    for (elem of content_hidden)
-      elem.removeAttribute('amp-access-hide');
-    let amp_ads = document.querySelectorAll('amp-ad');
-    removeDOMElement(...amp_ads);
+  }, 500); // Delay (in milliseconds)
+}
+
+// updated sites: amp-redirect
+if ((bg2csData !== undefined) && bg2csData.amp_redirect) {
+  window.setTimeout(function () {
+    let amp_page = document.querySelector('script[src^="https://cdn.ampproject.org/"]');
+    if (!amp_page) {
+      let paywall = true;
+      if (bg2csData.amp_redirect.paywall)
+        paywall = document.querySelector(bg2csData.amp_redirect.paywall);
+      let amphtml = document.querySelector('link[rel="amphtml"]');
+      if (paywall && amphtml) {
+        removeDOMElement(paywall);
+        window.location.href = amphtml.href;
+      }
+    }
   }, 500); // Delay (in milliseconds)
 }
 

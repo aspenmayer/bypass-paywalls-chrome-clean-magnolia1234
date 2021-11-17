@@ -324,9 +324,9 @@ function renderOptions() {
       labelEl.appendChild(document.createElement('label'));
       labelEl.appendChild(document.createTextNode('Updated sites: ' + sites_updated_domains_new.join()));
       custom_sitesEl.appendChild(labelEl);
-      perm_origins = perm_origins.concat(sites_updated_domains_new).map(x => '*://*.' + x + '/*');
     }
     
+    perm_origins = perm_origins.concat(sites_updated_domains_new).map(x => '*://*.' + x + '/*');
     var perm_custom = document.getElementById('perm-custom');
     ext_api.permissions.contains({
       origins: perm_origins
@@ -337,7 +337,7 @@ function renderOptions() {
         perm_custom.innerText = 'NO';
       }
     });
-    });
+  });
   
   var custom_enabled = document.getElementById('custom-enabled');
   ext_api.permissions.contains({

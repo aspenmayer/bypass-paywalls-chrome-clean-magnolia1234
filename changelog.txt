@@ -5,6 +5,7 @@ Post-release
 Add Advance Local (local USA)
 Add Italian.tech
 Fix Medium (faster)
+Updated sites: add amp-redirect
 
 * v2.4.4.0 (2021-11-14)
 Fix Nikkei Asian Review (cookies)

@@ -59,6 +59,8 @@ var blockedRegexes = {};
 
 // unhide text on amp-page
 var amp_unhide;
+// redirect to amp-page
+var amp_redirect;
 
 // custom: block javascript
 var block_js_custom = [];
@@ -76,6 +78,7 @@ function initSetRules() {
   use_twitter_referer = [];
   change_headers = [];
   amp_unhide = [];
+  amp_redirect = {};
   block_js_custom = [];
   block_js_custom_ext = [];
   blockedRegexes = {};
@@ -235,6 +238,9 @@ function set_rules(sites, sites_updated, sites_custom) {
             break;
           }
         }
+        // updated
+        if (rule.amp_redirect)
+          amp_redirect[domain] = rule.amp_redirect;
         // custom
         if (rule.googlebot > 0)
           use_google_bot.push(domain);
@@ -920,6 +926,9 @@ if (matchUrlDomain(change_headers, details.url) && (!['font', 'image', 'styleshe
             optin_setcookie: optin_setcookie,
             amp_unhide: matchUrlDomain(amp_unhide, currentTabUrl)
           };
+          let amp_redirect_domain = '';
+          if (amp_redirect_domain = matchUrlDomain(Object.keys(amp_redirect), currentTabUrl))
+            bg2csData.amp_redirect = amp_redirect[amp_redirect_domain];
           ext_api.tabs.executeScript(tabId, {
             code: 'var bg2csData = ' + JSON.stringify(bg2csData) + ';'
           }, function () {
