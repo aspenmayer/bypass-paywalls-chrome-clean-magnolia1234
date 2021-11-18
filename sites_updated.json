@@ -1,4 +1,9 @@
 {
+  "Code Sports": {
+    "domain": "codesports.com.au",
+    "allow_cookies": 1,
+    "useragent": "googlebot"
+  },
   "Italian.tech": {
     "domain": "italian.tech",
     "group_rule": "###_gr_it_repubblica_domains"

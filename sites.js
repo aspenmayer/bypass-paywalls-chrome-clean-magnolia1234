@@ -113,6 +113,7 @@ var defaultSites = {
     group: [
       "adelaidenow.com.au",
       "cairnspost.com.au",
+      "codesports.com.au",
       "couriermail.com.au",
       "dailytelegraph.com.au",
       "geelongadvertiser.com.au",

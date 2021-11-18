@@ -105,6 +105,7 @@
         "*://*.clarin.com/*",
         "*://*.cleveland.com/*",
         "*://*.cmjornal.pt/*",
+        "*://*.codesports.com.au/*",
         "*://*.commentary.org/*",
         "*://*.corriere.it/*",
         "*://*.corriereadriatico.it/*",
@@ -557,5 +558,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.4.4.3"
+    "version": "2.4.4.4"
 }
