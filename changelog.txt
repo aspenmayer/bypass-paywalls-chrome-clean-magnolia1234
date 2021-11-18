@@ -6,7 +6,7 @@ Add Advance Local (local USA)
 Add Italian.tech
 Add Spectator World
 Fix Medium (faster)
-Updated sites: add amp-redirect
+Updated sites: add amp-redirect/code to contentScript
 
 * v2.4.4.0 (2021-11-14)
 Fix Nikkei Asian Review (cookies)

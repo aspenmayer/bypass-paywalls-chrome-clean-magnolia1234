@@ -46,7 +46,7 @@ if ((bg2csData !== undefined) && bg2csData.optin_setcookie) {
 // custom sites: try to unhide text on amp-page
 if ((bg2csData !== undefined) && bg2csData.amp_unhide) {
   window.setTimeout(function () {
-    let amp_page = document.querySelector('script[src^="https://cdn.ampproject.org/"]');
+    let amp_page = document.querySelector('script[src^="https://cdn.ampproject.org/"]') && (window.location.hostname.match(/\/amp(\d)?\./) || window.location.pathname.match(/(\/amp\/|(_|-|\.)amp\.html$|-amp\d|\.amp$)/) || window.location.search.match(/\?(output(Type)?=)?amp/));
     if (amp_page) {
       let preview = document.querySelector('[subscriptions-section="content-not-granted"]');
       removeDOMElement(preview);
@@ -65,7 +65,7 @@ if ((bg2csData !== undefined) && bg2csData.amp_unhide) {
 // updated sites: amp-redirect
 if ((bg2csData !== undefined) && bg2csData.amp_redirect) {
   window.setTimeout(function () {
-    let amp_page = document.querySelector('script[src^="https://cdn.ampproject.org/"]');
+    let amp_page = document.querySelector('script[src^="https://cdn.ampproject.org/"]') && (window.location.hostname.match(/\/amp(\d)?\./) || window.location.pathname.match(/(\/amp\/|(_|-|\.)amp\.html$|-amp\d|\.amp$)/) || window.location.search.match(/\?(output(Type)?=)?amp/));
     if (!amp_page) {
       let paywall = true;
       if (bg2csData.amp_redirect.paywall)
@@ -77,6 +77,31 @@ if ((bg2csData !== undefined) && bg2csData.amp_redirect) {
       }
     }
   }, 500); // Delay (in milliseconds)
+}
+
+function cs_code_elems(elems) {
+  for (let elem of elems) {
+    let elem_dom = document.querySelectorAll(elem.cond);
+    for (let item of elem_dom) {
+      if (elem.rm_elem)
+        removeDOMElement(item);
+      if (elem.rm_class) {
+        let rm_class = elem.rm_class.split(',').map(x => x.trim());
+        item.classList.remove(...rm_class);
+      }
+      if (elem.rm_attrib)
+        item.removeAttribute(elem.rm_attrib);
+      if (elem.elems)
+        cs_code_elems(elem.elems);
+    }
+  }
+}
+
+// updated sites: cs_code
+if ((bg2csData !== undefined) && bg2csData.cs_code) {
+  window.setTimeout(function () {
+    cs_code_elems(bg2csData.cs_code);
+  }, 1000); // Delay (in milliseconds)
 }
 
 // Content workarounds/domain

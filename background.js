@@ -61,6 +61,8 @@ var blockedRegexes = {};
 var amp_unhide;
 // redirect to amp-page
 var amp_redirect;
+// code for contentScript
+var cs_code;
 
 // custom: block javascript
 var block_js_custom = [];
@@ -79,6 +81,7 @@ function initSetRules() {
   change_headers = [];
   amp_unhide = [];
   amp_redirect = {};
+  cs_code = {};
   block_js_custom = [];
   block_js_custom_ext = [];
   blockedRegexes = {};
@@ -241,6 +244,8 @@ function set_rules(sites, sites_updated, sites_custom) {
         // updated
         if (rule.amp_redirect)
           amp_redirect[domain] = rule.amp_redirect;
+        if (rule.cs_code)
+          cs_code[domain] = rule.cs_code;
         // custom
         if (rule.googlebot > 0)
           use_google_bot.push(domain);
@@ -929,6 +934,9 @@ if (matchUrlDomain(change_headers, details.url) && (!['font', 'image', 'styleshe
           let amp_redirect_domain = '';
           if (amp_redirect_domain = matchUrlDomain(Object.keys(amp_redirect), currentTabUrl))
             bg2csData.amp_redirect = amp_redirect[amp_redirect_domain];
+          let cs_code_domain = '';
+          if (cs_code_domain = matchUrlDomain(Object.keys(cs_code), currentTabUrl))
+            bg2csData.cs_code = cs_code[cs_code_domain];
           ext_api.tabs.executeScript(tabId, {
             code: 'var bg2csData = ' + JSON.stringify(bg2csData) + ';'
           }, function () {
