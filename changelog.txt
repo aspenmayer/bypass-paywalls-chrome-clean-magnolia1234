@@ -8,6 +8,7 @@ Add Italian.tech
 Add Spectator World
 Fix Medium (faster)
 Updated sites: add amp-redirect/code to contentScript
+Updated (new) sites: popup-toggle
 
 * v2.4.4.0 (2021-11-14)
 Fix Nikkei Asian Review (cookies)

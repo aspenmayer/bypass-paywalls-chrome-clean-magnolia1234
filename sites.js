@@ -646,7 +646,8 @@ var defaultSites = {
   },
   "Hindustan Times": {
     domain: "hindustantimes.com",
-    allow_cookies: 1
+    allow_cookies: 1,
+    block_regex: /cdn\.ampproject\.org\/v\d\/amp-(access|ad|analytics)-.+\.js/
   },
   "Honolulu Star-Advertiser": {
     domain: "staradvertiser.com",

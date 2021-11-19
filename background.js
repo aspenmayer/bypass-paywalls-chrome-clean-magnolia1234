@@ -1049,48 +1049,53 @@ function check_update() {
 }
 
 function site_switch() {
-    ext_api.tabs.query({
-        active: true,
-        currentWindow: true
-    }, function (tabs) {
-        if (tabs && tabs[0] && tabs[0].url.startsWith('http')) {
-            let currentUrl = tabs[0].url;
-            let isDefaultSite = matchUrlDomain(defaultSites_grouped_domains, currentUrl);
-            if (!isDefaultSite) {
-                let isDefaultSiteGroup = matchUrlDomain(defaultSites_domains, currentUrl);
-                if (isDefaultSiteGroup)
-                    isDefaultSite = Object.keys(grouped_sites).find(key => grouped_sites[key].includes(isDefaultSiteGroup));
-            }
-            let defaultSite_title = isDefaultSite ? Object.keys(defaultSites).find(key => defaultSites[key].domain === isDefaultSite) : '';
-            let isCustomSite = matchUrlDomain(Object.values(customSites_domains), currentUrl);
-            let customSite_title = isCustomSite ? Object.keys(customSites).find(key => customSites[key].domain === isCustomSite) : '';
-            let site_title = defaultSite_title || customSite_title;
-            let domain = isDefaultSite || isCustomSite;
-            if (domain && site_title) {
-                let added_site = [];
-                let removed_site = [];
-                if (enabledSites.includes(domain))
-                    removed_site.push(site_title);
-                else
-                    added_site.push(site_title);
-                ext_api.storage.local.get({
-                    sites: {}
-                }, function (items) {
-                    var sites = items.sites;
-                    for (let key of added_site)
-                        sites[key] = domain;
-                    for (let key of removed_site)
-                        delete sites[key];
-
-                    ext_api.storage.local.set({
-                        sites: sites
-                    }, function () {
-                        true;
-                    });
-                });
-            }
-        }
-    });
+  ext_api.tabs.query({
+    active: true,
+    currentWindow: true
+  }, function (tabs) {
+    if (tabs && tabs[0] && tabs[0].url.startsWith('http')) {
+      let currentUrl = tabs[0].url;
+      let isDefaultSite = matchUrlDomain(defaultSites_grouped_domains, currentUrl);
+      if (!isDefaultSite) {
+        let isDefaultSiteGroup = matchUrlDomain(defaultSites_domains, currentUrl);
+        if (isDefaultSiteGroup)
+          isDefaultSite = Object.keys(grouped_sites).find(key => grouped_sites[key].includes(isDefaultSiteGroup));
+      }
+      if (!isDefaultSite) {
+        let sites_updated_domains_new = Object.values(updatedSites).filter(x => x.domain && !defaultSites_domains.includes(x.domain));
+        let isUpdatedSite = matchUrlDomain(sites_updated_domains_new, currentUrl);
+        if (isUpdatedSite)
+          isDefaultSite = isUpdatedSite;
+      }
+      let defaultSite_title = isDefaultSite ? Object.keys(defaultSites).find(key => defaultSites[key].domain === isDefaultSite) : '';
+      let isCustomSite = matchUrlDomain(Object.values(customSites_domains), currentUrl);
+      let customSite_title = isCustomSite ? Object.keys(customSites).find(key => customSites[key].domain === isCustomSite) : '';
+      let site_title = defaultSite_title || customSite_title;
+      let domain = isDefaultSite || isCustomSite;
+      if (domain && site_title) {
+        let added_site = [];
+        let removed_site = [];
+        if (enabledSites.includes(domain))
+          removed_site.push(site_title);
+        else
+          added_site.push(site_title);
+        ext_api.storage.local.get({
+          sites: {}
+        }, function (items) {
+          var sites = items.sites;
+          for (let key of added_site)
+            sites[key] = domain;
+          for (let key of removed_site)
+            delete sites[key];
+          ext_api.storage.local.set({
+            sites: sites
+          }, function () {
+            true;
+          });
+        });
+      }
+    }
+  });
 }
 
 function remove_cookies_fn(domainVar, exclusions = false) {
