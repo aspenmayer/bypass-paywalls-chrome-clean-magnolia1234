@@ -4,6 +4,10 @@
     "allow_cookies": 1,
     "useragent": "googlebot"
   },
+  "DealStreetAsia": {
+    "domain": "dealstreetasia.com",
+    "useragent": "bingbot"
+  },
   "Italian.tech": {
     "domain": "italian.tech",
     "group_rule": "###_gr_it_repubblica_domains"

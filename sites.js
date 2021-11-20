@@ -294,6 +294,10 @@ var defaultSites = {
   "De Tijd": {
     domain: "tijd.be"
   },
+  "DealStreetAsia": {
+    domain: "dealstreetasia.com",
+    useragent: "bingbot"
+  },
   "DeMorgen": {
     domain: "demorgen.be",
     group_rule: "###_gr_nl_pg_domains"

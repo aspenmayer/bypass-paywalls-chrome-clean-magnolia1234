@@ -92,8 +92,16 @@
     "domain": "tagblatt.ch",
     "useragent": "googlebot"
   },
+  "The-japan-news.com": {
+    "domain": "the-japan-news.com"
+  },
   "The-past.com": {
     "domain": "the-past.com"
+  },
+  "Thenational.scot": {
+    "allow_cookies": 1,
+    "block_regex": "\\.tinypass\\.com\\/",
+    "domain": "thenational.scot"
   },
   "Tijorifinance.com": {
     "allow_cookies": 1,

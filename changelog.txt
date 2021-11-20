@@ -4,6 +4,7 @@ Changelog Bypass Paywalls Clean - Chrome
 Post-release
 Add Advance Local (local USA)
 Add Code Sports (Australia)
+Add DealStreetAsia
 Add Italian.tech
 Add Spectator World
 Fix Medium (faster)
