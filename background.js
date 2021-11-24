@@ -539,18 +539,6 @@ ext_api.webRequest.onBeforeRequest.addListener(function (details) {
 ["blocking"]
 );
 
-// saechsische.de amp-redirect
-ext_api.webRequest.onBeforeRequest.addListener(function (details) {
-  if (!isSiteEnabled(details)) {
-    return;
-  }
-  var updatedUrl = details.url.replace('-plus-amp.html', '-plus.html');
-  return { redirectUrl: updatedUrl };
-},
-{urls:["*://*.saechsische.de/*-plus-amp.html*"], types:["main_frame"]},
-["blocking"]
-);
-
 // infzm.com redirect to wap (mobile)
 ext_api.webRequest.onBeforeRequest.addListener(function (details) {
   if (!isSiteEnabled(details)) {

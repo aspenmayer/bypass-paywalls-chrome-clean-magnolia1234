@@ -43,6 +43,8 @@
     "useragent": "googlebot"
   },
   "Heraldscotland.com": {
+    "allow_cookies": 1,
+    "block_regex": "\\.tinypass\\.com\\/",
     "domain": "heraldscotland.com"
   },
   "Internationalepolitik.de": {

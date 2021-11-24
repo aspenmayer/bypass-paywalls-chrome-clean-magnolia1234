@@ -401,7 +401,6 @@
         "*://*.rollingstone.com/*",
         "*://*.ruhrnachrichten.de/*",
         "*://*.sacbee.com/*",
-        "*://*.saechsische.de/*",
         "*://*.sandiegouniontribune.com/*",
         "*://*.science-et-vie.com/*",
         "*://*.sciencesetavenir.fr/*",
@@ -559,5 +558,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.4.5.0"
+    "version": "2.4.5.1"
 }

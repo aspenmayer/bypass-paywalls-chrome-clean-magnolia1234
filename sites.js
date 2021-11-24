@@ -1172,11 +1172,6 @@ var defaultSites = {
     block_regex: /(\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-((sticky-)?ad|consent|subscriptions)-.+\.js)/,
     useragent: "googlebot"
   },
-  "Sächsische Zeitung": {
-    domain: "saechsische.de",
-    allow_cookies: 1,
-    block_regex: /\.tinypass\.com\//
-  },
   "San Diego Union Tribune": {
     domain: "sandiegouniontribune.com",
     block_regex: /metering\.platform\.sandiegouniontribune\.com\/v\d\/meter/

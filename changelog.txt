@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Remove Saechsische Zeitung (obsolete)
 
 * v2.4.5.0 (2021-11-21)
 Add Advance Local (local USA)

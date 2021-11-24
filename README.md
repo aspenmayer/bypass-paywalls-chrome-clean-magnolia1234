@@ -221,8 +221,10 @@ Grouped in options:\
 [The Post-Standard](https://www.syracuse.com) -
 [The Republican](https://www.masslive.com)\
 *Gannett Group (local USA Today)* sites like (opt-in to custom sites)\
+[Austin American-Statesman](https://www.statesman.com/) -
 [Detroit Free Press](https://www.freep.com) -
 [Milwaukee Journal Sentinel](https://www.jsonline.com) -
+[The Courier-Journal](https://www.courier-journal.com/) -
 [The Indianapolis Star](https://www.indystar.com) -
 [The Record (North Jersey)](https://www.northjersey.com)\
 *Lee Enterprises Group* sites like (opt-in to custom sites for unlisted)\
@@ -399,7 +401,6 @@ Grouped in options:\
 [Piqd.de](https://www.piqd.de) -
 [Rhein-Zeitung](https://www.rhein-zeitung.de) -
 [Ruhr Nachrichten](https://www.ruhrnachrichten.de) -
-[Sächsische Zeitung](https://www.saechsische.de) -
 [Schleswig-Holsteinischer Zeitungsverlag](https://www.shz.de) -
 [Schweriner Volkszeitung](https://www.svz.de) -
 [Westfalen-Blatt](https://www.westfalen-blatt.de) -
