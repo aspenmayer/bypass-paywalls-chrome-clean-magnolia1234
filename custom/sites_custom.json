@@ -9,11 +9,6 @@
     "domain": "ara.cat",
     "useragent": "googlebot"
   },
-  "Asiasentinel.com": {
-    "allow_cookies": 1,
-    "domain": "asiasentinel.com",
-    "useragent": "googlebot"
-  },
   "Beobachter.ch": {
     "allow_cookies": 1,
     "domain": "beobachter.ch",
@@ -23,6 +18,11 @@
     "allow_cookies": 1,
     "domain": "bnn.de",
     "useragent": "googlebot"
+  },
+  "Calgaryherald.com": {
+    "allow_cookies": 1,
+    "block_regex": "\\.tinypass\\.com\\/",
+    "domain": "calgaryherald.com"
   },
   "Capital.bg": {
     "allow_cookies": 1,
@@ -36,6 +36,11 @@
   },
   "Connexionfrance.com": {
     "domain": "connexionfrance.com"
+  },
+  "Eluniversal.com.mx": {
+    "allow_cookies": 1,
+    "block_regex": "\\.tinypass\\.com\\/",
+    "domain": "eluniversal.com.mx"
   },
   "Handelszeitung.ch": {
     "allow_cookies": 1,
@@ -72,6 +77,11 @@
     "domain": "muensterschezeitung.de",
     "useragent": "googlebot"
   },
+  "Nationalobserver.com": {
+    "allow_cookies": 1,
+    "block_regex": "\\.tinypass\\.com\\/",
+    "domain": "nationalobserver.com"
+  },
   "Pressandjournal.co.uk": {
     "allow_cookies": 1,
     "domain": "pressandjournal.co.uk",
@@ -81,6 +91,11 @@
     "allow_cookies": 1,
     "domain": "pv-digest.de",
     "useragent": "googlebot"
+  },
+  "Schweizer-illustrierte.ch": {
+    "allow_cookies": 1,
+    "block_regex": "\\.tinypass\\.com\\/",
+    "domain": "schweizer-illustrierte.ch"
   },
   "Speld.nl": {
     "domain": "speld.nl"
@@ -100,10 +115,20 @@
   "The-past.com": {
     "domain": "the-past.com"
   },
+  "Thebanker.com": {
+    "allow_cookies": 1,
+    "domain": "thebanker.com",
+    "useragent": "googlebot"
+  },
   "Thenational.scot": {
     "allow_cookies": 1,
     "block_regex": "\\.tinypass\\.com\\/",
     "domain": "thenational.scot"
+  },
+  "Theweek.com": {
+    "allow_cookies": 1,
+    "domain": "theweek.com",
+    "useragent": "googlebot"
   },
   "Tijorifinance.com": {
     "allow_cookies": 1,

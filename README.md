@@ -21,13 +21,13 @@ Due to [Google internal policy](https://developer.chrome.com/webstore/program_po
 The following instructions are needed to install third-party extensions in [Chromium](https://en.wikipedia.org/wiki/Chromium_(web_browser))-based desktop browsers.  
 In extension developer mode you can always install BPC by `Load unpacked` (latest master, but no automatic updates) or by crx-file (latest release & automatic updates, but possibly you have to add the extension to the allowlist).
 
-#### Load unpacked: Chrome, Microsoft Edge or Brave (all desktop))
+#### Load unpacked: Chrome, Microsoft Edge or Brave (all desktop)
 * or add extension to allowlist and install automatically updating crx-file (see next section)
 
 1. Download this repository as a [ZIP-file from GitLab](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/archive/master/bypass-paywalls-chrome-clean-master.zip).
 2. Unzip the file and you should have a folder named `bypass-paywalls-chrome-clean-master`.
 3. Move the folder to a permanent location on your computer (do not delete the folder after installation).
-4. Go to the extensions page (`chrome://extensions` or `edge://extensions`).
+4. Go to the extensions page (`chrome://extensions`).
 5. Enable Developer Mode.
 6. Click `Load unpacked` and select the extension folder.
 
@@ -50,7 +50,7 @@ If you're familiar with Git(Hub)-clients you can also clone this repo and update
 #### Android
 1. Install [Kiwi Browser](https://play.google.com/store/apps/details?id=com.kiwibrowser.browser&hl=nl) or [Yandex Browser](https://play.google.com/store/apps/details?id=com.yandex.browser&hl=en) from the Google PlayStore.
 2. For Kiwi Browser you have two options:
-* load the CRX-file in releases (auto-updating, no allowlist needed, opt-in for custom sites not working (use kiwi-custom crx; updates to latest regular version))
+* load the CRX-file in releases (auto-updating, no allowlist needed, opt-in for custom sites not working (use kiwi-custom crx; updates to latest regular version)
 * install latest master zip-file (no automatic updates, for custom sites use manifest.json from custom folder).
 3. For Yandex Browser follow Chrome instructions above (load unpacked; step 6: pick  manifest.json instead of the folder). If it fails try a few times or use Total Commander (as file manager). You can use a Git client like MGit to clone (and update) this repository on your mobile device.\
 For custom sites copy manifest.json from custom folder to the main extension folder (optional permissions are lost on reload).
@@ -295,7 +295,7 @@ Grouped in options:\
 [The New Statesman](https://www.newstatesman.com) -
 [The Spectator](https://www.spectator.co.uk) -
 [The Telegraph](https://www.telegraph.co.uk) -
-[The Times](https://www.thetimes.co.uk) -
+[The Times (link to archive.today)](https://www.thetimes.co.uk) -
 [The Times Literary Supplement](https://www.the-tls.co.uk)
 
 ##### Denmark
