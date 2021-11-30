@@ -1437,7 +1437,7 @@ var defaultSites = {
   },
   "The New Yorker": {
     domain: "newyorker.com",
-    block_regex: /\.newyorker\.com\/verso\/static\/presenter-articles.+\.js/
+    block_regex: /(\.newyorker\.com\/verso\/static\/presenter-articles.+\.js|cdn\.ampproject\.org\/v\d\/amp-(ad|subscriptions)-.+\.js)/
   },
   "The Philadelphia Inquirer": {
     domain: "inquirer.com",
