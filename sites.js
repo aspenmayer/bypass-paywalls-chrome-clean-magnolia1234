@@ -128,7 +128,7 @@ var defaultSites = {
     ],
     allow_cookies: 1,
     useragent: "googlebot",
-    block_regex: /cdn\.ampproject\.org\/v\d\/amp-(access|ad|iframe)-.+\.js/
+    block_regex: /cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js/
   },
   "Australian Community Media (daily)": {
     domain: "###_au_comm_media",

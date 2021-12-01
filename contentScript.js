@@ -43,7 +43,31 @@ if ((bg2csData !== undefined) && bg2csData.optin_setcookie) {
   }
 }
 
-function amp_unhide_subscr_section(amp_ads_sel = 'amp-ad, .ad') {
+function amp_iframes_replace(weblink = false) {
+  let amp_iframes = document.querySelectorAll('amp-iframe');
+  let elem;
+  for (let amp_iframe of amp_iframes) {
+    if (!weblink) {
+      elem = document.createElement('iframe');
+      Object.assign(elem, {
+        src: amp_iframe.getAttribute('src'),
+        sandbox: amp_iframe.getAttribute('sandbox'),
+        height: amp_iframe.getAttribute('height'),
+        width: amp_iframe.getAttribute('width'),
+        style: 'border: 0px;'
+      });
+    } else {
+      elem = document.createElement('a');
+      elem.innerText = 'Video-link';
+      elem.setAttribute('href', amp_iframe.getAttribute('src'));
+      elem.setAttribute('target', '_blank');
+    }
+    amp_iframe.parentElement.insertBefore(elem, amp_iframe);
+    removeDOMElement(amp_iframe);
+  }
+}
+
+function amp_unhide_subscr_section(amp_ads_sel = 'amp-ad, .ad', amp_iframe_link = false) {
   let preview = document.querySelector('[subscriptions-section="content-not-granted"]');
   removeDOMElement(preview);
   let subscr_section = document.querySelectorAll('[subscriptions-section="content"]');
@@ -51,9 +75,10 @@ function amp_unhide_subscr_section(amp_ads_sel = 'amp-ad, .ad') {
     elem.removeAttribute('subscriptions-section');
   let amp_ads = document.querySelectorAll(amp_ads_sel);
   removeDOMElement(...amp_ads);
+  amp_iframes_replace(amp_iframe_link);
 }
 
-function amp_unhide_access_hide(amp_access = '', amp_access_not = '', amp_ads_sel = 'amp-ad, .ad') {
+function amp_unhide_access_hide(amp_access = '', amp_access_not = '', amp_ads_sel = 'amp-ad, .ad', amp_iframe_link = false) {
   let access_hide = document.querySelectorAll('[amp-access' + amp_access + '][amp-access-hide]');
   for (elem of access_hide)
     elem.removeAttribute('amp-access-hide');
@@ -63,6 +88,7 @@ function amp_unhide_access_hide(amp_access = '', amp_access_not = '', amp_ads_se
   }
   let amp_ads = document.querySelectorAll(amp_ads_sel);
   removeDOMElement(...amp_ads);
+  amp_iframes_replace(amp_iframe_link);
 }
 
 // custom sites: try to unhide text on amp-page
@@ -72,6 +98,7 @@ if ((bg2csData !== undefined) && bg2csData.amp_unhide) {
     if (amp_page) {
       amp_unhide_subscr_section();
       amp_unhide_access_hide();
+      amp_iframes_replace();
     }
   }, 500); // Delay (in milliseconds)
 }
@@ -176,23 +203,12 @@ else {
     if (domain = matchDomain(au_nc_sites)) {
       let header_ads = document.querySelector('.header_ads-container');
       removeDOMElement(header_ads);
-      if (window.location.hostname.startsWith('amp.')) {
-        amp_unhide_access_hide('="access AND subscriber"');
-      } else if (window.location.href.includes('?amp')) {
-        amp_unhide_access_hide('="subscriber AND status=\'logged-in\'"');
-      }
-      let amp_iframes = document.querySelectorAll('amp-iframe');
-      let elem;
-      for (let amp_iframe of amp_iframes) {
-        elem = document.createElement('a');
-        elem.innerText = 'Video-link';
-        elem.setAttribute('href', amp_iframe.getAttribute('src'));
-        elem.setAttribute('target', '_blank');
-        amp_iframe.parentElement.insertBefore(elem, amp_iframe);
-        removeDOMElement(amp_iframe);
-      }
-      let amp_ads = document.querySelectorAll('[id^="ad-mrec-"], amp-ad, amp-embed');
-      removeDOMElement(...amp_ads);
+	  let amp_ads_sel = 'amp-ad, amp-embed, [id^="ad-mrec-"], .story-ad-container';
+	  if (window.location.hostname.startsWith('amp.')) {
+	    amp_unhide_access_hide('="access AND subscriber"', '', amp_ads_sel, true);
+	  } else if (window.location.href.includes('?amp')) {
+	    amp_unhide_access_hide('="subscriber AND status=\'logged-in\'"', '', amp_ads_sel, true);
+	  }
     } else {
       // Australian Seven West Media
       let swm_script = document.querySelector('script[src^="https://s.thewest.com.au"]');
@@ -862,7 +878,7 @@ else if ((domain = matchDomain(fr_groupe_ebra_domains)) && window.location.href.
       }, 500); // Delay (in milliseconds)
     }
   } else {
-    amp_unhide_access_hide('="access"', '="NOT access"');
+    amp_unhide_access_hide('="access"', '="NOT access"', 'amp-ad, amp-embed');
   }
 }
 
@@ -1729,8 +1745,6 @@ else if (matchDomain('business-standard.com')) {
     }
   }
 }
-	 
- 
 
 else if (matchDomain('businessoffashion.com')) {
   let paywall = document.querySelector('div.paywall');
