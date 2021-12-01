@@ -296,7 +296,7 @@
         "*://*.liberation-champagne.fr/*",
         "*://*.limesonline.com/*",
         "*://*.lindependant.fr/*",
-        "*://*.livelaw.com/*",
+        "*://*.livelaw.in/*",
         "*://*.livemint.com/*",
         "*://*.ln-online.de/*",
         "*://*.lne.es/*",
@@ -558,5 +558,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.4.5.3"
+    "version": "2.4.5.4"
 }

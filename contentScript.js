@@ -26,7 +26,7 @@ var usa_mng_domains =   ['denverpost.com', 'eastbaytimes.com', 'mercurynews.com'
 var usa_tribune_domains = ['baltimoresun.com', 'chicagotribune.com', 'courant.com', 'dailypress.com', 'mcall.com', 'nydailynews.com', 'orlandosentinel.com', 'pilotonline.com', 'sun-sentinel.com'];
 
 // clean local storage of sites (with an exemption for hold-list)
-var arr_localstorage_hold = ['augsburger-allgemeine.de', 'charliehebdo.fr', 'cmjornal.pt', 'houstonchronicle.com', 'inc42.com', 'kurier.at', 'nknews.org', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk'].concat(de_funke_media_domains, es_grupo_vocento_domains, es_unidad_domains, no_nhst_media_domains);
+var arr_localstorage_hold = ['augsburger-allgemeine.de', 'businessoffashion.com', 'charliehebdo.fr', 'cmjornal.pt', 'houstonchronicle.com', 'inc42.com', 'kurier.at', 'nknews.org', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk'].concat(de_funke_media_domains, es_grupo_vocento_domains, es_unidad_domains, no_nhst_media_domains);
 if (!matchDomain(arr_localstorage_hold)) {
   window.localStorage.clear();
 }
@@ -203,12 +203,12 @@ else {
     if (domain = matchDomain(au_nc_sites)) {
       let header_ads = document.querySelector('.header_ads-container');
       removeDOMElement(header_ads);
-	  let amp_ads_sel = 'amp-ad, amp-embed, [id^="ad-mrec-"], .story-ad-container';
-	  if (window.location.hostname.startsWith('amp.')) {
-	    amp_unhide_access_hide('="access AND subscriber"', '', amp_ads_sel, true);
-	  } else if (window.location.href.includes('?amp')) {
-	    amp_unhide_access_hide('="subscriber AND status=\'logged-in\'"', '', amp_ads_sel, true);
-	  }
+      let amp_ads_sel = 'amp-ad, amp-embed, [id^="ad-mrec-"], .story-ad-container';
+      if (window.location.hostname.startsWith('amp.')) {
+        amp_unhide_access_hide('="access AND subscriber"', '', amp_ads_sel, true);
+      } else if (window.location.href.includes('?amp')) {
+        amp_unhide_access_hide('="subscriber AND status=\'logged-in\'"', '', amp_ads_sel, true);
+      }
     } else {
       // Australian Seven West Media
       let swm_script = document.querySelector('script[src^="https://s.thewest.com.au"]');
@@ -1743,17 +1743,6 @@ else if (matchDomain('business-standard.com')) {
         p_content.appendChild(article);
       }
     }
-  }
-}
-
-else if (matchDomain('businessoffashion.com')) {
-  let paywall = document.querySelector('div.paywall');
-  if (paywall) {
-    let article_locked = document.querySelector('div.article-locked');
-    if (article_locked)
-      article_locked.removeAttribute('class');
-    let article_locked_overlay = document.querySelector('div.article-locked-overlay');
-    removeDOMElement(paywall, article_locked_overlay);
   }
 }
 
