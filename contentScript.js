@@ -94,24 +94,25 @@ function amp_unhide_access_hide(amp_access = '', amp_access_not = '', amp_ads_se
 // custom sites: try to unhide text on amp-page
 if ((bg2csData !== undefined) && bg2csData.amp_unhide) {
   window.setTimeout(function () {
-    let amp_page = document.querySelector('script[src^="https://cdn.ampproject.org/"]') && (window.location.hostname.match(/\/amp(\d)?\./) || window.location.pathname.match(/(\/amp\/|(_|-|\.)amp\.html$|-amp\d|(\.|\/)amp$)/) || window.location.search.match(/\?(output(Type)?=)?amp/));
-    if (amp_page) {
+    let amp_page_hide = document.querySelector('script[src*="/amp-access-"], script[src*="/amp-subscriptions-"]');
+    if (amp_page_hide) {
       amp_unhide_subscr_section();
       amp_unhide_access_hide();
       amp_iframes_replace();
     }
-  }, 500); // Delay (in milliseconds)
+  }, 100); // Delay (in milliseconds)
 }
 
 // updated sites: amp-redirect
 if ((bg2csData !== undefined) && bg2csData.amp_redirect) {
   window.setTimeout(function () {
-    let amp_page = document.querySelector('script[src^="https://cdn.ampproject.org/"]') && (window.location.hostname.match(/\/amp(\d)?\./) || window.location.pathname.match(/(\/amp\/|(_|-|\.)amp\.html$|-amp\d|(\.|\/)amp$)/) || window.location.search.match(/\?(output(Type)?=)?amp/));
+    let amp_script = document.querySelector('script[src^="https://cdn.ampproject.org/"]');
+    let amphtml = document.querySelector('link[rel="amphtml"]');
+    let amp_page = amp_script && !amphtml;
     if (!amp_page) {
       let paywall = true;
       if (bg2csData.amp_redirect.paywall)
         paywall = document.querySelector(bg2csData.amp_redirect.paywall);
-      let amphtml = document.querySelector('link[rel="amphtml"]');
       if (paywall && amphtml) {
         removeDOMElement(paywall);
         window.location.href = amphtml.href;

@@ -8,6 +8,7 @@ Fix Live Law (permission)
 Fix The New Yorker (amp)
 Fix TheTimes.co.uk (only link to archive.today)
 Remove Saechsische Zeitung (obsolete)
+Updated sites: check (options) & missing permission (badge)
 
 * v2.4.5.0 (2021-11-21)
 Add Advance Local (local USA)

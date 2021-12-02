@@ -100,6 +100,7 @@ var customSites = {};
 var customSites_domains = [];
 var updatedSites = {};
 var updatedSites_new = [];
+var updatedSites_domains_new = [];
 var excludedSites = [];
 
 function setDefaultOptions() {
@@ -295,6 +296,7 @@ ext_api.storage.local.get({
   customSites = items.sites_custom;
   customSites_domains = Object.values(customSites).map(x => x.domain);
   updatedSites = items.sites_updated;
+  updatedSites_domains_new = Object.values(updatedSites).filter(x => (x.domain && !defaultSites_domains.includes(x.domain) || x.group)).map(x => x.group ? x.group.filter(y => !defaultSites_domains.includes(y)) : x.domain).flat();
   var ext_version_old = items.ext_version_old;
   optin_setcookie = items.optIn;
   optin_update = items.optInUpdate;
@@ -385,6 +387,7 @@ ext_api.storage.onChanged.addListener(function (changes, namespace) {
     if (key === 'sites_updated') {
       var sites_updated = storageChange.newValue ? storageChange.newValue : {};
       updatedSites = sites_updated;
+      updatedSites_domains_new = Object.values(updatedSites).filter(x => (x.domain && !defaultSites_domains.includes(x.domain) || x.group)).map(x => x.group ? x.group.filter(y => !defaultSites_domains.includes(y)) : x.domain).flat();
       updatedSites_new = Object.keys(updatedSites).filter(x => updatedSites[x].domain && !defaultSites_domains.includes(updatedSites[x].domain));
       if (updatedSites_new.length > 0) {
         if (enabledSites.includes('#options_enable_new_sites')) {
@@ -996,12 +999,13 @@ function updateBadge(activeTab) {
       badgeText = '^' + badgeText;
     let isDefaultSite = matchUrlDomain(defaultSites_domains, currentUrl);
     let isCustomSite = matchUrlDomain(customSites_domains, currentUrl);
-    if (!isDefaultSite && isCustomSite) {
+    let isUpdatedSite = matchUrlDomain(updatedSites_domains_new, currentUrl);
+    if (!isDefaultSite && (isCustomSite || isUpdatedSite)) {
       ext_api.permissions.contains({
-        origins: ['*://*.' + isCustomSite + '/*']
+        origins: ['*://*.' + (isCustomSite || isUpdatedSite) + '/*']
       }, function (result) {
         if (!result)
-          badgeText = enabledSites.includes(isCustomSite) ? 'C' : '';
+          badgeText = enabledSites.includes(isCustomSite || isUpdatedSite) ? 'C' : '';
         if (color && badgeText)
           ext_api.browserAction.setBadgeBackgroundColor({color: color});
         ext_api.browserAction.setBadgeText({text: badgeText});
@@ -1188,6 +1192,9 @@ ext_api.runtime.onMessage.addListener(function (message, sender) {
   }
   if (message.request === 'site_switch') {
     site_switch();
+  }
+  if (message.request === 'check_sites_updated') {
+    check_sites_updated();
   }
   if (message.request === 'popup_show_toggle') {
     ext_api.tabs.query({
