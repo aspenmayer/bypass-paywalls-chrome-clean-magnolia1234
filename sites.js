@@ -90,6 +90,11 @@ var defaultSites = {
     allow_cookies: 1,
     block_regex: /\.tinypass\.com\//
   },
+  "Artnet": {
+    domain: "artnet.com",
+    allow_cookies: 1,
+    block_regex: /\.artnet\.com\/paywall-ajax\.php/
+  },
   "Asia Times": {
     domain: "asiatimes.com",
     allow_cookies: 1,

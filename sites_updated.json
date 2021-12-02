@@ -1,4 +1,14 @@
 {
+  "Artnet": {
+    "domain": "artnet.com",
+    "allow_cookies": 1,
+    "block_regex": "\\.artnet\\.com\\/paywall-ajax\\.php",
+    "cs_code": [{
+        "cond": ".article-body",
+        "rm_class": "article-body"
+      }
+    ]
+  },
   "Code Sports": {
     "domain": "codesports.com.au",
     "allow_cookies": 1,

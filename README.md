@@ -165,6 +165,7 @@ Grouped in options:\
 
 ##### Magazines/Blogs
 [Apollo Magazine](https://www.apollo-magazine.com) -
+[Artnet](https://www.artnet.com) -
 [Atavist Magazine](https://magazine.atavist.com) -
 [Billboard](https://www.billboard.com) -
 [Commentary Magazine](https://www.commentary.org) -

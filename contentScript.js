@@ -1594,6 +1594,12 @@ else if (matchDomain('americanaffairsjournal.org')) {
   removeDOMElement(paywall_bar);
 }
 
+else if (matchDomain('artnet.com')) {
+  let body_hidden = document.querySelector('.article-body');
+  if (body_hidden)
+    body_hidden.style = 'display:block;';
+}
+
 else if (matchDomain('asia.nikkei.com')) {
   let popup = document.querySelector('#pianoj_ribbon');
   removeDOMElement(popup);
