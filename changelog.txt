@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add Artnet
+Add Internazionale.it
 Fix The Business of Fashion
 Fix El Mundo & Groupe EBRA (amp-iframe)
 Fix Live Law (permission)

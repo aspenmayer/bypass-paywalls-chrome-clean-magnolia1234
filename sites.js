@@ -711,6 +711,11 @@ var defaultSites = {
     allow_cookies: 1,
     useragent: "googlebot"
   },
+  "Internazionale.it": {
+    domain: "internazionale.it",
+    allow_cookies: 1,
+    block_regex: /\.internazionale\.it\/assets\/js\/main\.\d{2,}\.js/
+  },
   "Irish Independent (opt-in)": {
     domain: "independent.ie",
     allow_cookies: 1,

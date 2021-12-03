@@ -22,10 +22,24 @@
     "domain": "italian.tech",
     "group_rule": "###_gr_it_repubblica_domains"
   },
+  "Internazionale.it": {
+    "domain": "internazionale.it",
+    "allow_cookies": 1,
+  "block_regex": "\\.internazionale\\.it\\/assets\\/js\\/main\\.\\d{2,}\\.js"
+  },
   "The Business of Fashion": {
     "domain": "businessoffashion.com",
     "allow_cookies": 1,
     "block_regex": "\\.businessoffashion\\.com\\/pf\\/dist\\/components\\/combinations\\/2\\.chunk\\.js"
+  },
+  "The New Yorker": {
+    "domain": "newyorker.com",
+    "block_regex": "(\\.newyorker\\.com\\/verso\\/static\\/presenter-articles.+\\.js|cdn\\.ampproject\\.org\\/v\\d\\/amp-(ad|subscriptions)-.+\\.js)",
+    "cs_code": [{
+        "cond": "[subscriptions-section=\"content\"]",
+        "rm_attrib": "subscriptions-section"
+      }
+    ]
   },
   "The Spectator World": {
     "domain": "spectatorworld.com",

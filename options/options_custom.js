@@ -341,7 +341,7 @@ function renderOptions() {
   
   var custom_enabled = document.getElementById('custom-enabled');
   ext_api.permissions.contains({
-    origins: ["<all_urls>"]
+    origins: ["*://*/*"]
   }, function (result) {
     if (result) {
       custom_enabled.innerText = 'YES';
