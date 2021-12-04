@@ -221,13 +221,17 @@ Grouped in options:\
 [The Plain Dealer](https://www.cleveland.com) -
 [The Post-Standard](https://www.syracuse.com) -
 [The Republican](https://www.masslive.com)\
-*Gannett Group (local USA Today)* sites like (opt-in to custom sites)\
+*Gannett Group (local USA Today)* sites like (opt-in to custom sites for unlisted)\
 [Austin American-Statesman](https://www.statesman.com/) -
 [Detroit Free Press](https://www.freep.com) -
 [Milwaukee Journal Sentinel](https://www.jsonline.com) -
-[The Courier-Journal](https://www.courier-journal.com/) -
+[The Arizona Republic](https://www.azcentral.com) -
+[The Cincinnati Enquirer](http://www.cincinnati.com) -
+[The Courier-Journal](https://www.courier-journal.com) -
+[The Detroit News](https://www.detroitnews.com) -
 [The Indianapolis Star](https://www.indystar.com) -
-[The Record (North Jersey)](https://www.northjersey.com)\
+[The Record (North Jersey)](https://www.northjersey.com) -
+[The Tennessean](http://www.tennessean.com)\
 *Lee Enterprises Group* sites like (opt-in to custom sites for unlisted)\
 [Arizona Daily Star](https://tucson.com) -
 [Richmond Times-Dispatch](https://richmond.com) -

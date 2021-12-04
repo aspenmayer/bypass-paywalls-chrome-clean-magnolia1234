@@ -314,7 +314,7 @@ ext_api.storage.local.get({
     defaultSites[site_updated_new] = updatedSites[site_updated_new];
   if (ext_version > ext_version_old || updatedSites_new.length > 0) {
     if (enabledSites.includes('#options_enable_new_sites')) {
-      let sites_new = Object.keys(defaultSites).filter(x => defaultSites[x].domain && !defaultSites[x].domain.match(/^(#options_|###$)/) && !sites_default.includes(x));
+      let sites_new = Object.keys(defaultSites).filter(x => defaultSites[x].domain && !defaultSites[x].domain.match(/^(#options_|###$)/) && !sites_default.some(key => compareKey(key, x)));
       for (let site_new of sites_new)
         sites[site_new] = defaultSites[site_new].domain;
       ext_api.storage.local.set({
@@ -678,7 +678,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   }
 
   // set googlebot-useragent for Gannett sites
-  var usa_gannett_domains = [];
+  var usa_gannett_domains = grouped_sites['###_usa_gannett'];
   var usa_gannett_domain = (matchUrlDomain('gannett-cdn.com', details.url) && ['xmlhttprequest'].includes(details.type) && !matchUrlDomain(usa_gannett_domains.concat(['usatoday.com']), header_referer) && enabledSites.includes('###_usa_gannett'));
   if (usa_gannett_domain) {
     let gn_domain = urlHost(header_referer).replace(/^(www|eu)\./, '');;
@@ -1078,8 +1078,10 @@ function site_switch() {
           var sites = items.sites;
           for (let key of added_site)
             sites[key] = domain;
-          for (let key of removed_site)
+          for (let key of removed_site) {
+            key = Object.keys(sites).find(sites_key => compareKey(sites_key, key));
             delete sites[key];
+          }
           ext_api.storage.local.set({
             sites: sites
           }, function () {
@@ -1277,6 +1279,10 @@ function filterObject(obj, filterFn, mapFn = function (val, key) {
 }) {
   return Object.fromEntries(Object.entries(obj).
     filter(([key, val]) => filterFn(val, key)).map(([key, val]) => mapFn(val, key)));
+}
+
+function compareKey(firstStr, secondStr) {
+  return firstStr.toLowerCase().replace(/\s\(.*\)/, '') === secondStr.toLowerCase().replace(/\s\(.*\)/, '');
 }
 
 function isSiteEnabled(details) {

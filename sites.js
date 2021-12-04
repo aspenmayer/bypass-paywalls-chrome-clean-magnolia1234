@@ -34,7 +34,7 @@ var defaultSites = {
     domain: "adweek.com",
     block_regex: /\.lightboxcdn\.com\//
   },
-  "Algemeen Dagblad (+ regional)": {
+  "Algemeen Dagblad (+ regional) (free premium articles only)": {
     domain: "###_nl_ad_region",
     group: [
       "ad.nl",
@@ -496,8 +496,22 @@ var defaultSites = {
     useragent: "googlebot",
     block_regex: /(cdn\.cxense\.com\/|\.tinypass\.com\/)/
   },
-  "Gannett Group (local USA Today) (opt-in to custom sites)": {
-    domain: "###_usa_gannett"
+  "Gannett Group (local USA Today)": {
+    domain: "###_usa_gannett",
+    group: [
+      "azcentral.com",
+      "cincinnati.com",
+      "courier-journal.com",
+      "detroitnews.com",
+      "freep.com",
+      "indystar.com",
+      "jsonline.com",
+      "northjersey.com",
+      "statesman.com",
+      "tennessean.com"
+    ],
+    allow_cookies: 1,
+    useragent: "googlebot"
   },
   "GElocal.it": {
     domain: "gelocal.it",
@@ -634,7 +648,7 @@ var defaultSites = {
     block_regex: /haaretz\.co\.il\/htz\/js\/inter\.js/,
     useragent: "bingbot"
   },
-  "Handelsblatt (only non-premium articles)": {
+  "Handelsblatt (non-premium articles only)": {
     domain: "handelsblatt.com",
     allow_cookies: 1,
     useragent: "googlebot"
