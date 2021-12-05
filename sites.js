@@ -1347,7 +1347,7 @@ var defaultSites = {
   "The Boston Globe": {
     domain: "bostonglobe.com",
     allow_cookies: 1,
-    block_regex: /\.blueconic\.net\//
+    block_regex: /(\.blueconic\.net\/|meter\.bostonglobe\.com\/js\/)/
   },
   "The Business Journals": {
     domain: "bizjournals.com",

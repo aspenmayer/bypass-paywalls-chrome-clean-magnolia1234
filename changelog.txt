@@ -4,10 +4,11 @@ Changelog Bypass Paywalls Clean - Chrome
 Post-release
 Add Artnet
 Add Internazionale.it
-Fix The Business of Fashion
+Fix Boston Globe
 Fix El Mundo & Groupe EBRA (amp-iframe)
 Fix Gannett Group (permissions for listed sites)
 Fix Live Law (permission)
+Fix The Business of Fashion
 Fix The New Yorker (amp)
 Fix TheTimes.co.uk (only link to archive.today)
 Remove Saechsische Zeitung (obsolete)

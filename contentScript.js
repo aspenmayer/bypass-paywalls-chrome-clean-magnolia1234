@@ -1706,17 +1706,6 @@ else if (matchDomain('bloombergquint.com')) {
 }
 
 else if (matchDomain('bostonglobe.com')) {
-  let paywall = document.querySelector('div.meter-paywall, div.incognito-paywall');
-  let fade = document.querySelector('div.fade');
-  if (paywall || fade) {
-    removeDOMElement(paywall);
-    let body_hidden = document.querySelector('body[style]');
-    if (body_hidden)
-      body_hidden.removeAttribute('style');
-    let continue_button = document.querySelector('button.continue_button');
-    if (continue_button)
-      continue_button.click();
-  }
   let ads = document.querySelectorAll('div.arc_ad');
   for (let ad of ads)
     ad.style = 'display:none';

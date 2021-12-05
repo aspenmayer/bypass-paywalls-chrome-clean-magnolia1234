@@ -27,6 +27,11 @@
     "allow_cookies": 1,
   "block_regex": "\\.internazionale\\.it\\/assets\\/js\\/main\\.\\d{2,}\\.js"
   },
+  "The Boston Globe": {
+    "domain": "bostonglobe.com",
+    "allow_cookies": 1,
+    "block_regex": "(\\.blueconic\\.net\\/|meter\\.bostonglobe\\.com\\/js\\/)"
+  },
   "The Business of Fashion": {
     "domain": "businessoffashion.com",
     "allow_cookies": 1,
