@@ -466,30 +466,6 @@ else if (matchDomain('faz.net')) {
                 return;
               let article_text = document.querySelector('.art_txt.paywall,.atc-Text.js-atc-Text');
               article_text.innerText = '';
-
-              const breakText = (str) => {
-                str = str.replace(/(?:^|[A-Za-z\"\“])(\.|\?|!)(?=[A-ZÖÜ\„\d][A-Za-zÀ-ÿ\„\d]{1,})/gm, "$&\n\n");
-                str = str.replace(/(([a-z]{2,}|[\"\“]))(?=[A-Z](?=[A-Za-zÀ-ÿ]+))/gm, "$&\n\n");
-                // exceptions: names with alternating lower/uppercase (no general fix)
-                let str_rep_arr = ['AstraZeneca', 'BaFin', 'BerlHG', 'BfArM', 'BilMoG', 'BioNTech', 'DiGA', 'EuGH', 'FinTechRat', 'GlaxoSmithKline', 'IfSG', 'medRxiv', 'mmHg', 'PlosOne', 'StVO'];
-                let str_rep_split,
-                str_rep_src;
-                for (let str_rep of str_rep_arr) {
-                  str_rep_split = str_rep.split(/([a-z]+)(?=[A-Z](?=[A-Za-z]+))/);
-                  str_rep_src = str_rep_split.reduce(function (accumulator, currentValue) {
-                      return accumulator + currentValue + ((currentValue !== currentValue.toUpperCase()) ? '\n\n' : '');
-                    });
-                  if (str_rep_src.endsWith('\n\n'))
-                    str_rep_src = str_rep_src.slice(0, -2);
-                  str = str.replace(new RegExp(str_rep_src, "g"), str_rep);
-                }
-                str = str.replace(/De\n\n([A-Z])/g, "De$1");
-                str = str.replace(/La\n\n([A-Z])/g, "La$1");
-                str = str.replace(/Le\n\n([A-Z])/g, "Le$1");
-                str = str.replace(/Mc\n\n([A-Z])/g, "Mc$1");
-                return str;
-              };
-
               json_text = breakText(json_text);
               json_text.split("\n\n").forEach(
                 (p_text) => {
@@ -554,6 +530,32 @@ else if (matchDomain('krautreporter.de')) {
     let blurred = document.querySelectorAll('.blurred');
     for (let elem of blurred)
       elem.classList.remove('blurred', 'json-ld-paywall-marker', 'hidden@print');
+  }
+}
+
+else if (matchDomain(['ksta.de', 'rundschau-online.de'])) {
+  let paywall = document.querySelector('.pay.wall');
+  if (paywall) {
+    removeDOMElement(paywall);
+    let scripts = document.querySelectorAll('script[type="application/ld+json"]');
+    let json;
+    for (let script of scripts) {
+      if (script.innerText.includes('articleBody'))
+        json = script;
+    }
+    if (json) {
+      let json_text = JSON.parse(json.text).articleBody;
+      json_text = parseHtmlEntities(json_text);
+      json_text = breakText(json_text);
+      let region = 'ortsmarke';
+      if (window.location.hostname === 'mobil.ksta.de')
+        region = 'district';
+      let article_sel = 'div.article-text > p.selectionShareable:not(.' + region + '), div.dm_article_text > p.selectionShareable:not(.' + region + ')';
+      let article = document.querySelector(article_sel);
+      if (article && json_text) {
+        article.innerText = json_text;
+      }
+    }
   }
 }
 
@@ -3022,6 +3024,29 @@ function pageContains(selector, text) {
     return RegExp(text).test(element.textContent);
   });
 }
+
+function breakText(str) {
+  str = str.replace(/(?:^|[A-Za-z\"\“])(\.|\?|!)(?=[A-ZÖÜ\„\d][A-Za-zÀ-ÿ\„\d]{1,})/gm, "$&\n\n");
+  str = str.replace(/(([a-z]{2,}|[\"\“]))(?=[A-Z](?=[A-Za-zÀ-ÿ]+))/gm, "$&\n\n");
+  // exceptions: names with alternating lower/uppercase (no general fix)
+  let str_rep_arr = ['AstraZeneca', 'BaFin', 'BerlHG', 'BfArM', 'BilMoG', 'BioNTech', 'DiGA', 'EuGH', 'FinTechRat', 'GlaxoSmithKline', 'IfSG', 'medRxiv', 'mmHg', 'PlosOne', 'StVO'];
+  let str_rep_split,
+  str_rep_src;
+  for (let str_rep of str_rep_arr) {
+    str_rep_split = str_rep.split(/([a-z]+)(?=[A-Z](?=[A-Za-z]+))/);
+    str_rep_src = str_rep_split.reduce(function (accumulator, currentValue) {
+        return accumulator + currentValue + ((currentValue !== currentValue.toUpperCase()) ? '\n\n' : '');
+      });
+    if (str_rep_src.endsWith('\n\n'))
+      str_rep_src = str_rep_src.slice(0, -2);
+    str = str.replace(new RegExp(str_rep_src, "g"), str_rep);
+  }
+  str = str.replace(/De\n\n([A-Z])/g, "De$1");
+  str = str.replace(/La\n\n([A-Z])/g, "La$1");
+  str = str.replace(/Le\n\n([A-Z])/g, "Le$1");
+  str = str.replace(/Mc\n\n([A-Z])/g, "Mc$1");
+  return str;
+};
 
 function parseHtmlEntities(encodedString) {
   let translate_re = /&(nbsp|amp|quot|lt|gt|deg|hellip|laquo|raquo|ldquo|rdquo|lsquo|rsquo|mdash);/g;

@@ -739,6 +739,14 @@ var defaultSites = {
     allow_cookies: 1,
     block_regex: /(\.knack\.be\/js\/responsive\/rmg(Modal|Paywall)\.js|\.blueconic\.net\/)/
   },
+  "Kölner Stadt-Anzeiger": {
+    domain: "ksta.de",
+    allow_cookies: 1
+  },
+  "Kölnische Rundschau": {
+    domain: "rundschau-online.de",
+    allow_cookies: 1
+  },
   "Krautreporter.de": {
     domain: "krautreporter.de"
   },
