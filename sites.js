@@ -579,7 +579,6 @@ var defaultSites = {
       "courrier-picard.fr",
       "lardennais.fr",
       "lavoixdunord.fr",
-      "lecho.be",
       "lesoir.be",
       "lest-eclair.fr",
       "liberation-champagne.fr",
@@ -590,11 +589,7 @@ var defaultSites = {
       "sudinfo.be"
     ],
     allow_cookies: 1,
-    useragent: "googlebot",
-    exception: [{
-        domain: "lecho.be"
-      }
-    ]
+    useragent: "googlebot"
   },
   "Grupo Abril": {
     domain: "abril.com.br",
@@ -751,6 +746,9 @@ var defaultSites = {
     domain: "kurier.at",
     allow_cookies: 1,
     block_regex: /\.tinypass\.com\//
+  },
+  "L'Écho": {
+    domain: "lecho.be"
   },
   "L'Express": {
     domain: "lexpress.fr",

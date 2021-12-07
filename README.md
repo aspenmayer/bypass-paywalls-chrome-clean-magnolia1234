@@ -193,7 +193,7 @@ Grouped in options:\
 [Los Angeles Business Journal](https://labusinessjournal.com) -
 [Los Angeles Times](https://www.latimes.com) -
 [Mountain View Voice](https://www.mv-voice.com) -
-[New York Magazine](https://www.nymag.com) (+ [Curbed](https://www.curbed.com/), [Grub Street](https://www.grubstreet.com), [The Cut](https://www.thecut.com) & [Vulture](https://www.vulture.com)) -
+[New York Magazine](https://www.nymag.com) (+ [Curbed](https://www.curbed.com), [Grub Street](https://www.grubstreet.com), [The Cut](https://www.thecut.com) & [Vulture](https://www.vulture.com)) -
 [Newsday](https://www.newsday.com) -
 [Palo Alto Online](https://www.paloaltoonline.com) -
 [Pittsburgh Post Gazette](https://www.post-gazette.com) -
@@ -222,7 +222,7 @@ Grouped in options:\
 [The Post-Standard](https://www.syracuse.com) -
 [The Republican](https://www.masslive.com)\
 *Gannett Group (local USA Today)* sites like (opt-in to custom sites for unlisted)\
-[Austin American-Statesman](https://www.statesman.com/) -
+[Austin American-Statesman](https://www.statesman.com) -
 [Detroit Free Press](https://www.freep.com) -
 [Milwaukee Journal Sentinel](https://www.jsonline.com) -
 [The Arizona Republic](https://www.azcentral.com) -
@@ -315,7 +315,7 @@ Grouped in options:\
 
 *Alma Talent* sites like\
 [Arvopaperi](https://www.arvopaperi.fi) -
-[Iltalehti (Firefox-only)](https://www.iltalehti.fi/) -
+[Iltalehti (Firefox-only)](https://www.iltalehti.fi) -
 [Kauppalehti](https://www.kauppalehti.fi) -
 [Markkinointi & Mainonta](https://www.marmai.fi) -
 [Mediuutiset](https://www.mediuutiset.fi) -
@@ -332,6 +332,7 @@ Grouped in options:\
 [Charlie Hebdo](https://charliehebdo.fr) -
 [Elle](https://www.elle.fr) -
 [Esprit](https://esprit.presse.fr) -
+[L'Écho](https://lecho.be) -
 [L'Express](https://www.lexpress.fr) -
 [L'Obs](https://www.nouvelobs.com) -
 [L'Oeil de la Photographie (fr/en)](https://loeildelaphotographie.com) -
@@ -377,7 +378,6 @@ Grouped in options:\
 [L'Ardennais](https://www.lardennais.fr) -
 [L'Est-Éclair](https://www.lest-eclair.fr) -
 [L'Union](https://www.lunion.fr) -
-[L'Écho](https://lecho.be) -
 [La Voix du Nord](https://www.lavoixdunord.fr) -
 [Le Courrier picard](https://www.courrier-picard.fr) -
 [Le Soir](https://www.lesoir.be) -
@@ -707,7 +707,7 @@ You can also exclude a specific domain which is grouped in options.
 
 ### Changelog-releases
 * Visit the [changelog page](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/blob/master/changelog.txt).
-* Or check the [commits](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/commits/master/).
+* Or check the [commits](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/commits/master).
 * [Download the latest version](https://gitlab.com/magnolia1234/bypass-paywalls-chrome-clean/-/releases)
 
 ### License

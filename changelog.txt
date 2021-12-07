@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Fix Lecho.be (separate from Groupe Rossel)
 Fix Repubblica sites (no amp)
 
 * v2.4.6.0 (2021-12-05)
