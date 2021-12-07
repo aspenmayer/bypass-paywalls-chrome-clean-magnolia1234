@@ -1128,8 +1128,6 @@ else if (domain = matchDomain(it_repubblica_domains)) {
       removeDOMElement(premium);
       if (!url.includes('/podcast/')) {
         let amphtml = document.querySelector('link[rel="amphtml"]');
-        if (!amphtml)
-          amphtml = {href: (url.split('?')[0] + '/amp').replace('//amp', '/amp')};
         if (amphtml)
           window.location.href = amphtml.href;
       }
