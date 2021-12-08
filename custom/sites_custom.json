@@ -4,6 +4,12 @@
     "domain": "aargauerzeitung.ch",
     "useragent": "googlebot"
   },
+  "Abqjournal.com": {
+    "allow_cookies": 1,
+    "block_regex": "\\.amazonaws\\.com\\/abq_pw_",
+    "domain": "abqjournal.com",
+    "useragent": "googlebot"
+  },
   "Ara.cat": {
     "allow_cookies": 1,
     "domain": "ara.cat",
@@ -19,6 +25,9 @@
     "domain": "bnn.de",
     "useragent": "googlebot"
   },
+  "Brainly.com": {
+    "domain": "brainly.com"
+  },
   "Calgaryherald.com": {
     "allow_cookies": 1,
     "block_regex": "\\.tinypass\\.com\\/",
@@ -28,6 +37,11 @@
     "allow_cookies": 1,
     "domain": "capital.bg",
     "useragent": "googlebot"
+  },
+  "Chicago.suntimes.com": {
+    "allow_cookies": 1,
+    "block_regex": "\\.tinypass\\.com\\/",
+    "domain": "chicago.suntimes.com"
   },
   "Christianitytoday.com": {
     "allow_cookies": 1,
@@ -69,6 +83,11 @@
   "Luzernerzeitung.ch": {
     "allow_cookies": 1,
     "domain": "luzernerzeitung.ch",
+    "useragent": "googlebot"
+  },
+  "Morgenbladet.no": {
+    "allow_cookies": 1,
+    "domain": "morgenbladet.no",
     "useragent": "googlebot"
   },
   "Muensterschezeitung.de": {

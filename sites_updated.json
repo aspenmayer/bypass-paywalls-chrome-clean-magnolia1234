@@ -27,6 +27,15 @@
     "allow_cookies": 1,
   "block_regex": "\\.internazionale\\.it\\/assets\\/js\\/main\\.\\d{2,}\\.js"
   },
+  "The (New Orleans) Advocate": {
+    "domain": "###_usa_theadvocate",
+    "group": [
+      "nola.com",
+      "theadvocate.com"
+    ],
+    "allow_cookies": 1,
+    "block_regex": "(loader-cdn\\.azureedge\\.net\\/|\\.blueconic\\.net\\/|js\\.matheranalytics\\.com\\/)"
+  },
   "The Boston Globe": {
     "domain": "bostonglobe.com",
     "allow_cookies": 1,

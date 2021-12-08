@@ -693,7 +693,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
 
   // block script for additional Lee Enterprises sites (opt-in to custom sites)
   var usa_lee_ent_domains = grouped_sites['###_usa_lee_ent'];
-  var usa_lee_ent_domain = (details.url.match(/\.com\/shared-content\/art\/tncms\/.+\.js/) && ['script'].includes(details.type) &&
+  var usa_lee_ent_domain = (details.url.match(/\.townnews\.com\/central\.leetemplates\.com\//) && ['image'].includes(details.type) &&
   !matchUrlDomain(usa_lee_ent_domains, header_referer) && enabledSites.includes('###_usa_lee_ent'));
   if (usa_lee_ent_domain) {
     let lee_ent_domain = urlHost(header_referer).replace(/^(www|m)\./, '');
@@ -805,7 +805,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
     let usa_today_site = (matchUrlDomain('gannett-cdn.com', details.url) && matchUrlDomain(['usatoday.com'], header_referer));
     allow_ext_source = allow_ext_source || inkl_site || cl_elmerc_site || es_elesp_site || it_repubblica_site || usa_law360_site || usa_mw_site || usa_natgeo_site || usa_today_site;
 
-    bpc_amp_site = matchUrlDomain('cdn.ampproject.org', details.url) && (enabledSites.includes('cdn.ampproject.org') || matchUrlDomain(defaultSites_domains.concat(amp_unhide), header_referer));
+    bpc_amp_site = matchUrlDomain('cdn.ampproject.org', details.url);
   }
 
   if (!isSiteEnabled(details) && !allow_ext_source && !bpc_amp_site && !au_swm_site) {

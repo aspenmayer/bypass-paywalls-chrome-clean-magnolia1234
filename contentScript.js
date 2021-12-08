@@ -2201,9 +2201,8 @@ else if (matchDomain('newrepublic.com')) {
   removeDOMElement(pw_popups, ...ads);
 }
 
-else if (matchDomain('newyorker.com') && window.location.href.split('?')[0].match(/\.com\/.+\//)) {
-  let url = window.location.href;
-  if (url.endsWith('/amp')) {
+else if (matchDomain('newyorker.com') && window.location.pathname.length > 1) {
+  if (window.location.pathname.endsWith('/amp')) {
     amp_unhide_subscr_section('.ad');
   } else {
     let paywall_bar = document.querySelector('.paywall-bar');
@@ -2221,6 +2220,14 @@ else if (matchDomain('newyorker.com') && window.location.href.split('?')[0].matc
         removeDOMElement(noscript);
       }
     }
+  }
+}
+
+else if (matchDomain(['nola.com', 'theadvocate.com'])) {
+  if (window.location.pathname.endsWith('.amp.html')) {
+    let body_hidden = document.querySelector('.site-container');
+    if (body_hidden)
+      body_hidden.setAttribute('style', 'display:block;');
   }
 }
 

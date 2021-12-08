@@ -201,9 +201,11 @@ Grouped in options:\
 [San Francisco Chronicle](https://www.sfchronicle.com) -
 [Star Tribune](https://www.startribune.com) -
 [Tampa Bay Times](https://www.tampabay.com) -
+[The Advocate](https://www.theadvocate.com) -
 [The Atlanta Journal-Constitution](https://www.ajc.com) -
 [The Boston Globe](https://www.bostonglobe.com) -
 [The Dallas Morning News](https://www.dallasnews.com) -
+[The New Orleans Advocate/The Times-Picayune](https://www.nola.com) -
 [The Seattle Times](https://www.seattletimes.com) -
 [The Philadelphia Inquirer](https://www.inquirer.com) -
 [Winston-Salem Journal](https://www.journalnow.com)

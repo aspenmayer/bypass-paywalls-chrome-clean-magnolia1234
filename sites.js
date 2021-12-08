@@ -1315,6 +1315,15 @@ var defaultSites = {
     allow_cookies: 1,
     useragent: "googlebot"
   },
+  "The (New Orleans) Advocate": {
+    domain: "###_usa_theadvocate",
+    group: [
+      "nola.com",
+      "theadvocate.com"
+    ],
+    allow_cookies: 1,
+    block_regex: /(loader-cdn\.azureedge\.net\/|\.blueconic\.net\/|js\.matheranalytics\.com\/)/
+  },
   "The Age": {
     domain: "theage.com.au",
     group_rule: "###_gr_au_nine_domains"
