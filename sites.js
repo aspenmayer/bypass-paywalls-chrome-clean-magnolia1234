@@ -11,7 +11,7 @@ var defaultSites = {
   "ABC.es": {
     domain: "abc.es",
     allow_cookies: 1,
-    block_regex: /\.evolok\.net\//,
+    block_regex: /(\.evolok\.net\/|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad|consent)-.+\.js)/,
     useragent: "googlebot"
   },
   "Advance Local": {

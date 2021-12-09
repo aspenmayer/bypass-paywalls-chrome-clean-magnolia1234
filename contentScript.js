@@ -648,7 +648,15 @@ else
 
 } else if (window.location.hostname.match(/\.(es|pt)$/) || matchDomain(['diariovasco.com', 'elconfidencial.com', 'elcorreo.com', 'elespanol.com', 'elpais.com', 'elperiodico.com', 'elperiodicomediterraneo.com', 'expansion.com', 'larioja.com', 'lavanguardia.com', 'levante-emv.com', 'marca.com', 'politicaexterior.com'])) {//spain/portugal
 
-if (matchDomain('cmjornal.pt')) {
+if (matchDomain('abc.es')) {
+  if (window.location.pathname.endsWith('_amp.html')) {
+    amp_unhide_access_hide('="result=\'ALLOW_ACCESS\'"', '', 'amp-ad, amp-embed');
+    premium_banner = document.querySelector('.cierre-suscripcion');
+    removeDOMElement(premium_banner);
+  }
+}
+
+else if (matchDomain('cmjornal.pt')) {
   let paywall = document.querySelector('.bloqueio_exclusivos');
   let amphtml = document.querySelector('link[rel="amphtml"]');
   let url = window.location.href;
