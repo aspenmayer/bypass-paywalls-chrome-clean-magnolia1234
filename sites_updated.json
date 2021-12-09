@@ -9,18 +9,24 @@
       }
     ]
   },
-  "Code Sports": {
-    "domain": "codesports.com.au",
+  "Gannett Group (local USA Today)": {
+    "domain": "###_usa_gannett",
+    "group": [
+      "azcentral.com",
+      "cincinnati.com",
+      "courier-journal.com",
+      "detroitnews.com",
+      "freep.com",
+      "indystar.com",
+      "jsonline.com",
+      "northjersey.com",
+      "statesman.com",
+      "tennessean.com"
+    ],
     "allow_cookies": 1,
+    "amp_unhide": 1,
+    "block_regex": "cdn\\.ampproject\\.org\\/v\\d\\/amp-(access|ad)-.+\\.js",
     "useragent": "googlebot"
-  },
-  "DealStreetAsia": {
-    "domain": "dealstreetasia.com",
-    "useragent": "bingbot"
-  },
-  "Italian.tech": {
-    "domain": "italian.tech",
-    "group_rule": "###_gr_it_repubblica_domains"
   },
   "Internazionale.it": {
     "domain": "internazionale.it",
@@ -55,8 +61,11 @@
       }
     ]
   },
-  "The Spectator World": {
-    "domain": "spectatorworld.com",
-    "block_regex": "(cdn\\.cxense\\.com\\/|\\.tinypass\\.com\\/)"
+  "USA Today": {
+    "domain": "usatoday.com",
+    "allow_cookies": 1,
+    "amp_unhide": 1,
+    "block_regex": "cdn\\.ampproject\\.org\\/v\\d\\/amp-(access|ad)-.+\\.js",
+    "useragent": "googlebot"
   }
 }

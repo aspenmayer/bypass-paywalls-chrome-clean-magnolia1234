@@ -2740,16 +2740,20 @@ else if (matchDomain(usa_tribune_domains)) {
 }
 
 else if (matchDomain('usatoday.com')) {
-  let roadblock = document.querySelector('.roadblock-container');
-  if (roadblock) {
-    removeDOMElement(roadblock);
-    article_next = document.querySelector('article.next-in-depth-story > div.article-inner');
-    if (article_next) {
-      let url = article_next.getAttribute('data-url');
-      let weblink = document.createElement('a');
-      weblink.href = url;
-      weblink.innerText = 'open next in-depth story';
-      article_next.appendChild(weblink);
+  if (window.location.hostname.startsWith('amp.')) {
+    amp_unhide_access_hide('="gup.hasAssetAccess"', '', 'div[class*="ad-"]');
+  } else {
+    let roadblock = document.querySelector('.roadblock-container');
+    if (roadblock) {
+      removeDOMElement(roadblock);
+      article_next = document.querySelector('article.next-in-depth-story > div.article-inner');
+      if (article_next) {
+        let url = article_next.getAttribute('data-url');
+        let weblink = document.createElement('a');
+        weblink.href = url;
+        weblink.innerText = 'open next in-depth story';
+        article_next.appendChild(weblink);
+      }
     }
   }
 }

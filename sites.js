@@ -511,6 +511,8 @@ var defaultSites = {
       "tennessean.com"
     ],
     allow_cookies: 1,
+    amp_unhide: 1,
+    block_regex: /cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js/,
     useragent: "googlebot"
   },
   "GElocal.it": {
@@ -1612,6 +1614,7 @@ var defaultSites = {
   "USA Today": {
     domain: "usatoday.com",
     allow_cookies: 1,
+    block_regex: /cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js/,
     useragent: "googlebot"
   },
   "Valeurs Actuelles": {

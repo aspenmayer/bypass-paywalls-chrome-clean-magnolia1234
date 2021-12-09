@@ -686,6 +686,9 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
       use_google_bot.push(gn_domain);
       change_headers.push(gn_domain);
     }
+    blockedRegexes[gn_domain] = blockedRegexes['azcentral.com'];
+    if (!amp_unhide.includes(gn_domain))
+      amp_unhide.push(gn_domain);
     usa_gannett_domains.push(gn_domain);
     if (!enabledSites.includes(gn_domain))
       enabledSites.push(gn_domain);
