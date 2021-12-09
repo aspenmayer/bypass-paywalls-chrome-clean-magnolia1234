@@ -494,7 +494,7 @@ var defaultSites = {
     ],
     allow_cookies: 1,
     useragent: "googlebot",
-    block_regex: /(cdn\.cxense\.com\/|\.tinypass\.com\/)/
+    block_regex: /(\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad|fx-flying-carpet)-.+\.js)/
   },
   "Gannett Group (local USA Today)": {
     domain: "###_usa_gannett",

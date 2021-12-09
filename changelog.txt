@@ -4,6 +4,7 @@ Changelog Bypass Paywalls Clean - Chrome
 Post-release
 Add Koelner Stadt-Anzeiger & Koelnische Rundschau
 Add The (New Orleans) Advocate
+Fix Funke Mediengruppe (amp)
 Fix Lecho.be (separate from Groupe Rossel)
 Fix Repubblica sites (no amp)
 Fix USA Today & Gannett Group (amp)

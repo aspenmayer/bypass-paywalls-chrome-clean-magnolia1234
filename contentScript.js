@@ -358,19 +358,6 @@ else if (matchDomain('augsburger-allgemeine.de')) {
     }
   } else {
     amp_unhide_subscr_section();
-    let amp_iframes = document.querySelectorAll('amp-iframe');
-    let elem;
-    for (let amp_iframe of amp_iframes) {
-      elem = document.createElement('iframe');
-      elem.src = amp_iframe.getAttribute('src');
-      elem.setAttribute('frameborder', '0');
-      if (amp_iframe.getAttribute('height') && amp_iframe.getAttribute('width')) {
-        elem.setAttribute('height', amp_iframe.getAttribute('height'));
-        elem.setAttribute('width', amp_iframe.getAttribute('width'));
-      }
-      amp_iframe.parentElement.insertBefore(elem, amp_iframe);
-      removeDOMElement(amp_iframe);
-    }
   }
 }
 
@@ -413,7 +400,10 @@ else if (matchDomain('cicero.de')) {
 }
 
 else if (matchDomain(de_funke_media_domains)) {
-  sessionStorage.setItem('deobfuscate', 'true');
+  if (window.location.search.startsWith('?service=amp'))
+    amp_unhide_access_hide('="NOT p.showRegWall AND NOT p.showPayWall"', '', 'amp-ad, amp-embed, amp-fx-flying-carpet');
+  else
+    sessionStorage.setItem('deobfuscate', 'true');
 }
 
 else if (matchDomain('deutsche-wirtschafts-nachrichten.de')) {
