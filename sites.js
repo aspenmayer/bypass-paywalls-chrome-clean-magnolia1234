@@ -454,7 +454,7 @@ var defaultSites = {
   "Forbes": {
     domain: "forbes.com",
     allow_cookies: 1,
-    block_regex: /\.tinypass\.com\//
+    block_regex: /(\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js)/
   },
   "Foreign Affairs": {
     domain: "foreignaffairs.com",
@@ -467,7 +467,7 @@ var defaultSites = {
   "Fortune": {
     domain: "fortune.com",
     allow_cookies: 1,
-    block_regex: /\.tinypass\.com\//
+    block_regex: /(\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad)-.+\.js)/
   },
   "Frankfurter Allgemeine Zeitung": {
     domain: "faz.net",
@@ -675,7 +675,7 @@ var defaultSites = {
   },
   "Houston Chronicle": {
     domain: "houstonchronicle.com",
-    block_regex: /\.blueconic\.net\//
+    block_regex: /(\.blueconic\.net\/|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad)-.+\.js)/
   },
   "Humo.be": {
     domain: "humo.be",
@@ -802,6 +802,7 @@ var defaultSites = {
   "La Nouvelle République du Centre-Ouest": {
     domain: "lanouvellerepublique.fr",
     allow_cookies: 1,
+    block_regex: /cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js/,
     useragent: "googlebot"
   },
   "La Nuova Sardegna": {
@@ -1009,7 +1010,7 @@ var defaultSites = {
   },
   "MIT Technology Review": {
     domain: "technologyreview.com",
-    block_regex: /\.blueconic\.net\//
+    block_regex: /(\.blueconic\.net\/|cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.mjs)/
   },
   "Mitteldeutsche Zeitung": {
     domain: "mz.de",
@@ -1046,6 +1047,7 @@ var defaultSites = {
   "Neue Zürcher Zeitung": {
     domain: "nzz.ch",
     allow_cookies: 1,
+    block_regex: /cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js/,
     useragent: "googlebot"
   },
   "New Left Review": {
@@ -1076,7 +1078,7 @@ var defaultSites = {
   },
   "Newsweek": {
     domain: "newsweek.com",
-    block_regex: /js\.pelcro\.com\//
+    block_regex: /(js\.pelcro\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad|subscriptions)-.+\.js)/
   },
   "NHST Media Group": {
     domain: "###_no_nhst_media",
@@ -1196,7 +1198,7 @@ var defaultSites = {
   "Rolling Stone": {
     domain: "rollingstone.com",
     allow_cookies: 1,
-    block_regex: /cdn\.cxense\.com\//
+    block_regex: /(cdn\.cxense\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad)-.+\.js)/
   },
   "Ruhr Nachrichten": {
     domain: "ruhrnachrichten.de",
@@ -1210,7 +1212,7 @@ var defaultSites = {
   },
   "San Francisco Chronicle": {
     domain: "sfchronicle.com",
-    block_regex: /\.blueconic\.net\//
+    block_regex: /(\.blueconic\.net\/|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad)-.+\.js)/
   },
   "Sanoma Media Finland (+ regional/opt-in to custom sites)": {
     domain: "###_fi_sanoma",
@@ -1237,7 +1239,7 @@ var defaultSites = {
   },
   "Sciences et Avenir": {
     domain: "sciencesetavenir.fr",
-    block_regex: /\.poool\.fr\//
+    block_regex: /(\.poool\.fr\/|cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js)/
   },
   "Scientific American (free articles only)": {
     domain: "scientificamerican.com",
@@ -1256,10 +1258,11 @@ var defaultSites = {
   },
   "Slate": {
     domain: "slate.com",
-    block_regex: /(cdn\.cxense\.com\/|\.tinypass\.com\/)/
+    block_regex: /(cdn\.cxense\.com\/|\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js)/
   },
   "SOFREP": {
-    domain: "sofrep.com"
+    domain: "sofrep.com",
+    block_regex: /cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js/
   },
   "South China Morning Post": {
     domain: "scmp.com",
@@ -1302,7 +1305,7 @@ var defaultSites = {
   "Tampa Bay Times": {
     domain: "tampabay.com",
     allow_cookies: 1,
-    block_regex: /(loader-cdn\.azureedge\.net\/|js\.matheranalytics\.com\/)/
+    block_regex: /(loader-cdn\.azureedge\.net\/|js\.matheranalytics\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js)/
   },
   "Tech in Asia": {
     domain: "techinasia.com",
@@ -1351,10 +1354,11 @@ var defaultSites = {
   "The Atlanta Journal-Constitution": {
     domain: "ajc.com",
     allow_cookies: 1,
-    block_regex: /loader-cdn\.azureedge\.net\//
+    block_regex: /(loader-cdn\.azureedge\.net\/|cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js)/
   },
   "The Atlantic": {
     domain: "theatlantic.com",
+    block_regex: /cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad|subscriptions)-.+\.js/,
     remove_cookies_select_drop: ["articleViews"]
   },
   "The Australian Financial Review": {
@@ -1421,7 +1425,7 @@ var defaultSites = {
   "The Hindu BusinessLine": {
     domain: "thehindubusinessline.com",
     allow_cookies: 1,
-    block_regex: /(cdn\.cxense\.com\/|\.tinypass\.com\/)/
+    block_regex: /(cdn\.cxense\.com\/|\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad(s)?)-.+\.js)/
   },
   "The Intercept": {
     domain: "theintercept.com",
@@ -1448,11 +1452,12 @@ var defaultSites = {
   "The Market.ch": {
     domain: "themarket.ch",
     allow_cookies: 1,
+    block_regex: /cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js/,
     useragent: "googlebot"
   },
   "The Nation": {
     domain: "thenation.com",
-    block_regex: /\.tinypass\.com\//
+    block_regex: /(\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js)/
   },
   "The New Atlantis": {
     domain: "thenewatlantis.com",
@@ -1495,6 +1500,7 @@ var defaultSites = {
   },
   "The Seattle Times": {
     domain: "seattletimes.com",
+    block_regex: /cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js/,
     remove_cookies_select_hold: ["st_newsletter_splash_seen"]
   },
   "The Spectator (UK)": {
@@ -1537,11 +1543,11 @@ var defaultSites = {
       "wellandtribune.ca"
     ],
     allow_cookies: 1,
-    block_regex: /\.(ca|com)\/api\/overlaydata/
+    block_regex: /(\.(ca|com)\/api\/overlaydata|cdn\.ampproject\.org\/v\d\/amp-(access|ad|subscriptions)-.+\.js)/
   },
   "The Wall Street Journal": {
     domain: "wsj.com",
-    block_regex: /(cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent|subscriptions)-.+\.js|cdn\.cxense\.com\/)/,
+    block_regex: /(cdn\.cxense\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent|subscriptions)-.+\.js)/,
     remove_cookies_select_hold: ["wsjregion", "ResponsiveConditional_initialBreakpoint"],
     useragent: "googlebot"
   },
@@ -1562,7 +1568,7 @@ var defaultSites = {
   "Time Magazine": {
     domain: "time.com",
     allow_cookies: 1,
-    block_regex: /\/time\.com\/dist\/meter-wall-client-js\..+\.js/
+    block_regex: /(\/time\.com\/dist\/meter-wall-client-js\..+\.js|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad)-.+\.js)/
   },
   "Times Higher Education": {
     domain: "timeshighereducation.com",
@@ -1627,7 +1633,7 @@ var defaultSites = {
   "Variety": {
     domain: "variety.com",
     allow_cookies: 1,
-    block_regex: /cdn\.cxense\.com\//
+    block_regex: /(cdn\.cxense\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad)-.+\.js)/
   },
   "VeloNews": {
     domain: "velonews.com",

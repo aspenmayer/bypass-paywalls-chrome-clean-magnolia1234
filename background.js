@@ -605,7 +605,23 @@ ext_api.webRequest.onHeadersReceived.addListener(function (details) {
 },
   ['blocking', 'responseHeaders']);
 
-var block_js = ["*://cdn.tinypass.com/*", "*://*.piano.io/*", "*://*.poool.fr/*",  "*://cdn.ampproject.org/v*/amp-access-*.js", "*://cdn.ampproject.org/v*/amp-subscriptions-*.js", "*://loader-cdn.azureedge.net/prod/*/loader.min.js*", "*://*.blueconic.net/*", "*://*.cxense.com/*", "*://*.evolok.net/*", "*://js.matheranalytics.com/*", "*://*.newsmemory.com/*", "*://*.onecount.net/*", "*://js.pelcro.com/*", "*://*.qiota.com/*", "*://*.tribdss.com/*"];
+var block_js = [
+  "*://*.blueconic.net/*",
+  "*://*.cxense.com/*",
+  "*://*.evolok.net/*",
+  "*://*.newsmemory.com/*",
+  "*://*.onecount.net/*",
+  "*://*.piano.io/*",
+  "*://*.poool.fr/*",
+  "*://*.qiota.com/*",
+  "*://*.tribdss.com/*",
+  "*://cdn.ampproject.org/v*/amp-access-*.*js",
+  "*://cdn.ampproject.org/v*/amp-subscriptions-*.*js",
+  "*://cdn.tinypass.com/*",
+  "*://js.matheranalytics.com/*",
+  "*://js.pelcro.com/*",
+  "*://loader-cdn.azureedge.net/prod/*/loader.min.js*",
+];
 
 // Disable javascript for these sites/general paywall-scripts
 function disableJavascriptOnListedSites() {
