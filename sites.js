@@ -191,8 +191,10 @@ var defaultSites = {
     block_regex: /\.tinypass\.com\//,
     remove_cookies_select_hold: ["bb_geo_info"]
   },
-  "Bloomberg Quint (free articles only)": {
-    domain: "bloombergquint.com"
+  "Bloomberg Quint": {
+    domain: "bloombergquint.com",
+    allow_cookies: 1,
+    block_regex: /(cdn\.cxense\.com\/|\.tinypass\.com\/)/
   },
   "Brisbane Times": {
     domain: "brisbanetimes.com.au",

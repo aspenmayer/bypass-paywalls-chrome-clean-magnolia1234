@@ -616,7 +616,7 @@ Grouped in options:\
 [The Japan Times](https://www.japantimes.co.jp)
 
 #### India
-[Bloomberg Quint](https://www.bloombergquint.com)* -
+[Bloomberg Quint](https://www.bloombergquint.com) -
 [Business Standard](https://www.business-standard.com) -
 [Hindustan Times](https://www.hindustantimes.com) -
 [Inc42](https://inc42.com) -
