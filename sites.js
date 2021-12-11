@@ -1366,7 +1366,7 @@ var defaultSites = {
   "The Boston Globe": {
     domain: "bostonglobe.com",
     allow_cookies: 1,
-    block_regex: /(\.blueconic\.net\/|meter\.bostonglobe\.com\/js\/)/
+    block_regex: /(\.blueconic\.net\/|meter\.bostonglobe\.com\/js\/|cdn\.ampproject\.org\/v\d\/amp-((sticky-)?ad|subscriptions)-.+\.js)/
   },
   "The Business Journals": {
     domain: "bizjournals.com",
@@ -1387,7 +1387,7 @@ var defaultSites = {
   "The Dallas Morning News": {
     domain: "dallasnews.com",
     allow_cookies: 1,
-    block_regex: /(\.blueconic\.net\/|js\.matheranalytics\.com\/)/
+    block_regex: /(\.blueconic\.net\/|js\.matheranalytics\.com\/|cdn\.ampproject\.org\/v\d\/amp-((sticky-)?ad|subscriptions)-.+\.js)/
   },
   "The Diplomat": {
     domain: "thediplomat.com"
@@ -1626,7 +1626,8 @@ var defaultSites = {
     block_regex: /\.qiota\.com\//
   },
   "Vanity Fair": {
-    domain: "vanityfair.com"
+    domain: "vanityfair.com",
+    block_regex: /cdn\.ampproject\.org\/v\d\/amp-(ad|subscriptions)-.+\.js/
   },
   "Variety": {
     domain: "variety.com",

@@ -1710,9 +1710,12 @@ else if (matchDomain('bloombergquint.com')) {
 }
 
 else if (matchDomain('bostonglobe.com')) {
-  let ads = document.querySelectorAll('div.arc_ad');
-  for (let ad of ads)
-    ad.style = 'display:none';
+  if (window.location.search.startsWith('?outputType=amp')) {
+    amp_unhide_subscr_section();
+  } else {
+    let ads = document.querySelectorAll('div.arc_ad');
+    removeDOMElement(...ads);
+  }
 }
 
 else if (matchDomain('business-standard.com')) {
@@ -1778,6 +1781,12 @@ else if (matchDomain('chronicle.com')) {
 else if (matchDomain('csmonitor.com')) {
   let paywall = document.querySelector('div.paywall');
   removeDOMElement(paywall);
+}
+
+else if (matchDomain('dallasnews.com')) {
+  if (window.location.search.startsWith('?outputType=amp')) {
+    amp_unhide_subscr_section('amp-ad, amp-embed');
+  }
 }
 
 else if (matchDomain('digiday.com')) {
@@ -2771,6 +2780,12 @@ else if (matchDomain('usatoday.com')) {
         article_next.appendChild(weblink);
       }
     }
+  }
+}
+
+else if (matchDomain('vanityfair.com')) {
+  if (window.location.pathname.endsWith('/amp')) {
+    amp_unhide_subscr_section();
   }
 }
 
