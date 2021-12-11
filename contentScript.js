@@ -2030,20 +2030,22 @@ else if (matchDomain('infzm.com')) {
 }
 
 else if (matchDomain('inkl.com')) {
-  document.addEventListener('DOMContentLoaded', () => {
-    let menu_btn = document.querySelector('div.left-buttons-container button.menu-btn');
-    if (!menu_btn) {
-      let article_container = document.querySelector('div.article-content-container');
-      if (article_container)
-        article_container.setAttribute('style', 'overflow: visible; max-height: none;');
-      let gradient_container = document.querySelector('div.gradient-container');
-      if (gradient_container)
-        gradient_container.setAttribute('style', 'height:auto;');
+  let menu_btn = document.querySelector('div.left-buttons-container button.menu-btn');
+  if (!menu_btn) {
+    let article_container = document.querySelector('div.article-content-container');
+    if (article_container) {
+      article_container.setAttribute('style', 'overflow: visible; max-height: none;');
+      let figures = document.querySelectorAll('figure');
+      for (let figure of figures)
+        figure.setAttribute('style', 'display:block !important;');
     }
-    let what_is_inkl = document.querySelector('.what-is-inkl-container');
-    let signup = document.querySelector('.article-signup-container');
-    removeDOMElement(what_is_inkl, signup);
-  });
+    let gradient_container = document.querySelector('div.gradient-container');
+    if (gradient_container)
+      gradient_container.setAttribute('style', 'height:auto;');
+  }
+  let what_is_inkl = document.querySelector('.what-is-inkl-container');
+  let signup = document.querySelector('.article-signup-container');
+  removeDOMElement(what_is_inkl, signup);
   let dismiss_button = document.querySelector('div.dismiss-button-container button.btn');
   if (dismiss_button)
     dismiss_button.click();
