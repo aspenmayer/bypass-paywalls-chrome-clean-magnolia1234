@@ -6,8 +6,8 @@ Add Koelner Stadt-Anzeiger & Koelnische Rundschau
 Add The (New Orleans) Advocate
 Remove Caixin Global (obsolete)
 Fix ABC.es (amp)
+Fix Billboard, Digiday, Fortune & Newsday (amp)
 Fix Bloomberg Quint (bq blue)
-Fix Fortune (amp)
 Fix Funke Mediengruppe (amp)
 Fix Inkl (images)
 Fix Lecho.be (separate from Groupe Rossel)

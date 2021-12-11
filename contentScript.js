@@ -1628,6 +1628,12 @@ else if (matchDomain('barrons.com')) {
   }
 }
 
+else if (matchDomain('billboard.com')) {
+  if (window.location.pathname.endsWith('/amp/')) {
+    amp_unhide_subscr_section('amp-ad, amp-embed');
+  }
+}
+
 else if (matchDomain('bloomberg.com')) {
   function bloomberg_noscroll(node) {
     node.removeAttribute('data-paywall-overlay-status');
@@ -1772,6 +1778,12 @@ else if (matchDomain('chronicle.com')) {
 else if (matchDomain('csmonitor.com')) {
   let paywall = document.querySelector('div.paywall');
   removeDOMElement(paywall);
+}
+
+else if (matchDomain('digiday.com')) {
+  if (window.location.pathname.endsWith('/amp/')) {
+    amp_unhide_access_hide('="NOT p.showPageviewExpired AND NOT p.showPayWall"', '', 'amp-ad, .advertisement, .ad-wrapper');
+  }
 }
 
 else if (matchDomain('discovermagazine.com')) {
@@ -2203,6 +2215,14 @@ else if (matchDomain('newrepublic.com')) {
   let ads = document.querySelectorAll('.ad-unit, .ad-container');
   removeDOMElement(pw_popups, ...ads);
 }
+
+else if (matchDomain('newsday.com')) {
+  if (window.location.pathname.startsWith('/amp/')) {
+	  console.log('newsday');
+    amp_unhide_access_hide('="AccessLevel = \'Full Content Access\' OR Error = true"', '="AccessLevel = \'Page View Limit\'"');
+  }
+}
+
 
 else if (matchDomain('newyorker.com') && window.location.pathname.length > 1) {
   if (window.location.pathname.endsWith('/amp')) {

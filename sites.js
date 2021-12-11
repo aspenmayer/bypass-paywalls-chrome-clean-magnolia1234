@@ -184,7 +184,7 @@ var defaultSites = {
   "Billboard": {
     domain: "billboard.com",
     allow_cookies: 1,
-    block_regex: /(cdn\.cxense\.com\/|\.tinypass\.com\/)/
+    block_regex: /(cdn\.cxense\.com\/|\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-((sticky-)?ad|subscriptions)-.+\.js)/
   },
   "Bloomberg": {
     domain: "bloomberg.com",
@@ -202,7 +202,7 @@ var defaultSites = {
   },
   "Business Insider": {
     domain: "businessinsider.com",
-    block_regex: /\.tinypass\.com\//
+    block_regex: /(\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad)-.+\.js)/
   },
   "Business Standard": {
     domain: "business-standard.com",
@@ -326,7 +326,7 @@ var defaultSites = {
   },
   "Digiday": {
     domain: "digiday.com",
-    block_regex: /cdn.\.tinypass\.com\//
+    block_regex: /(cdn.\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js)/
   },
   "Discover Magazine": {
     domain: "discovermagazine.com"
@@ -1072,7 +1072,7 @@ var defaultSites = {
   "Newsday": {
     domain: "newsday.com",
     allow_cookies: 1,
-    block_regex: /(loader-cdn\.azureedge\.net\/|js\.matheranalytics\.com\/)/
+    block_regex: /(loader-cdn\.azureedge\.net\/|js\.matheranalytics\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad)-.+\.js)/
   },
   "Newsweek": {
     domain: "newsweek.com",
