@@ -602,7 +602,6 @@ Grouped in options:\
 
 #### East Asia
 [Asia Times](https://asiatimes.com) -
-[Caixin Global](https://www.caixinglobal.com) -
 [CommonWealth Magazine Taiwan](https://www.cw.com.tw) -
 [DealStreetAsia](https://www.dealstreetasia.com) -
 [Harvard Business Review China](https://www.hbrchina.org) -

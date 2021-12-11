@@ -1740,22 +1740,6 @@ else if (matchDomain('business-standard.com')) {
   }
 }
 
-else if (matchDomain('caixinglobal.com')) {
-  window.setTimeout(function () {
-    let pay_tips = document.querySelectorAll('.cons-pay-tip');
-    for (let pay_tip of pay_tips)
-      pay_tip.removeAttribute('style');
-    let appContent = document.getElementById('appContent');
-    if (appContent) {
-      let hidden_pars = document.querySelectorAll('p:not([style="display:block;"])');
-      for (let hidden_par of hidden_pars)
-        hidden_par.setAttribute('style', 'display:block;');
-    }
-    let app_exclusive_tip = document.querySelector('.app-exclusive-tip');
-    removeDOMElement(app_exclusive_tip);
-  }, 1000); // Delay (in milliseconds)
-}
-
 else if (matchDomain(ca_torstar_domains)) {
   window.setTimeout(function () {
     let meter_banner = document.querySelector('.c-article-meter-banner');

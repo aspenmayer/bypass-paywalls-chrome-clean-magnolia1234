@@ -208,10 +208,6 @@ var defaultSites = {
     domain: "business-standard.com",
     allow_cookies: 1
   },
-  "Caixin Global": {
-    domain: "caixinglobal.com",
-    remove_cookies_select_drop: ["CAIXINGLB_LOGIN_UUID"]
-  },
   "Challenges": {
     domain: "challenges.fr",
     block_regex: /\.poool\.fr\//

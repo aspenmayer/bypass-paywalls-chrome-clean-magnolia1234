@@ -4,6 +4,7 @@ Changelog Bypass Paywalls Clean - Chrome
 Post-release
 Add Koelner Stadt-Anzeiger & Koelnische Rundschau
 Add The (New Orleans) Advocate
+Remove Caixin Global (obsolete)
 Fix ABC.es (amp)
 Fix Bloomberg Quint (bq blue)
 Fix Fortune (amp)
