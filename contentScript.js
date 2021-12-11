@@ -2084,6 +2084,17 @@ else if (matchDomain('jpost.com')) {
   removeDOMElement(...premium_banners);
 }
 
+else if (matchDomain(['latimes.com', 'sandiegouniontribune.com'])) {
+  if (window.location.search.startsWith('?_amp=true')) {
+    amp_unhide_subscr_section('amp-ad, [class*="-ad-wrapper"]');
+  } else {
+    window.setTimeout(function () {
+      let metering_bottompanel = document.querySelector('metering-bottompanel');
+      removeDOMElement(metering_bottompanel);
+    }, 500); // Delay (in milliseconds)
+  }
+}
+
 else if (matchDomain('law360.com')) {
   window.setTimeout(function () {
     let modal = document.querySelectorAll('div#NewsletterModal, div.modal-backdrop');
@@ -2331,13 +2342,6 @@ else if (matchDomain('qz.com')) {
     if (article)
       article.appendChild(archiveLink(url));
   }
-}
-
-else if (matchDomain('sandiegouniontribune.com')) {
-  window.setTimeout(function () {
-    let metering_bottompanel = document.querySelector('metering-bottompanel');
-    removeDOMElement(metering_bottompanel);
-  }, 500); // Delay (in milliseconds)
 }
 
 else if (matchDomain('scmp.com') && window.location.href.includes('/amp.')) {

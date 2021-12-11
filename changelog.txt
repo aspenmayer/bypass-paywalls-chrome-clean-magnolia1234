@@ -8,6 +8,7 @@ Fix ABC.es (amp)
 Fix Fortune (amp)
 Fix Funke Mediengruppe (amp)
 Fix Lecho.be (separate from Groupe Rossel)
+Fix Los Angeles Times & San Diego Union-Tribune (amp)
 Fix Repubblica sites (no amp)
 Fix USA Today & Gannett Group (amp)
 

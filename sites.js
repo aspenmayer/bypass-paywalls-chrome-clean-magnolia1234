@@ -655,7 +655,7 @@ var defaultSites = {
   },
   "Harvard Business Review": {
     domain: "hbr.org",
-    block_regex: /\.tinypass\.com\//
+    block_regex: /(\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js)/
   },
   "Harvard Business Review China": {
     domain: "hbrchina.org",
@@ -914,7 +914,7 @@ var defaultSites = {
   },
   "Los Angeles Times": {
     domain: "latimes.com",
-    block_regex: /metering\.platform\.latimes\.com\/v\d\/meter/
+    block_regex: /(metering\.platform\.latimes\.com\/v\d\/meter|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad|subscriptions)-.+\.js)/
   },
   "Madsack Mediengruppe (Germany)": {
     domain: "###_de_madsack",
@@ -1208,7 +1208,7 @@ var defaultSites = {
   },
   "San Diego Union Tribune": {
     domain: "sandiegouniontribune.com",
-    block_regex: /metering\.platform\.sandiegouniontribune\.com\/v\d\/meter/
+    block_regex: /(metering\.platform\.sandiegouniontribune\.com\/v\d\/meter|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad|subscriptions)-.+\.js)/
   },
   "San Francisco Chronicle": {
     domain: "sfchronicle.com",
