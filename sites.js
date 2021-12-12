@@ -250,7 +250,7 @@ var defaultSites = {
   "Corriere della Sera": {
     domain: "corriere.it",
     allow_cookies: 1,
-    block_regex: /(\.tinypass\.com\/|\.corriereobjects\.it\/.+\/js\/_paywall\.sjs)/
+    block_regex: /(\.tinypass\.com\/|\.corriereobjects\.it\/.+\/js\/_paywall\.sjs|cdn\.ampproject\.org\/v\d\/amp-(ad|consent|subscriptions)-.+\.js)/
   },
   "Crain Communications": {
     domain: "###_usa_craincomm",
@@ -698,7 +698,7 @@ var defaultSites = {
       "ilmessaggero.it",
       "quotidianodipuglia.it"
     ],
-    block_regex: /utils\.cedsdigital\.it\/js\/PaywallMeter\.js/
+    block_regex: /(utils\.cedsdigital\.it\/js\/PaywallMeter\.js|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad|consent|subscriptions)-.+\.mjs)/
   },
   "Il Secolo XIX": {
     domain: "ilsecoloxix.it",
@@ -1182,7 +1182,7 @@ var defaultSites = {
       "quotidiano.net"
     ],
     allow_cookies: 1,
-    block_regex: /(cdn\.cxense\.com\/|\.tinypass\.com\/)/
+    block_regex: /(cdn\.cxense\.com\/|\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad|consent)-.+\.js)/
   },
   "Reuters": {
     domain: "reuters.com",

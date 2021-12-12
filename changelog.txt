@@ -5,29 +5,18 @@ Post-release
 Add Koelner Stadt-Anzeiger & Koelnische Rundschau
 Add The (New Orleans) Advocate
 Remove Caixin Global (obsolete)
-Fix ABC.es (amp)
-Fix Artnet (amp)
-Fix Billboard (amp)
-Fix Challenges.fr (amp)
-Fix Digiday (amp)
-Fix Elle.fr (amp)
-Fix ET Prime (amp)
-Fix Fortune (amp)
 Fix Bloomberg Quint (bq blue)
-Fix Funke Mediengruppe (amp)
 Fix Inkl (images)
-Fix L'Opinion.fr (amp)
 Fix Lecho.be (separate from Groupe Rossel)
-Fix Lee Enterprises Group (amp)
-Fix LiveMint (amp)
-Fix Los Angeles Times & San Diego Union-Tribune (amp)
-Fix Newsday (amp)
 Fix Repubblica sites (no amp)
-Fix Science & Vie (amp)
-Fix The Boston Globe (amp)
-Fix The Dallas Morning News (amp)
-Fix USA Today & Gannett Group (amp)
-Fix Vanity Fair (amp)
+Fix amp: ABC.es
+Fix amp: Artnet, Billboard, Digiday, Fortune, Lee Enterprises Group, Newsday, The Boston Globe, The Dallas Morning News & Vanity Fair
+Fix amp: Los Angeles Times & San Diego Union-Tribune
+Fix amp: USA Today & Gannett Group
+Fix amp: Challenges.fr, Elle.fr, L'Opinion.fr & Science et Vie
+Fix amp: Corriere della Sera, Il Messaggero & Quotidiano.net
+Fix amp: ET Prime & LiveMint
+Fix amp: Funke Mediengruppe
 
 * v2.4.6.0 (2021-12-05)
 Add Artnet

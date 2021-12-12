@@ -14,6 +14,7 @@ var es_unidad_domains = ['elmundo.es', 'expansion.com', 'marca.com'];
 var fi_alma_talent_domains = ['arvopaperi.fi', 'iltalehti.fi', 'kauppalehti.fi', 'marmai.fi', 'mediuutiset.fi', 'mikrobitti.fi', 'talouselama.fi', 'tekniikkatalous.fi', 'tivi.fi', 'uusisuomi.fi'];
 var fr_groupe_ebra_domains = ['bienpublic.com', 'dna.fr', 'estrepublicain.fr', 'lalsace.fr', 'ledauphine.com', 'lejsl.com', 'leprogres.fr', 'republicain-lorrain.fr', 'vosgesmatin.fr'];
 var fr_groupe_la_depeche_domains = ['centrepresseaveyron.fr', 'ladepeche.fr', 'lindependant.fr', 'midi-olympique.fr', 'midilibre.fr', 'nrpyrenees.fr', 'petitbleu.fr'];
+var it_ilmessaggero_domains = ['corriereadriatico.it', 'ilgazzettino.it', 'ilmattino.it', 'ilmessaggero.it', 'quotidianodipuglia.it'];
 var it_repubblica_domains = ['gelocal.it', 'ilsecoloxix.it', 'italian.tech', 'lanuovasardegna.it', 'lastampa.it', 'repubblica.it'];
 var it_quotidiano_domains = ['ilgiorno.it', 'ilrestodelcarlino.it', 'iltelegrafolivorno.it', 'lanazione.it', 'quotidiano.net'];
 var nl_mediahuis_region_domains = ['gooieneemlander.nl', 'haarlemsdagblad.nl', 'ijmuidercourant.nl', 'leidschdagblad.nl', 'noordhollandsdagblad.nl'];
@@ -1083,11 +1084,15 @@ else
 } else if (window.location.hostname.endsWith('.it') || matchDomain(['italian.tech', 'limesonline.com', 'quotidiano.net'])) {//italy
 
 if (matchDomain('corriere.it')) {
-  let url = window.location.href;
-  if (url.includes('_preview.shtml')) {
-    window.setTimeout(function () {
-      window.location.href = url.replace('_preview.shtml', '.shtml').split('?')[0];
-    }, 500); // Delay (in milliseconds)
+  if (window.location.pathname.endsWith('_amp.html')) {
+    amp_unhide_subscr_section('amp-ad, amp-embed');
+  } else {
+    let url = window.location.href;
+    if (url.includes('_preview.shtml')) {
+      window.setTimeout(function () {
+        window.location.href = url.replace('_preview.shtml', '.shtml').split('?')[0];
+      }, 500); // Delay (in milliseconds)
+    }
   }
 }
 
@@ -1106,12 +1111,22 @@ else if (matchDomain('ilfattoquotidiano.it')) {
   }
 }
 
+else if (matchDomain(it_ilmessaggero_domains)) {
+  if (window.location.pathname.toLowerCase().includes('/amp/')) {
+    amp_unhide_subscr_section('amp-ad, amp-embed');
+  }
+}
+
 else if (matchDomain(it_quotidiano_domains)) {
-  let detail_text_truncated = document.querySelector('div.detail-text--truncated');
-  let detail_page_paywall = document.querySelector('body.detail-page--paywall');
-  if (detail_page_paywall) {
-    removeDOMElement(detail_text_truncated);
-    detail_page_paywall.classList.remove('detail-page--paywall');
+  if (window.location.pathname.endsWith('/amp')) {
+    amp_unhide_access_hide('="c.customGranted"', '="NOT c.customGranted"');
+  } else {
+    let detail_text_truncated = document.querySelector('div.detail-text--truncated');
+    let detail_page_paywall = document.querySelector('body.detail-page--paywall');
+    if (detail_page_paywall) {
+      removeDOMElement(detail_text_truncated);
+      detail_page_paywall.classList.remove('detail-page--paywall');
+    }
   }
 }
 
