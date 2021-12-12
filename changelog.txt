@@ -2,6 +2,8 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+
+* v2.4.7.0 (2021-12-12)
 Add Koelner Stadt-Anzeiger & Koelnische Rundschau
 Add The (New Orleans) Advocate
 Remove Caixin Global (obsolete)
