@@ -93,7 +93,7 @@ var defaultSites = {
   "Artnet": {
     domain: "artnet.com",
     allow_cookies: 1,
-    block_regex: /\.artnet\.com\/paywall-ajax\.php/
+    block_regex: /(\.artnet\.com\/paywall-ajax\.php|cdn\.ampproject\.org\/v\d\/amp-(ad|subscriptions)-.+\.js)/
   },
   "Asia Times": {
     domain: "asiatimes.com",
@@ -415,6 +415,7 @@ var defaultSites = {
   },
   "Financial News (London)": {
     domain: "fnlondon.com",
+    block_regex: /cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js/,
     useragent: "googlebot"
   },
   "Financial Post": {
@@ -875,7 +876,7 @@ var defaultSites = {
       "tulsaworld.com"
     ],
     allow_cookies: 1,
-    block_regex: /api\.bntech\.io\/js\//
+    block_regex: /(api\.bntech\.io\/js\/|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad)-.+\.js)/
   },
   "Leeuwarder Courant": {
     domain: "lc.nl",
@@ -897,7 +898,7 @@ var defaultSites = {
   },
   "LiveMint": {
     domain: "livemint.com",
-    block_regex: /(\.livemint\.com\/js\/localWorker\.js|analytics\.htmedia\.in\/analytics-js\/.+\.js)/
+    block_regex: /(\.livemint\.com\/js\/localWorker\.js|analytics\.htmedia\.in\/analytics-js\/.+\.js|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad)-.+\.js)/
   },
   "Loeb Classical Library": {
     domain: "loebclassics.com"
