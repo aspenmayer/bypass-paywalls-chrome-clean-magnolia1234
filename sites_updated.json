@@ -2,12 +2,18 @@
   "Artnet": {
     "domain": "artnet.com",
     "allow_cookies": 1,
+    "amp_unhide": 1,
     "block_regex": "\\.artnet\\.com\\/paywall-ajax\\.php",
     "cs_code": [{
         "cond": ".article-body",
         "rm_class": "article-body"
       }
     ]
+  },
+  "Bloomberg": {
+    "domain": "bloomberg.com",
+    "block_regex": "(\\.tinypass\\.com\\/|assets\\.bwbx\\.io\\/s\\d\\/fence\\/(plug|fortress)-client\\/)",
+    "remove_cookies_select_hold": ["bb_geo_info"]
   },
   "Gannett Group (local USA Today)": {
     "domain": "###_usa_gannett",
@@ -31,7 +37,7 @@
   "Internazionale.it": {
     "domain": "internazionale.it",
     "allow_cookies": 1,
-  "block_regex": "\\.internazionale\\.it\\/assets\\/js\\/main\\.\\d{2,}\\.js"
+    "block_regex": "\\.internazionale\\.it\\/assets\\/js\\/main\\.\\d{2,}\\.js"
   },
   "The (New Orleans) Advocate": {
     "domain": "###_usa_theadvocate",
@@ -45,6 +51,7 @@
   "The Boston Globe": {
     "domain": "bostonglobe.com",
     "allow_cookies": 1,
+    "amp_unhide": 1,
     "block_regex": "(\\.blueconic\\.net\\/|meter\\.bostonglobe\\.com\\/js\\/)"
   },
   "The Business of Fashion": {

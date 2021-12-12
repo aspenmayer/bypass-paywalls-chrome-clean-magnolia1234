@@ -19,7 +19,6 @@ const restrictions = {
   'adweek.com': /^((?!\.adweek\.com\/(.+\/)?(amp|agencyspy|tvnewser|tvspy)\/).)*$/,
   'barrons.com': /.+\.barrons\.com\/(amp\/)?article(s)?\/.+/,
   'bloomberg.com': /^((?!\.bloomberg\.com\/news\/terminal\/).)*$/,
-  'bloombergquint.com': /^((?!\.bloombergquint\.com\/bq-blue-exclusive\/).)*$/,
   'economictimes.com': /.+\.economictimes\.com\/($|(__assets|prime)(\/.+)?|.+\.cms)/,
   'elespanol.com': /^((?!\/cronicaglobal\.elespanol\.com\/).)*$/,
   'elpais.com': /(\/elpais\.com\/$|(static|imagenes(\.\w+)?)\.elpais\.com|\/(.+\.)?elpais\.com\/.+\.html)/,

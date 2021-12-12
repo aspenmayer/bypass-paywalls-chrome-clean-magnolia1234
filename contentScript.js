@@ -1759,7 +1759,10 @@ else if (matchDomain('bloomberg.com')) {
     if (json_script && dompurify_loaded) {
       let json = JSON.parse(json_script.innerHTML);
       if (json) {
-        let json_text = json.body ? json.body : '';
+        let json_text;
+        json_text = json.body ? json.body : '';
+        if (!json_text)
+          json_text = json.story.body ? json.story.body : '';
         if (json_text) {
           removeDOMElement(json_script);
           let article = document.querySelector('div.body-copy-v2:not(.art_done)');
@@ -1768,13 +1771,23 @@ else if (matchDomain('bloomberg.com')) {
             article = document.querySelector('div.body-copy:not(.art_done)');
             article_class = 'body-copy';
           }
+          if (!article) {
+            article = document.querySelector('div.body-content:not(.art_done)');
+            article_class = 'body-content';
+          }
           if (article) {
             article_class += ' art_done';
             let parser = new DOMParser();
             let doc = parser.parseFromString('<div class="' + article_class + '">' + DOMPurify.sanitize(json_text, {ADD_TAGS: ['iframe', 'script']}) + '</div>', 'text/html');
             let article_new = doc.querySelector('div');
-            if (article_new)
+            if (article_new) {
               article.parentNode.replaceChild(article_new, article);
+              let teaser_body = document.querySelector('div.body-content[class*="teaser-content_"]');
+              removeDOMElement(teaser_body);
+              let body_transparent = document.querySelector('div[class*="nearly-transparent-text-blur_"]');
+              if (body_transparent)
+                removeClassesByPrefix(body_transparent, 'nearly-transparent-text-blur_');
+            }
           }
         }
       }
