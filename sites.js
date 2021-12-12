@@ -210,7 +210,7 @@ var defaultSites = {
   },
   "Challenges": {
     domain: "challenges.fr",
-    block_regex: /\.poool\.fr\//
+    block_regex: /(\.poool\.fr\/|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js)/
   },
   "Charlie Hebdo": {
     domain: "charliehebdo.fr",
@@ -382,7 +382,7 @@ var defaultSites = {
   "Elle.fr": {
     domain: "elle.fr",
     allow_cookies: 1,
-    block_regex: /\.poool\.fr\//
+    block_regex: /(\.poool\.fr\/|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad|consent)-.+\.js)/
   },
   "Encyclopedia Britannica": {
     domain: "britannica.com"
@@ -776,7 +776,7 @@ var defaultSites = {
   },
   "L'Opinion": {
     domain: "lopinion.fr",
-    block_regex: /\.poool\.fr\//
+    block_regex: /(\.poool\.fr\/|cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js)/
   },
   "L'Orient-Le Jour": {
     domain: "lorientlejour.com"

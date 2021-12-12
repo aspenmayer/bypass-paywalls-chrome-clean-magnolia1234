@@ -817,7 +817,7 @@ else if (matchDomain('politicaexterior.com')) {
 else
   csDone = true;
 
-} else if (window.location.hostname.endsWith('.fr') || matchDomain(['bienpublic.com', 'journaldunet.com', 'la-croix.com', 'ledauphine.com', 'ledevoir.com', 'lejsl.com', 'loeildelaphotographie.com', 'marianne.net', 'nouvelobs.com', 'parismatch.com'])) {//france
+} else if (window.location.hostname.endsWith('.fr') || matchDomain(['bienpublic.com', 'journaldunet.com', 'la-croix.com', 'ledauphine.com', 'ledevoir.com', 'lejsl.com', 'loeildelaphotographie.com', 'marianne.net', 'nouvelobs.com', 'parismatch.com', 'science-et-vie.com'])) {//france
 
 if (matchDomain('alternatives-economiques.fr')) {
   window.setTimeout(function () {
@@ -836,14 +836,18 @@ else if (matchDomain('atlantico.fr')) {
 }
 
 else if (matchDomain('challenges.fr')) {
-  let amorce = document.querySelector('.user-paying-amorce');
-  if (amorce)
-    amorce.setAttribute('style', 'display:none !important');
-  let content = document.querySelectorAll('.user-paying-content');
-  for (let elem of content)
-    elem.classList.remove('user-paying-content');
-  let paywall = document.querySelector('.temp-paywall');
-  removeDOMElement(paywall);
+  if (window.location.pathname.endsWith('.amp')) {
+    amp_unhide_access_hide('="paywall.access OR cha.access"', '="NOT (paywall.access OR cha.access)"');
+  } else {
+    let amorce = document.querySelector('.user-paying-amorce');
+    if (amorce)
+      amorce.setAttribute('style', 'display:none !important');
+    let content = document.querySelectorAll('.user-paying-content');
+    for (let elem of content)
+      elem.classList.remove('user-paying-content');
+    let paywall = document.querySelector('.temp-paywall');
+    removeDOMElement(paywall);
+  }
 }
 
 else if (matchDomain('charliehebdo.fr')) {
@@ -857,11 +861,15 @@ else if (matchDomain('charliehebdo.fr')) {
 }
 
 else if (matchDomain('elle.fr')) {
-  let hidden_images = document.querySelectorAll('img[src^="data:image/"][data-src]');
-  for (let hidden_image of hidden_images)
-    hidden_image.setAttribute('src', hidden_image.getAttribute('data-src'));
-  let subscription_bar = document.querySelector('.tc-subscription-bar');
-  removeDOMElement(subscription_bar);
+  if (window.location.hostname.startsWith('amp.')) {
+    amp_unhide_access_hide('="poool.access OR cmi_premium.access"');
+  } else {
+    let hidden_images = document.querySelectorAll('img[src^="data:image/"][data-src]');
+    for (let hidden_image of hidden_images)
+      hidden_image.setAttribute('src', hidden_image.getAttribute('data-src'));
+    let subscription_bar = document.querySelector('.tc-subscription-bar');
+    removeDOMElement(subscription_bar);
+  }
 }
 
 else if (matchDomain('esprit.presse.fr')) {
@@ -1005,6 +1013,11 @@ else if (matchDomain('loeildelaphotographie.com')) {
     blurred_image.removeAttribute('style');
 }
 
+else if (matchDomain('lopinion.fr')) {
+  if (window.location.search.startsWith('?_amp=true'))
+    amp_unhide_access_hide('="access"', '="NOT access"');
+}
+
 else if (matchDomain('marianne.net')) {
   let paywall = document.querySelector('div.paywall');
   if (paywall && dompurify_loaded) {
@@ -1025,6 +1038,24 @@ else if (matchDomain('marianne.net')) {
 else if (matchDomain('nouvelobs.com')) {
   let paywall = document.querySelector('.paywall');
   removeDOMElement(paywall);
+}
+
+else if (matchDomain('science-et-vie.com')) {
+  if (window.location.hostname.startsWith('amp.')) {
+    let pars = document.querySelectorAll('.qiota_reserve > p, .qiota_reserve > h2');
+    let pars_text = [];
+    for (let par of pars) {
+      if (pars_text.includes(par.innerText))
+        removeDOMElement(par);
+      else
+        pars_text.push(par.innerText);
+    }
+    let sizer = document.querySelector('div.article-content > amp-script > i-amphtml-sizer');
+    removeDOMElement(sizer);
+    let replaced_content = document.querySelector('div.i-amphtml-replaced-content');
+    if (replaced_content)
+      replaced_content.removeAttribute('class');
+  }
 }
 
 else if (matchDomain('sudouest.fr')) {
