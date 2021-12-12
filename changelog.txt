@@ -9,12 +9,13 @@ Fix Bloomberg Quint (bq blue)
 Fix Inkl (images)
 Fix Lecho.be (separate from Groupe Rossel)
 Fix Repubblica sites (no amp)
-Fix amp: ABC.es
+Fix amp: ABC.es, elDiario.es & El Espanol
 Fix amp: Artnet, Billboard, Digiday, Fortune, Lee Enterprises Group, Newsday, The Boston Globe, The Dallas Morning News & Vanity Fair
 Fix amp: Los Angeles Times & San Diego Union-Tribune
 Fix amp: USA Today & Gannett Group
 Fix amp: Challenges.fr, Elle.fr, L'Opinion.fr & Science et Vie
 Fix amp: Corriere della Sera, Il Messaggero & Quotidiano.net
+Fix amp: Estadao.com.br, Grupo Abril & Folha de S. Paulo
 Fix amp: ET Prime & LiveMint
 Fix amp: Funke Mediengruppe
 

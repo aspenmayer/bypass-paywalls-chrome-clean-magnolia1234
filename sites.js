@@ -348,12 +348,13 @@ var defaultSites = {
     block_regex: /\.tinypass\.com\//
   },
   "El Diario.es": {
-    domain: "eldiario.es"
+    domain: "eldiario.es",
+    block_regex: /cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad|consent)-.+\.js/
   },
   "El Español": {
     domain: "elespanol.com",
     allow_cookies: 1,
-    block_regex: /\.eestatic\.com\/assets_js\/web\/v\d\/historia.*\.min\.js/
+    block_regex: /(\.eestatic\.com\/assets_js\/web\/v\d\/historia.*\.min\.js|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad|consent|subscriptions)-.+\.js)/
   },
   "El Mercurio": {
     domain: "elmercurio.com",
@@ -443,7 +444,7 @@ var defaultSites = {
       "blogfolha.uol.com.br"
     ],
     allow_cookies: 1,
-    block_regex: /(\.folha\.uol\.com\.br\/paywall\/js\/.+\/publicidade\.ads\.js|paywall\.folha\.uol\.com\.br\/|js\.matheranalytics\.com\/)/
+    block_regex: /(\.folha\.uol\.com\.br\/paywall\/js\/.+\/publicidade\.ads\.js|paywall\.folha\.uol\.com\.br\/|js\.matheranalytics\.com\/|cdn\.ampproject\.org\/v\d\/amp-((sticky-)?ad|subscriptions)-.+\.js)/
   },
   "Follow the Money (ftm.nl)": {
     domain: "ftm.nl",
@@ -595,7 +596,7 @@ var defaultSites = {
   "Grupo Abril": {
     domain: "abril.com.br",
     allow_cookies: 1,
-    block_regex: /\.abril\.com\.br\/.+\/abril-paywall\/js\/abril-paywall\.js/
+    block_regex: /(\.abril\.com\.br\/.+\/abril-paywall\/js\/abril-paywall\.js|cdn\.ampproject\.org\/v\d\/amp-((sticky-)?ad|subscriptions)-.+\.js)/
   },
   "Grupo Prensa Ibérica": {
     domain: "###_es_epiberica",
@@ -1115,7 +1116,7 @@ var defaultSites = {
   },
   "O Estado de S. Paulo": {
     domain: "estadao.com.br",
-    block_regex: /acesso\.estadao\.com\.br\/paywall\/.+\/.+\.js/
+    block_regex: /(acesso\.estadao\.com\.br\/paywall\/.+\/.+\.js|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent|fx-flying-carpet)-.+\.js)/
   },
   "O Globo (& Valor Econômico)": {
     domain: "globo.com",
@@ -1124,7 +1125,7 @@ var defaultSites = {
   "Observador.pt": {
     domain: "observador.pt",
     allow_cookies: 1,
-    block_regex: /\.tinypass\.com\//
+    block_regex: /(\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-((sticky-)?ad|subscriptions)-.+\.js)/
   },
   "Palo Alto Online": {
     domain: "paloaltoonline.com"
@@ -1182,7 +1183,7 @@ var defaultSites = {
       "quotidiano.net"
     ],
     allow_cookies: 1,
-    block_regex: /(cdn\.cxense\.com\/|\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad|consent)-.+\.js)/
+    block_regex: /(cdn\.cxense\.com\/|\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad|consent|fx-flying-carpet)-.+\.js)/
   },
   "Reuters": {
     domain: "reuters.com",
