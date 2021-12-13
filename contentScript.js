@@ -1714,28 +1714,16 @@ else if (matchDomain('billboard.com')) {
 }
 
 else if (matchDomain('bloomberg.com')) {
-  function bloomberg_noscroll(node) {
-    node.removeAttribute('data-paywall-overlay-status');
-  }
-  waitDOMElement('div#fortress-paywall-container-root', 'DIV', removeDOMElement, true);
-  waitDOMAttribute('body', 'BODY', 'data-paywall-overlay-status', bloomberg_noscroll, true);
   sessionStorage.clear();
-  let paywall = document.querySelector('div#fortress-paywall-container-root');
-  let counter = document.querySelector('div#fortress-preblocked-container-root');
-  let noscroll = document.querySelector('body[data-paywall-overlay-status]');
-  if (noscroll)
-    noscroll.removeAttribute('data-paywall-overlay-status');
-  removeDOMElement(paywall, counter);
   let url = window.location.href;
   if (url.match(/\/(articles|features)\//)) {
     let leaderboard = document.querySelector('div[id^="leaderboard"], div.leaderboard-wrapper');
-    let shimmering_content = document.querySelectorAll('div[class^="shimmering-"]');
     let page_ad = document.querySelectorAll('div.page-ad, div[data-ad-placeholder]');
     let reg_ui_client = document.querySelector('div#reg-ui-client');
-    removeDOMElement(leaderboard, ...shimmering_content, ...page_ad, reg_ui_client);
+    removeDOMElement(leaderboard, ...page_ad, reg_ui_client);
     let hidden_images = document.querySelectorAll('img.lazy-img__image[src][data-native-src]');
     for (let hidden_image of hidden_images) {
-      if (hidden_image.src.match(/\/60x-1\.(png|jpg)$/))
+      if (hidden_image.src.match(/\/(60|150)x-1\.(png|jpg)$/))
         hidden_image.setAttribute('src', hidden_image.getAttribute('data-native-src'));
       hidden_image.style.filter = 'none';
     }
@@ -1755,50 +1743,52 @@ else if (matchDomain('bloomberg.com')) {
       blur.classList.remove('blur');
       blur.removeAttribute('style');
     }
-    let json_script = document.querySelector('script[data-component-props="ArticleBody"], script[data-component-props="FeatureBody"]');
-    if (json_script && dompurify_loaded) {
-      let json = JSON.parse(json_script.innerHTML);
-      if (json) {
-        let json_text;
-        json_text = json.body ? json.body : '';
-        if (!json_text)
-          json_text = json.story.body ? json.story.body : '';
-        if (json_text) {
-          removeDOMElement(json_script);
-          let article = document.querySelector('div.body-copy-v2:not(.art_done)');
-          let article_class = 'body-copy-v2';
-          if (!article) {
-            article = document.querySelector('div.body-copy:not(.art_done)');
-            article_class = 'body-copy';
-          }
-          if (!article) {
-            article = document.querySelector('div.body-content:not(.art_done)');
-            article_class = 'body-content';
-          }
-          if (article) {
-            article_class += ' art_done';
-            let parser = new DOMParser();
-            let doc = parser.parseFromString('<div class="' + article_class + '">' + DOMPurify.sanitize(json_text, {ADD_TAGS: ['iframe', 'script']}) + '</div>', 'text/html');
-            let article_new = doc.querySelector('div');
-            if (article_new) {
-              article.parentNode.replaceChild(article_new, article);
-              let teaser_body = document.querySelector('div.body-content[class*="teaser-content_"]');
-              removeDOMElement(teaser_body);
-              let body_transparent = document.querySelector('div[class*="nearly-transparent-text-blur_"]');
-              if (body_transparent)
-                removeClassesByPrefix(body_transparent, 'nearly-transparent-text-blur_');
+    let shimmering_content = document.querySelectorAll('div.shimmering-text');
+    let body_transparent = document.querySelector('div[class*="nearly-transparent-text-blur"]');
+    if (shimmering_content || body_transparent) {
+      removeDOMElement(...shimmering_content);
+      if (body_transparent)
+        removeClassesByPrefix(body_transparent, 'nearly-transparent-text-blur');
+      let json_script = document.querySelector('script[data-component-props="ArticleBody"], script[data-component-props="FeatureBody"]');
+      if (json_script && dompurify_loaded) {
+        let json = JSON.parse(json_script.innerHTML);
+        if (json) {
+          let json_text;
+          if (json.body)
+            json_text = json.body;
+          else if (json.story && json.story.body)
+            json_text = json.story.body;
+          if (json_text) {
+            removeDOMElement(json_script);
+            let article = document.querySelector('div.body-copy-v2:not(.art_done)');
+            let article_class = 'body-copy-v2';
+            if (!article) {
+              article = document.querySelector('div.body-copy:not(.art_done)');
+              article_class = 'body-copy';
+            }
+            if (!article) {
+              article = document.querySelector('div.body-content:not(.art_done)');
+              article_class = 'body-content';
+            }
+            if (article) {
+              article_class += ' art_done';
+              let parser = new DOMParser();
+              let doc = parser.parseFromString('<div class="' + article_class + '">' + DOMPurify.sanitize(json_text, {ADD_TAGS: ['iframe', 'script']}) + '</div>', 'text/html');
+              let article_new = doc.querySelector('div');
+              if (article_new) {
+                article.parentNode.replaceChild(article_new, article);
+                let teaser_body = document.querySelector('div.body-content[class*="teaser-content_"]');
+                removeDOMElement(teaser_body);
+                let thirdparty_embed = document.querySelector('div.thirdparty-embed__container[style*="height: 0;"]');
+                if (thirdparty_embed)
+                  thirdparty_embed.setAttribute('style', 'height: 550px !important;');
+              }
             }
           }
         }
       }
     }
   }
-}
-
-else if (matchDomain('bloombergquint.com')) {
-  let articlesLeftModal = document.querySelector('.paywall-meter-module__story-paywall-container__1UgCE');
-  let paywall = document.getElementById('paywallDmp');
-  removeDOMElement(articlesLeftModal, paywall);
 }
 
 else if (matchDomain('bostonglobe.com')) {

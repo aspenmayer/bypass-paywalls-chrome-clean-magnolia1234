@@ -552,6 +552,7 @@
         "*://*.amazonaws.com/*",
         "*://*.apnarm.net.au/*",
         "*://*.bntech.io/*",
+        "*://*.bwbx.io/*",
         "*://*.cedsdigital.it/*",
         "*://*.corriereobjects.it/*",
         "*://*.eestatic.com/*",
@@ -574,5 +575,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.4.7.0"
+    "version": "2.4.7.1"
 }
