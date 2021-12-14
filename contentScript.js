@@ -1241,7 +1241,7 @@ else if (matchDomain('ftm.nl')) {
   removeDOMElement(banner_pp);
 }
 
-else if (matchDomain('knack.be')) {
+else if (matchDomain(['knack.be', 'levif.be'])) {
   let paywall = document.querySelector('[class$="Paywall"], #paywall-modal-below');
   if (paywall) {
     removeDOMElement(paywall);

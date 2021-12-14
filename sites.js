@@ -544,7 +544,7 @@ var defaultSites = {
     domain: "groene.nl",
     remove_cookies_select_hold: ["accept-cookies", "popunder-hidden"]
   },
-  "Groupe EBRA (France)": {
+  "Groupe EBRA": {
     domain: "###_fr_groupe_ebra",
     group: [
       "bienpublic.com",
@@ -560,7 +560,7 @@ var defaultSites = {
     allow_cookies: 1,
     block_regex: /(\.poool\.fr\/|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js)/
   },
-  "Groupe La Dépêche (France)": {
+  "Groupe La Dépêche": {
     domain: "###_fr_groupe_la_depeche",
     group: [
       "centrepresseaveyron.fr",
@@ -574,7 +574,7 @@ var defaultSites = {
     allow_cookies: 1,
     block_regex: /(\.poool\.fr\/|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent|subscriptions)-.+\.js)/
   },
-  "Groupe Rossel (France/Belgium)": {
+  "Groupe Rossel": {
     domain: "###_fr_be_groupe_rossel",
     group: [
       "aisnenouvelle.fr",
@@ -796,6 +796,11 @@ var defaultSites = {
     domain: "estrellavalpo.cl",
     block_regex: /(\.mercuriovalpo\.cl\/impresa\/.+\/assets\/(vendor|\d)\.js|pram\.pasedigital\.cl\/API\/User\/Status\?)/
   },
+  "La Libre.be": {
+    domain: "lalibre.be",
+    allow_cookies: 1,
+    useragent: "googlebot"
+  },
   "La Nación": {
     domain: "lanacion.com.ar"
   },
@@ -859,6 +864,11 @@ var defaultSites = {
     block_regex: /\.tinypass\.com\//,
     useragent: "googlebot"
   },
+  "Le Vif.be": {
+    domain: "levif.be",
+    allow_cookies: 1,
+    block_regex: /(\.levif\.be\/js\/responsive\/rmg(Modal|Paywall)\.js|\.blueconic\.net\/)/
+  },
   "Le Scienze": {
     domain: "lescienze.it",
     group_rule: "###_gr_it_repubblica_domains"
@@ -916,7 +926,7 @@ var defaultSites = {
     domain: "latimes.com",
     block_regex: /(metering\.platform\.latimes\.com\/v\d\/meter|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad|subscriptions)-.+\.js)/
   },
-  "Madsack Mediengruppe (Germany)": {
+  "Madsack Mediengruppe": {
     domain: "###_de_madsack",
     group: [
       "haz.de",

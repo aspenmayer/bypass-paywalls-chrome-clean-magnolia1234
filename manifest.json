@@ -263,6 +263,7 @@
         "*://*.la-croix.com/*",
         "*://*.labusinessjournal.com/*",
         "*://*.ladepeche.fr/*",
+        "*://*.lalibre.be/*",
         "*://*.lalsace.fr/*",
         "*://*.lanacion.com.ar/*",
         "*://*.lanazione.it/*",
@@ -301,6 +302,7 @@
         "*://*.lest-eclair.fr/*",
         "*://*.letelegramme.fr/*",
         "*://*.levante-emv.com/*",
+        "*://*.levif.be/*",
         "*://*.lexpress.fr/*",
         "*://*.liberation-champagne.fr/*",
         "*://*.limesonline.com/*",
@@ -575,5 +577,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.4.7.1"
+    "version": "2.4.7.2"
 }

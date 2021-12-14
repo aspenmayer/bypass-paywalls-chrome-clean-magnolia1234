@@ -1056,6 +1056,8 @@ function check_update() {
         });
       })
     }
+  }).catch(function (err) {
+    false;
   });
 }
 

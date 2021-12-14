@@ -2,6 +2,8 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Add LaLibre.be
+Add LeVif.be
 Fix Bloomberg (permission block js)
 
 * v2.4.7.0 (2021-12-12)

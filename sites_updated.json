@@ -39,6 +39,11 @@
     "allow_cookies": 1,
     "block_regex": "\\.internazionale\\.it\\/assets\\/js\\/main\\.\\d{2,}\\.js"
   },
+  "La Libre.be": {
+    "domain": "lalibre.be",
+    "allow_cookies": 1,
+    "useragent": "googlebot"
+  },
   "The (New Orleans) Advocate": {
     "domain": "###_usa_theadvocate",
     "group": [
