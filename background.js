@@ -34,6 +34,7 @@ const restrictions = {
   'seekingalpha.com': /.+\/seekingalpha\.com\/($|(amp\/)?(article|news)\/|samw\/)/,
   'statista.com': /^((?!\.statista\.com\/(outlook|study)\/).)*$/,
   'techinasia.com': /\.techinasia\.com\/.+/,
+  'theaustralian.com.au': /^((?!todayspaper\.theaustralian\.com\.au\/).)*$/,
   'theglobeandmail.com': /\.theglobeandmail\.com\/.+\//,
   'timeshighereducation.com':  /.+\.timeshighereducation\.com\/((features|news|people)\/|.+((\w)+(\-)+){3,}.+|sites\/default\/files\/)/
 }
@@ -795,7 +796,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
       active: true,
       currentWindow: true
     }, function (tabs) {
-      if (tabs && tabs[0] && tabs[0].url.startsWith('http')) {
+      if (tabs && tabs[0] && tabs[0].url && tabs[0].url.startsWith('http')) {
         ext_api.tabs.executeScript({
           file: 'options/toggleIcon.js',
           runAt: 'document_start'
@@ -972,7 +973,7 @@ if (matchUrlDomain(change_headers, details.url) && !['font', 'image', 'styleshee
       active: true,
       currentWindow: true
     }, function (tabs) {
-      if (tabs && tabs[0] && tabs[0].url.startsWith('http')) {
+      if (tabs && tabs[0] && tabs[0].url && tabs[0].url.startsWith('http')) {
         if (isSiteEnabled({url: tabs[0].url})) {
           ext_api.tabs.executeScript({
             file: 'contentScript.js',
@@ -1033,7 +1034,8 @@ function updateBadge(activeTab) {
         ext_api.browserAction.setBadgeBackgroundColor({color: color});
       ext_api.browserAction.setBadgeText({text: badgeText});
     }
-  }
+  } else
+      ext_api.browserAction.setBadgeText({text: badgeText});
 }
 
 var ext_version_new;
@@ -1066,7 +1068,7 @@ function site_switch() {
     active: true,
     currentWindow: true
   }, function (tabs) {
-    if (tabs && tabs[0] && tabs[0].url.startsWith('http')) {
+    if (tabs && tabs[0] && tabs[0].url && tabs[0].url.startsWith('http')) {
       let currentUrl = tabs[0].url;
       let isDefaultSite = matchUrlDomain(defaultSites_grouped_domains, currentUrl);
       if (!isDefaultSite) {
@@ -1119,7 +1121,7 @@ function remove_cookies_fn(domainVar, exclusions = false) {
       active: true,
       currentWindow: true
     }, function (tabs) {
-      if (tabs && tabs[0] && tabs[0].url.startsWith('http')) {
+      if (tabs && tabs[0] && tabs[0].url && tabs[0].url.startsWith('http')) {
         if (ext_api.runtime.lastError)
           return;
         let tabId = tabs[0].id;
@@ -1187,7 +1189,7 @@ function clear_cookies() {
     active: true,
     currentWindow: true
   }, function (tabs) {
-    if (tabs && tabs[0] && tabs[0].url.startsWith('http')) {
+    if (tabs && tabs[0] && tabs[0].url && tabs[0].url.startsWith('http')) {
       ext_api.tabs.executeScript({
         file: 'options/clearCookies.js',
         runAt: 'document_start'
@@ -1223,7 +1225,7 @@ ext_api.runtime.onMessage.addListener(function (message, sender) {
       active: true,
       currentWindow: true
     }, function (tabs) {
-      if (tabs && tabs[0] && tabs[0].url.startsWith('http')) {
+      if (tabs && tabs[0] && tabs[0].url && tabs[0].url.startsWith('http')) {
         let currentUrl = tabs[0].url;
         let domain;
         let isExcludedSite = matchUrlDomain(excludedSites, currentUrl);
@@ -1371,7 +1373,7 @@ function refreshCurrentTab() {
     active: true,
     currentWindow: true
   }, function (tabs) {
-    if (tabs && tabs[0] && tabs[0].url.startsWith('http')) {
+    if (tabs && tabs[0] && tabs[0].url && tabs[0].url.startsWith('http')) {
       if (ext_api.runtime.lastError)
         return;
       ext_api.tabs.update(tabs[0].id, {

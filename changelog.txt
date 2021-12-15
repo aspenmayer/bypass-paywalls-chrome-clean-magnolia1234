@@ -5,6 +5,7 @@ Post-release
 Add LaLibre.be
 Add LeVif.be
 Fix Bloomberg (permission block js)
+Remove tabs-permission (Chrome 50+)
 
 * v2.4.7.0 (2021-12-12)
 Add Koelner Stadt-Anzeiger & Koelnische Rundschau
