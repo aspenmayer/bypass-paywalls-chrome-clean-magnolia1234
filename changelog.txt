@@ -4,6 +4,7 @@ Changelog Bypass Paywalls Clean - Chrome
 Post-release
 Add LaLibre.be
 Add LeVif.be
+Add Vrij Nederland
 Fix Bloomberg (permission block js)
 Remove tabs-permission (Chrome 50+)
 

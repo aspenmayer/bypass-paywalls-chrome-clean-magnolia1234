@@ -1430,6 +1430,39 @@ else if (matchDomain('telegraaf.nl')) {
   }
 }
 
+else if (matchDomain('vn.nl')) {
+  let paywall = document.querySelector('div.content__message-no-access-container');
+  if (paywall && dompurify_loaded) {
+    let content_restriction = document.querySelector('div.content__restriction');
+    removeDOMElement(paywall, content_restriction);
+    let body = document.querySelector('body');
+    if (body)
+      body.style = 'height:auto !important;';
+    let article_content = document.querySelector('section[data-article-content-element]');
+    if (article_content)
+      article_content.style = 'max-height:none !important;';
+    let json_url_dom = document.querySelector('link[rel="alternate"][type="application/json"]');
+    if (json_url_dom) {
+      let json_url = json_url_dom.href;
+      fetch(json_url)
+      .then(response => {
+        if (response.ok) {
+          response.json().then(json => {
+            let json_text = json.content.rendered;
+            let content = document.querySelector('div[data-article-content-target]');
+            if (json_text && content) {
+              let parser = new DOMParser();
+              let doc = parser.parseFromString('<div data-article-content-target>' + DOMPurify.sanitize(json_text) + '</div>', 'text/html');
+              let content_new = doc.querySelector('div');
+              content.parentNode.replaceChild(content_new, content);
+            }
+          });
+        }
+      });
+    }
+  }
+}
+
 else
   csDone = true;
 

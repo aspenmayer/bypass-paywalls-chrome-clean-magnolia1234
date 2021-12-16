@@ -1660,6 +1660,10 @@ var defaultSites = {
     domain: "volkskrant.nl",
     group_rule: "###_gr_nl_pg_domains"
   },
+  "Vrij Nederland": {
+    domain: "vn.nl",
+    allow_cookies: 1
+  },
   "WAtoday": {
     domain: "watoday.com.au",
     group_rule: "###_gr_au_nine_domains"

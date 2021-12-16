@@ -1,44 +1,4 @@
 {
-  "Artnet": {
-    "domain": "artnet.com",
-    "allow_cookies": 1,
-    "amp_unhide": 1,
-    "block_regex": "\\.artnet\\.com\\/paywall-ajax\\.php",
-    "cs_code": [{
-        "cond": ".article-body",
-        "rm_class": "article-body"
-      }
-    ]
-  },
-  "Bloomberg": {
-    "domain": "bloomberg.com",
-    "block_regex": "(\\.tinypass\\.com\\/|assets\\.bwbx\\.io\\/s\\d\\/fence\\/(plug|fortress)-client\\/)",
-    "remove_cookies_select_hold": ["bb_geo_info"]
-  },
-  "Gannett Group (local USA Today)": {
-    "domain": "###_usa_gannett",
-    "group": [
-      "azcentral.com",
-      "cincinnati.com",
-      "courier-journal.com",
-      "detroitnews.com",
-      "freep.com",
-      "indystar.com",
-      "jsonline.com",
-      "northjersey.com",
-      "statesman.com",
-      "tennessean.com"
-    ],
-    "allow_cookies": 1,
-    "amp_unhide": 1,
-    "block_regex": "cdn\\.ampproject\\.org\\/v\\d\\/amp-(access|ad)-.+\\.js",
-    "useragent": "googlebot"
-  },
-  "Internazionale.it": {
-    "domain": "internazionale.it",
-    "allow_cookies": 1,
-    "block_regex": "\\.internazionale\\.it\\/assets\\/js\\/main\\.\\d{2,}\\.js"
-  },
   "La Libre.be": {
     "domain": "lalibre.be",
     "allow_cookies": 1,
@@ -52,32 +12,5 @@
     ],
     "allow_cookies": 1,
     "block_regex": "(loader-cdn\\.azureedge\\.net\\/|\\.blueconic\\.net\\/|js\\.matheranalytics\\.com\\/)"
-  },
-  "The Boston Globe": {
-    "domain": "bostonglobe.com",
-    "allow_cookies": 1,
-    "amp_unhide": 1,
-    "block_regex": "(\\.blueconic\\.net\\/|meter\\.bostonglobe\\.com\\/js\\/)"
-  },
-  "The Business of Fashion": {
-    "domain": "businessoffashion.com",
-    "allow_cookies": 1,
-    "block_regex": "\\.businessoffashion\\.com\\/pf\\/dist\\/components\\/combinations\\/2\\.chunk\\.js"
-  },
-  "The New Yorker": {
-    "domain": "newyorker.com",
-    "block_regex": "(\\.newyorker\\.com\\/verso\\/static\\/presenter-articles.+\\.js|cdn\\.ampproject\\.org\\/v\\d\\/amp-(ad|subscriptions)-.+\\.js)",
-    "cs_code": [{
-        "cond": "[subscriptions-section=\"content\"]",
-        "rm_attrib": "subscriptions-section"
-      }
-    ]
-  },
-  "USA Today": {
-    "domain": "usatoday.com",
-    "allow_cookies": 1,
-    "amp_unhide": 1,
-    "block_regex": "cdn\\.ampproject\\.org\\/v\\d\\/amp-(access|ad)-.+\\.js",
-    "useragent": "googlebot"
   }
 }

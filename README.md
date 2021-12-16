@@ -479,7 +479,8 @@ Grouped in options:\
 [Parool](https://www.parool.nl) -
 [Telegraaf](https://www.telegraaf.nl) -
 [Trouw](https://www.trouw.nl) -
-[Volkskrant](https://www.volkskrant.nl)
+[Volkskrant](https://www.volkskrant.nl) -
+[Vrij Nederland](https://www.nl.nl)
 
 Grouped in options:\
 [Algemeen Dagblad](https://www.ad.nl) and regional ADR sites like

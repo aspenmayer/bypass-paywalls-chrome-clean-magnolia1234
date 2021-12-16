@@ -519,6 +519,7 @@
         "*://*.variety.com/*",
         "*://*.velonews.com/*",
         "*://*.venturebeat.com/*",
+        "*://*.vn.nl/*",
         "*://*.volkskrant.nl/*",
         "*://*.vosgesmatin.fr/*",
         "*://*.vulture.com/*",
@@ -576,5 +577,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.4.7.3"
+    "version": "2.4.7.4"
 }
