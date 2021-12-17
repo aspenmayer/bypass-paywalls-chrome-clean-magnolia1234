@@ -294,6 +294,7 @@
         "*://*.lejsl.com/*",
         "*://*.leparisien.fr/*",
         "*://*.leprogres.fr/*",
+        "*://*.lequipe.fr/*",
         "*://*.lescienze.it/*",
         "*://*.lesechos.com/*",
         "*://*.lesechos.fr/*",
@@ -577,5 +578,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.4.7.4"
+    "version": "2.4.7.5"
 }

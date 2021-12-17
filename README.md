@@ -335,6 +335,7 @@ Grouped in options:\
 [Elle](https://www.elle.fr) -
 [Esprit](https://esprit.presse.fr) -
 [L'Écho](https://lecho.be) -
+[L'Équipe](https://www.lequipe.fr) -
 [L'Express](https://www.lexpress.fr) -
 [L'Obs](https://www.nouvelobs.com) -
 [L'Oeil de la Photographie (fr/en)](https://loeildelaphotographie.com) -

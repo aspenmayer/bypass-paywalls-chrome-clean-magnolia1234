@@ -760,6 +760,11 @@ var defaultSites = {
   "L'Écho": {
     domain: "lecho.be"
   },
+  "L'Équipe": {
+    domain: "lequipe.fr",
+    allow_cookies: 1,
+    block_regex: /\.lequipe\.fr\/commons\/lequipe-paywall\/pagePaywall\.js/
+  },
   "L'Express": {
     domain: "lexpress.fr",
     allow_cookies: 1,

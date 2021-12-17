@@ -556,7 +556,7 @@ ext_api.webRequest.onBeforeRequest.addListener(function (details) {
 
 // theaustralian.com redirect subscribe to amp
 ext_api.webRequest.onBeforeRequest.addListener(function (details) {
-  if (!isSiteEnabled(details)) {
+  if (!isSiteEnabled(details) || details.url.includes('/digitalprinteditions')) {
     return;
   }
   var updatedUrl = decodeURIComponent(details.url.split('dest=')[1].split('&')[0]).replace('www.', 'amp.');
@@ -968,20 +968,29 @@ if (matchUrlDomain(change_headers, details.url) && !['font', 'image', 'styleshee
         }
       }
     });
-  } else {//mercuriovalpo.cl
+  } else { //mercuriovalpo.cl, estrellavalpo.cl, lequipe.fr
     ext_api.tabs.query({
       active: true,
       currentWindow: true
     }, function (tabs) {
       if (tabs && tabs[0] && tabs[0].url && tabs[0].url.startsWith('http')) {
-        if (isSiteEnabled({url: tabs[0].url})) {
+        let currentTab = tabs[0];
+        if (isSiteEnabled(currentTab)) {
+          let lib_file = 'lib/empty.js';
+          if (matchUrlDomain(['lequipe.fr'], currentTab.url))
+            lib_file = 'lib/purify.min.js';
           ext_api.tabs.executeScript({
-            file: 'contentScript.js',
+            file: lib_file,
             runAt: 'document_start'
-          }, function (res) {
-            if (ext_api.runtime.lastError || res[0]) {
-              return;
-            }
+          }, function () {
+            ext_api.tabs.executeScript({
+              file: 'contentScript.js',
+              runAt: 'document_start'
+            }, function (res) {
+              if (ext_api.runtime.lastError || res[0]) {
+                return;
+              }
+            })
           });
         }
       }

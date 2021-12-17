@@ -963,6 +963,53 @@ else if (matchDomain(['lejdd.fr', 'parismatch.com'])) {
   }
 }
 
+else if (matchDomain('lequipe.fr')) {
+  let paywall = document.querySelectorAll('.Paywall, .Article__paywall');
+  if (paywall) {
+    removeDOMElement(...paywall);
+    let scripts = document.querySelectorAll('script:not([src], [type])');
+    let json_script;
+    for (let script of scripts) {
+      if (script.innerText.includes('window.__NUXT__=')) {
+        json_script = script;
+        break;
+      }
+    }
+    let article = document.querySelector('div.article__body');
+    if (article && json_script && dompurify_loaded) {
+      if (json_script.innerText.includes('articleObject:')) {
+        let json = json_script.textContent.split('articleObject:')[1].split(',articleType')[0];
+        let par_type = json.split('paragraphs:[')[1].split(',{__type:')[1].split(',is_focus:')[0];
+        if (par_type) {
+          article.innerHTML = '';
+          let json_split = json.split('__type:' + par_type);
+          let article_dom;
+          let article_text = '';
+          let parser = new DOMParser();
+          for (let par of json_split) {
+            par = par.split('}')[0];
+            if (par.includes(',content:')) {
+              par = par.split(',content:')[1].split(',layout')[0];
+              if (par) {
+                if (par.includes(',title:')) {
+                  let par_split_title = par.split(',title:').map(x => x.replace(/^\"|\"$/g, ''));
+                  par = par_split_title[0];
+                  if (par_split_title[1].length > 2)
+                    par = '<strong>' + par_split_title[1] + '</strong><br><br>' + par;
+                }
+                par = par.replace(/\\u003C/g, '<').replace(/\\u003E/g, '>').replace(/\\u002F/g, '/').replace(/\\"/g, '"').replace(/^\"|\"$/g, '');
+                article_text += '<p>' + par + '</p>';
+              }
+            }
+          }
+          article_dom = parser.parseFromString('<div style="margin:20px; font-famile:"DINNextLTPro-Regular",sans-serif; fot-size:18px;">' + DOMPurify.sanitize(article_text) + '</div>', 'text/html');
+          article.appendChild(article_dom.querySelector('div'));
+        }
+      }
+    }
+  }
+}
+
 else if (matchDomain('lesechos.fr') && window.location.href.match(/-\d{6,}/)) {
   window.setTimeout(function () {
     let abo_banner = document.querySelector('div[class*="pgxf3b-2"]');
