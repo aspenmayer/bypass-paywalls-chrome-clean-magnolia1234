@@ -41,6 +41,7 @@
         "webRequest",
         "webRequestBlocking",
         "*://*.360dx.com/*",
+        "*://*.aachener-nachrichten.de/*",
         "*://*.aachener-zeitung.de/*",
         "*://*.aamulehti.fi/*",
         "*://*.abc.es/*",

@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Add Aachener-Nachrichten.de
 Add Allgaeuer-Zeitung.de
 Add Lequipe.fr
 Add LaLibre.be

@@ -336,7 +336,7 @@ else {
 
 } else if (window.location.hostname.match(/\.(de|at|ch)$/) || matchDomain(['faz.net', 'handelsblatt.com'])) {//germany/austria/switzerland - ch
 
-if (matchDomain('aachener-zeitung.de')) {
+if (matchDomain(['aachener-nachrichten.de', 'aachener-zeitung.de'])) {
   let url = window.location.href;
   if (url.includes('?output=amp')) {
     amp_unhide_subscr_section('amp-ad, amp-embed');
