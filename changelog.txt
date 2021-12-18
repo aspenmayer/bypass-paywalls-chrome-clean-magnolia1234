@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Add Allgaeuer-Zeitung.de
 Add Lequipe.fr
 Add LaLibre.be
 Add LeVif.be
@@ -123,7 +124,7 @@ Update block general paywall script (AzureEdge)
 
 * v2.3.8.0 (2021-10-03)
 Add NordLittoral.fr (Groupe Rossel)
-Add Westfalen-Blatt (Germany)
+Add Westfalen-Blatt.de
 Remove Gazet van Antwerpen (obsolete)
 Remove Republic.ru (obsolete)
 Fix Bloomberg (blur)
@@ -135,7 +136,7 @@ Fix Telerama.fr (mobile)
 Fix VeloNews
 
 * v2.3.7.0 (2021-09-26)
-Add Aachener Zeitung (Germany)
+Add Aachener-Zeitung.de
 Add Grupo Prensa Iberica (Spain)
 Add Tampa Bay Times (local USA)
 Add Telerama.fr
@@ -358,7 +359,7 @@ Fix Mexico News Daily
 Update options: restore opt-in for custom sites (on reload; Chrome-only)
 
 * v2.1.4.0 (2021-03-28)
-Add Aachener Zeitung (Germany)
+Add Aachener-Zeitung.de (RP-medien)
 Add Apollo Magazine
 Add NK News (not pro)
 Add Nordwest Zeitung (Germany)
@@ -367,7 +368,7 @@ Fix Wired (Googlebot)
 Fix WSJ (option to disable Googlebot; http error 500)
 
 * v2.1.3.0 (2021-03-21)
-Add Berliner Zeitung (Germany)
+Add Berliner-Zeitung.de
 Add The Dallas Morning News (local USA)
 Add Entrepreneur
 Fix The Saturday Paper
@@ -393,7 +394,7 @@ Fix New Left Review
 Add Die Rheinpfalz (Germany)
 Add Gannett Group (local USA Today; opt-in to custom sites)
 Add New York Daily News (local USA)
-Add Rhein-Zeitung (Germany)
+Add Rhein-Zeitung.de
 Add The Virginian-Pilot (local USA)
 Add VentureBeat
 Fix El Periodico de Catalunya
@@ -422,7 +423,7 @@ Fix popup (update notification; GitLab CORS issue)
 Update limit contentScript (add image/sub_frame)
 
 * v2.0.8.0 (2021-02-14)
-Add Augsburger Allgemeine (Germany)
+Add Augsburger-Allgemeine.de
 Add group McClatchy (USA)
 Add Neue Osnabruecker Zeitung (Germany)
 Add Time Magazine
@@ -467,7 +468,7 @@ Add elDiario.es (Spain)
 Add La Nueva Espana (Spain)
 Add Observador (Portugal)
 Add Prospect Magazine (United Kingdom)
-Add Ruhr Nachrichten (Germany)
+Add RuhrNachrichten.de
 Add The Point Magazine
 Fix El Pais (Spain)
 Fix Helsingin Sanomat (Finland)
@@ -477,7 +478,7 @@ Update block TinyPass (all subdomains)
 Update excluded sites (no general block paywall scripts)
 
 * v2.0.4.0 (2021-01-17)
-Add Cicero (Germany)
+Add Cicero.de
 Add Il Secolo XIX (Italy)
 Add L'Usine Nouvelle (France)
 Add La Nuova Sardegna (Italy)

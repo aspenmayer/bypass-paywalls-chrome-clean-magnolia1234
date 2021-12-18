@@ -28,7 +28,7 @@ var usa_mng_domains =   ['denverpost.com', 'eastbaytimes.com', 'mercurynews.com'
 var usa_tribune_domains = ['baltimoresun.com', 'chicagotribune.com', 'courant.com', 'dailypress.com', 'mcall.com', 'nydailynews.com', 'orlandosentinel.com', 'pilotonline.com', 'sun-sentinel.com'];
 
 // clean local storage of sites (with an exemption for hold-list)
-var arr_localstorage_hold = ['augsburger-allgemeine.de', 'businessoffashion.com', 'charliehebdo.fr', 'cmjornal.pt', 'expressnews.com', 'fortune.com', 'houstonchronicle.com', 'inc42.com', 'kurier.at', 'nknews.org', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk'].concat(de_funke_media_domains, es_grupo_vocento_domains, es_unidad_domains, no_nhst_media_domains);
+var arr_localstorage_hold = ['allgaeuer-zeitung.de', 'augsburger-allgemeine.de', 'businessoffashion.com', 'charliehebdo.fr', 'cmjornal.pt', 'expressnews.com', 'fortune.com', 'houstonchronicle.com', 'inc42.com', 'kurier.at', 'nknews.org', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk'].concat(de_funke_media_domains, es_grupo_vocento_domains, es_unidad_domains, no_nhst_media_domains);
 if (!matchDomain(arr_localstorage_hold)) {
   window.localStorage.clear();
 }
@@ -347,6 +347,21 @@ if (matchDomain('aachener-zeitung.de')) {
       removeDOMElement(paywall);
       window.location.href = amphtml.href;
     }
+  }
+}
+
+else if (matchDomain('allgaeuer-zeitung.de')) {
+  let url = window.location.href;
+  if (!url.includes('?type=amp')) {
+    let paywall = document.querySelector('p.nfy-text-blur');
+    if (paywall) {
+      removeDOMElement(paywall);
+      window.location.href = url.split('?')[0] + '?type=amp';
+    }
+  } else {
+    let preview = document.querySelectorAll('p.nfy-text-blur, div[subscriptions-display^="NOT data."]');
+    let amp_ads = document.querySelectorAll('amp-ad');
+    removeDOMElement(...preview, ...amp_ads);
   }
 }
 

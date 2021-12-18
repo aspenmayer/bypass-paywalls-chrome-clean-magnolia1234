@@ -1,4 +1,12 @@
 {
+  "Allgäuer Zeitung": {
+    "domain": "allgaeuer-zeitung.de",
+    "allow_cookies": 1,
+    "amp_redirect": {
+      "paywall": "p.nfy-text-blur"
+    },
+    "block_regex": "(\\.tinypass\\.com\\/|cdn\\.ampproject\\.org\\/v\\d\\/amp-(ad|subscriptions)-.+\\.js)"
+  },
   "La Libre.be": {
     "domain": "lalibre.be",
     "allow_cookies": 1,

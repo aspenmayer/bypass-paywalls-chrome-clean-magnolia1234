@@ -54,6 +54,7 @@
         "*://*.aisnenouvelle.fr/*",
         "*://*.ajc.com/*",
         "*://*.al.com/*",
+        "*://*.allgaeuer-zeitung.de/*",
         "*://*.alternatives-economiques.fr/*",
         "*://*.ambito.com/*",
         "*://*.americanaffairsjournal.org/*",
@@ -580,5 +581,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.4.7.5"
+    "version": "2.4.7.6"
 }

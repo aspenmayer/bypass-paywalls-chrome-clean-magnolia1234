@@ -48,6 +48,11 @@ var defaultSites = {
     ],
     remove_cookies_select_drop: ["temptationTrackingId"]
   },
+  "Allgäuer Zeitung": {
+    domain: "allgaeuer-zeitung.de",
+    allow_cookies: 1,
+    block_regex: /(\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-((sticky-)?ad|subscriptions)-.+\.js)/
+  },
   "Alma Talent (Finland)": {
     domain: "###_fi_alma_talent",
     group: [

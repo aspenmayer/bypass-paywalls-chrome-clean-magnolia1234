@@ -395,6 +395,7 @@ Grouped in options:\
 
 ##### Germany/Austria
 [Aachener Zeitung](https://www.aachener-zeitung.de) -
+[Allgäuer Zeitung](https://www.allgaeuer-zeitung.de) -
 [Augsburger Allgemeine](https://www.augsburger-allgemeine.de) -
 [Berliner Zeitung](https://www.berliner-zeitung.de) -
 [Cicero](https://www.cicero.de) -
