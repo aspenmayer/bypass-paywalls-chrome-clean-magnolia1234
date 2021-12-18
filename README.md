@@ -197,6 +197,7 @@ Grouped in options:\
 [Newsday](https://www.newsday.com) -
 [Palo Alto Online](https://www.paloaltoonline.com) -
 [Pittsburgh Post Gazette](https://www.post-gazette.com) -
+[San Antonio Express-News](https://www.expressnews.com) -
 [San Diego Union Tribune](https://www.sandiegouniontribune.com) -
 [San Francisco Chronicle](https://www.sfchronicle.com) -
 [Star Tribune](https://www.startribune.com) -

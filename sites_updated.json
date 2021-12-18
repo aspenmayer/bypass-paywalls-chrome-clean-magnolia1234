@@ -4,6 +4,10 @@
     "allow_cookies": 1,
     "useragent": "googlebot"
   },
+  "San Antonio Express-News": {
+    "domain": "expressnews.com",
+    "block_regex": "(\\.blueconic\\.net\\/|cdn\\.ampproject\\.org\\/v\\d\/amp-(access|(sticky-)?ad)-.+\\.js)"
+  },
   "The (New Orleans) Advocate": {
     "domain": "###_usa_theadvocate",
     "group": [

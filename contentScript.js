@@ -28,7 +28,7 @@ var usa_mng_domains =   ['denverpost.com', 'eastbaytimes.com', 'mercurynews.com'
 var usa_tribune_domains = ['baltimoresun.com', 'chicagotribune.com', 'courant.com', 'dailypress.com', 'mcall.com', 'nydailynews.com', 'orlandosentinel.com', 'pilotonline.com', 'sun-sentinel.com'];
 
 // clean local storage of sites (with an exemption for hold-list)
-var arr_localstorage_hold = ['augsburger-allgemeine.de', 'businessoffashion.com', 'charliehebdo.fr', 'cmjornal.pt', 'fortune.com', 'houstonchronicle.com', 'inc42.com', 'kurier.at', 'nknews.org', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk'].concat(de_funke_media_domains, es_grupo_vocento_domains, es_unidad_domains, no_nhst_media_domains);
+var arr_localstorage_hold = ['augsburger-allgemeine.de', 'businessoffashion.com', 'charliehebdo.fr', 'cmjornal.pt', 'expressnews.com', 'fortune.com', 'houstonchronicle.com', 'inc42.com', 'kurier.at', 'nknews.org', 'seekingalpha.com', 'sfchronicle.com', 'thehindu.com', 'thetimes.co.uk'].concat(de_funke_media_domains, es_grupo_vocento_domains, es_unidad_domains, no_nhst_media_domains);
 if (!matchDomain(arr_localstorage_hold)) {
   window.localStorage.clear();
 }
@@ -2189,7 +2189,7 @@ else if (matchDomain('historyextra.com')) {
   removeDOMElement(ad_banner);
 }
 
-else if (matchDomain(['houstonchronicle.com', 'sfchronicle.com'])) {
+else if (matchDomain(['houstonchronicle.com', 'sfchronicle.com', 'expressnews.com'])) {
   let wrapper = document.querySelector('.belowMastheadWrapper');
   removeDOMElement(wrapper);
 }

@@ -37,6 +37,7 @@
     "permissions": [
         "cookies",
         "storage",
+        "activeTab",
         "webRequest",
         "webRequestBlocking",
         "*://*.360dx.com/*",
@@ -174,6 +175,7 @@
         "*://*.exame.com/*",
         "*://*.examiner.com.au/*",
         "*://*.expansion.com/*",
+        "*://*.expressnews.com/*",
         "*://*.farodevigo.es/*",
         "*://*.faz.net/*",
         "*://*.fd.nl/*",

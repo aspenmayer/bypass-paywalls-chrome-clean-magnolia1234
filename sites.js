@@ -1221,6 +1221,10 @@ var defaultSites = {
     block_regex: /(\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-((sticky-)?ad|consent|subscriptions)-.+\.js)/,
     useragent: "googlebot"
   },
+  "San Antonio Express-News": {
+    domain: "expressnews.com",
+    block_regex: /(\.blueconic\.net\/|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad)-.+\.js)/
+  },
   "San Diego Union Tribune": {
     domain: "sandiegouniontribune.com",
     block_regex: /(metering\.platform\.sandiegouniontribune\.com\/v\d\/meter|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad|subscriptions)-.+\.js)/

@@ -5,6 +5,7 @@ Post-release
 Add Lequipe.fr
 Add LaLibre.be
 Add LeVif.be
+Add San Antonio Express-News (local USA)
 Add Vrij Nederland
 Fix Bloomberg (permission block js)
 Remove tabs-permission (Chrome 50+)
