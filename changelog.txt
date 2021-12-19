@@ -2,6 +2,8 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+
+* v2.4.8.0 (2021-12-19)
 Add Aachener-Nachrichten.de
 Add Allgaeuer-Zeitung.de
 Add Lequipe.fr
