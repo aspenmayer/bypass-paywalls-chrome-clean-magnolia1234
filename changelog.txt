@@ -11,6 +11,7 @@ Add San Antonio Express-News (local USA)
 Add The Indian Express
 Add Vrij Nederland
 Fix Bloomberg (permission block js)
+Fix National Geographic USA (magazine)
 Remove tabs-permission (Chrome 50+)
 
 * v2.4.7.0 (2021-12-12)

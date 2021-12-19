@@ -52,7 +52,7 @@ var use_google_bot, use_bing_bot;
 // Set Referer
 var use_facebook_referer, use_google_referer, use_twitter_referer;
 // Set random IP-address
-var use_random_ip = ['esprit.presse.fr'];
+var use_random_ip = ['esprit.presse.fr', 'nationalgeographic.com'];
 // concat all sites with change of headers (useragent, referer or random ip)
 var change_headers;
 
@@ -912,9 +912,14 @@ if (matchUrlDomain(change_headers, details.url) && !['font', 'image', 'styleshee
 
   // random IP for sites in use_random_ip
   if (matchUrlDomain(use_random_ip, details.url)) {
+    let randomIP_val;
+    if (matchUrlDomain('nationalgeographic.com', details.url))
+      randomIP_val = randomIP(185, 187);
+    else
+      randomIP_val = randomIP();
     requestHeaders.push({
       "name": "X-Forwarded-For",
-      "value": randomIP()
+      "value": randomIP_val
     })
   }
 }
@@ -1371,10 +1376,14 @@ function randomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
-function randomIP() {
+function randomIP(range_low = 0, range_high = 223) {
   let rndmIP = [];
-  for (let n = 0; n < 4; n++)
-    rndmIP.push(randomInt(254) + 1);
+  for (let n = 0; n < 4; n++) {
+    if (n === 0)
+      rndmIP.push(range_low + randomInt(range_high - range_low) + 1);
+    else
+      rndmIP.push(randomInt(255) + 1);
+  }
   return rndmIP.join('.');
 }
 

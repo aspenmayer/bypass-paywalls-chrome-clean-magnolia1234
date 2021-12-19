@@ -3211,7 +3211,7 @@ function replaceDomElementExt(url, proxy, base64, selector, text_fail = '') {
 }
 
 function archiveLink(url) {
-  let archive_url = 'https://archive.today?run=1&url=' + url;
+  let archive_url = 'https://archive.today?run=1&url=' + url.split('?')[0];
   let text_fail_div = document.createElement('div');
   text_fail_div.id = 'bpc_archive';
   text_fail_div.appendChild(document.createTextNode('BPC > Full article text:\r\n'));

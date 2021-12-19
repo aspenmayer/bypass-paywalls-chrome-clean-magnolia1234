@@ -15,6 +15,11 @@
     "domain": "ara.cat",
     "useragent": "googlebot"
   },
+  "Bauernzeitung.ch": {
+    "allow_cookies": 1,
+    "domain": "bauernzeitung.ch",
+    "useragent": "googlebot"
+  },
   "Beobachter.ch": {
     "allow_cookies": 1,
     "domain": "beobachter.ch",
@@ -69,6 +74,11 @@
   "Internationalepolitik.de": {
     "allow_cookies": 1,
     "domain": "internationalepolitik.de"
+  },
+  "Investorschronicle.co.uk": {
+    "allow_cookies": 1,
+    "domain": "investorschronicle.co.uk",
+    "referer": "google"
   },
   "Lindipendente.online": {
     "allow_cookies": 1,
@@ -137,6 +147,11 @@
   "Thebanker.com": {
     "allow_cookies": 1,
     "domain": "thebanker.com",
+    "useragent": "googlebot"
+  },
+  "Thecourier.co.uk": {
+    "allow_cookies": 1,
+    "domain": "thecourier.co.uk",
     "useragent": "googlebot"
   },
   "Thenational.scot": {
