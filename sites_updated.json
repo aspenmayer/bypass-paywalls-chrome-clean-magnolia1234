@@ -25,6 +25,12 @@
     "domain": "expressnews.com",
     "block_regex": "(\\.blueconic\\.net\\/|cdn\\.ampproject\\.org\\/v\\d\/amp-(access|(sticky-)?ad)-.+\\.js)"
   },
+  "The Indian Express": {
+    "domain": "indianexpress.com",
+    "allow_cookies": 1,
+    "amp_unhide": 1,
+    "block_regex": "(\\/indianexpress\\.com\\/.+\\/indianexpress\\/js\\/evolok\\/.+\\.js|cdn\\.ampproject\\.org\\/v\\d\\/amp-(access|(sticky-)?ad)-.+\\.js)"
+  },
   "The (New Orleans) Advocate": {
     "domain": "###_usa_theadvocate",
     "group": [

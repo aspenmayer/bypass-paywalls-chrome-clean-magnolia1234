@@ -34,10 +34,12 @@ const restrictions = {
   'seekingalpha.com': /.+\/seekingalpha\.com\/($|(amp\/)?(article|news)\/|samw\/)/,
   'statista.com': /^((?!\.statista\.com\/(outlook|study)\/).)*$/,
   'techinasia.com': /\.techinasia\.com\/.+/,
-  'theaustralian.com.au': /^((?!todayspaper\.theaustralian\.com\.au\/).)*$/,
   'theglobeandmail.com': /\.theglobeandmail\.com\/.+\//,
   'timeshighereducation.com':  /.+\.timeshighereducation\.com\/((features|news|people)\/|.+((\w)+(\-)+){3,}.+|sites\/default\/files\/)/
 }
+
+for (let domain of au_news_corp_domains)
+  restrictions[domain] = new RegExp('^((?!todayspaper\\.' + domain.replace(/\./g, '\\.') + '\\/).)*$');
 
 // Don't remove cookies before/after page load
 var allow_cookies = [];
@@ -212,7 +214,7 @@ function set_rules(sites, sites_updated, sites_custom) {
           if (rule.block_regex instanceof RegExp)
             blockedRegexes[domain] = rule.block_regex;
           else
-            blockedRegexes[domain] = new RegExp(rule.block_regex.replace('{domain}', domain.replace('.', '\\.').replace(/(^\/|\/$)/g, '')));
+            blockedRegexes[domain] = new RegExp(rule.block_regex.replace('{domain}', domain.replace(/\./g, '\\.').replace(/(^\/|\/$)/g, '')));
         }
         if (rule.useragent) {
           switch (rule.useragent) {

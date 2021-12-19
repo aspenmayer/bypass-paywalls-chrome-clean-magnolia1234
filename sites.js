@@ -1456,6 +1456,11 @@ var defaultSites = {
     allow_cookies: 1,
     block_regex: /(cdn\.cxense\.com\/|\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad(s)?)-.+\.js)/
   },
+  "The Indian Express": {
+    domain: "indianexpress.com",
+    allow_cookies: 1,
+    block_regex: /(\/indianexpress\.com\/.+\/indianexpress\/js\/evolok\/.+\.js|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad)-.+\.js)/
+  },
   "The Intercept": {
     domain: "theintercept.com",
     allow_cookies: 1,
@@ -1859,6 +1864,7 @@ var grouped_sites = {};
 expandSiteRules(defaultSites);
 
 // grouped domains (background)
+var au_news_corp_domains = grouped_sites['###_au_news_corp'];
 var it_repubblica_domains = defaultSites['###_gr_it_repubblica_domains']['group_rule_domains'];
 var nl_mediahuis_region_domains = grouped_sites['###_nl_mediahuis_region'];
 var no_nhst_media_domains = grouped_sites['###_no_nhst_media'];

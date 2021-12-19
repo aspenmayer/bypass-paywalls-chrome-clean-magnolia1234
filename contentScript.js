@@ -2228,6 +2228,15 @@ else if (matchDomain('inc42.com')) {
   }
 }
 
+else if (matchDomain('indianexpress.com')) {
+  if (window.location.pathname.endsWith('/lite/'))
+    amp_unhide_access_hide('="metering.result=\'ALLOW_ACCESS\'"', '', '.amp-ad, amp-embed');
+  else {
+    let ads = document.querySelectorAll('div[class^="adsbox"]');
+    removeDOMElement(...ads);
+  }
+}
+
 else if (matchDomain('infzm.com')) {
   let url = window.location.href;
   if (url.includes('/wap/#/')) {
