@@ -404,7 +404,8 @@ var defaultSites = {
   },
   "Esprit": {
     domain: "esprit.presse.fr",
-    allow_cookies: 1
+    allow_cookies: 1,
+    random_ip: "all"
   },
   "EUobserver": {
     domain: "euobserver.com",
@@ -1048,7 +1049,8 @@ var defaultSites = {
   "National Geographic USA": {
     domain: "nationalgeographic.com",
     allow_cookies: 1,
-    block_regex: /\.blueconic\.net\//
+    block_regex: /\.blueconic\.net\//,
+    random_ip: "eu"
   },
   "National Post": {
     domain: "nationalpost.com",

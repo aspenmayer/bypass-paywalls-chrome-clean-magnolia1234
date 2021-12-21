@@ -52,7 +52,8 @@ var use_google_bot, use_bing_bot;
 // Set Referer
 var use_facebook_referer, use_google_referer, use_twitter_referer;
 // Set random IP-address
-var use_random_ip = ['esprit.presse.fr', 'nationalgeographic.com'];
+var random_ip = {};
+var use_random_ip = [];
 // concat all sites with change of headers (useragent, referer or random ip)
 var change_headers;
 
@@ -80,6 +81,7 @@ function initSetRules() {
   use_facebook_referer = [];
   use_google_referer = [];
   use_twitter_referer = [];
+  random_ip = {};
   change_headers = [];
   amp_unhide = [];
   amp_redirect = {};
@@ -244,6 +246,9 @@ function set_rules(sites, sites_updated, sites_custom) {
             break;
           }
         }
+        if (rule.random_ip) {
+          random_ip[domain] = rule.random_ip;
+        }
         // updated
         if (rule.amp_redirect)
           amp_redirect[domain] = rule.amp_redirect;
@@ -261,6 +266,7 @@ function set_rules(sites, sites_updated, sites_custom) {
       }
     }
   }
+  use_random_ip = Object.keys(random_ip);
   change_headers = use_google_bot.concat(use_bing_bot, use_facebook_referer, use_google_referer, use_twitter_referer, use_random_ip);
   disableJavascriptOnListedSites();
 }
@@ -911,10 +917,11 @@ if (matchUrlDomain(change_headers, details.url) && !['font', 'image', 'styleshee
   }
 
   // random IP for sites in use_random_ip
-  if (matchUrlDomain(use_random_ip, details.url)) {
+  let domain_random;
+  if (domain_random = matchUrlDomain(use_random_ip, details.url)) {
     let randomIP_val;
-    if (matchUrlDomain('nationalgeographic.com', details.url))
-      randomIP_val = randomIP(185, 187);
+    if (random_ip[domain_random] === 'eu')
+      randomIP_val = randomIP(185, 185);
     else
       randomIP_val = randomIP();
     requestHeaders.push({
@@ -1380,7 +1387,7 @@ function randomIP(range_low = 0, range_high = 223) {
   let rndmIP = [];
   for (let n = 0; n < 4; n++) {
     if (n === 0)
-      rndmIP.push(range_low + randomInt(range_high - range_low) + 1);
+      rndmIP.push(range_low + randomInt(range_high - range_low + 1));
     else
       rndmIP.push(randomInt(255) + 1);
   }

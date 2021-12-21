@@ -2,6 +2,7 @@ var ext_api = chrome || browser;
 
 var useragent_options = ['', 'googlebot', 'bingbot'];
 var referer_options = ['', 'facebook', 'google', 'twitter'];
+var random_ip_options = ['', 'all', 'eu'];
 
 function capitalize(str) {
   return (typeof str === 'string') ? str.charAt(0).toUpperCase() + str.slice(1) : '';
@@ -191,6 +192,7 @@ function edit_options() {
     document.querySelector('input[data-key="block_regex"]').value = edit_site.block_regex ? edit_site.block_regex : '';
     document.querySelector('input[data-key="amp_unhide"]').checked = (edit_site.amp_unhide > 0);
     document.querySelector('select[data-key="referer"]').selectedIndex = referer_options.indexOf(edit_site.referer);
+    document.querySelector('select[data-key="random_ip"]').selectedIndex = random_ip_options.indexOf(edit_site.random_ip);
   });
 }
 
@@ -271,7 +273,8 @@ function renderOptions() {
     
     var add_options = {
       useragent: useragent_options,
-      referer: referer_options
+      referer: referer_options,
+      random_ip: random_ip_options
     };
     for (let key in add_options) {
       labelEl = document.createElement('label');
@@ -312,6 +315,7 @@ function renderOptions() {
       (sites_custom[key]['block_regex'] ? ' | block regex' : '') +
       (sites_custom[key]['useragent'] ? ' | useragent: ' + sites_custom[key]['useragent'] : '') +
       (sites_custom[key]['referer'] ? ' | referer: ' + sites_custom[key]['referer'] : '') +
+      (sites_custom[key]['random_ip'] ? ' | random_ip: ' + sites_custom[key]['random_ip'] : '') +
       (sites_custom[key]['amp_unhide'] > 0 ? ' | amp_unhide' : '');
       optionEl.value = key;
       selectEl.add(optionEl);
