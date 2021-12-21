@@ -920,6 +920,11 @@ var defaultSites = {
     allow_cookies: 1,
     block_regex: /\.tinypass\.com\//
   },
+  "Les Inrockuptibles": {
+    domain: "lesinrocks.com",
+    allow_cookies: 1,
+    block_regex: /\.qiota\.com\//
+  },
   "LimesOnline": {
     domain: "limesonline.com",
     group_rule: "###_gr_it_repubblica_domains"

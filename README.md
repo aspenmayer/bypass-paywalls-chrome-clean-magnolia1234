@@ -353,6 +353,7 @@ Grouped in options:\
 [Le Télégramme](https://www.letelegramme.fr) -
 [Le Vif](https://www.levif.be) -
 [Les Échos](https://www.lesechos.fr) -
+[Les Inrockuptibles](https://www.lesinrocks.com) -
 [Marianne](https://www.marianne.net) -
 [Paris Match](https://www.parismatch.com) -
 [Science & Vie](https://www.science-et-vie.com) -

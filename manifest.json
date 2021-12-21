@@ -304,6 +304,7 @@
         "*://*.lescienze.it/*",
         "*://*.lesechos.com/*",
         "*://*.lesechos.fr/*",
+        "*://*.lesinrocks.com/*",
         "*://*.lesoir.be/*",
         "*://*.lest-eclair.fr/*",
         "*://*.letelegramme.fr/*",
@@ -584,5 +585,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.4.8.0"
+    "version": "2.4.8.1"
 }
