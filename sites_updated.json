@@ -25,6 +25,11 @@
     "domain": "expressnews.com",
     "block_regex": "(\\.blueconic\\.net\\/|cdn\\.ampproject\\.org\\/v\\d\/amp-(access|(sticky-)?ad)-.+\\.js)"
   },
+  "The Diplomat": {
+    "domain": "thediplomat.com",
+    "block_regex": "\\/thediplomat\\.com\\/.+\\/js\\/angular-cookies\\.min\\.js",
+    "remove_cookies_select_drop": ["dpl-pw"]
+  },
   "The Indian Express": {
     "domain": "indianexpress.com",
     "allow_cookies": 1,

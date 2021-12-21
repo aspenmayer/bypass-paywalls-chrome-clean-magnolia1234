@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Fix The Diplomat (cookies)
 Fix Times of India (amp)
 Update custom sites (random ip)
 

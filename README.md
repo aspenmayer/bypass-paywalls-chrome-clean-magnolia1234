@@ -618,7 +618,7 @@ Grouped in options:\
 [South China Morning Post](https://www.scmp.com) -
 [Southern Weekly](https://www.infzm.com) -
 [Tech in Asia](https://www.techinasia.com) -
-[The Diplomat](https://www.thediplomat.com) -
+[The Diplomat](https://thediplomat.com) -
 [The Japan Times](https://www.japantimes.co.jp)
 
 #### India

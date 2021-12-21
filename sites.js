@@ -1423,7 +1423,9 @@ var defaultSites = {
     block_regex: /(\.blueconic\.net\/|js\.matheranalytics\.com\/|cdn\.ampproject\.org\/v\d\/amp-((sticky-)?ad|subscriptions)-.+\.js)/
   },
   "The Diplomat": {
-    domain: "thediplomat.com"
+    domain: "thediplomat.com",
+    block_regex: /\/thediplomat\.com\/.+\/js\/angular-cookies\.min\.js/,
+    remove_cookies_select_drop: ["dpl-pw"]
   },
   "The Economic Times (ET Prime)": {
     domain: "###_economictimes",
