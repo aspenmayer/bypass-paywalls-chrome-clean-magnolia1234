@@ -402,6 +402,11 @@ var defaultSites = {
     domain: "entrepreneur.com",
     allow_cookies: 1
   },
+  "ESPN USA (news only)": {
+    domain: "espn.com",
+    allow_cookies: 1,
+    random_ip: "eu"
+  },
   "Esprit": {
     domain: "esprit.presse.fr",
     allow_cookies: 1,

@@ -169,6 +169,7 @@ Grouped in options:\
 [Atavist Magazine](https://magazine.atavist.com) -
 [Billboard](https://www.billboard.com) -
 [Commentary Magazine](https://www.commentary.org) -
+[ESPN USA](https://www.espn.com) -
 [First Things](https://www.firstthings.com) -
 [Medium](https://www.medium.com/topics) (for custom domains enable custom sites) -
 [National Review](https://www.nationalreview.com) -
