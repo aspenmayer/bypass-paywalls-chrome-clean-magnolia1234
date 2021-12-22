@@ -251,7 +251,7 @@ function set_rules(sites, sites_updated, sites_custom) {
         }
         // updated
         if (rule.amp_redirect)
-          amp_redirect[domain] = rule.amp_redirect;
+          amp_redirect[domain] = rule.amp_redirect.paywall ? rule.amp_redirect : {paywall: rule.amp_redirect};
         if (rule.cs_code)
           cs_code[domain] = rule.cs_code;
         // custom

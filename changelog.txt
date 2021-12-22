@@ -7,7 +7,7 @@ Add Les Inrockuptibles (France)
 Fix Helsingin Sanomat (dynamic)
 Fix The Diplomat (cookies)
 Fix Times of India (amp)
-Update custom sites (random ip)
+Update custom sites (random ip/amp redirect)
 
 * v2.4.8.0 (2021-12-19)
 Add Aachener-Nachrichten.de

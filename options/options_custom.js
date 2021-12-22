@@ -191,6 +191,7 @@ function edit_options() {
     document.querySelector('input[data-key="block_javascript_ext"]').checked = (edit_site.block_javascript_ext > 0);
     document.querySelector('input[data-key="block_regex"]').value = edit_site.block_regex ? edit_site.block_regex : '';
     document.querySelector('input[data-key="amp_unhide"]').checked = (edit_site.amp_unhide > 0);
+    document.querySelector('input[data-key="amp_redirect"]').value = edit_site.amp_redirect ? edit_site.amp_redirect : '';
     document.querySelector('select[data-key="referer"]').selectedIndex = referer_options.indexOf(edit_site.referer);
     document.querySelector('select[data-key="random_ip"]').selectedIndex = random_ip_options.indexOf(edit_site.random_ip);
   });
@@ -253,7 +254,8 @@ function renderOptions() {
       'block_javascript': 1,
       'block_javascript_ext': 1,
       'block_regex': 0,
-      'amp_unhide': 1
+      'amp_unhide': 1,
+      'amp_redirect': 0
     };
     for (var key in add_checkboxes) {
       labelEl = document.createElement('label');
@@ -316,7 +318,8 @@ function renderOptions() {
       (sites_custom[key]['useragent'] ? ' | useragent: ' + sites_custom[key]['useragent'] : '') +
       (sites_custom[key]['referer'] ? ' | referer: ' + sites_custom[key]['referer'] : '') +
       (sites_custom[key]['random_ip'] ? ' | random_ip: ' + sites_custom[key]['random_ip'] : '') +
-      (sites_custom[key]['amp_unhide'] > 0 ? ' | amp_unhide' : '');
+      (sites_custom[key]['amp_unhide'] > 0 ? ' | amp_unhide' : '') +
+      (sites_custom[key]['amp_redirect'] ? ' | amp_redirect' : '');
       optionEl.value = key;
       selectEl.add(optionEl);
     }
