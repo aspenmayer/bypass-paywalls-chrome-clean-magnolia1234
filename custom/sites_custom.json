@@ -129,6 +129,11 @@
   "Speld.nl": {
     "domain": "speld.nl"
   },
+  "Sportico.com": {
+    "allow_cookies": 1,
+    "block_regex": "\\.tinypass\\.com\\/",
+    "domain": "sportico.com"
+  },
   "Supchina.com": {
     "allow_cookies": 1,
     "domain": "supchina.com"
