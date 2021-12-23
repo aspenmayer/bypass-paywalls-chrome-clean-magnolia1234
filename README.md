@@ -667,6 +667,8 @@ Grouped in options:\
 [La Estrella de Valparaíso](https://www.estrellavalpo.cl) -
 [La Segunda](https://digital.lasegunda.com) -
 [La Tercera](https://www.latercera.com)
+#### Columbia
+[El Espectador](https://www.elespectador.com)
 ##### Mexico
 [Mexico News Daily](https://mexiconewsdaily.com)
 ##### Peru

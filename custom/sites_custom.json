@@ -56,6 +56,11 @@
   "Connexionfrance.com": {
     "domain": "connexionfrance.com"
   },
+  "Eltiempo.com": {
+    "allow_cookies": 1,
+    "block_regex": "\\.tinypass\\.com\\/",
+    "domain": "eltiempo.com"
+  },
   "Eluniversal.com.mx": {
     "allow_cookies": 1,
     "block_regex": "\\.tinypass\\.com\\/",

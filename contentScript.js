@@ -1747,7 +1747,7 @@ else if (matchDomain('thetimes.co.uk')) {
 else if (!matchDomain(['belfasttelegraph.co.uk', 'independent.ie']))
   csDone = true;
 
-} else if (window.location.hostname.match(/\.(br|cl|pe)$/) || matchDomain(['elmercurio.com', 'latercera.com', 'lasegunda.com', 'valor.globo.com'])) {//south america
+} else if (window.location.hostname.match(/\.(br|cl|pe)$/) || matchDomain(['elespectador.com', 'elmercurio.com', 'latercera.com', 'lasegunda.com', 'valor.globo.com'])) {//south america
 
 if (matchDomain('abril.com.br')) {
   if (window.location.pathname.endsWith('/amp/')) {
@@ -1762,6 +1762,19 @@ else if (matchDomain(['elcomercio.pe', 'gestion.pe'])) {
   if (paywall) {
     paywall.classList.remove('story-content__nota-premium');
     paywall.removeAttribute('style');
+  }
+}
+
+else if (matchDomain('elespectador.com')) {
+  if (window.location.search.startsWith('?outputType=amp')) {
+    amp_unhide_subscr_section('amp-ad, amp-embed, [class^="Widget"]');
+  } else {
+    let paywall = document.querySelector('.paywall');
+    let amphtml = document.querySelector('link[rel="amphtml"]');
+    if (paywall && amphtml) {
+      removeDOMElement(paywall);
+      window.location.href = amphtml.href;
+    }
   }
 }
 

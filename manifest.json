@@ -168,6 +168,7 @@
         "*://*.elperiodico.com/*",
         "*://*.elperiodicomediterraneo.com/*",
         "*://*.entrepreneur.com/*",
+        "*://*.elespectador.com/*",
         "*://*.espn.com/*",
         "*://*.esprit.presse.fr/*",
         "*://*.estadao.com.br/*",
@@ -585,5 +586,5 @@
         "*://*.wallkit.net/*",
         "*://*.wsj.net/*"
     ],
-    "version": "2.4.8.1"
+    "version": "2.4.8.2"
 }

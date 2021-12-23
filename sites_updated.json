@@ -16,6 +16,15 @@
     },
     "block_regex": "(\\.tinypass\\.com\\/|cdn\\.ampproject\\.org\\/v\\d\\/amp-(ad|subscriptions)-.+\\.js)"
   },
+  "El Espectador": {
+    "domain": "elespectador.com",
+    "allow_cookies": 1,
+    "amp_redirect": {
+      "paywall": ".paywall"
+    },
+    "amp_unhide": 1,
+    "block_regex": "(cdn\\.cxense\\.com\\/|cdn\\.ampproject\\.org\\/v\\d\\/amp-((sticky-)?ad|subscriptions)-.+\\.js)"
+  },
   "La Libre.be": {
     "domain": "lalibre.be",
     "allow_cookies": 1,
@@ -40,14 +49,5 @@
     "allow_cookies": 1,
     "amp_unhide": 1,
     "block_regex": "(\\/indianexpress\\.com\\/.+\\/indianexpress\\/js\\/evolok\\/.+\\.js|cdn\\.ampproject\\.org\\/v\\d\\/amp-(access|(sticky-)?ad)-.+\\.js)"
-  },
-  "The (New Orleans) Advocate": {
-    "domain": "###_usa_theadvocate",
-    "group": [
-      "nola.com",
-      "theadvocate.com"
-    ],
-    "allow_cookies": 1,
-    "block_regex": "(loader-cdn\\.azureedge\\.net\\/|\\.blueconic\\.net\\/|js\\.matheranalytics\\.com\\/)"
   }
 }

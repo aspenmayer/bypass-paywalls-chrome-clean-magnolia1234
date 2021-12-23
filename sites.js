@@ -366,6 +366,11 @@ var defaultSites = {
     allow_cookies: 1,
     block_regex: /(\.eestatic\.com\/assets_js\/web\/v\d\/historia.*\.min\.js|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad|consent|subscriptions)-.+\.js)/
   },
+  "El Espectador": {
+    domain: "elespectador.com",
+    allow_cookies: 1,
+    block_regex: /(cdn\.cxense\.com\/|cdn\.ampproject\.org\/v\d\/amp-((sticky-)?ad|subscriptions)-.+\.js)/
+  },
   "El Mercurio": {
     domain: "elmercurio.com",
     allow_cookies: 1,
@@ -1240,7 +1245,7 @@ var defaultSites = {
   "Ruhr Nachrichten": {
     domain: "ruhrnachrichten.de",
     allow_cookies: 1,
-    block_regex: /(\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-((sticky-)?ad|consent|subscriptions)-.+\.js)/,
+    block_regex: /(\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-((sticky-)?ad|consent|subscriptions)-.+\.(m)?js)/,
     useragent: "googlebot"
   },
   "San Antonio Express-News": {
