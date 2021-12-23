@@ -5,6 +5,7 @@ Post-release
 Add ESPN USA (news only)
 Add Les Inrockuptibles (France)
 Fix Helsingin Sanomat (dynamic)
+Fix Lequipe.fr (json)
 Fix The Diplomat (cookies)
 Fix Times of India (amp)
 Update custom sites (random ip/amp redirect)

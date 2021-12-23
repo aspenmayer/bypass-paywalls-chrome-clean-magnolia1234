@@ -1340,10 +1340,8 @@ function isSiteEnabled(details) {
   return !!enabledSite;
 }
 
-function matchDomain(domains, hostname) {
+function matchDomain(domains, hostname = window.location.hostname) {
   var matched_domain = false;
-  if (!hostname)
-    hostname = window.location.hostname;
   if (typeof domains === 'string')
     domains = [domains];
   domains.some(domain => (hostname === domain || hostname.endsWith('.' + domain)) && (matched_domain = domain));

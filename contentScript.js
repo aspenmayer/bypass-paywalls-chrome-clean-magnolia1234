@@ -615,15 +615,10 @@ else if (matchDomain('rheinpfalz.de')) {
   }
 }
 
-else if (matchDomain(['ruhrnachrichten.de', 'hellwegeranzeiger.de'])) {
+else if (matchDomain(['ruhrnachrichten.de'])) {
   let url = window.location.href;
-  if (!url.includes('?amp')) {
-    let paywall = document.querySelector('.PianoContent');
-    if (paywall)
-      paywall.classList.remove('PianoContent');
-  } else {
+  if (url.includes('?amp'))
     amp_unhide_subscr_section();
-  }
 }
 
 else if (matchDomain(['westfalen-blatt.de', 'wn.de'])) {
@@ -1098,7 +1093,7 @@ else if (matchDomain(['lejdd.fr', 'parismatch.com'])) {
 
 else if (matchDomain('lequipe.fr')) {
   let paywall = document.querySelectorAll('.Paywall, .Article__paywall');
-  if (paywall) {
+  if (paywall.length) {
     removeDOMElement(...paywall);
     let scripts = document.querySelectorAll('script:not([src], [type])');
     let json_script;
@@ -1112,7 +1107,10 @@ else if (matchDomain('lequipe.fr')) {
     if (article && json_script && dompurify_loaded) {
       if (json_script.innerText.includes('articleObject:')) {
         let json = json_script.textContent.split('articleObject:')[1].split(',articleType')[0];
-        let par_type = json.split('paragraphs:[')[1].split(',{__type:')[1].split(',is_focus:')[0];
+        let url_nuxt = json_script.textContent.split('comment_count_url:"')[1].split('",')[0].replace(/\\u002F/g, '/');
+        if (url_nuxt && !url_nuxt.includes(window.location.pathname))
+          window.location.reload(true);
+        let par_type = json.split('paragraphs:[')[1].split(',{__type:')[1].split(',')[0];
         if (par_type) {
           article.innerHTML = '';
           let json_split = json.split('__type:' + par_type);
@@ -1688,7 +1686,7 @@ else if (matchDomain('telegraph.co.uk')) {
   let url = window.location.href.split('?')[0];
   if (url.endsWith('/amp/')) {
     let paywall = document.querySelectorAll('.premium-paywall');
-    if (paywall) {
+    if (paywall.length) {
       let truncated_content = document.querySelector('.truncated-content');
       removeDOMElement(...paywall, truncated_content);
       amp_unhide_access_hide('="c.result=\'ALLOW_ACCESS\'"', '', 'amp-ad, amp-embed');
@@ -1708,7 +1706,7 @@ else if (matchDomain(['theathletic.com', 'theathletic.co.uk'])) {
   if (!window.location.href.includes('?amp')) {
     let paywall = document.querySelectorAll('div#paywall-container, div[subscriptions-action="subscribe"], a.headline-paywall');
     let amphtml = document.querySelector('link[rel="amphtml"]');
-    if (paywall && amphtml) {
+    if (paywall.length && amphtml) {
       removeDOMElement(...paywall);
       window.setTimeout(function () {
         window.location.href = amphtml.href;
@@ -1968,7 +1966,7 @@ else if (matchDomain('bloomberg.com')) {
     }
     let shimmering_content = document.querySelectorAll('div.shimmering-text');
     let body_transparent = document.querySelector('div[class*="nearly-transparent-text-blur"]');
-    if (shimmering_content || body_transparent) {
+    if (shimmering_content.length || body_transparent) {
       removeDOMElement(...shimmering_content);
       if (body_transparent)
         removeClassesByPrefix(body_transparent, 'nearly-transparent-text-blur');
@@ -2433,7 +2431,7 @@ else if (matchDomain('law360.com')) {
 
 else if (matchDomain('livelaw.in')) {
   let paywall = document.querySelectorAll('div.restricted_message > div.story, div.restricted_message > div.row');
-  if (paywall) {
+  if (paywall.length) {
     removeDOMElement(...paywall);
     let paywall_content = document.querySelector('div.paywall-content.hide');
     if (paywall_content)
@@ -3302,10 +3300,8 @@ function addDivBpcDone() {
   insertAfter.appendChild(div_bpc_new);
 }
 
-function matchDomain(domains, hostname) {
+function matchDomain(domains, hostname = window.location.hostname) {
   let matched_domain = false;
-  if (!hostname)
-    hostname = window.location.hostname;
   if (typeof domains === 'string')
     domains = [domains];
   domains.some(domain => (hostname === domain || hostname.endsWith('.' + domain)) && (matched_domain = domain));
