@@ -39,10 +39,9 @@ var defaultSites = {
     domain: "adweek.com",
     block_regex: /\.lightboxcdn\.com\//
   },
-  "Algemeen Dagblad (+ regional) (free premium articles only)": {
+  "Algemeen Dagblad (regional free premium articles only)": {
     domain: "###_nl_ad_region",
     group: [
-      "ad.nl",
       "bd.nl",
       "bndestem.nl",
       "destentor.nl",
@@ -890,11 +889,6 @@ var defaultSites = {
     block_regex: /\.tinypass\.com\//,
     useragent: "googlebot"
   },
-  "Le Vif.be": {
-    domain: "levif.be",
-    allow_cookies: 1,
-    block_regex: /(\.levif\.be\/js\/responsive\/rmg(Modal|Paywall)\.js|\.blueconic\.net\/)/
-  },
   "Le Scienze": {
     domain: "lescienze.it",
     group_rule: "###_gr_it_repubblica_domains"
@@ -903,6 +897,11 @@ var defaultSites = {
     domain: "letelegramme.fr",
     allow_cookies: 1,
     block_regex: /\.poool\.fr\//
+  },
+  "Le Vif.be": {
+    domain: "levif.be",
+    allow_cookies: 1,
+    block_regex: /(\.levif\.be\/js\/responsive\/rmg(Modal|Paywall)\.js|\.blueconic\.net\/)/
   },
   "Lee Enterprises Group": {
     domain: "###_usa_lee_ent",

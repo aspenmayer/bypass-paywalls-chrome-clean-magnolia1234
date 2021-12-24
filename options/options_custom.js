@@ -265,10 +265,16 @@ function renderOptions() {
       if (add_checkboxes[key]) {
         inputEl.type = 'checkbox';
         inputEl.dataset.value = 1;
-      } else if (key === 'title') {
-        inputEl.placeholder = 'Example';
-      } else if (key === 'domain')
-        inputEl.placeholder = 'example.com';
+      } else {
+        let placeholders = {
+          title: 'Example',
+          domain: 'example.com',
+          block_regex: '\\.example\\.com\\/js\\/',
+          amp_redirect: 'div.paywall'
+        };
+        if (placeholders[key])
+          inputEl.placeholder = placeholders[key];
+      }
       labelEl.appendChild(document.createTextNode(' ' + key));
       add_sitesEl.appendChild(labelEl);
     }

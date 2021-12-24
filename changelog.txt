@@ -5,6 +5,7 @@ Post-release
 Add El Espectador (Columbia)
 Add ESPN USA (news only)
 Add Les Inrockuptibles (France)
+Remove Algemeen Dagblad (now regional only)
 Fix Helsingin Sanomat (dynamic)
 Fix Lequipe.fr (json)
 Fix The Diplomat (cookies)

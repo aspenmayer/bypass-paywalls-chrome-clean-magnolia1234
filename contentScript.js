@@ -69,7 +69,7 @@ function amp_iframes_replace(weblink = false) {
   }
 }
 
-function amp_unhide_subscr_section(amp_ads_sel = 'amp-ad, .ad', amp_iframe_link = false) {
+function amp_unhide_subscr_section(amp_ads_sel = 'amp-ad, .ad', replace_iframes = true, amp_iframe_link = false) {
   let preview = document.querySelector('[subscriptions-section="content-not-granted"]');
   removeDOMElement(preview);
   let subscr_section = document.querySelectorAll('[subscriptions-section="content"]');
@@ -77,10 +77,11 @@ function amp_unhide_subscr_section(amp_ads_sel = 'amp-ad, .ad', amp_iframe_link 
     elem.removeAttribute('subscriptions-section');
   let amp_ads = document.querySelectorAll(amp_ads_sel);
   removeDOMElement(...amp_ads);
-  amp_iframes_replace(amp_iframe_link);
+  if (replace_iframes)
+    amp_iframes_replace(amp_iframe_link);
 }
 
-function amp_unhide_access_hide(amp_access = '', amp_access_not = '', amp_ads_sel = 'amp-ad, .ad', amp_iframe_link = false) {
+function amp_unhide_access_hide(amp_access = '', amp_access_not = '', amp_ads_sel = 'amp-ad, .ad', replace_iframes = true, amp_iframe_link = false) {
   let access_hide = document.querySelectorAll('[amp-access' + amp_access + '][amp-access-hide]');
   for (elem of access_hide)
     elem.removeAttribute('amp-access-hide');
@@ -90,7 +91,8 @@ function amp_unhide_access_hide(amp_access = '', amp_access_not = '', amp_ads_se
   }
   let amp_ads = document.querySelectorAll(amp_ads_sel);
   removeDOMElement(...amp_ads);
-  amp_iframes_replace(amp_iframe_link);
+  if (replace_iframes)
+    amp_iframes_replace(amp_iframe_link);
 }
 
 // custom sites: try to unhide text on amp-page
@@ -208,9 +210,9 @@ else {
       removeDOMElement(header_ads);
       let amp_ads_sel = 'amp-ad, amp-embed, [id^="ad-mrec-"], .story-ad-container';
       if (window.location.hostname.startsWith('amp.')) {
-        amp_unhide_access_hide('="access AND subscriber"', '', amp_ads_sel, true);
+        amp_unhide_access_hide('="access AND subscriber"', '', amp_ads_sel, true, true);
       } else if (window.location.href.includes('?amp')) {
-        amp_unhide_access_hide('="subscriber AND status=\'logged-in\'"', '', amp_ads_sel, true);
+        amp_unhide_access_hide('="subscriber AND status=\'logged-in\'"', '', amp_ads_sel, true, true);
       }
     } else {
       // Australian Seven West Media
@@ -1114,20 +1116,24 @@ else if (matchDomain('lequipe.fr')) {
         if (par_type) {
           article.innerHTML = '';
           let json_split = json.split('__type:' + par_type);
+          if (json_split.length < 5) {
+            par_type = json.split('content:"')[1].split('"},{__type:')[1].split(',')[0];
+            json_split = json.split('__type:' + par_type);
+          }
           let article_dom;
           let article_text = '';
           let parser = new DOMParser();
           for (let par of json_split) {
             par = par.split('}')[0];
             if (par.includes(',content:')) {
-              par = par.split(',content:')[1].split(',layout')[0];
-              if (par) {
-                if (par.includes(',title:')) {
-                  let par_split_title = par.split(',title:').map(x => x.replace(/^\"|\"$/g, ''));
-                  par = par_split_title[0];
-                  if (par_split_title[1].length > 2)
-                    par = '<strong>' + par_split_title[1] + '</strong><br><br>' + par;
-                }
+              let content = par.split(',content:')[1].split('",')[0];
+              let par_title = '';
+              if (par.includes(',title:'))
+                par_title = par.split(',title:')[1].split(',')[0].replace(/^\"|\"$/g, '');
+              if (content) {
+                par = content.replace('class=', '');
+                if (par_title.length > 2)
+                  par = '<strong>' + par_title + '</strong><br><br>' + content;
                 par = par.replace(/\\u003C/g, '<').replace(/\\u003E/g, '>').replace(/\\u002F/g, '/').replace(/\\"/g, '"').replace(/^\"|\"$/g, '');
                 article_text += '<p>' + par + '</p>';
               }
@@ -1408,7 +1414,7 @@ else
 
 } else if (window.location.hostname.match(/\.(be|nl)$/)) {//belgium/netherlands
 
-if (matchDomain(['ad.nl', 'bd.nl', 'ed.nl', 'tubantia.nl', 'bndestem.nl', 'pzc.nl', 'destentor.nl', 'gelderlander.nl'])) {
+if (matchDomain(['bd.nl', 'ed.nl', 'tubantia.nl', 'bndestem.nl', 'pzc.nl', 'destentor.nl', 'gelderlander.nl'])) {
   let paywall = document.querySelectorAll('.article__component--paywall-module-notification, .fjs-paywall-notification');
   let modal_login = document.querySelector('.modal--login');
   removeDOMElement(...paywall, modal_login);
@@ -1662,8 +1668,8 @@ if (matchDomain('prospectmagazine.co.uk')) {
     let paywall = document.querySelector('div.paywall_overlay_blend, div.paywall');
     if (paywall) {
       removeDOMElement(paywall);
-      let url_cache = 'https://webcache.googleusercontent.com/search?q=cache:' + url.split('//')[1];
-      replaceDomElementExt(url_cache, true, false, 'main', 'Failed to load from Google webcache: ');
+      let url_cache = 'https://webcache.googleusercontent.com/search?q=cache:' + url;
+      replaceDomElementExt(url_cache, true, false, 'main');
     }
   });
 }
@@ -1689,11 +1695,12 @@ else if (matchDomain('telegraph.co.uk')) {
     if (paywall.length) {
       let truncated_content = document.querySelector('.truncated-content');
       removeDOMElement(...paywall, truncated_content);
-      amp_unhide_access_hide('="c.result=\'ALLOW_ACCESS\'"', '', 'amp-ad, amp-embed');
+      amp_unhide_access_hide('="c.result=\'ALLOW_ACCESS\'"', '', 'amp-ad, amp-embed', false);
     }
   } else {
+    let subwall = document.querySelectorAll('[class^="subwall"]');
     let ads = document.querySelectorAll('.advert, .commercial-unit');
-    removeDOMElement(...ads);
+    removeDOMElement(...subwall, ...ads);
   }
 }
 
@@ -1845,7 +1852,7 @@ else if (matchDomain('valor.globo.com')) {
   if (paywall) {
     removeDOMElement(paywall);
     let url_cache = 'https://webcache.googleusercontent.com/search?q=cache:' + url;
-    replaceDomElementExt(url_cache, true, false, 'div.protected-content', 'Failed to load from Google webcache: ');
+    replaceDomElementExt(url_cache, true, false, 'div.protected-content');
   }
   let skeleton_box = document.querySelector('div.glb-skeleton-box');
   if (skeleton_box) {
@@ -2548,8 +2555,8 @@ else if (matchDomain('newleftreview.org')) {
     let paywall = document.querySelector('div.promo-wrapper');
     if (paywall) {
       removeDOMElement(paywall);
-      let url_cache = 'https://webcache.googleusercontent.com/search?q=cache:' + url.split('//')[1];
-      replaceDomElementExt(url_cache, true, false, 'div.article-page', 'Failed to load from Google webcache: ');
+      let url_cache = 'https://webcache.googleusercontent.com/search?q=cache:' + url;
+      replaceDomElementExt(url_cache, true, false, 'div.article-page');
     }
   }, 500); // Delay (in milliseconds)
 }
@@ -3341,9 +3348,14 @@ function replaceDomElementExt(url, proxy, base64, selector, text_fail = '') {
             article.parentNode.replaceChild(article_new, article);
         }
       });
-    } else if (text_fail) {
-      if (article) {
+    } else {
+      if (!text_fail) {
+        if (url.includes('webcache.googleusercontent.com'))
+          text_fail = 'BPC > failed to load from Google webcache: '
+      }
+      if (text_fail && article) {
         let text_fail_div = document.createElement('div');
+        text_fail_div.setAttribute('style', 'margin: 0px 50px; font-weight: bold; color: red;');
         text_fail_div.appendChild(document.createTextNode(text_fail));
         if (proxy) {
           let a_link = document.createElement('a');
@@ -3362,12 +3374,12 @@ function archiveLink(url) {
   let archive_url = 'https://archive.today?run=1&url=' + url.split('?')[0];
   let text_fail_div = document.createElement('div');
   text_fail_div.id = 'bpc_archive';
+  text_fail_div.setAttribute('style', 'margin: 20px; font-weight: bold; color:red;');
   text_fail_div.appendChild(document.createTextNode('BPC > Full article text:\r\n'));
   let a_link = document.createElement('a');
   a_link.innerText = archive_url;
   a_link.href = archive_url;
   a_link.target = '_blank';
-  a_link.setAttribute('style', 'font-weight: bold;');
   text_fail_div.appendChild(a_link);
   return text_fail_div;
 }

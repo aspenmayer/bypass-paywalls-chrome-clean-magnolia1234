@@ -943,7 +943,7 @@ if (matchUrlDomain(change_headers, details.url) && !['font', 'image', 'styleshee
 
   if (tabId !== -1) {
     ext_api.tabs.get(tabId, function (currentTab) {
-      if ((currentTab && isSiteEnabled(currentTab)) || medium_custom_domain || au_swm_site) {
+      if (!ext_api.runtime.lastError && currentTab && (isSiteEnabled(currentTab) || medium_custom_domain || au_swm_site)) {
         if (currentTab.url !== currentTabUrl) {
           csDone = false;
           currentTabUrl = currentTab.url;
@@ -1018,7 +1018,7 @@ if (matchUrlDomain(change_headers, details.url) && !['font', 'image', 'styleshee
 // extraInfoSpec is ['blocking', 'requestHeaders'] + possible 'extraHeaders'
 
 ext_api.tabs.onUpdated.addListener(function (tabId, info, tab) { updateBadge(tab); });
-ext_api.tabs.onActivated.addListener(function (activeInfo) { ext_api.tabs.get(activeInfo.tabId, updateBadge); });
+ext_api.tabs.onActivated.addListener(function (activeInfo) { if (activeInfo.tabId) ext_api.tabs.get(activeInfo.tabId, updateBadge); });
 
 function updateBadge(activeTab) {
   if (ext_api.runtime.lastError || !activeTab)
@@ -1144,9 +1144,7 @@ function remove_cookies_fn(domainVar, exclusions = false) {
       active: true,
       currentWindow: true
     }, function (tabs) {
-      if (tabs && tabs[0] && tabs[0].url && tabs[0].url.startsWith('http')) {
-        if (ext_api.runtime.lastError)
-          return;
+      if (!ext_api.runtime.lastError && tabs && tabs[0] && tabs[0].url && tabs[0].url.startsWith('http')) {
         let tabId = tabs[0].id;
         let storeId = '0';
         for (let store of cookieStores) {

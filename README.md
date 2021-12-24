@@ -489,7 +489,7 @@ Grouped in options:\
 [Vrij Nederland](https://www.nl.nl)
 
 Grouped in options:\
-[Algemeen Dagblad](https://www.ad.nl) and regional ADR sites like
+Algemeen Dagblad Regional (ADR) sites like
 [BN DeStem](https://www.bndestem.nl) -
 [Brabants Dagblad](https://www.bd.nl) -
 [Eindhovens Dagblad](https://www.ed.nl) -
@@ -667,7 +667,7 @@ Grouped in options:\
 [La Estrella de Valparaíso](https://www.estrellavalpo.cl) -
 [La Segunda](https://digital.lasegunda.com) -
 [La Tercera](https://www.latercera.com)
-#### Columbia
+##### Columbia
 [El Espectador](https://www.elespectador.com)
 ##### Mexico
 [Mexico News Daily](https://mexiconewsdaily.com)
