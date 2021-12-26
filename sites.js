@@ -71,13 +71,8 @@ var defaultSites = {
       "tivi.fi",
       "uusisuomi.fi"
     ],
-    block_regex: /\.fi\/static\/vendor\..+\.chunk\.js/,
-    useragent: "googlebot",
-    exception: [{
-        domain: "mediuutiset.fi",
-        useragent: "googlebot"
-      }
-    ]
+    allow_cookies: 1,
+    useragent: "googlebot"
   },
   "Alternatives Economiques": {
     domain: "alternatives-economiques.fr",
