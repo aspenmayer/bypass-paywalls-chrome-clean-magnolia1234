@@ -826,13 +826,13 @@ else if (matchDomain('elespanol.com')) {
   }
 }
 
-else if (domain = matchDomain(es_unidad_domains)) {
+else if (matchDomain(es_unidad_domains)) {
   let premium = document.querySelector('.ue-c-article__premium');
   let url = window.location.href;
-  if (!url.includes('/amp.' + domain + '/')) {
+  if (!window.location.hostname.startsWith('amp.')) {
     if (premium) {
       removeDOMElement(premium);
-      window.location.href = window.location.href.replace('/www.', '/amp.');
+      window.location.href = url.replace('/www.', '/amp.');
     }
   } else {
     amp_unhide_access_hide('="authorized=true"', '="authorized!=true"');
@@ -849,8 +849,8 @@ else if (matchDomain('elpais.com')) {
   } else {
     let counter = document.querySelector('#counterLayerDiv');
     removeDOMElement(counter);
-    let video = document.querySelector('div.videoTop')
-      let amphtml = document.querySelector('link[rel="amphtml"]');
+    let video = document.querySelector('div.videoTop');
+    let amphtml = document.querySelector('link[rel="amphtml"]');
     if ((login_register || video) && amphtml) {
       removeDOMElement(login_register, video);
       window.location.href = amphtml.href;

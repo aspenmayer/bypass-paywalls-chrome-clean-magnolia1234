@@ -2,6 +2,8 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Add Capital Gazette (local USA)
+Fix group Tribune Publishing Company (js)
 
 * v2.4.9.0 (2021-12-26)
 Add El Espectador (Columbia)

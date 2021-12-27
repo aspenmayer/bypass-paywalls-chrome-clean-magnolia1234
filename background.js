@@ -635,7 +635,7 @@ var block_js = [
 function disableJavascriptOnListedSites() {
   ext_api.webRequest.onBeforeRequest.addListener(function (details) {
     let header_referer = details.originUrl ? details.originUrl : details.initiator;
-    if (!isSiteEnabled(details) || matchUrlDomain(excludedSites.concat(['asia.nikkei.com']), header_referer)) {
+    if (!isSiteEnabled(details) || matchUrlDomain(excludedSites.concat(['asia.nikkei.com', 'cambridge.org']), header_referer)) {
       return;
     }
     return {

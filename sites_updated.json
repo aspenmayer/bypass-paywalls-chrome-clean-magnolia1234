@@ -49,5 +49,22 @@
     "allow_cookies": 1,
     "amp_unhide": 1,
     "block_regex": "(\\/indianexpress\\.com\\/.+\\/indianexpress\\/js\\/evolok\\/.+\\.js|cdn\\.ampproject\\.org\\/v\\d\\/amp-(access|(sticky-)?ad)-.+\\.js)"
+  },
+  "Tribune Publishing Company": {
+    "domain": "###_usa_tribune",
+    "group": [
+      "baltimoresun.com",
+      "capitalgazette.com",
+      "chicagotribune.com",
+      "courant.com",
+      "dailypress.com",
+      "mcall.com",
+      "nydailynews.com",
+      "orlandosentinel.com",
+      "pilotonline.com",
+      "sun-sentinel.com"
+    ],
+    "allow_cookies": 1,
+    "block_regex": "(\\.tribdss\\.com\\/|\\.zephr\\.com\\/zephr-browser\\/.+\\/zephr-browser\\.umd\\.js)"
   }
 }

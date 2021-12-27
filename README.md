@@ -263,6 +263,7 @@ Grouped in options:\
 [The Press-Enterprise](https://www.pe.com)\
 *Tribune Publishing Company* sites like\
 [Baltimore Sun](https://www.baltimoresun.com) -
+[Capital Gazette](https://www.capitalgazette.com) -
 [Chicago Tribune](https://www.chicagotribune.com) -
 [Daily Press](https://www.dailypress.com) -
 [Hartford Courant](https://www.courant.com) -

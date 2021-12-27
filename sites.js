@@ -1648,6 +1648,7 @@ var defaultSites = {
     domain: "###_usa_tribune",
     group: [
       "baltimoresun.com",
+      "capitalgazette.com",
       "chicagotribune.com",
       "courant.com",
       "dailypress.com",
@@ -1658,7 +1659,7 @@ var defaultSites = {
       "sun-sentinel.com"
     ],
     allow_cookies: 1,
-    block_regex: /\.tribdss\.com\//
+    block_regex: /(\.tribdss\.com\/|\.zephr\.com\/zephr-browser\/.+\/zephr-browser\.umd\.js)/
   },
   "Trouw": {
     domain: "trouw.nl",
