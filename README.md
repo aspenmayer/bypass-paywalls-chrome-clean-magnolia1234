@@ -450,6 +450,7 @@ Grouped in options:\
 [Domani](https://editorialedomani.it) -
 [GElocal.it](https://quotidiani.gelocal.it) -
 [Il Fatto Quotidiano](https://www.ilfattoquotidiano.it) -
+[Il Foglio](https://www.ilfoglio.it) -
 [Il Manifesto](https://ilmanifesto.it) -
 [Il Secolo XIX](https://www.ilsecoloxix.it) -
 [Internazionale](https://www.internazionale.it) -
@@ -668,7 +669,7 @@ Grouped in options:\
 [La Estrella de Valparaíso](https://www.estrellavalpo.cl) -
 [La Segunda](https://digital.lasegunda.com) -
 [La Tercera](https://www.latercera.com)
-##### Columbia
+##### Colombia
 [El Espectador](https://www.elespectador.com)
 ##### Mexico
 [Mexico News Daily](https://mexiconewsdaily.com)

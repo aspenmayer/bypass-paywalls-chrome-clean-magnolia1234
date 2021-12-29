@@ -100,6 +100,11 @@
     "domain": "luzernerzeitung.ch",
     "useragent": "googlebot"
   },
+  "Mailplus.co.uk": {
+    "allow_cookies": 1,
+    "block_regex": "\\.tinypass\\.com\\/",
+    "domain": "mailplus.co.uk"
+  },
   "Morgenbladet.no": {
     "allow_cookies": 1,
     "domain": "morgenbladet.no",
@@ -190,3 +195,4 @@
     "useragent": "googlebot"
   }
 }
+

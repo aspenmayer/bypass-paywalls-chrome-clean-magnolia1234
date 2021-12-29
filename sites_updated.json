@@ -1,21 +1,4 @@
 {
-  "Aachener Nachrichten": {
-    "domain": "aachener-nachrichten.de",
-    "allow_cookies": 1,
-    "amp_redirect": {
-      "paywall": ".park-article-paywall, .text-blurred"
-    },
-    "amp_unhide": 1,
-    "block_regex": "cdn\\.ampproject\\.org\\/v\\d\\/amp-(ad|analytics|consent|subscriptions)-.+\\.js"
-  },
-  "Allgäuer Zeitung": {
-    "domain": "allgaeuer-zeitung.de",
-    "allow_cookies": 1,
-    "amp_redirect": {
-      "paywall": "p.nfy-text-blur"
-    },
-    "block_regex": "(\\.tinypass\\.com\\/|cdn\\.ampproject\\.org\\/v\\d\\/amp-(ad|subscriptions)-.+\\.js)"
-  },
   "El Espectador": {
     "domain": "elespectador.com",
     "allow_cookies": 1,
@@ -25,30 +8,24 @@
     "amp_unhide": 1,
     "block_regex": "(cdn\\.cxense\\.com\\/|cdn\\.ampproject\\.org\\/v\\d\\/amp-((sticky-)?ad|subscriptions)-.+\\.js)"
   },
-  "La Libre.be": {
-    "domain": "lalibre.be",
+  "Il Foglio": {
+    "domain": "ilfoglio.it",
     "allow_cookies": 1,
-    "useragent": "googlebot"
+    "amp_redirect": {
+      "paywall": ".paywall"
+    },
+    "amp_unhide": 1,
+    "block_regex": "cdn\\.ampproject\\.org\\/v\\d\\/amp-((sticky-)?ad|subscriptions)-.+\\.js"
   },
   "Les Inrockuptibles": {
     "domain": "lesinrocks.com",
     "allow_cookies": 1,
     "block_regex": "\\.qiota\\.com\\/"
   },
-  "San Antonio Express-News": {
-    "domain": "expressnews.com",
-    "block_regex": "(\\.blueconic\\.net\\/|cdn\\.ampproject\\.org\\/v\\d\/amp-(access|(sticky-)?ad)-.+\\.js)"
-  },
   "The Diplomat": {
     "domain": "thediplomat.com",
     "block_regex": "\\/thediplomat\\.com\\/.+\\/js\\/angular-cookies\\.min\\.js",
     "remove_cookies_select_drop": ["dpl-pw"]
-  },
-  "The Indian Express": {
-    "domain": "indianexpress.com",
-    "allow_cookies": 1,
-    "amp_unhide": 1,
-    "block_regex": "(\\/indianexpress\\.com\\/.+\\/indianexpress\\/js\\/evolok\\/.+\\.js|cdn\\.ampproject\\.org\\/v\\d\\/amp-(access|(sticky-)?ad)-.+\\.js)"
   },
   "Tribune Publishing Company": {
     "domain": "###_usa_tribune",

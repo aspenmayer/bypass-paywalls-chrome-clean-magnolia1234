@@ -3,10 +3,11 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add Capital Gazette (local USA)
+Add Il Foglio (Italy)
 Fix group Tribune Publishing Company (js)
 
 * v2.4.9.0 (2021-12-26)
-Add El Espectador (Columbia)
+Add El Espectador (Colombia)
 Add ESPN USA (news only)
 Add Les Inrockuptibles (France)
 Remove Algemeen Dagblad (now regional only)

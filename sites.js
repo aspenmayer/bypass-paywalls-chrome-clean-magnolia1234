@@ -701,6 +701,11 @@ var defaultSites = {
     allow_cookies: 1,
     block_regex: /cdn\.ampproject\.org\/v\d\/amp-(ad|subscriptions)-.+\.js/
   },
+  "Il Foglio": {
+    domain: "ilfoglio.it",
+    allow_cookies: 1,
+    block_regex: /cdn\.ampproject\.org\/v\d\/amp-((sticky-)?ad|subscriptions)-.+\.js/
+  },
   "Il Manifesto": {
     domain: "ilmanifesto.it",
     referer: "facebook"

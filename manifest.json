@@ -229,6 +229,7 @@
         "*://*.ideal.es/*",
         "*://*.ijmuidercourant.nl/*",
         "*://*.ilfattoquotidiano.it/*",
+        "*://*.ilfoglio.it/*",
         "*://*.ilgazzettino.it/*",
         "*://*.ilgiorno.it/*",
         "*://*.illawarramercury.com.au/*",
@@ -587,5 +588,5 @@
         "*://*.wsj.net/*",
         "*://*.zephr.com/*"
     ],
-    "version": "2.4.9.1"
+    "version": "2.4.9.2"
 }
