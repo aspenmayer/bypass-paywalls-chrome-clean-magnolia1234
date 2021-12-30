@@ -5,6 +5,7 @@ Post-release
 Add Capital Gazette (local USA)
 Add Il Foglio (Italy)
 Fix group Tribune Publishing Company (js)
+Update popup (permission to clear cookies)
 
 * v2.4.9.0 (2021-12-26)
 Add El Espectador (Colombia)

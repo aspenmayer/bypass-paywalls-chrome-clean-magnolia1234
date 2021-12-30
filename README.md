@@ -681,11 +681,7 @@ _* free articles only._
 
 ### Sites with limited number of free articles
 The free article limit can normally be bypassed by removing cookies for the site.  
-Click on the BPC-icon and then 'clear cookies'-button in the popup.  
-For user with the limited permissions BPC-version this will only work for supported sites; for other sites use:
-1. Install the extension [Cookie Remover](https://chrome.google.com/webstore/detail/cookie-remover/kcgpggonjhmeaejebeoeomdlohicfhce) or [Disable Cookies](https://chrome.google.com/webstore/detail/disable-cookies/lkmjmficaoifggpfapbffkggecbleang?hl=en).
-2. When coming across a paywall, click the cookie icon in your extension toolbar then refresh the page.
-
+Click on the BPC-icon and then 'clear cookies'-button in the popup (for unsupported sites grant permission for domain).  
 If removing the cookies works you can also add the site as a custom site.
 
 ### New site requests

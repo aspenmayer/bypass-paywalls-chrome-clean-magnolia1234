@@ -3,12 +3,13 @@ var ext_api = (typeof browser === 'object') ? browser : chrome;
 window.localStorage.clear();
 sessionStorage.clear();
 
+var cookie_domain = document.domain.replace(/^(www|amp(\d|html)?|m|wap)\./, '');
 // send domain to background.js (to clear cookies)
 ext_api.runtime.sendMessage({
-    domain: document.domain
+    domain: cookie_domain
 });
 
-let msg = "Cookies (and local storage) removed from " + document.domain;
+var msg = "Cookies (and local storage) removed from " + cookie_domain;
 showMessage(msg, 2000);
 
 function showMessage(msg, duration) {
