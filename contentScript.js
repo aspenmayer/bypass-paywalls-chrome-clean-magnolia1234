@@ -2591,11 +2591,6 @@ else if (matchDomain('newleftreview.org')) {
   }, 500); // Delay (in milliseconds)
 }
 
-else if (matchDomain('newstatesman.com')) {
-  let tns_modal_wrapper = document.querySelector('.tns-modal-wrapper');
-  removeDOMElement(tns_modal_wrapper);
-}
-
 else if (matchDomain('newrepublic.com')) {
   let pw_popups = document.querySelector('div#pwPopups');
   let ads = document.querySelectorAll('.ad-unit, .ad-container');

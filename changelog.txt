@@ -6,6 +6,7 @@ Add Capital Gazette (local USA)
 Add Groupe Nice-Matin (France)
 Add Il Foglio (Italy)
 Fix group Tribune Publishing Company (js)
+Fix The New Statesman (Evolok)
 Update popup (permission to clear cookies)
 
 * v2.4.9.0 (2021-12-26)

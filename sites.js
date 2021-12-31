@@ -1533,7 +1533,8 @@ var defaultSites = {
   },
   "The New Statesman": {
     domain: "newstatesman.com",
-    remove_cookies_select_hold: ["STYXKEY_nsversion"]
+    allow_cookies: 1,
+    block_regex: /\.newstatesman\.com\/.+\/nsmg-evolok-paywall\/.+\.js/
   },
   "The New York Review of Books": {
     domain: "nybooks.com",
