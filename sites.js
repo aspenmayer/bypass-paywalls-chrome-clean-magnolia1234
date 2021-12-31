@@ -573,7 +573,7 @@ var defaultSites = {
       "vosgesmatin.fr"
     ],
     allow_cookies: 1,
-    block_regex: /(\.poool\.fr\/|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent)-.+\.js)/
+    block_regex: /(\.poool\.fr\/|cdn\.ampproject\.org\/v\d\/amp-(access|ad)-.+\.js)/
   },
   "Groupe La Dépêche": {
     domain: "###_fr_groupe_la_depeche",
@@ -587,7 +587,17 @@ var defaultSites = {
       "petitbleu.fr"
     ],
     allow_cookies: 1,
-    block_regex: /(\.poool\.fr\/|cdn\.ampproject\.org\/v\d\/amp-(access|ad|consent|subscriptions)-.+\.js)/
+    block_regex: /(\.poool\.fr\/|cdn\.ampproject\.org\/v\d\/amp-(access|ad|subscriptions)-.+\.js)/
+  },
+  "Groupe Nice-Matin": {
+    domain: "###_fr_groupe_nice_matin",
+    group: [
+      "monacomatin.mc",
+      "nicematin.com",
+      "varmatin.com"
+    ],
+    allow_cookies: 1,
+    block_regex: /(\.poool\.fr\/|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad)-.+\.js)/
   },
   "Groupe Rossel": {
     domain: "###_fr_be_groupe_rossel",

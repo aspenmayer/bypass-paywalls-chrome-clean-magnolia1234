@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add Capital Gazette (local USA)
+Add Groupe Nice-Matin (France)
 Add Il Foglio (Italy)
 Fix group Tribune Publishing Company (js)
 Update popup (permission to clear cookies)

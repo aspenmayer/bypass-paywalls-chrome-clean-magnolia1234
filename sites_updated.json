@@ -8,6 +8,22 @@
     "amp_unhide": 1,
     "block_regex": "(cdn\\.cxense\\.com\\/|cdn\\.ampproject\\.org\\/v\\d\\/amp-((sticky-)?ad|subscriptions)-.+\\.js)"
   },
+  "Groupe Nice-Matin": {
+    "domain": "###_fr_groupe_nice_matin",
+    "group": [
+      "monacomatin.mc",
+      "nicematin.com",
+      "varmatin.com"
+    ],
+    "allow_cookies": 1,
+    "amp_unhide": 1,
+    "block_regex": "(\\.poool\\.fr\\/|cdn\\.ampproject\\.org\\/v\\d\\/amp-(access|(sticky-)?ad)-.+\\.js)",
+    "cs_code": [{
+        "cond": "div#article-teaser",
+        "rm_attrib": "id"
+      }
+    ]
+  },
   "Il Foglio": {
     "domain": "ilfoglio.it",
     "allow_cookies": 1,

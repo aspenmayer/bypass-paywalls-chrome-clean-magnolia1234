@@ -346,6 +346,7 @@
         "*://*.mikrobitti.fi/*",
         "*://*.mlive.com/*",
         "*://*.modernhealthcare.com/*",
+        "*://*.monacomatin.mc/*",
         "*://*.morgenpost.de/*",
         "*://*.mv-voice.com/*",
         "*://*.mz.de/*",
@@ -364,6 +365,7 @@
         "*://*.newsweek.com/*",
         "*://*.newyorker.com/*",
         "*://*.niagarafallsreview.ca/*",
+        "*://*.nicematin.com/*",
         "*://*.nikkei.com/*",
         "*://*.nj.com/*",
         "*://*.nknews.org/*",
@@ -527,6 +529,7 @@
         "*://*.valeursactuelles.com/*",
         "*://*.vanityfair.com/*",
         "*://*.variety.com/*",
+        "*://*.varmatin.com/*",
         "*://*.velonews.com/*",
         "*://*.venturebeat.com/*",
         "*://*.vn.nl/*",
@@ -588,5 +591,5 @@
         "*://*.wsj.net/*",
         "*://*.zephr.com/*"
     ],
-    "version": "2.4.9.3"
+    "version": "2.4.9.4"
 }

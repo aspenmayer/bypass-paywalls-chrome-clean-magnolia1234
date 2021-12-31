@@ -381,7 +381,11 @@ Grouped in options:\
 [La Nouvelle République des Pyrénées](https://www.nrpyrenees.fr) -
 [Le Petit Bleu d'Agen](https://www.petitbleu.fr) -
 [Midi Libre](https://www.midilibre.fr) -
-[Midi Olympique](https://www.midi-olympique.fr)  
+[Midi Olympique](https://www.midi-olympique.fr)\
+*Groupe Nice-Matin* sites like\
+[Monaco-Matin](https://www.monacomatin.mc) -
+[Nice-Matin](https://www.nicematin.com) -
+[Var-Matin](https://www.varmatin.com)\
 *Groupe Rossel* sites like\
 [L'Aisne nouvelle](https://www.aisnenouvelle.fr) -
 [L'Ardennais](https://www.lardennais.fr) -
