@@ -242,6 +242,7 @@
         "*://*.iltelegrafolivorno.it/*",
         "*://*.inc.com/*",
         "*://*.inc42.com/*",
+        "*://*.independent.co.uk/*",
         "*://*.independent.ie/*",
         "*://*.indianexpress.com/*",
         "*://*.indystar.com/*",
@@ -591,5 +592,5 @@
         "*://*.wsj.net/*",
         "*://*.zephr.com/*"
     ],
-    "version": "2.4.9.4"
+    "version": "2.4.9.5"
 }

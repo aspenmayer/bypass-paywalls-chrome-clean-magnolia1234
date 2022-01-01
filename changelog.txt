@@ -5,6 +5,7 @@ Post-release
 Add Capital Gazette (local USA)
 Add Groupe Nice-Matin (France)
 Add Il Foglio (Italy)
+Add The Independent (UK - archive.today for premium)
 Fix group Tribune Publishing Company (js)
 Fix The New Statesman (Evolok)
 Update popup (permission to clear cookies)

@@ -1484,6 +1484,11 @@ var defaultSites = {
     allow_cookies: 1,
     block_regex: /(cdn\.cxense\.com\/|\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad(s)?)-.+\.js)/
   },
+  "The Independent": {
+    domain: "independent.co.uk",
+    allow_cookies: 1,
+    block_regex: /(\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad)-.+\.js)/
+  },
   "The Indian Express": {
     domain: "indianexpress.com",
     allow_cookies: 1,

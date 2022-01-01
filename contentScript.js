@@ -1692,7 +1692,25 @@ else
 
 } else if (window.location.hostname.match(/\.(ie|uk)$/) || matchDomain(['theathletic.com'])) {//united kingdom/ireland
 
-if (matchDomain('prospectmagazine.co.uk')) {
+if (matchDomain('independent.co.uk')) {
+  let url = window.location.href;
+  if (url.includes('?amp')) {
+    let ads = document.querySelectorAll('amp-ad, amp-embed, [id^="ad-"]');
+    removeDOMElement(...ads);
+  } else {
+    let paywall = document.querySelector('div.article-premium');
+    let related = document.querySelector('div.related');
+    let msg = document.querySelector('div#bpc_archive');
+    if (paywall && !related && !msg) {
+      paywall.classList.remove('article-premium');
+      let article = document.querySelector('div#main');
+      if (article)
+        article.insertBefore(archiveLink(url), article.firstChild);
+    }
+  }
+}
+
+else if (matchDomain('prospectmagazine.co.uk')) {
   let url = window.location.href;
   document.addEventListener('DOMContentLoaded', () => {
     let paywall = document.querySelector('div.paywall_overlay_blend, div.paywall');
@@ -2564,6 +2582,8 @@ else if (matchDomain('nationalgeographic.com')) {
     if (overlay)
       overlay.classList.remove('Article__Content__Overlay--gated');
   }
+  let ads = document.querySelectorAll('div.ad-slot');
+  removeDOMElement(...ads);
 }
 
 else if (matchDomain('nationalreview.com')) {

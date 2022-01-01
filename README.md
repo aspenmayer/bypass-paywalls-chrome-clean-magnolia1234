@@ -302,6 +302,7 @@ Grouped in options:\
 [Prospect Magazine](https://www.prospectmagazine.co.uk) -
 [The Athletic UK](https://theathletic.co.uk) -
 [The Economist](https://www.economist.com) -
+[The Independent](https://www.independent.co.uk) -
 [The New Statesman](https://www.newstatesman.com) -
 [The Spectator](https://www.spectator.co.uk) -
 [The Telegraph](https://www.telegraph.co.uk) -
