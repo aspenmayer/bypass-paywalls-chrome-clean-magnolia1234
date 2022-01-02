@@ -2743,6 +2743,14 @@ else if (matchDomain('qz.com')) {
   }
 }
 
+else if (matchDomain('science.org')) {
+  let paywall = document.querySelector('div.alert-read-limit');
+  removeDOMElement(paywall);
+  let overlay = document.querySelector('body.alert-read-limit__overlay');
+  if (overlay)
+    overlay.classList.remove('alert-read-limit__overlay');
+}
+
 else if (matchDomain('scmp.com') && window.location.href.includes('/amp.')) {
   let div_hidden = document.querySelectorAll('div.article-body[amp-access][amp-access-hide]');
   for (let elem of div_hidden)

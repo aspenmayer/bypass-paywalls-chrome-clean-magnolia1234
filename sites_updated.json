@@ -38,6 +38,18 @@
     "allow_cookies": 1,
     "block_regex": "\\.qiota\\.com\\/"
   },
+  "Science": {
+    "domain": "science.org",
+    "allow_cookies": 1,
+    "cs_code": [{
+        "cond": "div.alert-read-limit",
+        "rm_elem": 1
+      }, {
+        "cond": "body.alert-read-limit__overlay",
+        "rm_attrib": "class"
+      }
+    ]
+  },
   "The Diplomat": {
     "domain": "thediplomat.com",
     "block_regex": "\\/thediplomat\\.com\\/.+\\/js\\/angular-cookies\\.min\\.js",

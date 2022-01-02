@@ -429,6 +429,7 @@
         "*://*.sacbee.com/*",
         "*://*.sandiegouniontribune.com/*",
         "*://*.science-et-vie.com/*",
+        "*://*.science.org/*",
         "*://*.sciencesetavenir.fr/*",
         "*://*.scientificamerican.com/*",
         "*://*.scmp.com/*",
@@ -592,5 +593,5 @@
         "*://*.wsj.net/*",
         "*://*.zephr.com/*"
     ],
-    "version": "2.4.9.5"
+    "version": "2.4.9.6"
 }

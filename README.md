@@ -146,6 +146,7 @@ Grouped in options:\
 [National Geographic USA](https://www.nationalgeographic.com) -
 [Nautilus](https://nautil.us) -
 [Precision Oncology News](https://www.precisiononcologynews.com) -
+[Science](https://www.science.org)* -
 [Scientific American](https://www.scientificamerican.com)* -
 [Times Higher Education](https://www.timeshighereducation.com) -
 [Towards Data Science](https://www.towardsdatascience.com) -
