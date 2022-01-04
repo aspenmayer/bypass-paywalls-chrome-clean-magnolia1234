@@ -27,6 +27,7 @@ const restrictions = {
   'ft.com': /.+\.ft\.com\/content\//,
   'lastampa.it': /^((?!\/video\.lastampa\.it\/).)*$/,
   'medianama.com': /\.medianama\.com\/((\d){4}\/(\d){2}|wp-content)\//,
+  'science.org': /^((?!\.science\.org\/doi\/).)*$/,
   'timesofindia.com': /.+\.timesofindia\.com\/($|toi-plus(\/.+)?|.+\.cms)/,
   'nknews.org': /^((?!nknews\.org\/pro\/).)*$/,
   'quora.com': /^((?!quora\.com\/search\?q=).)*$/,

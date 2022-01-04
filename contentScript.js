@@ -520,13 +520,13 @@ else if (matchDomain('handelsblatt.com')) {
     let amp_ads = document.querySelectorAll('amp-ad, amp-embed');
     removeDOMElement(...amp_ads);
   } else {
-    let paywall = document.querySelector('div.temp-paywall2');
+    let paywall = document.querySelector('div.temp-paywall1');
     let amphtml = document.querySelector('link[rel="amphtml"]');
-    if (!amphtml)
-      amphtml = {href: url.replace(/\/(www|app)\./, '/amp2.')};
     if (paywall && amphtml) {
       removeDOMElement(paywall);
-      window.location.href = amphtml.href;
+      let premium = document.querySelector('meta[content*="PREMIUM"]');
+      if (!premium)
+        window.location.href = amphtml.href;
     }
   }
 }

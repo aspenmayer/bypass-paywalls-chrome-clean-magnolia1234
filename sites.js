@@ -1288,7 +1288,7 @@ var defaultSites = {
     allow_cookies: 1,
     block_regex: /cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad|fx-flying-carpet)-.+\.js/
   },
-  "Science": {
+  "Science (free articles only)": {
     domain: "science.org",
     allow_cookies: 1
   },

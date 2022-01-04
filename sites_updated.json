@@ -38,7 +38,7 @@
     "allow_cookies": 1,
     "block_regex": "\\.qiota\\.com\\/"
   },
-  "Science": {
+  "Science (free articles only)": {
     "domain": "science.org",
     "allow_cookies": 1,
     "cs_code": [{
