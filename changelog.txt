@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Fix Handelsblatt (no amp)
+Fix trimmed referer (restrictions)
 
 * v2.5.0.0 (2022-01-02)
 Add Capital Gazette (local USA)

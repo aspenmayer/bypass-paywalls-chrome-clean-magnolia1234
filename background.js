@@ -12,31 +12,29 @@ var currentTabUrl = '';
 var csDone = false;
 var optin_setcookie = false;
 var optin_update = true;
+var blocked_referer = false;
 
 // defaultSites are loaded from sites.js at installation extension
 
-const restrictions = {
+var restrictions = {
   'adweek.com': /^((?!\.adweek\.com\/(.+\/)?(amp|agencyspy|tvnewser|tvspy)\/).)*$/,
-  'barrons.com': /.+\.barrons\.com\/(amp\/)?article(s)?\/.+/,
   'bloomberg.com': /^((?!\.bloomberg\.com\/news\/terminal\/).)*$/,
-  'economictimes.com': /.+\.economictimes\.com\/($|(__assets|prime)(\/.+)?|.+\.cms)/,
+  'economictimes.com': /\.economictimes\.com($|\/($|(__assets|prime)(\/.+)?|.+\.cms))/,
   'elespanol.com': /^((?!\/cronicaglobal\.elespanol\.com\/).)*$/,
   'elpais.com': /(\/elpais\.com\/$|(static|imagenes(\.\w+)?)\.elpais\.com|\/(.+\.)?elpais\.com\/.+\.html)/,
-  'faz.net': /^((?!\/.+\.faz\.net\/aktuell\/(\?switchfaznet)?$).)*$/,
-  'foreignaffairs.com': /.+\.foreignaffairs\.com\/(articles|fa-caching|interviews|reviews|sites)\/.+/,
-  'ft.com': /.+\.ft\.com\/content\//,
+  'faz.net': /^((?!\.faz\.net\/aktuell\/(\?switchfaznet)?$).)*$/,
+  'foreignaffairs.com': /\.foreignaffairs\.com\/((articles|fa-caching|interviews|reviews|sites)\/)/,
   'lastampa.it': /^((?!\/video\.lastampa\.it\/).)*$/,
   'medianama.com': /\.medianama\.com\/((\d){4}\/(\d){2}|wp-content)\//,
   'science.org': /^((?!\.science\.org\/doi\/).)*$/,
-  'timesofindia.com': /.+\.timesofindia\.com\/($|toi-plus(\/.+)?|.+\.cms)/,
+  'timesofindia.com': /\.timesofindia\.com($|\/($|toi-plus(\/.+)?|.+\.cms))/,
   'nknews.org': /^((?!nknews\.org\/pro\/).)*$/,
   'quora.com': /^((?!quora\.com\/search\?q=).)*$/,
   'repubblica.it': /^((?!\/video\.repubblica\.it\/).)*$/,
-  'seekingalpha.com': /.+\/seekingalpha\.com\/($|(amp\/)?(article|news)\/|samw\/)/,
+  'seekingalpha.com': /\/seekingalpha\.com($|\/($|(amp\/)?(article|news)\/|samw\/))/,
   'statista.com': /^((?!\.statista\.com\/(outlook|study)\/).)*$/,
   'techinasia.com': /\.techinasia\.com\/.+/,
-  'theglobeandmail.com': /\.theglobeandmail\.com\/.+\//,
-  'timeshighereducation.com':  /.+\.timeshighereducation\.com\/((features|news|people)\/|.+((\w)+(\-)+){3,}.+|sites\/default\/files\/)/
+  'timeshighereducation.com': /\.timeshighereducation\.com\/((features|news|people)\/|.+((\w)+(\-)+){3,}.+|sites\/default\/files\/)/
 }
 
 for (let domain of au_news_corp_domains)
@@ -673,19 +671,24 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   var requestHeaders = details.requestHeaders;
 
   var header_referer = '';
-  for (let n in requestHeaders) {
-    if (requestHeaders[n].name.toLowerCase() == 'referer') {
-      header_referer = requestHeaders[n].value;
-      continue;
+  if (details.originUrl)
+    header_referer = details.originUrl;
+  else {
+    for (let n in requestHeaders) {
+      if (requestHeaders[n].name.toLowerCase() == 'referer') {
+        header_referer = requestHeaders[n].value;
+        break;
+      }
     }
-  }
-
-  // fix blocked referer
-  if (!header_referer) {
-    if (typeof browser !== 'object')
-      header_referer = details.initiator ? details.initiator : '';
-    else
-      header_referer = details.originUrl ? details.originUrl : '';
+    var blocked_referer_domains = ['foreignaffairs.com', 'timeshighereducation.com'];
+    if (!header_referer && details.initiator) {
+      header_referer = details.initiator;
+      if (!blocked_referer && matchUrlDomain(blocked_referer_domains, details.url) && ['script', 'xmlhttprequest'].includes(details.type)) {
+        for (let domain of blocked_referer_domains)
+          restrictions[domain] = new RegExp('((\\/|\\.)' + domain.replace(/\./g, '\\.') + '($|\\/$)|' + restrictions[domain].toString().replace(/(^\/|\/$)/g, '') + ')');
+        blocked_referer = true;
+      }
+    }
   }
 
   // remove cookies for sites medium platform (custom domains)
@@ -1339,7 +1342,7 @@ function isSiteEnabled(details) {
   return !!enabledSite;
 }
 
-function matchDomain(domains, hostname = window.location.hostname) {
+function matchDomain(domains, hostname = '') {
   var matched_domain = false;
   if (typeof domains === 'string')
     domains = [domains];
@@ -1363,7 +1366,6 @@ function matchUrlDomain(domains, url) {
 }
 
 function getParameterByName(name, url) {
-  if (!url) url = window.location.href;
   name = name.replace(/[\[\]]/g, '\\$&');
   var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
   results = regex.exec(url);
