@@ -2034,12 +2034,12 @@ else if (matchDomain('bloomberg.com')) {
     }
     let shimmering_content = document.querySelectorAll('div.shimmering-text');
     let body_transparent = document.querySelector('div[class*="nearly-transparent-text-blur"]');
-    if (shimmering_content.length || body_transparent) {
+    if ((shimmering_content.length || body_transparent) && dompurify_loaded) {
       removeDOMElement(...shimmering_content);
       if (body_transparent)
         removeClassesByPrefix(body_transparent, 'nearly-transparent-text-blur');
       let json_script = document.querySelector('script[data-component-props="ArticleBody"], script[data-component-props="FeatureBody"]');
-      if (json_script && dompurify_loaded) {
+      if (json_script) {
         let json = JSON.parse(json_script.innerHTML);
         if (json) {
           let json_text;
