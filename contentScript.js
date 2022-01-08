@@ -2422,8 +2422,12 @@ else if (matchDomain('indianexpress.com')) {
   if (window.location.pathname.endsWith('/lite/'))
     amp_unhide_access_hide('="metering.result=\'ALLOW_ACCESS\'"', '', '.amp-ad, amp-embed');
   else {
+    let paywall = document.querySelector('div#pcl-rest-content[style]');
+    if (paywall)
+      paywall.removeAttribute('style');
+    let register = document.querySelector('div#app-pcl');
     let ads = document.querySelectorAll('div[class^="adsbox"]');
-    removeDOMElement(...ads);
+    removeDOMElement(register, ...ads);
   }
 }
 
