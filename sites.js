@@ -689,6 +689,15 @@ var defaultSites = {
   "Harvard Business Review Taiwan": {
     domain: "hbrtaiwan.com"
   },
+  "Hearst Communications": {
+    domain: "###_usa_hearst_comm",
+    group: [
+      "expressnews.com",
+      "houstonchronicle.com",
+      "sfchronicle.com"
+    ],
+    block_regex: /(\.blueconic\.net\/|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad)-.+\.js)/
+  },
   "Hindustan Times": {
     domain: "hindustantimes.com",
     allow_cookies: 1,
@@ -697,10 +706,6 @@ var defaultSites = {
   "Honolulu Star-Advertiser": {
     domain: "staradvertiser.com",
     allow_cookies: 1
-  },
-  "Houston Chronicle": {
-    domain: "houstonchronicle.com",
-    block_regex: /(\.blueconic\.net\/|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad)-.+\.js)/
   },
   "Humo.be": {
     domain: "humo.be",
@@ -1257,17 +1262,9 @@ var defaultSites = {
     block_regex: /(\.tinypass\.com\/|cdn\.ampproject\.org\/v\d\/amp-((sticky-)?ad|consent|subscriptions)-.+\.(m)?js)/,
     useragent: "googlebot"
   },
-  "San Antonio Express-News": {
-    domain: "expressnews.com",
-    block_regex: /(\.blueconic\.net\/|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad)-.+\.js)/
-  },
   "San Diego Union Tribune": {
     domain: "sandiegouniontribune.com",
     block_regex: /(metering\.platform\.sandiegouniontribune\.com\/v\d\/meter|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad|subscriptions)-.+\.js)/
-  },
-  "San Francisco Chronicle": {
-    domain: "sfchronicle.com",
-    block_regex: /(\.blueconic\.net\/|cdn\.ampproject\.org\/v\d\/amp-(access|(sticky-)?ad)-.+\.js)/
   },
   "Sanoma Media Finland (+ regional/opt-in to custom sites)": {
     domain: "###_fi_sanoma",

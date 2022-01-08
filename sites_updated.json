@@ -1,13 +1,4 @@
 {
-  "El Espectador": {
-    "domain": "elespectador.com",
-    "allow_cookies": 1,
-    "amp_redirect": {
-      "paywall": ".paywall"
-    },
-    "amp_unhide": 1,
-    "block_regex": "(cdn\\.cxense\\.com\\/|cdn\\.ampproject\\.org\\/v\\d\\/amp-((sticky-)?ad|subscriptions)-.+\\.js)"
-  },
   "Groupe Nice-Matin": {
     "domain": "###_fr_groupe_nice_matin",
     "group": [
@@ -24,6 +15,15 @@
       }
     ]
   },
+  "Hearst Communications": {
+    "domain": "###_usa_hearst_comm",
+    "group": [
+      "expressnews.com",
+      "houstonchronicle.com",
+      "sfchronicle.com"
+    ],
+    "block_regex": "(\\.blueconic\\.net\\/|cdn\\.ampproject\\.org\\/v\\d\\/amp-(access|(sticky-)?ad)-.+\\.js)"
+  },
   "Il Foglio": {
     "domain": "ilfoglio.it",
     "allow_cookies": 1,
@@ -32,11 +32,6 @@
     },
     "amp_unhide": 1,
     "block_regex": "cdn\\.ampproject\\.org\\/v\\d\\/amp-((sticky-)?ad|subscriptions)-.+\\.js"
-  },
-  "Les Inrockuptibles": {
-    "domain": "lesinrocks.com",
-    "allow_cookies": 1,
-    "block_regex": "\\.qiota\\.com\\/"
   },
   "Science (free articles only)": {
     "domain": "science.org",
@@ -49,11 +44,6 @@
         "rm_attrib": "class"
       }
     ]
-  },
-  "The Diplomat": {
-    "domain": "thediplomat.com",
-    "block_regex": "\\/thediplomat\\.com\\/.+\\/js\\/angular-cookies\\.min\\.js",
-    "remove_cookies_select_drop": ["dpl-pw"]
   },
   "The New Statesman": {
     "domain": "newstatesman.com",

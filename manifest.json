@@ -577,6 +577,7 @@
         "*://*.epimg.net/*",
         "*://*.flip-pay.com/*",
         "*://*.gannett-cdn.com/*",
+        "*://*.hearstnp.com/*",
         "*://*.htmedia.in/*",
         "*://*.jsdelivr.net/*",
         "*://*.lightboxcdn.com/*",
@@ -593,5 +594,5 @@
         "*://*.wsj.net/*",
         "*://*.zephr.com/*"
     ],
-    "version": "2.5.0.3"
+    "version": "2.5.0.4"
 }

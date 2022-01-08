@@ -191,7 +191,6 @@ Grouped in options:\
 
 ##### Local USA news
 [Honolulu Star-Advertiser](https://www.staradvertiser.com) -
-[Houston Chronicle](https://www.houstonchronicle.com) -
 [Los Angeles Business Journal](https://labusinessjournal.com) -
 [Los Angeles Times](https://www.latimes.com) -
 [Mountain View Voice](https://www.mv-voice.com) -
@@ -199,9 +198,7 @@ Grouped in options:\
 [Newsday](https://www.newsday.com) -
 [Palo Alto Online](https://www.paloaltoonline.com) -
 [Pittsburgh Post Gazette](https://www.post-gazette.com) -
-[San Antonio Express-News](https://www.expressnews.com) -
 [San Diego Union Tribune](https://www.sandiegouniontribune.com) -
-[San Francisco Chronicle](https://www.sfchronicle.com) -
 [Star Tribune](https://www.startribune.com) -
 [Tampa Bay Times](https://www.tampabay.com) -
 [The Advocate](https://www.theadvocate.com) -
@@ -237,6 +234,10 @@ Grouped in options:\
 [The Indianapolis Star](https://www.indystar.com) -
 [The Record (North Jersey)](https://www.northjersey.com) -
 [The Tennessean](http://www.tennessean.com)\
+*Hearst Communications* sites like (opt-in to custom sites for unlisted)\
+[Houston Chronicle](https://www.houstonchronicle.com) -
+[San Antonio Express-News](https://www.expressnews.com) -
+[San Francisco Chronicle](https://www.sfchronicle.com)\
 *Lee Enterprises Group* sites like (opt-in to custom sites for unlisted)\
 [Arizona Daily Star](https://tucson.com) -
 [Richmond Times-Dispatch](https://richmond.com) -

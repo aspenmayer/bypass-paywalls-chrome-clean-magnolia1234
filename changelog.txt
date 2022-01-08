@@ -2,6 +2,7 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+Add group Hearst Communications (local USA)
 Fix Bloomberg (timing)
 Fix Handelsblatt (no amp)
 Fix trimmed referer (restrictions)

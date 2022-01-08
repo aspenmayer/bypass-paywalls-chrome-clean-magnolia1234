@@ -695,7 +695,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   var medium_custom_domains = [];
   var medium_custom_domain = (matchUrlDomain('cdn-client.medium.com', details.url) && ['script'].includes(details.type) && !matchUrlDomain(medium_custom_domains.concat(['medium.com', 'towardsdatascience.com']), header_referer) && enabledSites.includes('###_medium_custom'));
   if (medium_custom_domain) {
-    let mc_domain = urlHost(header_referer).replace(/^(www|m)\./, '');;
+    let mc_domain = urlHost(header_referer).replace(/^(www|m)\./, '');
     if (!use_twitter_referer.includes(mc_domain)) {
       use_twitter_referer.push(mc_domain);
       change_headers.push(mc_domain);
@@ -709,7 +709,7 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
   var usa_gannett_domains = grouped_sites['###_usa_gannett'];
   var usa_gannett_domain = (matchUrlDomain('gannett-cdn.com', details.url) && ['xmlhttprequest'].includes(details.type) && !matchUrlDomain(usa_gannett_domains.concat(['usatoday.com']), header_referer) && enabledSites.includes('###_usa_gannett'));
   if (usa_gannett_domain) {
-    let gn_domain = urlHost(header_referer).replace(/^(www|eu)\./, '');;
+    let gn_domain = urlHost(header_referer).replace(/^(www|eu)\./, '');
     if (!use_google_bot.includes(gn_domain)) {
       use_google_bot.push(gn_domain);
       change_headers.push(gn_domain);
@@ -720,6 +720,16 @@ ext_api.webRequest.onBeforeSendHeaders.addListener(function(details) {
     usa_gannett_domains.push(gn_domain);
     if (!enabledSites.includes(gn_domain))
       enabledSites.push(gn_domain);
+  }
+
+  var usa_hearst_comm_domains = grouped_sites['###_usa_hearst_comm'];
+  var usa_hearst_comm_domain = (matchUrlDomain('treg.hearstnp.com', details.url) && ['script'].includes(details.type) && !matchUrlDomain(usa_hearst_comm_domains, header_referer) && enabledSites.includes('###_usa_hearst_comm'));
+  if (usa_hearst_comm_domain) {
+    let hc_domain = urlHost(header_referer).replace(/^(www|amp)\./, '');
+    blockedRegexes[hc_domain] = blockedRegexes['houstonchronicle.com'];
+    usa_hearst_comm_domains.push(hc_domain);
+    if (!enabledSites.includes(hc_domain))
+      enabledSites.push(hc_domain);
   }
 
   // block script for additional Lee Enterprises sites (opt-in to custom sites)
