@@ -2,6 +2,8 @@
 Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
+
+* v2.5.1.0 (2022-01-09)
 Add group Hearst Communications (local USA)
 Fix Bloomberg (timing)
 Fix Handelsblatt (no amp)
