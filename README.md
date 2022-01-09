@@ -234,7 +234,7 @@ Grouped in options:\
 [The Indianapolis Star](https://www.indystar.com) -
 [The Record (North Jersey)](https://www.northjersey.com) -
 [The Tennessean](http://www.tennessean.com)\
-*Hearst Communications* sites like (opt-in to custom sites for unlisted)\
+*Hearst Communications (newspapers)* sites like (opt-in to custom sites for unlisted)\
 [Houston Chronicle](https://www.houstonchronicle.com) -
 [San Antonio Express-News](https://www.expressnews.com) -
 [San Francisco Chronicle](https://www.sfchronicle.com)\

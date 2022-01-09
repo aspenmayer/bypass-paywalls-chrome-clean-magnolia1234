@@ -6,6 +6,7 @@ Add group Hearst Communications (local USA)
 Fix Bloomberg (timing)
 Fix Handelsblatt (no amp)
 Fix The Indian Express (premium)
+Fix amp: allow amp-consent
 Fix trimmed referer (restrictions)
 
 * v2.5.0.0 (2022-01-02)

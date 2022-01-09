@@ -15,15 +15,6 @@
       }
     ]
   },
-  "Hearst Communications": {
-    "domain": "###_usa_hearst_comm",
-    "group": [
-      "expressnews.com",
-      "houstonchronicle.com",
-      "sfchronicle.com"
-    ],
-    "block_regex": "(\\.blueconic\\.net\\/|cdn\\.ampproject\\.org\\/v\\d\\/amp-(access|(sticky-)?ad)-.+\\.js)"
-  },
   "Il Foglio": {
     "domain": "ilfoglio.it",
     "allow_cookies": 1,

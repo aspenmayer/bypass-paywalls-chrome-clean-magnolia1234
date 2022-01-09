@@ -30,7 +30,7 @@ var usa_mng_domains =   ['denverpost.com', 'eastbaytimes.com', 'mercurynews.com'
 var usa_tribune_domains = ['baltimoresun.com', 'chicagotribune.com', 'courant.com', 'dailypress.com', 'mcall.com', 'nydailynews.com', 'orlandosentinel.com', 'pilotonline.com', 'sun-sentinel.com'];
 
 // clean local storage of sites (with an exemption for hold-list)
-var arr_localstorage_hold = ['allgaeuer-zeitung.de', 'augsburger-allgemeine.de', 'businessoffashion.com', 'charliehebdo.fr', 'cmjornal.pt', 'fortune.com', 'ilfoglio.it', 'inc42.com', 'kurier.at', 'nknews.org', 'seekingalpha.com', 'thehindu.com', 'thetimes.co.uk'].concat(de_funke_media_domains, es_grupo_vocento_domains, es_unidad_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, fr_groupe_nice_matin_domains, no_nhst_media_domains, usa_hearst_comm_domains);
+var arr_localstorage_hold = ['aachener-nachrichten.de', 'aachener-zeitung.de', 'allgaeuer-zeitung.de', 'augsburger-allgemeine.de', 'barrons.com', 'businessoffashion.com', 'charliehebdo.fr', 'cmjornal.pt', 'corriere.it', 'elespanol.com', 'estadao.com.br', 'fortune.com', 'ilfoglio.it', 'inc42.com', 'kurier.at', 'nknews.org', 'ruhrnachrichten.de', 'scmp.com', 'seekingalpha.com', 'telegraph.co.uk', 'thehindu.com', 'thetimes.co.uk', 'wsj.com'].concat(de_funke_media_domains, es_grupo_vocento_domains, es_unidad_domains, fr_groupe_ebra_domains, fr_groupe_la_depeche_domains, fr_groupe_nice_matin_domains, it_quotidiano_domains, no_nhst_media_domains, usa_hearst_comm_domains);
 if (!matchDomain(arr_localstorage_hold)) {
   window.localStorage.clear();
 }
@@ -1223,6 +1223,11 @@ else if (matchDomain('lesinrocks.com')) {
   }
 }
 
+else if (matchDomain('lexpress.fr')) {
+  let ads = document.querySelectorAll('div.block_pub, div.bottom-bar-full');
+  removeDOMElement(...ads);
+}
+
 else if (matchDomain('loeildelaphotographie.com')) {
   let paywall = document.querySelector('.paywall');
   if (paywall) {
@@ -1745,6 +1750,9 @@ else if (matchDomain('telegraph.co.uk')) {
       let truncated_content = document.querySelector('.truncated-content');
       removeDOMElement(...paywall, truncated_content);
       amp_unhide_access_hide('="c.result=\'ALLOW_ACCESS\'"', '', 'amp-ad, amp-embed', false);
+    } else {
+      let amp_ads = document.querySelectorAll('amp-ad, amp-embed');
+      removeDOMElement(...amp_ads);
     }
   } else {
     let subwall = document.querySelectorAll('[class^="subwall"]');
@@ -1852,7 +1860,7 @@ else if (matchDomain('elmercurio.com')) {
 
 else if (matchDomain('estadao.com.br')) {
   if (window.location.pathname.endsWith('.amp')) {
-    amp_unhide_access_hide('="granted"', '="NOT granted"');
+    amp_unhide_access_hide('="granted"', '="NOT granted"', 'amp-ad, amp-embed, amp-fx-flying-carpet');
   } else {
     let paywall = document.getElementById('paywall-wrapper-iframe-estadao');
     removeDOMElement(paywall);
@@ -2600,7 +2608,7 @@ else if (matchDomain('nationalreview.com')) {
       window.location.href = url + 'amp';
     }
   }
-  let adverts = document.querySelectorAll('amp-ad, .ad-unit--center');
+  let adverts = document.querySelectorAll('amp-ad, .ad-unit--center, amp-connatix-player');
   removeDOMElement(...adverts);
 }
 

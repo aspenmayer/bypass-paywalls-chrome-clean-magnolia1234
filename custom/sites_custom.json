@@ -182,6 +182,11 @@
     "domain": "thecourier.co.uk",
     "useragent": "googlebot"
   },
+  "Theepochtimes.com": {
+    "allow_cookies": 1,
+    "block_regex": "subs\\.youmaker\\.com",
+    "domain": "theepochtimes.com"
+  },
   "Thehill.com": {
     "allow_cookies": 1,
     "block_regex": "\\.tinypass\\.com\\/",
