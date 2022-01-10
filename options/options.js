@@ -141,7 +141,7 @@ function selectNone() {
 }
 
 function closeButton() {
-  open(location).close();
+  window.close();
 }
 
 function check_sites_updated() {

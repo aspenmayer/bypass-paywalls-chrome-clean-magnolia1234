@@ -624,6 +624,7 @@ Grouped in options:\
 [DealStreetAsia](https://www.dealstreetasia.com) -
 [Harvard Business Review China](https://www.hbrchina.org) -
 [Harvard Business Review Taiwan](https://www.hbrtaiwan.com) -
+[Mainichi Shimbun](https://mainichi.jp) -
 [Nikkei Asian Review](https://asia.nikkei.com) -
 [NK News](https://www.nknews.org)* -
 [South China Morning Post](https://www.scmp.com) -

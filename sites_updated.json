@@ -24,6 +24,11 @@
     "amp_unhide": 1,
     "block_regex": "cdn\\.ampproject\\.org\\/v\\d\\/amp-((sticky-)?ad|subscriptions)-.+\\.js"
   },
+  "Mainichi Shimbun": {
+    "domain": "mainichi.jp",
+    "allow_cookies": 1,
+    "useragent": "googlebot"
+  },
   "Science (free articles only)": {
     "domain": "science.org",
     "allow_cookies": 1,

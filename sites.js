@@ -985,6 +985,11 @@ var defaultSites = {
     allow_cookies: 1,
     block_regex: /cdn\.ampproject\.org\/v\d\/amp-(ad|subscriptions)-.+\.js/
   },
+  "Mainichi Shimbun": {
+    domain: "mainichi.jp",
+    allow_cookies: 1,
+    useragent: "googlebot"
+  },
   "Marca": {
     domain: "marca.com",
     group_rule: "###_gr_es_unidad_domains"
