@@ -3,6 +3,7 @@ Changelog Bypass Paywalls Clean - Chrome
 
 Post-release
 Add Mainichi Shimbun (Japan)
+Fix Bloomberg (quotes)
 
 * v2.5.1.0 (2022-01-09)
 Add group Hearst Communications (local USA)

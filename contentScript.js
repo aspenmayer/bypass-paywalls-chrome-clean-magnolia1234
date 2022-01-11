@@ -2012,10 +2012,21 @@ else if (matchDomain('billboard.com')) {
 }
 
 else if (matchDomain('bloomberg.com')) {
+  function bloomberg_noscroll(node) {
+    node.removeAttribute('data-paywall-overlay-status');
+  }
+  waitDOMElement('div#fortress-paywall-container-root', 'DIV', removeDOMElement, true);
+  waitDOMAttribute('body', 'BODY', 'data-paywall-overlay-status', bloomberg_noscroll, true);
+  let paywall = document.querySelector('div#fortress-paywall-container-root');
+  let counter = document.querySelector('div#fortress-preblocked-container-root');
+  let leaderboard = document.querySelector('div[id^="leaderboard"], div[class^="leaderboard"], div.canopy-container');
+  let noscroll = document.querySelector('body[data-paywall-overlay-status]');
+  if (noscroll)
+    noscroll.removeAttribute('data-paywall-overlay-status');
+  removeDOMElement(paywall, counter, leaderboard);
   sessionStorage.clear();
   let url = window.location.href;
   if (url.match(/\/(articles|features)\//)) {
-    let leaderboard = document.querySelector('div[id^="leaderboard"], div.leaderboard-wrapper');
     let page_ad = document.querySelectorAll('div.page-ad, div[data-ad-placeholder]');
     let reg_ui_client = document.querySelector('div#reg-ui-client');
     removeDOMElement(leaderboard, ...page_ad, reg_ui_client);
@@ -2047,8 +2058,9 @@ else if (matchDomain('bloomberg.com')) {
       removeDOMElement(...shimmering_content);
       if (body_transparent)
         removeClassesByPrefix(body_transparent, 'nearly-transparent-text-blur');
+      let premium = document.querySelector('div[data-testid="premium-label"]');
       let json_script = document.querySelector('script[data-component-props="ArticleBody"], script[data-component-props="FeatureBody"]');
-      if (json_script) {
+      if (premium && json_script) {
         let json = JSON.parse(json_script.innerHTML);
         if (json) {
           let json_text;
